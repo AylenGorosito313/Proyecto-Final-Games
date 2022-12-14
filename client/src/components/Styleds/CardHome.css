@@ -1,0 +1,19 @@
+.div-cards-home{
+    background-color:  #1C1632!important;  
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+    width: auto;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.div-home-card{
+    background-color:  #1C1632!important;  
+    display: flex;
+    height: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: auto;
+}
+

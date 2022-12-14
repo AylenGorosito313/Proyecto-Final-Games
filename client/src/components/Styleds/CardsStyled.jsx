@@ -22,6 +22,7 @@ export const ConteinerCard = styled.div`
 export const Div = styled.div`
   display: flex;
   height: auto;
+  flex-wrap: wrap;
   weight: auto;
 `;
 export const Cards = styled.div`

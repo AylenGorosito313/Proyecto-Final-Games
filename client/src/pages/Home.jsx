@@ -5,6 +5,7 @@ import Card from "../components/Cards";
 import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
 import details from "../assets/details1.png";
+
 import SwiperPage from "../components/swiper-pagination/swiper";
 function Home() {
     const dispatch = useDispatch();
@@ -29,6 +30,7 @@ function Home() {
                         src={img}
                         alt="background"
                     />
+                    
                     {games.length > 0 &&
                         games.map((ele) => {
                             return (

@@ -1,11 +1,13 @@
 .div-home{
-    background-color:  #1C1632!important;  
+    background-color:  #fff!important;  
     display: flex;
     height: auto;
     flex-wrap: wrap;
-    z-index:0;
+    
     width: auto;
     justify-content: center;
+    left: 700px;
+    z-index:6;
 }
 
 .img-background{
@@ -16,5 +18,4 @@ height: auto;
 
 
 }
-
 

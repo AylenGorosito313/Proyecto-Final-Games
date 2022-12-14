@@ -35,7 +35,7 @@ export const Cards = styled.div`
   top: 0px;
   padding: 0px;
 
-  width: 200px;
+  width: auto;
   height: auto;
   background: #36335a;
 
@@ -58,8 +58,8 @@ export const Cards = styled.div`
 export const Imagen = styled.img`
   justify-content: center;
 
-  height: 180px;
-  width: 200px;
+  height: 200px;
+  width: 280px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 `;

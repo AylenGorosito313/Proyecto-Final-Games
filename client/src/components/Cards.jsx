@@ -1,5 +1,5 @@
 import React from "react";
-import "./Styleds/CardHome.css"
+import "./Styleds/CardHome.css";
 import {
   ContImagen,
   TituloCard,
@@ -11,11 +11,8 @@ import {
 
 function Card({ name, img, id }) {
   return (
-   
- <div className="div-cards-home">
+    <div className="div-cards-home">
       <Cards>
-        <TituloCard>{id}</TituloCard>
-
         <TituloCard>{name}</TituloCard>
 
         <ContImagen>
@@ -23,8 +20,6 @@ function Card({ name, img, id }) {
         </ContImagen>
       </Cards>
     </div>
-   
-   
   );
 }
 

@@ -59,7 +59,7 @@ export const Imagen = styled.img`
   justify-content: center;
 
   height: 200px;
-  width: 280px;
+  width: 260px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 `;

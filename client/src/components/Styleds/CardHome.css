@@ -4,7 +4,7 @@
     height: auto;
     padding-top: 20px;
     flex-wrap: wrap;
-    width: auto;
+    width: 400px;
     align-items: center;
     flex-wrap: wrap;
 
@@ -24,14 +24,7 @@
 }
 
 
-.div-nav{
-    display: flex;
-    justify-content: space-around;
-  
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
-}
+
 
 .div-estilo {
     justify-content: space-evenly;

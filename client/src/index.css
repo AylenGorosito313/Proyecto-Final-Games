@@ -10,21 +10,19 @@
   background-color: #1C1632;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+
 }
 
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #1C1632;
   }
   a:hover {
-    color: #747bff;
+    color: #1C1632;
   }
   button {
     background-color: #1C1632;
   }
-}
+} */

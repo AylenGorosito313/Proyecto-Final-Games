@@ -33,10 +33,10 @@ export default function App() {
        
         
         </SwiperSlide>
-        <SwiperSlide><img src={img[1]} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={img[2]} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={img[3]} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={img[4]} alt="" /></SwiperSlide>
+        <SwiperSlide><img className="img"  src={img[1]} alt="" /></SwiperSlide>
+        <SwiperSlide><img className="img"  src={img[2]} alt="" /></SwiperSlide>
+        <SwiperSlide><img className="img"  src={img[3]} alt="" /></SwiperSlide>
+        <SwiperSlide><img className="img"  src={img[4]} alt="" /></SwiperSlide>
       </Swiper>
     </>
   );

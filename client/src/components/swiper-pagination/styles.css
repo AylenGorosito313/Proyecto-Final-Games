@@ -1,7 +1,7 @@
 #app { height: 100% }
 html,
 body {
-  position: relative;
+ 
   height: 100%;
 }
 
@@ -13,6 +13,7 @@ body {
   margin: 0;
   padding: 0;
   border: none;
+  z-index: 2;
 }
 
 .swiper {

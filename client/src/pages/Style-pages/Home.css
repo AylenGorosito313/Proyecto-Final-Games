@@ -3,11 +3,11 @@
     display: flex;
     height: auto;
     flex-wrap: wrap;
-    
+
     width: auto;
     justify-content: center;
     left: 700px;
-    z-index:6;
+   z-index: 2;
 }
 
 .img-background{

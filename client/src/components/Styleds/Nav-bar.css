@@ -1,0 +1,42 @@
+.div-Nav-bar{
+    z-index: 3;
+  
+    background:transparent ;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+width: 150px;
+  
+}
+
+.div-padre-nav{
+    z-index: 3;
+    background: rgb(83,9,45);
+    background: linear-gradient(0deg, rgba(83,9,45,0.8361408882082695) 0%, rgba(35,28,60,1) 100%, rgba(35,28,60,1) 100%);
+    height: 500%;
+    display: flex;
+    position: absolute;
+width: 150px;
+}
+
+
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    justify-content: space-around;
+    padding-left: 20px;
+}
+.div-estilo-font{
+    justify-content: space-evenly;
+    display: flex;
+  
+    font-family: "Poppins", sans-serif;
+    background-color: #312f45;
+    height: auto;
+    width: auto;
+  
+  
+    padding: 20px;
+}

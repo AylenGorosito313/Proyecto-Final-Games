@@ -5,7 +5,7 @@ import Card from "../components/Cards";
 import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
 import details from "../assets/details1.png";
-
+import Nav from "../components/Nav";
 import SwiperPage from "../components/swiper-pagination/swiper";
 function Home() {
     const dispatch = useDispatch();
@@ -19,6 +19,7 @@ function Home() {
         <>
             <SwiperPage />
             <div className="div-home">
+      
                 <div className="div-home-card">
                     <img
                         className="img-background"

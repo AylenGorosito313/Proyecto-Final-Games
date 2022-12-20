@@ -40,3 +40,25 @@ width: 150px;
   
     padding: 20px;
 }
+
+.Link {
+    color: #fff;
+    font-size: 16px;
+    font-family: Work Sans;
+    text-decoration: none;
+    padding: 10px 10px 10px 10px;
+    margin: 10px;
+    /* hover {
+      color: #4a43aa;
+    }
+
+active {
+      color: #fff;
+    } */
+}
+
+
+.div-icons-nav{
+    display: flex;
+    align-items: center
+}

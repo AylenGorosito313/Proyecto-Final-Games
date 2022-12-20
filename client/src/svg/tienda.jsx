@@ -4,8 +4,8 @@ function tienda() {
     return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="26"
+          width="27"
+          height="27"
           fill="none"
           viewBox="0 0 30 26"
         >

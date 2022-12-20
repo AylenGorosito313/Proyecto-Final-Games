@@ -1,5 +1,5 @@
 import React from "react";
-import "./Styleds/CardHome.css";
+import "./css/CardHome.css";
 import {
   ContImagen,
   TituloCard,

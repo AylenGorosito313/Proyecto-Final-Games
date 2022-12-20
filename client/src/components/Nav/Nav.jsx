@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
 import Logo from "../../svg/Logo";
 import Logout from "../../svg/Logout";
-import "./Styleds/Nav-bar.css";
+import "./Nav-bar.css";
 import Config from "../../svg/Config";
 import Home from "../../svg/Home";
 import Tienda from "../../svg/Tienda";
 import Perfil from "../../svg/Perfil";
 import Androme from "../../svg/Androme";
+
+
 function Nav() {
   return (
     <div className="div-padre-nav">
-      <div className="div-Nav-bar"> 
+      {/* <div className="div-Nav-bar">  */}
     
         <nav className="nav">
           <div className="div-logo">
@@ -59,7 +61,7 @@ function Nav() {
           </div>
         </nav>
       </div>
-    </div>
+    // </div>
   );
 }
 

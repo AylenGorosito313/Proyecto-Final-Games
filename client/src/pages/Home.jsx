@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import getGames from "../middleware";
-import Card from "../components/Cards";
+import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
 import details from "../assets/details1.png";
-import Nav from "../components/Nav";
+import Nav from "../components/Nav/Nav";
 import SwiperPage from "../components/swiper-pagination/swiper";
 function Home() {
     const dispatch = useDispatch();

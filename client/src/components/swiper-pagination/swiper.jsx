@@ -21,7 +21,8 @@ export default function App() {
     <>
       <Swiper
         cssMode={true}
-        navigation={true}
+        // navigation={true}
+        loop={true}
         pagination={true}
         mousewheel={true}
         keyboard={true}

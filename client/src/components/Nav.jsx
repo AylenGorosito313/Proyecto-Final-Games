@@ -17,22 +17,28 @@ function Nav() {
             <Logo />
             <Androme />
           </div>
+
+
           <div className="div-icons-nav">
             <Home />
             <Link className="Link" to={"/home"}>
-            <p>Home</p> 
+            <p className="p">Home</p> 
             </Link>
           </div>
+
+
+
+
           <div className="div-icons-nav">
             <Perfil />
             <Link className="Link" to={"/profile"}>
-              Profile
+             <p className="p">Profile</p> 
             </Link>
           </div>
           <div className="div-icons-nav">
             <Tienda />
             <Link className="Link" to={"/shop"}>
-              Shop
+             <p className="p">Shop</p> 
             </Link>
           </div>
           ///////////////////////////////////////////////////////////
@@ -40,14 +46,14 @@ function Nav() {
             <div className="div-icons-nav">
               <Config />
               <Link className="Link" to={"/settings"}>
-                Settings
+               <p className="p">Settings</p> 
               </Link>
             </div>
 
             <div className="div-icons-nav">
               <Logout />
               <Link className="Link" to={"/"}>
-                Logout
+               <p className="p">Logout</p> 
               </Link>
             </div>
           </div>

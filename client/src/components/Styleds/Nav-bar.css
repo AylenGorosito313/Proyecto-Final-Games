@@ -5,7 +5,7 @@
     height: 100vh;
     display: flex;
     position: absolute;
-width: 150px;
+   width: 150px;
   
 }
 
@@ -24,25 +24,14 @@ box-shadow:  2px 2px 1px #27213B ;
 
 
 .nav{
+    padding-top: 40px;
     display: flex;
     flex-direction: column;
     justify-content: right;
     justify-content: space-around;
     padding-left: 15px;
-    justify-content: space-evenly;
+justify-content: normal;
     width: 160px;
-}
-.div-estilo-font{
-    justify-content: space-evenly;
-    display: flex;
-  
-    font-family: "Poppins", sans-serif;
-    background-color: #312f45;
-    height: auto;
-    width: auto;
-  
-  
-    padding: 20px;
 }
 
 .Link {
@@ -52,19 +41,20 @@ box-shadow:  2px 2px 1px #27213B ;
     text-decoration: none;
     padding: 10px 10px 10px 10px;
     margin: 10px;
-    /* p:hover {
-      color: #4a43aa;
-    } */
-
-/* active {
-      color: #fff;
- 
-} */
 }
+.p:hover{
+     color: red;
+  
+}
+
+
+
+
 
 .div-icons-nav{
     display: flex;
     align-items: center
+
 }
 
 

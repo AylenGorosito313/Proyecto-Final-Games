@@ -22,6 +22,7 @@ export default function App() {
       <Swiper
         cssMode={true}
         // navigation={true}
+        l
         loop={true}
         pagination={true}
         mousewheel={true}

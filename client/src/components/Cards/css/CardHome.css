@@ -7,7 +7,7 @@
     width: 400px;
     align-items: center;
     flex-wrap: wrap;
-
+  
 }
 
 .div-home-card{
@@ -20,7 +20,7 @@
     width: auto;
     
    z-index: 1;
-
+   top:-40rem;
     border-top: 20px solid  #1C1632;
 }
 

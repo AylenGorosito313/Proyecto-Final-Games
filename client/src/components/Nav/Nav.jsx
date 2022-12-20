@@ -11,7 +11,7 @@ function Nav() {
   return (
     <div className="div-padre-nav">
       <div className="div-Nav-bar">
-        <div className="div-item3-nav"></div>
+    
         <nav className="nav">
           <div className="div-logo">
             <Logo />

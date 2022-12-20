@@ -2,9 +2,9 @@
     background-color:  #1C1632!important;  
     display: flex;
     height: auto;
-    padding-top: 20px;
+    padding-top: 10px  10px  10px  10px;
     flex-wrap: wrap;
-    width: 400px;
+    width: 500px;
     align-items: center;
     flex-wrap: wrap;
   
@@ -18,7 +18,8 @@
     justify-content: center;
     flex-wrap: wrap;
     width: auto;
-    
+    padding: 0px;
+    justify-content: center;
    z-index: 1;
    top:-40rem;
     border-top: 20px solid  #1C1632;

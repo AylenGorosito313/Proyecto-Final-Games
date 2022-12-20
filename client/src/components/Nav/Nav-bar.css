@@ -1,82 +1,64 @@
-/* .div-Nav-bar{
-    z-index: 3;
-  
-    background:transparent ;
-    
-    display: flex;
-    position: absolute;
-   width: 150px;
-  
-} */
 
-.div-padre-nav{
-    z-index: 3;
-    background: rgb(83,9,45);
-    background: linear-gradient(0deg, rgba(83,9,45,0.5718662464985995) 0%, rgba(80,10,46,0.5522584033613445) 5%, rgba(57,19,53,1) 13%, rgba(47,23,56,1) 28%, rgba(35,28,60,1) 100%, rgba(35,28,60,1) 100%);
-    height: 100vh;
-    display: flex;
-    /* position: absolute; */
-    top:0;
-    left: 0;
-    position: sticky;
-    width: 160px;
-    box-shadow:  2px 2px 1px #27213B ;
 
+.div-padre-nav {
+  z-index: 2;
+  background: rgb(83, 9, 45);
+  background: linear-gradient(
+    0deg,
+    rgba(83, 9, 45, 0.5718662464985995) 0%,
+    rgba(80, 10, 46, 0.5522584033613445) 5%,
+    rgba(57, 19, 53, 1) 13%,
+    rgba(47, 23, 56, 1) 28%,
+    rgba(35, 28, 60, 1) 100%,
+    rgba(35, 28, 60, 1) 100%
+  );
+
+  height: 100vh;
+  display: flex;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  position: sticky;
+  width: 160px;
+  box-shadow: 2px 2px 1px #27213b;
 }
 
+.nav {
+  padding-top: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  justify-content: space-around;
+  padding-left: 15px;
+  justify-content: normal;
+  width: 160px;
 
-
-.nav{
-
-    padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    justify-content: space-around;
-    padding-left: 15px;
-    justify-content: normal;
-    width: 160px;
-   
 }
 
 .Link {
-    color: #F6EEEC;
-    font-size: 16px;
-    font-family: Work Sans;
-    text-decoration: none;
-    padding: 10px 10px 10px 10px;
-    margin: 10px;
+  color: #f6eeec;
+  font-size: 16px;
+  font-family: Work Sans;
+  text-decoration: none;
+  padding: 10px 10px 10px 10px;
+  margin: 10px;
 }
-.p:hover{
-    filter: drop-shadow(0px 1px 4px #01D1FF);
-  
-}
-
-.p:active{
-    filter: drop-shadow(5px 1px 10px #01D1FF);
-    color:#ffF; 
-    transform: scale(1.2);
-  
+.p:hover {
+  filter: drop-shadow(0px 1px 4px #01d1ff);
 }
 
-
-
-.div-icons-nav{
-    display: flex;
-    align-items: center
-
+.p:active {
+  filter: drop-shadow(5px 1px 10px #01d1ff);
+  color: #fff;
+  transform: scale(1.2);
 }
 
-
-.div-item3-nav{
-    display: flex;
-
+.div-icons-nav {
+  display: flex;
+  align-items: center;
 }
 
-
-.div-logo{
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    padding: auto;
+.div-item3-nav {
+  display: flex;
 }
+

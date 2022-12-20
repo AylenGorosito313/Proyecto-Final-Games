@@ -16,7 +16,7 @@ function Nav() {
     
         <nav className="nav">
           <div className="div-logo">
-            <Logo />
+            {/* <Logo /> */}
             {/* <Androme /> */}
           </div>
 

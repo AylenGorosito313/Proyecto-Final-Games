@@ -18,7 +18,7 @@ const gameTrailer = async (gameInfo, id) => {
                     stores: ele.stores.map((s) => s.store.domain),
                     genres: ele.genres.map((g) => g.name),
                     description_raw: ele.description_raw,
-                    trailer: trailer.results[0].data,
+                    trailer: trailer.results[0]?.data,
                 };
             });
             console.log(results)

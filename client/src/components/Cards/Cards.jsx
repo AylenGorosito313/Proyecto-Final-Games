@@ -7,7 +7,7 @@ import {
   TituloContainer,
   Cards,
   Imagen,
-} from "./Styleds/CardsStyled";
+} from "./CardsStyled";
 
 function Card({ name, img, id }) {
   return (

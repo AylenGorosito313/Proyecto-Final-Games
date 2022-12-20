@@ -27,6 +27,7 @@ width: 150px;
     justify-content: right;
     justify-content: space-around;
     padding-left: 20px;
+    justify-content: space-evenly;
 }
 .div-estilo-font{
     justify-content: space-evenly;
@@ -42,7 +43,7 @@ width: 150px;
 }
 
 .Link {
-    color: #fff;
+    color: #F6EEEC;
     font-size: 16px;
     font-family: Work Sans;
     text-decoration: none;
@@ -61,4 +62,10 @@ active {
 .div-icons-nav{
     display: flex;
     align-items: center
+}
+
+
+.div-item3-nav{
+    display: flex;
+
 }

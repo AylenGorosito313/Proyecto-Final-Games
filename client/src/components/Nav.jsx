@@ -9,7 +9,9 @@ import Perfil from "../svg/Perfil";
 function Nav() {
   return (
     <div className="div-padre-nav">
+
       <div className="div-Nav-bar">
+        <div className="div-item3-nav"></div>
         <nav className="nav">
           <Logo />
           <div className="div-icons-nav">
@@ -31,6 +33,12 @@ function Nav() {
               Shop
             </Link>
           </div>
+
+
+
+
+          ///////////////////////////////////////////////////////////
+          <div className="deiv-set-out">
           <div className="div-icons-nav">
             <Config/>
             <Link className="Link" to={"/settings"}>
@@ -45,6 +53,9 @@ function Nav() {
               Logout
             </Link>
           </div>
+
+          </div>
+      
         </nav>
       </div>
     </div>

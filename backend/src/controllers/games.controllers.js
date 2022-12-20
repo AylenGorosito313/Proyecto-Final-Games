@@ -1,5 +1,6 @@
 const apiClient = require("../utils/apiClient");
 const mapGames = require("../utils/mapGames");
+const paginate = require('../utils/paginated')
 const gameTrailer = require("../utils/game_trailer");
 const searchByName = require("../utils/searchByName");
 const { Game } = require("../models/games");
@@ -10,8 +11,10 @@ const getGames = async (req, res) => {
     const { page } = req.query;
     try {
         //le pasamos el path y el page a mapGame
-        let response = await mapGames("games", page);
-        return res.status(200).json(response);
+        let response = await paginate("games", page);
+        // console.log(response)
+        let mapToGames = await mapGames(response)
+        return res.status(200).json(mapToGames);
     } catch (error) {
         res.status(500).json({
             error: error.message,

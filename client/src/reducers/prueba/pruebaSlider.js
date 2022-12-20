@@ -13,11 +13,14 @@ export const toolkit_prueba = createSlice({
     reducers: {
         addUser: (state, actions) => {
             state.users = [...actions.payload]
+        },
+        getAllGames: (state, actions) => {
+            state.games= [...actions.payload]
         }
     },
 });
 
 // Action creators are generated for each case reducer function
-export const {addUser} = toolkit_prueba.actions;
+export const {addUser, getAllGames} = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

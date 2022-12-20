@@ -1,0 +1,22 @@
+.div-home{
+    background-color:  #1C1632 !important;  
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+
+    width: auto;
+    justify-content: center;
+    left: 700px;
+   z-index: 2;
+}
+
+.img-background{
+display: flex;
+position: absolute;
+width: auto;
+height: auto;
+pointer-events: none;
+
+
+}
+

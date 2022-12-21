@@ -1,8 +1,7 @@
 import axios from "axios";
-import { toast } from "react-hot-toast";
-import { getAllGames } from "../reducers/prueba/pruebaSlider";
+import { getAllGames, getByName } from "../reducers/prueba/pruebaSlider";
 
-function getGames() {
+export const getGames = () => {
   return async function (dispatch) {
     try {
       let res = await axios({
@@ -17,7 +16,16 @@ function getGames() {
   };
 }
 
-export default getGames;
+export const getSearchByName = (name) => {
+  return async function (dispatch) {
+      let res = await axios({
+        method: "GET",
+        url: `http://localhost:3001/game?search=${name}`,
+      });
+      dispatch(getByName(res.data));
+}
+}
+
 
 // toast('Hello World', {
 //   duration: 4000,

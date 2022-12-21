@@ -4,6 +4,7 @@ import Notificacion from "../../svg/Notificacion";
 import Logo from "../../svg/Logo";
 import "./Nav-top.css";
 import Car from "../../svg/Car";
+import Search from "../Search/Search";
 function NavTop() {
   return (
     <div className="Nav-top-container">
@@ -12,6 +13,7 @@ function NavTop() {
         </div>
 
       <div className="Nav-top-container-sticky">
+        <Search/>
         <Notificacion />
         <Car />
       

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import getGames from "../middleware";
+import {getGames} from "../middleware";
 import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
 import img from "../assets/backg.png";

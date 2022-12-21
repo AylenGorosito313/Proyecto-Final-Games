@@ -15,10 +15,13 @@ export const toolkit_prueba = createSlice({
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
     },
+    getByName: (state, actions) => {
+      state.games= [...actions.payload]
+ }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addUser, getAllGames } = toolkit_prueba.actions;
+export const { addUser, getAllGames, getByName } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

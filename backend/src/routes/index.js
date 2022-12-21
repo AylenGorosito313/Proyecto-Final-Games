@@ -1,31 +1,17 @@
 const { Router } = require("express");
-const {
-    getGames,
-    gameInformation,
-    searchGame,
-    createGame,
-} = require("../controllers/games.controllers");
+const gameControllers = require("../controllers/games.controllers");
 const getGenres = require("../controllers/genres.controllers");
-const {user,
-       newUser,
-       subscription,
-       deletedSubscription
-
-
-
-    
-    }=require("../controllers/users.controllers")
-
+const usersControllers = require("../controllers/users.controllers")
 const router = Router();
 
-router.get("/", getGames);
-router.get("/game", searchGame);
+router.get("/", gameControllers.getGames);
+router.get("/game", gameControllers.searchGame);
 
-router.post("/game/create", createGame);
-router.get("/game/:id", gameInformation);
+router.post("/game/create", gameControllers.createGame);
+router.get("/game/:id", gameControllers.gameInformation);
 router.get('/genres', getGenres);
-router.get("/users",user);
-router.post("/users/create",newUser)
-router.post("/users/create/subs",subscription)
-router.post("/users/create/delete",deletedSubscription)
+router.get("/users",usersControllers.user);
+router.post("/users/create",usersControllers.newUser)
+router.post("/users/create/subs",usersControllers.subscription)
+router.post("/users/create/delete",usersControllers.deletedSubscription)
 module.exports = router;

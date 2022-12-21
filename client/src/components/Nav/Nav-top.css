@@ -23,7 +23,7 @@
 
   height: 100px;
   z-index: 2;
-
+  padding-right: 50px;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;

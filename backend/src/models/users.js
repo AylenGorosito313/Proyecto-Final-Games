@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../db");
 const { Game } = require('./games')
 
-const Users = sequelize.define('username', {
+const Users = sequelize.define('user', {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -13,7 +13,15 @@ const Users = sequelize.define('username', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    lastName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     email:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    passwordHash: {
         type: DataTypes.STRING,
         allowNull: false
     }

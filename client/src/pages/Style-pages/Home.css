@@ -16,7 +16,7 @@ position: absolute;
 width: auto;
 height: auto;
 pointer-events: none;
-
-
+top:-20rem;
+z-index: 0;
 }
 

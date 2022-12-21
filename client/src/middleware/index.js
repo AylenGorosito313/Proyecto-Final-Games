@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toast } from "react-hot-toast";
+
 import { getAllGames } from "../reducers/prueba/pruebaSlider";
 
 function getGames() {

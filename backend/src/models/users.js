@@ -13,10 +13,26 @@ const Users = sequelize.define('username', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    nickName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     email:{
         type: DataTypes.STRING,
         allowNull: false
-    }
+    },
+    image: {
+        type: DataTypes.TEXT,
+    },
+    age:{
+        type: DataTypes.INTEGER,
+    },
+    city:{
+        type: DataTypes.STRING,
+    },
+    favoritos: {
+        type: DataTypes.ARRAY(DataTypes.TEXT),
+    },
 });
 
 Game.belongsToMany(Users, { through: "users_game" })

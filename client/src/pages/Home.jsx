@@ -17,6 +17,7 @@ function Home() {
     }, [dispatch]);
     return (
         <>
+      
             <SwiperPage />
             <div className="div-home">
       

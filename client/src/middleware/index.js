@@ -1,5 +1,6 @@
 import axios from "axios";
-import { getAllGames, getByName } from "../reducers/prueba/pruebaSlider";
+import { toast } from "react-hot-toast";
+import { getAllGames } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
   return async function (dispatch) {

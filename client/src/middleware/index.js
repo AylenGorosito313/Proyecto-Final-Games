@@ -1,32 +1,36 @@
 import axios from "axios";
 
-import { getAllGames,getByName } from "../reducers/prueba/pruebaSlider";
+import {
+    getAllGames,
+    getByName,
+    setIloader,
+} from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
-  return async function (dispatch) {
-    try {
-      let res = await axios({
-        method: "GET",
-        url: `http://localhost:3001/`,
-      });
-      dispatch(getAllGames(res.data));
-    
-    } catch (error) {
- 
-    }
-  };
-}
+    return async function (dispatch) {
+        try {
+            dispatch(setIloader());
+            let {data} = await axios({
+                method: "GET",
+                url: `http://localhost:3001/`,
+            });
+            dispatch(getAllGames(data));
+            dispatch(setIloader());
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+};
 
 export const getSearchByName = (name) => {
-  return async function (dispatch) {
-      let res = await axios({
-        method: "GET",
-        url: `http://localhost:3001/game?search=${name}`,
-      });
-      dispatch(getByName(res.data));
-}
-}
-
+    return async function (dispatch) {
+        let {data} = await axios({
+            method: "GET",
+            url: `http://localhost:3001/game?search=${name}`,
+        });
+        dispatch(getByName(data));
+    };
+};
 
 // toast('Hello World', {
 //   duration: 4000,

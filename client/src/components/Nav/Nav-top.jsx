@@ -8,15 +8,15 @@ import Car from "../../svg/Car";
 import Search from "../Search/Search";
 import SearchIcon from "../../svg/SearchIcon";
 function NavTop() {
-  const [open, setOpen] = useState(false);
-  function ToggleSearch() {
-    setOpen(!open);
-  }
-  return (
-    <div className="Nav-top-container">
-      <div className="div-logo">
-        <Logo />
-      </div>
+    const [open, setOpen] = useState(false);
+    function ToggleSearch() {
+        setOpen(!open);
+    }
+    return (
+        <div className="Nav-top-container">
+            <div className="div-logo">
+                <Logo />
+            </div>
 
    
 
@@ -29,15 +29,15 @@ function NavTop() {
           </div>
         </div>
 
-        <div className="div-carrito-notifi">
-          <Car />
+                <div className="div-carrito-notifi">
+                    <Car />
+                </div>
+                <div className="div-carrito-notifi">
+                    <Notificacion />
+                </div>
+            </div>
         </div>
-        <div className="div-carrito-notifi">
-          <Notificacion />
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default NavTop;

@@ -1,21 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const ImageLand = styled.img`
-  border-radius: 10px;
-  height: 50vw;
-  width: 100vw;
-  z-index: 1;
-`;
-
 export const ConteinerCard = styled.div`
   background: #312f45;
-  padding:20px 40px 20px 40px;
+  padding: 20px 40px 20px 40px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   height: auto;
-  weight:80w;
+  weight: 80w;
   flex-wrap: wrap;
 `;
 
@@ -29,15 +22,10 @@ export const Cards = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  margin: 20px 40px 20px 40px;
-
+  margin: 10px 10px 10px 10px;
   border-radius: 30px;
   top: 0px;
-  padding: 0px;
-
-  width: auto;
-  height: auto;
-  background: #36335a;
+  background: #2b273b;
 
   border-radius: 10px;
 
@@ -53,20 +41,19 @@ export const Cards = styled.div`
   }
 `;
 
-
-
 export const Imagen = styled.img`
   justify-content: center;
 
-  height: 200px;
-  width: 260px;
+  height: 300px;
+  width: 220px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 `;
 
 export const ContImagen = styled.div`
   display: flex;
-
+  height: auto;
+  width: auto;
   justify-content: center;
   align-items: center;
 `;
@@ -102,54 +89,4 @@ export const TituloCardIndex = styled.h1`
   font-size: 18px;
   justify-content: center;
   cursor: pointer;
-`;
-export const TituloCardIndex1 = styled.h1`
-  text-overflow: ellipsis;
-  overflow: hidden;
-  padding: 0px 20px 0px 5px;
-  color: #fff;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  justify-content: center;
-  cursor: pointer;
-`;
-export const TituloCardIndex2 = styled.h1`
-  text-overflow: ellipsis;
-  overflow: hidden;
-  padding: 0px 20px 0px 5px;
-  color: #fff;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  justify-content: center;
-  cursor: pointer;
-`;
-export const LinkContainer = styled(Link)`
-  color: #3d4eb8;
-  font-size: 20px;
-  font-family: Work Sans;
-  text-decoration: none;
-  margin: 10px;
-  &:hover,
-  &:focus {
-    color: blue;
-  }
-  &:active {
-    color: red;
-  }
-`;
-
-export const BtnPage = styled.div`
-  padding-right: 20px;
-`;
-
-export const DivPage = styled.div`
-  display: flex;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  background: #312f45;
 `;

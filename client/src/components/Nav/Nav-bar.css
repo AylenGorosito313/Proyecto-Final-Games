@@ -1,5 +1,3 @@
-
-
 .div-padre-nav {
   z-index: 2;
   background: rgb(83, 9, 45);
@@ -14,7 +12,7 @@
   );
 
   height: 100vh;
-  display: block;
+  display: flex;
   /* position: absolute; */
   top: 0;
   left: 0;
@@ -24,16 +22,14 @@
 }
 
 .nav {
-
-  padding-top: 99px;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  font-family: "Poppins";
   justify-content: space-around;
   padding-left: 15px;
   justify-content: normal;
   width: 160px;
-
 }
 
 .Link {
@@ -63,3 +59,6 @@
   display: flex;
 }
 
+.div-logo {
+  padding: 10px 10px 10px 10px;
+}

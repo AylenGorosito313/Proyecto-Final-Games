@@ -24,16 +24,3 @@ function Card({ name, img, id }) {
 
 export default Card;
 
-// import React from 'react'
-// import "./css/CardHome.css";
-// function Card({ name, img, id }) {
-// <div className='cards'>
-//   <div className='cards'>
-//     <img src={img} alt='img'/>
-// <figcaption>{name}</figcaption>
-
-//   </div>
-// </div>
-// }
-
-// export default Card

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ContainerSearch = styled.div`
-
   margin-top: 20px;
   margin-right: 10px;
   justify-content: center;
@@ -11,7 +10,7 @@ export const ContainerSearch = styled.div`
   font-siz: 10px;
   padding: 8px;
   display: flex;
- flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
   padding: 8px;
   &:hover,
@@ -25,8 +24,14 @@ export const ContainerSearch = styled.div`
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     color: rgba(0, 0, 0, 0.65);
   }
-background: rgb(217,217,217);
-background: linear-gradient(0deg, rgba(217,217,217,0.7541726163121498) 2%, rgba(217,217,217,0.7121558095894608) 100%);
+
+  background: rgb(178, 167, 221);
+  background: linear-gradient(
+    0deg,
+    rgba(178, 167, 221, 0.5720997871804971) 2%,
+    rgba(178, 167, 221, 0.5861053894213936) 100%
+  );
+
   border-radius: 10px;
 
   flex: none;
@@ -35,21 +40,20 @@ background: linear-gradient(0deg, rgba(217,217,217,0.7541726163121498) 2%, rgba(
 `;
 
 export const Select = styled.select`
-height: 30px;
-width: 10vw;
+  height: 30px;
+  width: 10vw;
 
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
-  font-size: 13px;;
+  font-size: 13px;
   cursor: pointer;
   line-height: 1.1;
-  color:#312f45;
+  color: #312f45;
 
   background-color: #d5d5f5;
   background-image: linear-gradient(to top, #d5d5f5, #d5d5f5 33%);
-
 `;
 
 export const Layout = styled.div`
@@ -60,17 +64,16 @@ export const Layout = styled.div`
   justify-content: center;
   padding: 20px;
   flex-direction: row;
-
 `;
-export const LayoutACT= styled.div`
+export const LayoutACT = styled.div`
   background: transparent;
   display: flex;
   align-item: center;
   justify-content: center;
   padding: 20px;
   flex-direction: row;
-  border-radius:5px;
-  box-shadow: #6A79E2 0px 1px 2px, rgba(0, 0, 0, 0.3) 0px 2px 2px -3px,
+  border-radius: 5px;
+  box-shadow: #6a79e2 0px 1px 2px, rgba(0, 0, 0, 0.3) 0px 2px 2px -3px,
     rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
 `;
 export const Btn = styled.button`
@@ -122,13 +125,12 @@ export const Btn = styled.button`
 `;
 
 export const Input = styled.input`
-
-display:flex;
+  display: flex;
   font-family: "Poppins", sans-serif;
   font-siz: 30px;
   margin-left: 10px;
-  color: #D9D9D9;
- font-weight : 600;
+  color: #d9d9d9;
+  font-weight: 300;
   height: 30px;
   width: 20vw;
   border: none;
@@ -138,30 +140,23 @@ display:flex;
     border: none;
     outline: none;
   }
-  placeholder {
-    color: #FFF;
-  }
+  ::placeholder { color: #CDC5C5; }
 `;
 
 export const Div = styled.div`
-display: flex;
-height: 40px;
-width: 40px;
-justify-content: center;
+  display: flex;
+  height: 40px;
+  width: 160px;
+  justify-content: center;
+  background: #382874;
+  opacity: 0.1;
+  align-items: center;
 
-align-items: center;
-background: transparent;
-border-radius: 50%;
-
-box-shadow: #1CABC9 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-
-
-`
+  border-radius: 10%;
+`;
 
 export const Svg = styled.div`
-
-
-margin-left: 10px;
+  margin-left: 10px;
   display: flex;
   height: 30px;
   width: 30px;
@@ -169,12 +164,11 @@ margin-left: 10px;
   cursor: pointer;
 
   &:hover {
-    color:#1CABC9;
+    color: #1cabc9;
     filter: contrast(200%);
   }
 
   &:active {
-    
     filter: contrast(100%);
   }
 `;

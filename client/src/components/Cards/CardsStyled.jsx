@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const ImageLand = styled.img`
-  border-radius: 10px;
-  height: 50vw;
-  width: 100vw;
-  z-index: 1;
-`;
 
 export const ConteinerCard = styled.div`
   background: #312f45;
@@ -37,7 +31,7 @@ export const Cards = styled.div`
 
   width: auto;
   height: auto;
-  background: #36335a;
+  background: #2B273B;
 
   border-radius: 10px;
 
@@ -58,7 +52,7 @@ export const Cards = styled.div`
 export const Imagen = styled.img`
   justify-content: center;
 
-  height: 200px;
+  height: 300px;
   width: 260px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;

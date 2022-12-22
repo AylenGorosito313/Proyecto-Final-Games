@@ -1,10 +1,10 @@
 .Nav-top-container {
   display: flex;
   justify-content: space-between;
-  position: sticky;
+  position: absolute;
   padding-bottom: 20px;
   height: 100px;
-  z-index: 3;
+  z-index: 2;
 
   top: 0px;
   left: 0px;
@@ -38,54 +38,45 @@
   position: absolute;
 }
 
-
-
-.Svg{
+.Svg {
   margin-left: 10px;
   display: flex;
   height: 30px;
   width: 30px;
+  padding: 20px 20px 20px 20px;
   align-items: center;
   cursor: pointer;
-
 }
 
-
-.Layout-search-icon{
- 
- display: flex;
-}
-.Layout-search-icon:hover{
-
-  height: 40px;
-  width: 40px;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-  border-radius: 50%;
-  
-  box-shadow: #1CABC9 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  
-  
-}
- .Layout-search-icon:active{
-
-  height: 40px;
-  width: 40px;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-  border-radius: 50%;
-  
-  box-shadow: #1CABC9 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  
-  
-}
-
-
-
-
-.div-carrito-notifi{
+.Layout-search-icon {
   display: flex;
-  padding:  20px 20px 20px 20px;
+}
+.Layout-search-icon:hover {
+  height: auto;
+  width: auto;
+
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-radius: 50%;
+
+  box-shadow: #1cabc9 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.Layout-search-icon:active {
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-radius: 50%;
+
+  box-shadow: #1cabc9 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.div-carrito-notifi {
+  display: flex;
+  padding: 40px 10px 20px 20px;
+  cursor: pointer;
 }

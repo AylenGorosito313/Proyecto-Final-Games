@@ -3,16 +3,14 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-
+  position: relative;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #1C1632;
-  background-color: #1C1632;
+  background-color: #1c1632;
+  background-color: #1c1632;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-
 }
-
 
 /* @media (prefers-color-scheme: light) {
   :root {

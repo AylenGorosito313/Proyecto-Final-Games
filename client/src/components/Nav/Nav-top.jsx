@@ -18,13 +18,11 @@ function NavTop() {
         <Logo />
       </div>
 
-   
-
       <div className="Nav-top-container-sticky">
-      {open && <Search />}
-      <div className="Svg">
-       
-          <div   onClick={ToggleSearch} className="Layout-search-icon">
+        
+        {open && <Search />}
+        <div className="Svg">
+          <div onClick={ToggleSearch} className="Layout-search-icon">
             <SearchIcon className="SearchIcon" />
           </div>
         </div>

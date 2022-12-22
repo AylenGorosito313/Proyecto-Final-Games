@@ -11,7 +11,6 @@ export default function Login () {
             <div className="login form">
                 <div className="form_content">
                     <header><Logo />
-                    
                     <div>Login</div>
                     </header>
 

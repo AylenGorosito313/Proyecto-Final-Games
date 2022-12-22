@@ -5,10 +5,12 @@ import { getSearchByName } from "../../middleware";
 import SearchIcon from "../../svg/SearchIcon";
 import { Layout, ContainerSearch, Input, Btn, Svg, Div } from "./SearchStyled";
 import "./Search";
+import SignInBtn from "../SignIn/SignInBtn";
 export default function Search() {
   const dispatch = useDispatch();
 
   const [input, setInput] = useState("");
+  
 
   function handleChange(e) {
     console.log(e.target.value);
@@ -43,6 +45,7 @@ export default function Search() {
             />
           </ContainerSearch>
         </Layout>
+        
       </form>
     </div>
   );

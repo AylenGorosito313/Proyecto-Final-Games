@@ -7,6 +7,10 @@ import img from "../assets/backg.png";
 import details from "../assets/details1.png";
 import Nav from "../components/Nav/Nav";
 import SwiperPage from "../components/swiper-pagination/swiper";
+import SignInModal from "../components/SignIn/SignInModal";
+
+
+
 function Home() {
     const dispatch = useDispatch();
     const { users, games } = useSelector((state) => state.prueba);

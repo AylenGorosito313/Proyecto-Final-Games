@@ -5,19 +5,22 @@ import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
 import details from "../assets/details1.png";
-import Nav from "../components/Nav/Nav";
 import SwiperPage from "../components/swiper-pagination/swiper";
 function Home() {
     const dispatch = useDispatch();
-    const { users, games } = useSelector((state) => state.prueba);
+    const { games, isLoader } = useSelector((state) => state.prueba);
 
     console.log(games);
     useEffect(() => {
         dispatch(getGames());
     }, [dispatch]);
+
+    if(isLoader){ 
+        return <h1>Cargando...</h1>
+    }
     return (
         <>
-      
+    
             <SwiperPage />
             <div className="div-home">
       
@@ -33,7 +36,7 @@ function Home() {
                         alt="background"
                     />
                     
-                    {games.length > 0 &&
+                    {games.length &&
                         games.map((ele) => {
                             return (
                                 <Card

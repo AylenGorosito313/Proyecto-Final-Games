@@ -4,7 +4,6 @@ import {
   ContImagen,
   TituloCard,
   Div,
-  TituloContainer,
   Cards,
   Imagen,
 } from "./CardsStyled";

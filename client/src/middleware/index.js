@@ -3,19 +3,19 @@ import axios from "axios";
 import {
     getAllGames,
     getByName,
-    setIloader,
+    setIsloader,
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
     return async function (dispatch) {
         try {
-            dispatch(setIloader());
+            dispatch(setIsloader());
             let {data} = await axios({
                 method: "GET",
                 url: `http://localhost:3001/`,
             });
             dispatch(getAllGames(data));
-            dispatch(setIloader());
+            dispatch(setIsloader());
         } catch (error) {
             console.log(error.message);
         }

@@ -20,7 +20,7 @@ function NavTop() {
         <div className="div-carrito-notifi">
           <Car />
         </div>
-        <div className="div-carrito-notifi">
+        <div className="div-notifi">
           <Notificacion />
         </div>
       </div>

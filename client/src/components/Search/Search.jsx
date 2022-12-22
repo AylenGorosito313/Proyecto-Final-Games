@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getSearchByName } from "../../middleware";
 import SearchS from "../../svg/SearchSmall";
-import { Layout, ContainerSearch, Input, Btn, Svg, Div } from "./SearchStyled";
+import { Layout, ContainerSearch, Input, Svg, Div } from "./SearchStyled";
 import "./Search";
 import SignInBtn from "../SignIn/SignInBtn";
 export default function Search() {

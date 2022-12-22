@@ -1,0 +1,39 @@
+.Nav-top-container {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  padding-bottom: 20px;
+  height: 100px;
+  z-index: 3;
+
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background: rgb(83, 9, 45);
+  background: linear-gradient(
+    0deg,
+    rgba(35, 28, 60, 0.797) 100%,
+    rgb(35, 28, 60) 100%
+  );
+  box-shadow: 2px 2px 1px #27213b;
+}
+
+.Nav-top-container-sticky {
+  display: flex;
+
+  height: 100px;
+  z-index: 2;
+
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+}
+
+.div-logo {
+  cursor: pointer;
+  display: block;
+  padding: 20px 20px 20px 20px;
+  position: absolute;
+}

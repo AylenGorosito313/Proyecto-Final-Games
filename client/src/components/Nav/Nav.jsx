@@ -1,38 +1,46 @@
 import { Link } from "react-router-dom";
-import Logo from "../svg/Logo";
-import Logout from "../svg/Logout";
-import "./Styleds/Nav-bar.css";
-import Config from "../svg/Config";
-import Home from "../svg/Home";
-import Tienda from "../svg/Tienda";
-import Perfil from "../svg/Perfil";
-import Androme from "../svg/Androme";
+import Logo from "../../svg/Logo";
+import Logout from "../../svg/Logout";
+import "./Nav-bar.css";
+import Config from "../../svg/Config";
+import Home from "../../svg/Home";
+import Tienda from "../../svg/Tienda";
+import Perfil from "../../svg/Perfil";
+import Androme from "../../svg/Androme";
+
+
 function Nav() {
   return (
     <div className="div-padre-nav">
-      <div className="div-Nav-bar">
-        <div className="div-item3-nav"></div>
+      {/* <div className="div-Nav-bar">  */}
+    
         <nav className="nav">
           <div className="div-logo">
-            <Logo />
-            <Androme />
+            {/* <Logo /> */}
+            {/* <Androme /> */}
           </div>
+
+
           <div className="div-icons-nav">
             <Home />
             <Link className="Link" to={"/home"}>
-            <p>Home</p> 
+            <p className="p">Home</p> 
             </Link>
           </div>
+
+
+
+
           <div className="div-icons-nav">
             <Perfil />
             <Link className="Link" to={"/profile"}>
-              Profile
+             <p className="p">Profile</p> 
             </Link>
           </div>
           <div className="div-icons-nav">
             <Tienda />
             <Link className="Link" to={"/shop"}>
-              Shop
+             <p className="p">Shop</p> 
             </Link>
           </div>
           ///////////////////////////////////////////////////////////
@@ -40,20 +48,20 @@ function Nav() {
             <div className="div-icons-nav">
               <Config />
               <Link className="Link" to={"/settings"}>
-                Settings
+               <p className="p">Settings</p> 
               </Link>
             </div>
 
             <div className="div-icons-nav">
               <Logout />
               <Link className="Link" to={"/"}>
-                Logout
+               <p className="p">Logout</p> 
               </Link>
             </div>
           </div>
         </nav>
       </div>
-    </div>
+    // </div>
   );
 }
 

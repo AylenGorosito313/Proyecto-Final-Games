@@ -37,7 +37,7 @@ function FormRegister() {
           })}
         />
       </div>
-      {errors.name?.type === " minLength" && (
+      {errors.name?.type === "minLength" && (
         <p className="p-error-input">The name is too short</p>
       )}
       {errors.name?.type === "required" && (

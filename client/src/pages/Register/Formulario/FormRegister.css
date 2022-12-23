@@ -11,7 +11,7 @@
     z-index: 1;
   }
 
-.container-form-login {
+.container-form-login-register {
     padding-left: 10px;
   display: flex;
   flex-direction: column;
@@ -122,4 +122,12 @@
   
   .boton-container-register{
       padding: 10px 10px 10px 10px;
+  }
+
+
+  .label-register-login{
+    font-family: Poppins;
+    color: #606060;
+    margin: 0;
+    font-size: 12px;
   }

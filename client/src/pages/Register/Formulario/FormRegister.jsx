@@ -17,41 +17,68 @@ function FormRegister() {
       repeatpass: "",
     },
     mode: "onChange",
-    // resolver: yupResolver(LoginFormSchema),
   });
-
 
   const OnSubmitRegister = async (data) => {};
 
   return (
-
-    
     <form className="form">
       <label className="label">Name</label>
       <div className="input-container-register">
         <input
           type="text"
-          placeholder="Enter your email..."
+          placeholder="Enter your name..."
           className="input-register"
           {...register("name", {
-            maxLength: 30,
+            minLength: 5,
+            maxLength: 20,
             required: true,
+            pattern: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
           })}
         />
       </div>
+      {errors.name?.type === " minLength" && (
+        <p className="p-error-input">The name is too short</p>
+      )}
+      {errors.name?.type === "required" && (
+        <p className="p-error-input">The name is required</p>
+      )}
+      {errors.name?.type === "maxLength" && (
+        <p className="p-error-input">The name is too long</p>
+      )}
+      {errors.name?.type === "pattern" && (
+        <p className="p-error-input">
+          The name format is wrong , letters, numbers, hyphen and underscore
+        </p>
+      )}
       <label className="label">Lastname</label>
       <div className="input-container-register">
         <input
           type="text"
-          placeholder="Enter your email..."
+          placeholder="Enter your lastname..."
           className="input-register"
           {...register("lastname", {
-            maxLength: 30,
+            minLength: 5,
+            maxLength: 20,
             required: true,
+            pattern: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
           })}
         />
       </div>
-
+      {errors.lastname?.type === "minLength" && (
+        <p className="p-error-input">The lastname is to short</p>
+      )}
+      {errors.lastname?.type === "required" && (
+        <p className="p-error-input">The lastname is required</p>
+      )}
+      {errors.lastname?.type === "maxLength" && (
+        <p className="p-error-input">The lastname is too long</p>
+      )}
+      {errors.lastname?.type === "pattern" && (
+        <p className="p-error-input">
+          The name format is wrong , letters, numbers, hyphen and underscore
+        </p>
+      )}
       <label className="label">Email</label>
       <div className="input-container-register">
         <input
@@ -59,6 +86,7 @@ function FormRegister() {
           placeholder="Enter your email..."
           className="input-register"
           {...register("email", {
+            minLength: 5,
             maxLength: 30,
             required: true,
             pattern: /\S+@\S+\.\S+/,
@@ -66,13 +94,13 @@ function FormRegister() {
         />
       </div>
       {errors.email?.type === "required" && (
-        <p className="p-error-input">'The email is required'</p>
+        <p className="p-error-input">The email is required</p>
       )}
       {errors.email?.type === "maxLength" && (
-        <p className="p-error-input">'The email is too long'</p>
+        <p className="p-error-input">The email is too long</p>
       )}
       {errors.email?.type === "pattern" && (
-        <p className="p-error-input">'The email format is wrong'</p>
+        <p className="p-error-input">The name format is wrong , letters, numbers, hyphen and underscore</p>
       )}
       <label className="label">Password</label>
       <div className="input-container-register">
@@ -81,6 +109,7 @@ function FormRegister() {
           placeholder="Enter your Password..."
           className="input-register"
           {...register("password", {
+            minLength: 5,
             maxLength: 12,
             required: true,
             pattern:
@@ -89,47 +118,23 @@ function FormRegister() {
         />
       </div>
       {errors.password?.type === "required" && (
-        <p className="p-error-input">'The passwords required'</p>
+        <p className="p-error-input">The passwords required</p>
+      )}
+      {errors.password?.type === "minLength" && (
+        <p className="p-error-input">The password is to short </p>
       )}
       {errors.password?.type === "maxLength" && (
-        <p className="p-error-input">'The password format is wrong'</p>
+        <p className="p-error-input">The password format is to long</p>
       )}
       {errors.password?.type === "pattern" && (
         <p className="p-error-input">
-          'Must be alphanumeric and contain a maximum of 12 characters, one
-          capital letter and one special character'
+          Must be alphanumeric and contain a maximum of 12 characters, one
+          capital letter and one special character
         </p>
       )}
-      <label className="label">Repeat your password</label>
-      <div className="input-container-register">
-        <input
-          type="password"
-          placeholder="Repeat your password..."
-          className="input-register"
-          {...register("repeatpass", {
-            maxLength: 12,
-            required: true,
-            
-            pattern:
-              /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
-          })}
-        />
-      </div>
-      {errors.repeatpass?.type === "required" && (
-        <p className="p-error-input">'The passwords required'</p>
-      )}
-      {errors.repeatpass?.type === "maxLength" && (
-        <p className="p-error-input">'The password to long'</p>
-      )}
-      {errors.repeatpass?.type === "pattern" && (
-        <p className="p-error-input">
-          'Must be alphanumeric and contain a maximum of 12 characters, one
-          capital letter and one special character'
-        </p>
-      )}
-       
+
       <div className="boton-container-register">
-        <button className="button-register">Sign up</button>
+        <button  disabled={errors} className="button-register">Sign up</button>
       </div>
     </form>
   );

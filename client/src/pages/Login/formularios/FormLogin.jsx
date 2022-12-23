@@ -83,7 +83,7 @@ function FormLogin() {
         {/* */}
         <div className="boton-container">
           <div className="field button_field">
-            <button>Login</button>
+            <button  disabled={errors} >Login</button>
           </div>
         </div>
       </form>

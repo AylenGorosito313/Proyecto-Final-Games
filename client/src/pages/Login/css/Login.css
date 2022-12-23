@@ -73,7 +73,12 @@
   color: #606060;
   margin: 0;
 }
-
+.label-log{
+  font-size: 12px;
+  font-family: Poppins;
+  color: #606060;
+  margin: 0;
+}
 .Logo-div {
   display: flex;
   padding: 14px 34px 10px 10px;
@@ -143,7 +148,7 @@
 .p-error-input{
     color:red;
     font-family: Poppins;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
    margin:0;
 }

@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import FacebookLogin from "react-facebook-login";
 import { GoogleLogin } from "react-google-login";
 import "./css/Login.css";
+import { Imagen } from "./css/Img";
 import LogoLogin from "../../svg/LogoLogin";
 import FormLogin from "./formularios/FormLogin";
 import Google from "../../svg/botones/google";
 import Facebook from "../../svg/botones/facebook";
+import backgroundImg from "../../assets/fondoLOGIN.png"
 function Loginn() {
   const responseFacebook = (response) => {
     console.log(response);
@@ -16,6 +18,7 @@ function Loginn() {
   };
   return (
     <>
+    <Imagen src={backgroundImg} alt="backgr" />
       <div className="overlay">
         <div className="container-form-login">
           <div className="Logo-div">
@@ -36,7 +39,7 @@ function Loginn() {
           </div>
           ///////////////////////////
           <div className="socialmedia-container">
-            <p className="label">
+            <p className="label-log">
               Or you can login with
               <hr></hr>
             </p>

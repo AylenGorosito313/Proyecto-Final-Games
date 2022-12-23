@@ -17,7 +17,7 @@
   flex-direction: column;
   align-items: center;
   width: 45vh;
-  height: 90vh;
+  height: auto;
   background: #fff;
   position: relative;
   border-radius: 10px;
@@ -197,8 +197,8 @@
 .socialmedia-container{
   
     display: flex;
-    width: 45vh;
-    padding-right: 47px;
+    width: auto;
+    padding-right: 40px;
     justify-content: center;
 }
 
@@ -219,6 +219,13 @@
 }
 
 
+.social-container{
+  display: flex;
+  align-items: flex-start;
+   
+    flex-direction: column-reverse;
+  padding: 10px 10px 10px 10px;
+}
 
 .google-btm{
   display: flex;

@@ -43,7 +43,7 @@ function Loginn() {
           </div>
           <div className="social-container">
             //////// configurar api de los botones al hacer el deploy ////
-            <div className="redes-container">
+            
               <div className="google-container">
                 <FacebookLogin
                   appId="683503523496506"
@@ -77,7 +77,7 @@ function Loginn() {
             </div>
           </div>
         </div>
-      </div>
+
     </>
   );
 }

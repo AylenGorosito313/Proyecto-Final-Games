@@ -5,7 +5,7 @@ function LogoLogin() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="152"
-      height="100"
+      height="80"
       fill="none"
       viewBox="0 0 152 137"
     >

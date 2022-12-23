@@ -66,7 +66,7 @@ function FormLogin() {
         )}
         {errors.password?.type === "pattern" && (
           <p className="p-error-input">
-            'The password must be alphanumeric and contain a maximum of 12
+            'Must be alphanumeric and contain a maximum of 12
             characters, one capital letter and one special character'
           </p>
         )}

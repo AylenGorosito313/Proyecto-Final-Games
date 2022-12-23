@@ -17,7 +17,7 @@
   flex-direction: column;
   align-items: center;
   width: 45vh;
-  height: 80vh;
+  height: 90vh;
   background: #fff;
   position: relative;
   border-radius: 10px;
@@ -204,4 +204,18 @@
     width: 45vh;
     justify-content: center;
     padding-right: 40px;
+}
+
+
+.facebookButtom{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 10px;
+  width: 30vh;
+  height: 40px;
+  border: none;
+  font-family: Helvetica;
+  background: #1877F2;
+  color: #fff;
 }

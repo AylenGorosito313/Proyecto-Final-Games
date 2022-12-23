@@ -45,7 +45,7 @@ function Nav() {
 
           <div className="div-icons-nav">
             <Logout />
-            <Link className="Link" to={"/"}>
+            <Link className="Link" to={"/login"}>
               <p className="p">Logout</p>
             </Link>
           </div>

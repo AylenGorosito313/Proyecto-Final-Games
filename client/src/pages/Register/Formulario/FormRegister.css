@@ -9,6 +9,10 @@
     left: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1;
+    @media (max-width: 500px) {
+      height: auto;
+      width: auto;
+    }
   }
 
 .container-form-login-register {
@@ -22,6 +26,11 @@
   position: relative;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  @media (max-width: 500px) {
+    height: auto;
+    width: auto;
+  }
 }
 .Logo-div-register{
     display: flex;

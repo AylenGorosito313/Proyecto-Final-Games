@@ -8,8 +8,8 @@ export const Imagen = styled.img`
   filter: blur(0.5px);
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  @media (max-width: 768px) {
-    height: 500px;
-    width: 700px;
+  @media (max-width: 500px) {
+    height: auto;
+    width: auto;
   }
 `;

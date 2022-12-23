@@ -1,8 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./FormRegister.css";
-import { equalPass } from "./utils/equalPass";
+import { useDispatch, useSelector } from "react-redux";
+import { createUser } from "../../../middleware";
 function FormRegister() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -13,16 +15,18 @@ function FormRegister() {
       email: "",
       password: "",
       name: "",
-      lastname: "",
-      repeatpass: "",
+      lastName: ""
     },
     mode: "onChange",
   });
 
-  const OnSubmitRegister = async (data) => {};
+  const OnSubmitRegister = async (data) => {
+    console.log(data);
+    dispatch(createUser(data));
+  };
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit(OnSubmitRegister)}>
       <label className="label">Name</label>
       <div className="input-container-register">
         <input
@@ -57,7 +61,7 @@ function FormRegister() {
           type="text"
           placeholder="Enter your lastname..."
           className="input-register"
-          {...register("lastname", {
+          {...register("lastName", {
             minLength: 5,
             maxLength: 20,
             required: true,
@@ -100,7 +104,9 @@ function FormRegister() {
         <p className="p-error-input">The email is too long</p>
       )}
       {errors.email?.type === "pattern" && (
-        <p className="p-error-input">The name format is wrong , letters, numbers, hyphen and underscore</p>
+        <p className="p-error-input">
+          The name format is wrong , letters, numbers, hyphen and underscore
+        </p>
       )}
       <label className="label">Password</label>
       <div className="input-container-register">
@@ -134,7 +140,10 @@ function FormRegister() {
       )}
 
       <div className="boton-container-register">
-        <button  disabled={errors} className="button-register">Sign up</button>
+        <input className="button-register" type="submit" />
+        {/* <button disabled={errors} className="button-register">
+          Sign up
+        </button> */}
       </div>
     </form>
   );

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     users: [],
     games: [],
+    res:[],
     isLoader: false,
 };
 
@@ -22,11 +23,14 @@ export const toolkit_prueba = createSlice({
         setIsloader: (state) => {
             state.isLoader = !state.isLoader;
         },
+        responseRegister:(state,actions)=>{
+            state.res= actions.payload
+        }
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { addUser, getAllGames, getByName, setIsloader } =
+export const { addUser, getAllGames, getByName, setIsloader,responseRegister } =
     toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

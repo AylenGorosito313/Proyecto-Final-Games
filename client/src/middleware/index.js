@@ -4,6 +4,7 @@ import {
     getAllGames,
     getByName,
     setIsloader,
+    responseRegister
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
@@ -32,26 +33,16 @@ export const getSearchByName = (name) => {
     };
 };
 
-// toast('Hello World', {
-//   duration: 4000,
-//   position: 'top-center',
 
-//   // Styling
-//   style: {},
-//   className: '',
 
-//   // Custom Icon
-//   icon: '👏',
+export const createUser= ({ name, lastName, email, password}) => {
+    return async function (dispatch) {
+      let res = await axios({
+        method: "POST",
+        data: { name, lastName, email, password},
+        url: "http://localhost:3001/user/create",
+      });
+      dispatch(responseRegister(res.data));
+    };
+  };
 
-//   // Change colors of success/error/loading icon
-//   iconTheme: {
-//     primary: '#000',
-//     secondary: '#fff',
-//   },
-
-//   // Aria
-//   ariaProps: {
-//     role: 'status',
-//     'aria-live': 'polite',
-//   },
-// });

@@ -1,13 +1,23 @@
 import React from "react";
 import "./Formulario/FormRegister.css";
+import toast, { Toaster } from 'react-hot-toast';
 import FormRegister from "./Formulario/FormRegister";
 import { Link } from "react-router-dom";
 import LogoLogin from "../../svg/LogoLogin";
 import { Imagen } from "../Login/css/Img";
 import backgroundImg from "../../assets/fondoLOGIN.png"
+import {useSelector } from "react-redux";
 export default function Register() {
+  const { res} = useSelector((state) => state.prueba);
+
+  const notify = () => toast(res.message , {
+    position: "bottom-right",
+    duration: 4000
+  });
   return (
     <>
+    { res && notify()}
+<Toaster/>
       <Imagen src={backgroundImg} alt="backgr" />
       <div className="overlay-register">
         <div className="container-form-login-register">

@@ -4,7 +4,7 @@ const {Game} = require("./games")
 const {Users}= require("./users")
 const{Transaction}=require("./transaction")
 const { Status } = require('./status')
-const userGame = sequelize.define("game", {
+const userGame = sequelize.define("userGame", {
     
     id: {
         type: DataTypes.UUID,

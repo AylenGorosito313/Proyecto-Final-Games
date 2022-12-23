@@ -7,7 +7,7 @@ const {GamePacks}= require("./gamesPacks")
 const{Opinion}=require("./opinion")
 const{userGame}=require("./userGame")
 
-const Status = sequelize.define("game", {
+const Status = sequelize.define("status", {
     id: {
         type: DataTypes.STRING,
         primaryKey: true,

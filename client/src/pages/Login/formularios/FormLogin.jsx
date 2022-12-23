@@ -1,11 +1,12 @@
 import React from "react";
 import "../css/Login.css";
-import { Link } from "react-router-dom";
-import Password from "../../../svg/Password";
-import UserLogin from "../../../svg/UserLogin";
+import { Link, useHistory } from "react-router-dom";
+import { LoginUser } from "../../../middleware";
 import { useForm } from "react-hook-form";
-
+import { useDispatch} from "react-redux";
 function FormLogin() {
+  const navigate = useHistory()
+  const dispatch = useDispatch()
   const {
     register,
     handleSubmit,
@@ -14,14 +15,18 @@ function FormLogin() {
   } = useForm({
     defaultValues: { email: "", password: "" },
     mode: "onChange",
-    // resolver: yupResolver(LoginFormSchema),
   });
 
-  const OnSubmit = async (data) => {};
 
+
+  const OnSubmit = async (data) => {
+    console.log(data);
+    dispatch(LoginUser(data));
+    navigate.push('/')
+  };
   return (
     <>
-      <form onSubmit={handleSubmit()} className="form">
+      <form onSubmit={handleSubmit( OnSubmit)} className="form">
         <label className="label">Email</label>
         <div className="input-container">
           <input
@@ -66,24 +71,24 @@ function FormLogin() {
         )}
         {errors.password?.type === "pattern" && (
           <p className="p-error-input">
-            'Must be alphanumeric and contain a maximum of 12
-            characters, one capital letter and one special character'
+            'Must be alphanumeric and contain a maximum of 12 characters, one
+            capital letter and one special character'
           </p>
         )}
-       
+
         <div className="div-link-checkbox">
-        <div className="checkbox-container">
-          <input type="checkbox" {...register("checkbox-remember")} />
-          <label className="label"> Remember me</label>
-         </div>
-         <Link className="link" to={"/recuperacion"}>
-              <p>Forgot Password ?</p>
-            </Link>
+          <div className="checkbox-container">
+            <input type="checkbox" {...register("checkbox-remember")} />
+            <label className="label"> Remember me</label>
           </div>
+          <Link className="link" to={"/recuperacion"}>
+            <p>Forgot Password ?</p>
+          </Link>
+        </div>
         {/* */}
         <div className="boton-container">
           <div className="field button_field">
-            <button  disabled={errors} >Login</button>
+            <button  type="submit">Login</button>
           </div>
         </div>
       </form>

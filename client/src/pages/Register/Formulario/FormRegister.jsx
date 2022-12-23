@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./FormRegister.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createUser } from "../../../middleware";
 function FormRegister() {
   const dispatch = useDispatch();
@@ -138,15 +138,21 @@ function FormRegister() {
           capital letter and one special character
         </p>
       )}
-
       <div className="boton-container-register">
-        <input className="button-register" type="submit" />
-        {/* <button disabled={errors} className="button-register">
-          Sign up
-        </button> */}
+      <button type="submit"  className="button-register" >Sign Up</button>
       </div>
+  
+    
     </form>
   );
 }
 
 export default FormRegister;
+
+
+{/* <div className="boton-container-register">
+<input className="button-register" type="submit" />
+<button  type="submit" disabled={errors} className="button-register">
+  Sign up
+</button>
+</div> */}

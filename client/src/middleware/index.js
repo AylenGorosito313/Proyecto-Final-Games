@@ -40,9 +40,21 @@ export const createUser= ({ name, lastName, email, password}) => {
       let res = await axios({
         method: "POST",
         data: { name, lastName, email, password},
-        url: "http://localhost:3001/user/create",
+        url: "http://localhost:3001/users/users/create",
       });
       dispatch(responseRegister(res.data));
     };
   };
 
+
+
+  export const LoginUser= ({ email, password}) => {
+    return async function (dispatch) {
+      let res = await axios({
+        method: "POST",
+        data: { email, password},
+        url: "http://localhost:3001/login/user",
+      });
+      dispatch(responseRegister(res.data));
+    };
+  };

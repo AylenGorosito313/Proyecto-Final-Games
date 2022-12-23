@@ -40,7 +40,7 @@ export const createUser= ({ name, lastName, email, password}) => {
       let res = await axios({
         method: "POST",
         data: { name, lastName, email, password},
-        url: "http://localhost:3001/users/users/create",
+        url: "http://localhost:3001/user/create",
       });
       dispatch(responseRegister(res.data));
     };

@@ -1,20 +1,20 @@
-
 import { Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Nav from "./components/Nav/Nav";
 import NavTop from "./components/Nav/Nav-top";
 import Loginn from "./pages/Login/Loginn";
+import Register from "./pages/Register/Register";
 function App() {
   return (
     <>
-      <Route  exact  path="/login">
+      <Route exact path="/login">
         <Loginn />
       </Route>
-      {/* <Route  exact path="/">
-     
-      </Route> */}
+      <Route exact path="/register">
+        <Register />
+      </Route>
       <Route exact path="/">
-      <NavTop />
+        <NavTop />
         <Nav />
         <Home />
       </Route>

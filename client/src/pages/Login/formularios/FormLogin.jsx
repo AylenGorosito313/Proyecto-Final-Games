@@ -39,7 +39,7 @@ function FormLogin() {
           <p className="p-error-input">'The email is required'</p>
         )}
         {errors.email?.type === "maxLength" && (
-          <p className="p-error-input">'The email mu largo'</p>
+          <p className="p-error-input">'The email is too long'</p>
         )}
         {errors.email?.type === "pattern" && (
           <p className="p-error-input">'The email format is wrong'</p>

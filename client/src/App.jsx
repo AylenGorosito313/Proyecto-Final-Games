@@ -1,24 +1,24 @@
 import { useState } from "react";
 import { Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Nav from "./components/Nav/Nav"
+import Nav from "./components/Nav/Nav";
 import NavTop from "./components/Nav/Nav-top";
-
+import Loginn from "./pages/Login/Loginn";
 function App() {
-
- 
-
   return (
- <>
-  <Route  path="/">
-    <NavTop/>
-        < Nav />
+    <>
+      <Route path="/login">
+        <Loginn />
       </Route>
-   <Route exact path="/">
-        < Home />
+      <Route path="/">
+        {/* <NavTop />
+        <Nav /> */}
       </Route>
- </>
-  )
+      <Route exact path="/">
+        <Home />
+      </Route>
+    </>
+  );
 }
 
-export default App
+export default App;

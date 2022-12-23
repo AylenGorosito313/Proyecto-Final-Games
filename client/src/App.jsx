@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Nav from "./components/Nav/Nav";
@@ -7,14 +7,15 @@ import Loginn from "./pages/Login/Loginn";
 function App() {
   return (
     <>
-      <Route path="/login">
+      <Route  exact  path="/login">
         <Loginn />
       </Route>
-      <Route path="/">
-        {/* <NavTop />
-        <Nav /> */}
-      </Route>
+      {/* <Route  exact path="/">
+     
+      </Route> */}
       <Route exact path="/">
+      <NavTop />
+        <Nav />
         <Home />
       </Route>
     </>

@@ -17,7 +17,7 @@
   flex-direction: column;
   align-items: center;
   width: 45vh;
-  height: 90vh;
+  height: 80vh;
   background: #fff;
   position: relative;
   border-radius: 10px;
@@ -189,6 +189,8 @@
 
 .img-deco{
     width: 20px;
+    z-index: 1;
+    position: relative;
 }
 .socialmedia-container{
   

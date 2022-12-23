@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DecoImg from "../../svg/DecoImg";
+
 import "./css/Login.css";
 import LogoLogin from "../../svg/LogoLogin";
 import FormLogin from "./formularios/FormLogin";
@@ -40,9 +40,7 @@ function Loginn() {
               <Facebook />
             </div>
           </div>
-          <div className="img-deco">
-            <DecoImg />
-          </div>
+      
         </div>
       </div>
     </>

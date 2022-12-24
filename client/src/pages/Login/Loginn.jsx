@@ -29,7 +29,7 @@ function Loginn() {
                     style={{ width: "100%", height: "100%" }}
                     className="img-conteiner"
                 >
-                    <img className="img-mario" src={mario} alt="" />
+                    <img className="img-mario" src={mario} alt="mario" />
                 </div>
                 <div className="container-form-login">
                     <div className="Logo-div">

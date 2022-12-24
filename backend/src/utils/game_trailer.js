@@ -21,12 +21,12 @@ const gameTrailer = async (gameInfo, id) => {
                     trailer: trailer.results[0]?.data,
                 };
             });
-            console.log(results)
-
             return results;
         }
     } catch (error) {
-        return error.message;
+        return {
+            error: error.message
+        };
     }
 };
 

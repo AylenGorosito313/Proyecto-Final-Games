@@ -4,13 +4,13 @@ require("dotenv").config();
 const { URL, API_KEY } = process.env;
 
 /**
- * 
+ *
  * @param {string} path el path a donde quieres pedir info a la api
  * @param {string|number} [page] opcional, es el paginado
  * @returns {object}
  */
 const apiClient = async (path, page = "") => {
-    console.log(`${URL}${path}?key=${API_KEY}${page}`)
+    console.log(`${URL}${path}?key=${API_KEY}${page}`);
     try {
         const response = await axios.get(
             `${URL}${path}?key=${API_KEY}${page}`,
@@ -29,7 +29,9 @@ const apiClient = async (path, page = "") => {
         );
         return response.data;
     } catch (error) {
-        return error.message;
+        return {
+            error: error.message,
+        };
     }
 };
 

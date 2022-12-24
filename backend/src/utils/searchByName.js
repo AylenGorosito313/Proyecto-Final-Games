@@ -7,7 +7,9 @@ const searchByName = async (name) => {
         let mapToGames = await mapGames(response.results);
         return mapToGames;
     } catch (error) {
-        return error.message;
+        return {
+            error: error.message
+        };
     }
 };
 

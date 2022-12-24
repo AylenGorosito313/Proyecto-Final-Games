@@ -1,6 +1,5 @@
 
 const mapGames = async (games) => {
-    console.log(games)
     try {
         return games.map((game) => {
             return {

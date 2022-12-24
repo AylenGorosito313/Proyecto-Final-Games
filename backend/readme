@@ -1,0 +1,5 @@
+  claves
+  STRIPE_PUBLIC_KEY=pk_test_51MH6yjKDmtpWl5kIZyqhD9xLTP7SXEtPwEYrErY8BPDGezOUfdS3IhXTvziZX2qt2nHNWXabycEKxwmobY5p8KUv00bDPtK1he
+  STRIPE_SECRET_KEY=sk_test_51MH6yjKDmtpWl5kIIRp4BufFjvq75BT9PtAhuBG6KK2auqnwJgfvHtWDPy6OhCNDyD3T5hz1sWmMkYgGWqOzXugu00LANRyLGm
+  STRIPE_WEBHOOK_SECRET=<YOUR-WEBHOOK-KEY>
+  https://codingpr.com/es/suscripciones-con-express-stripe/

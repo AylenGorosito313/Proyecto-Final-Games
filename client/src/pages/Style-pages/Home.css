@@ -3,7 +3,7 @@
     display: flex;
     height: auto;
     flex-wrap: wrap;
-
+padding-left: 10rem;
     width: auto;
     justify-content: center;
     left: 700px;
@@ -16,7 +16,10 @@ position: absolute;
 width: auto;
 height: auto;
 pointer-events: none;
-
-
+top:-20rem;
+z-index: 0;
 }
 
+.swiper {
+    margin-top: 220px;
+}

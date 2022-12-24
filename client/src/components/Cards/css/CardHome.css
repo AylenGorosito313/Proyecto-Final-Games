@@ -2,24 +2,26 @@
     background-color:  #1C1632!important;  
     display: flex;
     height: auto;
-    padding-top: 20px;
+    padding-top: 10px;
     flex-wrap: wrap;
     width: 400px;
     align-items: center;
     flex-wrap: wrap;
-
+  
 }
 
 .div-home-card{
     background-color:#1C1632;  
     display: flex;
     height: auto;
+    position: relative;
     justify-content: center;
     flex-wrap: wrap;
     width: auto;
-    
+    padding: 0px;
+    justify-content: center;
    z-index: 1;
-
+   top:-60rem;
     border-top: 20px solid  #1C1632;
 }
 
@@ -35,3 +37,5 @@
     height: auto;
     width: 50vw;
 }
+
+

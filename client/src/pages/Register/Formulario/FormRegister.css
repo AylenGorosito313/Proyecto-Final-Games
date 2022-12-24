@@ -1,0 +1,143 @@
+.overlay-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  @media (max-width: 500px) {
+    height: auto;
+    width: auto;
+  }
+}
+
+.container-form-login-register {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45vh;
+  height: 90vh;
+  background: #fff;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  @media (max-width: 500px) {
+    height: auto;
+    width: auto;
+  }
+}
+.Logo-div-register {
+  display: flex;
+  padding: 14px 34px 10px 10px;
+  justify-content: center;
+  width: 90%;
+}
+
+.form {
+  height: auto;
+  position: relative;
+  border-radius: 6px;
+  padding: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+
+  width: 40vh;
+
+  border-radius: 6px;
+  padding: 10px 0px 0px 0px;
+  background: #fff;
+}
+
+.form input {
+  color: black;
+}
+
+.input-register {
+  height: 40px;
+  width: 90%;
+  border: none;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 200;
+
+  outline: none;
+  box-sizing: border-box;
+  /* position: absolute; */
+
+  border: 0.2px solid #606060;
+  border-radius: 10px;
+}
+
+.input-container-register {
+  width: 40vh;
+  height: auto;
+  display: flex;
+  padding: 10px 0px 10px 0px;
+}
+.input-register::placeholder {
+  padding: 15px;
+  color: #b6b6b6;
+  font-weight: 500;
+}
+.label-register {
+  font-family: Poppins;
+  color: #606060;
+  margin: 0;
+}
+.button-register {
+  text-decoration: none;
+  position: absolute;
+  border: none;
+  font-size: 14px;
+
+  font-family: inherit;
+  color: #fff;
+  width: 34vh;
+  height: 35px;
+  line-height: 2em;
+  text-align: center;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 300%;
+  border-radius: 6px;
+  z-index: 1;
+}
+
+.button-register:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 6px;
+  transition: 1s;
+}
+
+.button-register:hover::before {
+  filter: blur(20px);
+}
+
+.button-register:active {
+  background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+}
+
+.boton-container-register {
+  padding: 10px 10px 10px 10px;
+}
+
+.label-register-login {
+  font-family: Poppins;
+  color: #606060;
+  margin: 0;
+  font-size: 12px;
+}

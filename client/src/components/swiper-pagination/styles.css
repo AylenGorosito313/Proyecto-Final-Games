@@ -17,7 +17,9 @@ body {
 }
 
 .swiper {
-  max-width: 100%;
+  top: -60rem;
+  padding-top: 180px;
+  max-width: 90%;
   max-height: 500px;
   background-color: transparent;
   z-index: 0;

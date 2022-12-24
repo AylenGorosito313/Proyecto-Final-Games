@@ -1,13 +1,12 @@
 import React from "react";
-import "./Styleds/CardHome.css";
+import "./css/CardHome.css";
 import {
   ContImagen,
   TituloCard,
   Div,
-  TituloContainer,
   Cards,
   Imagen,
-} from "./Styleds/CardsStyled";
+} from "./CardsStyled";
 
 function Card({ name, img, id }) {
   return (
@@ -24,3 +23,4 @@ function Card({ name, img, id }) {
 }
 
 export default Card;
+

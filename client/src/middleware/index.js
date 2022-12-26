@@ -4,7 +4,8 @@ import {
     getAllGames,
     getByName,
     setIsloader,
-    responseRegister
+    responseRegister,
+    responseLogin
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
@@ -55,6 +56,6 @@ export const createUser= ({ name, lastName, email, password}) => {
         data: { email, password},
         url: "http://localhost:3001/login/user",
       });
-      dispatch(responseRegister(res.data));
+      dispatch(responseLogin(res.data));
     };
   };

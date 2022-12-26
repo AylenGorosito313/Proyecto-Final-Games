@@ -6,7 +6,7 @@ import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
 import details from "../assets/details1.png";
 import SwiperPage from "../components/swiper-pagination/swiper";
-import SignInModal from "../components/SignIn/SignInModal";
+
 
 
 

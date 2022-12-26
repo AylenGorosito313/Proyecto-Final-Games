@@ -22,7 +22,7 @@ function FormLogin() {
   const OnSubmit = async (data) => {
     console.log(data);
     dispatch(LoginUser(data));
-    navigate.push('/')
+    // navigate.push('/')
   };
   return (
     <>

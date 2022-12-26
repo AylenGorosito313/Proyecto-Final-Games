@@ -5,7 +5,7 @@ import { getSearchByName } from "../../middleware";
 import SearchS from "../../svg/SearchSmall";
 import { Layout, ContainerSearch, Input, Svg, Div } from "./SearchStyled";
 import "./Search";
-import SignInBtn from "../SignIn/SignInBtn";
+
 export default function Search() {
   const dispatch = useDispatch();
 

@@ -7,6 +7,7 @@ const initialState = {
     login: "",
     register: "",
   },
+
   isLoader: false,
 };
 
@@ -30,8 +31,8 @@ export const toolkit_prueba = createSlice({
       state.res = { ...state.res, register: actions.payload };
     },
     responseLogin: (state, actions) => {
-        state.res = { ...state.res, login: actions.payload };
-      },
+      state.res = { ...state.res, login: actions.payload};
+    },
   },
 });
 
@@ -42,7 +43,8 @@ export const {
   getByName,
   setIsloader,
   responseRegister,
-  responseLogin
+  responseLogin,
+
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

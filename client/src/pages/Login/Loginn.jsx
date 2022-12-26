@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import FacebookLogin from "react-facebook-login";
 import { GoogleLogin } from "react-google-login";
 import "./css/Login.css";
+import { Link, useHistory } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import LogoLogin from "../../svg/LogoLogin";
 import FormLogin from "./formularios/FormLogin";
@@ -14,8 +15,9 @@ import mario from "../../assets/mario.jpg";
 
 function Loginn() {
   const { res } = useSelector((state) => state.prueba);
+  const navigate = useHistory()
   const backResponse = () =>
-    toast( " Welcome " + res.login.name , {
+    toast(" Welcome back !" + res.login.name, {
       position: "bottom-right",
       duration: 4000,
       icon: "👏",
@@ -26,6 +28,10 @@ function Loginn() {
       },
     });
 
+    if(res.login.token){
+      navigate.push('/')
+       }
+
   const responseFacebook = (response) => {
     console.log(response);
   };
@@ -33,10 +39,11 @@ function Loginn() {
     console.log(response);
   };
 
-  console.log(res);
+  console.log(res.login);
   return (
     <>
       {res.login && backResponse()}
+
       <Toaster />
 
       <div className="overlay">

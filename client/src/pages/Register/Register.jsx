@@ -8,7 +8,7 @@ import { Imagen } from "../Login/css/Img";
 import backgroundImg from "../../assets/fondoLOGIN.png";
 import { useSelector } from "react-redux";
 export default function Register() {
-  const { res } = useSelector((state) => state.prueba);
+  const { res} = useSelector((state) => state.prueba);
 
   const notify = () =>
     toast(res.register.message, {

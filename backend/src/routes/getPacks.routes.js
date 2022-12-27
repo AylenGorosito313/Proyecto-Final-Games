@@ -7,7 +7,7 @@ packsRouter.get("/packsGames", async (req, res, next) => {
       const packs = await GamePacks.findAll();
       return res.send(packs);
     } catch (error) {
-      return next(error);
+      return res.send("no hay packs");
     }
   })
 module.exports = packsRouter;

@@ -1,5 +1,5 @@
 
-const { GamePacks } = require("../models/gamesPacks"); 
+const { GamePacks } = require("../models/gamesPacks") 
 
 
 const getPacksGames = async (req, res, next) => {
@@ -7,7 +7,8 @@ const getPacksGames = async (req, res, next) => {
       const packs = await GamePacks.findAll();
       return res.send(packs);
     } catch (error) {
-      return next(error);
+      
+      return res.send("hola mundo");
     }
   };
 

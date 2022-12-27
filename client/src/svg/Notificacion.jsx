@@ -5,88 +5,28 @@ function notificacion() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="28"
-      height="30"
+      height="28"
       fill="none"
-      viewBox="0 0 20 24"
+      viewBox="0 0 24 24"
     >
-      <g filter="url(#filter0_d_160_72)">
-        <path
-          stroke="#F8FEFF"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12.625 18.3a2.74 2.74 0 01-.769 1.91c-.492.505-1.16.79-1.856.79a2.589 2.589 0 01-1.856-.79 2.74 2.74 0 01-.769-1.91m3.256-12.597L9.348 5.7c-2.926-.007-5.466 2.438-5.486 5.4v3.411c0 .711-.087 1.405-.464 1.996l-.252.394c-.382.598.03 1.399.716 1.399h12.276c.687 0 1.097-.801.716-1.399l-.251-.394c-.376-.591-.465-1.286-.465-1.997V11.1c-.035-2.962-2.581-5.39-5.507-5.397v0z"
-          shapeRendering="crispEdges"
-        ></path>
-      </g>
-      <g filter="url(#filter1_d_160_72)">
-        <path
-          stroke="#F8FEFF"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M10 3c.464 0 .91.19 1.237.527.329.338.513.796.513 1.273v.9h-3.5v-.9c0-.477.184-.935.513-1.273A1.726 1.726 0 0110 3z"
-          shapeRendering="crispEdges"
-        ></path>
-      </g>
-      <defs>
-        <filter
-          id="filter0_d_160_72"
-          width="18.995"
-          height="20.3"
-          x="0.502"
-          y="3.2"
-          colorInterpolationFilters="sRGB"
-          filterUnits="userSpaceOnUse"
-        >
-          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
-          <feColorMatrix
-            in="SourceAlpha"
-            result="hardAlpha"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          ></feColorMatrix>
-          <feOffset></feOffset>
-          <feGaussianBlur stdDeviation="1"></feGaussianBlur>
-          <feComposite in2="hardAlpha" operator="out"></feComposite>
-          <feColorMatrix values="0 0 0 0 0.00392157 0 0 0 0 0.819608 0 0 0 0 1 0 0 0 1 0"></feColorMatrix>
-          <feBlend
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_160_72"
-          ></feBlend>
-          <feBlend
-            in="SourceGraphic"
-            in2="effect1_dropShadow_160_72"
-            result="shape"
-          ></feBlend>
-        </filter>
-        <filter
-          id="filter1_d_160_72"
-          width="8.5"
-          height="7.7"
-          x="5.75"
-          y="0.5"
-          colorInterpolationFilters="sRGB"
-          filterUnits="userSpaceOnUse"
-        >
-          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
-          <feColorMatrix
-            in="SourceAlpha"
-            result="hardAlpha"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          ></feColorMatrix>
-          <feOffset></feOffset>
-          <feGaussianBlur stdDeviation="1"></feGaussianBlur>
-          <feComposite in2="hardAlpha" operator="out"></feComposite>
-          <feColorMatrix values="0 0 0 0 0.00392157 0 0 0 0 0.819608 0 0 0 0 1 0 0 0 1 0"></feColorMatrix>
-          <feBlend
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_160_72"
-          ></feBlend>
-          <feBlend
-            in="SourceGraphic"
-            in2="effect1_dropShadow_160_72"
-            result="shape"
-          ></feBlend>
-        </filter>
-      </defs>
+      <path
+        fill="#F9F9F9"
+        fillRule="evenodd"
+        d="M5.885 8.65A4.5 4.5 0 0110.305 5h3.39a4.5 4.5 0 014.42 3.65l1.876 9.756A.5.5 0 0119.5 19h-15a.5.5 0 01-.491-.594L5.885 8.65zM10.305 6a3.5 3.5 0 00-3.438 2.839L5.105 18h13.79l-1.762-9.161A3.5 3.5 0 0013.696 6h-3.392z"
+        clipRule="evenodd"
+      ></path>
+      <path
+        fill="#F9F9F9"
+        fillRule="evenodd"
+        d="M22 19H2v-1h20v1z"
+        clipRule="evenodd"
+      ></path>
+      <path
+        fill="#F9F9F9"
+        fillRule="evenodd"
+        d="M8.5 18.5A.5.5 0 019 18h6a.5.5 0 01.5.5v1A2.5 2.5 0 0113 22h-2a2.5 2.5 0 01-2.5-2.5v-1zm1 .5v.5A1.5 1.5 0 0011 21h2a1.5 1.5 0 001.5-1.5V19h-5zM9.5 5.5a.5.5 0 00.5.5h4a.5.5 0 00.5-.5v-1a2.5 2.5 0 00-5 0v1zm1-.5v-.5a1.5 1.5 0 013 0V5h-3z"
+        clipRule="evenodd"
+      ></path>
     </svg>
   );
 }

@@ -1,0 +1,20 @@
+.select-container{
+    height: 100px;
+    width: 100px;
+    background: #fff;
+padding: 20px 20px 20px 20px;
+position: relative;
+cursor: pointer;
+
+}
+.option-container{
+    height: auto;
+    
+    width: auto;
+    background: #fff;
+}
+.option-name{
+    font-size: 12px;
+    font-family: Poppins;
+    color: black;
+}

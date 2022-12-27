@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import "./SelectProfile.css";
-import { useHistory } from "react-router-dom";
-export default function SelectProfile({setOpen, setLogin}) {
-  const navigate = useHistory();
+import { clearState } from "../../reducers/prueba/pruebaSlider";
+export default function SelectProfile({ setOpen, setLogin }) {
+  const dispatch =useDispatch()
   const handlerLogout = () => {
-    setOpen(false)
-    setLogin(null)
+    setOpen(false);
+    localStorage.setItem("token", null);
+    setLogin(null);
+    dispatch(clearState())
    
-    localStorage.setItem('token', null);
-    // navigate.push("/login");
   };
-  function getData() {
-    return localStorage.getItem("token");
-  }
-
-
 
   return (
-    <div className="select-container">
+    <div className="select-layout">
+   <div className="select-container">
       <div className="option-container">
         <p className="option-name">Profile</p>
       </div>
@@ -29,5 +25,7 @@ export default function SelectProfile({setOpen, setLogin}) {
         <p className="option-name">Logut</p>
       </div>
     </div>
+    </div>
+ 
   );
 }

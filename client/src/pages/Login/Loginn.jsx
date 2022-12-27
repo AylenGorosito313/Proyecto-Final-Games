@@ -15,7 +15,7 @@ import mario from "../../assets/mario.jpg";
 
 function Loginn() {
   const { res } = useSelector((state) => state.prueba);
-  const navigate = useHistory();
+  const navigateToHome = useHistory();
   const backResponse = () =>
     toast(" Welcome back !" + res.login.name, {
       position: "bottom-right",
@@ -29,7 +29,7 @@ function Loginn() {
     });
 
   if (res.login.token) {
-    navigate.push("/");
+    navigateToHome.push("/");
     localStorage.setItem('token',res.login.token );
   }
 

@@ -37,8 +37,8 @@ const GamePacks = sequelize.define("gamepacks", {
         allowNull: false,
       },
 })
-GamePacks.belongsTo(Status, { through: "gamePacks_status" })
-GamePacks.belongsToMany(Users, { through: "gamePacks_users" })
+GamePacks.belongsTo(Status)
+GamePacks.belongsToMany(Users)
 GamePacks.belongsToMany(Transaction, { through: "gamePacks_transaction" })
 
 module.exports = { GamePacks };

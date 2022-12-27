@@ -8,7 +8,7 @@ const userGame = sequelize.define("userGame", {
     
     id: {
         type: DataTypes.UUID,
-        defaultValue: UUIDV4,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
       price: {
@@ -18,9 +18,9 @@ const userGame = sequelize.define("userGame", {
 
 
 })
-userGame.belongsTo(Users,{ through: "userGame_users"});
-userGame.belongsTo(Game,{ through: "userGame_game"});
-userGame.belongsTo(Status, { through: "userGame_status" })
+userGame.belongsTo(Users);
+userGame.belongsTo(Game);
+userGame.belongsTo(Status)
 userGame.belongsToMany(Transaction,{ through: "userGame_Transaction"})
 
 module.exports = { userGame };

@@ -18,8 +18,8 @@ const Opinion = sequelize.define("opinion", {
         allowNull: false,
       },
 })
-GamePacks.belongsTo(Status, { through: "opinion_status" })
-GamePacks.belongsTo(Users, { through: "opinion_users" })
-GamePacks.belongsTo(Game, { through: "opinion_game" })
+GamePacks.belongsTo(Status)
+GamePacks.belongsTo(Users)
+GamePacks.belongsTo(Game)
 
 module.exports = { Opinion };

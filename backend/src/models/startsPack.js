@@ -25,6 +25,6 @@ const starsPacks = sequelize.define("starsPacks", {
 
       }
 })
-starsPacks.belongsTo(Status, { through: "starsPacks_status" });
+starsPacks.belongsTo(Status);
 starsPacks.belongsToMany(Transaction,{ through: "starsPacks_users"})
 module.exports = {starsPacks};

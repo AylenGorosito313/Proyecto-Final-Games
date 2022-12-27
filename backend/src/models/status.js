@@ -25,10 +25,10 @@ const Status = sequelize.define("status", {
       },
 })
 
-Status.hasMany(Users,{ through: "status_users"});
-Status.hasMany(Game,{ through: "status_game"});
-Status.hasMany(starsPacks,{ through: "status_starsPacks"});
-Status.hasMany(GamePacks,{ through: "status_GamePacks"});
-Status.hasMany(Opinion,{ through: "status_Opinion"});
-Status.hasMany(userGame,{ through: "status_userGame"});
+Status.hasMany(Users);
+Status.hasMany(Game);
+Status.hasMany(starsPacks);
+Status.hasMany(GamePacks);
+Status.hasMany(Opinion);
+Status.hasMany(userGame);
 module.exports = { Status };

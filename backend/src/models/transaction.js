@@ -36,8 +36,8 @@ const Transaction = sequelize.define("transaction", {
         type: DataTypes.FLOAT
       }
 })
-Transaction.belongsTo(Status, { through: "Transaction_status" })
-Transaction.belongsTo(Users,{ through: "Transaction_users"});
+Transaction.belongsTo(Status)
+Transaction.belongsTo(Users);
 Transaction.belongsToMany(starsPacks, { through: 'Transaction_StarsPack' });
 Transaction.belongsToMany(GamePacks, { through: 'Transaction_CardPacks' });
 Transaction.belongsToMany(userGame, { through: 'Transaction_userGame' });

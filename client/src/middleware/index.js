@@ -13,7 +13,7 @@ export const getGames = () => {
             dispatch(setIsloader());
             let {data} = await axios({
                 method: "GET",
-                url: `http://localhost:3001/`,
+                url: `http://localhost:3001/games`,
             });
             dispatch(getAllGames(data));
             dispatch(setIsloader());

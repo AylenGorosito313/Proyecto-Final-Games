@@ -1,23 +1,75 @@
-import React from "react";
-import "./css/CardHome.css";
-import {
-  ContImagen,
-  TituloCard,
-  Div,
-  Cards,
-  Imagen,
-} from "./CardsStyled";
+import React, { useState } from "react";
+import "./Cards.css"
+import { Link } from "react-router-dom";
+import { platformImage } from "./utils";
 
-function Card({ name, img, id }) {
+
+function Card({ name, img, id, rating, platforms, released, genres }) {
+
+  const [toggle, setToggle] = useState(true);
+
+  
+  const onClick = (e) => {
+    setToggle(!toggle)
+  }
+  
+
   return (
-    <div className="div-cards-home">
-      <Cards>
-        <TituloCard>{name}</TituloCard>
+    <div className="single-card">
 
-        <ContImagen>
-          <Imagen src={img} />
-        </ContImagen>
-      </Cards>
+      <div className="card">
+        
+          <div className="game-image">
+            <div className="favourite-tag" onClick={onClick} >{toggle ? <i className="fa-regular fa-heart fa-2xl"></i> : <i className="fa-solid fa-heart fa-2xl red-heart"></i>}</div>
+            <img src={img} alt={name} />
+          </div>
+
+          <div className="card-content">
+          
+            <div className="card-content-header">
+             <Link to="#">
+              <h3>{name}</h3>
+             </Link> 
+              <div ><i className="fa-solid fa-star star" ></i> {rating}</div>
+            </div>
+
+            <div className="line"/>
+            <br></br>
+
+            {/* This is the div that appears with the hover  */}
+            <div className="magic-hover">
+
+            <div className="more-content-1">
+              <div>Release date:</div>
+              <div>{released}</div>
+            </div>
+
+            <div className="line"/>
+            <br></br>
+
+            <div className="more-content-2">
+              <div>Genres:</div>
+              <div>{genres.length > 0 ? genres.slice(0,3).map( (el, index) => (
+              <span key={el}>{(index ? " / " : "") + el}</span>
+              )) : "No genres"}</div>
+            </div>
+            <div className="line"/>
+            <br></br>
+
+            </div>
+            
+            <div className="card-footer">
+              <ul className="icons">
+                {platforms.length > 0 ? platforms.slice(0,3).map( el => (
+                  <li key={el}> 
+                    {platformImage(el)} 
+                  </li>
+                )) : "No available for plataforms"}
+              </ul>
+            </div>
+          
+          </div>
+      </div>
     </div>
   );
 }

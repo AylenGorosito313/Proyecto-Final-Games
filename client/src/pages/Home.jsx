@@ -6,7 +6,7 @@ import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
 import details from "../assets/details1.png";
 import SwiperPage from "../components/swiper-pagination/swiper";
-import SignInModal from "../components/SignIn/SignInModal";
+
 
 
 
@@ -40,17 +40,24 @@ function Home() {
                         alt="background"
                     />
                     
-                    {games.length &&
-                        games.map((ele) => {
-                            return (
-                                <Card
-                                    key={ele.name}
-                                    img={ele.background_image}
-                                    name={ele.name}
-                                    id={ele.id}
-                                />
-                            );
-                        })}
+                    
+                                {games.length &&
+                                    games.map((ele) => {
+                                        return (
+                                            <Card
+                                                key={ele.id}
+                                                img={ele.background_image}
+                                                name={ele.name}
+                                                id={ele.id}
+                                                rating={ele.rating}
+                                                platforms={ele.parent_platforms}
+                                                released={ele.released}
+                                                genres={ele.genres}
+                                            />
+                                        );
+                                    })}
+                    
+                    
                 </div>
             </div>
         </>

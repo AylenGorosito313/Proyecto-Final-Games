@@ -24,8 +24,10 @@ function Home() {
     }
     return (
         <>
-    
+            <div className="container- swipper">
             <SwiperPage />
+
+            </div>
             <div className="div-home">
       
                 <div className="div-home-card">

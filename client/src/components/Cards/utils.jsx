@@ -13,3 +13,8 @@ export const platformImage = (el) => {
    }
    
   }
+
+  export const priceFactor = (el) => {
+      if(el >= 3.5) return ((el * 0.5) + 5).toFixed(2)
+      else return ((el * 0.5) + 0.2).toFixed(2)
+  }

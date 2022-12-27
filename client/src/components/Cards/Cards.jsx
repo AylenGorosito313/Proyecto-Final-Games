@@ -2,25 +2,30 @@ import React, { useState } from "react";
 import "./Cards.css"
 import { Link } from "react-router-dom";
 import { platformImage } from "./utils";
+import { priceFactor } from "./utils";
 
 
 function Card({ name, img, id, rating, platforms, released, genres }) {
 
-  const [toggle, setToggle] = useState(true);
+  const [toggleFavorite, setToggleFavorite] = useState(false);
+  const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
 
   
-  const onClick = (e) => {
-    setToggle(!toggle)
+  const onClickFavorite = () => {
+    setToggleFavorite(!toggleFavorite)
+  }
+
+  const onClickShoppingCart = () => {
+    setToggleShoppingCart(!toggleShoppingCart)
   }
   
 
   return (
     <div className="single-card">
-
       <div className="card">
         
           <div className="game-image">
-            <div className="favourite-tag" onClick={onClick} >{toggle ? <i className="fa-regular fa-heart fa-2xl"></i> : <i className="fa-solid fa-heart fa-2xl red-heart"></i>}</div>
+            <div className="favourite-tag" onClick={onClickFavorite} >{toggleFavorite ? <i className="fa-solid fa-heart fa-2xl red-heart"></i> : <i className="fa-regular fa-heart fa-2xl"></i>  }</div>
             <img src={img} alt={name} />
           </div>
 
@@ -33,11 +38,25 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
               <div ><i className="fa-solid fa-star star" ></i> {rating}</div>
             </div>
 
-            <div className="line"/>
-            <br></br>
+            <div className="price-cart">
+            <span className="price">US$ {priceFactor(rating)}</span>
+            <div className="shopping-cart" onClick={onClickShoppingCart} >
+              <i class="fa-solid fa-cart-shopping cart"> </i>
+              <div className="check-plus">
+                { toggleShoppingCart ? 
+                <i class="fa-solid fa-check check"></i> : 
+                <i class="fa-solid fa-plus plus"></i> }
+              </div>
+              
+              </div>
+            </div>
 
             {/* This is the div that appears with the hover  */}
+            
             <div className="magic-hover">
+            
+            <div className="line"/>
+            <br></br>
 
             <div className="more-content-1">
               <div>Release date:</div>
@@ -53,10 +72,9 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
               <span key={el}>{(index ? " / " : "") + el}</span>
               )) : "No genres"}</div>
             </div>
+
             <div className="line"/>
             <br></br>
-
-            </div>
             
             <div className="card-footer">
               <ul className="icons">
@@ -67,7 +85,8 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
                 )) : "No available for plataforms"}
               </ul>
             </div>
-          
+
+            </div>
           </div>
       </div>
     </div>

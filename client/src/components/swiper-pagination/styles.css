@@ -1,9 +1,9 @@
-#app { height: 100% }
+/* #app { height: 100% }
 html,
 body {
  
   height: 100%;
-}
+} */
 
 body {
   background: transparent;
@@ -29,8 +29,7 @@ body {
   text-align: center;
   font-size: 18px;
   background:transparent;
-position: relative;
-  
+
   display: flex;
   width: 100%;
   height: 70%;

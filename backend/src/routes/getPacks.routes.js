@@ -1,6 +1,13 @@
 const { Router } = require("express");
-const getPacksGames = require("../controllers/gamesPacks.controllers");
-const PacksGamesRouter = Router();
+const {GamePacks}= require("../models/gamesPacks")
+const packsRouter = Router();
 
-PacksGamesRouter.get("/packsGames", getPacksGames);
-module.exports = PacksGamesRouter;
+packsRouter.get("/packsGames", async (req, res, next) => {
+    try {
+      const packs = await GamePacks.findAll();
+      return res.send(packs);
+    } catch (error) {
+      return next(error);
+    }
+  })
+module.exports = packsRouter;

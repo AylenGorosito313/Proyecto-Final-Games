@@ -1,3 +1,4 @@
+"use strict";
 const { DataTypes } = require("sequelize");
 const sequelize = require("../db");
 const {Game} = require("./games")
@@ -14,14 +15,7 @@ const Status = sequelize.define("status", {
       },
       status: {
         type: DataTypes.STRING,
-        validate: {
-          customValidator: (value) => {
-            const enums = ["active", "inactive", "onDeck", "onSale"];
-            if (!enums.includes(value)) {
-              throw new Error("not a valid option");
-            }
-          },
-        },
+       
       },
 })
 

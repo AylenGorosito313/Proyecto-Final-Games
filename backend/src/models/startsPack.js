@@ -1,9 +1,17 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../db");
-const { Status } = require('./status')
-const{Transaction}=require("./transaction")
-const starsPacks = sequelize.define("starsPacks", {
-    id: {
+
+const { Model } = require("sequelize");
+
+class starsPacks extends Model {
+  static associate(models) {
+    starsPacks.belongsTo(models.Status);
+    starsPacks.belongsToMany(models.Transaction, { through: 'Transaction_StarsPack' });
+  }
+}
+
+module.exports = (sequelize, DataTypes) => {
+  starsPacks.init(
+    {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -24,7 +32,13 @@ const starsPacks = sequelize.define("starsPacks", {
         type: DataTypes.STRING,
 
       }
-})
-starsPacks.belongsTo(Status);
-starsPacks.belongsToMany(Transaction,{ through: "starsPacks_users"})
+    },
+    {
+      sequelize,
+      modelName: "StarsPack",
+    }
+  );
+  return starsPacks;
+};
+
 module.exports = {starsPacks};

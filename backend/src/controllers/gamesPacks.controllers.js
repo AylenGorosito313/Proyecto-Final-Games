@@ -12,5 +12,5 @@ const getPacksGames = async (req, res, next) => {
   };
 
   module.exports = {
-getPacksGames
+    getPacksGames
 };

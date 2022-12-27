@@ -1,14 +1,20 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../db");
-const {Users}= require("./users")
-const { starsPacks}= require("./startsPack")
-const {GamePacks}= require("./gamesPacks")
-const{userGame}=require("./userGame")
-const { Status } = require('./status')
 
+const { Model } = require("sequelize");
 
-const Transaction = sequelize.define("transaction", {
-    id: {
+class Transaction extends Model {
+  static associate(models) {
+    Transaction.belongsTo(models.Status);
+    Transaction.belongsTo(models.Users);
+    Transaction.belongsToMany(models.starsPacks, { through: 'Transaction_StarsPack' });
+    Transaction.belongsToMany(models.GamePacks, { through: 'Transaction_CardPacks' });
+    Transaction.belongsToMany(models.userGame, { through: 'Transaction_UserCards' });
+  }
+}
+
+module.exports = (sequelize, DataTypes) => {
+  Transaction.init(
+    {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -35,11 +41,14 @@ const Transaction = sequelize.define("transaction", {
       priceMoney: {
         type: DataTypes.FLOAT
       }
-})
-Transaction.belongsTo(Status)
-Transaction.belongsTo(Users);
-Transaction.belongsToMany(starsPacks, { through: 'Transaction_StarsPack' });
-Transaction.belongsToMany(GamePacks, { through: 'Transaction_CardPacks' });
-Transaction.belongsToMany(userGame, { through: 'Transaction_userGame' });
+    },
+    {
+      sequelize,
+      modelName: "Transaction",
+      //   timestamps: false
+    }
+  );
+  return Transaction;
+};
 
 module.exports = { Transaction };

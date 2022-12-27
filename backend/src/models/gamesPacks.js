@@ -1,10 +1,20 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../db");
-const { Status } = require('./status')
-const {Users}= require("./users")
-const{Transaction}=require("./transaction")
-const GamePacks = sequelize.define("gamepacks", {
-    id: {
+
+const { Model } = require("sequelize");
+
+class GamePacks extends Model {
+  static associate(models) {
+    GamePacks.belongsTo(models.Status);
+    GamePacks.belongsToMany(models.User, { through: "FavPacks" });
+    GamePacks.belongsToMany(models.Transaction, {
+      through: "Transaction_CardPacks",
+    });
+  }
+}
+
+module.exports = (sequelize, DataTypes) => {
+  GamePacks.init(
+    {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -28,7 +38,7 @@ const GamePacks = sequelize.define("gamepacks", {
       rating: {
         type: DataTypes.FLOAT,
     },
-      games: {
+      cards: {
         type: DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.STRING)),
         allowNull: false,
       },
@@ -36,9 +46,14 @@ const GamePacks = sequelize.define("gamepacks", {
         type: DataTypes.STRING,
         allowNull: false,
       },
-})
-GamePacks.belongsTo(Status)
-GamePacks.belongsToMany(Users)
-GamePacks.belongsToMany(Transaction, { through: "gamePacks_transaction" })
+    },
+    {
+      sequelize,
+      modelName: "CardPacks",
+    }
+  );
+  return GamePacks;
+};
 
 module.exports = { GamePacks };
+

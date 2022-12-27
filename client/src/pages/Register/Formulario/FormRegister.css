@@ -55,6 +55,10 @@
   background: #fff;
 }
 
+.form input {
+  color: black;
+}
+
 .input-register {
   height: 40px;
   width: 90%;

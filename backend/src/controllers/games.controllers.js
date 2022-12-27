@@ -82,6 +82,8 @@ const createGame = async (req, res) => {
     }
 };
 
+//https://api.rawg.io/api/games?dates=2023-12-01,2023-12-30
+
 module.exports = {
     gameInformation,
     getGames,

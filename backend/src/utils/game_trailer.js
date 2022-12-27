@@ -1,9 +1,11 @@
 const apiClient = require("./apiClient");
+const screenshotGame = require("./screenshotGame");
 
 const gameTrailer = async (gameInfo, id) => {
     try {
         if (id) {
             let trailer = await apiClient(`games/${id}/movies`);
+            let screenshot = await screenshotGame(id)
             let results = gameInfo.map((ele) => {
                 return {
                     name: ele.name,
@@ -18,15 +20,16 @@ const gameTrailer = async (gameInfo, id) => {
                     stores: ele.stores.map((s) => s.store.domain),
                     genres: ele.genres.map((g) => g.name),
                     description_raw: ele.description_raw,
+                    screenshot: screenshot?.map(screen => screen.image),
                     trailer: trailer.results[0]?.data,
                 };
             });
-            console.log(results)
-
             return results;
         }
     } catch (error) {
-        return error.message;
+        return {
+            error: error.message
+        };
     }
 };
 

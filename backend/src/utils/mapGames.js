@@ -14,7 +14,11 @@ const mapGames = async (games) => {
                 genres: game.genres.map(genre => genre.name)
             };
         });
-    } catch (error) {}
+    } catch (error) {
+        return {
+            error: error.message
+        }
+    }
 };
 
 module.exports = mapGames;

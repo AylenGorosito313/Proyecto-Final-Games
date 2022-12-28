@@ -4,6 +4,7 @@ import SelectProfile from "../Select/SelectProfile";
 import { useHistory } from "react-router-dom";
 import Notificacion from "../../svg/Notificacion";
 import "./Nav-top.css";
+import "../Botones/BotonLogin.css"
 import Car from "../../svg/Car";
 import User from "../../svg/User";
 import { useLocalStorage } from "../../middleware/utils/useLocalStorage";
@@ -39,21 +40,19 @@ function NavTop() {
             <Notificacion />
           </div>
           <div>
-            {/* {!Login ?   <div onClick={handlerOpen} className="div-icon"><User   /></div> : <button onClick={handleLogin}>Login</button> */}
-            {/* } */}
-
             {Login === null ? (
-              <button onClick={handleLogin}>Login</button>
+              <button className="button-85" role="button" onClick={handleLogin} >
+                Login
+              </button>
             ) : (
               <div onClick={handlerOpen} className="div-icon">
                 <User />
               </div>
             )}
-          
           </div>
           <div className="op">
-              {Open && <SelectProfile setOpen={setOpen} setLogin={setLogin} />}
-            </div>
+            {Open && <SelectProfile setOpen={setOpen} setLogin={setLogin} />}
+          </div>
         </div>
       </div>
     </>

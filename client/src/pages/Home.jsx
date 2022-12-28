@@ -21,6 +21,7 @@ function Home() {
   return (
     <>
       <div>
+        
         <Seach />
       </div>
       <div className="container-all-content-center">

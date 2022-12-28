@@ -27,8 +27,7 @@ function Home() {
       {/* <SwiperPage /> */}
       <div className="div-home">
         <div className="div-home-card">
-          <img className="img-background" src={details} alt="background" />
-          <img className="img-background" src={img} alt="background" />
+       
 
           {games.length &&
             games.map((ele) => {

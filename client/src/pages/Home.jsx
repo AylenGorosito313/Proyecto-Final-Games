@@ -4,8 +4,7 @@ import { getGames } from "../middleware";
 import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
 import HomeSlider from "../components/swiper-pagination/homeSlide";
-
-
+import MiniCards from "../components/Cards/cardsSlides/miniCards";
 import Seach from "../components/Search/Search";
 function Home() {
   const dispatch = useDispatch();
@@ -24,26 +23,30 @@ function Home() {
       <div>
         <Seach />
       </div>
-      <div className="container- swipper">
-        <HomeSlider />
-      </div>
-      <div className="div-home">
-        <div className="div-home-card">
-          {games.length &&
-            games.map((ele) => {
-              return (
-                <Card
-                  key={ele.id}
-                  img={ele.background_image}
-                  name={ele.name}
-                  id={ele.id}
-                  rating={ele.rating}
-                  platforms={ele.parent_platforms}
-                  released={ele.released}
-                  genres={ele.genres}
-                />
-              );
-            })}
+      <div className="container-all-content-center">
+        <div className="container-home-swipper">
+          <HomeSlider />
+       
+         
+        </div>
+        <div className="div-home">
+          <div className="div-home-card">
+            {games.length &&
+              games.map((ele) => {
+                return (
+                  <Card
+                    key={ele.id}
+                    img={ele.background_image}
+                    name={ele.name}
+                    id={ele.id}
+                    rating={ele.rating}
+                    platforms={ele.parent_platforms}
+                    released={ele.released}
+                    genres={ele.genres}
+                  />
+                );
+              })}
+          </div>
         </div>
       </div>
     </>

@@ -21,6 +21,10 @@ const Users = sequelize.define('user', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    proveedor:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    },
     passwordHash: {
         type: DataTypes.STRING,
         allowNull: false

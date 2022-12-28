@@ -15,7 +15,7 @@
 
 
 .game-image img {
-    width: 328px;
+    width: 280px;
     height: 200px;
     vertical-align: middle;
     transition: .3s;
@@ -133,4 +133,19 @@ border-bottom-right-radius: 10px;
 .card:hover .magic-hover {
     display: block;
     
+}
+
+.price-cart{
+    display: flex;
+width: auto;
+align-items: center;
+justify-content: space-between;
+}
+.fa-classic, .fa-regular, .fa-solid, .far, .fas{
+    padding: 10px;
+}
+
+.shopping-cart{
+    display: flex;
+    align-items: center;
 }

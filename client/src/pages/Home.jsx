@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getGames } from "../middleware";
 import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
-import img from "../assets/backg.png";
-import details from "../assets/details1.png";
-import SwiperPage from "../components/swiper-pagination/swiper";
-import Seach from "../components/Search/Search"
+import HomeSlider from "../components/swiper-pagination/homeSlide";
+
+
+import Seach from "../components/Search/Search";
 function Home() {
   const dispatch = useDispatch();
   const { games, isLoader } = useSelector((state) => state.prueba);
@@ -21,14 +21,14 @@ function Home() {
   }
   return (
     <>
-    <div>
-<Seach/>
-    </div>
-      {/* <SwiperPage /> */}
+      <div>
+        <Seach />
+      </div>
+      <div className="container- swipper">
+        <HomeSlider />
+      </div>
       <div className="div-home">
         <div className="div-home-card">
-       
-
           {games.length &&
             games.map((ele) => {
               return (

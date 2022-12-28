@@ -1,26 +1,29 @@
-.div-home{
-    background-color:  #1C1632 !important;  
-    display: flex;
-    height: auto;
-    flex-wrap: wrap;
-padding-left: 10rem;
-    width: auto;
-    justify-content: center;
-    left: 700px;
-   z-index: 2;
+.div-home {
+  background-color: #121212 !important;
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
+  padding-left: 40px;
+  width: auto;
+  justify-content: center;
+  left: 700px;
+  z-index: 2;
 }
 
-.img-background{
-display: flex;
-position: absolute;
-width: auto;
-height: auto;
-pointer-events: none;
-top:-20rem;
-z-index: 0;
+.img-background {
+  display: flex;
+  position: absolute;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  top: -20rem;
+  z-index: 0;
 }
 
-.container-swipper {
-    background: transparent;
-    
+.div-home-card {
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

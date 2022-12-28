@@ -15,7 +15,7 @@ function App() {
       </Route>
       <Route exact path="/">
         <NavTop />
-        <Nav />
+       {/* <Nav />   */}
         <Home />
       </Route>
     </>

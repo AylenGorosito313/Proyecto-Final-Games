@@ -1,30 +1,62 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import SelectProfile from "../Select/SelectProfile";
+import { useHistory } from "react-router-dom";
 import Notificacion from "../../svg/Notificacion";
 import "./Nav-top.css";
 import Car from "../../svg/Car";
-import Search from "../Search/Search";
-import SearchIcon from "../../svg/SearchIcon";
-
+import User from "../../svg/User";
+import { useLocalStorage } from "../../middleware/utils/useLocalStorage";
 function NavTop() {
-  const [open, setOpen] = useState(false);
-  function ToggleSearch() {
-    setOpen(!open);
+  const [Login, setLogin] = useLocalStorage("");
+  const [Open, setOpen] = useState(null);
+  const navigate = useHistory();
+  function getData() {
+    return localStorage.getItem("token");
   }
-  return (
-    <div className="Nav-top-container">
-      <div className="Nav-top-container-sticky">
-        <Search />
+  const handleLogin = () => {
+    navigate.push("/login");
+  };
+  const handlerOpen = () => {
+    setOpen(!Open);
+    // setLogin(false);
+  };
 
-        <div className="div-carrito-notifi">
-          <Car />
-        </div>
-        <div className="div-notifi">
-          <Notificacion />
+  useEffect(() => {
+    setLogin(getData());
+  }, []);
+  console.log(Login);
+  return (
+    <>
+      <div className="Nav-layout">
+        <div className="Nav-top-container-sticky">
+          {/* <Search /> */}
+
+          <div className="div-icon">
+            <Car />
+          </div>
+          <div className="div-icon">
+            <Notificacion />
+          </div>
+          <div>
+            {/* {!Login ?   <div onClick={handlerOpen} className="div-icon"><User   /></div> : <button onClick={handleLogin}>Login</button> */}
+            {/* } */}
+
+            {Login === null ? (
+              <button onClick={handleLogin}>Login</button>
+            ) : (
+              <div onClick={handlerOpen} className="div-icon">
+                <User />
+              </div>
+            )}
+          
+          </div>
+          <div className="op">
+              {Open && <SelectProfile setOpen={setOpen} setLogin={setLogin} />}
+            </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

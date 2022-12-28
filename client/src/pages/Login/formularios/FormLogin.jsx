@@ -10,16 +10,12 @@ function FormLogin() {
   const navigate = useHistory()
   const dispatch = useDispatch()
   const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm({
-    defaultValues: { email: "", password: "" },
-    mode: "onChange",
-  });
+    register, handleSubmit,watch, formState: { errors },} = useForm({ defaultValues: { email: "", password: "" },mode: "onChange", });
 
 
+
+
+    
 
   const OnSubmit = async (data) => {
     console.log(data);

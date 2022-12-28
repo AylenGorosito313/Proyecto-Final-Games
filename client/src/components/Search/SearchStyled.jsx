@@ -46,8 +46,8 @@ export const Layout = styled.div`
   display: flex;
   align-items: flex-end;
 
-  justify-content: center;
-  padding: 20px;
+justify-content: flex-start;
+  padding: 45px;
   flex-direction: row;
 `;
 

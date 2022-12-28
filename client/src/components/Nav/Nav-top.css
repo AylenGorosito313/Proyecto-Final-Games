@@ -3,16 +3,11 @@
   height: 50px;
   display: flex;
   width: 100%;
-  background: rgb(83, 9, 45);
-  background: linear-gradient(
-    0deg,
-    rgba(35, 28, 60, 0.797) 100%,
-    rgb(35, 28, 60) 100%
-  );
+ background:rgb(42, 42, 42) ; 
   box-shadow: 2px 2px 1px #27213b;
 }
 .div-icon {
-  padding: 10px 10px 10px 10px;
+  padding: 10px 40px 10px 10px;
 }
 
 .op{

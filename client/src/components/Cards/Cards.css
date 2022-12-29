@@ -13,13 +13,12 @@
     overflow: hidden;
 }
 
-
 .game-image img {
     width: 328px;
-    height: 200px;
+    height: 180px;
     vertical-align: middle;
     transition: .3s;
-    border-radius: 10px;
+    
 }
 
 .favourite-tag{
@@ -47,14 +46,40 @@
     width: 230px;
     padding: 5px 25px 25px 25px;
     border-bottom: 1px solid #e8e8e8;
-border-bottom-left-radius: 10px;
-border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     display: flex;
     background: #e8e8e8;
     position: relative;
     color: #001d38;
     flex-direction: column;
     transition: heigth .3s ease;
+}
+
+.price {
+    display: inline-block;
+    background: #02ac51;
+    border-radius: 30px;
+    padding: 5px 18px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 0px;
+    font-family: "Poppins", sans-serif;
+}
+
+.shopping-cart {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.check-plus {
+    padding-left: 5px;
+}
+
+.check {
+    color: #02ac51;
 }
 
  .line {
@@ -69,6 +94,13 @@ border-bottom-right-radius: 10px;
     justify-content: space-between;
     color: #001d38;
     align-items: center;  
+}
+
+.price-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 .card-content h3 {
@@ -108,6 +140,7 @@ border-bottom-right-radius: 10px;
     align-items: center;
     padding: 0;
     margin: 0;
+    font-size: 13px;
 }
 
 .line {

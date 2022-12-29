@@ -5,7 +5,7 @@ import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
 import HomeSlider from "../components/swiper-pagination/homeSlide";
 import MiniCards from "../components/Cards/cardsSlides/miniCards";
-import Seach from "../components/Search/Search";
+import Search from "../components/Search/Search";
 function Home() {
   const dispatch = useDispatch();
   const { games, isLoader } = useSelector((state) => state.prueba);
@@ -20,9 +20,10 @@ function Home() {
   }
   return (
     <>
-      <div>
-        
-        <Seach />
+      <div className="container-search-home">
+        <p className="seccion-home-descubrir">Descubrir </p>
+        <Search />
+
       </div>
       <div className="container-all-content-center">
         <div className="container-home-swipper">

@@ -8,6 +8,20 @@
   height: auto;
   width: 200px;
 }
+
+.container-search-home{
+  display: flex;
+  width: 130vh;
+  height: 77px;
+  justify-content: center;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.seccion-home-descubrir{
+  margin: 0;
+  display: flex;
+  padding-top: 20px;
+}
 .div-home {
   background-color: #121212 !important;
   display: flex;

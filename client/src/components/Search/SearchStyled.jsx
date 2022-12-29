@@ -40,7 +40,7 @@ export const Layout = styled.div`
   display: flex;
 justify-content: flex-start;
   padding: 20px;
-    width: 80vh;
+    width: 34vh;
     justify-content: flex-end;
 `;
 

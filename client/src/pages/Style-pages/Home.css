@@ -51,8 +51,8 @@
 
 
 .container-home-swipper{
-  width: 100%;
+
   display: flex;
-padding: 10px;
+  align-items: center;
   justify-content: center;
 }

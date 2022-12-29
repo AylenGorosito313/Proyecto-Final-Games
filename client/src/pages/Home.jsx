@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getGames } from "../middleware";
 import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
-import HomeSlider from "../components/swiper-pagination/homeSlide";
+import HomeSlider from "../components/HomeSlider/HomeSlider";
 import MiniCards from "../components/Cards/cardsSlides/miniCards";
 import Search from "../components/Search/Search";
 function Home() {

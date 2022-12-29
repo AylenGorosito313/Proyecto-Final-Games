@@ -142,10 +142,18 @@ align-items: center;
 justify-content: space-between;
 }
 .fa-classic, .fa-regular, .fa-solid, .far, .fas{
-    padding: 10px;
+    padding: 4px;
 }
 
 .shopping-cart{
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+.ranking-container{
     display: flex;
     align-items: center;
 }

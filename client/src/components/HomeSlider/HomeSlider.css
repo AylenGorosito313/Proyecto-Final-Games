@@ -19,9 +19,11 @@
     background-size: cover;
     position: relative;
     overflow: hidden;
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
+    border-radius: 10px;
 }
+
 
 .content {
     position: absolute;

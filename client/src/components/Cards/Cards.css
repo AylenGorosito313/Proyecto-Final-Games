@@ -15,7 +15,7 @@
 
 
 .game-image img {
-    width: 328px;
+    width: 280px;
     height: 200px;
     vertical-align: middle;
     transition: .3s;
@@ -35,11 +35,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-.single-card{
-    transition: all .3s ease;
-}
-
-.single-card:hover  {
+.single-card:hover .favourite-tag {
     transform: scale(1.06);
 }
 
@@ -54,7 +50,6 @@ border-bottom-right-radius: 10px;
     position: relative;
     color: #001d38;
     flex-direction: column;
-    transition: heigth .3s ease;
 }
 
  .line {
@@ -136,6 +131,29 @@ border-bottom-right-radius: 10px;
 
 
 .card:hover .magic-hover {
-    display: inline;
+    display: block;
     
+}
+
+.price-cart{
+    display: flex;
+width: auto;
+align-items: center;
+justify-content: space-between;
+}
+.fa-classic, .fa-regular, .fa-solid, .far, .fas{
+    padding: 4px;
+}
+
+.shopping-cart{
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+.ranking-container{
+    display: flex;
+    align-items: center;
 }

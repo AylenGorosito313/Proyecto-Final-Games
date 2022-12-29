@@ -23,7 +23,7 @@ const Game = sequelize.define("game", {
         type: DataTypes.FLOAT,
     },
     platforms: {
-        type: DataTypes.ARRAY(DataTypes.JSON),
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },
 });

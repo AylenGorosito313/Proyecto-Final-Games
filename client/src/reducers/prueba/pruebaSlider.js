@@ -4,7 +4,7 @@ const initialState = {
   users: [],
   games: [],
   res: {
-    login: "",
+    login:"",
     register: "",
   },
 

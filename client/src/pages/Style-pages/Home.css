@@ -1,13 +1,34 @@
+
+.container-all-content-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cont-all-cardsmini{
+  height: auto;
+  width: 200px;
+}
+
+.container-search-home{
+  display: flex;
+  width: 130vh;
+  height: 77px;
+  justify-content: center;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.seccion-home-descubrir{
+  margin: 0;
+  display: flex;
+  padding-top: 20px;
+}
 .div-home {
-  background-color: #121212 ;
+  background-color: #121212 !important;
   display: flex;
   height: auto;
   flex-wrap: wrap;
-  padding-left: 40px;
-  width: auto;
-  justify-content: center;
-  left: 700px;
-  z-index: 2;
+  padding: 20px;
+  width: 100vh;
 }
 
 .img-background {
@@ -28,11 +49,10 @@
   justify-content: space-around;
 }
 
-.home-slider{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    
-    
+
+.container-home-swipper{
+  width: 100%;
+  display: flex;
+padding: 10px;
+  justify-content: center;
 }

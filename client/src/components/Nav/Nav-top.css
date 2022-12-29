@@ -1,12 +1,13 @@
 .Nav-layout {
   padding-bottom: 20px;
-  height: 50px;
+  height: 55px;
   display: flex;
   width: 100%;
  background:rgb(42, 42, 42) ; 
   box-shadow: 2px 2px 1px #27213b;
 }
 .div-icon {
+  cursor: pointer;
   padding: 10px 40px 10px 10px;
 }
 
@@ -31,7 +32,7 @@ top: -20px;
 .div-logo {
   cursor: pointer;
   display: block;
-  padding: 20px 20px 20px 20px;
+  padding: 5px 20px 20px 20px;
   position: absolute;
 }
 
@@ -83,3 +84,9 @@ top: -20px;
 .div-notifi {
   padding-bottom: 10px;
 }
+
+
+
+/* .div-container-notificaciones{
+display: flex;
+} */

@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Nav from "./components/Nav/Nav";
+
 import NavTop from "./components/Nav/Nav-top";
 import Loginn from "./pages/Login/Loginn";
 import Register from "./pages/Register/Register";
@@ -15,7 +15,7 @@ function App() {
       </Route>
       <Route exact path="/">
         <NavTop />
-       {/* <Nav />   */}
+      
         <Home />
       </Route>
     </>

@@ -5,8 +5,9 @@ import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
 import details from "../assets/details1.png";
-import SwiperPage from "../components/swiper-pagination/swiper";
+import SwiperPage from "../components/HomeSlider/HomeSlider";
 import Seach from "../components/Search/Search"
+import HomeSlider from "../components/HomeSlider/HomeSlider";
 function Home() {
   const dispatch = useDispatch();
   const { games, isLoader } = useSelector((state) => state.prueba);
@@ -24,7 +25,9 @@ function Home() {
     <div>
 <Seach/>
     </div>
-      {/* <SwiperPage /> */}
+      <div className="home-slider">
+        <HomeSlider/>
+      </div>
       <div className="div-home">
         <div className="div-home-card">
           <img className="img-background" src={details} alt="background" />

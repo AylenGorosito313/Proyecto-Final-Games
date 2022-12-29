@@ -1,5 +1,5 @@
 .div-home {
-  background-color: #121212 !important;
+  background-color: #121212 ;
   display: flex;
   height: auto;
   flex-wrap: wrap;
@@ -26,4 +26,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.home-slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    
 }

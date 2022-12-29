@@ -35,7 +35,11 @@
     font-family: "Poppins", sans-serif;
 }
 
-.single-card:hover .favourite-tag {
+.single-card{
+    transition: all .3s ease;
+}
+
+.single-card:hover  {
     transform: scale(1.06);
 }
 
@@ -50,6 +54,7 @@ border-bottom-right-radius: 10px;
     position: relative;
     color: #001d38;
     flex-direction: column;
+    transition: heigth .3s ease;
 }
 
  .line {
@@ -131,6 +136,6 @@ border-bottom-right-radius: 10px;
 
 
 .card:hover .magic-hover {
-    display: block;
+    display: inline;
     
 }

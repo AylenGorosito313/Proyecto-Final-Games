@@ -1,17 +1,23 @@
 :root {
-  height: auto;
-  width: auto;
+  /* height: auto;
+  width: auto; */
   font-family: Poppins, Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  position: relative;
+  /* position: relative; */
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #121212;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* @media (prefers-color-scheme: light) {

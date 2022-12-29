@@ -33,7 +33,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
           
             <div className="card-content-header">
              <Link to="#">
-              <h3>{name}</h3>
+              <h3>{name.split('').slice(0,18).join('')}</h3>
              </Link> 
               <div ><i className="fa-solid fa-star star" ></i> {rating}</div>
             </div>

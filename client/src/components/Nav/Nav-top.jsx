@@ -7,6 +7,7 @@ import Logo from "../../svg/Logo";
 import SelectCar from "../Select/CarShop/SelectCar";
 import SelectNotificaciones from "../Select/Notificaciones/SelectNotificaciones";
 import "./Nav-top.css";
+import { motion } from "framer-motion";
 import "../Botones/BotonLogin.css";
 import Car from "../../svg/Car";
 import User from "../../svg/User";
@@ -43,7 +44,7 @@ function NavTop() {
   return (
     <>
       <div className="Nav-layout">
-        <div className="div-logo">
+        <div  className="div-logo">
           <Logo />
         </div>
 

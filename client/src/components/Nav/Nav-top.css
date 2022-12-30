@@ -1,14 +1,14 @@
 .Nav-layout {
-  padding-bottom: 20px;
-  height: 55px;
   display: flex;
+  justify-content: flex-end;
+  height: fit-content;
   width: 100%;
- background:rgb(42, 42, 42) ; 
+  background: rgb(42, 42, 42);
   box-shadow: 2px 2px 1px #27213b;
 }
 .div-icon {
   cursor: pointer;
-  padding: 10px 40px 10px 10px;
+  padding: 10px ;
 }
 
 .op{
@@ -21,18 +21,19 @@ top: -20px;
 
 .Nav-top-container-sticky {
   display: flex;
-  padding: 30px 10px 10px 10px;
   z-index: 2;
+  height: fit-content;
   align-items: center;
-  justify-content: flex-end;
   width: 100%;
   background: transparent;
+  justify-content: space-between;
+
 }
 
 .div-logo {
   cursor: pointer;
   display: block;
-  padding: 5px 20px 20px 20px;
+  padding: 5px;
   position: absolute;
 }
 
@@ -90,3 +91,19 @@ top: -20px;
 /* .div-container-notificaciones{
 display: flex;
 } */
+/* 
+.underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent);
+} */
+
+
+.div-layout-icon-nav{
+  height: fit-content;
+  width: 20%;
+  display: flex;
+}

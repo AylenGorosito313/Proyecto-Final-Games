@@ -8,6 +8,8 @@ import details from "../assets/details1.png";
 import SwiperPage from "../components/HomeSlider/HomeSlider";
 import Seach from "../components/Search/Search"
 import HomeSlider from "../components/HomeSlider/HomeSlider";
+import MostPopularSlider from "../components/GameSliders/MostPopularSlider";
+import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
 function Home() {
   const dispatch = useDispatch();
   const { games, isLoader } = useSelector((state) => state.prueba);
@@ -29,6 +31,9 @@ function Home() {
         <HomeSlider/>
       </div>
       <div className="div-home">
+
+        <MostPopularSlider/>
+        <ReleasedLasthMonth/>
         <div className="div-home-card">
        
 

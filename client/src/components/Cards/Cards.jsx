@@ -33,7 +33,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
           
             <div className="card-content-header">
              <Link to="#">
-              <h3>{name.split('').slice(0,18).join('')}</h3>
+              <h3>{name.split('').slice(0,16).join('')}</h3>
              </Link> 
               <div ><i className="fa-solid fa-star star" ></i> {rating}</div>
             </div>
@@ -42,12 +42,11 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             <span className="price">US$ {priceFactor(rating)}</span>
             <div className="shopping-cart" onClick={onClickShoppingCart} >
               <i class="fa-solid fa-cart-shopping cart"> </i>
-              <div className="check-plus">
-                { toggleShoppingCart ? 
-                <i class="fa-solid fa-check check"></i> : 
-                <i class="fa-solid fa-plus plus"></i> }
-              </div>
-              
+                <div className="check-plus">
+                  { toggleShoppingCart ? 
+                  <i class="fa-solid fa-check check"></i> : 
+                  <i class="fa-solid fa-plus plus"></i> }
+                </div>
               </div>
             </div>
 

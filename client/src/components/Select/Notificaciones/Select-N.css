@@ -9,10 +9,11 @@
   }
   .select-layout-noti {
     height: 200px;
-    width: 200px;
+    width: 150px;
     display: flex;
     position: absolute;
-    padding: 10px;
+    padding-top: 22px;
+    right: 105px;
     
   }
   .format-container-noti {

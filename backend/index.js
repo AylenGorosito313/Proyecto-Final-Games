@@ -22,8 +22,8 @@
 const server = require("./src/app.js");
 const sequelize = require("./src/db");
 
-// require("./src/models/games");
-// require("./src/models/genres");
+require("./src/models/games");
+require("./src/models/genres");
 
 async function main() {
   try {

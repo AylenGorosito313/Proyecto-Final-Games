@@ -19,7 +19,7 @@ function Loginn() {
   const backResponse = () =>
     toast(" Welcome back !" + res.login.name, {
       position: "bottom-right",
-      duration: 4000,
+      duration: 2000,
       icon: "👏",
       style: {
         borderRadius: "10px",
@@ -28,10 +28,13 @@ function Loginn() {
       },
     });
 
-  if (res.login.token) {
-    navigateToHome.push("/");
-    localStorage.setItem('token',res.login.token );
-  }
+  setTimeout(function () {
+    if (res.login.token) {
+      localStorage.setItem("token", res.login.token);
+      navigateToHome.push("/");
+    }
+  },4000);
+  // 
 
   const responseFacebook = (response) => {
     console.log(response);

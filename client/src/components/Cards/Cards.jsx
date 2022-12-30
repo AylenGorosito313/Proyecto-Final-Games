@@ -35,7 +35,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
              <Link to="#">
               <h3>{name.split('').slice(0,16).join('')}</h3>
              </Link> 
-              <div ><i className="fa-solid fa-star star" ></i> {rating}</div>
+              <div className="ranking-container"><i className="fa-solid fa-star star" ></i> {rating}</div>
             </div>
 
             <div className="price-cart">

@@ -7,6 +7,7 @@ import img from "../assets/backg.png";
 import details from "../assets/details1.png";
 import SwiperPage from "../components/swiper-pagination/swiper";
 import Seach from "../components/Search/Search"
+import {Link} from "react-router-dom";
 function Home() {
   const dispatch = useDispatch();
   const { games, isLoader } = useSelector((state) => state.prueba);
@@ -23,6 +24,9 @@ function Home() {
     <>
     <div>
 <Seach/>
+<Link to="/game/create">
+          <button type="button">Create Game</button>
+</Link>
     </div>
       {/* <SwiperPage /> */}
       <div className="div-home">

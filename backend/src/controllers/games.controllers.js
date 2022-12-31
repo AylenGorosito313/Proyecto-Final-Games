@@ -1,10 +1,11 @@
 const apiClient = require("../utils/apiClient");
 const mapGames = require("../utils/mapGames");
-const paginate = require('../utils/paginated')
+const paginate = require("../utils/paginated");
 const gameTrailer = require("../utils/game_trailer");
 const searchByName = require("../utils/searchByName");
 const { Game } = require("../models/games");
 const { Genre } = require("../models/genres");
+const getGamePopular = require("../utils/getGamePopular");
 
 //obtener games 20 por pagina
 const getGames = async (req, res) => {
@@ -13,7 +14,7 @@ const getGames = async (req, res) => {
         //le pasamos el path y el page a mapGame
         let response = await paginate("games", page);
         // console.log(response)
-        let mapToGames = await mapGames(response)
+        let mapToGames = await mapGames(response);
         return res.status(200).json(mapToGames);
     } catch (error) {
         res.status(500).json({
@@ -82,11 +83,25 @@ const createGame = async (req, res) => {
     }
 };
 
+const mostPopularGames = async (req, res) => {
+    try {
+        const response = await getGamePopular()
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(401).json({
+            error: error.message
+        })
+    }
+    
+};
+
 //https://api.rawg.io/api/games?dates=2023-12-01,2023-12-30
+//https://api.rawg.io/api/games/{game_pk}/development-team
 
 module.exports = {
     gameInformation,
     getGames,
     searchGame,
     createGame,
+    mostPopularGames,
 };

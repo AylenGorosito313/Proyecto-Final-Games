@@ -5,7 +5,7 @@ const gameTrailer = require("../utils/game_trailer");
 const searchByName = require("../utils/searchByName");
 const { Game } = require("../models/games");
 const { Genre } = require("../models/genres");
-const getGamePopular = require("../utils/getGamePopular");
+const getGamePopularOrReleased = require("../utils/getGamePopular");
 
 //obtener games 20 por pagina
 const getGames = async (req, res) => {
@@ -85,7 +85,7 @@ const createGame = async (req, res) => {
 
 const mostPopularGames = async (req, res) => {
     try {
-        const response = await getGamePopular()
+        const response = await getGamePopularOrReleased()
         res.status(200).json(response)
     } catch (error) {
         res.status(401).json({
@@ -95,6 +95,16 @@ const mostPopularGames = async (req, res) => {
     
 };
 
+const releasedLastMonth = async (req, res) => {
+    try {
+        const response = await getGamePopularOrReleased(true)
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(404).json({
+            error: error.message
+        })
+    }
+}
 //https://api.rawg.io/api/games?dates=2023-12-01,2023-12-30
 //https://api.rawg.io/api/games/{game_pk}/development-team
 
@@ -104,4 +114,5 @@ module.exports = {
     searchGame,
     createGame,
     mostPopularGames,
+    releasedLastMonth
 };

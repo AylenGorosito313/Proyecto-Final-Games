@@ -1,11 +1,14 @@
 const apiClient = require("./apiClient");
+const formateDate = require("./formatDate");
 const mapGames = require("./mapGames");
 
-const getGamePopular = async () => {
+const getGamePopularOrReleased = async (popularOrReleased) => {
     try {
+        let getDate = formateDate(popularOrReleased)
+        console.log(getDate)
         let response = await apiClient(
             "games",
-            "&dates=2021-01-01,2022-12-30&ordering=-added&page_size=20"
+            `&dates=${getDate}&ordering=-added&page_size=20`
         );
         let gamePopularMap = mapGames(response.results);
         return gamePopularMap;
@@ -16,4 +19,4 @@ const getGamePopular = async () => {
     }
 };
 
-module.exports = getGamePopular;
+module.exports = getGamePopularOrReleased;

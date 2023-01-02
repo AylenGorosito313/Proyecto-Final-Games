@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   users: [],
   games: [],
+  genre: [],
+  platforms: [],
   res: {
     login:"",
     register: "",
@@ -30,11 +32,20 @@ export const toolkit_prueba = createSlice({
     responseRegister: (state, actions) => {
       state.res = { ...state.res, register: actions.payload };
     },
+    GameCreate: (state, actions) => {
+      state.games = [...actions.payload];
+    },
     responseLogin: (state, actions) => {
       state.res = { ...state.res, login: actions.payload};
     },
     clearState:(state, actions) => {
       state.res = { ...state.res, login:""};
+    },
+    getGenre:(state, actions) => {
+      state.genre = [...actions.payload];
+    },
+    getPlatforms:(state, actions) => {
+      state.platforms = [...actions.payload];
     },
   },
 });
@@ -47,7 +58,10 @@ export const {
   setIsloader,
   responseRegister,
   responseLogin,
-  clearState
+  clearState,
+  getGenre,
+  getPlatforms,
+  GameCreate,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

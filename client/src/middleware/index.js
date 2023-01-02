@@ -9,6 +9,19 @@ import {
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
+    return async function (dispatch) {
+        try {
+            dispatch(setIsloader());
+            let {data} = await axios({
+                method: "GET",
+                url: `http://localhost:3001/games`,
+            });
+            dispatch(getAllGames(data));
+            dispatch(setIsloader());
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
   return async function (dispatch) {
     try {
       dispatch(setIsloader());

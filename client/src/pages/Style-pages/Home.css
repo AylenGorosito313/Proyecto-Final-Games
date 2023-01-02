@@ -1,15 +1,14 @@
-
-.container-all-content-center{
+.container-all-content-center {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.cont-all-cardsmini{
+.cont-all-cardsmini {
   height: auto;
   width: 200px;
 }
 
-.container-search-home{
+.container-search-home {
   display: flex;
   width: 130vh;
   height: 77px;
@@ -17,7 +16,7 @@
   flex-direction: row-reverse;
   align-items: center;
 }
-.seccion-home-descubrir{
+.seccion-home-descubrir {
   margin: 0;
   display: flex;
   padding-top: 20px;
@@ -27,8 +26,8 @@
   display: flex;
   height: auto;
   flex-wrap: wrap;
-  padding: 20px;
-  width: 100vh;
+  padding: 10px;
+  width: 90%;
 }
 
 .img-background {
@@ -49,10 +48,14 @@
   justify-content: space-around;
 }
 
-
-.container-home-swipper{
+.container-home-swipper {
   width: 70%;
   display: flex;
   padding: 10px;
   justify-content: flex-end;
+}
+
+.home-slider {
+  display: flex;
+  justify-content: center;
 }

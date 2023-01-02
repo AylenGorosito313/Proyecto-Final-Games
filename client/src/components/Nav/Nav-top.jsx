@@ -7,6 +7,7 @@ import Logo from "../../svg/Logo";
 import SelectCar from "../Select/CarShop/SelectCar";
 import SelectNotificaciones from "../Select/Notificaciones/SelectNotificaciones";
 import "./Nav-top.css";
+import { motion } from "framer-motion";
 import "../Botones/BotonLogin.css";
 import Car from "../../svg/Car";
 import User from "../../svg/User";
@@ -26,15 +27,33 @@ function NavTop() {
   };
   const handlerOpenUser = () => {
     setOpenUser(!OpenUser);
+    if( OpenNotifica === true || OpenCar === true  ){
+        setOpenCar(false)
+        setOpenNotifica(false)
+    }
+
+
   };
 
   const handlerOpenNotifica = () => {
     setOpenNotifica(!OpenNotifica);
+    if( OpenUser === true || OpenCar === true  ){
+        setOpenCar(false)
+        setOpenUser(false)
+    }
   };
 
   const handlerOpenCar = () => {
     setOpenCar(!OpenCar);
+
+    if( OpenNotifica === true || OpenUser=== true  ){
+        setOpenUser(false)
+        setOpenNotifica(false)
+    }
+
+
   };
+  
 
   useEffect(() => {
     setLogin(getData());
@@ -42,46 +61,58 @@ function NavTop() {
   console.log(Login);
   return (
     <>
+      <motion.div
+        className="div-logo"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+        }}
+      >
+        <Logo />
+      </motion.div>
       <div className="Nav-layout">
-        <div className="div-logo">
-          <Logo />
-        </div>
-
-        <div onClick={handlerOpenCar} className="Nav-top-container-sticky">
-          <div className="div-icon">
-            <Car />
-          </div>
-          <div onClick={handlerOpenNotifica} className="div-icon">
-            <Notificacion />
-          </div>
-
-          <div>
-            {Login === null ? (
-              <button className="button-85" role="button" onClick={handleLogin}>
-                Login
-              </button>
-            ) : (
-              <div onClick={handlerOpenUser} className="div-icon">
-                <User />
-              </div>
-            )}
-          </div>
-
-          <div className="op">
-            {OpenUser && (
-              <SelectProfile setOpen={setOpenUser} setLogin={setLogin} />
-            )}
-             <div>{OpenCar && <SelectCar />}</div>
-             {OpenNotifica && <SelectNotificaciones />}
-          
-          </div>
+        <div className="div-layout-icon-nav">
+          <div className="Nav-top-container-sticky">
+            <div onClick={handlerOpenCar} className="div-icon">
+              <Car />
+            </div>
+           
+            <div onClick={handlerOpenNotifica} className="div-icon">
+              <Notificacion />
+            </div>
          
+            <div>
+            
+              {Login === null ? (
+                <button
+                  className="button-85"
+                  role="button"
+                  onClick={handleLogin}
+                >
+                  Login
+                </button>
+              ) : (
+                <div onClick={handlerOpenUser} className="div-icon">
+                  <User />
+                </div>
+              )}
+            </div>
+
+            <div className="op">
+              {OpenUser && (
+                <SelectProfile setOpen={setOpenUser} setLogin={setLogin} />
+              )}
+              {OpenCar && <SelectCar />}
+              {OpenNotifica && <SelectNotificaciones />} 
+            </div>
+          </div>
         </div>
-      
       </div>
-      
     </>
   );
 }
 
-export default NavTop;
+
+export default NavTop

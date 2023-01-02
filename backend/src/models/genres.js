@@ -13,6 +13,6 @@ const Genre = sequelize.define('genre', {
         type: DataTypes.STRING,
         allowNull: false
     }
-});
+}, {freezeTableName: true});
 
 module.exports = { Genre }

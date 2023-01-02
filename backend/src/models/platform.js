@@ -12,6 +12,6 @@ const Platforms = sequelize.define('platform', {
         type: DataTypes.STRING,
         allowNull: false
     }
-});
+}, {freezeTableName: true});
 
 module.exports = { Platforms }

@@ -29,10 +29,10 @@ const Users = sequelize.define('user', {
         type: DataTypes.STRING,
         allowNull: false
     }
-});
+}, {freezeTableName: true});
 
 Game.belongsToMany(Users, { through: "users_game" })
 Users.belongsToMany(Game, { through: "users_game" })
 
-module.exports = { Users};
+module.exports = {Users};
 

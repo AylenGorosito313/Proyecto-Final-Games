@@ -85,7 +85,7 @@ const createGame = async (req, res) => {
 
 const mostPopularGames = async (req, res) => {
     try {
-        const response = await getGamePopularOrReleased()
+        const response = await getGamePopularOrReleased(true)
         res.status(200).json(response)
     } catch (error) {
         res.status(401).json({
@@ -97,7 +97,7 @@ const mostPopularGames = async (req, res) => {
 
 const releasedLastMonth = async (req, res) => {
     try {
-        const response = await getGamePopularOrReleased(true)
+        const response = await getGamePopularOrReleased()
         res.status(200).json(response)
     } catch (error) {
         res.status(404).json({

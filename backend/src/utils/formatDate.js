@@ -10,18 +10,13 @@ const formateDate = (lastmonth) => {
             splitToDate = 12;
             currentSplit[0] = currentSplit[0] - 1;
         }
-        let dateFinally = `${currentSplit[0]}-${splitToDate}-${
-            currentSplit[2]
-        }`;
-        console.log(`${dateFinally},${currentDate}`);
+        let dateFinally = `${currentSplit[0]}-${splitToDate}-${currentSplit[2]}`;
         return `${dateFinally},${currentDate}`;
     } else {
         let splitToDate = currentDate.split("-")[0] - 1;
         let currentSplit = currentDate.substring(5);
-        console.log(`${splitToDate}-${currentSplit},${currentDate}`);
         return `${splitToDate}-${currentSplit},${currentDate}`;
     }
 };
 
-formateDate();
 module.exports = formateDate;

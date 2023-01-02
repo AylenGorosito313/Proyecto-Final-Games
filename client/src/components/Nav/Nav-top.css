@@ -1,32 +1,30 @@
-.Nav-top-container {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
+.Nav-layout {
   padding-bottom: 20px;
-  height: 100px;
-  z-index: 2;
-
-  top: 0px;
-  left: 0px;
+  height: 55px;
+  display: flex;
   width: 100%;
-  background: rgb(83, 9, 45);
-  background: linear-gradient(
-    0deg,
-    rgba(35, 28, 60, 0.797) 100%,
-    rgb(35, 28, 60) 100%
-  );
+ background:rgb(42, 42, 42) ; 
   box-shadow: 2px 2px 1px #27213b;
+}
+.div-icon {
+  cursor: pointer;
+  padding: 10px 40px 10px 10px;
+}
+
+.op{
+  padding-top: 40px;
+  justify-content: flex-end;
+  display: flex;
+  position: relative;
+top: -20px;
 }
 
 .Nav-top-container-sticky {
   display: flex;
-
-  height: 100px;
+  padding: 30px 10px 10px 10px;
   z-index: 2;
-  padding-right: 50px;
-  flex-direction: row;
+  align-items: center;
   justify-content: flex-end;
-  align-items: flex-end;
   width: 100%;
   background: transparent;
 }
@@ -34,7 +32,7 @@
 .div-logo {
   cursor: pointer;
   display: block;
-  padding: 20px 20px 20px 20px;
+  padding: 5px 20px 20px 20px;
   position: absolute;
 }
 
@@ -83,7 +81,12 @@
   cursor: pointer;
 }
 
-
-.div-notifi{
-  padding-bottom: 10px;;
+.div-notifi {
+  padding-bottom: 10px;
 }
+
+
+
+/* .div-container-notificaciones{
+display: flex;
+} */

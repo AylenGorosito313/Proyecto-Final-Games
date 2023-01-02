@@ -1,25 +1,58 @@
-.div-home{
-    background-color:  #1C1632 !important;  
-    display: flex;
-    height: auto;
-    flex-wrap: wrap;
-padding-left: 10rem;
-    width: auto;
-    justify-content: center;
-    left: 700px;
-   z-index: 2;
+
+.container-all-content-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cont-all-cardsmini{
+  height: auto;
+  width: 200px;
 }
 
-.img-background{
-display: flex;
-position: absolute;
-width: auto;
-height: auto;
-pointer-events: none;
-top:-20rem;
-z-index: 0;
+.container-search-home{
+  display: flex;
+  width: 130vh;
+  height: 77px;
+  justify-content: center;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.seccion-home-descubrir{
+  margin: 0;
+  display: flex;
+  padding-top: 20px;
+}
+.div-home {
+  background-color: #121212 !important;
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 100vh;
 }
 
-.swiper {
-    margin-top: 220px;
+.img-background {
+  display: flex;
+  position: absolute;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  top: -20rem;
+  z-index: 0;
+}
+
+.div-home-card {
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+.container-home-swipper{
+  width: 70%;
+  display: flex;
+  padding: 10px;
+  justify-content: flex-end;
 }

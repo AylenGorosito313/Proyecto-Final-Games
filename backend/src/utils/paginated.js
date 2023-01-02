@@ -10,7 +10,9 @@ const paginated = async (path, page = "") => {
         }
         return response.results;
     } catch (error) {
-        return error.message;
+        return {
+            error: error.message,
+        };
     }
 };
 

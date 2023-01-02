@@ -1,28 +1,29 @@
 import React from "react";
 import "../css/Login.css";
+import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { LoginUser } from "../../../middleware";
 import { useForm } from "react-hook-form";
 import { useDispatch} from "react-redux";
 function FormLogin() {
+  const { res } = useSelector((state) => state.prueba);
   const navigate = useHistory()
   const dispatch = useDispatch()
   const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm({
-    defaultValues: { email: "", password: "" },
-    mode: "onChange",
-  });
+    register, handleSubmit,watch, formState: { errors },} = useForm({ defaultValues: { email: "", password: "" },mode: "onChange", });
 
 
+
+
+    
 
   const OnSubmit = async (data) => {
     console.log(data);
     dispatch(LoginUser(data));
-    navigate.push('/')
+  //   if(res.login.token){
+  //  navigate.push('/')
+  //   }
+ 
   };
   return (
     <>

@@ -1,0 +1,42 @@
+.select-container {
+  height: 180px;
+  width: 140px;
+  background:rgb(42, 42, 42) ; 
+border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.select-layout {
+  position: absolute;
+  padding: 20px 20px 20px 20px;
+  
+}
+.option-container {
+border-radius: 5px;
+display: flex;
+align-items: center;
+  width: auto;
+  padding-left: 10px;
+  background: transparent;
+}
+.option-name {
+  padding: 5px;
+  font-size: 12px;
+  font-family: Poppins;
+  color: #D9D9D9;
+  border-radius: 5px;
+}
+
+.option-container:hover {
+  color: #D9D9D9;
+  font-size: 12px;
+
+  background: transparent;
+  box-shadow: 0px 0px 2px #D3D9E5, 0px 0px 1px #D3D9E5;
+}
+
+
+
+.div-icon-menu-perfil{
+    padding: 0px 10px 10px 10px;
+}

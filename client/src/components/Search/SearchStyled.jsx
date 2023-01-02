@@ -4,7 +4,7 @@ export const ContainerSearch = styled.div`
   margin-top: 20px;
   margin-right: 10px;
   justify-content: center;
-  height: 30px;
+  height: 20px;
   width: 20vw;
   font-family: "Poppins", sans-serif;
   font-siz: 10px;
@@ -25,15 +25,9 @@ export const ContainerSearch = styled.div`
     color: rgba(0, 0, 0, 0.65);
   }
 
-  background: rgb(178, 167, 221);
-  background: linear-gradient(
-    0deg,
-    rgba(178, 167, 221, 0.5720997871804971) 2%,
-    rgba(178, 167, 221, 0.5861053894213936) 100%
-  );
-
-  border-radius: 10px;
-
+  background: rgb(75,73,73);
+  background: linear-gradient(90deg, rgba(75,73,73,0.4460493670124299) 0%, rgba(80,80,80,0.6645367619704132) 100%);
+border-radius:20px;
   flex: none;
   order: 0;
   align-self: stretch;
@@ -44,11 +38,10 @@ export const ContainerSearch = styled.div`
 export const Layout = styled.div`
   background: transparent;
   display: flex;
-  align-items: flex-end;
-
-  justify-content: center;
+justify-content: flex-start;
   padding: 20px;
-  flex-direction: row;
+    width: 34vh;
+    justify-content: flex-end;
 `;
 
 

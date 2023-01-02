@@ -1,0 +1,190 @@
+.slider-container {
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    position: relative;
+    max-width: 1000px;
+    max-height: 500px;
+   
+}
+
+.swiper-slide {
+    text-align: left;
+}
+
+.swiper-slide img {
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+.content {
+    position: absolute;
+    top: 40%;
+    left: 25px;
+    padding: 8px 14px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.content h3 {
+    font-size: 40px;
+}
+
+.content p {
+    width: 60%;
+}
+
+.content button {
+    display: inline-block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px 25px;
+    color: #001d38;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 0px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+}
+
+.content button:hover {
+    transform: scale(1.06);
+
+}
+
+/* Slide Doom */
+
+.doom-content img{
+    max-width: 200px;
+    max-height: 200px;
+    
+}
+
+.doom-content {
+    position: absolute;
+    top: 30%;
+    left: 25px;
+    padding: 8px 14px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.doom-content button {
+    display: inline-block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px 25px;
+    color: #001d38;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 0px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+}
+
+.doom-content  button:hover {
+    transform: scale(1.06);
+
+}
+
+.doom-content h4 {
+    margin: 5px;
+}
+
+.doom-content p {
+    width: 60%;
+}
+
+/* Slide fall out */
+
+.fallout-content img {
+    max-width: 250px;
+    max-height: 250px;
+
+}
+
+.fallout-content {
+    position: absolute;
+    top: 30%;
+    left: 25px;
+    padding: 8px 14px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.fallout-content button {
+    display: inline-block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px 25px;
+    color: #001d38;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 0px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+}
+
+.fallout-content button:hover {
+    transform: scale(1.06);
+
+}
+
+.fallout-content h4 {
+    margin: 5px;
+}
+
+.fallout-content p {
+    width: 40%;
+}
+
+/* God Of War Slide */
+
+.godOfWar-content img {
+    max-width: 300px;
+    max-height: 250px;
+
+}
+
+.godOfWar-content {
+    position: absolute;
+    top: 30%;
+    left: 25px;
+    padding: 8px 14px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.godOfWar-content button {
+    display: inline-block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px 25px;
+    color: #001d38;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 0px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+}
+
+.godOfWar-content button:hover {
+    transform: scale(1.06);
+
+}
+
+.godOfWar-content h4 {
+    margin: 5px;
+}
+
+.godOfWar-content p {
+    width: 40%;
+}

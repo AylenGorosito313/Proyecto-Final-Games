@@ -6,7 +6,7 @@ import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
 import details from "../assets/details1.png";
 import SwiperPage from "../components/HomeSlider/HomeSlider";
-import Seach from "../components/Search/Search"
+import Seach from "../components/Search/Search";
 import HomeSlider from "../components/HomeSlider/HomeSlider";
 import MostPopularSlider from "../components/GameSliders/MostPopularSlider";
 import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
@@ -24,19 +24,17 @@ function Home() {
   }
   return (
     <>
-    <div>
-<Seach/>
-    </div>
+      <div className="container-search-home">
+        <Seach />
+      </div>
+      <div className="container-all-content-center">
       <div className="home-slider">
-        <HomeSlider/>
+        <HomeSlider />
       </div>
       <div className="div-home">
-
-        <MostPopularSlider/>
-        <ReleasedLasthMonth/>
+        <MostPopularSlider />
+        <ReleasedLasthMonth />
         <div className="div-home-card">
-       
-
           {games.length &&
             games.map((ele) => {
               return (
@@ -53,6 +51,7 @@ function Home() {
               );
             })}
         </div>
+      </div>
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import SelectProfile from "../Select/SelectProfile";
+// import SelectProfile from "../Select/SelectProfile";
 import { useHistory } from "react-router-dom";
 import Notificacion from "../../svg/Notificacion";
 import Logo from "../../svg/Logo";
@@ -68,9 +68,9 @@ function NavTop() {
           </div>
 
           <div className="op">
-            {OpenUser && (
-              <SelectProfile setOpen={setOpenUser} setLogin={setLogin} />
-            )}
+            {/* {OpenUser && (
+              <SelectProfile setOpen={setOpenUser} setLogin={setLogin} /> */}
+            {/* )} */}
              <div>{OpenCar && <SelectCar />}</div>
              {OpenNotifica && <SelectNotificaciones />}
           

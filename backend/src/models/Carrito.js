@@ -13,10 +13,12 @@ const Carrito = sequelize.define('carrito', {
         allowNull: false,
     },
     amount: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
     },
     status: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM({
+                values: ['completed', 'pending', 'rejected']
+              }),
     },
     paymentMethod: {
        type: DataTypes.UUID

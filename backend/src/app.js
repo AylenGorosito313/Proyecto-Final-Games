@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const genreRouter = require('./routes/genres.routes')
 const gamesRouter = require('./routes/games.routes')
+const paymentRouter = require('./routes/payment.routes')
 const usersRouter = require('./routes/users.routes')
 const loginRouter = require('./routes/login.routes')
 const gameFavoriteRouter = require('./routes/favorites.routes')
@@ -18,6 +19,8 @@ server.use(genreRouter)
 server.use(usersRouter)
 server.use(platformRouter)
 server.use(gameFavoriteRouter)
+
+server.use(paymentRouter )
 
 
 

@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 import Home from "./pages/Home";
-
+import PaymentMP from "./pages/Payment/PaymentMP";
 import NavTop from "./components/Nav/Nav-top";
 import Loginn from "./pages/Login/Loginn";
 import Register from "./pages/Register/Register";
@@ -12,15 +12,18 @@ function App() {
         <Loginn />
       </Route>
       <Route exact path="/game/create">
-        <GameCreate/>
+        <GameCreate />
       </Route>
       <Route exact path="/register">
         <Register />
       </Route>
       <Route exact path="/">
         <NavTop />
-      
         <Home />
+      </Route>
+      <Route exact path="/payment">
+      <NavTop />
+        <PaymentMP/>
       </Route>
     </>
   );

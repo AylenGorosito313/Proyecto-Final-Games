@@ -1,8 +1,6 @@
-import { useDispatch } from "react-redux";
-import "./SelectProfile.css";
-// import Logout from "../../svg/icons-menu/logout";
-import Settings from "../../svg/icons-menu/settings";
-import Profile from "../../svg/icons-menu/profile";
+import {Logout} from "../../svg/icons-menu/logout";
+import {Settings }from "../../svg/icons-menu/settings";
+import {Profile} from "../../svg/icons-menu/profile";
 import { clearState } from "../../reducers/prueba/pruebaSlider";
 
 export default function SelectProfile({ setOpen, setLogin }) {
@@ -26,7 +24,7 @@ export default function SelectProfile({ setOpen, setLogin }) {
       </div>
 
       <div className="option-container" onClick={handlerLogout}>
-      {/* <Logout className="div-icon-menu-perfil" />  */}
+      <Logout className="div-icon-menu-perfil" /> 
         <p className="option-name">Logut</p>
       </div>
     </div>

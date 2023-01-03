@@ -4,6 +4,7 @@ const genreRouter = require('./routes/genres.routes')
 const gamesRouter = require('./routes/games.routes')
 const usersRouter = require('./routes/users.routes')
 const loginRouter = require('./routes/login.routes')
+const gameFavoriteRouter = require('./routes/favorites.routes')
 const cors = require('cors')
 const platformRouter = require('./routes/platforms.routes')
 const server = express()
@@ -16,6 +17,7 @@ server.use(loginRouter)
 server.use(genreRouter)
 server.use(usersRouter)
 server.use(platformRouter)
+server.use(gameFavoriteRouter)
 
 
 

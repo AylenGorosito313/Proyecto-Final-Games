@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../db");
 const { Game } = require('./games')
 
-const Users = sequelize.define('user', {
+const Users = sequelize.define('users', {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -28,6 +28,11 @@ const Users = sequelize.define('user', {
     passwordHash: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    favoritos: {
+        type: DataTypes.ARRAY(DataTypes.JSON),
+        defaultValue: [],
+        allowNull: true
     }
 }, {freezeTableName: true});
 

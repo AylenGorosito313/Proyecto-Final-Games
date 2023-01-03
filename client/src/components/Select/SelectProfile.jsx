@@ -1,17 +1,18 @@
 import { useDispatch } from "react-redux";
 import "./SelectProfile.css";
-import Logout from "../../svg/icons-menu/logout";
-import Settings from "../../svg/icons-menu/settings";
-import Profile from "../../svg/icons-menu/profile";
+import Logout from "../../svg/icons-menu/Logout";
+import Settings from "../../svg/icons-menu/Settings";
+import Profile from "../../svg/icons-menu/Profile";
 import { clearState } from "../../reducers/prueba/pruebaSlider";
 import { motion } from "framer-motion";
 export default function SelectProfile({ setOpen, setLogin }) {
   const dispatch = useDispatch();
   const handlerLogout = () => {
+    setLogin(false)
     setOpen(false);
-    localStorage.setItem("token", null);
-    setLogin(null);
+    localStorage.clear();
     dispatch(clearState());
+    
   };
 
   return (

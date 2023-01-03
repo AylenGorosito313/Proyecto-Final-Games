@@ -26,7 +26,7 @@ const Game = sequelize.define("game", {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },
-});
+}, {freezeTableName: true});
 
 Game.belongsToMany(Genre, { through: "game_genre" })
 Genre.belongsToMany(Game, { through: "game_genre" })

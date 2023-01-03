@@ -1,0 +1,20 @@
+
+.select-layout-car{
+    height: 200px;
+    width: 150px;
+    display: flex;
+    position: absolute;
+    padding-top: 22px;
+    right: 207px;
+}
+
+
+
+.select-container-car{
+    height: 180px;
+    width: 140px;
+    background:rgb(42, 42, 42) ; 
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}

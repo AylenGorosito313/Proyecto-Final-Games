@@ -25,6 +25,7 @@ const sequelize = require("./src/db");
 require("./src/models/games");
 require("./src/models/genres");
 require("./src/models/carrito");
+require("./src/models/carritoItem");
 
 async function main() {
   try {

@@ -10,6 +10,7 @@ import Seach from "../components/Search/Search"
 import HomeSlider from "../components/HomeSlider/HomeSlider";
 import MostPopularSlider from "../components/GameSliders/MostPopularSlider";
 import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
+import {Link} from "react-router-dom";
 function Home() {
   const dispatch = useDispatch();
   const { games, isLoader } = useSelector((state) => state.prueba);
@@ -26,6 +27,7 @@ function Home() {
     <>
     <div>
 <Seach/>
+<Link to='/game/create'><h1>Create Game</h1></Link>
     </div>
       <div className="home-slider">
         <HomeSlider/>

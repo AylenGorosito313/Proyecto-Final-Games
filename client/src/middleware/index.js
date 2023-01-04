@@ -64,6 +64,9 @@ export const createUser = ({ name, lastName, email, password }) => {
 export const CreateGame = ({ platforms, background_image, name, rating, genre }) => {
   return async function (dispatch) {
     try {
+      console.log(name)
+      console.log(platforms)
+      console.log( genre)
       let res = await axios({
         method: "POST",
         data: { platforms, background_image, name, rating, genre },
@@ -95,15 +98,15 @@ export const traerGenero = () => {
   };
 };
 
-// export const traerPlatforms = () => {
-//   return async function (dispatch) {
-//     let { data } = await axios({
-//       method: "GET",
-//       url: `http://localhost:3001/genres`,
-//     });
-//     dispatch(getPlatforms(data));
-//   };
-// };
+export const traerPlatforms = () => {
+  return async function (dispatch) {
+    let { data } = await axios({
+      method: "GET",
+      url: `http://localhost:3001/games/platforms`,
+    });
+    dispatch(getPlatforms(data));
+  };
+};
 
 
 

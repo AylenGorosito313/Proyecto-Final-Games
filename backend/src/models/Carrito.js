@@ -36,11 +36,11 @@ const Carrito = sequelize.define('carrito', {
 // relaciones entre tablas 
 Users.hasOne(Carrito, {
     foreignKey: 'userId'
-  })
-Carrito.belongsTo(Users)
+  });
+Carrito.belongsTo(Users);
 
-Carrito.hasMany(Game)
-Game.belongsTo(Carrito)
+Carrito.hasMany(Game);
+Game.belongsTo(Carrito);
 
 module.exports = {Carrito};
 

@@ -70,4 +70,40 @@ const getCarUser = async (req, res) => {
     }
 };
 
-module.exports = { addToCar, getCarUser };
+const deleteItem= async(req, res) =>{
+    const { userId, gameId } = req.params;
+
+    try {
+        let userVerify = await Users.findByPk(userId);
+        if(userVerify){
+            let carUser = await Carrito.findOne({
+                where: {
+                    userId,
+                },
+            });
+
+            if (carUser) {
+                // console.log(carUser);
+                let price = carUser.items.find(game => game.id === gameId);
+                console.log(Array.isArray(carUser.items));
+                let deleteInfo = carUser.items.filter(game => game.id !== gameId);
+                console.log(typeof(deleteInfo));
+                console.log(deleteInfo+ "----delete");
+                carUser.items= deleteInfo;
+                carUser.total_items = carUser.items.length;
+                // carUser.total_precio  -= price.total_precio;
+                carUser.save();
+                return res.status(200).json(carUser);
+            }
+        }
+        res.status(404).json({
+            message: "You are not logged",
+        });
+    } catch (error) {
+        res.status(400).json({
+            error: error.message,
+        });
+    };
+};
+
+module.exports = { addToCar, getCarUser, deleteItem };

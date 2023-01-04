@@ -13,7 +13,7 @@ const addToCar = async (req, res) => {
                 userId,
             },
         });
-        
+
         let gameInfo = await apiClient(`games/${gameId}`);
         gameInfo = await mapGames([gameInfo]);
         if (!searchUserCar) {
@@ -45,4 +45,29 @@ const addToCar = async (req, res) => {
     }
 };
 
-module.exports = addToCar;
+const getCarUser = async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        let carUser = await Carrito.findOne({
+            where: {
+                userId,
+            },
+        });
+
+        if (carUser) {
+            let carInfo = carUser.items;
+            return res.status(200).json(carInfo);
+        }
+
+        res.status(404).json({
+            message: "You do not have products in the shopping cart",
+        });
+    } catch (error) {
+        res.status(400).json({
+            error: error.message,
+        });
+    }
+};
+
+module.exports = { addToCar, getCarUser };

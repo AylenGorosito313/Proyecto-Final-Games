@@ -26,7 +26,7 @@ export default function Search() {
   }
 
   return (
-    <div>
+    <div className="div-search">
       <form onSubmit={(e) => handleSubmit(e)}>
         <Layout>
           <ContainerSearch>

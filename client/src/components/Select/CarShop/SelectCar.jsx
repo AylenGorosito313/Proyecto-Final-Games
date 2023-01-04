@@ -1,21 +1,20 @@
 import React from 'react'
-
+import "./SelectCar.css"
+import { motion } from "framer-motion";
 function SelectCar() {
   return (
-    <div className="select-layout">
-    <div className="select-container">
-       <div className="option-container">
-       <p className="option-name">  Profile</p>
-       </div>
-       <div className="option-container">
-       <p className="option-name">Settings</p>
-       </div>
+    <motion.div className="select-layout-car"
+    initial={{ scale: 0 }}
+    animate={{ scale: 1 }}
+    transition={{
+      duration: 0.8,
+      ease: "backOut",
+    }}
+    >
+    <div className="select-container-car">
  
-       <div className="option-container" >
-      <p className="option-name">Logut</p>
-       </div>
      </div>
-     </div>
+     </motion.div >
   )
 }
 

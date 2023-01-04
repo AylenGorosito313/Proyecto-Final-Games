@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   users: [],
   games: [],
+  popularGames: [],
+  gamesReleasedLasthMonth: [],
   genre: [],
   platforms: [],
   res: {
@@ -22,6 +24,12 @@ export const toolkit_prueba = createSlice({
     },
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
+    },
+    popularGames: (state, actions) => {
+      state.popularGames = [...actions.payload];
+    },
+    releasedLasthMonth: (state, actions) => {
+      state.gamesReleasedLasthMonth = [...actions.payload]
     },
     getByName: (state, actions) => {
       state.games = [...actions.payload];
@@ -62,6 +70,8 @@ export const {
   getGenre,
   getPlatforms,
   GameCreate,
+  popularGames,
+  releasedLasthMonth
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

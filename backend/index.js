@@ -24,23 +24,22 @@ const sequelize = require("./src/db");
 
 require("./src/models/games");
 require("./src/models/genres");
+require("./src/models/users");
+require('./src/models/platform')
 
 async function main() {
-  try {
-    await sequelize.sync({ force: true });
-    console.log("Conect to database");
-    server.listen(3001, () => {
-      console.log("server lisener in port 3001");
-    });
-  } catch (error) {
-    console.log("error", error);
-  }
+    try {
+        await sequelize.sync({ force: true });
+        console.log("Conect to database");
+        server.listen(3001, () => {
+            console.log("server lisener in port 3001");
+        });
+    } catch (error) {
+        console.log("error", error);
+    }
 }
 
 main();
-
-
-
 
 // ___________§§§$$§§$§§_
 //  _W_______$$$$$§§§$$§§$§_
@@ -95,4 +94,3 @@ main();
 //  __________________§§§$§§__$§§§§§§§
 //  ___________________§$§§$§____§$§§§§
 //  _____________________§§§$§§___§§$§§
-

@@ -14,11 +14,11 @@ import User from "../../svg/User";
 // import { useLocalStorage } from "../../middleware/utils/useLocalStorage";
 function NavTop() {
   const [Login, setLogin] = useState(false);
+  const [Logout, setLogout] = useState(true);
   const [OpenUser, setOpenUser] = useState(null);
   const [OpenNotifica, setOpenNotifica] = useState(false);
   const [OpenCar, setOpenCar] = useState(false);
   const navigate = useHistory();
-
 
   const handleLogin = () => {
     navigate.push("/login");
@@ -77,7 +77,11 @@ function NavTop() {
             </div>
 
             <div>
-              {Login === false && (
+              {Login ? (
+                <div onClick={handlerOpenUser} className="div-icon">
+                  <User />
+                </div>
+              ) : (
                 <button
                   className="button-85"
                   role="button"
@@ -85,12 +89,6 @@ function NavTop() {
                 >
                   Login
                 </button>
-              )}
-
-              {Login !== false && (
-                <div onClick={handlerOpenUser} className="div-icon">
-                  <User />
-                </div>
               )}
             </div>
 
@@ -109,3 +107,4 @@ function NavTop() {
 }
 
 export default NavTop;
+

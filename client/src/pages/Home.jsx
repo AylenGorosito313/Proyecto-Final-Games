@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGames } from "../middleware";
+import { getGames, getGamesReleasedLasthMonth, getPopularGames } from "../middleware";
 import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
@@ -17,7 +17,11 @@ function Home() {
   console.log(games);
   useEffect(() => {
     dispatch(getGames());
+    dispatch(getPopularGames());
+    dispatch(getGamesReleasedLasthMonth());
   }, [dispatch]);
+
+
 
   if (isLoader) {
     return <h1>Cargando...</h1>;

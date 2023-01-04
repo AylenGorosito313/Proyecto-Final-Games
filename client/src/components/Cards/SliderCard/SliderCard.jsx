@@ -24,10 +24,8 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
     <div className="single-card-slider">
       <div className="card-slider">
 
-        
-        
           <div className="game-image-slider">
-            <div className="favourite-tag" onClick={onClickFavorite} >{toggleFavorite ? <i className="fa-solid fa-heart fa-2xl red-heart"></i> : <i className="fa-regular fa-heart fa-2xl"></i>  }</div>
+            <div className="favourite-tag-slider" onClick={onClickFavorite} >{toggleFavorite ? <i className="fa-solid fa-heart fa-2xl red-heart"></i> : <i className="fa-regular fa-heart fa-2xl"></i>  }</div>
             <img src={img} alt={name} />
           </div>
 

@@ -27,7 +27,6 @@ function Home() {
     <>
     <div>
 <Seach/>
-<Link to='/game/create'><h1>Create Game</h1></Link>
     </div>
       <div className="home-slider">
         <HomeSlider/>

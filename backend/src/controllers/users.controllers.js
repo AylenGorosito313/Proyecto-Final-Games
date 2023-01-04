@@ -5,7 +5,11 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const user = async (req, res, next) => {
     try {
-        const user = await Users.findAll();
+        const user = await Users.findAll({
+            include: {
+                model: 'carrito'
+            }
+        });
         res.send(user);
     } catch (error) {
         next(error);

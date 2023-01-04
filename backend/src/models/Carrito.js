@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../db");
+const { Game } = require("./games");
 const {Users} = require("./users")
 
 const Carrito = sequelize.define('carrito', {
@@ -8,11 +9,11 @@ const Carrito = sequelize.define('carrito', {
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4        
     },
-    total: {
+    total_items: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        // allowNull: false,
     },
-    amount: {
+    total_precio: {
         type: DataTypes.FLOAT,
     },
     status: {
@@ -26,7 +27,7 @@ const Carrito = sequelize.define('carrito', {
     orderDATE: {
         type: DataTypes.DATE,
     },
-    item:{
+    items:{
         type: DataTypes.ARRAY(DataTypes.JSON),
         defaultValue: [],
     }
@@ -37,6 +38,9 @@ Users.hasOne(Carrito, {
     foreignKey: 'userId'
   })
 Carrito.belongsTo(Users)
+
+Carrito.hasMany(Game)
+Game.belongsTo(Carrito)
 
 module.exports = {Carrito};
 

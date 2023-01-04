@@ -31,7 +31,7 @@ function Home() {
     <>
       <div className="container-search-home">
         <Seach />
-        <Link to='/game/create'><h1>Create Game</h1></Link>
+        <Link to='/game/create'><p>Create Game</p></Link>
       </div>
       <div className="container-all-content-center">
       <div className="home-slider">

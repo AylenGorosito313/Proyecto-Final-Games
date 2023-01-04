@@ -1,0 +1,36 @@
+* {
+    font-family: Work sans;
+font-size: 13px;
+}
+
+.container-cart{
+    border-radius: 10px;
+    background: rgb(56, 44, 44);
+    display: flex;
+    width: 100%;
+    /* padding: 15px; */
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+.subcontainer-img{
+    display: flex;
+    gap: 30px;
+}
+
+.img-cart{
+    width: 90px;
+    height: 90px;
+}
+
+.div-title-delete{
+    padding: 10px;
+}
+
+
+.container-img-game{
+    padding: 10px;
+}
+

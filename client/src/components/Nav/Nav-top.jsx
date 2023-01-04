@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import SelectProfile from "../Select/SelectProfile";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Notificacion from "../../svg/Notificacion";
 import Logo from "../../svg/Logo";
 import SelectCar from "../Select/CarShop/SelectCar";
@@ -67,10 +67,13 @@ function NavTop() {
       </motion.div>
       <div className="Nav-layout">
         <div className="div-layout-icon-nav">
-          <div className="Nav-top-container-sticky">
+          <div className="Nav-top-container-sticky" >
+       
             <div onClick={handlerOpenCar} className="div-icon">
-              <Car />
+            <Link  to={'/payment'}><Car /> </Link>
             </div>
+           
+         
 
             <div onClick={handlerOpenNotifica} className="div-icon">
               <Notificacion />
@@ -107,4 +110,3 @@ function NavTop() {
 }
 
 export default NavTop;
-

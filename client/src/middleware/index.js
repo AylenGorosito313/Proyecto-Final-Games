@@ -9,27 +9,10 @@ import {
   responseLogin,
   getGenre,
   getPlatforms,
-  popularGames,
-  releasedLasthMonth
+  getLinkPayment,
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
-    return async function (dispatch) {
-        try {
-            dispatch(setIsloader());
-            let {data} = await axios({
-                method: "GET",
-                url: `http://localhost:3001/games`,
-            });
-            dispatch(getAllGames(data));
-            dispatch(setIsloader());
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
-};
-
-export const getPopularGames = () => {
   return async function (dispatch) {
     try {
       
@@ -43,6 +26,19 @@ export const getPopularGames = () => {
       console.log(error.message);
     }
   };
+  // return async function (dispatch) {
+  //   try {
+  //     dispatch(setIsloader());
+  //     let { data } = await axios({
+  //       method: "GET",
+  //       url: `http://localhost:3001/games`,
+  //     });
+  //     dispatch(getAllGames(data));
+  //     dispatch(setIsloader());
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
 };
 
 export const getGamesReleasedLasthMonth = () => {
@@ -81,10 +77,10 @@ export const createUser = ({ name, lastName, email, password }) => {
       });
       dispatch(responseRegister(res.data));
     } catch (error) {
-      toast.error(  error.message , {
+      toast.error(error.message, {
         position: "bottom-right",
         duration: 4000,
-        
+
         style: {
           borderRadius: "10px",
           background: "#333",
@@ -95,7 +91,13 @@ export const createUser = ({ name, lastName, email, password }) => {
   };
 };
 
-export const CreateGame = ({ platforms, background_image, name, rating, genre }) => {
+export const CreateGame = ({
+  platforms,
+  background_image,
+  name,
+  rating,
+  genre,
+}) => {
   return async function (dispatch) {
     try {
       console.log(name)
@@ -108,10 +110,10 @@ export const CreateGame = ({ platforms, background_image, name, rating, genre })
       });
       dispatch(GameCreate(res.data));
     } catch (error) {
-      toast.error(  error.message , {
+      toast.error(error.message, {
         position: "bottom-right",
         duration: 4000,
-        
+
         style: {
           borderRadius: "10px",
           background: "#333",
@@ -142,8 +144,6 @@ export const traerPlatforms = () => {
   };
 };
 
-
-
 export const LoginUser = ({ email, password }) => {
   return async function (dispatch) {
     try {
@@ -154,11 +154,41 @@ export const LoginUser = ({ email, password }) => {
       });
       dispatch(responseLogin(res.data));
     } catch (error) {
-    
-      toast.error(  error.message , {
+      toast.error(error.message, {
         position: "bottom-right",
         duration: 4000,
-        
+
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
+  };
+};
+
+export const CreatePayment = ({ name, img, id, genres, price }) => {
+  return async function (dispatch) {
+    try {
+      console.log(price);
+      let res = await axios({
+        method: "POST",
+        data:{ name,
+        img,
+        id,
+        genres,
+        price,
+      },
+        url: "http://localhost:3001/payment",
+      });
+      console.log(res);
+      dispatch(getLinkPayment(res));
+    } catch (error) {
+      toast.error(error.message, {
+        position: "bottom-right",
+        duration: 4000,
+
         style: {
           borderRadius: "10px",
           background: "#333",

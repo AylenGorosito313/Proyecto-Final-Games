@@ -7,6 +7,9 @@ const initialState = {
   gamesReleasedLasthMonth: [],
   genre: [],
   platforms: [],
+  payment:{
+    link:""
+  },
   res: {
     login:"",
     register: "",
@@ -55,6 +58,10 @@ export const toolkit_prueba = createSlice({
     getPlatforms:(state, actions) => {
       state.platforms = [...actions.payload];
     },
+     getLinkPayment:(state, actions) => {
+      console.log(actions.payload)
+      state.payment={ ...state.payment, link: actions.payload};
+    },
   },
 });
 
@@ -70,8 +77,7 @@ export const {
   getGenre,
   getPlatforms,
   GameCreate,
-  popularGames,
-  releasedLasthMonth
+  getLinkPayment
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

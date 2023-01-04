@@ -11,16 +11,16 @@ export default function GameCreate() {
   //  const history = useHistory();
   const { genre, platforms } = useSelector((state) => state.prueba);
   const [gender, setGender] = useState({
-    genere:[],
+    genere: [],
   });
   const [platform, setPlatform] = useState({
-    platformarray:[],
+    platformarray: [],
   });
-  
-  
+
   const {
     register,
     formState: { errors },
+    watch,
     handleSubmit,
   } = useForm({
     defaultValues: {
@@ -34,26 +34,51 @@ export default function GameCreate() {
   });
 
   const onSubmit = async (data) => {
-    let genre = gender.genere
-    let platforms = platform.platformarray
-    console.log({...data, platforms, genre});
-    dispatch(CreateGame({...data, platforms, genre}));
+    let genre = gender.genere;
+    let platforms = platform.platformarray;
+    console.log({ ...data, platforms, genre });
+    dispatch(CreateGame({ ...data, platforms, genre }));
     //   history.push('/')
   };
 
   const handlerGender = (event) => {
-
-    setGender({...gender, genere:[...gender.genere, event.target.value] });
-    
+    if (!gender.genere.includes(event.target.value)) {
+      setGender({ ...gender, genere: [...gender.genere, event.target.value] });
+    } else {
+      setGender({
+        ...gender,
+      });
+    }
   };
 
   const handlerPlatforms = (event) => {
+    if (!platform.platformarray.includes(event.target.value)) {
+      setPlatform({
+        ...platform,
+        platformarray: [...platform.platformarray, event.target.value],
+      });
+    } else {
+      setPlatform({
+        ...platform,
+      });
+    }
+  };
 
-    setPlatform({...platform, platformarray:[...platform.platformarray, event.target.value] });
-    
-  }; 
+  const handleDelete = (event) => {
+    setGender({
+      ...gender,
+      genere: gender.genere.filter((gen) => gen !== event),
+    });
+  };
+
+  const handleDeletedos = (event) => {
+    setPlatform({
+      ...platform,
+      platformarray: platform.platformarray.filter((plat) => plat !== event),
+    });
+  };
   console.log(gender);
-  console.log(platform)
+  console.log(platform);
 
   useEffect(() => {
     dispatch(traerGenero());
@@ -104,6 +129,15 @@ export default function GameCreate() {
               ))}
           </select>
         </div>
+        {gender.genere.map((el, i) => (
+          <div key={i}>
+            <p>{el}</p>
+            <button className="" onClick={() => handleDelete(el)}>
+              X
+            </button>
+          </div>
+        ))}
+
         <div>
           <label> Platforms:</label>
           <select onChange={handlerPlatforms}>
@@ -115,6 +149,14 @@ export default function GameCreate() {
               ))}
           </select>
         </div>
+        {platform.platformarray.map((el, i) => (
+          <div key={i}>
+            <p>{el}</p>
+            <button className="" onClick={() => handleDeletedos(el)}>
+              X
+            </button>
+          </div>
+        ))}
 
         <button type="submit">Create Game</button>
       </form>

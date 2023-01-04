@@ -8,6 +8,12 @@ import GameCreate from "./pages/GameCreate/GameCreate";
 function App() {
   return (
     <>
+
+<Route exact path="/payment">
+        <NavTop />
+        <PaymentMP />
+      </Route>
+
       <Route exact path="/login">
         <Loginn />
       </Route>
@@ -21,10 +27,7 @@ function App() {
         <NavTop />
         <Home />
       </Route>
-      <Route exact path="/payment">
-      <NavTop />
-        <PaymentMP/>
-      </Route>
+    
     </>
   );
 }

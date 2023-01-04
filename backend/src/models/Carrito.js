@@ -25,6 +25,10 @@ const Carrito = sequelize.define('carrito', {
     },
     orderDATE: {
         type: DataTypes.DATE,
+    },
+    item:{
+        type: DataTypes.ARRAY(DataTypes.JSON),
+        defaultValue: [],
     }
 }, {timestamps: false, freezeTableName: true});
 

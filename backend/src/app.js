@@ -7,6 +7,7 @@ const loginRouter = require('./routes/login.routes')
 const gameFavoriteRouter = require('./routes/favorites.routes')
 const cors = require('cors')
 const platformRouter = require('./routes/platforms.routes')
+const carritoRouter = require('./routes/carrito.routes')
 const server = express()
 server.use(cors())
 
@@ -17,7 +18,7 @@ server.use(loginRouter)
 server.use(genreRouter)
 server.use(usersRouter)
 server.use(platformRouter)
-server.use(gameFavoriteRouter)
+server.use(carritoRouter)
 
 
 

@@ -1,5 +1,7 @@
+const calculatePrice = require("./calculatePrice");
 
 const mapGames = async (games) => {
+    let price = calculatePrice(100, 10);
     try {
         return games.map((game) => {
             return {
@@ -11,13 +13,14 @@ const mapGames = async (games) => {
                 parent_platforms: game.parent_platforms.map(
                     (platform) => platform.platform.name
                 ),
-                genres: game.genres.map(genre => genre.name)
+                genres: game.genres.map((genre) => genre.name),
+                price,
             };
         });
     } catch (error) {
         return {
-            error: error.message
-        }
+            error: error.message,
+        };
     }
 };
 

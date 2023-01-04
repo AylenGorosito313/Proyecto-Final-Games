@@ -11,9 +11,12 @@ export default function PaymentMP() {
           <div className="container-car-items">
             {/* </Car> */}
           </div>
-          <button class="button-3" role="button">Comprar</button>
+          <a href="https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=682003315-34a37e51-842b-4626-80ff-d1ffb074eac6">
+          <button class="button-3" role="button" >Comprar</button>
+          </a>
+         
 
-          
+
         </div>
     
       </div>

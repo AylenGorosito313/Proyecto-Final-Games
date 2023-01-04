@@ -13,10 +13,12 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
   
   const onClickFavorite = () => {
     setToggleFavorite(!toggleFavorite)
+
   }
 
   const onClickShoppingCart = () => {
     setToggleShoppingCart(!toggleShoppingCart)
+    console.log(name, img, id, rating, platforms, released, genres)
   }
   
 

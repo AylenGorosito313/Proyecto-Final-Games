@@ -28,6 +28,12 @@ const addToCar = async (req, res) => {
             addCarItem.save();
             return res.status(200).json(addCarItem);
         }
+        let verifyItems = searchUserCar.toJSON();
+        if (verifyItems.items.find((ele) => ele.id.toString() === gameId)) {
+            return res.status(400).json({
+                message: "the game already exists",
+            });
+        }
         searchUserCar.items = [...searchUserCar.items, ...gameInfo];
         searchUserCar.total_items = searchUserCar.items.length;
         searchUserCar.total_precio = searchUserCar.items.reduce(
@@ -70,12 +76,12 @@ const getCarUser = async (req, res) => {
     }
 };
 
-const deleteItem= async(req, res) =>{
+const deleteItem = async (req, res) => {
     const { userId, gameId } = req.params;
 
     try {
         let userVerify = await Users.findByPk(userId);
-        if(userVerify){
+        if (userVerify) {
             let carUser = await Carrito.findOne({
                 where: {
                     userId,
@@ -83,16 +89,20 @@ const deleteItem= async(req, res) =>{
             });
 
             if (carUser) {
-                // console.log(carUser);
-                let price = carUser.items.find(game => game.id === gameId);
-                console.log(Array.isArray(carUser.items));
-                let deleteInfo = carUser.items.filter(game => game.id !== gameId);
-                console.log(typeof(deleteInfo));
-                console.log(deleteInfo+ "----delete");
-                carUser.items= deleteInfo;
-                carUser.total_items = carUser.items.length;
-                // carUser.total_precio  -= price.total_precio;
-                carUser.save();
+                let carToJSON = carUser.toJSON();
+                let itemDeleted = carToJSON.items.find(
+                    (ele) => ele.id.toString() === gameId
+                );
+                let itemsUpdate = carToJSON.items.filter(
+                    (ele) => ele.id.toString() !== gameId
+                );
+                console.log(itemDeleted);
+                carUser.set({
+                    items: itemsUpdate,
+                    total_items: itemsUpdate.length,
+                    total_precio: carUser.total_precio - itemDeleted.price,
+                });
+                await carUser.save();
                 return res.status(200).json(carUser);
             }
         }
@@ -103,7 +113,7 @@ const deleteItem= async(req, res) =>{
         res.status(400).json({
             error: error.message,
         });
-    };
+    }
 };
 
 module.exports = { addToCar, getCarUser, deleteItem };

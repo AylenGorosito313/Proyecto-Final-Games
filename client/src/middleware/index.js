@@ -9,6 +9,8 @@ import {
   responseLogin,
   getGenre,
   getPlatforms,
+  popularGames,
+  releasedLasthMonth
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
@@ -25,20 +27,39 @@ export const getGames = () => {
             console.log(error.message);
         }
     };
+};
+
+export const getPopularGames = () => {
   return async function (dispatch) {
     try {
-      dispatch(setIsloader());
+      
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games`,
+        url: `http://localhost:3001/games/popular`
       });
-      dispatch(getAllGames(data));
-      dispatch(setIsloader());
+      dispatch(popularGames(data));
+      
     } catch (error) {
       console.log(error.message);
     }
   };
 };
+
+export const getGamesReleasedLasthMonth = () => {
+  return async function (dispatch) {
+    try {
+      
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/games/released`
+      });
+      dispatch(releasedLasthMonth(data));
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+}
 
 export const getSearchByName = (name) => {
   return async function (dispatch) {

@@ -9,7 +9,7 @@ import {  Navigation } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
-import "./GameSliders.css"
+import "./GamesSliders.css"
 
 
 
@@ -19,7 +19,7 @@ export default function MostPopularSlider () {
     const [toggleButton, setToggleButton] = useState(true)
 
 
-    const { games } = useSelector( state => state.prueba)
+    const { popularGames } = useSelector( state => state.prueba)
 
 
     const nextButton = () => {
@@ -35,14 +35,14 @@ export default function MostPopularSlider () {
 
     return (
         <>
-        <div className="popular-container">
-            <div className="popular-title-slider">
+        <div className="slider-game-container">
+            <div className="game-title-slider">
                 <h2>Most Popular</h2>
-                <div className="popular-button-container">
-                    <button onClick={prevButton} className={!toggleButton ? "prev-colored" : "prev"  }>
+                <div className="games-slider-buttons-container">
+                    <button onClick={prevButton} className={!toggleButton ? "prev-popular-colored" : "prev-popular"  }>
                         <i className="fa-solid fa-arrow-left"></i>
                     </button>
-                    <button onClick={nextButton} className={toggleButton ? "next-colored" : "next"}>
+                    <button onClick={nextButton} className={toggleButton ? "next-popular-colored" : "next-popular"}>
                         <i className="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
@@ -54,17 +54,17 @@ export default function MostPopularSlider () {
             spaceBetween={0}
             loopFillGroupWithBlank={true}
             navigation={{
-                prevEl: toggleButton ? ".prev" : ".prev-colored",
-                nextEl: toggleButton ? ".next-colored" : ".next",
+                prevEl: toggleButton ? ".prev-popular" : ".prev-popular-colored",
+                nextEl: toggleButton ? ".next-popular-colored" : ".next-popular",
             }}
             modules={[ Navigation]}
             
             onSwiper={(swiper) => console.log(swiper)}
-            className="popular-swiper"
+            className="game-slider-swiper"
             >
             
-                {games.length > 0 ? 
-                games.map((ele, index) => 
+                {popularGames.length > 0 ? 
+                popularGames.map((ele, index) => 
                     (
                     <SwiperSlide key={index} className="popular-swiper-slide">
                         

@@ -4,10 +4,12 @@ import {
   getAllGames,
   getByName,
   setIsloader,
+  releasedLasthMonth,
   responseRegister,
   GameCreate,
   responseLogin,
   getGenre,
+  popularGames,
   getPlatforms,
   getLinkPayment,
 } from "../reducers/prueba/pruebaSlider";
@@ -40,6 +42,28 @@ export const getGames = () => {
   //   }
   // };
 };
+
+export const getPopularGames = () => {
+  return async function (dispatch) {
+    try {
+      
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/games/popular`
+      });
+      dispatch(popularGames(data));
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+
+
+
+
+
 
 export const getGamesReleasedLasthMonth = () => {
   return async function (dispatch) {

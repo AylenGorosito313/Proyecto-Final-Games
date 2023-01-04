@@ -77,7 +77,9 @@ export const {
   getGenre,
   getPlatforms,
   GameCreate,
-  getLinkPayment
+  getLinkPayment,
+  popularGames,
+  releasedLasthMonth
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

@@ -1,5 +1,6 @@
 import { Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Cart from "./components/Cart/Cart";
 import PaymentMP from "./pages/Payment/PaymentMP";
 import NavTop from "./components/Nav/Nav-top";
 import Loginn from "./pages/Login/Loginn";
@@ -11,6 +12,7 @@ function App() {
 
 <Route exact path="/payment">
         <NavTop />
+      
         <PaymentMP />
       </Route>
 

@@ -1,8 +1,9 @@
 const axios = require("axios");
 
 
-  const createPayment = async (name, img, id, genres) => {
-    console.log(name)
+  const createPayment = async ({name, price}) => {
+    price = parseInt(price , 12)
+    console.log(name, price)
     const url = "https://api.mercadopago.com/checkout/preferences";
 
     const body = {
@@ -14,7 +15,7 @@ const axios = require("axios");
           picture_url: "http://www.myapp.com/myimage.jpg",
           category_id: "category123",
           quantity: 1,
-          unit_price: 10,
+          unit_price: price,
         },
       ],
       back_urls: {

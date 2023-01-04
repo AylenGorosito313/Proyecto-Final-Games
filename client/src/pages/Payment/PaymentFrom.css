@@ -1,34 +1,4 @@
-.PaymentForm {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-  }
-  
-  .PaymentForm input[type="text"] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .PaymentForm button[type="submit"] {
-    width: 100%;
-    background-color: #4caf50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .PaymentForm button[type="submit"]:hover {
-    background-color: #45a049;
-  }
+
 
 
 .container-center-payment{
@@ -40,16 +10,30 @@
 }
   .container-payment{
     background: rgb(42, 42, 42);
+    display: flex;
     box-shadow: 2px 2px 1px #27213b;
     border-radius: 10px;
     width: 90%;
-    height: 100%;
+    height: 70%;
+    gap: 90px;
   }
 
 
+  .cart-products-div {
+    height: 60vh;
+    width: 70vh;
+    border-radius: 10px;
+    background: rgb(42, 42, 42);
+    box-shadow: 2px 2px 1px #27213b;
+  }
 
-
-
+  .payment-forme{
+    height: 60vh;
+    width: 70vh;
+    border-radius: 10px;
+    background: rgb(42, 42, 42);
+    box-shadow: 2px 2px 1px #27213b;
+  }
 
 
 
@@ -106,3 +90,7 @@
   background-color: #298e46;
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
+
+
+
+

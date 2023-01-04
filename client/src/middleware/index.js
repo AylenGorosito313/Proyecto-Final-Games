@@ -149,16 +149,18 @@ export const LoginUser = ({ email, password }) => {
   };
 };
 
-export const CreatePayment = ({name, img, id, genres}) => {
+export const CreatePayment = ({ name, img, id, genres, price }) => {
   return async function (dispatch) {
     try {
-    console.log({name, img, id, genres})
+      console.log(price);
       let res = await axios({
         method: "POST",
-        data: {name, img, id, genres},
+        data:{ name,
         img,
         id,
         genres,
+        price,
+      },
         url: "http://localhost:3001/payment",
       });
       console.log(res);

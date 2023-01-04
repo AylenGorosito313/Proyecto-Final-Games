@@ -3,10 +3,10 @@ import "./Cards.css"
 import { Link } from "react-router-dom";
 import { platformImage } from "./utils";
 import { priceFactor } from "./utils";
-
-
+import { useDispatch} from "react-redux";
+import { CreatePayment } from "../../middleware";
 function Card({ name, img, id, rating, platforms, released, genres }) {
-
+  const dispatch = useDispatch();
   const [toggleFavorite, setToggleFavorite] = useState(false);
   const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
 
@@ -18,9 +18,17 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
 
   const onClickShoppingCart = () => {
     setToggleShoppingCart(!toggleShoppingCart)
-    console.log(name, img, id, rating, platforms, released, genres)
+    const data = {
+      name, img, id, genres
+    }
+    console.log(data)
+    dispatch(CreatePayment(data));
+
   }
   
+
+
+
 
   return (
     <div className="single-card">

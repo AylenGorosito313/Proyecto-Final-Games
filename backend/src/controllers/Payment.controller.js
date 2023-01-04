@@ -1,35 +1,41 @@
-class PaymentController {
-  constructor(subscriptionService) {
-    this.subscriptionService = subscriptionService;
+const {createPayment , createSubscription} = require("../services/PaymentService")
+
+
+
+
+const getPaymentLink = async (req, res) => {
+  const { name, img, id, genres } = req.body;
+
+  try {
+    const payment = await createPayment({
+      name,
+      img,
+      id,
+      genres,
+    });
+    console.log(payment.init_point)
+    return res.json(payment.init_point);
+  } catch (error) {
+    console.log(error);
+
+    return res
+      .status(500)
+      .json({ error: true, msg: "Failed to create payment" });
   }
+};
 
-  async getPaymentLink(req, res) {
-    try {
-      const payment = await this.subscriptionService.createPayment();
+const getSubscriptionLink = async (req, res) => {
+  try {
+    const subscription = createSubscription();
 
-      return res.json(payment);
-    } catch (error) {
-      console.log(error);
+    return res.json(subscription);
+  } catch (error) { 
+    console.log(error);
 
-      return res
-        .status(500)
-        .json({ error: true, msg: "Failed to create payment" });
-    }
+    return res
+      .status(500)
+      .json({ error: true, msg: "Failed to create subscription" });
   }
+};
 
-  async getSubscriptionLink(req, res) {
-    try {
-      const subscription = await this.subscriptionService.createSubscription();
-
-      return res.json(subscription);
-    } catch (error) {
-      console.log(error);
-
-      return res
-        .status(500)
-        .json({ error: true, msg: "Failed to create subscription" });
-    }
-  }
-}
-
-module.exports = {PaymentController};
+module.exports = { getPaymentLink , getSubscriptionLink};

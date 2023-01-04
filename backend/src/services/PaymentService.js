@@ -1,14 +1,15 @@
 const axios = require("axios");
 
-class PaymentService {
-  async createPayment() {
+
+  const createPayment = async (name, img, id, genres) => {
+    console.log(name)
     const url = "https://api.mercadopago.com/checkout/preferences";
 
     const body = {
       payer_email: "test_user_1278610210@testuser.com",
       items: [
         {
-          title: "Dummy Title",
+          title: name.name,
           description: "Dummy description",
           picture_url: "http://www.myapp.com/myimage.jpg",
           category_id: "category123",
@@ -29,11 +30,11 @@ class PaymentService {
         Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
       },
     });
-    console.log(payment.data.init_point);
-    return payment.data;
+   
+    return payment.data
   }
 
-  async createSubscription() {
+  const  createSubscription = async ()=> {
     const url = "https://api.mercadopago.com/preapproval";
 
     const body = {
@@ -57,6 +58,6 @@ class PaymentService {
 
     return subscription.data;
   }
-}
 
-module.exports = PaymentService;
+
+module.exports ={createPayment , createSubscription };

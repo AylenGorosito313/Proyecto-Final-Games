@@ -9,7 +9,7 @@ import {
   responseLogin,
   getGenre,
   getPlatforms,
-  getLinkPayment
+  getLinkPayment,
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
@@ -149,25 +149,20 @@ export const LoginUser = ({ email, password }) => {
   };
 };
 
-
-
-
-
-export const CreatePayment = ({
-  platforms,
-  background_image,
-  name,
-  rating,
-  genre,
-}) => {
+export const CreatePayment = ({name, img, id, genres}) => {
   return async function (dispatch) {
     try {
+    console.log({name, img, id, genres})
       let res = await axios({
         method: "POST",
-        data: { platforms, background_image, name, rating, genre },
-        url: "http://localhost:3001/game/create",
+        data: {name, img, id, genres},
+        img,
+        id,
+        genres,
+        url: "http://localhost:3001/payment",
       });
-      dispatch(getLinkPayment(res.data));
+      console.log(payment.data.init_point);
+      dispatch(getLinkPayment(payment.data.init_point));
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",

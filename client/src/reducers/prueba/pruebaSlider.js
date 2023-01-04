@@ -51,6 +51,7 @@ export const toolkit_prueba = createSlice({
       state.platforms = [...actions.payload];
     },
      getLinkPayment:(state, actions) => {
+      console.log(actions.payload)
       state.payment={ ...state.payment, link: actions.payload};
     },
   },

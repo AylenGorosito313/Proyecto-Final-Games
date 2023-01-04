@@ -1,19 +1,16 @@
 const express = require("express");
 const { Router } = require("express");
 
-const { PaymentController } = require("../controllers/Payment.controller");
-const PaymentService = require("../services/PaymentService");
+const {
+  getPaymentLink,
+  getSubscriptionLink,
+} = require("../controllers/Payment.controller");
+// const PaymentService = require("../services/PaymentService");
 const paymentRouter = Router();
-const PaymentInstance = new PaymentController(new PaymentService());
+// const PaymentInstance = new PaymentController(new PaymentService());
 
+paymentRouter.post("/payment", getPaymentLink);
 
-paymentRouter.get("/payment", function (req, res, next) {
-  PaymentInstance.getPaymentLink(req, res);
-});
+paymentRouter.get("/subscription", getSubscriptionLink);
 
-paymentRouter.get("/subscription", function (req, res, next) {
-  PaymentInstance.getSubscriptionLink(req, res);
-});
-
-
-module.exports = paymentRouter ;
+module.exports = paymentRouter;

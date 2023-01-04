@@ -1,8 +1,13 @@
 const { Users } = require("../models/users");
+const { Carrito } = require('../models/Carrito')
 
 const getAllUser = async (req, res) => {
     try {
-        const user = await Users.findAll();
+        const user = await Users.findAll({
+            include: {
+                model: Carrito
+            }
+        });
         res.status(200).json(user);
     } catch (error) {
         res.status(500).json({

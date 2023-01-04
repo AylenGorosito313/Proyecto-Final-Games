@@ -10,6 +10,7 @@ import Seach from "../components/Search/Search";
 import HomeSlider from "../components/HomeSlider/HomeSlider";
 import MostPopularSlider from "../components/GameSliders/MostPopularSlider";
 import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
+import {Link} from "react-router-dom";
 function Home() {
   const dispatch = useDispatch();
   const { games, isLoader } = useSelector((state) => state.prueba);
@@ -30,6 +31,7 @@ function Home() {
     <>
       <div className="container-search-home">
         <Seach />
+        <Link to='/game/create'><p>Create Game</p></Link>
       </div>
       <div className="container-all-content-center">
       <div className="home-slider">

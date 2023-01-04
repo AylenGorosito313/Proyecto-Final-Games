@@ -8,7 +8,6 @@ const addToCar = async (req, res) => {
 
     try {
         let userVerify = await Users.findByPk(userId);
-
         let searchUserCar = await Carrito.findOne({
             where: {
                 userId,

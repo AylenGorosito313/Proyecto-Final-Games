@@ -9,22 +9,10 @@ import {
   responseLogin,
   getGenre,
   getPlatforms,
+  getLinkPayment
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
-    return async function (dispatch) {
-        try {
-            dispatch(setIsloader());
-            let {data} = await axios({
-                method: "GET",
-                url: `http://localhost:3001/games`,
-            });
-            dispatch(getAllGames(data));
-            dispatch(setIsloader());
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
   return async function (dispatch) {
     try {
       dispatch(setIsloader());
@@ -38,6 +26,19 @@ export const getGames = () => {
       console.log(error.message);
     }
   };
+  // return async function (dispatch) {
+  //   try {
+  //     dispatch(setIsloader());
+  //     let { data } = await axios({
+  //       method: "GET",
+  //       url: `http://localhost:3001/games`,
+  //     });
+  //     dispatch(getAllGames(data));
+  //     dispatch(setIsloader());
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
 };
 
 export const getSearchByName = (name) => {
@@ -60,10 +61,10 @@ export const createUser = ({ name, lastName, email, password }) => {
       });
       dispatch(responseRegister(res.data));
     } catch (error) {
-      toast.error(  error.message , {
+      toast.error(error.message, {
         position: "bottom-right",
         duration: 4000,
-        
+
         style: {
           borderRadius: "10px",
           background: "#333",
@@ -74,7 +75,13 @@ export const createUser = ({ name, lastName, email, password }) => {
   };
 };
 
-export const CreateGame = ({ platforms, background_image, name, rating, genre }) => {
+export const CreateGame = ({
+  platforms,
+  background_image,
+  name,
+  rating,
+  genre,
+}) => {
   return async function (dispatch) {
     try {
       let res = await axios({
@@ -84,10 +91,10 @@ export const CreateGame = ({ platforms, background_image, name, rating, genre })
       });
       dispatch(GameCreate(res.data));
     } catch (error) {
-      toast.error(  error.message , {
+      toast.error(error.message, {
         position: "bottom-right",
         duration: 4000,
-        
+
         style: {
           borderRadius: "10px",
           background: "#333",
@@ -118,8 +125,6 @@ export const traerGenero = () => {
 //   };
 // };
 
-
-
 export const LoginUser = ({ email, password }) => {
   return async function (dispatch) {
     try {
@@ -130,11 +135,44 @@ export const LoginUser = ({ email, password }) => {
       });
       dispatch(responseLogin(res.data));
     } catch (error) {
-    
-      toast.error(  error.message , {
+      toast.error(error.message, {
         position: "bottom-right",
         duration: 4000,
-        
+
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
+  };
+};
+
+
+
+
+
+export const CreatePayment = ({
+  platforms,
+  background_image,
+  name,
+  rating,
+  genre,
+}) => {
+  return async function (dispatch) {
+    try {
+      let res = await axios({
+        method: "POST",
+        data: { platforms, background_image, name, rating, genre },
+        url: "http://localhost:3001/game/create",
+      });
+      dispatch(getLinkPayment(res.data));
+    } catch (error) {
+      toast.error(error.message, {
+        position: "bottom-right",
+        duration: 4000,
+
         style: {
           borderRadius: "10px",
           background: "#333",

@@ -31,6 +31,7 @@ function Loginn() {
   setTimeout(function () {
     if (res.login.token) {
       localStorage.setItem("token", res.login.token);
+   
       navigateToHome.push("/");
     }
   },4000);

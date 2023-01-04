@@ -100,7 +100,7 @@ const deleteItem = async (req, res) => {
                 carUser.set({
                     items: itemsUpdate,
                     total_items: itemsUpdate.length,
-                    total_precio: carUser.total_precio - itemDeleted.price,
+                    total_precio: carUser.total_precio - itemDeleted.price, 
                 });
                 await carUser.save();
                 return res.status(200).json(carUser);

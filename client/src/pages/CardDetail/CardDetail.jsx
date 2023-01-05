@@ -2,10 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGameDetail } from "../../middleware";
 import { useParams } from "react-router-dom";
+
+// Components
 import Loading from "../../components/Loading/Loading.jsx";
 import DetailSlider from "./DetailSlider/DetailSlider";
+import GamesActions from "./GameActions/GameActions";
+
+// Utils
+import { platformImage} from "./utils/utils";
+
+// Css
 import "./CardDetail.css";
-import { priceFactor, platformImage, cleanURL } from "./utils/utils";
+
 
 export default function CardDetail () {
 
@@ -110,15 +118,10 @@ export default function CardDetail () {
                         
                         </div>
                         <div className="right-container">
-
-                            <div className="price-cart-pay-wishlist-container">
-                                <div className="price-container">
-                                    US$ {priceFactor(gameDetail.rating)}
-                                </div>
-                                <div className="pay-button">
-                                    
-                                </div>
-                            </div>
+                                <GamesActions 
+                                    price={gameDetail.rating}
+                                    className="games-actions-container"
+                                /> 
                         </div>
                     </div>
                     

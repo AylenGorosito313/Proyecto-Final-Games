@@ -276,7 +276,7 @@ export const deleteCart = (userId, gameId) => {
     try {
   console.log(userId,gameId)
       let res = await axios({
-        method: "POST",
+        method: "DELETE",
         data: {},
         url: `http://localhost:3001/use/deleteItem/${userId}/${gameId}`,
       });

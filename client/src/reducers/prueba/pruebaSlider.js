@@ -5,6 +5,7 @@ const initialState = {
   games: [],
   popularGames: [],
   gamesReleasedLasthMonth: [],
+  gameDetail: {},
   genre: [],
   platforms: [],
   payment:{
@@ -15,7 +16,7 @@ const initialState = {
     register: "",
   },
 
-  isLoader: false,
+  isLoader: true,
 };
 
 export const toolkit_prueba = createSlice({
@@ -28,6 +29,9 @@ export const toolkit_prueba = createSlice({
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
     },
+    getDetail: (state,actions) => {
+      state.gameDetail = actions.payload;
+    },
     popularGames: (state, actions) => {
       state.popularGames = [...actions.payload];
     },
@@ -37,7 +41,7 @@ export const toolkit_prueba = createSlice({
     getByName: (state, actions) => {
       state.games = [...actions.payload];
     },
-    setIsloader: (state) => {
+    setIsLoader: (state) => {
       state.isLoader = !state.isLoader;
     },
     responseRegister: (state, actions) => {
@@ -70,7 +74,7 @@ export const {
   addUser,
   getAllGames,
   getByName,
-  setIsloader,
+  setIsLoader,
   responseRegister,
   responseLogin,
   clearState,
@@ -79,7 +83,8 @@ export const {
   GameCreate,
   getLinkPayment,
   popularGames,
-  releasedLasthMonth
+  releasedLasthMonth,
+  getDetail
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

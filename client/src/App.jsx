@@ -6,6 +6,7 @@ import NavTop from "./components/Nav/Nav-top";
 import Loginn from "./pages/Login/Loginn";
 import Register from "./pages/Register/Register";
 import GameCreate from "./pages/GameCreate/GameCreate";
+import CardDetail from "./pages/CardDetail/CardDetail";
 function App() {
   return (
     <>
@@ -19,15 +20,14 @@ function App() {
       <Route exact path="/login">
         <Loginn />
       </Route>
-      <Route exact path="/game/create">
-        <GameCreate />
-      </Route>
       <Route exact path="/register">
         <Register />
       </Route>
-      <Route exact path="/">
+      <Route path="/">
         <NavTop />
-        <Home />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/game/create" component={GameCreate} />
+        <Route exact path="/game/:id" component={CardDetail} />
       </Route>
     
     </>

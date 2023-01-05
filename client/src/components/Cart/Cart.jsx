@@ -8,11 +8,7 @@ function Cart() {
   const handleDelete = () => {};
   return (
     <>
-
-
-
-
-
+      <h1>{cart.length && cart.map((ele) => ele.name)}</h1>
 
       {/* {cart &&
         cart.map((ele) => {
@@ -37,5 +33,3 @@ function Cart() {
 }
 
 export default Cart;
-
-

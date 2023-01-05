@@ -6,7 +6,7 @@ import { platformImage } from "./utils";
 import { priceFactor } from "./utils";
 import { useDispatch, useSelector } from "react-redux";
 import { CreatePayment } from "../../middleware";
-import { AddCart } from "../../middleware";
+import { AddCart } from "../../middleware/index";
 function Card({ name, img, id, rating, platforms, released, genres }) {
   const dispatch = useDispatch();
   const [toggleFavorite, setToggleFavorite] = useState(false);
@@ -30,6 +30,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
       genres,
       price,
     };
+    
     dispatch (AddCart( user_id, id))
     dispatch(CreatePayment(data));
 

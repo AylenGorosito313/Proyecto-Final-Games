@@ -204,7 +204,7 @@ export const LoginUser = ({ email, password }) => {
 export const CreatePayment = ({ name, img, id, genres, price }) => {
   return async function (dispatch) {
     try {
-      console.log(price);
+      console.log(name, img, id, genres, price);
       let res = await axios({
         method: "POST",
         data:{ name,

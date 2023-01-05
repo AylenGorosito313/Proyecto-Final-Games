@@ -216,7 +216,7 @@ export const CreatePayment = ({ name, img, id, genres, price }) => {
         url: "http://localhost:3001/payment",
       });
       console.log(res);
-      dispatch(getLinkPayment(res));
+      dispatch(getLinkPayment(res.data));
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",

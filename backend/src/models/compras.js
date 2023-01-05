@@ -1,25 +1,27 @@
-const { DataTypes } = require('sequelize')
-const sequelize = require('../db')
+const DataTypes = require("sequelize/lib/data-types");
+const sequelize = require("../db");
+const { Users } = require("./users");
 
-const Compras = sequelize.define('compras',{
+const Compras = sequelize.define(
+    "compras",
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
 
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
+        historiaDeCompras: {
+            type: DataTypes.ARRAY(DataTypes.JSON),
+            defaultValue: [],
+        },
     },
-
-    historiaDeCompras: {
-        type: DataTypes.ARRAY(DataTypes.JSON),
-        defaultValue: [],
-    }
-})
+    { freezeTableName: true }
+);
 
 Users.hasOne(Compras, {
-    foreignKey: 'userId'
-  });
+    foreignKey: "userId",
+});
 Compras.belongsTo(Users);
 
-
-
-module.exports = Compras
+module.exports = { Compras };

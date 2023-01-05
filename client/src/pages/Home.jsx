@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGames, getGamesReleasedLasthMonth, getPopularGames } from "../middleware";
+import { getGames, getGamesReleasedLasthMonth, getPopularGames, isLoading } from "../middleware";
 import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
@@ -10,6 +10,8 @@ import Seach from "../components/Search/Search";
 import HomeSlider from "../components/HomeSlider/HomeSlider";
 import MostPopularSlider from "../components/GameSliders/MostPopularSlider";
 import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
+
+
 function Home() {
   const dispatch = useDispatch();
   const { games, isLoader } = useSelector((state) => state.prueba);
@@ -19,6 +21,9 @@ function Home() {
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
+    setTimeout(() => {
+      dispatch(isLoading())
+    }, 2000);
   }, [dispatch]);
 
 

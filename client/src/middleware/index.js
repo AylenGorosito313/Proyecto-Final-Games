@@ -3,30 +3,39 @@ import toast, { Toaster } from "react-hot-toast";
 import {
   getAllGames,
   getByName,
-  setIsloader,
+  setIsLoader,
   responseRegister,
   GameCreate,
   responseLogin,
   getGenre,
   getPlatforms,
   popularGames,
-  releasedLasthMonth
+  releasedLasthMonth,
+  getDetail
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
     return async function (dispatch) {
         try {
-            dispatch(setIsloader());
             let {data} = await axios({
                 method: "GET",
                 url: `http://localhost:3001/games`,
             });
             dispatch(getAllGames(data));
-            dispatch(setIsloader());
         } catch (error) {
             console.log(error.message);
         }
     };
+};
+
+export const isLoading = () => {
+  return async function (dispatch) {
+    try {
+      dispatch(setIsLoader());
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 };
 
 export const getPopularGames = () => {
@@ -54,7 +63,6 @@ export const getGamesReleasedLasthMonth = () => {
         url: `http://localhost:3001/games/released`
       });
       dispatch(releasedLasthMonth(data));
-      
     } catch (error) {
       console.log(error.message);
     }
@@ -70,6 +78,22 @@ export const getSearchByName = (name) => {
     dispatch(getByName(data));
   };
 };
+
+export const getGameDetail = (id) => {
+  return async function (dispatch) {
+    try {
+      
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/game/${id}`,
+      });
+      
+      dispatch(getDetail(data));
+    } catch (error) {
+      console.log(error.message);
+    } 
+  }
+}
 
 export const createUser = ({ name, lastName, email, password }) => {
   return async function (dispatch) {

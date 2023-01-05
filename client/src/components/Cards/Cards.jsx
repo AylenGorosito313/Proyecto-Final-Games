@@ -43,7 +43,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
           <img src={img} alt={name} />
         </div>
 
-        <div className="card-content">
+        {/* <div className="card-content">
           <div className="card-content-header">
             <Link to="#">
               <h3>{name.split("").slice(0, 16).join("")}</h3>
@@ -51,7 +51,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             <div className="ranking-container">
               <i className="fa-solid fa-star star"></i> {rating}
             </div>
-          </div>
+          </div> */}
 
           <div className="card-content">
           
@@ -119,7 +119,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
         </div>
       </div>
     </div>
-    </div>
+
   );
 } 
 

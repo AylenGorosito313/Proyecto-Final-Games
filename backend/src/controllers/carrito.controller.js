@@ -76,6 +76,37 @@ const getCarUser = async (req, res) => {
     }
 };
 
+const deleteAllItems = async (req, res) => {
+    const { userId } = req.params;
+    try {
+        let carUser = await Carrito.findOne({
+            where: {
+                userId,
+            },
+        });
+     
+      if (carUser) {
+        carUser.total_items = carUser.items.length -1;
+        carUser.total_precio = 0;
+        carUser.status = "pending";
+        carUser.items.splice(0);
+
+            await carUser.save();
+
+         return res.status(200).json({
+            message: "shopping cart deleted with success",
+         }) 
+      }
+
+    } catch (error) {
+        res.status(400).json({
+            error: error.message,
+        });
+    }
+}
+
+
+
 const deleteItem = async (req, res) => {
     const { userId, gameId } = req.params;
 
@@ -116,4 +147,4 @@ const deleteItem = async (req, res) => {
     }
 };
 
-module.exports = { addToCar, getCarUser, deleteItem };
+module.exports = { addToCar, getCarUser, deleteItem, deleteAllItems  };

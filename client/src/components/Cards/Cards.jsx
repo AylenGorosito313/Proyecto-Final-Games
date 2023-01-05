@@ -4,18 +4,23 @@ import "./Cards.css";
 import { Link } from "react-router-dom";
 import { platformImage } from "./utils";
 import { priceFactor } from "./utils";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CreatePayment } from "../../middleware";
+import { AddCart } from "../../middleware";
 function Card({ name, img, id, rating, platforms, released, genres }) {
   const dispatch = useDispatch();
   const [toggleFavorite, setToggleFavorite] = useState(false);
   const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
+  const { res } = useSelector((state) => state.prueba);
+
 
   const onClickFavorite = () => {
     setToggleFavorite(!toggleFavorite);
   };
 
   const onClickShoppingCart = () => {
+
+    let user_id =localStorage.getItem("id")
     let price = priceFactor(rating);
     setToggleShoppingCart(!toggleShoppingCart);
     const data = {
@@ -25,8 +30,9 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
       genres,
       price,
     };
-   
+    dispatch (AddCart( user_id, id))
     dispatch(CreatePayment(data));
+
   };
 
   return (

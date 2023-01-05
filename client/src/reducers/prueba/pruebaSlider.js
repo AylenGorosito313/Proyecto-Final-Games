@@ -57,6 +57,9 @@ export const toolkit_prueba = createSlice({
     clearState:(state, actions) => {
       state.res = { ...state.res, login:""};
     },
+    clearStateCart:(state, actions) => {
+      state.cart= [];
+    },
     getGenre:(state, actions) => {
       state.genre = [...actions.payload];
     },
@@ -91,7 +94,8 @@ export const {
   getLinkPayment,
   popularGames,
   releasedLasthMonth,
-  getDetail
+  getDetail,
+  clearStateCart
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

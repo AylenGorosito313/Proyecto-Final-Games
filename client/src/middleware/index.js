@@ -265,3 +265,35 @@ console.log(data)
     }
   };
 };
+
+
+///use/deleteItem/:userId/:gameId
+
+
+export const deleteCart = (userId, gameId) => {
+  return async function (dispatch) {
+
+    try {
+  console.log(userId,gameId)
+      let res = await axios({
+        method: "POST",
+        data: {},
+        url: `http://localhost:3001/use/deleteItem/${userId}/${gameId}`,
+      });
+      // console.log(res);
+      // dispatch(respose(res));
+    } catch (error) {
+      toast.error(error.message, {
+        position: "bottom-right",
+        duration: 4000,
+
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
+  };
+};
+

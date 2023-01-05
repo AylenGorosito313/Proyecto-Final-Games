@@ -8,12 +8,21 @@ font-size: 13px;
     background: rgb(56, 44, 44);
     display: flex;
     width: 100%;
+    height: 100px;
     /* padding: 15px; */
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 
 
 }
+
+.card-cart-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
 
 .subcontainer-img{
     display: flex;

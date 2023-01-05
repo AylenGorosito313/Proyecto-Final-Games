@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Cart from "../../components/Cart/Cart";
 import { getCart } from "../../middleware/index";
+import { clearStateCart } from "../../reducers/prueba/pruebaSlider";
 export default function PaymentMP() {
   const { payment } = useSelector((state) => state.prueba);
   const dispatch = useDispatch();
   useEffect(() => {
     let userId = localStorage.getItem("id");
-    
     dispatch(getCart(userId));
+    return () => {dispatch(clearStateCart())}
   }, []);
 
   return (
@@ -37,5 +38,3 @@ export default function PaymentMP() {
     </>
   );
 }
-
-

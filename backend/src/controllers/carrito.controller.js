@@ -84,28 +84,25 @@ const deleteAllItems = async (req, res) => {
                 userId,
             },
         });
-     
-      if (carUser) {
-        carUser.total_items = 0;
-        carUser.total_precio = 0;
-        carUser.status = "pending";
-        carUser.items = [];
-        console.log(carUser)
+
+        if (carUser) {
+            carUser.total_items = 0;
+            carUser.total_precio = 0;
+            carUser.status = "pending";
+            carUser.items = [];
+            console.log(carUser);
             await carUser.save();
 
-         return res.status(200).json({
-            message: "shopping cart deleted with success",
-         }) 
-      }
-
+            return res.status(200).json({
+                message: "shopping cart deleted with success",
+            });
+        }
     } catch (error) {
         res.status(400).json({
             error: error.message,
         });
     }
-}
-
-
+};
 
 const deleteItem = async (req, res) => {
     const { userId, gameId } = req.params;
@@ -147,4 +144,4 @@ const deleteItem = async (req, res) => {
     }
 };
 
-module.exports = { addToCar, getCarUser, deleteItem, deleteAllItems  };
+module.exports = { addToCar, getCarUser, deleteItem, deleteAllItems };

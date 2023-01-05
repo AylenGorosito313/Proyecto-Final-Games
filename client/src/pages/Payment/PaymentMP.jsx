@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Cart from "../../components/Cart/Cart";
 export default function PaymentMP() {
   const { payment } = useSelector((state) => state.prueba);
-  console.log(payment.link.data);
+  console.log(payment.link);
   return (
     <>
       {/* <div className="container-car-items">

@@ -10,6 +10,7 @@ import {
   getGenre,
   popularGames,
   releasedLasthMonth,
+  getLinkPayment,
   getDetail
 } from "../reducers/prueba/pruebaSlider";
 
@@ -231,3 +232,4 @@ export const CreatePayment = ({ name, img, id, genres, price }) => {
     }
   };
 };
+

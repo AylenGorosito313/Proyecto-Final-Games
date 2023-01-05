@@ -6,6 +6,13 @@ import NavTop from "./components/Nav/Nav-top";
 import Loginn from "./pages/Login/Loginn";
 import Register from "./pages/Register/Register";
 import GameCreate from "./pages/GameCreate/GameCreate";
+import NavProfile from "./pages/UserProfile/NavProfile/NavProfile";
+import Profile from "./pages/UserProfile/Profile/Profile";
+import MyGames from "./pages/UserProfile/MyGames/MyGames";
+import WisList from "./pages/UserProfile/WishList/WishList"
+
+
+
 function App() {
   return (
     <>
@@ -29,7 +36,10 @@ function App() {
         <NavTop />
         <Home />
       </Route>
-    
+      <Route path='/profile' component={NavProfile}/>
+      <Route exact path='/profile/profile' component={Profile}/>
+      <Route exact path='/profile/games' component={MyGames}/>
+      <Route exact path='/profile/wislist' component={WisList}/>
     </>
   );
 }

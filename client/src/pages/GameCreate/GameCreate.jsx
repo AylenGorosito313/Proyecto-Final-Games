@@ -3,47 +3,86 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { CreateGame, traerGenero } from "../../middleware";
+import { CreateGame, traerGenero, traerPlatforms } from "../../middleware";
 import style from "../GameCreate/GameCreate.module.css";
 
 export default function GameCreate() {
   const dispatch = useDispatch();
   //  const history = useHistory();
-  const { genre } = useSelector((state) => state.prueba);
+  const { genre, platforms } = useSelector((state) => state.prueba);
   const [gender, setGender] = useState({
-    genere:[],
+    genere: [],
   });
+  const [platform, setPlatform] = useState({
+    platformarray: [],
+  });
+
   const {
     register,
     formState: { errors },
+    watch,
     handleSubmit,
   } = useForm({
     defaultValues: {
       name: "",
       background_image: "",
       rating: 0,
-      platforms: [],
+      // platforms: [''],
+      // genre: [''],
     },
     mode: "onChange",
   });
 
   const onSubmit = async (data) => {
-    let genre = gender.genere
-
-    console.log({...data, genre});
-    dispatch(CreateGame(data));
+    let genre = gender.genere;
+    let platforms = platform.platformarray;
+    console.log({ ...data, platforms, genre });
+    dispatch(CreateGame({ ...data, platforms, genre }));
     //   history.push('/')
   };
 
   const handlerGender = (event) => {
+    if (!gender.genere.includes(event.target.value)) {
+      setGender({ ...gender, genere: [...gender.genere, event.target.value] });
+    } else {
+      setGender({
+        ...gender,
+      });
+    }
+  };
 
-    setGender({...gender, genere:[...gender.genere, event.target.value] });
-   
- 
+  const handlerPlatforms = (event) => {
+    if (!platform.platformarray.includes(event.target.value)) {
+      setPlatform({
+        ...platform,
+        platformarray: [...platform.platformarray, event.target.value],
+      });
+    } else {
+      setPlatform({
+        ...platform,
+      });
+    }
+  };
+
+  const handleDelete = (event) => {
+    setGender({
+      ...gender,
+      genere: gender.genere.filter((gen) => gen !== event),
+    });
+  };
+
+  const handleDeletedos = (event) => {
+    setPlatform({
+      ...platform,
+      platformarray: platform.platformarray.filter((plat) => plat !== event),
+    });
   };
   console.log(gender);
+  console.log(platform);
+
   useEffect(() => {
     dispatch(traerGenero());
+    dispatch(traerPlatforms());
   }, []);
 
   return (
@@ -90,10 +129,34 @@ export default function GameCreate() {
               ))}
           </select>
         </div>
+        {gender.genere.map((el, i) => (
+          <div key={i}>
+            <p>{el}</p>
+            <button className="" onClick={() => handleDelete(el)}>
+              X
+            </button>
+          </div>
+        ))}
+
         <div>
           <label> Platforms:</label>
-          <input type="text" {...register("platforms")} />
+          <select onChange={handlerPlatforms}>
+            {platforms &&
+              platforms.map((p, i) => (
+                <option value={p} key={i}>
+                  {p}
+                </option>
+              ))}
+          </select>
         </div>
+        {platform.platformarray.map((el, i) => (
+          <div key={i}>
+            <p>{el}</p>
+            <button className="" onClick={() => handleDeletedos(el)}>
+              X
+            </button>
+          </div>
+        ))}
 
         <button type="submit">Create Game</button>
       </form>

@@ -8,11 +8,11 @@ import { motion } from "framer-motion";
 export default function SelectProfile({ setOpen, setLogin }) {
   const dispatch = useDispatch();
   const handlerLogout = () => {
-    setLogin(false)
+    setLogin(false);
     setOpen(false);
     localStorage.clear();
+
     dispatch(clearState());
-    
   };
 
   return (

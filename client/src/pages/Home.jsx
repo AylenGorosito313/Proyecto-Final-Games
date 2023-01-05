@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGames } from "../middleware";
+import { getGames, getGamesReleasedLasthMonth, getPopularGames, isLoading } from "../middleware";
 import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
 import img from "../assets/backg.png";
@@ -10,6 +10,8 @@ import Seach from "../components/Search/Search";
 import HomeSlider from "../components/HomeSlider/HomeSlider";
 import MostPopularSlider from "../components/GameSliders/MostPopularSlider";
 import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
+import { Link } from "react-router-dom";
+
 function Home() {
   const dispatch = useDispatch();
   const { games, isLoader } = useSelector((state) => state.prueba);
@@ -17,7 +19,14 @@ function Home() {
   console.log(games);
   useEffect(() => {
     dispatch(getGames());
+    dispatch(getPopularGames());
+    dispatch(getGamesReleasedLasthMonth());
+    setTimeout(() => {
+      dispatch(isLoading())
+    }, 2000);
   }, [dispatch]);
+
+
 
   if (isLoader) {
     return <h1>Cargando...</h1>;
@@ -26,6 +35,7 @@ function Home() {
     <>
       <div className="container-search-home">
         <Seach />
+        <Link to='/game/create'><p>Create Game</p></Link>
       </div>
       <div className="container-all-content-center">
       <div className="home-slider">

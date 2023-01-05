@@ -24,10 +24,8 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
     <div className="single-card-slider">
       <div className="card-slider">
 
-        
-        
           <div className="game-image-slider">
-            <div className="favourite-tag" onClick={onClickFavorite} >{toggleFavorite ? <i className="fa-solid fa-heart fa-2xl red-heart"></i> : <i className="fa-regular fa-heart fa-2xl"></i>  }</div>
+            <div className="favourite-tag-slider" onClick={onClickFavorite} >{toggleFavorite ? <i className="fa-solid fa-heart fa-2xl red-heart"></i> : <i className="fa-regular fa-heart fa-2xl"></i>  }</div>
             <img src={img} alt={name} />
           </div>
 
@@ -44,7 +42,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             </div>
 
             <div className="card-content-header-slider">
-             <Link to="#">
+             <Link to={`/game/${id}`}>
               <h3>{name.split('').slice(0,16).join('')}</h3>
              </Link> 
               <div ><i className="fa-solid fa-star star" ></i> {rating}</div>
@@ -61,11 +59,6 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
                 </div>
               </div>
             </div>
-
-            {/* This is the div that appears with the hover  */}
-            
-            
-            
 
             </div>
           </div>

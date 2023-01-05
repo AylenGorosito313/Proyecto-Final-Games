@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Settings() {
+ function Settings() {
     return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -17,3 +17,5 @@ export default function Settings() {
         </svg>
       );
 }
+
+export default Settings

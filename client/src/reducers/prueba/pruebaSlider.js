@@ -3,14 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   users: [],
   games: [],
+  popularGames: [],
+  gamesReleasedLasthMonth: [],
+  gameDetail: {},
   genre: [],
+  cart:[],
   platforms: [],
+  payment:{
+    link:""
+  },
   res: {
     login:"",
     register: "",
   },
 
-  isLoader: false,
+  isLoader: true,
 };
 
 export const toolkit_prueba = createSlice({
@@ -23,10 +30,19 @@ export const toolkit_prueba = createSlice({
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
     },
+    getDetail: (state,actions) => {
+      state.gameDetail = actions.payload;
+    },
+    popularGames: (state, actions) => {
+      state.popularGames = [...actions.payload];
+    },
+    releasedLasthMonth: (state, actions) => {
+      state.gamesReleasedLasthMonth = [...actions.payload]
+    },
     getByName: (state, actions) => {
       state.games = [...actions.payload];
     },
-    setIsloader: (state) => {
+    setIsLoader: (state) => {
       state.isLoader = !state.isLoader;
     },
     responseRegister: (state, actions) => {
@@ -47,21 +63,35 @@ export const toolkit_prueba = createSlice({
     getPlatforms:(state, actions) => {
       state.platforms = [...actions.payload];
     },
+    getLinkPayment:(state, actions) => {
+      console.log(actions.payload)
+      state.payment={ ...state.payment, link: actions.payload};
+    },
+    getCartRes:(state, actions) => {
+      console.log(actions.payload)
+      state.cart=[...state.cart, actions.payload];
+    },
+
   },
 });
-
+//getCartRes
 // Action creators are generated for each case reducer function
 export const {
   addUser,
   getAllGames,
   getByName,
-  setIsloader,
+  setIsLoader,
   responseRegister,
   responseLogin,
+  getCartRes,
   clearState,
   getGenre,
   getPlatforms,
   GameCreate,
+  getLinkPayment,
+  popularGames,
+  releasedLasthMonth,
+  getDetail
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

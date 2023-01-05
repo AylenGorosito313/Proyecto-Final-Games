@@ -15,6 +15,11 @@ export const platformImage = (el) => {
   }
 
   export const priceFactor = (el) => {
-      if(el >= 3.5) return ((el * 0.5) + 100).toFixed(2)
-      else return ((el * 0.5) + 0.22).toFixed(2)
+      if(el >= 3.5) return ((el * 0.5) + 5).toFixed(2)
+      else return ((el * 0.5) + 0.2).toFixed(2)
+  }
+
+  export const cleanURL = (url) => {
+    const newURL = url.replace(/.+\/\/|www.|\..+/g, '')
+    return newURL
   }

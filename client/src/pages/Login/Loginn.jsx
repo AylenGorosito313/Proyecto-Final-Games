@@ -82,7 +82,7 @@ function Loginn() {
               <hr></hr>
             </p>
           </div>
-          <div className="social-container">
+          {/* <div className="social-container">
             //////// configurar api de los botones al hacer el deploy ////
             <div className="google-container">
               <FacebookLogin
@@ -113,8 +113,8 @@ function Loginn() {
                 onFailure={responseGoogle}
                 cookiePolicy={"single_host_origin"}
               />
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
         </div>
       </div>
     </>

@@ -16,7 +16,7 @@ export default function PaymentMP() {
           <div className="cart-products-div">
             <h1>Your order</h1>
             <Cart />
-            <a href={payment.link}>
+            <a href={payment.link.data}>
             <button className="button-3" role="button">
               Comprar
             </button>

@@ -10,6 +10,7 @@ import {
   getGenre,
   popularGames,
   releasedLasthMonth,
+  getLinkPayment,
   getDetail
 } from "../reducers/prueba/pruebaSlider";
 
@@ -216,7 +217,7 @@ export const CreatePayment = ({ name, img, id, genres, price }) => {
         url: "http://localhost:3001/payment",
       });
       console.log(res);
-      dispatch(getLinkPayment(res.data));
+      dispatch(getLinkPayment(res));
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",
@@ -231,3 +232,4 @@ export const CreatePayment = ({ name, img, id, genres, price }) => {
     }
   };
 };
+

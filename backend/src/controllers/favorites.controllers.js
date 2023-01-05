@@ -31,7 +31,26 @@ const addFavorite = async (req, res) => {
     }
 };
 
+const getFavorite = async (req,res) => {
+    const {userId} = req.params
+
+    try {
+        console.log("aca llega userId", userId)
+        const user = await Users.findByPk(userId)
+        const favorites = user.favoritos 
+        const favoritesMap = favorites.map(el => el)
+        console.log("resultado de favoriteMap", favoritesMap)
+        console.log("resultado de getUser", favorites)
+        // let favoritos = getUser.favoritos;
+        // favoritos.map(el => console.log(el.id))
+        
+        res.status(200).send(favoritesMap)
+    } catch (error) {
+        res.status(500).json({
+            error: error.message,
+        });
+    }
+}
 
 
-
-module.exports = { addFavorite };
+module.exports = { addFavorite, getFavorite };

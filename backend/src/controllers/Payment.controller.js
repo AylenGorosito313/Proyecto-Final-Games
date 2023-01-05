@@ -4,17 +4,9 @@ const {createPayment , createSubscription} = require("../services/PaymentService
 
 
 const getPaymentLink = async (req, res) => {
-  const { name, img, id, genres, price } = req.body;
-console.log(name, img, id, genres, price)
+  const games = req.body;
   try {
-    const payment = await createPayment({
-      name,
-      img,
-      id,
-      genres,
-      price
-    });
-    console.log(payment.init_point)
+    const payment = await createPayment(games);
     return res.json(payment.init_point);
   } catch (error) {
     console.log(error);

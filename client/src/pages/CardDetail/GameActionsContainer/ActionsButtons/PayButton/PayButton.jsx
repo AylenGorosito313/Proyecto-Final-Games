@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import "./PayButton.css";
 
 // ACTIONS
-import { CreatePayment } from "../../../../../middleware";
+import { getCheckOut} from "../../../../../middleware";
 import { priceFactor } from "../../../utils/utils";
 
 
@@ -24,13 +24,13 @@ export default function PayButton ({priceGame, name, img, id, genres}) {
       price,
     };
 
-    useEffect(() => {
-        if(buyingGame === "...BUYING"){
-            setTimeout(() => {
-                dispatch(CreatePayment(data))
-            }, [1500])
-        }
-    })
+    // useEffect(() => {
+    //     if(buyingGame === "...BUYING"){
+    //         setTimeout(() => {
+    //             dispatch(getCheckOut(data))
+    //         }, [1500])
+    //     }
+    // })
 
     const onClickBuyButton = (e) => {
         setBuyingGame("...BUYING")

@@ -23,7 +23,7 @@ function App() {
       <Route exact path="/register">
         <Register />
       </Route>
-      <Route path="/">
+      <Route exact path="/">
         <NavTop />
         <Route exact path="/" component={Home} />
         <Route exact path="/game/create" component={GameCreate} />

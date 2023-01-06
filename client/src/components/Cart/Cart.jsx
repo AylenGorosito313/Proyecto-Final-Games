@@ -7,7 +7,16 @@ import { useDispatch, useSelector } from "react-redux";
 function Cart() {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.prueba);
+  // let prices =[]
+ 
+    {/* { cart.length && cart.map((ele) =>
+    ele.map((game) => {
+      prices.push(game.prices)
+    })
+  )} */}
+  // let total = prices[0].reduce((a, b) => a + b, 0);
 
+  // console.log(total);
   const [Del, setDel] = useState(false);
 
   const handleDelete = (id) => {
@@ -16,7 +25,6 @@ function Cart() {
 
     if (Del) {
       location.reload();
-      // cart = cart.filter((ele)=> ele.id !== id)
     }
 
     dispatch(deleteCart(userId, id));
@@ -24,10 +32,11 @@ function Cart() {
 
   return (
     <>
+
       <div className="card-cart-container">
         {cart.length &&
-          cart.map((ele) =>
-            ele.map((game) => {
+       
+            cart.map((game) => {
               return (
                 <>
                   <div className="container-cart">
@@ -41,12 +50,12 @@ function Cart() {
                       </div>
                     </div>
                     <div className="container-title-cart">
-                    <p> {game.name.split('').slice(0,16).join('')} </p>
+                      <p> {game.name.split("").slice(0, 16).join("")} </p>
                     </div>
-                    
+
                     <div className="div-title-delete">
                       <div className="container-img-game">
-                        <p>price$</p>
+                        <p> $ {game.price}</p>
                         <div onClick={() => handleDelete(game.id)}>
                           <p>eliminar</p>
                         </div>
@@ -56,16 +65,12 @@ function Cart() {
                 </>
               );
             })
-          )}
+          }
+          <div><h1>Precio total  </h1></div>
       </div>
 
-      {/* {cart &&
-        cart.map((ele) => {
-          return (
-          
-          
-          );
-        })} */}
+
+
     </>
   );
 }

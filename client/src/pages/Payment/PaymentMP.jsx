@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./PaymentFrom.css";
+import TotalPrice from "../../components/Cart/utilsCart/TotalPrice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Cart from "../../components/Cart/Cart";
@@ -8,6 +9,7 @@ import { clearStateCart } from "../../reducers/prueba/pruebaSlider";
 export default function PaymentMP() {
   const { payment } = useSelector((state) => state.prueba);
 
+// let totalprecio= TotalPrice()
   const dispatch = useDispatch();
   useEffect(() => {
     let userId = localStorage.getItem("id");
@@ -25,6 +27,8 @@ export default function PaymentMP() {
             <Cart />
           </div>
 <div className="buttons-payments">
+
+  <p>Precio total </p>
  <a href={payment.link.data}>
             <button className="button-3" role="button">
               Comprar

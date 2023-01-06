@@ -72,7 +72,7 @@ export const toolkit_prueba = createSlice({
     },
     getCartRes:(state, actions) => {
       console.log(actions.payload)
-      state.cart=[...state.cart, actions.payload];
+      state.cart=[...state.cart, ...actions.payload];
     },
 
   },

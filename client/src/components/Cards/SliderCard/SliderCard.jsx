@@ -42,7 +42,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             </div>
 
             <div className="card-content-header-slider">
-             <Link to="#">
+             <Link to={`/game/${id}`}>
               <h3>{name.split('').slice(0,16).join('')}</h3>
              </Link> 
               <div ><i className="fa-solid fa-star star" ></i> {rating}</div>
@@ -59,11 +59,6 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
                 </div>
               </div>
             </div>
-
-            {/* This is the div that appears with the hover  */}
-            
-            
-            
 
             </div>
           </div>

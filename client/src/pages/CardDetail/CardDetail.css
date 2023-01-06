@@ -1,0 +1,25 @@
+.main-detail-container {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    font-family: "Poppins";
+}
+
+.detail-container {
+    display: flex;
+    padding: 0 2rem;
+}
+
+.left-container {
+    margin: 0 2rem;
+}
+
+.description {
+    
+        text-align: left;
+        line-height: 1.5em;
+        text-decoration: none;
+        
+}

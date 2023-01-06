@@ -20,8 +20,7 @@
     display: flex;
     padding: 20px;
     overflow-y: scroll;
-    scrollbar-width: thin;    
-    scrollbar-color: blue orange; 
+height: 100%;
     flex-direction: column;
     gap: 20px;
 }
@@ -41,7 +40,7 @@
 } 
 
 .card-cart-container::-webkit-scrollbar:horizontal {
-    height: 5px;
+    height: 0%;
 }
 
 .card-cart-container::-webkit-scrollbar-thumb {

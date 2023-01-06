@@ -13,9 +13,10 @@
     display: flex;
     box-shadow: 2px 2px 1px #27213b;
     border-radius: 10px;
-    width: 90%;
+    width: 40%;
     height: 70%;
-    gap: 90px;
+    gap: 20px;
+    flex-direction: column;
   }
 
 
@@ -38,7 +39,12 @@
 
 
 
-
+.buttons-payments{
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+}
 
 /* CSS */
 .button-3 {
@@ -53,6 +59,7 @@
   display: inline-block;
   font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
   font-size: 14px;
+  width: 200px;
   font-weight: 600;
   line-height: 20px;
   padding: 6px 16px;

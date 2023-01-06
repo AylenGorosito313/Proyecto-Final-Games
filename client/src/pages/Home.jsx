@@ -41,20 +41,16 @@ function Home() {
   }
   return (
     <>
+     
    
+     
       <div className="container-search-home">
-      
         <Seach />
         <Link to="/game/create">
           <p>Create Game</p>
         </Link>
       </div>
       <div className="container-all-content-center">
-      {isLoader && (
-        <div className="container-all-content-center">
-          <Loading />
-        </div>
-      )}
         <div className="home-slider">
           <HomeSlider />
         </div>
@@ -80,6 +76,12 @@ function Home() {
           </div>
         </div>
       </div>
+
+      {isLoader && (
+          <div className="loading">
+            <Loading />
+          </div>
+        )}
     </>
   );
 }

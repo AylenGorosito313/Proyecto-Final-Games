@@ -1,0 +1,52 @@
+.add-to-cart {
+    appearance: none;
+    background-color: Black;
+    border: 0.1em solid #fff;
+    border-radius: 7px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    width: 100%;
+    line-height: normal;
+    height: 3.75em;
+    min-width: 0;
+    outline: none;
+    padding: 1em 2.3em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+.add-to-cart:disabled {
+    pointer-events: none;
+}
+
+.add-to-cart:hover {
+    
+    background-color: #444444;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    
+}
+
+.add-to-cart:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.detail-cart {
+    padding: 0px 5px;
+    
+}
+
+.added {
+    font-family: "Poppins";
+    font-size: 14px;
+    padding: 0px 10px;
+}

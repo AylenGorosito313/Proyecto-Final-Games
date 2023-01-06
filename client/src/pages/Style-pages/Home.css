@@ -12,8 +12,9 @@
   display: flex;
   width: 130vh;
   height: 77px;
+  gap: 20px;
   justify-content: center;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
 }
 .seccion-home-descubrir {
@@ -58,4 +59,13 @@
 .home-slider {
   display: flex;
   justify-content: center;
+}
+
+.loading-home {
+  width: 100%;
+  height: 100%;
+
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
 }

@@ -11,7 +11,7 @@ const Compras = sequelize.define(
             autoIncrement: true,
         },
 
-        historiaDeCompras: {
+        historialDeCompras: {
             type: DataTypes.ARRAY(DataTypes.JSON),
             defaultValue: [],
         },

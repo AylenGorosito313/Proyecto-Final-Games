@@ -1,14 +1,10 @@
-* {
-    font-family: Work sans;
-font-size: 13px;
-}
 
 .container-cart{
     border-radius: 10px;
     background: rgb(56, 44, 44);
     display: flex;
-    width: 100%;
-    height: 100px;
+    width: 80%;
+    height: 80px;
     /* padding: 15px; */
     align-items: center;
     justify-content: space-around;
@@ -18,20 +14,83 @@ font-size: 13px;
 
 .card-cart-container{
     display: flex;
+    padding: 20px;
+    overflow-y: scroll;
+height: 100%;
     flex-direction: column;
     gap: 20px;
-
 }
 
+
+
+.card-cart-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.card-cart-container::-webkit-scrollbar:vertical {
+    width:8px;
+}
+
+.card-cart-container::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.card-cart-container::-webkit-scrollbar:horizontal {
+    height: 0%;
+}
+
+.card-cart-container::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 10px;
+    border: 2px solid #303233;
+}
+
+.card-cart-container::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container-title-cart{
+   
+    display: flex;
+    height: 80px;
+}
 
 .subcontainer-img{
     display: flex;
-    gap: 30px;
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
 }
 
 .img-cart{
-    width: 90px;
-    height: 90px;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
 }
 
 .div-title-delete{

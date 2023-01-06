@@ -7,48 +7,51 @@ import { useDispatch, useSelector } from "react-redux";
 function Cart() {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.prueba);
+  // let prices =[]
+  let arr = cart.length && cart.map((ele) => ele.price )
+  console.log(arr)
+  let total =  arr.length && arr.reduce((a, b) => a + b, 0);
 
-
-
+  // console.log(total);
   const [Del, setDel] = useState(false);
 
   const handleDelete = (id) => {
     setDel(true);
     let userId = localStorage.getItem("id");
 
-  if(Del){
-    location. reload()
-    // cart = cart.filter((ele)=> ele.id !== id)
-  }
-
-
+    if (Del) {
+      location.reload();
+    }
 
     dispatch(deleteCart(userId, id));
   };
 
-
-
-
   return (
     <>
+
       <div className="card-cart-container">
         {cart.length &&
-          cart.map((ele) =>
-            ele.map((game) => {
+       
+            cart.map((game) => {
               return (
                 <>
-                  <div className= "container-cart">
+                  <div className="container-cart">
                     <div className="subcontainer-img">
-                      <img
-                        className="img-cart"
-                        src={game.background_image}
-                        alt="car"
-                      />
+                      <div className="container-img">
+                        <img
+                          className="img-cart"
+                          src={game.background_image}
+                          alt="car"
+                        />
+                      </div>
                     </div>
+                    <div className="container-title-cart">
+                      <p> {game.name.split("").slice(0, 16).join("")} </p>
+                    </div>
+
                     <div className="div-title-delete">
                       <div className="container-img-game">
-                        <h1> {game.name} </h1>
-                        <p>price$</p>
+                        <p> US$ {game.price}</p>
                         <div onClick={() => handleDelete(game.id)}>
                           <p>eliminar</p>
                         </div>
@@ -58,16 +61,17 @@ function Cart() {
                 </>
               );
             })
-          )}
+          }
+          <div>
+          <h1> Precio total  US$ {total} </h1>
+          </div>
+          <div>
+            
+          </div>
       </div>
 
-      {/* {cart &&
-        cart.map((ele) => {
-          return (
-          
-          
-          );
-        })} */}
+
+
     </>
   );
 }

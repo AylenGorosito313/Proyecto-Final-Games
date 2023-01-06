@@ -23,7 +23,7 @@ export default function DetailSlider ({ screenshots }) {
                     className="screenshots-slider"
                 >  
                 
-                    {screenshots.map((images, index) => (
+                    { screenshots.length && screenshots.map((images, index) => (
                         <SwiperSlide key={index} className="swiper-slide-screenshot">
                             <img src={images} alt="slider Images" />
                         </SwiperSlide>

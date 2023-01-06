@@ -2,29 +2,38 @@ const { Carrito } = require("../models/Carrito");
 const { Compras } = require("../models/compras");
 
 const addPurchaseUser = async (userId) => {
+    console.log({ userId });
+    let searchPurchase = await Compras.findOne({
+        where: {
+            userId,
+        },
+    });
+    let searchUserCar = await Carrito.findOne({
+        where: {
+            userId,
+        },
+    });
     try {
-        let searchPurchase = await Compras.findOne({
-            where: {
-                userId,
-            },
-        });
-        let searchUserCar = await Carrito.findOne({
-            where: {
-                userId,
-            },
-        });
         if (!searchPurchase && searchUserCar) {
             let createPurchase = await Compras.create();
             createPurchase.set({
                 userId,
-                historiaDeCompras: searchUserCar.items,
+                historialDeCompras: searchUserCar.items,
             });
-            createPurchase.save();
+            // await searchUserCar.drop()
+            await createPurchase.save();
         } else {
-            searchPurchase.historiaDeCompras = [
-                ...searchPurchase.historiaDeCompras,
+            searchPurchase.historialDeCompras = [
+                ...searchPurchase.historialDeCompras,
                 ...searchUserCar.items,
             ];
+            searchUserCar.set({
+                total_items: 0,
+                total_precio: 0,
+                items: [],
+            });
+            await searchPurchase.save();
+            await searchUserCar.save();
         }
         return "Agregado al historial de compra";
     } catch (error) {

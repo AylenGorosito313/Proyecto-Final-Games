@@ -1,10 +1,9 @@
 const axios = require("axios");
 
-const createPayment = async (gamesInfo) => {
+const createPayment = async (gamesInfo, id) => {
     const url = "https://api.mercadopago.com/checkout/preferences";
-    console.log(gamesInfo)
     const body = {
-        payer_email: "test_user_1278610210@testuser.com",
+        // payer_email: "test_user_1278610210@testuser.com",
         items: gamesInfo.map((ele) => {
             return {
                 title: ele.name,
@@ -15,10 +14,14 @@ const createPayment = async (gamesInfo) => {
                 unit_price: ele.price,
             };
         }),
+        payer: {
+            name: 'Daniel',
+            identification: { number: id, type: 'ID' }
+        },
         back_urls: {
             failure: "/failure",
             pending: "/pending",
-            success: "localhost:3001/payment/success",
+            success: `localhost:3001/payment/success?userId=${id}`,
         },
     };
     const payment = await axios.post(url, body, {

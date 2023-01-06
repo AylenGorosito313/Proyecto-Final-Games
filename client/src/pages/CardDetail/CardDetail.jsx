@@ -6,7 +6,8 @@ import { useParams } from "react-router-dom";
 // Components
 import Loading from "../../components/Loading/Loading.jsx";
 import DetailSlider from "./DetailSlider/DetailSlider";
-import GamesActions from "./GameActions/GameActions";
+import GamesActionsContainer from "./GameActionsContainer/GameActionsContainer";
+import MetaContainer from "./MetaContainer/MetaContainer";
 
 // Utils
 import { platformImage} from "./utils/utils";
@@ -49,17 +50,21 @@ export default function CardDetail () {
                                     <i className="fa-solid fa-arrow-left fa-xl"></i>
                                     <h1 className="detail-title">{gameDetail.name}</h1>
                                 </div>
-                                <div className="rating-container">
-                                    <i className="fa-solid fa-star fa-lg star" >
-                                    </i> {gameDetail.rating}
-                                    <div className="website">
-                                        <i class="fa-solid fa-link"></i>
+                                <div className="rating-website-container">
+                                    <div className="rating-container">
+                                        <i className="fa-solid fa-star fa-lg star" >
+                                        </i> {gameDetail.rating}
+                                    </div>
+                                    <div className="website-container">
+                                        <i class="fa-solid fa-link fa-lg"></i>
                                         <a href={gameDetail.website}>visit the website</a>
                                     </div>
                                 </div>
                             </div>
                             {/* Slider with Game Screenshots */}
-                            <DetailSlider screenshots={gameDetail.screenshot} className="detail-slider-container"/>
+                            <div className="detail-slider-container">
+                            <DetailSlider screenshots={gameDetail.screenshot} />
+                            </div>
 
                             {/* Game Description Container */}
                             <div className="description-container">
@@ -70,61 +75,27 @@ export default function CardDetail () {
                                     </p>
                                 </div>
                             </div>
+                            {/* Games Meta Information */}
+                            <div className="juego">
 
-                            <div className="games-meta">
-                                <div className="meta-block">
-                                    <div clasName="meta-title">Platforms</div>
-                                    <div clasName="meta-content">
-                                        {gameDetail.parent_platforms.length > 0 ? 
-                                        gameDetail.parent_platforms.slice(0,3).map( el => (
-                                            <span key={el}> 
-                                                {platformImage(el)} 
-                                            </span>
-                                            )) : 
-                                            <span>No available for plataforms</span>}
-                                    </div>
-                                </div>
-                                <div className="meta-block">
-                                    <div clasName="meta-title">Genre</div>
-                                    <div clasName="meta-content">
-                                        {gameDetail.genres.length > 0 ? 
-                                        gameDetail.genres.slice(0,4).map( (el, index) => (
-                                            <span key={el}>
-                                                {(index ? " / " : "") + el}
-                                            </span>
-                                        )) : 
-                                        <span>No genres</span>}
-                                    </div>
-                                </div>
-                                <div className="meta-block">
-                                    <div clasName="meta-title">Release date</div>
-                                    <div clasName="meta-content">
-                                        {gameDetail.released}
-                                    </div>
-                                </div>
-                                <div className="meta-block">
-                                    <div clasName="meta-title">Developer</div>
-                                    <div clasName="meta-content">
-                                        {gameDetail.developers.length > 0 ?
-                                        gameDetail.developers.map( (el, index) => (
-                                            <span key={el}>
-                                                {(index ? " / " : "") + el}
-                                            </span>
-                                        )) : 
-                                        <span>There are no developers</span>}
-                                    </div>
-                                </div>
+                            <MetaContainer 
+                                platforms={gameDetail.parent_platforms}
+                                genres={gameDetail.genres}
+                                released={gameDetail.released}
+                                developers={gameDetail.developers}
+                            />
                             </div>
-                        
                         </div>
+                        {/* Righ Card Detail Container */}
                         <div className="right-container">
-                                <GamesActions 
+                            <div className="games-actions-container">
+                                <GamesActionsContainer 
                                     price={gameDetail.rating}
-                                    className="games-actions-container"
+                                    
                                 /> 
+                            </div>
                         </div>
-                    </div>
-                    
+                    </div>  
                 )}
             </div>
         </>

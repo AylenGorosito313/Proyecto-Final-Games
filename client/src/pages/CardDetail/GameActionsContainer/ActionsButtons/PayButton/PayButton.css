@@ -5,10 +5,13 @@
     background: #1875FF;
     color: white;
     font-family: inherit;
+    margin-top: 10px;
     text-align: center;
-    font-size: 13px;
+    font-size: 17px;
+    min-height: 3.75em;
+    min-width: 0;
     box-shadow: 0px 14px 56px -11px #1875FF;
-    width: 10em;
+    width: 100%;
     padding: 1em;
     transition: all 0.4s;
     cursor: pointer;
@@ -22,7 +25,7 @@
 }
 
 .pay-button span:after {
-    content: ' Now';
+    content: 'NOW';
     position: absolute;
     opacity: 0;
     top: 0;

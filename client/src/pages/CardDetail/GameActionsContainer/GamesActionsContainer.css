@@ -1,0 +1,19 @@
+.games-actions-price {
+    font-family: "Poppins";
+    font-size: 30px;
+    padding: 10px 0px 10px 0px;
+    text-align: left;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.games-actions-price h5 {
+    font-size: 17px;
+}
+
+.games-actions-price h6 {
+    font-size: 15px;
+    padding: 0px;
+    margin: 20px 0px 0px 0px;
+    color: #444444;
+}

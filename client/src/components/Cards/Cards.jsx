@@ -1,38 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Cards.css";
 
 import { Link } from "react-router-dom";
 import { platformImage } from "./utils";
 import { priceFactor } from "./utils";
 import { useDispatch, useSelector } from "react-redux";
-
 import { AddCart } from "../../middleware";
+
 function Card({ name, img, id, rating, platforms, released, genres }) {
+
   const dispatch = useDispatch();
   const [toggleFavorite, setToggleFavorite] = useState(false);
   const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
   const { res } = useSelector((state) => state.prueba);
+  
+  let user_id =localStorage.getItem("id")
 
+  
+  useEffect(() => {
+        if(toggleShoppingCart === true){
+          setTimeout(() => {
+              dispatch(AddCart(user_id, id))
+          }, [1000])
+        }
+    }, [toggleShoppingCart])
 
   const onClickFavorite = () => {
     setToggleFavorite(!toggleFavorite);
   };
 
-  const onClickShoppingCart = () => {
-
-    let user_id =localStorage.getItem("id")
-    let price = priceFactor(rating);
-    setToggleShoppingCart(!toggleShoppingCart);
-    const data = {
-      name,
-      img,
-      id,
-      genres,
-      price,
-    };
-    dispatch (AddCart( user_id, id))
-    // dispatch(CreatePayment(data));
-
+  const onClickShoppingCart = (e) => {
+    setToggleShoppingCart(true);
   };
 
   return (
@@ -48,16 +46,6 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
           </div>
           <img src={img} alt={name} />
         </div>
-
-        {/* <div className="card-content">
-          <div className="card-content-header">
-            <Link to="#">
-              <h3>{name.split("").slice(0, 16).join("")}</h3>
-            </Link>
-            <div className="ranking-container">
-              <i className="fa-solid fa-star star"></i> {rating}
-            </div>
-          </div> */}
 
           <div className="card-content">
           

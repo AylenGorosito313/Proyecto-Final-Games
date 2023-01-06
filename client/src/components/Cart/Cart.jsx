@@ -51,7 +51,7 @@ function Cart() {
 
                     <div className="div-title-delete">
                       <div className="container-img-game">
-                        <p> $ {game.price}</p>
+                        <p> US$ {game.price}</p>
                         <div onClick={() => handleDelete(game.id)}>
                           <p>eliminar</p>
                         </div>
@@ -63,7 +63,7 @@ function Cart() {
             })
           }
           <div>
-          <h1> Precio total  $ {total} </h1>
+          <h1> Precio total  US$ {total} </h1>
           </div>
           <div>
             

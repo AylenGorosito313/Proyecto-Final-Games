@@ -15,7 +15,10 @@ import CardDetail from "./pages/CardDetail/CardDetail";
 function App() {
   return (
     <>
-
+<Route exact path="/games/:id">
+<NavTop />
+       <CardDetail/>
+      </Route>
 <Route exact path="/payment">
         <NavTop />
       

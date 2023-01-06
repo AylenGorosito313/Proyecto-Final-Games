@@ -48,14 +48,15 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
         </div>
 
           <div className="card-content">
-          
+          <Link to={`/games/${id}`}>
             <div className="card-content-header">
-             <Link to={`/game/${id}`}>
+         
               <h3>{name.split('').slice(0,16).join('')}</h3>
-             </Link> 
+             
               <div className="ranking-container"><i className="fa-solid fa-star star" ></i> {rating}</div>
+             
             </div>
-
+            </Link> 
             <div className="price-cart">
             <span className="price">US$ {priceFactor(rating)}</span>
             <div className="shopping-cart" onClick={onClickShoppingCart}>

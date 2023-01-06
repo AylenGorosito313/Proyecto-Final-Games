@@ -9,7 +9,7 @@ import GameCreate from "./pages/GameCreate/GameCreate";
 import NavProfile from "./pages/UserProfile/NavProfile/NavProfile";
 import Profile from "./pages/UserProfile/Profile/Profile";
 import MyGames from "./pages/UserProfile/MyGames/MyGames";
-import WisList from "./pages/UserProfile/WishList/WishList"
+import Favorite from "./pages/UserProfile/Favorite/Favorite"
 
 
 
@@ -39,7 +39,7 @@ function App() {
       <Route path='/profile' component={NavProfile}/>
       <Route exact path='/profile/profile' component={Profile}/>
       <Route exact path='/profile/games' component={MyGames}/>
-      <Route exact path='/profile/wislist' component={WisList}/>
+      <Route exact path='/profile/favorite' component={Favorite}/>
     </>
   );
 }

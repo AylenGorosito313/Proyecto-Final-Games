@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import UploadImage from "../../../components/UploadImage/UploadImage";
 
 export default function NavProfile (){
     return(
@@ -11,6 +12,7 @@ export default function NavProfile (){
                 <li><Link to='/profile/games'>MY GAMES</Link></li>
                 <li><Link to='/profile/wislist'>WISHLIST</Link></li>
             </ul>
+            <UploadImage/>
         </div>
     );
 };

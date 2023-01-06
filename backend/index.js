@@ -27,7 +27,7 @@ require("./src/models/genres");
 require("./src/models/users");
 require('./src/models/platform')
 require("./src/models/carrito");
-
+require("./src/models/providers")
 async function main() {
     try {
         await sequelize.sync({ force: true });

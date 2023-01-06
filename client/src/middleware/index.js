@@ -11,21 +11,22 @@ import {
   popularGames,
   releasedLasthMonth,
   getLinkPayment,
-  getDetail
+  getDetail,
+  getCartRes
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
-    return async function (dispatch) {
-        try {
-            let {data} = await axios({
-                method: "GET",
-                url: `http://localhost:3001/games`,
-            });
-            dispatch(getAllGames(data));
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
+  return async function (dispatch) {
+    try {
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/games`,
+      });
+      dispatch(getAllGames(data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 };
 
 export const isLoading = () => {
@@ -41,39 +42,30 @@ export const isLoading = () => {
 export const getPopularGames = () => {
   return async function (dispatch) {
     try {
-      
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games/popular`
+        url: `http://localhost:3001/games/popular`,
       });
       dispatch(popularGames(data));
-      
     } catch (error) {
       console.log(error.message);
     }
   };
 };
 
-
-
-
-
-
-
 export const getGamesReleasedLasthMonth = () => {
   return async function (dispatch) {
     try {
-      
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games/released`
+        url: `http://localhost:3001/games/released`,
       });
       dispatch(releasedLasthMonth(data));
     } catch (error) {
       console.log(error.message);
     }
-  }
-}
+  };
+};
 
 export const getSearchByName = (name) => {
   return async function (dispatch) {
@@ -88,18 +80,17 @@ export const getSearchByName = (name) => {
 export const getGameDetail = (id) => {
   return async function (dispatch) {
     try {
-      
       let { data } = await axios({
         method: "GET",
         url: `http://localhost:3001/game/${id}`,
       });
-      
+
       dispatch(getDetail(data));
     } catch (error) {
       console.log(error.message);
-    } 
-  }
-}
+    }
+  };
+};
 
 export const createUser = ({ name, lastName, email, password }) => {
   return async function (dispatch) {
@@ -134,9 +125,9 @@ export const CreateGame = ({
 }) => {
   return async function (dispatch) {
     try {
-      console.log(name)
-      console.log(platforms)
-      console.log( genre)
+      console.log(name);
+      console.log(platforms);
+      console.log(genre);
       let res = await axios({
         method: "POST",
         data: { platforms, background_image, name, rating, genre },
@@ -208,12 +199,7 @@ export const CreatePayment = ({ name, img, id, genres, price }) => {
       console.log(name, img, id, genres, price);
       let res = await axios({
         method: "POST",
-        data:{ name,
-        img,
-        id,
-        genres,
-        price,
-      },
+        data: { name, img, id, genres, price },
         url: "http://localhost:3001/payment",
       });
       console.log(res);
@@ -233,3 +219,49 @@ export const CreatePayment = ({ name, img, id, genres, price }) => {
   };
 };
 
+//"/user/addCard/:userId/:gameId"
+
+export const AddCart = (userId, gameId) => {
+  return async function (dispatch) {
+
+    try {
+  console.log(userId,gameId)
+      let res = await axios({
+        method: "POST",
+        data: {},
+        url: `http://localhost:3001/user/addCard/${userId}/${gameId}`,
+      });
+      // console.log(res);
+      // dispatch(respose(res));
+    } catch (error) {
+      toast.error(error.message, {
+        position: "bottom-right",
+        duration: 4000,
+
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
+  };
+};
+
+
+
+
+export const getCart = (userId) => {
+  return async function (dispatch) {
+    try {
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/user/cartItems/${userId}`,
+      });
+console.log(data)
+      dispatch(getCartRes(data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};

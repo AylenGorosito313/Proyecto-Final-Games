@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGameDetail } from "../../middleware";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 // Components
 import Loading from "../../components/Loading/Loading.jsx";
@@ -35,8 +35,8 @@ export default function CardDetail () {
         <>
             <div className="main-detail-container">
                 {loading ? (
-                    <div>
-                        <Loading className="loading" />
+                    <div className="loading">
+                        <Loading  />
                     </div>
                 ) :  (
                     
@@ -47,7 +47,9 @@ export default function CardDetail () {
                             {/* Navigation, Title and Rating container */}
                             <div className="navigation-title-rating-container">
                                 <div className="navigation-title-container">
-                                    <i className="fa-solid fa-arrow-left fa-xl"></i>
+                                    <Link to="/">
+                                        <i className="fa-solid fa-arrow-left fa-xl"></i>
+                                    </Link>
                                     <h1 className="detail-title">{gameDetail.name}</h1>
                                 </div>
                                 <div className="rating-website-container">
@@ -57,7 +59,7 @@ export default function CardDetail () {
                                     </div>
                                     <div className="website-container">
                                         <i class="fa-solid fa-link fa-lg"></i>
-                                        <a href={gameDetail.website}>visit the website</a>
+                                        <a href={gameDetail.website} target="blank">visit the website</a>
                                     </div>
                                 </div>
                             </div>
@@ -90,8 +92,11 @@ export default function CardDetail () {
                         <div className="right-container">
                             <div className="games-actions-container">
                                 <GamesActionsContainer 
-                                    price={gameDetail.rating}
-                                    
+                                    priceGame={gameDetail.rating}
+                                    name={gameDetail.name}
+                                    img={gameDetail.background_image}
+                                    id={id}
+                                    genres={gameDetail.genres}
                                 /> 
                             </div>
                         </div>

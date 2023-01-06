@@ -22,6 +22,7 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     will-change: transform;
+    font-family: "Poppins";
 }
 
 .add-to-wishlist:disabled {

@@ -5,19 +5,28 @@ import PayButton from "./ActionsButtons/PayButton/PayButton";
 import AddToCart from "./ActionsButtons/AddToCart/AddToCart";
 import AddToWishlist from "./ActionsButtons/AddToWishlist/AddToWishlist";
 
-export default function GamesActions ( {price} ) {
+export default function GamesActions ( {priceGame, name, img, id, genres} ) {
 
     return (
         <>
             <div className="games-actions-container-inner">
                 <div className="games-actions-price">
                     <h5>Your price:</h5>
-                    US$ {priceFactor(price)}
+                    US$ {priceFactor(priceGame)}
                     <h6>Standar Edition</h6>
                 </div>
                 <div className="games-actions-">
-                    <PayButton />
-                    <AddToCart />
+                    <PayButton 
+                        priceGame={priceGame}
+                        name={name}
+                        img={img}
+                        id={id}
+                        genres={genres}
+                    />
+                    <AddToCart 
+                        priceGame={priceGame}
+                        id={id}
+                    />
                     <AddToWishlist />
                 </div>
             </div>

@@ -5,7 +5,9 @@ const initialState = {
   games: [],
   popularGames: [],
   gamesReleasedLasthMonth: [],
+  gameDetail: {},
   genre: [],
+  cart:[],
   platforms: [],
   payment:{
     link:""
@@ -15,7 +17,7 @@ const initialState = {
     register: "",
   },
 
-  isLoader: false,
+  isLoader: true,
 };
 
 export const toolkit_prueba = createSlice({
@@ -28,6 +30,9 @@ export const toolkit_prueba = createSlice({
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
     },
+    getDetail: (state,actions) => {
+      state.gameDetail = actions.payload;
+    },
     popularGames: (state, actions) => {
       state.popularGames = [...actions.payload];
     },
@@ -37,7 +42,7 @@ export const toolkit_prueba = createSlice({
     getByName: (state, actions) => {
       state.games = [...actions.payload];
     },
-    setIsloader: (state) => {
+    setIsLoader: (state) => {
       state.isLoader = !state.isLoader;
     },
     responseRegister: (state, actions) => {
@@ -52,34 +57,45 @@ export const toolkit_prueba = createSlice({
     clearState:(state, actions) => {
       state.res = { ...state.res, login:""};
     },
+    clearStateCart:(state, actions) => {
+      state.cart= [];
+    },
     getGenre:(state, actions) => {
       state.genre = [...actions.payload];
     },
     getPlatforms:(state, actions) => {
       state.platforms = [...actions.payload];
     },
-     getLinkPayment:(state, actions) => {
+    getLinkPayment:(state, actions) => {
       console.log(actions.payload)
       state.payment={ ...state.payment, link: actions.payload};
     },
+    getCartRes:(state, actions) => {
+      console.log(actions.payload)
+      state.cart=[...state.cart, actions.payload];
+    },
+
   },
 });
-
+//getCartRes
 // Action creators are generated for each case reducer function
 export const {
   addUser,
   getAllGames,
   getByName,
-  setIsloader,
+  setIsLoader,
   responseRegister,
   responseLogin,
+  getCartRes,
   clearState,
   getGenre,
   getPlatforms,
   GameCreate,
   getLinkPayment,
   popularGames,
-  releasedLasthMonth
+  releasedLasthMonth,
+  getDetail,
+  clearStateCart
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

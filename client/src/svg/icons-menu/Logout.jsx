@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Logout() {
+ function Logout() {
     return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,3 +30,6 @@ export default function Logout() {
         </svg>
       );
 }
+
+
+export default Logout

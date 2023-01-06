@@ -4,18 +4,23 @@ import "./Cards.css";
 import { Link } from "react-router-dom";
 import { platformImage } from "./utils";
 import { priceFactor } from "./utils";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CreatePayment } from "../../middleware";
+import { AddCart } from "../../middleware";
 function Card({ name, img, id, rating, platforms, released, genres }) {
   const dispatch = useDispatch();
   const [toggleFavorite, setToggleFavorite] = useState(false);
   const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
+  const { res } = useSelector((state) => state.prueba);
+
 
   const onClickFavorite = () => {
     setToggleFavorite(!toggleFavorite);
   };
 
   const onClickShoppingCart = () => {
+
+    let user_id =localStorage.getItem("id")
     let price = priceFactor(rating);
     setToggleShoppingCart(!toggleShoppingCart);
     const data = {
@@ -25,8 +30,9 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
       genres,
       price,
     };
-   
-    dispatch(CreatePayment(data));
+    dispatch (AddCart( user_id, id))
+    // dispatch(CreatePayment(data));
+
   };
 
   return (
@@ -43,7 +49,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
           <img src={img} alt={name} />
         </div>
 
-        <div className="card-content">
+        {/* <div className="card-content">
           <div className="card-content-header">
             <Link to="#">
               <h3>{name.split("").slice(0, 16).join("")}</h3>
@@ -51,9 +57,18 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             <div className="ranking-container">
               <i className="fa-solid fa-star star"></i> {rating}
             </div>
-          </div>
+          </div> */}
 
-          <div className="price-cart">
+          <div className="card-content">
+          
+            <div className="card-content-header">
+             <Link to={`/game/${id}`}>
+              <h3>{name.split('').slice(0,16).join('')}</h3>
+             </Link> 
+              <div className="ranking-container"><i className="fa-solid fa-star star" ></i> {rating}</div>
+            </div>
+
+            <div className="price-cart">
             <span className="price">US$ {priceFactor(rating)}</span>
             <div className="shopping-cart" onClick={onClickShoppingCart}>
               <i class="fa-solid fa-cart-shopping cart"> </i>
@@ -110,7 +125,8 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
         </div>
       </div>
     </div>
+
   );
-}
+} 
 
 export default Card;

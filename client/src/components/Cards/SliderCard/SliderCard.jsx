@@ -1,22 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SliderCard.css"
 import { Link } from "react-router-dom";
 import { platformImage } from "../utils";
 import { priceFactor } from "../utils";
+import { AddCart } from "../../../middleware";
+import { useDispatch } from "react-redux";
 
 
 function Card({ name, img, id, rating, platforms, released, genres }) {
 
+  const dispatch = useDispatch();
   const [toggleFavorite, setToggleFavorite] = useState(false);
   const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
 
+  let user_id =localStorage.getItem("id")
   
+  
+  useEffect(() => {
+        if(toggleShoppingCart === true){
+          setTimeout(() => {
+              dispatch(AddCart(user_id, id))
+          }, [1000])
+        }
+    }, [toggleShoppingCart])
+
   const onClickFavorite = () => {
     setToggleFavorite(!toggleFavorite)
   }
 
-  const onClickShoppingCart = () => {
-    setToggleShoppingCart(!toggleShoppingCart)
+  const onClickShoppingCart = (e) => {
+    setToggleShoppingCart(true)
   }
   
 

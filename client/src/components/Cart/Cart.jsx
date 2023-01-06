@@ -41,7 +41,7 @@ function Cart() {
                       </div>
                     </div>
                     <div className="container-title-cart">
-                    <p> {game.name} </p>
+                    <p> {game.name.split('').slice(0,16).join('')} </p>
                     </div>
                     
                     <div className="div-title-delete">

@@ -21,6 +21,7 @@
 
   .cart-products-div {
     height: 60vh;
+    overflow-y: hidden;
     width: 70vh;
     border-radius: 10px;
     background: rgb(42, 42, 42);

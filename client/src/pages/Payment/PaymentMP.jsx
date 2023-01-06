@@ -20,10 +20,16 @@ export default function PaymentMP() {
     <>
       <div className="container-center-payment">
         <div className="container-payment">
+     
           <div className="cart-products-div">
-            <h1>Your order</h1>
+            
             <Cart />
-            <a href={payment.link.data}>
+         
+          </div>
+
+          <div className="payment-forme">
+
+          <a href={payment.link.data}>
               <button className="button-3" role="button">
                 Comprar
               </button>
@@ -33,8 +39,6 @@ export default function PaymentMP() {
               Comprar para regalo
             </button>
           </div>
-
-          <div className="payment-forme"></div>
         </div>
       </div>
     </>

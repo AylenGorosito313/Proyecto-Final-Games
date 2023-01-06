@@ -2,37 +2,25 @@ const axios = require("axios");
 
 const createPayment = async (gamesInfo) => {
     const url = "https://api.mercadopago.com/checkout/preferences";
-
+    console.log(gamesInfo)
     const body = {
         payer_email: "test_user_1278610210@testuser.com",
         items: gamesInfo.map((ele) => {
             return {
                 title: ele.name,
-                description: "Dummy description",
+                description: ele.name,
                 picture_url: ele.background_image,
                 category_id: "category123",
                 quantity: 1,
-                unit_price: 22,
+                unit_price: ele.price,
             };
         }),
         back_urls: {
             failure: "/failure",
             pending: "/pending",
-            success: "/success",
+            success: "localhost:3001/payment/success",
         },
     };
-
-    // [
-    //   {
-    //     title: name.name,
-    //     description: "Dummy description",
-    //     picture_url: "http://www.myapp.com/myimage.jpg",
-    //     category_id: "category123",
-    //     quantity: 1,
-    //     unit_price: price,
-    //   },
-    // ],
-
     const payment = await axios.post(url, body, {
         headers: {
             "Content-Type": "application/json",

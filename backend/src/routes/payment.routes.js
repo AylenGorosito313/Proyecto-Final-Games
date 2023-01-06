@@ -9,7 +9,7 @@ const {
 const paymentRouter = Router();
 
 
-paymentRouter.post("/payment", getPaymentLink);
+paymentRouter.get("/payment", getPaymentLink);
 
 paymentRouter.get("/subscription", getSubscriptionLink);
 

@@ -8,13 +8,9 @@ function Cart() {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.prueba);
   // let prices =[]
- 
-    {/* { cart.length && cart.map((ele) =>
-    ele.map((game) => {
-      prices.push(game.prices)
-    })
-  )} */}
-  // let total = prices[0].reduce((a, b) => a + b, 0);
+  let arr = cart.length && cart.map((ele) => ele.price )
+  console.log(arr)
+  let total =  arr.length && arr.reduce((a, b) => a + b, 0);
 
   // console.log(total);
   const [Del, setDel] = useState(false);
@@ -66,7 +62,12 @@ function Cart() {
               );
             })
           }
-          <div><h1>Precio total  </h1></div>
+          <div>
+          <h1> Precio total  $ {total} </h1>
+          </div>
+          <div>
+            
+          </div>
       </div>
 
 

@@ -12,7 +12,8 @@ import {
   releasedLasthMonth,
   getLinkPayment,
   getDetail,
-  getCartRes
+  getCartRes,
+  getUserActual,
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
@@ -297,3 +298,16 @@ export const deleteCart = (userId, gameId) => {
   };
 };
 
+export const geUserActual = (id) =>{
+  return async function (dispatch){
+    try{
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/user/${id}`,
+      });
+      dispatch(getUserActual(data));
+    }catch{
+      console.log(error.message);
+    }
+  };
+};

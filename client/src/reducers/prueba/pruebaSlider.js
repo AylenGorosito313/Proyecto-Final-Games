@@ -16,8 +16,8 @@ const initialState = {
     login:"",
     register: "",
   },
-
   isLoader: true,
+  userActual: "",
 };
 
 export const toolkit_prueba = createSlice({
@@ -67,14 +67,16 @@ export const toolkit_prueba = createSlice({
       state.platforms = [...actions.payload];
     },
     getLinkPayment:(state, actions) => {
-      console.log(actions.payload)
+      // console.log(actions.payload)
       state.payment={ ...state.payment, link: actions.payload};
     },
     getCartRes:(state, actions) => {
-      console.log(actions.payload)
+      // console.log(actions.payload)
       state.cart=[...state.cart, actions.payload];
     },
-
+    getUserActual:(state,actions) =>{
+      state.userActual = actions.payload; //[object Object]  
+    },
   },
 });
 //getCartRes
@@ -95,7 +97,8 @@ export const {
   popularGames,
   releasedLasthMonth,
   getDetail,
-  clearStateCart
+  clearStateCart,
+  getUserActual,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

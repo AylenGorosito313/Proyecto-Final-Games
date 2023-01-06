@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { platformImage } from "./utils";
 import { priceFactor } from "./utils";
 import { useDispatch, useSelector } from "react-redux";
-import { CreatePayment } from "../../middleware";
+
 import { AddCart } from "../../middleware";
 function Card({ name, img, id, rating, platforms, released, genres }) {
   const dispatch = useDispatch();

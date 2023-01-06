@@ -3,17 +3,22 @@ import "./PaymentFrom.css";
 import TotalPrice from "../../components/Cart/utilsCart/TotalPrice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getCheckOut } from "../../middleware/index";
 import Cart from "../../components/Cart/Cart";
 import { getCart } from "../../middleware/index";
 import { clearStateCart } from "../../reducers/prueba/pruebaSlider";
 export default function PaymentMP() {
   const { payment } = useSelector((state) => state.prueba);
+  const handlerCheck = () => {
+  localStorage.getItem('id')
 
-// let totalprecio= TotalPrice()
+
+  };
   const dispatch = useDispatch();
   useEffect(() => {
     let userId = localStorage.getItem("id");
     dispatch(getCart(userId));
+    dispatch(getCheckOut(userId))
     return () => {
       dispatch(clearStateCart());
     };
@@ -26,22 +31,17 @@ export default function PaymentMP() {
           <div className="cart-products-div">
             <Cart />
           </div>
-<div className="buttons-payments">
-
-  <p>Precio total </p>
- <a href={payment.link.data}>
-            <button className="button-3" role="button">
-              Comprar
+          <div className="buttons-payments">
+            <a href={payment.link}>
+            <button onClick={handlerCheck} className="button-3" role="button">
+              Checkuot
             </button>
-          </a>
+            </a>
 
-          <button className="button-3" role="button">
-            Comprar para regalo
-          </button>
-
-
-</div>
-         
+            <button className="button-3" role="button">
+              Comprar para regalo
+            </button>
+          </div>
         </div>
       </div>
     </>

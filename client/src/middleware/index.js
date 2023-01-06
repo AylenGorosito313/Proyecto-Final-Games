@@ -193,31 +193,7 @@ export const LoginUser = ({ email, password }) => {
   };
 };
 
-export const CreatePayment = ({ name, img, id, genres, price }) => {
-  return async function (dispatch) {
-    try {
-      console.log(name, img, id, genres, price);
-      let res = await axios({
-        method: "POST",
-        data: { name, img, id, genres, price },
-        url: "http://localhost:3001/payment",
-      });
-      console.log(res);
-      dispatch(getLinkPayment(res));
-    } catch (error) {
-      toast.error(error.message, {
-        position: "bottom-right",
-        duration: 4000,
 
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-        },
-      });
-    }
-  };
-};
 
 //"/user/addCard/:userId/:gameId"
 
@@ -297,3 +273,22 @@ export const deleteCart = (userId, gameId) => {
   };
 };
 
+
+
+// /payment
+
+
+export const getCheckOut = (userId) => {
+  return async function (dispatch) {
+    try {
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/payment?id=${userId}`,
+      });
+console.log(data)
+      dispatch(getLinkPayment(data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};

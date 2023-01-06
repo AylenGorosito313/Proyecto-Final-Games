@@ -7,7 +7,11 @@ const initialState = {
   gamesReleasedLasthMonth: [],
   gameDetail: {},
   genre: [],
+  cart:[],
   platforms: [],
+  payment:{
+    link:""
+  },
   res: {
     login:"",
     register: "",
@@ -53,15 +57,27 @@ export const toolkit_prueba = createSlice({
     clearState:(state, actions) => {
       state.res = { ...state.res, login:""};
     },
+    clearStateCart:(state, actions) => {
+      state.cart= [];
+    },
     getGenre:(state, actions) => {
       state.genre = [...actions.payload];
     },
     getPlatforms:(state, actions) => {
       state.platforms = [...actions.payload];
     },
+    getLinkPayment:(state, actions) => {
+      console.log(actions.payload)
+      state.payment={ ...state.payment, link: actions.payload};
+    },
+    getCartRes:(state, actions) => {
+      console.log(actions.payload)
+      state.cart=[...state.cart, actions.payload];
+    },
+
   },
 });
-
+//getCartRes
 // Action creators are generated for each case reducer function
 export const {
   addUser,
@@ -70,13 +86,16 @@ export const {
   setIsLoader,
   responseRegister,
   responseLogin,
+  getCartRes,
   clearState,
   getGenre,
   getPlatforms,
   GameCreate,
+  getLinkPayment,
   popularGames,
   releasedLasthMonth,
-  getDetail
+  getDetail,
+  clearStateCart
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

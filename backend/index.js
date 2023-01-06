@@ -26,6 +26,8 @@ require("./src/models/games");
 require("./src/models/genres");
 require("./src/models/users");
 require('./src/models/platform')
+require("./src/models/carrito");
+require('./src/models/compras')
 
 async function main() {
     try {

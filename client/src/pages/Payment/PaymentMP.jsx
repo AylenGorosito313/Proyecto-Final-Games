@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./PaymentFrom.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -6,7 +6,9 @@ import Cart from "../../components/Cart/Cart";
 import { getCart } from "../../middleware/index";
 import { clearStateCart } from "../../reducers/prueba/pruebaSlider";
 export default function PaymentMP() {
-  const { payment } = useSelector((state) => state.prueba);
+  const { payment} = useSelector((state) => state.prueba);
+ 
+ 
   const dispatch = useDispatch();
   useEffect(() => {
     let userId = localStorage.getItem("id");

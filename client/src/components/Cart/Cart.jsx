@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Cart.css";
-import img from "../../assets/img/fondo_1 1.png";
+
 import { deleteCart } from "../../middleware";
 import { useDispatch, useSelector } from "react-redux";
+
 function Cart() {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.prueba);
+
+
+
+  const [Del, setDel] = useState(false);
+
   const handleDelete = (id) => {
-    console.log(id)
+    setDel(true);
     let userId = localStorage.getItem("id");
+
+  if(Del){
+    location. reload()
+    // cart = cart.filter((ele)=> ele.id !== id)
+  }
+
+
+
     dispatch(deleteCart(userId, id));
   };
+
+
+
 
   return (
     <>
@@ -20,7 +37,7 @@ function Cart() {
             ele.map((game) => {
               return (
                 <>
-                  <div className="container-cart">
+                  <div className= "container-cart">
                     <div className="subcontainer-img">
                       <img
                         className="img-cart"
@@ -33,9 +50,8 @@ function Cart() {
                         <h1> {game.name} </h1>
                         <p>price$</p>
                         <div onClick={() => handleDelete(game.id)}>
-                        <p >eliminar</p>
+                          <p>eliminar</p>
                         </div>
-                        
                       </div>
                     </div>
                   </div>
@@ -57,3 +73,4 @@ function Cart() {
 }
 
 export default Cart;
+// Del ? "diplayDelete" :

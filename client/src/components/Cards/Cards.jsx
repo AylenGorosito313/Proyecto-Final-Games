@@ -31,7 +31,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
       price,
     };
     dispatch (AddCart( user_id, id))
-    dispatch(CreatePayment(data));
+    // dispatch(CreatePayment(data));
 
   };
 

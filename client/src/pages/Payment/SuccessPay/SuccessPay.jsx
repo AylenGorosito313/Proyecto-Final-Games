@@ -40,11 +40,22 @@ function SuccessPay() {
             </Link>
           </div>
         </div>
+
         <div className="contact-div-payment-succss">
-            <GitHub />
-            <Facebook />
-            <Linke />
-          </div>
+         
+            
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+          <GitHub />
+        </a>
+          
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+          <Facebook />
+          </a>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                <Linke /> 
+          </a>
+     
+        </div>
       </div>
     </div>
   );

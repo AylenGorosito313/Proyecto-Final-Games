@@ -38,6 +38,8 @@ function Home() {
     }
     return (
         <>
+       
+            <div className="container-all-content-center">
             <div className="container-search-home">
                 <Seach />
                 <div className="div-buttoms-home">
@@ -53,7 +55,6 @@ function Home() {
                 </div>
               
             </div>
-            <div className="container-all-content-center">
                 <div className="home-slider">
                     <HomeSlider />
                 </div>

@@ -2,6 +2,10 @@ import React from "react";
 import "./Success.css";
 import fondo from "../../../assets/img/payment.jpg";
 import LogoGrande from "../../../svg/Logos/LogoGrande";
+import { Link } from "react-router-dom";
+import GitHub from "../../../svg/Icons-SocialMedia/GitHub";
+import Facebook from "../../../svg/Icons-SocialMedia/Facebook";
+import Linke from "../../../svg/Icons-SocialMedia/Linke";
 function SuccessPay() {
   return (
     <div className="container-pay-succss">
@@ -22,11 +26,24 @@ function SuccessPay() {
           </p>
         </div>
         <div className="buttons-payment-sucss">
-        <button class="button-29" role="button">Download</button>
-        <button class="button-30" role="button">Ver mi perfil</button>
+          <button className="button-29" role="button">
+            Download
+          </button>
+          <button className="button-30" role="button">
+            View in profile
+          </button>
+
+          <div className="volver-home-div">
+            <Link className="link-payment-sucss" to={"/"}>
+              <p className="p-scs-return"> Return to Andromeda homepage</p>
+            </Link>
+          </div>
         </div>
-     
-       
+        <div className="contact-div-payment-succss">
+            <GitHub />
+            <Facebook />
+            <Linke />
+          </div>
       </div>
     </div>
   );

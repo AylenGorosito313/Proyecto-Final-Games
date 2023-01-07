@@ -6,7 +6,7 @@ import { platformImage } from "./utils";
 import { priceFactor } from "./utils";
 import { useDispatch, useSelector } from "react-redux";
 import { AddCart } from "../../middleware";
-
+import { motion } from "framer-motion";
 function Card({ name, img, id, rating, platforms, released, genres }) {
   const dispatch = useDispatch();
   const [toggleFavorite, setToggleFavorite] = useState(false);
@@ -16,10 +16,10 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
   let user_id = localStorage.getItem("id");
 
   useEffect(() => {
-        if(toggleShoppingCart === true){
-          dispatch(AddCart(user_id, id))
-        }
-    }, [toggleShoppingCart])
+    if (toggleShoppingCart === true) {
+      dispatch(AddCart(user_id, id));
+    }
+  }, [toggleShoppingCart]);
 
   const onClickFavorite = () => {
     setToggleFavorite(!toggleFavorite);
@@ -69,7 +69,11 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             </div>
 
             {/* This is the div that appears with the hover  */}
+    
 
+
+
+    
             <div className="magic-hover">
               <div className="line" />
               <br></br>

@@ -35,14 +35,14 @@ function Cart() {
               return (
                 <>
                   <div className="container-cart">
-                    <div className="subcontainer-img">
+                  
                       <div className="container-img">
                         <img
                           className="img-cart"
                           src={game.background_image}
                           alt="car"
                         />
-                      </div>
+                     
                     </div>
                     <div className="container-title-cart">
                       <p> {game.name.split("").slice(0, 16).join("")} </p>

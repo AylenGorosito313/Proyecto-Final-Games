@@ -45,7 +45,7 @@ export const Layout = styled.div`
   display: flex;
 justify-content: flex-start;
 
-    width: 34vh;
+
     justify-content: flex-end;
 `;
 

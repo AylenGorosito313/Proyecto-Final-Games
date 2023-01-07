@@ -210,6 +210,11 @@
   align-items: center;
 }
 
+.p-scs-return:hover {
+  color:#5469FF;
+}
+
+
 @media (max-width: 900px) {
   .text-scss-div {
     display: none;

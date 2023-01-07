@@ -25,7 +25,7 @@ export default function PaymentMP() {
     }, []);
 
     if (!cart.length) {
-        return <h4 className="cart_empty">Cart is Empty</h4>;
+        return <h4 className="cart_empty">The Cart is Empty</h4>;
     } else {
         price = cart.reduce((acc, next) => {
             return acc + next.price;

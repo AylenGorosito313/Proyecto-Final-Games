@@ -8,24 +8,11 @@ import PaymentMP from "../../pages/Payment/PaymentMP";
 function Cart() {
     const dispatch = useDispatch();
     const { cart } = useSelector((state) => state.prueba);
-    // let prices =[]
-    // let arr = cart.length && cart.map((ele) => ele.price )
-    // let total =  arr.length && arr.reduce((a, b) => a + b, 0);
-
-    // console.log(total);
     const [Del, setDel] = useState(false);
 
     const handleDelete = (id) => {
         dispatch(deletedItemsToCart(id));
-        // setDel(true);
-
-        // if (Del) {
-        //     location.reload();
-        // }
-
-        // dispatch(deleteCart(userId, id));
     };
-
     useEffect(() => {}, [cart.length]);
 
     return (

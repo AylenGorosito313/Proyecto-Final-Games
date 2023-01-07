@@ -23,7 +23,14 @@ const getUserById = async (req, res) => {
     const { id } = req.params;
 
     try {
-        let searchUser = await Users.findByPk(id);
+        let searchUser = await Users.findByPk(id, {
+            include:[{
+                model: Carrito
+            },{
+                model: Compras
+            }],
+            attributes: { exclude: ["passwordHash"] }
+        });
         res.status(200).json(searchUser);
     } catch (error) {
         console.log(error);

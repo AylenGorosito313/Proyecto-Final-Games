@@ -3,13 +3,14 @@ import "./Cart.css";
 
 import { deleteCart } from "../../middleware";
 import { useDispatch, useSelector } from "react-redux";
+import PaymentMP from "../../pages/Payment/PaymentMP";
 
 function Cart() {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.prueba);
   // let prices =[]
-  let arr = cart.length && cart.map((ele) => ele.price )
-  let total =  arr.length && arr.reduce((a, b) => a + b, 0);
+  // let arr = cart.length && cart.map((ele) => ele.price )
+  // let total =  arr.length && arr.reduce((a, b) => a + b, 0);
 
   // console.log(total);
   const [Del, setDel] = useState(false);
@@ -24,7 +25,6 @@ function Cart() {
 
     dispatch(deleteCart(userId, id));
   };
-
   return (
     <>
 
@@ -52,7 +52,7 @@ function Cart() {
                       <div className="container-img-game">
                         <p> US$ {game.price}</p>
                         <div onClick={() => handleDelete(game.id)}>
-                          <p>eliminar</p>
+                          <p className="delete">eliminar</p>
                         </div>
                       </div>
                     </div>
@@ -61,12 +61,8 @@ function Cart() {
               );
             })
           }
-          <div>
-          <h1> Precio total  US$ {total} </h1>
-          </div>
-          <div>
-            
-          </div>
+          
+          
       </div>
 
 

@@ -234,11 +234,11 @@ export const AddCart = (userId, gameId) => {
 export const getCart = (userId) => {
   return async function (dispatch) {
     try {
+      dispatch(setIsLoader())
       let { data } = await axios({
         method: "GET",
         url: `http://localhost:3001/user/cartItems/${userId}`,
       });
-console.log(data)
       dispatch(getCartRes(data));
     } catch (error) {
       console.log(error.message);
@@ -289,8 +289,8 @@ export const getCheckOut = (userId) => {
         method: "GET",
         url: `http://localhost:3001/payment?id=${userId}`,
       });
-console.log(data)
       dispatch(getLinkPayment(data));
+      dispatch(setIsLoader())
     } catch (error) {
       console.log(error.message);
     }

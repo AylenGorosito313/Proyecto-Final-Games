@@ -4,36 +4,42 @@
 .container-center-payment{
     display: flex;
     width: 100%;
-    height: 100vh;
-    padding-top: 50px;
+    height: 100%;
+    padding-top: 20px;
     justify-content: center;
 }
   .container-payment{
-    background: rgb(42, 42, 42);
+    background-image: url('grud1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
-    box-shadow: 2px 2px 1px #27213b;
-    border-radius: 10px;
-    width: 40%;
+    /* box-shadow: 2px 2px 1px #27213b; */
+    /* border-radius: 10px; */
     height: 70%;
     gap: 20px;
-    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    /* flex-direction: column; */
   }
 
 
   .cart-products-div {
-    height: 60vh;
-    overflow-y: hidden;
-    width: 70vh;
-    border-radius: 10px;
-    background: rgb(42, 42, 42);
-    box-shadow: 2px 2px 1px #27213b;
+    height: 70vh;
+    display: flex;
+    /* overflow-y: hidden; */
+    width: 62%;
+    /* border-radius: 10px; */
+    background: transparent;
+    /* box-shadow: 2px 2px 1px #27213b; */
   }
 
   .payment-forme{
     height: 60vh;
     width: 70vh;
     border-radius: 10px;
-    background: rgb(42, 42, 42);
+    background: black;
     box-shadow: 2px 2px 1px #27213b;
   }
 
@@ -41,8 +47,11 @@
 
 .buttons-payments{
   display: flex;
+  margin-top: auto;
+  padding: 20px;
+  align-items: center;
   gap: 20px;
-  width: 100%;
+  /* width: 100%; */
   justify-content: center;
 }
 
@@ -62,7 +71,8 @@
   width: 200px;
   font-weight: 600;
   line-height: 20px;
-  padding: 6px 16px;
+  padding: 10px;
+  /* font-weight: 900; */
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -99,6 +109,26 @@
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
 
+.cart_empty {
+  font-size: 40px;
+  text-align: center;
+  padding-top: 200px;
+}
 
+
+.price-total{
+  
+  margin-top: 20px;
+  margin-left: 20px;
+  
+  padding: 8px;
+  color: white;
+  text-shadow: 3px 3px 5px green;
+}
+
+.price-total span {
+  text-shadow: 0 0 0;
+  color: green;
+}
 
 

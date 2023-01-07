@@ -1,0 +1,14 @@
+.container-succes-pay{
+    width: 80vh;
+    height: 80vh;
+    color: #000;
+    display: flex;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.layout-scss{
+    
+}

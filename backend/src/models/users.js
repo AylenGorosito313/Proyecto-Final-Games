@@ -33,7 +33,21 @@ const Users = sequelize.define('users', {
         type: DataTypes.ARRAY(DataTypes.JSON),
         defaultValue: [],
         allowNull: true
+    },
+    birth_date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
+    },
+    region: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    profile_img: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
+
+
 }, {freezeTableName: true});
 
 Game.belongsToMany(Users, { through: "users_game" })

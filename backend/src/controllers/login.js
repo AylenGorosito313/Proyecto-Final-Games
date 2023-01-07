@@ -4,10 +4,10 @@ const bcrypt = require("bcrypt");
 const { SECRET } = process.env
 
 const registerUser = async (req, res) => {
-    const { name, lastName, email, password } = req.body;
+    const { name, lastName, email, password, birth_date, profile_img, region } = req.body;
 
     try {
-        if (!name || !lastName || !email || !password) {
+        if (!name || !lastName || !email || !password || !birth_date) {
             res.status(406).json({
                 message: "Not acceptable",
             });
@@ -17,7 +17,10 @@ const registerUser = async (req, res) => {
                 name,
                 lastName,
                 email,
-                passwordHash,
+                birth_date,
+                profile_img,
+                region,
+                passwordHash
             });
 
             res.status(201).json({message: 'User created'});

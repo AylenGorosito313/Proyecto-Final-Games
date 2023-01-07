@@ -6,16 +6,17 @@ import { Link } from "react-router-dom";
 import GitHub from "../../../svg/Icons-SocialMedia/GitHub";
 import Facebook from "../../../svg/Icons-SocialMedia/Facebook";
 import Linke from "../../../svg/Icons-SocialMedia/Linke";
+import LogoNew from "../../../svg/Logos/LogoNew";
 function SuccessPay() {
   return (
     <div className="container-pay-succss">
       <div className="fondo-scss-payment">
-        <img className="img-scss-payment" src={fondo} alt="fondo" />
+        {/* <img className="img-scss-payment" src={fondo} alt="fondo" /> */}
       </div>
 
       <div className="container-succes-pay">
         <div className="logo-scss-div">
-          <LogoGrande />
+          <LogoNew />
         </div>
         <div className="text-scss-div">
           <p className="p-scss">

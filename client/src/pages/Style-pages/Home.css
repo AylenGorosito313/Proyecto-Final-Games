@@ -10,12 +10,14 @@
 
 .container-search-home {
   display: flex;
-  width: 130vh;
+  width: 50%;
   height: 77px;
+  padding: 20px;
   gap: 20px;
   justify-content: center;
   flex-direction: row;
   align-items: center;
+
 }
 .seccion-home-descubrir {
   margin: 0;
@@ -46,6 +48,7 @@
   gap: 20px;
   display: flex;
   flex-wrap: wrap;
+  padding: 20px;
   justify-content: space-around;
 }
 
@@ -57,8 +60,10 @@
 }
 
 .home-slider {
+  width: 90%;
   display: flex;
-  justify-content: center;
+  padding: 10px;
+  justify-content: flex-start;
 }
 
 .loading-home {
@@ -76,3 +81,20 @@
   align-items: center;
   padding-top: 250px;
 }
+
+
+.div-buttoms-home{
+  display: flex;
+  height: 50%;
+  width: auto;
+  gap: 50px;
+  align-items: flex-end;
+}
+
+.p-create-game{
+  margin: 0;
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+}
+

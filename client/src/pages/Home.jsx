@@ -40,9 +40,18 @@ function Home() {
         <>
             <div className="container-search-home">
                 <Seach />
-                <Link to="/game/create">
-                    <p>Create Game</p>
+                <div className="div-buttoms-home">
+
+                <Link  className="p-create-game" to="/game/create">
+                    <p className="p-create-game">Discover</p>
                 </Link>
+           
+                <Link  className="p-create-game" to="/game/create">
+                    <p className="p-create-game">Create Game</p>
+                </Link>
+               
+                </div>
+              
             </div>
             <div className="container-all-content-center">
                 <div className="home-slider">
@@ -51,6 +60,7 @@ function Home() {
                 <div className="div-home">
                     <MostPopularSlider />
                     <ReleasedLasthMonth />
+                    <h1> All Games </h1>
                     <div className="div-home-card">
                         {games.length &&
                             games.map((ele) => {

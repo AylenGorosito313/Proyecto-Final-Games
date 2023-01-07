@@ -56,12 +56,7 @@ function NavTop() {
     <>
       <motion.div
         className="div-logo"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{
-          duration: 2,
-          ease: "easeInOut",
-        }}
+        
       >
         <Logo />
       </motion.div>

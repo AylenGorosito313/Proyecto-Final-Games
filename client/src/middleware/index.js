@@ -18,6 +18,7 @@ import {
 export const getGames = () => {
   return async function (dispatch) {
     try {
+      dispatch(setIsLoader())
       let { data } = await axios({
         method: "GET",
         url: `http://localhost:3001/games`,
@@ -61,6 +62,7 @@ export const getGamesReleasedLasthMonth = () => {
         url: `http://localhost:3001/games/released`,
       });
       dispatch(releasedLasthMonth(data));
+      dispatch(setIsLoader())
     } catch (error) {
       console.log(error.message);
     }
@@ -80,12 +82,14 @@ export const getSearchByName = (name) => {
 export const getGameDetail = (id) => {
   return async function (dispatch) {
     try {
+      dispatch(setIsLoader())
       let { data } = await axios({
         method: "GET",
         url: `http://localhost:3001/game/${id}`,
       });
 
       dispatch(getDetail(data));
+      dispatch(setIsLoader())
     } catch (error) {
       console.log(error.message);
     }

@@ -33,8 +33,8 @@ export default function AddToCart ({ id }) {
         <>
         <button className="add-to-cart" onClick={onClickCartButton}>
             {gameAddedToCart === "ADDED" ? 
-            <i class="fa-solid fa-check detail-check"><span className="added">{gameAddedToCart}</span></i> : 
-            <i class="fa-solid fa-cart-shopping detail-cart"><span className="added">ADD TO CART</span></i> } 
+            <i className="fa-solid fa-check detail-check"><span className="added">{gameAddedToCart}</span></i> : 
+            <i className="fa-solid fa-cart-shopping detail-cart"><span className="added">ADD TO CART</span></i> } 
         </button>
         </>
     )

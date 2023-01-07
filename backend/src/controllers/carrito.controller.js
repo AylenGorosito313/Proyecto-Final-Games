@@ -90,7 +90,6 @@ const deleteAllItems = async (req, res) => {
             carUser.total_precio = 0;
             carUser.status = "pending";
             carUser.items = [];
-            console.log(carUser);
             await carUser.save();
 
             return res.status(200).json({

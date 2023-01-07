@@ -9,7 +9,6 @@ function Cart() {
   const { cart } = useSelector((state) => state.prueba);
   // let prices =[]
   let arr = cart.length && cart.map((ele) => ele.price )
-  console.log(arr)
   let total =  arr.length && arr.reduce((a, b) => a + b, 0);
 
   // console.log(total);

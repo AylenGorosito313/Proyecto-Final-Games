@@ -7,8 +7,8 @@ export default function NavProfile (){
             <div>
                 <img src="" alt="ImgProfile" />
                 <p>Titulo</p>
-                <p><i class="fa-regular fa-download"></i>Download</p>
-                <i class="fa-sharp fa-solid fa-circle-ellipsis"></i>
+                <p><i className="fa-regular fa-download"></i>Download</p>
+                <i className="fa-sharp fa-solid fa-circle-ellipsis"></i>
             </div>
         </div>
     );

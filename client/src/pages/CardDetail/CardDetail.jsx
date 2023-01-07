@@ -10,38 +10,28 @@ import GamesActionsContainer from "./GameActionsContainer/GameActionsContainer";
 import MetaContainer from "./MetaContainer/MetaContainer";
 
 // Utils
-import { platformImage} from "./utils/utils";
+import { platformImage } from "./utils/utils";
 
 // Css
 import "./CardDetail.css";
 
-
-export default function CardDetail () {
-
+export default function CardDetail() {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const { gameDetail } = useSelector( state => state.prueba)
-    const [loading, setLoading] = useState(true)
+    const { gameDetail, isLoader } = useSelector((state) => state.prueba);
+    // const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         dispatch(getGameDetail(id));
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-    }, [])
-
+    }, []);
 
     return (
         <>
             <div className="main-detail-container">
-                {loading ? (
-                    <div className="loading">
-                        <Loading  />
-                    </div>
-                ) :  (
-                    
+                {isLoader ? (
+                    <div className="loading">{isLoader && <Loading />}</div>
+                ) : (
                     <div className="detail-container">
-                        
                         {/* Left Card Detail Container */}
                         <div className="left-container">
                             {/* Navigation, Title and Rating container */}
@@ -50,60 +40,65 @@ export default function CardDetail () {
                                     <Link to="/">
                                         <i className="fa-solid fa-arrow-left fa-xl"></i>
                                     </Link>
-                                    <h1 className="detail-title">{gameDetail.name}</h1>
+                                    <h1 className="detail-title">
+                                        {gameDetail.name}
+                                    </h1>
                                 </div>
                                 <div className="rating-website-container">
                                     <div className="rating-container">
-                                        <i className="fa-solid fa-star fa-lg star" >
-                                        </i> {gameDetail.rating}
+                                        <i className="fa-solid fa-star fa-lg star"></i>{" "}
+                                        {gameDetail.rating}
                                     </div>
                                     <div className="website-container">
-                                        <i class="fa-solid fa-link fa-lg"></i>
-                                        <a href={gameDetail.website} target="blank">visit the website</a>
+                                        <i className="fa-solid fa-link fa-lg"></i>
+                                        <a
+                                            href={gameDetail.website}
+                                            target="blank"
+                                        >
+                                            visit the website
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                             {/* Slider with Game Screenshots */}
                             <div className="detail-slider-container">
-                            <DetailSlider screenshots={gameDetail.screenshot} />
+                                <DetailSlider
+                                    screenshots={gameDetail.screenshot}
+                                />
                             </div>
 
                             {/* Game Description Container */}
                             <div className="description-container">
                                 <h2>About this Game</h2>
                                 <div className="description">
-                                    <p>
-                                        {gameDetail.description_raw}
-                                    </p>
+                                    <p>{gameDetail.description_raw}</p>
                                 </div>
                             </div>
                             {/* Games Meta Information */}
                             <div className="juego">
-
-                            <MetaContainer 
-                                platforms={gameDetail.parent_platforms}
-                                genres={gameDetail.genres}
-                                released={gameDetail.released}
-                                developers={gameDetail.developers}
-                            />
+                                <MetaContainer
+                                    platforms={gameDetail.parent_platforms}
+                                    genres={gameDetail.genres}
+                                    released={gameDetail.released}
+                                    developers={gameDetail.developers}
+                                />
                             </div>
                         </div>
                         {/* Righ Card Detail Container */}
                         <div className="right-container">
                             <div className="games-actions-container">
-                                <GamesActionsContainer 
+                                <GamesActionsContainer
                                     priceGame={gameDetail.rating}
                                     name={gameDetail.name}
                                     img={gameDetail.background_image}
                                     id={id}
                                     genres={gameDetail.genres}
-                                /> 
+                                />
                             </div>
                         </div>
-                    </div>  
+                    </div>
                 )}
             </div>
         </>
-    )
+    );
 }
-

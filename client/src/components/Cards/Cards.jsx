@@ -60,12 +60,12 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             <div className="price-cart">
             <span className="price">US$ {priceFactor(rating)}</span>
             <div className="shopping-cart" onClick={onClickShoppingCart}>
-              <i class="fa-solid fa-cart-shopping cart"> </i>
+              <i className="fa-solid fa-cart-shopping cart"> </i>
               <div className="check-plus">
                 {toggleShoppingCart ? (
-                  <i class="fa-solid fa-check check"></i>
+                  <i className="fa-solid fa-check check"></i>
                 ) : (
-                  <i class="fa-solid fa-plus plus"></i>
+                  <i className="fa-solid fa-plus plus"></i>
                 )}
               </div>
             </div>

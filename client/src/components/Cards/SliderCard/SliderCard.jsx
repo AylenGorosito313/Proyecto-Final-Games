@@ -64,11 +64,11 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             <div className="price-cart-slider">
             <span className="price-slider">US$ {priceFactor(rating)}</span>
             <div className="shopping-cart-slider" onClick={onClickShoppingCart} >
-              <i class="fa-solid fa-cart-shopping cart"> </i>
+              <i className="fa-solid fa-cart-shopping cart"> </i>
                 <div className="check-plus-slider">
                   { toggleShoppingCart ? 
-                  <i class="fa-solid fa-check check"></i> : 
-                  <i class="fa-solid fa-plus plus"></i> }
+                  <i className="fa-solid fa-check check"></i> : 
+                  <i className="fa-solid fa-plus plus"></i> }
                 </div>
               </div>
             </div>

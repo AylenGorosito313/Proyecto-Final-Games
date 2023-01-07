@@ -17,7 +17,7 @@ const initialState = {
     register: "",
   },
 
-  isLoader: true,
+  isLoader: false,
 };
 
 export const toolkit_prueba = createSlice({

@@ -7,7 +7,14 @@ const getItemsCar = require("../utils/getItemsCar");
 
 const getPaymentLink = async (req, res) => {
     const { id } = req.query;
+
+   
     try {
+        if(!id){
+            return res.status(400).json({
+                message: 'id has must provider'
+            })
+        }
         let carItems = await getItemsCar(id);
         const payment = await createPayment(carItems, id);
         return res.json(payment.init_point);

@@ -7,7 +7,7 @@ const registerUser = async (req, res) => {
     const { name, lastName, email, password, birth_date, profile_img, region } = req.body;
 
     try {
-        if (!name || !lastName || !email || !password || !birth_date) {
+        if (!name || !lastName || !email || !password ) {
             res.status(406).json({
                 message: "Not acceptable",
             });

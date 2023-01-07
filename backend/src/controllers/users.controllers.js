@@ -1,6 +1,7 @@
 const { Users } = require("../models/users");
 const { Carrito } = require('../models/Carrito');
 const { Compras } = require("../models/compras");
+const { logicDeletUser } = require('../utils/logicDeletUser')
 
 const getAllUser = async (req, res) => {
     try {
@@ -55,9 +56,23 @@ const updateUserProfile = async (req, res) => {
     }
 }
 
+const deletedUser = async (req, res) => {
+    const {id} = req.params;
+    try {
+        const inactiveUser = await logicDeletUser(id)
+             res.status(200).json("usuario eliminado")
+    } catch (error) {
+        res.status(500).json({
+            error: error.message,
+        });
+    }
+}
+
+
 module.exports = {
     getAllUser,
     getUserById,
     updateUserProfile,
+    deletedUser
 };
 

@@ -1,8 +1,8 @@
-const { DataTypes } = require("sequelize");
+const DataTypes = require("sequelize/lib/data-types");
 const sequelize = require("../db");
-const { Game } = require('./games')
 
-const Users = sequelize.define('users', {
+const inactiveUsers = sequelize.define(
+    "inactiveUsers", {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -45,13 +45,9 @@ const Users = sequelize.define('users', {
     profile_img: {
         type: DataTypes.STRING,
         allowNull: true
-    }
+    }     
+}, { freezeTableName: true }
+);
 
 
-}, {freezeTableName: true});
-
-Game.belongsToMany(Users, { through: "users_game" })
-Users.belongsToMany(Game, { through: "users_game" })
-
-module.exports = {Users};
-
+module.exports = { inactiveUsers };

@@ -6,6 +6,11 @@ const mapGames = require("../utils/mapGames");
 const addToCar = async (req, res) => {
     const { userId, gameId } = req.params;
 
+    if (!userId || !gameId)
+        return res.status(400).json({
+            error: "userId is empty",
+        });
+
     try {
         let userVerify = await Users.findByPk(userId);
         let searchUserCar = await Carrito.findOne({
@@ -54,6 +59,10 @@ const addToCar = async (req, res) => {
 const getCarUser = async (req, res) => {
     const { userId } = req.params;
 
+    if (!userId)
+        return res.status(400).json({
+            error: "userId is empty",
+        });
     try {
         let carUser = await Carrito.findOne({
             where: {
@@ -78,6 +87,10 @@ const getCarUser = async (req, res) => {
 
 const deleteAllItems = async (req, res) => {
     const { userId } = req.params;
+    if (!userId)
+        return res.status(400).json({
+            error: "userId is empty",
+        });
     try {
         let carUser = await Carrito.findOne({
             where: {

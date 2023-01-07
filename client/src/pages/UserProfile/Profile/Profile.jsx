@@ -11,12 +11,12 @@ export default function Profile (){
         dispatch(geUserActual(userID));
     }, [dispatch]);
 
-    let name= JSON.stringify(userActual.name)
+    let name= JSON.stringify(userActual.name);
     
     return(
         <div>
             <p>estoy en my Profile</p>
-            <p>nombre</p>
+            <p>{name}</p>
         </div>
     );
 };

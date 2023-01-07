@@ -22,7 +22,7 @@ function Home() {
     const dispatch = useDispatch();
     const { games, isLoader } = useSelector((state) => state.prueba);
 
-    console.log(games);
+  
     useEffect(() => {
         dispatch(getGames());
         dispatch(getPopularGames());

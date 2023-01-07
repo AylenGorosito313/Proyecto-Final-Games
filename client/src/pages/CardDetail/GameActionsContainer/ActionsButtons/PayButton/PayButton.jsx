@@ -34,6 +34,7 @@ export default function PayButton ({priceGame, name, img, id, genres}) {
 
     const onClickBuyButton = (e) => {
         setBuyingGame("...BUYING")
+        dispatch(getCheckOut(data))
     }
 
     return (

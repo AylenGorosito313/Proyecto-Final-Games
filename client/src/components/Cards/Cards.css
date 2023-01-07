@@ -163,7 +163,7 @@
     color: red;
 }
 
-.magic-hover:hover {
+.magic-hover {
     display: none;
     transition: 3s linear;
   
@@ -171,7 +171,7 @@
 }
 
 
-.card:hover   {
+.card:hover  .magic-hover   {
     display: inline;
     transition-duration: 2400ms;
 

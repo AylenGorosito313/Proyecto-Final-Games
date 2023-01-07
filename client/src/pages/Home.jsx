@@ -27,18 +27,18 @@ function Home() {
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
-    setTimeout(() => {
-      dispatch(isLoading());
-    }, 2000);
+    // setTimeout(() => {
+    //   dispatch(isLoading());
+    // }, 2000);
   }, [dispatch]);
 
-  if (isLoader) {
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
-  }
+  // if (isLoader) {
+  //   return (
+  //     <div>
+  //       <Loading />
+  //     </div>
+  //   );
+  // }
   return (
     <>
      

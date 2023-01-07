@@ -13,9 +13,8 @@
 
 .container-search-home {
   display: flex;
-  width: 98%;
+  width: 90%;
   height: 77px;
-
   padding: 5px;
   gap: 20px;
   justify-content: flex-start;

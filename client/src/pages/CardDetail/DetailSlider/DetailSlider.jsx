@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import "./DetailSlider.css";
 
-export default function DetailSlider({ screenshots }) {
+export default function DetailSlider({ screenshots, trailer }) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     return (
@@ -16,6 +16,19 @@ export default function DetailSlider({ screenshots }) {
                     modules={[FreeMode, Navigation, Thumbs]}
                     className="screenshots-slider"
                 >
+                    {trailer && 
+                            <SwiperSlide
+                                className="swiper-slide-screenshot"
+                               
+                            >
+                                <video 
+                                controls={true}
+                                muted={false}
+                                >
+                                    <source src={trailer.max} type='video/mp4'></source>
+                                </video>       
+                            </SwiperSlide>
+                        }
                     {screenshots?.length &&
                         screenshots.map((images, index) => (
                             <SwiperSlide
@@ -35,6 +48,13 @@ export default function DetailSlider({ screenshots }) {
                     modules={[FreeMode, Navigation, Thumbs]}
                     className="screenshots-slider-thumbs"
                 >
+                    {trailer && 
+                            <SwiperSlide
+                                className="swiper-slide-thumb-screenshot"
+                            >
+                                <h4>Watch the video</h4>
+                            </SwiperSlide>
+                        }
                     {screenshots?.map((images, index) => (
                         <SwiperSlide
                             key={index}

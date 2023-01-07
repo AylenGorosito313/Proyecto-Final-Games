@@ -44,11 +44,10 @@
 
 .div-home-card {
   width: 100%;
-  gap: 50px;
+  gap: 48px;
   display: flex;
   flex-wrap: wrap;
-
-  justify-content: flex-start;
+  justify-content: flex-start
 }
 
 .container-home-swipper {

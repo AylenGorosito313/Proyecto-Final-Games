@@ -90,3 +90,8 @@
     height: 70%;
     background: red;
 }
+
+
+.swiper-pagination-bullet {
+    border-radius: 20%;
+}

@@ -54,21 +54,21 @@ function NavTop() {
   console.log(Login);
   return (
     <>
-      <motion.div
-        className="div-logo"
+    <Link to={'/'}>
+    <motion.div className="div-logo">
         
-      >
         <Logo />
       </motion.div>
+    </Link>
+    
       <div className="Nav-layout">
         <div className="div-layout-icon-nav">
-          <div className="Nav-top-container-sticky" >
-       
+          <div className="Nav-top-container-sticky">
             <div onClick={handlerOpenCar} className="div-icon">
-            <Link  to={'/payment'}><Car /> </Link>
+              <Link to={"/payment"}>
+                <Car />{" "}
+              </Link>
             </div>
-           
-         
 
             <div onClick={handlerOpenNotifica} className="div-icon">
               <Notificacion />

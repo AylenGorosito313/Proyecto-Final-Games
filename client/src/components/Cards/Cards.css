@@ -35,13 +35,13 @@
     font-family: "Poppins", sans-serif;
 }
 
-.single-card{
+/* .single-card{
     transition: all .3s ease;
-}
+} */
 
-.single-card:hover  {
+/* .single-card:hover  {
     transform: scale(1.06);
-}
+} */
 
 .card-content {
     width: 230px;

@@ -16,12 +16,10 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
   let user_id = localStorage.getItem("id");
 
   useEffect(() => {
-    if (toggleShoppingCart === true) {
-      setTimeout(() => {
-        dispatch(AddCart(user_id, id));
-      }, [1000]);
-    }
-  }, [toggleShoppingCart]);
+        if(toggleShoppingCart === true){
+          dispatch(AddCart(user_id, id))
+        }
+    }, [toggleShoppingCart])
 
   const onClickFavorite = () => {
     setToggleFavorite(!toggleFavorite);

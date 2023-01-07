@@ -1,11 +1,11 @@
 
 .container-cart{
     border-radius: 10px;
-    background: rgb(56, 44, 44);
+    background: #2ea44fc6;
     display: flex;
-    width: 80%;
-    height: 80px;
-    /* padding: 15px; */
+    width: 400px;
+    height: 90px;
+    padding: 15px;
     align-items: center;
     justify-content: space-around;
 
@@ -17,8 +17,9 @@
     padding: 20px;
     overflow-y: scroll;
 height: 100%;
-    flex-direction: column;
-    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
 }
 
 
@@ -42,15 +43,34 @@ height: 100%;
 .card-cart-container::-webkit-scrollbar-thumb {
     background-color: #797979;
     border-radius: 10px;
-    border: 2px solid #303233;
+   
 }
 
 .card-cart-container::-webkit-scrollbar-track {
     border-radius: 10px;  
+} 
+
+.div-title-delete{
+    padding: 10px;
+    /* flex: auto; */
+    display: flex;
+    /* gap: 38px; */
+    margin-left: auto;
 }
 
+.container-title-cart p{
+    margin-left: 10px;
+}
 
+.delete{
+    cursor: pointer;
+    transition: all .3s ease;
+}
 
+.delete:hover {
+    border-bottom: 1px solid white;
+    color: rgba(255, 0, 0, 0.708);
+}
 
 
 

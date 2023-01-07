@@ -89,7 +89,7 @@
   height: 50%;
   width: auto;
   gap: 50px;
-  align-items: flex-end;
+  align-items: center
 }
 
 .p-create-game {

@@ -163,13 +163,17 @@
     color: red;
 }
 
-.magic-hover {
+.magic-hover:hover {
     display: none;
-    
+    transition: 3s linear;
+  
+    transition:  2s ease-in-out;
 }
 
 
-.card:hover .magic-hover {
+.card:hover   {
     display: inline;
+    transition-duration: 2400ms;
+
     
 }

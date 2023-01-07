@@ -58,7 +58,7 @@ export const toolkit_prueba = createSlice({
       state.res = { ...state.res, login:""};
     },
     clearStateCart:(state, actions) => {
-      state.cart= [];
+      state.cart = [];
     },
     getGenre:(state, actions) => {
       state.genre = [...actions.payload];
@@ -67,13 +67,14 @@ export const toolkit_prueba = createSlice({
       state.platforms = [...actions.payload];
     },
     getLinkPayment:(state, actions) => {
-      console.log(actions.payload)
       state.payment={ ...state.payment, link: actions.payload};
     },
     getCartRes:(state, actions) => {
-      console.log(actions.payload)
       state.cart=[...state.cart, ...actions.payload];
     },
+    deleteCarItem: (state, actions) => {
+      state.cart = state.cart.filter(ele => ele.id !== actions.payload)
+    }
 
   },
 });
@@ -95,7 +96,8 @@ export const {
   popularGames,
   releasedLasthMonth,
   getDetail,
-  clearStateCart
+  clearStateCart,
+  deleteCarItem
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

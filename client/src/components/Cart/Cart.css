@@ -63,38 +63,22 @@ height: 100%;
 }
 
 .delete{
+    border: none;
+    padding: 5px 8px;
+    border-radius: 10px 20px;
+    background-color: black;
     cursor: pointer;
     transition: all .3s ease;
 }
 
 .delete:hover {
-    border-bottom: 1px solid white;
-    color: rgba(255, 0, 0, 0.708);
+    /* border-bottom: 1px solid white; */
+    color: black;
+    background-color: white;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .container-title-cart{
-   
+    margin-left: 10px;
     display: flex;
     height: 80px;
 }
@@ -124,4 +108,8 @@ height: 100%;
 
 .diplayDelete{
     display: none;
+}
+
+.price-game{
+    font-weight: 800;
 }

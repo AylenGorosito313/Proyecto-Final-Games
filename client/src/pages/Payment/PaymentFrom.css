@@ -59,7 +59,7 @@
 .button-3 {
   appearance: none;
   background-color: #2ea44f;
-  border: 1px solid rgba(27, 31, 35, .15);
+  border: 2px solid black;
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
   box-sizing: border-box;
@@ -81,6 +81,7 @@
   touch-action: manipulation;
   vertical-align: middle;
   white-space: nowrap;
+  transition: all .3s ease-in-out;
 }
 
 .button-3:focus:not(:focus-visible):not(.focus-visible) {
@@ -89,7 +90,9 @@
 }
 
 .button-3:hover {
-  background-color: #2c974b;
+  background-color: white;
+  color: black;
+  border: 2px solid  #2ea44f;
 }
 
 .button-3:focus {

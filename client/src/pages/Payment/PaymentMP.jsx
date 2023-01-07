@@ -24,7 +24,7 @@ export default function PaymentMP() {
         };
     }, []);
 
-    if (!cart.length && !isLoader) {
+    if (!cart.length) {
         return <h4 className="cart_empty">Cart is Empty</h4>;
     } else {
         price = cart.reduce((acc, next) => {
@@ -32,7 +32,7 @@ export default function PaymentMP() {
         }, 0);
     }
 
-    if (isLoader) {
+    if (isLoader && !cart.length) {
         return (
             <div className="loadin-home">
                 <Loading />
@@ -50,7 +50,7 @@ export default function PaymentMP() {
             <div className="container-center-payment">
                 <div className="container-payment">
                     <div className="cart-products-div">
-                        <Cart />
+                        <Cart/>
                     </div>
                     <div className="buttons-payments">
                         <a href={payment.link}>

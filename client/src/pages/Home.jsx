@@ -27,9 +27,9 @@ function Home() {
         dispatch(getGames());
         dispatch(getPopularGames());
         dispatch(getGamesReleasedLasthMonth());
-    }, [dispatch]);
+    }, []);
 
-    if (isLoader) {
+    if (isLoader && !games.length) {
         return (
             <div className="loadin-home">
                 <Loading />

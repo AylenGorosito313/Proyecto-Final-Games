@@ -317,3 +317,17 @@ export const deletedItemsToCart = (id) => {
         dispatch(deleteCart(userId, id));
     };
 };
+
+export const paymentSuccess = (id) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios({
+                method: 'GET',
+                url: `http://localhost:3001/payment/success?userId=${id}`
+            })
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}

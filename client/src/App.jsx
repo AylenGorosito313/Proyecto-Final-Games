@@ -24,7 +24,7 @@ function App() {
                 <CardDetail />
             </Route>
 
-            <Route exact path="/payment/success/:id">
+            <Route exact path="/payment/success">
                 <SuccessPay />
             </Route>
 

@@ -131,9 +131,6 @@ export const CreateGame = ({
 }) => {
     return async function (dispatch) {
         try {
-            console.log(name);
-            console.log(platforms);
-            console.log(genre);
             let res = await axios({
                 method: "POST",
                 data: { platforms, background_image, name, rating, genre },
@@ -204,14 +201,11 @@ export const LoginUser = ({ email, password }) => {
 export const AddCart = (userId, gameId) => {
     return async function (dispatch) {
         try {
-            console.log(userId, gameId);
             let res = await axios({
                 method: "POST",
                 data: {},
                 url: `http://localhost:3001/user/addCard/${userId}/${gameId}`,
             });
-            // console.log(res);
-            // dispatch(respose(res));
         } catch (error) {
             toast.error(error.message, {
                 position: "bottom-right",
@@ -247,14 +241,11 @@ export const getCart = (userId) => {
 export const deleteCart = (userId, gameId) => {
     return async function (dispatch) {
         try {
-            console.log(userId, gameId);
             let res = await axios({
                 method: "DELETE",
                 data: {},
                 url: `http://localhost:3001/use/deleteItem/${userId}/${gameId}`,
             });
-            // console.log(res);
-            // dispatch(respose(res));
         } catch (error) {
             toast.error(error.message, {
                 position: "bottom-right",
@@ -277,10 +268,7 @@ export const geUserActual = (id) =>{
         method: "GET",
         url: `http://localhost:3001/user/${id}`,
       });
-      console.log(data + ' data');
       dispatch(getUserActual(data));
-      // console.log(typeof data);
-      // dispatch(getUserActual(data.json()));
     }catch(error){
       console.log(error.message);
     }

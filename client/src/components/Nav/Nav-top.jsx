@@ -51,7 +51,6 @@ function NavTop() {
   useEffect(() => {
     setLogin(localStorage.getItem("token"));
   }, []);
-  console.log(Login);
   return (
     <>
     <Link to={'/'}>

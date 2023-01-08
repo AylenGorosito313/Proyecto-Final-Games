@@ -81,8 +81,6 @@ export const toolkit_prueba = createSlice({
 
   },
 });
-//getCartRes
-// Action creators are generated for each case reducer function
 export const {
   addUser,
   getAllGames,

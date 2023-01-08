@@ -74,12 +74,13 @@ export const toolkit_prueba = createSlice({
     },
     deleteCarItem: (state, actions) => {
       state.cart = state.cart.filter(ele => ele.id !== actions.payload)
+    },
+    getUserActual: (state, actions) => {
+        state.userActual = actions.payload
     }
 
   },
 });
-//getCartRes
-// Action creators are generated for each case reducer function
 export const {
   addUser,
   getAllGames,

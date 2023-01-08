@@ -13,10 +13,8 @@ export default function Search() {
   
 
   function handleChange(e) {
-    console.log(e.target.value);
     e.preventDefault();
     setInput(e.target.value);
-    console.log(input);
   }
 
   function handleSubmit(e) {

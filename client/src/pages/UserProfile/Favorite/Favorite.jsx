@@ -12,7 +12,7 @@ export default function WishList (){
     useEffect( () =>{
         let userID = window.localStorage.getItem('id');
         dispatch(geUserActual(userID));
-    }, [dispatch]);
+    }, []);
 
     return(
         <div>
@@ -25,7 +25,7 @@ export default function WishList (){
             </nav>
             <div className={style.conteiner}>
                 {
-                    userActual.favoritos.length && (userActual.favoritos.map(inf =>{
+                    userActual.favoritos?.length && (userActual.favoritos.map(inf =>{
                         return(
                             <CardProfile 
                                 id={inf.id}

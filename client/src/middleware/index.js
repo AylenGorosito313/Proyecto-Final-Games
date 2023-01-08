@@ -277,11 +277,11 @@ export const geUserActual = (id) =>{
         method: "GET",
         url: `http://localhost:3001/user/${id}`,
       });
-      // console.log(data + ' data');
+      console.log(data + ' data');
       dispatch(getUserActual(data));
       // console.log(typeof data);
       // dispatch(getUserActual(data.json()));
-    }catch{
+    }catch(error){
       console.log(error.message);
     }
   };

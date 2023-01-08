@@ -270,6 +270,8 @@ export const deleteCart = (userId, gameId) => {
     };
 };
 
+//Profile ...............................
+
 export const geUserActual = (id) =>{
   return async function (dispatch){
     try{
@@ -277,16 +279,26 @@ export const geUserActual = (id) =>{
         method: "GET",
         url: `http://localhost:3001/user/${id}`,
       });
-      // console.log(data + ' data');
       dispatch(getUserActual(data));
-      // console.log(typeof data);
-      // dispatch(getUserActual(data.json()));
     }catch{
       console.log(error.message);
     }
   };
 };
 
+export const getItemsCar = (id) =>{
+    return async function (dispatch){
+      try{
+        let { data } = await axios({
+          method: "GET",
+          url: `http:/localhost:3001/user/cartItems/${id}`,
+        });
+        dispatch(getItemsUser(data));
+      }catch{
+        console.log(error.message);
+      }
+    };
+  };
 
 // /payment
 

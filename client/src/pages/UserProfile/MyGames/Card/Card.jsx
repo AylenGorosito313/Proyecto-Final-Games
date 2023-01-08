@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../CardProfile/CardProfile.module.css";
+import style from "./CardProfile.module.css";
 import i from './elipsis.png';
 
 export default function CardProfile (props){

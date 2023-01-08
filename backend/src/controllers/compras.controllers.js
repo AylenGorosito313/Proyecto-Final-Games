@@ -12,7 +12,7 @@ const userPurchase = async (req, res) => {
         if (searchUserCar && searchUserCar.historialDeCompras) {
             res.status(200).json(searchUserCar);
         } else {
-            res.status(404).json({ message: `purchase history is empty ${resp}` });
+            res.status(404).json({ message: `purchase history is empty` });
         }
     } catch (error) {
         res.status(400).json({

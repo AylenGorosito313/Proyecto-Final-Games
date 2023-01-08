@@ -2,7 +2,6 @@ const { Carrito } = require("../models/Carrito");
 const { Compras } = require("../models/compras");
 
 const addPurchaseUser = async (userId) => {
-    console.log({ userId });
     let searchPurchase = await Compras.findOne({
         where: {
             userId,

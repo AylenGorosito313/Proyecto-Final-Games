@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 //Import images assets
+import fondo from "../../assets/img/fondo4.png"
 import offerImage from "../../assets/slides/free_offers.jpg";
 import doom from "../../assets/slides/doom_logo.png";
 import fallout from "../../assets/slides/fallout_4.png";
@@ -39,8 +40,8 @@ export default function HomeSlider() {
             delay: 5000,
             disableOnInteraction: false,
           }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
           centeredSlides="true"
           className="swiper"
         >
@@ -79,7 +80,7 @@ export default function HomeSlider() {
                   description="The fourth game in the post-apocalyptic action RPG series from
                   Bethesda studious brings players back to the retro-future."
                   price={games.length > 0 ? priceFactor(games[16].rating) : 0}
-                  logo={fallout}
+                  logo={godOfWar}
                   textBtn="BUY NOW"
                 />
               </div>
@@ -93,30 +94,31 @@ export default function HomeSlider() {
                   description="   Enter the Norse realm. His vengeance against the Gods of
                   Olympus years behind him.."
                   price={games.length > 0 ? priceFactor(games[16].rating) : 0}
-                  logo={godOfWar}
+                  logo={fallout}
+                  
                   textBtn="BUY NOW"
                 />
               </div>
             </div>
           </SwiperSlide>
 
-          {/* <SwiperSlide className="swiper-slide">
+
+          <SwiperSlide className="swiper-slide">
             <div className="image">
-              <img src={sliderImages[17]} alt="" />
-              <div className="godOfWar-content">
-                <img src={godOfWar} alt="" />
-                <h4>OUT NOW</h4>
-                <p>
-                  Enter the Norse realm. His vengeance against the Gods of
-                  Olympus years behind him.
-                </p>
-                <h4>
-                  US$ {games.length > 0 ? priceFactor(games[17].rating) : 0}
-                </h4>
-                <button>PLAY NOW</button>
+              <img src={fondo} alt="" />
+              <div className="content">
+                <TextBanners
+                  description="   Enter the Norse realm. His vengeance against the Gods of
+                  Olympus years behind him.."
+                  price={games.length > 0 ? priceFactor(games[16].rating) : 0}
+                  logo={fallout}
+                  
+                  textBtn="BUY NOW"
+                />
               </div>
             </div>
-          </SwiperSlide> */}
+          </SwiperSlide>
+
         </Swiper>
       </div>
     </>

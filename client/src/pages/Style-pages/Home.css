@@ -1,5 +1,8 @@
 .container-all-content-center {
   display: flex;
+  height: auto;
+  width: 90%;
+  margin: auto;
   flex-direction: column;
   align-items: center;
 }
@@ -10,10 +13,11 @@
 
 .container-search-home {
   display: flex;
-  width: 130vh;
+  width: 90%;
   height: 77px;
+  padding: 5px;
   gap: 20px;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
   align-items: center;
 }
@@ -43,10 +47,10 @@
 
 .div-home-card {
   width: 100%;
-  gap: 20px;
+  gap: 48px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .container-home-swipper {
@@ -57,8 +61,10 @@
 }
 
 .home-slider {
+  width: 90%;
   display: flex;
-  justify-content: center;
+  padding: 10px;
+  justify-content: flex-start;
 }
 
 .loading-home {
@@ -68,4 +74,26 @@
   top: 50%;
   left: 50%;
   margin: -50px 0 0 -50px;
+}
+
+.loadin-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 250px;
+}
+
+.div-buttoms-home {
+  display: flex;
+  height: 50%;
+  width: auto;
+  gap: 50px;
+  align-items: center
+}
+
+.p-create-game {
+  margin: 0;
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
 }

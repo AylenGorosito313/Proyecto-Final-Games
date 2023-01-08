@@ -16,7 +16,6 @@ const addFavorite = async (req, res) => {
             } else {
                 let searchGameApi = await apiClient(`games/${gameId}`);
                 let mapGameApi = await mapGames([searchGameApi]);           
-                // console.log(addGameFavorite);
                 addGameFavorite.favoritos = [...addGameFavorite.favoritos, mapGameApi[0],];
 
                 await addGameFavorite.save();

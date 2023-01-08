@@ -11,7 +11,7 @@ export default function MetaContainer ({ platforms, genres, released, developers
                 <div className="meta-block">
                     <h3>Platforms</h3>
                     {/* <div clasName="meta-title">Platforms</div> */}
-                    <div clasName="meta-content">
+                    <div className="meta-content">
                         {platforms ?
                         platforms.slice(0,3).map( el => (
                             <span key={el}> 
@@ -23,7 +23,7 @@ export default function MetaContainer ({ platforms, genres, released, developers
                 </div>
                 <div className="meta-block">
                     <h3>Genre</h3>
-                    <div clasName="meta-content">
+                    <div className="meta-content">
                         {genres ? 
                             genres.slice(0,4).map( (el, index) => (
                             <span key={el}>
@@ -35,13 +35,13 @@ export default function MetaContainer ({ platforms, genres, released, developers
                 </div>
                 <div className="meta-block">
                     <h3>Release date</h3>
-                    <div clasName="meta-content">
+                    <div className="meta-content">
                         {released}
                     </div>
                 </div>
                 <div className="meta-block">
                     <h3>Developer</h3>
-                    <div clasName="meta-content">
+                    <div className="meta-content">
                         {developers ?
                             developers.map( (el, index) => (
                             <span key={el}>

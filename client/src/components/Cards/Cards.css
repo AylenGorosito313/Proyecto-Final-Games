@@ -35,13 +35,13 @@
     font-family: "Poppins", sans-serif;
 }
 
-.single-card{
+/* .single-card{
     transition: all .3s ease;
-}
+} */
 
-.single-card:hover  {
+/* .single-card:hover  {
     transform: scale(1.06);
-}
+} */
 
 .card-content {
     width: 230px;
@@ -165,11 +165,15 @@
 
 .magic-hover {
     display: none;
-    
+    transition: 3s linear;
+  
+    transition:  2s ease-in-out;
 }
 
 
-.card:hover .magic-hover {
+.card:hover  .magic-hover   {
     display: inline;
+    transition-duration: 2400ms;
+
     
 }

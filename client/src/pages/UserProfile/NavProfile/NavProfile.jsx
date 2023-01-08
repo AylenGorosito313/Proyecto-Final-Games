@@ -8,7 +8,6 @@ import style from "../NavProfile/NavProfile.module.css";
 export default function NavProfile() {
     const dispatch = useDispatch();
     const { userActual } = useSelector((state) => state.prueba);
-    console.log(userActual);
 
     useEffect(() => {
         let userID = window.localStorage.getItem("id");

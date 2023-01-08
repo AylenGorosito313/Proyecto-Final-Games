@@ -16,8 +16,9 @@ const initialState = {
     login:"",
     register: "",
   },
-  userActual: {},
   isLoader: false,
+  userActual: {},
+  itemCar: [],
 };
 
 export const toolkit_prueba = createSlice({
@@ -77,8 +78,10 @@ export const toolkit_prueba = createSlice({
     },
     getUserActual: (state, actions) => {
         state.userActual = actions.payload
-    }
-
+    },
+    getItemsUser: (state, actions) => {
+      state.itemCar = [...actions.payload]
+    },
   },
 });
 export const {
@@ -98,8 +101,9 @@ export const {
   releasedLasthMonth,
   getDetail,
   clearStateCart,
+  deleteCarItem,
   getUserActual,
-  deleteCarItem
+  getItemsUser
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

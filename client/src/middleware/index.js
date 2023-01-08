@@ -13,8 +13,9 @@ import {
   getLinkPayment,
   getDetail,
   getCartRes,
-  getUserActual,
   deleteCarItem,
+  getUserActual,
+  getItemsUser,
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
@@ -271,8 +272,6 @@ export const geUserActual = (id) =>{
         url: `http://localhost:3001/user/${id}`,
       });
       dispatch(getUserActual(data));
-      // console.log(typeof data);
-      // dispatch(getUserActual(data.json()));
     }catch{
       console.log(error.message);
     }
@@ -293,7 +292,7 @@ export const getItemsCar = (id) =>{
     };
   };
 
-// /payment
+//Payment .................................................
 
 export const getCheckOut = (userId) => {
     return async function (dispatch) {

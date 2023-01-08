@@ -1,20 +1,20 @@
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import {
-  getAllGames,
-  getByName,
-  setIsLoader,
-  responseRegister,
-  GameCreate,
-  responseLogin,
-  getGenre,
-  popularGames,
-  releasedLasthMonth,
-  getLinkPayment,
-  getDetail,
-  getCartRes,
-  getUserActual,
-  deleteCarItem,
+    getAllGames,
+    getByName,
+    setIsLoader,
+    responseRegister,
+    GameCreate,
+    responseLogin,
+    getGenre,
+    popularGames,
+    releasedLasthMonth,
+    getLinkPayment,
+    getDetail,
+    getCartRes,
+    getUserActual,
+    deleteCarItem,
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
@@ -206,6 +206,7 @@ export const AddCart = (userId, gameId) => {
                 data: {},
                 url: `http://localhost:3001/user/addCard/${userId}/${gameId}`,
             });
+            return res.request.status
         } catch (error) {
             toast.error(error.message, {
                 position: "bottom-right",
@@ -263,20 +264,18 @@ export const deleteCart = (userId, gameId) => {
 
 //Profile ...............................
 
-export const geUserActual = (id) =>{
-  return async function (dispatch){
-    try{
-      let { data } = await axios({
-        method: "GET",
-        url: `http://localhost:3001/user/${id}`,
-      });
-      dispatch(getUserActual(data));
-      // console.log(typeof data);
-      // dispatch(getUserActual(data.json()));
-    }catch{
-      console.log(error.message);
-    }
-  };
+export const geUserActual = (id) => {
+    return async function (dispatch) {
+        try {
+            let { data } = await axios({
+                method: "GET",
+                url: `http://localhost:3001/user/${id}`,
+            });
+            dispatch(getUserActual(data));
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 };
 
 export const getItemsCar = (id) =>{

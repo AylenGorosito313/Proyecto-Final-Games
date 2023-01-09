@@ -14,6 +14,7 @@ import { platformImage } from "./utils/utils";
 
 // Css
 import "./CardDetail.css";
+import { cleanDetails } from "../../reducers/prueba/pruebaSlider";
 
 export default function CardDetail() {
     const { id } = useParams();
@@ -22,8 +23,12 @@ export default function CardDetail() {
     // const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        dispatch(getGameDetail(id));
-    }, []);
+    dispatch(getGameDetail(id));
+    
+      return () => {
+        dispatch(cleanDetails())
+      }
+    }, [])
 
     return (
         <>

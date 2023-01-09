@@ -42,18 +42,11 @@ const getUserById = async (req, res) => {
 
 const updateUserProfile = async (req, res) => {
     const { id } = req.params;
-    const {name, lastName, birth_date, profile_img, region} = req.body    
+    const userUpdate = req.body    
     try {
             const user = await Users.findByPk(id)
             // console.log("aca consologeamos user", user)
-
-            user.update({
-                name,
-                lastName,
-                birth_date,
-                profile_img,
-                region
-            })
+            user.update(userUpdate)
             await user.save();
 
             res.json(user)            

@@ -9,6 +9,7 @@ import Linke from "../../../svg/Icons-SocialMedia/Linke";
 import LogoNew from "../../../svg/Logos/LogoNew";
 import { useDispatch } from "react-redux";
 import { paymentSuccess } from "../../../middleware";
+import { cleanDetails } from "../../../reducers/prueba/pruebaSlider";
 function SuccessPay() {
 
   const search = useLocation().search;
@@ -17,6 +18,10 @@ function SuccessPay() {
 
   useEffect(() => {
     dispatch(paymentSuccess(query))
+
+    return () => {
+      dispatch(cleanDetails())
+    }
   }, [])
   
 

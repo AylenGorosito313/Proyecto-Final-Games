@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../db");
 const { Users  } = require('./users')
 const {Game }=require('./games');
-const Providers = sequelize.define('providers', {
+const Providers = sequelize.define('provider', {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -19,15 +19,16 @@ const Providers = sequelize.define('providers', {
     },
     income: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+        allowNull: true,
+        defaultValue: false
     },
 }, {freezeTableName: true});
 Users.hasOne(Providers, {
     foreignKey: 'userId'
   });
 Providers.belongsTo(Users);
-Providers.belongsToMany(Game, { through: "providers_game"})
-Game.belongsTo(Providers,{ through: "providers_game"})
+Providers.belongsToMany(Game, { through: "provider_game"})
+Game.belongsTo(Providers,{ through: "provider_game"})
 
 
 

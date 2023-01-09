@@ -22,14 +22,14 @@ function Home() {
     const dispatch = useDispatch();
     const { games, isLoader } = useSelector((state) => state.prueba);
 
-    console.log(games);
+  
     useEffect(() => {
         dispatch(getGames());
         dispatch(getPopularGames());
         dispatch(getGamesReleasedLasthMonth());
-    }, [dispatch]);
+    }, []);
 
-    if (isLoader) {
+    if (isLoader && !games.length) {
         return (
             <div className="loadin-home">
                 <Loading />
@@ -38,19 +38,30 @@ function Home() {
     }
     return (
         <>
+       
+            <div className="container-all-content-center">
             <div className="container-search-home">
                 <Seach />
-                <Link to="/game/create">
-                    <p>Create Game</p>
+                <div className="div-buttoms-home">
+
+                <Link  className="p-create-game" to="/game/create">
+                    <p className="p-create-game">Discover</p>
                 </Link>
+           
+                <Link  className="p-create-game" to="/game/create">
+                    <p className="p-create-game">Create Game</p>
+                </Link>
+               
+                </div>
+              
             </div>
-            <div className="container-all-content-center">
                 <div className="home-slider">
                     <HomeSlider />
                 </div>
                 <div className="div-home">
                     <MostPopularSlider />
                     <ReleasedLasthMonth />
+                    <h1> All Games </h1>
                     <div className="div-home-card">
                         {games.length &&
                             games.map((ele) => {

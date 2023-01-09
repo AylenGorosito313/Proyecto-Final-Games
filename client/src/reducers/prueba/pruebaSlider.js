@@ -16,8 +16,9 @@ const initialState = {
     login:"",
     register: "",
   },
-
   isLoader: false,
+  userActual: {},
+  itemCar: [],
 };
 
 export const toolkit_prueba = createSlice({
@@ -58,7 +59,7 @@ export const toolkit_prueba = createSlice({
       state.res = { ...state.res, login:""};
     },
     clearStateCart:(state, actions) => {
-      state.cart= [];
+      state.cart = [];
     },
     getGenre:(state, actions) => {
       state.genre = [...actions.payload];
@@ -67,18 +68,22 @@ export const toolkit_prueba = createSlice({
       state.platforms = [...actions.payload];
     },
     getLinkPayment:(state, actions) => {
-      console.log(actions.payload)
       state.payment={ ...state.payment, link: actions.payload};
     },
     getCartRes:(state, actions) => {
-      console.log(actions.payload)
       state.cart=[...state.cart, ...actions.payload];
     },
-
+    deleteCarItem: (state, actions) => {
+      state.cart = state.cart.filter(ele => ele.id !== actions.payload)
+    },
+    getUserActual: (state, actions) => {
+        state.userActual = actions.payload
+    },
+    getItemsUser: (state, actions) => {
+      state.itemCar = [...actions.payload]
+    },
   },
 });
-//getCartRes
-// Action creators are generated for each case reducer function
 export const {
   addUser,
   getAllGames,
@@ -95,7 +100,10 @@ export const {
   popularGames,
   releasedLasthMonth,
   getDetail,
-  clearStateCart
+  clearStateCart,
+  deleteCarItem,
+  getUserActual,
+  getItemsUser
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

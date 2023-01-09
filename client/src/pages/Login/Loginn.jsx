@@ -36,7 +36,7 @@ function Loginn() {
    
       navigateToHome.push("/");
     }
-  },4000);
+  },2000);
   // 
 
   const responseFacebook = (response) => {

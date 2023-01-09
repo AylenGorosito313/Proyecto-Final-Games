@@ -12,43 +12,46 @@ import MyGames from "./pages/UserProfile/MyGames/MyGames";
 import Favorite from "./pages/UserProfile/Favorite/Favorite";
 import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
+import axios from "axios";
 function App() {
-  return (
-    <>
-      <Route exact path="/games/:id">
-        <NavTop />
-        <CardDetail />
-      </Route>
+    axios.defaults.headers.common[
+        "Authorization"
+    ] = `Bearer ${localStorage.getItem("token")}`;
+    return (
+        <>
+            <Route exact path="/games/:id">
+                <NavTop />
+                <CardDetail />
+            </Route>
 
-      <Route exact path="/payment/success/:id">
-        <SuccessPay />
-      </Route>
+            <Route exact path="/payment/success">
+                <SuccessPay />
+            </Route>
 
+            <Route exact path="/payment">
+                <NavTop />
 
-      <Route exact path="/payment">
-        <NavTop />
+                <PaymentMP />
+            </Route>
 
-        <PaymentMP />
-      </Route>
-
-      <Route exact path="/login">
-        <Loginn />
-      </Route>
-      <Route exact path="/register">
-        <Register />
-      </Route>
-      <Route exact path="/">
-        <NavTop />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/game/create" component={GameCreate} />
-        <Route exact path="/game/:id" component={CardDetail} />
-      </Route>
-      <Route path="/profile" component={NavProfile} />
-      <Route exact path="/profile/profile" component={Profile} />
-      <Route exact path="/profile/games" component={MyGames} />
-      <Route exact path="/profile/favorite" component={Favorite} />
-    </>
-  );
+            <Route exact path="/login">
+                <Loginn />
+            </Route>
+            <Route exact path="/register">
+                <Register />
+            </Route>
+            <Route exact path="/">
+                <NavTop />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/game/create" component={GameCreate} />
+                <Route exact path="/game/:id" component={CardDetail} />
+            </Route>
+            <Route path="/profile" component={NavProfile} />
+            <Route exact path="/profile/profile" component={Profile} />
+            <Route exact path="/profile/games" component={MyGames} />
+            <Route exact path="/profile/favorite" component={Favorite} />
+        </>
+    );
 }
 
 export default App;

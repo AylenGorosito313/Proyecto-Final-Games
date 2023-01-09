@@ -64,6 +64,7 @@ export default function CardDetail() {
                             <div className="detail-slider-container">
                                 <DetailSlider
                                     screenshots={gameDetail.screenshot}
+                                    trailer={gameDetail.trailer}
                                 />
                             </div>
 

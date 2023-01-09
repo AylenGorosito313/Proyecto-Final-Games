@@ -21,7 +21,7 @@ const createPayment = async (gamesInfo, id) => {
         back_urls: {
             failure: "/failure",
             pending: "/pending",
-            success: `http://127.0.0.1:5173/payment/success/${id}`,
+            success: `http://127.0.0.1:5173/payment/success?userId=${id}`,
         },
     };
     const payment = await axios.post(url, body, {

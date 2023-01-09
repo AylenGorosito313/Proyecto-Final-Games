@@ -1,3 +1,4 @@
+const { ARRAY } = require("sequelize");
 const DataTypes = require("sequelize/lib/data-types");
 const sequelize = require("../db");
 
@@ -29,11 +30,6 @@ const inactiveUsers = sequelize.define(
         type: DataTypes.STRING,
         allowNull: false
     },
-    favoritos: {
-        type: DataTypes.ARRAY(DataTypes.JSON),
-        defaultValue: [],
-        allowNull: true
-    },
     birth_date: {
         type: DataTypes.DATEONLY,
         allowNull: true
@@ -44,6 +40,11 @@ const inactiveUsers = sequelize.define(
     },
     profile_img: {
         type: DataTypes.STRING,
+        allowNull: true
+    },    
+    purchased_games: {
+         type: DataTypes.ARRAY(DataTypes.JSON),
+        defaultValue: [],
         allowNull: true
     }     
 }, { freezeTableName: true }

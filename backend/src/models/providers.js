@@ -10,16 +10,18 @@ const Providers = sequelize.define('provider', {
       
     },
 
-    Profits:{
-        type: DataTypes.INTEGER,
+    profits:{
+        type: DataTypes.DECIMAL,
+        allowNull: false,
     },
     videoGamesPropor:{
         type:  DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: false,
         defaultValue: []
     },
     income: {
         type: DataTypes.BOOLEAN,
-        allowNull: true,
+        allowNull: false,
         defaultValue: false
     },
 }, {freezeTableName: true});

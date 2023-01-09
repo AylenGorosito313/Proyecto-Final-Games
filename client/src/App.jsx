@@ -40,10 +40,13 @@ function App() {
             <Route exact path="/register">
                 <Register />
             </Route>
+            <Route exact path="/game/create">
+                <GameCreate />
+            </Route>
             <Route exact path="/">
                 <NavTop />
                 <Route exact path="/" component={Home} />
-                <Route exact path="/game/create" component={GameCreate} />
+                {/* <Route exact path="/game/create" component={GameCreate} /> */}
                 <Route exact path="/game/:id" component={CardDetail} />
             </Route>
             <Route path="/profile" component={NavProfile} />

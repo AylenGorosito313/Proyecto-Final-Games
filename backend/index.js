@@ -32,7 +32,7 @@ require('./src/models/inactiveUsers')
 
 async function main() {
     try {
-        await sequelize.sync({ force: false });
+        await sequelize.sync({ force: true });
         console.log("Conect to database");
         server.listen(3001, () => {
             console.log("server lisener in port 3001");

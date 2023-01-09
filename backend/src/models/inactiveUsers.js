@@ -41,7 +41,12 @@ const inactiveUsers = sequelize.define(
     profile_img: {
         type: DataTypes.STRING,
         allowNull: true
-    },    
+    },   
+    favoritos: {
+        type: DataTypes.ARRAY(DataTypes.JSON),
+        defaultValue: [],
+        allowNull: true
+    }, 
     purchased_games: {
          type: DataTypes.ARRAY(DataTypes.JSON),
         defaultValue: [],

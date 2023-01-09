@@ -16,6 +16,7 @@ import {
     getUserActual,
     deleteCarItem,
     getItemsUser,
+    cleanDetails,
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
@@ -329,5 +330,11 @@ export const paymentSuccess = (id) => {
         } catch (error) {
             console.log(error)
         }
+    }
+}
+
+export const deletedDetails = () => {
+    return async (dispatch) => {
+        dispatch(cleanDetails())
     }
 }

@@ -1,8 +1,8 @@
 const { Providers } = require("../models/providers");
 const { Users } = require("../models/users");
 
-//crear un proveedor
 
+//crear un proveedor
 const registerProvider = async (req, res) => {
     const { userId } = req.params;
     try {
@@ -33,6 +33,8 @@ const registerProvider = async (req, res) => {
     }
 };
 
+
+
 module.exports = {
-    registerProvider,
+    registerProvider,  
 };

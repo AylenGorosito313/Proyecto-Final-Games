@@ -207,9 +207,8 @@ export default function GameCreate() {
           </div>
 
           {Price && (
-            <div >
-              <label className={style.labels}>Price in US
-              $</label>
+            <div>
+              <label className={style.labels}>Price in US $</label>
               <input
                 className={style.input}
                 type="number"

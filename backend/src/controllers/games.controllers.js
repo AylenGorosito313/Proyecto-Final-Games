@@ -50,7 +50,7 @@ const searchGame = async (req, res) => {
 };
 
 const createGame = async (req, res) => {
-    const { platforms, background_image, name, rating, genre, income } = req.body;
+    const { platforms, background_image, name, rating, genre, income, description, trailer } = req.body;
     try {
         if (!name || !background_image || !platforms || !income) {
             res.status(300).json({
@@ -63,7 +63,9 @@ const createGame = async (req, res) => {
                     background_image,
                     rating,
                     platforms,
-                    income
+                    income,
+                    description,
+                    trailer
                 },
             });
             if (create) {

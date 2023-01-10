@@ -1,35 +1,34 @@
-
-const {Providers}= require("../models/providers")
+const { Providers } = require("../models/providers");
+const { Users } = require("../models/users");
 
 //crear un proveedor
 
 const registerProvider = async (req, res) => {
-    const { profits, videoGamesPropor} = req.body;
+    const { userId } = req.params;
     try {
-        if (!profits||!videoGamesPropor){
-            res.status(400).json({
-                message:"faltan campos requeridos"
-            })
-        }else{
-         
-            const createUser = await Providers.create({
-                profits, videoGamesPropor
+        if (!userId) {
+            return res.status(400).json({
+                error: "id must be provided",
             });
-
-            res.status(200).json({createUser});
-
-
         }
-        
+
+        const searchUser = await Users.findByPk(userId);
+        if(searchUser){
+            searchUser.proveedor = true;
+
+            const createUserProvider = await Providers.create({
+                where: {
+                    userId
+                }
+            })
+        }
+
     } catch (error) {
         res.status(500).json({
             error: error.message,
         });
     }
-   
 };
 module.exports = {
-    registerProvider
+    registerProvider,
 };
-
-

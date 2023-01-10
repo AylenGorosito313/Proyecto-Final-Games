@@ -9,7 +9,7 @@ usersRouter.post('/user/create', registerUser)
 usersRouter.get('/users', getAllUser)
 usersRouter.get('/user/:id', getUserById)
 usersRouter.put('/user/:id', updateUserProfile)
-usersRouter.post('/user/provider/create', registerProvider)
+usersRouter.post('/user/provider/create/:userId', registerProvider)
 // usersRouter.get('/users/inactive', getInactiveUsers) // obtener info de todos los usuarios eliminados    
 // usersRouter.get('/user/inactive/:id', getInactiveUser ) // obtener info de un usuario eliminado en particular
 usersRouter.get('/user/setInactivityUser/:id', deletedUser )  // inhabilitar(borrado logico) el usuario mediante id

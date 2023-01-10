@@ -13,13 +13,14 @@ import Favorite from "./pages/UserProfile/Favorite/Favorite";
 import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
 import axios from "axios";
+import GameDevForm from "./pages/GameDevForm/GameDevForm";
+
 function App() {
     axios.defaults.headers.common[
         "Authorization"
     ] = `Bearer ${localStorage.getItem("token")}`;
     return (
         <>
-           
 
             <Route path="/user">
                 <Route exact path="/user/login" component={Loginn} />
@@ -41,6 +42,7 @@ function App() {
                 <NavTop />
                 <Route exact path="/game/form/create" component={GameCreate} />  
                 <Route exact path="/game/:id" component={CardDetail} />
+                <Route exact path="/game/dev/form" component={GameDevForm} />
             </Route>
 
             <Route path="/profile">

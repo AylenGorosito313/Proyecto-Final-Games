@@ -212,7 +212,7 @@ export default function GameCreate() {
               $</label>
               <input
                 className={style.input}
-                type="text"
+                type="number"
                 placeholder="Name of the game"
                 {...register("price", {
                   required: true,

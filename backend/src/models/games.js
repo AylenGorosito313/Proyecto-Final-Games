@@ -26,6 +26,11 @@ const Game = sequelize.define("game", {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },
+    income: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    }
+    
 }, {freezeTableName: true});
 
 Game.belongsToMany(Genre, { through: "game_genre" })

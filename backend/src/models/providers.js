@@ -6,24 +6,19 @@ const Providers = sequelize.define('provider', {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-      
+        primaryKey: true,      
     },
-
     profits:{
         type: DataTypes.DECIMAL,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: 0.00
     },
     videoGamesPropor:{
         type:  DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
         defaultValue: []
     },
-    income: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-    },
+
 }, {freezeTableName: true});
 Users.hasOne(Providers, {
     foreignKey: 'userId'

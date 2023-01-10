@@ -50,9 +50,9 @@ const searchGame = async (req, res) => {
 };
 
 const createGame = async (req, res) => {
-    const { platforms, background_image, name, rating, genre } = req.body;
+    const { platforms, background_image, name, rating, genre, income } = req.body;
     try {
-        if (!name || !background_image || !platforms) {
+        if (!name || !background_image || !platforms || !income) {
             res.status(300).json({
                 message: "Faltan campos requeridos",
             });
@@ -63,6 +63,7 @@ const createGame = async (req, res) => {
                     background_image,
                     rating,
                     platforms,
+                    income
                 },
             });
             if (create) {

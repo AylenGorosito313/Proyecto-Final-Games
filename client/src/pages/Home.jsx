@@ -16,6 +16,7 @@ import MostPopularSlider from "../components/GameSliders/MostPopularSlider";
 import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading/Loading";
+import { clearState } from "../reducers/prueba/pruebaSlider";
 
 function Home() {
   const dispatch = useDispatch();
@@ -38,6 +39,10 @@ function Home() {
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
+    
+    return () => {
+      dispatch(clearState())
+    } 
   }, []);
 
   if (isLoader && !games.length) {

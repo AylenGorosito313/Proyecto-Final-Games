@@ -60,7 +60,7 @@ export const toolkit_prueba = createSlice({
       state.res = { ...state.res, login: actions.payload};
     },
     clearState:(state, actions) => {
-      state.res = { ...state.res, login:""};
+      state.res = { ...state.res, login:"", cart:""};
     },
     clearStateCart:(state, actions) => {
       state.cart = [];

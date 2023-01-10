@@ -15,24 +15,24 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
   let user_id = localStorage.getItem("id");
   console.log(toggleShoppingCart);
 
+  const HandlerAddFavorite = () => {
+    setToggleFavorite(!toggleFavorite);
+  };
   // if(toggleFavorite){
   //   //dispatch(AddFavorite(user_id, id))
   // }
 
-const handlerAddCart = () => {
+  const handlerAddCart = () => {
     dispatch(AddCart(user_id, id));
-    setToggleShoppingCart(!toggleShoppingCart)
-  }
+    setToggleShoppingCart(true);
+  };
 
   return (
     <>
       <div className="single-card">
         <div className="card">
           <div className="game-image">
-            <div
-              className="favourite-tag"
-              onClick={() => setToggleFavorite(!toggleFavorite)}
-            >
+            <div className="favourite-tag" onClick={HandlerAddFavorite}>
               {toggleFavorite ? (
                 <i className="fa-solid fa-heart fa-2xl red-heart"></i>
               ) : (
@@ -54,10 +54,7 @@ const handlerAddCart = () => {
             </Link>
             <div className="price-cart">
               <span className="price">US$ {priceFactor(rating)}</span>
-              <div
-                className="shopping-cart"
-                onClick={handlerAddCart}
-              >
+              <div className="shopping-cart" onClick={handlerAddCart}>
                 <i className="fa-solid fa-cart-shopping cart"> </i>
                 <div className="check-plus">
                   {toggleShoppingCart ? (

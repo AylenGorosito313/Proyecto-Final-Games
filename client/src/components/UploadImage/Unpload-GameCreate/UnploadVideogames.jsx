@@ -23,7 +23,7 @@ function UploadVideogame(props) {
     );
     myWidget.open();
   }
-
+console.log(image.map((ele)=>{ele.url}))
   return (
     <div>
       <h1 className={style.h1}>Upload Trailer </h1>

@@ -16,6 +16,7 @@ export default function NavProfile() {
 
     return (
         <div>
+            <UploadImage/>
             <img
                 className={style.img}
                 src={

@@ -33,7 +33,7 @@ export default function Register() {
                 Do you already have an account ?
               </p>
               <div className="register-container">
-                <Link className="link" to={"/login"}>
+                <Link className="link" to={"/user/login"}>
                   <p> Login now</p>
                 </Link>
               </div>

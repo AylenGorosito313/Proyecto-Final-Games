@@ -44,11 +44,11 @@ function Home() {
                 <Seach />
                 <div className="div-buttoms-home">
 
-                <Link  className="p-create-game" to="/game/create">
+                <Link  className="p-create-game" to="/game/form/create">
                     <p className="p-create-game">Discover</p>
                 </Link>
            
-                <Link  className="p-create-game" to="/game/create">
+                <Link  className="p-create-game" to="/game/form/create">
                     <p className="p-create-game">Create Game</p>
                 </Link>
                

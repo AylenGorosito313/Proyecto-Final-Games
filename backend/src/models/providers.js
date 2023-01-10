@@ -12,7 +12,8 @@ const Providers = sequelize.define('provider', {
 
     profits:{
         type: DataTypes.DECIMAL,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: 0.00
     },
     videoGamesPropor:{
         type:  DataTypes.ARRAY(DataTypes.STRING),

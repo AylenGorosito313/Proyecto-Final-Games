@@ -1,23 +1,16 @@
 import React, { useState } from "react";
-
-export default function UploadImage(props) {
+import style from "../Unpload-GameCreate/UnploadGameCreate.module.css";
+function UploadVideogame(props) {
   const [image, setImage] = useState([]);
-  // const [loading, setLoading] = useState(false);
-
-  // const handleRemoveImg = (imgObj) => {
-
-  // };
 
   function handleOpenWidget() {
     var myWidget = window.cloudinary.createUploadWidget(
       {
-        cloudName: "dbgzbsigy",
-        uploadPreset: "andromedaPrueba",
+        cloudName: "dj8p0rdxn",
+        uploadPreset: "j5ivnctp",
       },
-      
       (error, result) => {
         if (!error && result && result.event === "success") {
-          // setImage(prev => [...prev, {url: result.info.url, public_id: result.info.public_id, key: result.info.public_id}])
           setImage((prev) => [
             {
               url: result.info.url,
@@ -29,24 +22,26 @@ export default function UploadImage(props) {
       }
     );
     myWidget.open();
-    
   }
-
+console.log(image.map((ele)=>{ele.url}))
   return (
     <div>
-      <h1>Upload Image</h1>
+      <h1 className={style.h1}>Upload Trailer </h1>
       <div>
-        <div className="images-preview-container">
+        <div className={style.imagesPreviewContainer}>
           {image?.map((img) => (
             <div>
-              <img
-                key={img.public_id}
-                src={img.url}
-                alt="UploadImage"
-                width="200px"
-                height="300px"
-              />
+
+  <img className={style.imgScale}
+                    key={img.public_id}
+                    src={img.url}
+                    alt="UploadImage"
+                    width="100px"
+                    height="300px"
+                />
+
             </div>
+ 
           ))}
         </div>
         <button
@@ -54,9 +49,11 @@ export default function UploadImage(props) {
           id="upload-widget"
           onClick={handleOpenWidget}
         >
-          Upload Image
+          Upload Game Image
         </button>
       </div>
     </div>
   );
 }
+
+export default   UploadVideogame

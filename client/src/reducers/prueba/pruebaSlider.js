@@ -13,6 +13,7 @@ const initialState = {
     link:""
   },
   res: {
+    cart:"",
     login:"",
     register: "",
   },
@@ -49,6 +50,9 @@ export const toolkit_prueba = createSlice({
     responseRegister: (state, actions) => {
       state.res = { ...state.res, register: actions.payload };
     },
+    responseAddCart: (state, actions) => {
+      state.res = { ...state.res, cart: actions.payload };
+    },
     GameCreate: (state, actions) => {
       state.games = [...actions.payload];
     },
@@ -56,7 +60,7 @@ export const toolkit_prueba = createSlice({
       state.res = { ...state.res, login: actions.payload};
     },
     clearState:(state, actions) => {
-      state.res = { ...state.res, login:""};
+      state.res = { ...state.res, login:"", cart:""};
     },
     clearStateCart:(state, actions) => {
       state.cart = [];
@@ -107,7 +111,8 @@ export const {
   deleteCarItem,
   getUserActual,
   getItemsUser,
-  cleanDetails
+  cleanDetails,
+  responseAddCart
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

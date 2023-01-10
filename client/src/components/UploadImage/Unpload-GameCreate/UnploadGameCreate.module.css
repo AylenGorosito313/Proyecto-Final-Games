@@ -1,0 +1,13 @@
+.imagesPreviewContainer{
+    width: 400px;
+}
+
+.imgScale{
+    width: 40vh;
+    border-radius: 10px;
+}
+
+.h1{
+    font-size:20px;
+    color: #fff;
+}

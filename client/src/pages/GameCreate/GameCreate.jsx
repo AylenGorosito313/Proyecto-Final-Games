@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import "./Buttons.css"
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CreateGame, traerGenero, traerPlatforms } from "../../middleware";
 import style from "../GameCreate/GameCreate.module.css";
-
+import UploadGameCreate from "../../components/UploadImage/Unpload-GameCreate/Unpload-GameCreate";
 export default function GameCreate() {
   const dispatch = useDispatch();
-  //  const history = useHistory();
+
   const { genre, platforms } = useSelector((state) => state.prueba);
   const [gender, setGender] = useState({
     genere: [],
@@ -38,7 +39,6 @@ export default function GameCreate() {
     let platforms = platform.platformarray;
     console.log({ ...data, platforms, genre });
     dispatch(CreateGame({ ...data, platforms, genre }));
-    //   history.push('/')
   };
 
   const handlerGender = (event) => {
@@ -86,11 +86,18 @@ export default function GameCreate() {
   }, []);
 
   return (
+      <>
+     <div className={style.headerDiv}>
+       <h1 className={style.h1Header}> Unpload your game </h1>
+    </div>
+ 
     <div className={style.fondo}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+     
+      <form className={style.formContainer} onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label> Name:</label>
+          <label className={style.labels}> Game name </label>
           <input
+            className={style.input}
             type="text"
             placeholder="Name of the game"
             {...register("name", {
@@ -104,9 +111,9 @@ export default function GameCreate() {
         {errors.name?.type === "maxLength" && <p>The name is too long</p>}
         {errors.name?.type === "minLength" && <p>The name is too short</p>}
 
-        <div>
-          <label> Image:</label>
-          <input
+        {/* <div> */}
+        {/* <label> Image:</label>
+          <input  className= {style.input}
             type="text"
             placeholder="Example http://..."
             {...register("background_image", {
@@ -116,11 +123,11 @@ export default function GameCreate() {
         </div>
         {errors.background_image?.type === "pattern" && (
           <p>The image must be a URL</p>
-        )}
+        )} */}
 
-        <div>
-          <label> Genre:</label>
-          <select onChange={handlerGender}>
+        <div className={style.divSelect}>
+          <label className={style.labels}>  Game genere </label>
+          <select className={style.Select} onChange={handlerGender}>
             {genre &&
               genre.map((g, i) => (
                 <option value={g} key={i}>
@@ -129,18 +136,23 @@ export default function GameCreate() {
               ))}
           </select>
         </div>
-        {gender.genere.map((el, i) => (
-          <div key={i}>
-            <p>{el}</p>
-            <button className="" onClick={() => handleDelete(el)}>
-              X
-            </button>
-          </div>
-        ))}
+        <div className={style.gnreContairner}>
+          {gender.genere.map((el, i) => (
+            <div className={style.gnreCard} key={i}>
+              <p className={style.gnreP}>{el}</p>
+              <button
+                className={style.gnreButton}
+                onClick={() => handleDelete(el)}
+              >
+                X
+              </button>
+            </div>
+          ))}
+        </div>
 
-        <div>
-          <label> Platforms:</label>
-          <select onChange={handlerPlatforms}>
+        <div className={style.divSelect}>
+          <label className={style.labels}> Platforms</label>
+          <select className={style.Select} onChange={handlerPlatforms}>
             {platforms &&
               platforms.map((p, i) => (
                 <option value={p} key={i}>
@@ -158,8 +170,13 @@ export default function GameCreate() {
           </div>
         ))}
 
-        <button type="submit">Create Game</button>
+        <button  className="button-9" role="button" type="submit">Create Game</button>
       </form>
+      <UploadGameCreate />
     </div>
-  );
+
+    </>
+   
+  )
+  
 }

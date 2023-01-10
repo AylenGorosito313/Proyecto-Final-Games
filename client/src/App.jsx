@@ -41,6 +41,7 @@ function App() {
                 <Register />
             </Route>
             <Route exact path="/game/create">
+            <NavTop />
                 <GameCreate />
             </Route>
             <Route exact path="/">

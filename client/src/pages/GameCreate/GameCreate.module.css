@@ -1,4 +1,98 @@
-.fondo{
-    background-color: black;
-    color: white;
+.headerDiv{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
 }
+.h1Header{
+    padding-left: 100px;
+}
+
+.fondo{
+    background-color: #121212;
+    color: white;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.input{
+    width: 40vh;
+    height: 40px;
+    display: flex;
+
+    border: none !important;
+    border-radius: 5px;
+    color: rgb(30, 38, 145);
+    background: #3e3b3b;
+ 
+}
+.labels{
+    color: #cfc9c9;
+}
+.input:focus{
+    border: none !important;
+}
+
+.formContainer{
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.divSelect{
+    display: flex;
+    flex-direction: column;
+}
+
+.gnreContairner{
+    display: flex;
+    max-width: 400px;
+
+    height: auto;
+    gap: 15px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.gnreCard{
+    font-size: 12px;
+    background: #5469FF;
+    display: flex;
+    width: 100px;
+    height: 30px;
+    flex-direction: row;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.gnreButton{
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 5px;
+    background: #5469FF;
+    color: #ffff;
+}
+
+.gnreP{
+    font-size: 10px;
+    margin: 0;
+    height: auto;
+}
+
+.Select{
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: #cfc9c9;
+    background: #3e3b3b;
+}
+
+
+
+
+

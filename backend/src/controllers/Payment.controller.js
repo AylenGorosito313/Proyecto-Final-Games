@@ -1,34 +1,52 @@
-const {createPayment , createSubscription} = require("../services/PaymentService")
-
-
-
+const {
+    createPayment,
+    createSubscription,
+} = require("../services/PaymentService");
+const addPurchaseUser = require("../utils/addPurchaseUser");
+const getItemsCar = require("../utils/getItemsCar");
 
 const getPaymentLink = async (req, res) => {
-  const games = req.body;
-  try {
-    const payment = await createPayment(games);
-    return res.json(payment.init_point);
-  } catch (error) {
-    console.log(error);
+    const { id } = req.query;
 
-    return res
-      .status(500)
-      .json({ error: true, msg: "Failed to create payment" });
-  }
+   
+    try {
+        if(!id){
+            return res.status(400).json({
+                message: 'id has must provider'
+            })
+        }
+        let carItems = await getItemsCar(id);
+        const payment = await createPayment(carItems, id);
+        return res.json(payment.init_point);
+    } catch (error) {
+        return res
+            .status(500)
+            .json({ error: true, msg: "Failed to create payment" });
+    }
 };
 
 const getSubscriptionLink = async (req, res) => {
-  try {
-    const subscription = createSubscription();
+    try {
+        const subscription = createSubscription();
 
-    return res.json(subscription);
-  } catch (error) { 
-    console.log(error);
+        return res.json(subscription);
+    } catch (error) {
+        console.log(error);
 
-    return res
-      .status(500)
-      .json({ error: true, msg: "Failed to create subscription" });
-  }
+        return res
+            .status(500)
+            .json({ error: true, msg: "Failed to create subscription" });
+    }
 };
 
-module.exports = { getPaymentLink , getSubscriptionLink};
+const paymentSuccsess = async(req, res) => {
+    const { userId } = req.query;
+    try {
+        const createPurchase = await addPurchaseUser(userId)
+        res.status(200).json({createPurchase})
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+module.exports = { getPaymentLink, getSubscriptionLink, paymentSuccsess };

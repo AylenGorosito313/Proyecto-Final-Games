@@ -13,7 +13,6 @@ const getGames = async (req, res) => {
     try {
         //le pasamos el path y el page a mapGame
         let response = await paginate("games", page);
-        // console.log(response)
         let mapToGames = await mapGames(response);
         return res.status(200).json(mapToGames);
     } catch (error) {

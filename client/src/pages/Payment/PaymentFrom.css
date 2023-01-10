@@ -4,46 +4,62 @@
 .container-center-payment{
     display: flex;
     width: 100%;
-    height: 100vh;
-    padding-top: 50px;
+    height: 100%;
+    padding-top: 20px;
     justify-content: center;
 }
   .container-payment{
-    background: rgb(42, 42, 42);
+    background-image: url('grud1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
-    box-shadow: 2px 2px 1px #27213b;
-    border-radius: 10px;
-    width: 90%;
+    /* box-shadow: 2px 2px 1px #27213b; */
+    /* border-radius: 10px; */
     height: 70%;
-    gap: 90px;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+    /* flex-direction: column; */
   }
 
 
   .cart-products-div {
-    height: 60vh;
-    width: 70vh;
-    border-radius: 10px;
-    background: rgb(42, 42, 42);
-    box-shadow: 2px 2px 1px #27213b;
+    height: 70vh;
+    display: flex;
+    /* overflow-y: hidden; */
+    width: 62%;
+    /* border-radius: 10px; */
+    background: transparent;
+    /* box-shadow: 2px 2px 1px #27213b; */
   }
 
   .payment-forme{
     height: 60vh;
     width: 70vh;
     border-radius: 10px;
-    background: rgb(42, 42, 42);
+    background: black;
     box-shadow: 2px 2px 1px #27213b;
   }
 
 
 
-
+.buttons-payments{
+  display: flex;
+  margin-top: auto;
+  padding: 20px;
+  align-items: center;
+  gap: 20px;
+  /* width: 100%; */
+  justify-content: center;
+}
 
 /* CSS */
 .button-3 {
   appearance: none;
   background-color: #2ea44f;
-  border: 1px solid rgba(27, 31, 35, .15);
+  border: 2px solid black;
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
   box-sizing: border-box;
@@ -52,9 +68,11 @@
   display: inline-block;
   font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
   font-size: 14px;
+  width: 200px;
   font-weight: 600;
   line-height: 20px;
-  padding: 6px 16px;
+  padding: 10px;
+  /* font-weight: 900; */
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -63,6 +81,7 @@
   touch-action: manipulation;
   vertical-align: middle;
   white-space: nowrap;
+  transition: all .3s ease-in-out;
 }
 
 .button-3:focus:not(:focus-visible):not(.focus-visible) {
@@ -71,7 +90,9 @@
 }
 
 .button-3:hover {
-  background-color: #2c974b;
+  background-color: white;
+  color: black;
+  border: 2px solid  #2ea44f;
 }
 
 .button-3:focus {
@@ -91,6 +112,26 @@
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
 
+.cart_empty {
+  font-size: 40px;
+  text-align: center;
+  padding-top: 200px;
+}
 
+
+.price-total{
+  
+  margin-top: 20px;
+  margin-left: 20px;
+  
+  padding: 8px;
+  color: white;
+  text-shadow: 3px 3px 5px green;
+}
+
+.price-total span {
+  text-shadow: 0 0 0;
+  color: green;
+}
 
 

@@ -6,8 +6,8 @@
     align-items: center;
     border-radius: 30px;
     position: relative;
-    max-width: 1000px;
-    max-height: 500px;
+    max-width: 1100px;
+    max-height: 600px;
    
 }
 
@@ -20,7 +20,7 @@
     position: relative;
     object-fit: cover;
     overflow: hidden;
-    width: 70%;
+    width: 90%;
     height: auto;
     border-radius: 10px;
 }
@@ -89,4 +89,9 @@
     width: 70%;
     height: 70%;
     background: red;
+}
+
+
+.swiper-pagination-bullet {
+    border-radius: 20%;
 }

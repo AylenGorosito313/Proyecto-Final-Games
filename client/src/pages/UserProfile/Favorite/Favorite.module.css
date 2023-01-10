@@ -1,0 +1,21 @@
+.nav{
+    display: flex;
+    width: 800px;
+    margin-left: 350px;
+}
+
+.ul{
+    display: flex;
+}
+
+.title{
+    display: flex;
+    margin-right: 240px;
+}
+
+.conteiner{
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+}
+

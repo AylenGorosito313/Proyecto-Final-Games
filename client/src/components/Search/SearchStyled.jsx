@@ -1,36 +1,41 @@
 import styled from "styled-components";
 
 export const ContainerSearch = styled.div`
-  margin-top: 20px;
-  margin-right: 10px;
-  justify-content: center;
-  height: 20px;
-  width: 20vw;
-  font-family: "Poppins", sans-serif;
-  font-siz: 10px;
-  padding: 8px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 8px;
-  &:hover,
-  &:focus {
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-    color: rgba(0, 0, 0, 0.65);
-  }
-  &:active {
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-    color: rgba(0, 0, 0, 0.65);
-  }
-
-  background: rgb(75,73,73);
-  background: linear-gradient(90deg, rgba(75,73,73,0.4460493670124299) 0%, rgba(80,80,80,0.6645367619704132) 100%);
-border-radius:20px;
-  flex: none;
-  order: 0;
-  align-self: stretch;
+/* margin-top: 20px; */
+/* margin-right: 10px; */
+-webkit-box-pack: center;
+-webkit-justify-content: center;
+-ms-flex-pack: center;
+justify-content: center;
+height: 20px;
+width: 15vw;
+font-family: "Poppins",sans-serif;
+font-siz: 10px;
+padding: 8px;
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-flex-direction: row;
+-ms-flex-direction: row;
+flex-direction: row;
+-webkit-align-items: center;
+-webkit-box-align: center;
+-ms-flex-align: center;
+align-items: center;
+/* padding: 8px; */
+background: rgb(75,73,73);
+background: linear-gradient(90deg,rgba(75,73,73,0.4460493670124299) 0%,rgba(80,80,80,0.6645367619704132) 100%);
+border-radius: 20px;
+-webkit-flex: none;
+-ms-flex: none;
+flex: none;
+-webkit-order: 0;
+-ms-flex-order: 0;
+order: 0;
+-webkit-align-self: stretch;
+-ms-flex-item-align: stretch;
+align-self: stretch;
 `;
 
 
@@ -39,8 +44,8 @@ export const Layout = styled.div`
   background: transparent;
   display: flex;
 justify-content: flex-start;
-  padding: 20px;
-    width: 34vh;
+
+
     justify-content: flex-end;
 `;
 

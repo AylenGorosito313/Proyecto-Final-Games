@@ -1,28 +1,100 @@
-* {
-    font-family: Work sans;
-font-size: 13px;
-}
 
 .container-cart{
     border-radius: 10px;
-    background: rgb(56, 44, 44);
+    background: #2ea44fc6;
     display: flex;
-    width: 100%;
-    /* padding: 15px; */
+    width: 400px;
+    height: 90px;
+    padding: 15px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 
 
+}
+
+.card-cart-container{
+    display: flex;
+    padding: 20px;
+    overflow-y: scroll;
+height: 100%;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+}
+
+
+
+.card-cart-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.card-cart-container::-webkit-scrollbar:vertical {
+    width:8px;
+}
+
+.card-cart-container::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.card-cart-container::-webkit-scrollbar:horizontal {
+    height: 0%;
+}
+
+.card-cart-container::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 10px;
+   
+}
+
+.card-cart-container::-webkit-scrollbar-track {
+    border-radius: 10px;  
+} 
+
+.div-title-delete{
+    padding: 10px;
+    /* flex: auto; */
+    display: flex;
+    /* gap: 38px; */
+    margin-left: auto;
+}
+
+.container-title-cart p{
+    margin-left: 10px;
+}
+
+.delete{
+    border: none;
+    padding: 5px 8px;
+    border-radius: 10px 20px;
+    background-color: black;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.delete:hover {
+    /* border-bottom: 1px solid white; */
+    color: black;
+    background-color: white;
+}
+
+.container-title-cart{
+    margin-left: 10px;
+    display: flex;
+    height: 80px;
 }
 
 .subcontainer-img{
     display: flex;
-    gap: 30px;
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
 }
 
 .img-cart{
-    width: 90px;
-    height: 90px;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
 }
 
 .div-title-delete{
@@ -34,3 +106,10 @@ font-size: 13px;
     padding: 10px;
 }
 
+.diplayDelete{
+    display: none;
+}
+
+.price-game{
+    font-weight: 800;
+}

@@ -22,12 +22,14 @@
 const server = require("./src/app.js");
 const sequelize = require("./src/db");
 
-require("./src/models/games");
-require("./src/models/genres");
-require("./src/models/users");
-require('./src/models/platform')
-require("./src/models/carrito");
-require("./src/models/providers")
+require('./src/models/games');
+require('./src/models/genres');
+require('./src/models/users');
+require('./src/models/platform');
+require('./src/models/carrito');
+require('./src/models/compras');
+require('./src/models/inactiveUsers')
+require('./src/models/providers')
 async function main() {
     try {
         await sequelize.sync({ force: true });

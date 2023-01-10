@@ -4,13 +4,15 @@ const { Router } = require("express");
 const {
   getPaymentLink,
   getSubscriptionLink,
+  paymentSuccsess,
 } = require("../controllers/Payment.controller");
 
 const paymentRouter = Router();
 
 
-paymentRouter.post("/payment", getPaymentLink);
+paymentRouter.get("/payment", getPaymentLink);
 
 paymentRouter.get("/subscription", getSubscriptionLink);
+paymentRouter.get('/payment/success', paymentSuccsess)
 
 module.exports = paymentRouter;

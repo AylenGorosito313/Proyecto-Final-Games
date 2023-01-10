@@ -5,9 +5,17 @@
     
 }
 
+video {
+    display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      
+}
+
 .screenshots-slider, .screenshots-slider-thumbs{
     width: 100%;
-        height: 100%;
+     height: 100%;
 }
 
 .swiper-slide-screenshot, .swiper-slide-thumb-screenshot {

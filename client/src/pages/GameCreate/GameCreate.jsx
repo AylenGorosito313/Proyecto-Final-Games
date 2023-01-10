@@ -105,14 +105,14 @@ export default function GameCreate() {
               })}
             />
           </div>
-          {errors.name?.type === "required" && <p>The name is required</p>}
-          {errors.name?.type === "maxLength" && <p>The name is too long</p>}
-          {errors.name?.type === "minLength" && <p>The name is too short</p>}
+          {errors.name?.type === "required" && <p className={style.errors}>The name is required</p>}
+          {errors.name?.type === "maxLength" && <p className={style.errors}>The name is too long</p>}
+          {errors.name?.type === "minLength" && <p className={style.errors}>The name is too short</p>}
 
           <div>
             <label className={style.labels}> Game description </label>
             <textarea
-              className={style.textarea}
+              className= {style.textarea}
               type="textarea"
               placeholder=" Description of the game"
               {...register("description", {
@@ -122,9 +122,9 @@ export default function GameCreate() {
               })}
             />
           </div>
-          {errors.background_image?.type === "pattern" && (
-            <p>The image must be a URL</p>
-          )}
+          {errors.description?.type === "required" && <p className={style.errors}>The name is required</p>}
+          {errors.description?.type === "maxLength" && <p className={style.errors}>The name is too long max 900 caracters</p>}
+          {errors.description?.type === "minLength" && <p className={style.errors}> The name is too short min 100 caracters</p>}
 
           <div className={style.divSelect}>
             <label className={style.labels}> Game genere </label>
@@ -170,16 +170,6 @@ export default function GameCreate() {
               </button>
             </div>
           ))}
-
-
-{/* <div class="checkbox-wrapper-5">
-  <div class="check">
-    <input id="check-5" type="checkbox"/>
-    <label for="check-5"></label>
-  </div>
-</div> */}
-
-
 
      <div className={style.checkBoxDIV}>
             <label className={style.labels}>

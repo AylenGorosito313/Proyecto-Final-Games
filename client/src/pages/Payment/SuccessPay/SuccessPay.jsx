@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Success.css";
 import fondo from "../../../assets/img/payment.jpg";
 import LogoGrande from "../../../svg/Logos/LogoGrande";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import GitHub from "../../../svg/Icons-SocialMedia/GitHub";
 import Facebook from "../../../svg/Icons-SocialMedia/Facebook";
 import Linke from "../../../svg/Icons-SocialMedia/Linke";
 import LogoNew from "../../../svg/Logos/LogoNew";
+import { useDispatch } from "react-redux";
+import { paymentSuccess } from "../../../middleware";
+import { cleanDetails } from "../../../reducers/prueba/pruebaSlider";
 function SuccessPay() {
+
+  const search = useLocation().search;
+  const query = new URLSearchParams(search).get('userId');
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(paymentSuccess(query))
+
+    return () => {
+      dispatch(cleanDetails())
+    }
+  }, [])
+  
+
   return (
     <div className="container-pay-succss">
       <div className="fondo-scss-payment">
@@ -35,7 +52,7 @@ function SuccessPay() {
           </button>
 
           <div className="volver-home-div">
-            <Link className="link-payment-sucss" to={"/"}>
+            <Link className="link-payment-sucss" to={"/home"}>
               <p className="p-scs-return"> Return to Andromeda homepage</p>
             </Link>
           </div>

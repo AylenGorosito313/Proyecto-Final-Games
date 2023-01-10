@@ -6,6 +6,6 @@ gamesRouter.get("/games", gameControllers.getGames);
 gamesRouter.get("/game", gameControllers.searchGame);
 gamesRouter.get('/games/popular', gameControllers.mostPopularGames)
 gamesRouter.get('/games/released', gameControllers.releasedLastMonth)
-gamesRouter.post("/game/create", gameControllers.createGame);
+gamesRouter.post("/game/create/:userId", gameControllers.createGame);
 gamesRouter.get("/game/:id", gameControllers.gameInformation);
 module.exports = gamesRouter;

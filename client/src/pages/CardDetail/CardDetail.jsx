@@ -14,6 +14,7 @@ import { platformImage } from "./utils/utils";
 
 // Css
 import "./CardDetail.css";
+import { cleanDetails } from "../../reducers/prueba/pruebaSlider";
 
 export default function CardDetail() {
     const { id } = useParams();
@@ -22,14 +23,18 @@ export default function CardDetail() {
     // const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        dispatch(getGameDetail(id));
-    }, []);
+    dispatch(getGameDetail(id));
+    
+      return () => {
+        dispatch(cleanDetails())
+      }
+    }, [])
 
     return (
         <>
             <div className="main-detail-container">
-                {isLoader ? (
-                    <div className="loading">{isLoader && <Loading />}</div>
+                {isLoader && !gameDetail.hasOwnProperty("name") ? (
+                    <div className="loading">{<Loading />}</div>
                 ) : (
                     <div className="detail-container">
                         {/* Left Card Detail Container */}
@@ -37,7 +42,7 @@ export default function CardDetail() {
                             {/* Navigation, Title and Rating container */}
                             <div className="navigation-title-rating-container">
                                 <div className="navigation-title-container">
-                                    <Link to="/">
+                                    <Link to="/home">
                                         <i className="fa-solid fa-arrow-left fa-xl"></i>
                                     </Link>
                                     <h1 className="detail-title">

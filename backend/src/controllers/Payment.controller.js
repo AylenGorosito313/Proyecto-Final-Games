@@ -16,6 +16,9 @@ const getPaymentLink = async (req, res) => {
             })
         }
         let carItems = await getItemsCar(id);
+        if(!Array.isArray(carItems)){
+            return
+        }
         const payment = await createPayment(carItems, id);
         return res.json(payment.init_point);
     } catch (error) {

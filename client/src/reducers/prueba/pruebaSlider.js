@@ -82,6 +82,9 @@ export const toolkit_prueba = createSlice({
     getItemsUser: (state, actions) => {
       state.itemCar = [...actions.payload]
     },
+    cleanDetails: (state, actions) => {
+      state.gameDetail = {}
+    }
   },
 });
 export const {
@@ -103,7 +106,8 @@ export const {
   clearStateCart,
   deleteCarItem,
   getUserActual,
-  getItemsUser
+  getItemsUser,
+  cleanDetails
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

@@ -82,7 +82,7 @@ function FormLogin() {
             <input type="checkbox" {...register("checkbox-remember")} />
             <label className="label"> Remember me</label>
           </div>
-          <Link className="link" to={"/recuperacion"}>
+          <Link className="link" to={"/user/recuperacion"}>
             <p>Forgot Password ?</p>
           </Link>
         </div>

@@ -6,6 +6,7 @@ const searchByName = require("../utils/searchByName");
 const { Game } = require("../models/games");
 const { Genre } = require("../models/genres");
 const getGamePopularOrReleased = require("../utils/getGamePopular");
+const { Users } = require("../models/users");
 
 //obtener games 20 por pagina
 const getGames = async (req, res) => {
@@ -50,30 +51,51 @@ const searchGame = async (req, res) => {
 };
 
 const createGame = async (req, res) => {
-    const { platforms, background_image, name, rating, genre } = req.body;
+    const gameInfo = req.body;
+    const { userId } = req.params;
     try {
-        if (!name || !background_image || !platforms) {
-            res.status(300).json({
-                message: "Faltan campos requeridos",
+        if (
+            !gameInfo.name ||
+            !gameInfo.background_image ||
+            !gameInfo.platforms ||
+            !gameInfo.price ||
+            !userId ||
+            !gameInfo.description ||
+            !gameInfo.genres
+        ) {
+            return res.status(300).json({
+                message: "Missing required fields",
             });
-        } else {
+        }
+        const searchUser = await Users.findByPk(userId);
+        let userIsProvider = searchUser.proveedor;
+        if (userIsProvider) {
             const [result, create] = await Game.findOrCreate({
                 where: {
-                    name: name[0].toUpperCase() + name.substring(1),
-                    background_image,
-                    rating,
-                    platforms,
+                    name: gameInfo.name,
+                    background_image: gameInfo.background_image,
+                    rating: gameInfo.rating,
+                    price: gameInfo.price,
+                    platforms: gameInfo.platforms,
+                    description: gameInfo.description,
+                    trailer: gameInfo.trailer ? gameInfo.trailer : null,
                 },
             });
             if (create) {
                 let genreByGame = await Genre.findAll({
                     where: {
-                        name: genre,
+                        name: gameInfo.genres,
                     },
                 });
                 result.addGenres(genreByGame);
-                res.status(200).json(result);
+                return res.status(200).json({
+                    message: "game created successfully",
+                });
             }
+        } else {
+            return res
+                .status(401)
+                .json("you are not authorized to upload game");
         }
     } catch (error) {
         res.status(500).json({
@@ -84,26 +106,25 @@ const createGame = async (req, res) => {
 
 const mostPopularGames = async (req, res) => {
     try {
-        const response = await getGamePopularOrReleased(true)
-        res.status(200).json(response)
+        const response = await getGamePopularOrReleased(true);
+        res.status(200).json(response);
     } catch (error) {
         res.status(401).json({
-            error: error.message
-        })
+            error: error.message,
+        });
     }
-    
 };
 
 const releasedLastMonth = async (req, res) => {
     try {
-        const response = await getGamePopularOrReleased()
-        res.status(200).json(response)
+        const response = await getGamePopularOrReleased();
+        res.status(200).json(response);
     } catch (error) {
         res.status(404).json({
-            error: error.message
-        })
+            error: error.message,
+        });
     }
-}
+};
 //https://api.rawg.io/api/games?dates=2023-12-01,2023-12-30
 //https://api.rawg.io/api/games/{game_pk}/development-team
 
@@ -113,5 +134,5 @@ module.exports = {
     searchGame,
     createGame,
     mostPopularGames,
-    releasedLastMonth
+    releasedLastMonth,
 };

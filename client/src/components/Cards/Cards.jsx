@@ -43,7 +43,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
           </div>
 
           <div className="card-content">
-            <Link to={`/games/${id}`}>
+            <Link to={`/game/${id}`}>
               <div className="card-content-header">
                 <h3>{name.split("").slice(0, 16).join("")}</h3>
 

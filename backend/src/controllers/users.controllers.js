@@ -1,16 +1,24 @@
 const { Users } = require("../models/users");
-const { Carrito } = require('../models/Carrito');
+const { Carrito } = require("../models/Carrito");
 const { Compras } = require("../models/compras");
-const { logicDeletUser } = require('../utils/logicDeletUser')
+const { logicDeletUser } = require("../utils/logicDeletUser");
+const { Providers } = require("../models/providers");
 
 const getAllUser = async (req, res) => {
     try {
         const user = await Users.findAll({
-            include:[{
-                model: Carrito
-            },{
-                model: Compras
-            }]
+            include: [
+                {
+                    model: Carrito,
+                },
+                {
+                    model: Compras,
+                },
+                {
+                    model: Providers,
+                },
+            ],
+            attributes: { exclude: ["passwordHash"] },
         });
         res.status(200).json(user);
     } catch (error) {
@@ -25,12 +33,18 @@ const getUserById = async (req, res) => {
 
     try {
         let searchUser = await Users.findByPk(id, {
-            include:[{
-                model: Carrito
-            },{
-                model: Compras
-            }],
-            attributes: { exclude: ["passwordHash"] }
+            include: [
+                {
+                    model: Carrito,
+                },
+                {
+                    model: Compras,
+                },
+                {
+                    model: Providers,
+                },
+            ],
+            attributes: { exclude: ["passwordHash"] },
         });
         res.status(200).json(searchUser);
     } catch (error) {
@@ -42,39 +56,36 @@ const getUserById = async (req, res) => {
 
 const updateUserProfile = async (req, res) => {
     const { id } = req.params;
-    const userUpdate = req.body    
+    const userUpdate = req.body;
     try {
-            const user = await Users.findByPk(id)
-            // console.log("aca consologeamos user", user)
-            user.update(userUpdate)
-            await user.save();
+        const user = await Users.findByPk(id);
+        // console.log("aca consologeamos user", user)
+        user.update(userUpdate);
+        await user.save();
 
-            res.json(user)            
-           
+        res.json(user);
     } catch (error) {
         res.status(500).json({
             error: error.message,
         });
     }
-}
+};
 
 const deletedUser = async (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
     try {
-        const inactiveUser = await logicDeletUser(id)
-             res.status(200).json("usuario eliminado")
+        const inactiveUser = await logicDeletUser(id);
+        res.status(200).json("usuario eliminado");
     } catch (error) {
         res.status(500).json({
             error: error.message,
         });
     }
-}
-
+};
 
 module.exports = {
     getAllUser,
     getUserById,
     updateUserProfile,
-    deletedUser
+    deletedUser,
 };
-

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import "./Buttons.css"
+import "./Buttons.css";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CreateGame, traerGenero, traerPlatforms } from "../../middleware";
@@ -26,10 +26,9 @@ export default function GameCreate() {
   } = useForm({
     defaultValues: {
       name: "",
-      background_image: "",
       rating: 0,
-      // platforms: [''],
-      // genre: [''],
+      description: "",
+      incoming: false
     },
     mode: "onChange",
   });
@@ -86,97 +85,123 @@ export default function GameCreate() {
   }, []);
 
   return (
-      <>
-     <div className={style.headerDiv}>
-       <h1 className={style.h1Header}> Unpload your game </h1>
-    </div>
- 
-    <div className={style.fondo}>
-     
-      <form className={style.formContainer} onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label className={style.labels}> Game name </label>
-          <input
-            className={style.input}
-            type="text"
-            placeholder="Name of the game"
-            {...register("name", {
-              required: true,
-              minLength: 5,
-              maxLength: 20,
-            })}
-          />
-        </div>
-        {errors.name?.type === "required" && <p>The name is required</p>}
-        {errors.name?.type === "maxLength" && <p>The name is too long</p>}
-        {errors.name?.type === "minLength" && <p>The name is too short</p>}
+    <>
+      <div className={style.headerDiv}>
+        <h1 className={style.h1Header}> Unpload your game </h1>
+      </div>
 
-        {/* <div> */}
-        {/* <label> Image:</label>
-          <input  className= {style.input}
-            type="text"
-            placeholder="Example http://..."
-            {...register("background_image", {
-              pattern: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/,
-            })}
-          />
-        </div>
-        {errors.background_image?.type === "pattern" && (
-          <p>The image must be a URL</p>
-        )} */}
+      <div className={style.fondo}>
+        <form className={style.formContainer} onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label className={style.labels}> Game name </label>
+            <input
+              className={style.input}
+              type="text"
+              placeholder="Name of the game"
+              {...register("name", {
+                required: true,
+                minLength: 5,
+                maxLength: 20,
+              })}
+            />
+          </div>
+          {errors.name?.type === "required" && <p>The name is required</p>}
+          {errors.name?.type === "maxLength" && <p>The name is too long</p>}
+          {errors.name?.type === "minLength" && <p>The name is too short</p>}
 
-        <div className={style.divSelect}>
-          <label className={style.labels}>  Game genere </label>
-          <select className={style.Select} onChange={handlerGender}>
-            {genre &&
-              genre.map((g, i) => (
-                <option value={g} key={i}>
-                  {g}
-                </option>
-              ))}
-          </select>
-        </div>
-        <div className={style.gnreContairner}>
-          {gender.genere.map((el, i) => (
-            <div className={style.gnreCard} key={i}>
-              <p className={style.gnreP}>{el}</p>
-              <button
-                className={style.gnreButton}
-                onClick={() => handleDelete(el)}
-              >
+          <div>
+            <label className={style.labels}> Game description </label>
+            <textarea
+              className={style.textarea}
+              type="textarea"
+              placeholder=" Description of the game"
+              {...register("description", {
+                required: true,
+                minLength: 100,
+                maxLength: 900,
+              })}
+            />
+          </div>
+          {errors.background_image?.type === "pattern" && (
+            <p>The image must be a URL</p>
+          )}
+
+          <div className={style.divSelect}>
+            <label className={style.labels}> Game genere </label>
+            <select className={style.Select} onChange={handlerGender}>
+              {genre &&
+                genre.map((g, i) => (
+                  <option value={g} key={i}>
+                    {g}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <div className={style.gnreContairner}>
+            {gender.genere.map((el, i) => (
+              <div className={style.gnreCard} key={i}>
+                <p className={style.gnreP}>{el}</p>
+                <button
+                  className={style.gnreButton}
+                  onClick={() => handleDelete(el)}
+                >
+                  X
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className={style.divSelect}>
+            <label className={style.labels}> Platforms</label>
+            <select className={style.Select} onChange={handlerPlatforms}>
+              {platforms &&
+                platforms.map((p, i) => (
+                  <option value={p} key={i}>
+                    {p}
+                  </option>
+                ))}
+            </select>
+          </div>
+          {platform.platformarray.map((el, i) => (
+            <div key={i}>
+              <p>{el}</p>
+              <button className="" onClick={() => handleDeletedos(el)}>
                 X
               </button>
             </div>
           ))}
-        </div>
 
-        <div className={style.divSelect}>
-          <label className={style.labels}> Platforms</label>
-          <select className={style.Select} onChange={handlerPlatforms}>
-            {platforms &&
-              platforms.map((p, i) => (
-                <option value={p} key={i}>
-                  {p}
-                </option>
-              ))}
-          </select>
-        </div>
-        {platform.platformarray.map((el, i) => (
-          <div key={i}>
-            <p>{el}</p>
-            <button className="" onClick={() => handleDeletedos(el)}>
-              X
-            </button>
-          </div>
-        ))}
 
-        <button  className="button-9" role="button" type="submit">Create Game</button>
-      </form>
-      <UploadGameCreate />
-    </div>
+{/* <div class="checkbox-wrapper-5">
+  <div class="check">
+    <input id="check-5" type="checkbox"/>
+    <label for="check-5"></label>
+  </div>
+</div> */}
 
+
+
+     <div className={style.checkBoxDIV}>
+            <label className={style.labels}>
+              {" "}
+              Do you want to monetize this game ?{" "}
+            </label>
+            <input
+              className={style.checkBox}
+              type="checkbox"
+              placeholder="Name of the game"
+              {...register("incoming", {
+              
+              })}
+            />
+          </div> 
+
+          <button className="button-9" role="button" type="submit">
+            Create Game
+          </button>
+        </form>
+        <UploadGameCreate />
+      </div>
     </>
-   
-  )
-  
+  );
 }

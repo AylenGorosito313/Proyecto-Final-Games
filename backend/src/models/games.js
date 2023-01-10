@@ -26,13 +26,13 @@ const Game = sequelize.define("game", {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },
-    income: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
+    price: {
+        type: DataTypes.DECIMAL,
+        defaultValue: 0.00
     },
     description: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     trailer: {
         type: DataTypes.STRING,

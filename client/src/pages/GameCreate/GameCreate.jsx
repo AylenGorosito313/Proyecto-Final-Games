@@ -13,6 +13,7 @@ export default function GameCreate() {
 
   const { genre, platforms } = useSelector((state) => state.prueba);
   const [Price, setPrice] = useState(false);
+
   const [gender, setGender] = useState({
     genere: [],
   });
@@ -34,12 +35,15 @@ export default function GameCreate() {
     },
     mode: "onChange",
   });
+ 
 
   const onSubmit = async (data) => {
+ 
     let genre = gender.genere;
     let platforms = platform.platformarray;
-    console.log({ ...data, platforms, genre });
-    dispatch(CreateGame({ ...data, platforms, genre }));
+    
+    console.log({ ...data, platforms, genre,  });
+    // dispatch(CreateGame({ ...data, platforms, genre }));
   };
 
   const handlerGender = (event) => {
@@ -82,8 +86,10 @@ export default function GameCreate() {
       platformarray: platform.platformarray.filter((plat) => plat !== event),
     });
   };
-  console.log(gender);
-  console.log(platform);
+const handlerTrailer = (event) =>{
+console.log(event)
+}
+
 
   useEffect(() => {
     dispatch(traerGenero());
@@ -224,7 +230,7 @@ export default function GameCreate() {
           </button>
         </form>
         <div className={style.unploadDiv}>
-          <UploadVideogame />
+          <UploadVideogame    Onclick={handlerTrailer}  />
           <UploadGameCreate />
         </div>
       </div>

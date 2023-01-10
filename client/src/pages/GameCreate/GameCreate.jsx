@@ -103,7 +103,7 @@ export default function GameCreate() {
             <input
               className={style.input}
               type="text"
-              placeholder="Name of the game"
+              placeholder="  Name of the game"
               {...register("name", {
                 required: true,
                 minLength: 5,
@@ -212,7 +212,6 @@ export default function GameCreate() {
               <input
                 className={style.input}
                 type="number"
-                placeholder="Name of the game"
                 {...register("price", {
                   required: true,
                 })}

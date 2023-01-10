@@ -7,6 +7,7 @@ const { Game } = require("../models/games");
 const { Genre } = require("../models/genres");
 const getGamePopularOrReleased = require("../utils/getGamePopular");
 const { Users } = require("../models/users");
+const { Providers } = require("../models/providers");
 
 //obtener games 20 por pagina
 const getGames = async (req, res) => {
@@ -70,7 +71,7 @@ const createGame = async (req, res) => {
         const searchUser = await Users.findByPk(userId);
         let userIsProvider = searchUser.proveedor;
         if (userIsProvider) {
-            const [result, create] = await Game.findOrCreate({
+            let [result, create] = await Game.findOrCreate({
                 where: {
                     name: gameInfo.name,
                     background_image: gameInfo.background_image,
@@ -88,6 +89,18 @@ const createGame = async (req, res) => {
                     },
                 });
                 result.addGenres(genreByGame);
+                let userProvider = await Providers.findOne({
+                    where: {
+                        userId,
+                    },
+                });
+                userProvider.videoGamesPropor.length === 0
+                    ? (userProvider.videoGamesPropor = [gameInfo])
+                    : (userProvider.videoGamesPropor = [
+                          ...userProvider.videoGamesPropor,
+                          gameInfo,
+                      ]);
+                await userProvider.save();
                 return res.status(200).json({
                     message: "game created successfully",
                 });

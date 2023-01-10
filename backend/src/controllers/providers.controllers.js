@@ -1,7 +1,6 @@
 const { Providers } = require("../models/providers");
 const { Users } = require("../models/users");
 
-
 //crear un proveedor
 const registerProvider = async (req, res) => {
     const { userId } = req.params;
@@ -16,14 +15,12 @@ const registerProvider = async (req, res) => {
         if (searchUser) {
             searchUser.proveedor = true;
 
-            const createUserProvider = await Providers.create({
-                where: {
-                    userId,
-                },
-            });
-            searchUser.save();
+            const createUserProvider = await Providers.create();
+            createUserProvider.userId = userId;
+            await createUserProvider.save();
+            await searchUser.save();
             return res.status(200).json({
-                message: "provider created successfully",
+                createUserProvider,
             });
         }
     } catch (error) {
@@ -33,8 +30,27 @@ const registerProvider = async (req, res) => {
     }
 };
 
+const getGamesByProvider = async (req, res) => {
+    const { userId } = req.params;
+    try {
+        const searchUser = await Users.findByPk(userId, {
+            where: { proveedor: true },
+            include: {
+                model: Providers,
+            },
+        });
 
+        return !searchUser
+            ? res.status(404).json({
+                  message: "user has not created games",
+              })
+            : res.status(200).json(searchUser.provider.videoGamesPropor);
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 module.exports = {
-    registerProvider,  
+    registerProvider,
+    getGamesByProvider,
 };

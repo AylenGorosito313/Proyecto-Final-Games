@@ -3,8 +3,10 @@
 }
 
 .imgScale{
-    width: 40vh;
+    width: 20vh;
+    height: 20vh;
     border-radius: 10px;
+
 }
 
 .h1{

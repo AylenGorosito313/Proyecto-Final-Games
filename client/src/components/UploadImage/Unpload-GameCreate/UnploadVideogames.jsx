@@ -6,8 +6,8 @@ function UploadVideogame(props) {
   function handleOpenWidget() {
     var myWidget = window.cloudinary.createUploadWidget(
       {
-        cloudName: "dbgzbsigy",
-        uploadPreset: "andromedaPrueba",
+        cloudName: "dj8p0rdxn",
+        uploadPreset: "j5ivnctp",
       },
       (error, result) => {
         if (!error && result && result.event === "success") {

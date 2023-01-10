@@ -14,6 +14,7 @@ export default function UploadImage(props) {
         cloudName: "dbgzbsigy",
         uploadPreset: "andromedaPrueba",
       },
+      
       (error, result) => {
         if (!error && result && result.event === "success") {
           // setImage(prev => [...prev, {url: result.info.url, public_id: result.info.public_id, key: result.info.public_id}])

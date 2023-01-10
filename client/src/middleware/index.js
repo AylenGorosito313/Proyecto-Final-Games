@@ -17,6 +17,7 @@ import {
     deleteCarItem,
     getItemsUser,
     cleanDetails,
+    getPlatforms
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {

@@ -4,25 +4,24 @@ export default function UploadGameCreate(props) {
   const [image, setImage] = useState([]);
 
   function handleOpenWidget() {
-    var myWidget = window.cloudinary.createUploadWidget(
-      {
-        cloudName: "dbgzbsigy",
-        uploadPreset: "andromedaPrueba",
-      },
-      (error, result) => {
-        if (!error && result && result.event === "success") {
-          setImage((prev) => [
-            {
-              url: result.info.url,
-              public_id: result.info.public_id,
-              key: result.info.public_id,
-            },
-          ]);
+    let myWidget = window.cloudinary.createUploadWidget(
+        {
+            cloudName: "deuc5vq5b",
+            uploadPreset: "andromedaPrueba",
+        },
+        (error, result) => {
+            if (!error && result && result.event === "success") {
+                setImage(prev => [...prev, {
+                    url: result.info.url, 
+                    public_id: result.info.public_id, 
+                    key: result.info.public_id, 
+                    delete: result.info.delete_token
+                }])
+            };
         }
-      }
     );
     myWidget.open();
-  }
+}
 
   return (
     <div>

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./Buttons.css";
 import UploadVideogame from "../../components/UploadImage/Unpload-GameCreate/UnploadVideogames";
-import { useHistory } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
 import { CreateGame, traerGenero, traerPlatforms } from "../../middleware";
 import style from "../GameCreate/GameCreate.module.css";

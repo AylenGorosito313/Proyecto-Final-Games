@@ -33,8 +33,8 @@ export default function CardDetail() {
     return (
         <>
             <div className="main-detail-container">
-                {isLoader ? (
-                    <div className="loading">{isLoader && <Loading />}</div>
+                {isLoader && !gameDetail.hasOwnProperty("name") ? (
+                    <div className="loading">{<Loading />}</div>
                 ) : (
                     <div className="detail-container">
                         {/* Left Card Detail Container */}

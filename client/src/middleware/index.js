@@ -22,18 +22,18 @@ import {
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
-  return async function (dispatch) {
-    try {
-      dispatch(setIsLoader());
-      let { data } = await axios({
-        method: "GET",
-        url: `http://localhost:3001/games`,
-      });
-      dispatch(getAllGames(data));
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+    return async function (dispatch) {
+        try {
+            dispatch(isLoading());
+            let { data } = await axios({
+                method: "GET",
+                url: `http://localhost:3001/games`,
+            });
+            dispatch(getAllGames(data));
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 };
 
 export const isLoading = () => {
@@ -61,18 +61,18 @@ export const getPopularGames = () => {
 };
 
 export const getGamesReleasedLasthMonth = () => {
-  return async function (dispatch) {
-    try {
-      let { data } = await axios({
-        method: "GET",
-        url: `http://localhost:3001/games/released`,
-      });
-      dispatch(releasedLasthMonth(data));
-      dispatch(setIsLoader());
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+    return async function (dispatch) {
+        try {
+            let { data } = await axios({
+                method: "GET",
+                url: `http://localhost:3001/games/released`,
+            });
+            dispatch(releasedLasthMonth(data));
+            dispatch(isLoading());
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 };
 
 export const getSearchByName = (name) => {
@@ -86,20 +86,20 @@ export const getSearchByName = (name) => {
 };
 
 export const getGameDetail = (id) => {
-  return async function (dispatch) {
-    try {
-      dispatch(setIsLoader());
-      let { data } = await axios({
-        method: "GET",
-        url: `http://localhost:3001/game/${id}`,
-      });
+    return async function (dispatch) {
+        try {
+            dispatch(isLoading());
+            let { data } = await axios({
+                method: "GET",
+                url: `http://localhost:3001/game/${id}`,
+            });
 
-      dispatch(getDetail(data));
-      dispatch(setIsLoader());
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+            dispatch(getDetail(data));
+            dispatch(isLoading());
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 };
 
 export const createUser = ({ name, lastName, email, password }) => {
@@ -223,18 +223,19 @@ export const AddCart = (userId, gameId) => {
 };
 
 export const getCart = (userId) => {
-  return async function (dispatch) {
-    try {
-      dispatch(setIsLoader());
-      let { data } = await axios({
-        method: "GET",
-        url: `http://localhost:3001/user/cartItems/${userId}`,
-      });
-      dispatch(getCartRes(data));
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+    return async function (dispatch) {
+        try {
+            dispatch(isLoading());
+            let { data } = await axios({
+                method: "GET",
+                url: `http://localhost:3001/user/cartItems/${userId}`,
+            });
+            dispatch(getCartRes(data));
+            dispatch(isLoading());
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 };
 
 ///use/deleteItem/:userId/:gameId
@@ -295,18 +296,18 @@ export const getItemsCar = (id) => {
 //Payment .................................................
 
 export const getCheckOut = (userId) => {
-  return async function (dispatch) {
-    try {
-      let { data } = await axios({
-        method: "GET",
-        url: `http://localhost:3001/payment?id=${userId}`,
-      });
-      dispatch(getLinkPayment(data));
-      dispatch(setIsLoader());
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+    return async function (dispatch) {
+        try {
+            let { data } = await axios({
+                method: "GET",
+                url: `http://localhost:3001/payment?id=${userId}`,
+            });
+            dispatch(getLinkPayment(data));
+            
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 };
 
 export const deletedItemsToCart = (id) => {

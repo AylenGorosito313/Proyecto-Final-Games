@@ -5,50 +5,57 @@ const mapGames = require("../utils/mapGames");
 
 const addToCar = async (req, res) => {
     const { userId, gameId } = req.params;
-
-    if (!userId || !gameId)
-        return res.status(400).json({
-            error: "userId is empty",
-        });
-
     try {
-        let userVerify = await Users.findByPk(userId);
-        let searchUserCar = await Carrito.findOne({
-            where: {
-                userId,
-            },
-        });
-
-        let gameInfo = await apiClient(`games/${gameId}`);
-        gameInfo = await mapGames([gameInfo]);
-        if (!searchUserCar) {
-            let addCarItem = await Carrito.create();
-            addCarItem.userId = userId;
-            addCarItem.items = [...gameInfo];
-            addCarItem.total_items = addCarItem.items.length;
-            addCarItem.total_precio = addCarItem.items.reduce((count, ele) => {
-                return count + ele.price;
-            }, 0);
-            addCarItem.status = "pending";
-            addCarItem.save();
-            return res.status(200).json(addCarItem);
-        }
-        let verifyItems = searchUserCar.toJSON();
-        if (verifyItems.items.find((ele) => ele.id.toString() === gameId)) {
-            return res.status(400).json({
-                message: "the game already exists",
+        if (userId === 'null' || !gameId) {
+            console.log("hola", userId);
+            return res.status(401).json({
+                error: true,
+                msg: "User Unauthorized",
             });
         }
-        searchUserCar.items = [...searchUserCar.items, ...gameInfo];
-        searchUserCar.total_items = searchUserCar.items.length;
-        searchUserCar.total_precio = searchUserCar.items.reduce(
-            (count, ele) => {
-                return count + ele.price;
-            },
-            0
-        );
-        searchUserCar.save();
-        return res.status(200).json(searchUserCar);
+
+        if (userId) {
+            await Users.findByPk(userId);
+            let searchUserCar = await Carrito.findOne({
+                where: {
+                    userId,
+                },
+            });
+
+            let gameInfo = await apiClient(`games/${gameId}`);
+            gameInfo = await mapGames([gameInfo]);
+            if (!searchUserCar) {
+                let addCarItem = await Carrito.create();
+                addCarItem.userId = userId;
+                addCarItem.items = [...gameInfo];
+                addCarItem.total_items = addCarItem.items.length;
+                addCarItem.total_precio = addCarItem.items.reduce(
+                    (count, ele) => {
+                        return count + ele.price;
+                    },
+                    0
+                );
+                addCarItem.status = "pending";
+                addCarItem.save();
+                return res.status(200).json(addCarItem);
+            }
+            let verifyItems = searchUserCar.toJSON();
+            if (verifyItems.items.find((ele) => ele.id.toString() === gameId)) {
+                return res.status(400).json({
+                    message: "the game already exists",
+                });
+            }
+            searchUserCar.items = [...searchUserCar.items, ...gameInfo];
+            searchUserCar.total_items = searchUserCar.items.length;
+            searchUserCar.total_precio = searchUserCar.items.reduce(
+                (count, ele) => {
+                    return count + ele.price;
+                },
+                0
+            );
+            searchUserCar.save();
+            return res.status(200).json(searchUserCar);
+        }
     } catch (error) {
         res.status(400).json({
             error: error.message,

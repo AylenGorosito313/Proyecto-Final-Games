@@ -26,6 +26,18 @@ const Game = sequelize.define("game", {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },
+    price: {
+        type: DataTypes.DECIMAL,
+        defaultValue: 0.00
+    },
+    description: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    trailer: {
+        type: DataTypes.STRING,
+        allowNull: true
+    }
 }, {freezeTableName: true});
 
 Game.belongsToMany(Genre, { through: "game_genre" })

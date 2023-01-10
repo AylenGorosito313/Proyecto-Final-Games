@@ -22,7 +22,7 @@ import {
 export const getGames = () => {
     return async function (dispatch) {
         try {
-            dispatch(setIsLoader());
+            dispatch(isLoading());
             let { data } = await axios({
                 method: "GET",
                 url: `http://localhost:3001/games`,
@@ -66,7 +66,7 @@ export const getGamesReleasedLasthMonth = () => {
                 url: `http://localhost:3001/games/released`,
             });
             dispatch(releasedLasthMonth(data));
-            dispatch(setIsLoader());
+            dispatch(isLoading());
         } catch (error) {
             console.log(error.message);
         }
@@ -86,14 +86,14 @@ export const getSearchByName = (name) => {
 export const getGameDetail = (id) => {
     return async function (dispatch) {
         try {
-            dispatch(setIsLoader());
+            dispatch(isLoading());
             let { data } = await axios({
                 method: "GET",
                 url: `http://localhost:3001/game/${id}`,
             });
 
             dispatch(getDetail(data));
-            dispatch(setIsLoader());
+            dispatch(isLoading());
         } catch (error) {
             console.log(error.message);
         }
@@ -227,12 +227,13 @@ export const AddCart = (userId, gameId) => {
 export const getCart = (userId) => {
     return async function (dispatch) {
         try {
-            dispatch(setIsLoader());
+            dispatch(isLoading());
             let { data } = await axios({
                 method: "GET",
                 url: `http://localhost:3001/user/cartItems/${userId}`,
             });
             dispatch(getCartRes(data));
+            dispatch(isLoading());
         } catch (error) {
             console.log(error.message);
         }
@@ -304,7 +305,7 @@ export const getCheckOut = (userId) => {
                 url: `http://localhost:3001/payment?id=${userId}`,
             });
             dispatch(getLinkPayment(data));
-            dispatch(setIsLoader());
+            
         } catch (error) {
             console.log(error.message);
         }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./Buttons.css";
+import UploadVideogame from "../../components/UploadImage/Unpload-GameCreate/UnploadVideogames";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CreateGame, traerGenero, traerPlatforms } from "../../middleware";
@@ -11,6 +12,7 @@ export default function GameCreate() {
   const dispatch = useDispatch();
 
   const { genre, platforms } = useSelector((state) => state.prueba);
+  const [Price, setPrice] = useState(false);
   const [gender, setGender] = useState({
     genere: [],
   });
@@ -28,7 +30,7 @@ export default function GameCreate() {
       name: "",
       rating: 0,
       description: "",
-      incoming: false
+      price: 0,
     },
     mode: "onChange",
   });
@@ -61,6 +63,10 @@ export default function GameCreate() {
         ...platform,
       });
     }
+  };
+
+  const handlerPrice = () => {
+    setPrice(!Price);
   };
 
   const handleDelete = (event) => {
@@ -105,14 +111,20 @@ export default function GameCreate() {
               })}
             />
           </div>
-          {errors.name?.type === "required" && <p className={style.errors}>The name is required</p>}
-          {errors.name?.type === "maxLength" && <p className={style.errors}>The name is too long</p>}
-          {errors.name?.type === "minLength" && <p className={style.errors}>The name is too short</p>}
+          {errors.name?.type === "required" && (
+            <p className={style.errors}>The name is required</p>
+          )}
+          {errors.name?.type === "maxLength" && (
+            <p className={style.errors}>The name is too long</p>
+          )}
+          {errors.name?.type === "minLength" && (
+            <p className={style.errors}>The name is too short</p>
+          )}
 
           <div>
             <label className={style.labels}> Game description </label>
             <textarea
-              className= {style.textarea}
+              className={style.textarea}
               type="textarea"
               placeholder=" Description of the game"
               {...register("description", {
@@ -122,9 +134,20 @@ export default function GameCreate() {
               })}
             />
           </div>
-          {errors.description?.type === "required" && <p className={style.errors}>The name is required</p>}
-          {errors.description?.type === "maxLength" && <p className={style.errors}>The name is too long max 900 caracters</p>}
-          {errors.description?.type === "minLength" && <p className={style.errors}> The name is too short min 100 caracters</p>}
+          {errors.description?.type === "required" && (
+            <p className={style.errors}>The name is required</p>
+          )}
+          {errors.description?.type === "maxLength" && (
+            <p className={style.errors}>
+              The name is too long max 900 caracters
+            </p>
+          )}
+          {errors.description?.type === "minLength" && (
+            <p className={style.errors}>
+              {" "}
+              The name is too short min 100 caracters
+            </p>
+          )}
 
           <div className={style.divSelect}>
             <label className={style.labels}> Game genere </label>
@@ -171,26 +194,41 @@ export default function GameCreate() {
             </div>
           ))}
 
-     <div className={style.checkBoxDIV}>
+          <div className={style.checkBoxDIV}>
             <label className={style.labels}>
               {" "}
               Do you want to monetize this game ?{" "}
             </label>
             <input
+              onClick={handlerPrice}
               className={style.checkBox}
               type="checkbox"
-              placeholder="Name of the game"
-              {...register("incoming", {
-              
-              })}
             />
-          </div> 
+          </div>
+
+          {Price && (
+            <div >
+              <label className={style.labels}>Price in US
+              $</label>
+              <input
+                className={style.input}
+                type="text"
+                placeholder="Name of the game"
+                {...register("price", {
+                  required: true,
+                })}
+              />
+            </div>
+          )}
 
           <button className="button-9" role="button" type="submit">
             Create Game
           </button>
         </form>
-        <UploadGameCreate />
+        <div className={style.unploadDiv}>
+          <UploadVideogame />
+          <UploadGameCreate />
+        </div>
       </div>
     </>
   );

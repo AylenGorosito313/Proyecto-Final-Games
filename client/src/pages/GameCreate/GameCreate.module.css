@@ -125,3 +125,10 @@ color : #EB4848;
 .input:-internal-autofill-selected{
 background: #3e3b3b;
 }
+
+
+.unploadDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}

@@ -61,7 +61,7 @@ function Home() {
               <p className="p-create-game">Discover</p>
             </Link>
 
-            <Link className="p-create-game" to="/game/create">
+            <Link className="p-create-game" to="/game/form/create">
               <p className="p-create-game">Create Game</p>
             </Link>
           </div>

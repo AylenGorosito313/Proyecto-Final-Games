@@ -53,7 +53,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
           </div>
 
           <div className="card-content-header-slider">
-            <Link to={`/games/${id}`}>
+            <Link to={`/game/${id}`}>
               <h3>{name.split("").slice(0, 16).join("")}</h3>
             </Link>
             <div>

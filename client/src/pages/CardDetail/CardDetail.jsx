@@ -42,7 +42,7 @@ export default function CardDetail() {
                             {/* Navigation, Title and Rating container */}
                             <div className="navigation-title-rating-container">
                                 <div className="navigation-title-container">
-                                    <Link to="/">
+                                    <Link to="/home">
                                         <i className="fa-solid fa-arrow-left fa-xl"></i>
                                     </Link>
                                     <h1 className="detail-title">

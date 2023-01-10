@@ -21,7 +21,7 @@ function NavTop() {
   const navigate = useHistory();
 
   const handleLogin = () => {
-    navigate.push("/login");
+    navigate.push("/user/login");
   };
   const handlerOpenUser = () => {
     setOpenUser(!OpenUser);
@@ -53,7 +53,7 @@ function NavTop() {
   }, []);
   return (
     <>
-    <Link to={'/'}>
+    <Link to={'/home'}>
     <motion.div className="div-logo">
         
         <Logo />

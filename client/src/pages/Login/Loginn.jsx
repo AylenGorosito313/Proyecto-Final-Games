@@ -34,7 +34,7 @@ function Loginn() {
       localStorage.setItem("name", res.login.name);
       localStorage.setItem("token", res.login.token);
    
-      navigateToHome.push("/");
+      navigateToHome.push("/home");
     }
   },2000);
 
@@ -65,7 +65,7 @@ function Loginn() {
             <div className="singnup">
               <p className="label">Dont have an account ?</p>
               <div className="register-container">
-                <Link className="link" to={"/register"}>
+                <Link className="link" to={"/user/register"}>
                   <p> Singnup now</p>
                 </Link>
               </div>

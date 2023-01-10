@@ -19,41 +19,38 @@ function App() {
     ] = `Bearer ${localStorage.getItem("token")}`;
     return (
         <>
-            <Route exact path="/games/:id">
+           
+
+            <Route path="/user">
+                <Route exact path="/user/login" component={Loginn} />
+                <Route exact path="/user/register" component={Register} />
+                {/* <Route exact path="/user/recuperacion" component={UserRecuperacion} /> */}
+            </Route>
+            
+            <Route exact path="/payment" component={NavTop} />
+            <Route exact path="/payment" component={PaymentMP} />
+            <Route exact path="/payment/success" component={SuccessPay} />
+            
+
+            <Route path="/home">
                 <NavTop />
-                <CardDetail />
+                <Route exact path="/home" component={Home} />
             </Route>
 
-            <Route exact path="/payment/success">
-                <SuccessPay />
-            </Route>
-
-            <Route exact path="/payment">
+            <Route path="/game">
                 <NavTop />
-
-                <PaymentMP />
-            </Route>
-
-            <Route exact path="/login">
-                <Loginn />
-            </Route>
-            <Route exact path="/register">
-                <Register />
-            </Route>
-            <Route exact path="/game/create">
-            <NavTop />
-                <GameCreate />
-            </Route>
-            <Route exact path="/">
-                <NavTop />
-                <Route exact path="/" component={Home} />
-                {/* <Route exact path="/game/create" component={GameCreate} /> */}
+                <Route exact path="/game/form/create" component={GameCreate} />  
                 <Route exact path="/game/:id" component={CardDetail} />
             </Route>
-            <Route path="/profile" component={NavProfile} />
-            <Route exact path="/profile/profile" component={Profile} />
-            <Route exact path="/profile/games" component={MyGames} />
-            <Route exact path="/profile/favorite" component={Favorite} />
+
+            <Route path="/profile">
+                <NavTop />
+                <Route path="/profile" component={NavProfile} />
+                <Route exact path="/profile/profile" component={Profile} />
+                <Route exact path="/profile/games" component={MyGames} />
+                <Route exact path="/profile/favorite" component={Favorite} />
+            </Route>
+
         </>
     );
 }

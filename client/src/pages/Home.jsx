@@ -21,9 +21,10 @@ import { clearState } from "../reducers/prueba/pruebaSlider";
 function Home() {
   const dispatch = useDispatch();
   const { games, isLoader, res } = useSelector((state) => state.prueba);
+  console.log(res);
   const backResponse = () => {
     if (res.cart) {
-   return   toast.error("You should register or login for add cart ", {
+   return   toast.error(res.cart, {
         position: "bottom-right",
         duration: 2000,
         style: {
@@ -39,6 +40,7 @@ function Home() {
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
+    dispatch(clearState())
     
     return () => {
       dispatch(clearState())

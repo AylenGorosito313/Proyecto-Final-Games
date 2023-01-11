@@ -13,10 +13,22 @@ const { Providers } = require("../models/providers");
 const getGames = async (req, res) => {
     const { page } = req.query;
     try {
+
+        let searchGamesDB = await Game.findAll({
+            include: {
+                model: Genre,
+                atributes: ["name"],
+                    through: {
+                        attributes: [], //comprobacion que se hace (mediante los atributos)
+                    },
+            }
+        })
+        // searchGamesDB = searchGamesDB.toJSON()
+        console.log(searchGamesDB);
         //le pasamos el path y el page a mapGame
         let response = await paginate("games", page);
         let mapToGames = await mapGames(response);
-        return res.status(200).json(mapToGames);
+        return res.status(200).json([...searchGamesDB, ...mapToGames]);
     } catch (error) {
         res.status(500).json({
             error: error.message,
@@ -80,6 +92,7 @@ const createGame = async (req, res) => {
                     platforms: gameInfo.platforms,
                     description: gameInfo.description,
                     trailer: gameInfo.trailer ? gameInfo.trailer : null,
+                    platforms: gameInfo.platforms
                 },
             });
             if (create) {

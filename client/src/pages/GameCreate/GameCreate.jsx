@@ -36,26 +36,23 @@ export default function GameCreate() {
     mode: "onChange",
   });
   let trailer = "";
-  let  background_images = ""
+  let background_images = "";
   const UnploadTrailer = (Urltrailer) => {
     trailer = Urltrailer;
-    
   };
-
 
   const UnploadImages = (ImagesURL) => {
     background_images = ImagesURL;
-   
   };
 
-
-
   const onSubmit = async (data) => {
-    let genre = gender.genere;
+    let userId = localStorage.getItem("id")
+    let genres = gender.genere;
     let platforms = platform.platformarray;
-
-    console.log({ ...data, platforms, genre, trailer, background_images });
-    // dispatch(CreateGame({ ...data, platforms, genre }));
+let gameInfo = { ...data, platforms,genres, trailer, background_images,userId }
+console.log(gameInfo)
+    dispatch(CreateGame(gameInfo))
+    // dispatch(CreateGame({ ...data,platforms, genres, trailer, background_images,userId }));
   };
 
   const handlerGender = (event) => {
@@ -191,7 +188,6 @@ export default function GameCreate() {
           <div className={style.divSelect}>
             <label className={style.labels}> Platforms</label>
             <select className={style.Select} onChange={handlerPlatforms}>
-           
               {platforms &&
                 platforms.map((p, i) => (
                   <option className={style.gnreCard} value={p} key={i}>
@@ -200,17 +196,19 @@ export default function GameCreate() {
                 ))}
             </select>
           </div>
-          <div  className={style.gnreContairner} >
-             {platform.platformarray.map((el, i) => (
-            <div className={style.gnreCard}  key={i}>
-              <p className={style.gnreP}> {el}</p>
-              <button className={style.gnreButton} onClick={() => handleDeletedos(el)}>
-                X
-              </button>
-            </div>
-          ))}
+          <div className={style.gnreContairner}>
+            {platform.platformarray.map((el, i) => (
+              <div className={style.gnreCard} key={i}>
+                <p className={style.gnreP}> {el}</p>
+                <button
+                  className={style.gnreButton}
+                  onClick={() => handleDeletedos(el)}
+                >
+                  X
+                </button>
+              </div>
+            ))}
           </div>
-         
 
           <div className={style.checkBoxDIV}>
             <label className={style.labels}>
@@ -246,7 +244,7 @@ export default function GameCreate() {
             UnploadTrailer={UnploadTrailer}
             // onClick={UnploadTrailer}
           />
-          <UploadGameCreate   UnploadImages={UnploadImages}/>
+          <UploadGameCreate UnploadImages={UnploadImages} />
         </div>
       </div>
     </>

@@ -126,8 +126,9 @@ export const createUser = ({ name, lastName, email, password }) => {
   };
 };
 // /game/create/:userId
-export const CreateGame = (gameInfo) => {
+export const CreateGame = (gameInfo, userId) => {
   console.log(gameInfo);
+  
   return async function (dispatch) {
     try {
       let res = await axios({

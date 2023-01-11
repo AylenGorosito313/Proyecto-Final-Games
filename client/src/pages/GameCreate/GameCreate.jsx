@@ -49,9 +49,9 @@ export default function GameCreate() {
     let userId = localStorage.getItem("id")
     let genres = gender.genere;
     let platforms = platform.platformarray;
-let gameInfo = { ...data, platforms,genres, trailer, background_images,userId }
+let gameInfo = { ...data, platforms,genres, trailer, background_images }
 console.log(gameInfo)
-    dispatch(CreateGame(gameInfo))
+    dispatch(CreateGame(gameInfo,userId))
     // dispatch(CreateGame({ ...data,platforms, genres, trailer, background_images,userId }));
   };
 

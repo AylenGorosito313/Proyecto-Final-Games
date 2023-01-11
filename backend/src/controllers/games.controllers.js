@@ -53,8 +53,10 @@ const searchGame = async (req, res) => {
 const createGame = async (req, res) => {
     const gameInfo = req.body;
     const { userId } = req.params;
-    console.log(gameInfo )
+  
     try {
+
+        console.log(gameInfo )
         if (
             !gameInfo.name ||
             !gameInfo.background_image ||

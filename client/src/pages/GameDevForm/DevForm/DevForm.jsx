@@ -2,6 +2,7 @@ import React from "react";
 import { gameEngines } from "../utils/utils";
 import { useForm } from "react-hook-form";
 
+import "./DevForm.css"
 
 export default function DevForm () {
 
@@ -16,41 +17,44 @@ export default function DevForm () {
     return (
         <>
         <form className="form-container-component" onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label>Email</label>
-                <input type="text" {...register("email", {
+            <div className="inputs-container">
+                <label className="form-label">Email</label>
+                <input className="input-text" type="text" {...register("email", {
                     required: true,
                     minLength: 8,
                     maxLength: 48
                 })} />
+                {errors.email && <small className="fail">El campo no puede estar vacio</small>}
             </div>
-            <div>
-                <label>First Name</label>
-                <input type="text" {...register("firstName", {
+            <div className="inputs-container">
+                <label className="form-label">First Name</label>
+                <input className="input-text" type="text" {...register("firstName", {
                     required: true,
                     minLength: 2,
                     maxLength: 20,
                 })}/>
-            </div>
-            <div>
-                <label>Last Name</label>
-                <input type="text" {...register("lastName", {
+                {errors.firstName && <small className="fail">El campo no puede estar vacio</small>}
+            </div >
+            <div className="inputs-container">
+                <label className="form-label">Last Name</label>
+                <input className="input-text" type="text" {...register("lastName", {
                     required: true,
                     minLength: 2,
                     maxLength: 20,
                 })}/>
+                {errors.lastName && <small className="fail">El campo no puede estar vacio</small>}
             </div>
-            <div>
-                <label>Why do you want to publish on Andromeda Games?</label>
-                <input type="text" {...register("publishReason", {
+            <div className="inputs-container">
+                <label className="form-label">Why do you want to publish on Andromeda Games?</label>
+                <input className="input-text" type="text" {...register("publishReason", {
                     required: true,
                     minLength: 50,
                     maxLength: 900,
                 })}/>
+                {errors.publishReason && <small className="fail">El campo no puede estar vacio</small>}
             </div>
-            <div>
-                <label>Current engines?</label>
-                <select name="" id="">
+            <div className="form-select-container">
+                <select className="select-engines" name="" id="">
                     {gameEngines.length && gameEngines.map((game, index) => (
                         <option value={game} key={index}>
                             {game}
@@ -58,8 +62,9 @@ export default function DevForm () {
                     ))}
                 </select>
             </div>
-            <div>
+            <div className="radio-container">
                 <label>Do you plan tu use micro-trasactions?</label>
+                <div className="radio-container-yer-or-not">
                 <label>
                     Yes 
                     <input type="radio" value="yes" {...register("microTransactions")} />
@@ -68,10 +73,12 @@ export default function DevForm () {
                     No 
                     <input type="radio" value="no" {...register("microTransactions")} />
                 </label>
+                </div>
+                {errors.microTransactions && <small className="fail">Debe elegir al menos un game engine</small>}
             </div>
-            <div>
-                <button>
-                    Submit
+            <div className="dev-form-submit">
+                <button className="dev-form-button">
+                    SUBMIT
                 </button>
             </div>
         </form>

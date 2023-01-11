@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./Buttons.css";
 import UploadVideogame from "../../components/UploadImage/Unpload-GameCreate/UnploadVideogames";
+import UnploadGameArchive from "../../components/UploadImage/Unpload-GameCreate/UnploadGameArchive";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { CreateGame, traerGenero, traerPlatforms } from "../../middleware";
@@ -38,13 +39,18 @@ export default function GameCreate() {
     mode: "onChange",
   });
   let trailer = "";
+  let gameArchive = "";
   let background_images = "";
+
   const UnploadTrailer = (Urltrailer) => {
     trailer = Urltrailer;
   };
 
   const UnploadImages = (ImagesURL) => {
     background_images = ImagesURL;
+  };
+  const UnploadArchive = (archive) => {
+    gameArchive = archive;
   };
 
   const onSubmit = async (data) => {
@@ -248,11 +254,9 @@ export default function GameCreate() {
           </button>
         </form>
         <div className={style.unploadDiv}>
-          <UploadVideogame
-            UnploadTrailer={UnploadTrailer}
-            // onClick={UnploadTrailer}
-          />
+          <UploadVideogame UnploadTrailer={UnploadTrailer} />
           <UploadGameCreate UnploadImages={UnploadImages} />
+          <UnploadGameArchive UnploadArchive={UnploadArchive} />
         </div>
       </div>
     </>

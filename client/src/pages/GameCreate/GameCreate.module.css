@@ -131,8 +131,8 @@ background: #3e3b3b;
 
 .unploadDiv{
     display: flex;
-    flex-direction: row;
-    gap: 50px;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .backhome{

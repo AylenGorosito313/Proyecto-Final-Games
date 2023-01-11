@@ -21,6 +21,7 @@ height: 100%;
     flex-wrap: wrap;
     width: 100%;
     gap: 10px;
+    justify-content: center;
 }
 
 
@@ -50,6 +51,42 @@ height: 100%;
 .card-cart-container::-webkit-scrollbar-track {
     border-radius: 10px;  
 } 
+
+
+
+
+
+.cart-products-div::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.cart-products-div::-webkit-scrollbar:vertical {
+    width:1px;
+}
+
+.cart-products-div::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.card-cart-container::-webkit-scrollbar:horizontal {
+    height: 0%;
+}
+
+.cart-products-div::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 200px;
+   
+}
+
+.cart-products-div::-webkit-scrollbar-track {
+    border-radius: 10px;  
+} 
+
+
+
+
+
+
 
 .div-title-delete{
     padding: 10px;

@@ -9,19 +9,17 @@
     justify-content: center;
 }
   .container-payment{
-  
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     display: flex;
-    /* box-shadow: 2px 2px 1px #27213b; */
-    /* border-radius: 10px; */
     height: 70%;
     gap: 20px;
     width: 100%;
     overflow: hidden;
-    /* flex-direction: column; */
+    flex-direction: column;
+    align-items: center;
   }
 
 
@@ -29,7 +27,7 @@
     height: 70vh;
     display: flex;
     /* overflow-y: hidden; */
-    width: 62%;
+    width: 100%;
     /* border-radius: 10px; */
     background: transparent;
     /* box-shadow: 2px 2px 1px #27213b; */
@@ -47,12 +45,14 @@
 
 .buttons-payments{
   display: flex;
-  margin-top: auto;
+  /* margin-top: auto; */
   padding: 20px;
   align-items: center;
   gap: 20px;
+  height: 90px;
   /* width: 100%; */
   justify-content: center;
+  flex-direction: row;
 }
 
 /* CSS */

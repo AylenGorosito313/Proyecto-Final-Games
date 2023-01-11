@@ -25,7 +25,7 @@ const sequelize = require("./src/db");
 require('./src/models/games');
 require('./src/models/genres');
 require('./src/models/users');
-require('./src/models/platform');
+require('./src/models/platform'); 
 require('./src/models/carrito');
 require('./src/models/compras');
 require('./src/models/inactiveUsers')

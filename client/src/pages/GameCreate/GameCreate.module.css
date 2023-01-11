@@ -101,11 +101,12 @@ gap: 20px;
     width: 40vh;
     height: 100px;
     display: flex;
-
     border: none !important;
+    font-family: 'Poppins';
     border-radius: 5px;
     color: rgb(161, 157, 157);
     background: #3e3b3b;
+
 }
 .errors{
 font-size: 12px;

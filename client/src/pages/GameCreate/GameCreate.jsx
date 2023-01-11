@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./Buttons.css";
 import UploadVideogame from "../../components/UploadImage/Unpload-GameCreate/UnploadVideogames";
-
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { CreateGame, traerGenero, traerPlatforms } from "../../middleware";
 import style from "../GameCreate/GameCreate.module.css";
@@ -13,7 +13,7 @@ export default function GameCreate() {
 
   const { genre, platforms } = useSelector((state) => state.prueba);
   const [Price, setPrice] = useState(false);
-
+  const [ImageSelected, setImageSelected] = useState();
   const [gender, setGender] = useState({
     genere: [],
   });
@@ -35,14 +35,12 @@ export default function GameCreate() {
     },
     mode: "onChange",
   });
- 
 
   const onSubmit = async (data) => {
- 
     let genre = gender.genere;
     let platforms = platform.platformarray;
-    
-    console.log({ ...data, platforms, genre,  });
+
+    console.log({ ...data, platforms, genre });
     // dispatch(CreateGame({ ...data, platforms, genre }));
   };
 
@@ -86,10 +84,18 @@ export default function GameCreate() {
       platformarray: platform.platformarray.filter((plat) => plat !== event),
     });
   };
-const handlerTrailer = (event) =>{
-console.log(event)
-}
+  const UnploadTrailer = () => {
+    const formData = new FormData();
+    formData.append("file", ImageSelected);
+    formData.append("unpload_preset", "AndromedaGamesTEST");
 
+    axios
+    
+      .post("https://api.cloudinary.com/v1_1/demo/image/unpload", formData)
+      .then((response) => {
+        console.log(response);
+      });
+  };
 
   useEffect(() => {
     dispatch(traerGenero());
@@ -230,8 +236,15 @@ console.log(event)
           </button>
         </form>
         <div className={style.unploadDiv}>
-          <UploadVideogame    Onclick={handlerTrailer}  />
-          <UploadGameCreate />
+          {/* <UploadVideogame    Onclick={handlerTrailer}  />
+          <UploadGameCreate /> */}
+          <input
+            type="file"
+            onChange={(event) => {
+              setImageSelected(event.target.files[0]);
+            }}
+          />
+          <button onClick={UnploadTrailer}> Upgrade Image</button>
         </div>
       </div>
     </>

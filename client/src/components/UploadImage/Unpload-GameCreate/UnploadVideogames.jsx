@@ -15,7 +15,7 @@ function UploadVideogame({ Onclick }) {
         if (!error && result && result.event === "success") {
           setUrl({
             ...Url,
-            urlimg: [...Url.urlimg, result.info.url],
+            urlimg: [Url.urlimg, result.info.url],
           });
 
           setImage((prev) => [
@@ -31,12 +31,8 @@ function UploadVideogame({ Onclick }) {
     myWidget.open();
   }
 
-  if (image) {
-    console.log(image);
-
-    let [...urls] = Url.urlimg;
-console.log([...urls])
-    // Onclick([...urls]);
+  if (Url) {
+    Onclick(Url.urlimg);
   }
   return (
     <div>

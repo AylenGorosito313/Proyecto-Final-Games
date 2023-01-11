@@ -1,38 +1,38 @@
 import React, { useState } from "react";
 import style from "../Unpload-GameCreate/UnploadGameCreate.module.css";
-function UploadVideogame({ Onclick }) {
+function UploadVideogame({ UnploadTrailer }) {
   const [image, setImage] = useState([]);
-  const [Url, setUrl] = useState({
-    urlimg: [],
-  });
+  // const [Url, setUrl] = useState({
+  //   urlimg: [],
+  // });
   function handleOpenWidget() {
-    var myWidget = window.cloudinary.createUploadWidget(
+    let myWidget = window.cloudinary.createUploadWidget(
       {
-        cloudName: "dj8p0rdxn",
-        uploadPreset: "AndromedaGamesTEST",
+        cloudName: "deuc5vq5b",
+        uploadPreset: "andromedaPrueba",
       },
       (error, result) => {
         if (!error && result && result.event === "success") {
-          setUrl({
-            ...Url,
-            urlimg: [Url.urlimg, result.info.url],
-          });
-
           setImage((prev) => [
+            ...prev,
             {
               url: result.info.url,
               public_id: result.info.public_id,
               key: result.info.public_id,
+              delete: result.info.delete_token,
             },
           ]);
+          console.log(image);
         }
       }
     );
     myWidget.open();
   }
 
-  if (Url) {
-    Onclick(Url.urlimg);
+  if (image) {
+    let trailer = image && image?.map((img) => img.url);
+
+    UnploadTrailer(trailer);
   }
   return (
     <div>

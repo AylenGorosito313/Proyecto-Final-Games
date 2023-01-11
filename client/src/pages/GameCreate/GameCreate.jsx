@@ -13,7 +13,8 @@ export default function GameCreate() {
 
   const { genre, platforms } = useSelector((state) => state.prueba);
   const [Price, setPrice] = useState(false);
-  const [ImageSelected, setImageSelected] = useState();
+
+  
   const [gender, setGender] = useState({
     genere: [],
   });
@@ -35,15 +36,21 @@ export default function GameCreate() {
     },
     mode: "onChange",
   });
+  let  trailer = ""
+  const UnploadTrailer = (Urltrailer) => {
+ trailer = Urltrailer
+ console.log(trailer)
 
+  };
   const onSubmit = async (data) => {
+  
     let genre = gender.genere;
     let platforms = platform.platformarray;
 
-    console.log({ ...data, platforms, genre });
+    console.log({ ...data, platforms, genre,trailer });
     // dispatch(CreateGame({ ...data, platforms, genre }));
   };
-
+ 
   const handlerGender = (event) => {
     if (!gender.genere.includes(event.target.value)) {
       setGender({ ...gender, genere: [...gender.genere, event.target.value] });
@@ -84,18 +91,7 @@ export default function GameCreate() {
       platformarray: platform.platformarray.filter((plat) => plat !== event),
     });
   };
-  const UnploadTrailer = () => {
-    const formData = new FormData();
-    formData.append("file", ImageSelected);
-    formData.append("unpload_preset", "AndromedaGamesTEST");
 
-    axios
-    
-      .post("https://api.cloudinary.com/v1_1/demo/image/unpload", formData)
-      .then((response) => {
-        console.log(response);
-      });
-  };
 
   useEffect(() => {
     dispatch(traerGenero());
@@ -236,15 +232,11 @@ export default function GameCreate() {
           </button>
         </form>
         <div className={style.unploadDiv}>
-          {/* <UploadVideogame    Onclick={handlerTrailer}  />
-          <UploadGameCreate /> */}
-          <input
-            type="file"
-            onChange={(event) => {
-              setImageSelected(event.target.files[0]);
-            }}
+          <UploadVideogame
+            UnploadTrailer={UnploadTrailer}
+            // onClick={UnploadTrailer}
           />
-          <button onClick={UnploadTrailer}> Upgrade Image</button>
+          <UploadGameCreate />
         </div>
       </div>
     </>

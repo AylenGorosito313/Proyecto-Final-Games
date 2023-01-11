@@ -55,7 +55,7 @@ function UploadVideogame({ UnploadTrailer }) {
           id="upload-widget"
           onClick={handleOpenWidget}
         >
-          Upload Game Image
+          Upload Game Trailer
         </button>
       </div>
     </div>

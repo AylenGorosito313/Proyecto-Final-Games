@@ -52,7 +52,7 @@ function Cart() {
                         onClick={() => handleDelete(game.id)}
                         className="delete"
                       >
-                        eliminar
+                        delete
                       </button>
                     </div>
                   </div>

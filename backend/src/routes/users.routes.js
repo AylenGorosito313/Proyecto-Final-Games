@@ -20,7 +20,7 @@ usersRouter.get('/user/provider/videogames/create/:userId', getGamesByProvider)
 usersRouter.post('/user/provider/create/:userId', registerProvider)
 usersRouter.get('/users/inactive', getInactiveUsers) // obtener info de todos los usuarios eliminados    
 usersRouter.get('/user/inactive/:id', getInactiveUser ) // obtener info de un usuario eliminado en particular
-usersRouter.get('/user/setInactivityUser/:id', deletedUser )  // inhabilitar(borrado logico) el usuario mediante id
+usersRouter.get('/user/setInactivityUser/:id', deletedUser)  // inhabilitar(borrado logico) el usuario mediante id
 usersRouter.get('/user/proveedor/usuario', usuariosProveedores)
 module.exports = usersRouter;
 

@@ -117,10 +117,18 @@ const getInactiveUser = async (req, res) => {
 const usuariosProveedores = async (req, res) => {
     console.log("entro a la funcion?")
     try {
-       res.send("respuesta") 
+        const allProveedores = await Users.findAll({
+                where: {
+                    proveedor: true,
+                }, include:[{
+                        model: Providers, 
+                    }]
+                });
+        console.log(allProveedores)
+       res.send(allProveedores) 
     } catch (error) {
         res.status(500).json({
-            error:"hola soy el error",
+            error: error.message,
         });
     }   
 }

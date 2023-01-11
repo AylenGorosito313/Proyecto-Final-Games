@@ -7,7 +7,7 @@ const { getAllUser,
         getInactiveUsers,
         getInactiveUser,
         usuariosProveedores } = require('../controllers/users.controllers')
-const { registerProvider, getGamesByProvider } = require('../controllers/providers.controllers')
+const { registerProvider, getGamesByProvider, supplierProfit } = require('../controllers/providers.controllers')
 
 const usersRouter = Router();
 
@@ -16,6 +16,7 @@ usersRouter.post('/user/create', registerUser)
 usersRouter.get('/users', getAllUser)
 usersRouter.get('/user/:id', getUserById)
 usersRouter.put('/user/:id', updateUserProfile)
+usersRouter.get('/user/provider/setprofit', supplierProfit)
 usersRouter.get('/user/provider/videogames/create/:userId', getGamesByProvider)
 usersRouter.post('/user/provider/create/:userId', registerProvider)
 usersRouter.get('/users/inactive', getInactiveUsers) // obtener info de todos los usuarios eliminados    

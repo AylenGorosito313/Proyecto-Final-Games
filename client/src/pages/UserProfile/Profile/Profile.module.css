@@ -1,0 +1,93 @@
+.conteiner{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 150px;
+    padding-top: 50px;
+    width: 1480px;
+    height: 150px;
+    align-items: center;
+}
+
+.div{
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    width: 200px;
+    height: 100px;
+    font-size: 21px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    font-family: poppins;
+    font-weight: 90;
+    font-size: 15px;
+    padding: 0.8em .5em 0.8em 0.9em;
+    color: white;
+    background: #ad5389;
+    background: linear-gradient(to right, #343a40, #343a40, #495057);
+    border: none;
+    letter-spacing: 0.08em;
+    border-radius: 10px;
+}
+  
+button svg {
+    margin-right: 1px;
+    transform: rotate(30deg);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+  
+button span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+  
+button:hover svg {
+    transform: translateX(5px) rotate(90deg);
+}
+  
+button:hover span {
+    transform: translateX(7px);
+}
+
+.input {
+    background-color: #212121;
+    font-family: poppins;
+    max-width: 190px;
+    height: 20px;
+    padding: 10px;
+    /* text-align: center; */
+    border: 2px solid white;
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
+}
+  
+.input:focus {
+    color: rgb(0, 255, 255);
+    background-color: #212121;
+    outline-color: rgb(0, 255, 255);
+    box-shadow: -3px -3px 15px rgb(0, 255, 255);
+    transition: .1s;
+    transition-property: box-shadow;
+}
+
+.select{
+    background-color: #212121;
+    font-family: poppins;
+    max-width: 190px;
+    height: 40px;
+    padding: 10px;
+    /* text-align: center; */
+    border: 2px solid white;
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
+}
+  
+.select:focus {
+    color: rgb(0, 255, 255);
+    background-color: #212121;
+    outline-color: rgb(0, 255, 255);
+    box-shadow: -3px -3px 15px rgb(0, 255, 255);
+    transition: .1s;
+    transition-property: box-shadow;
+}

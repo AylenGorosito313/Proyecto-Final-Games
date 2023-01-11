@@ -24,6 +24,7 @@
 .li{
     display: inline;
     margin: 0 0 0 200px;
+    
 }
 
 .link{
@@ -35,10 +36,10 @@
 }
 
 .li {
-    font-size: 18px;
     color: #2a9d8f;
     font-family: poppins;
-    font-weight: 800;
+    font-weight: 90;
+    font-size: 50px;
     cursor: pointer;
     position: relative;
     border: none;

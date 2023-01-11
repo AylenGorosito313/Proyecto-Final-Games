@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import UploadImage from "../../../components/UploadImage/UploadImage";
 import { useDispatch, useSelector } from "react-redux";
 import { geUserActual } from "../../../middleware";
 import style from "../NavProfile/NavProfile.module.css";
@@ -16,7 +15,6 @@ export default function NavProfile() {
 
     return (
         <div>
-            <UploadImage/>
             <img
                 className={style.img}
                 src={
@@ -46,13 +44,6 @@ export default function NavProfile() {
                     </Link>
                 </li>
             </ul>
-            {/* <UploadImage/> */}
-            {/* <div className={style.loader}>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div> */}
             <div className={style.loader}></div>
         </div>
     );

@@ -3,16 +3,22 @@ import React, { useState } from "react";
 import styles from "../UploadImage/UploadImage.module.css"
 
 export default function UploadImage(props) {
-    const [image, setImage] = useState([]);
+    const [image, setImage] = useState([]); 
+    // [{
+    //     url: result.info.url, 
+    //     public_id: result.info.public_id, 
+    //     key: result.info.public_id, 
+    //     delete: result.info.delete_token
+    // }]
     const [imageToRemove, setImageToRemove] = useState(null);
-
+    console.log(image);
     const handleRemoveImg = (imgObj) => {
         // setImage((prev) => prev.filter((img) => img.public_id !== imgObj.public_id));
         // console.log(imgObj)};
         setImageToRemove(imgObj.public_id);
         
         // axios.request ({
-        //     url: 'https://api.cloudinary.com/v1_1/deuc5vq5b/delete_by_token',
+        //     url: 'https://api.cloudinary.com/v1_1/deuc5vq5b/:action/delete_by_token',
         //     method: 'post',
         //     data: {
         //         token: imgObj.delete
@@ -47,7 +53,8 @@ export default function UploadImage(props) {
                         public_id: result.info.public_id, 
                         key: result.info.public_id, 
                         delete: result.info.delete_token
-                    }])
+                    }]); 
+                    console.log(image)
                 };
             }
         );

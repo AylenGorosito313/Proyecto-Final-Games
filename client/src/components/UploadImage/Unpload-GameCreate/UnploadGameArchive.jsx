@@ -34,7 +34,7 @@ function UploadGameArchive({ UnploadArchive }) {
   }
   return (
     <div>
-      <h1 className={style.h1}>Upload Game </h1>
+      <h1 className={style.h1}>Upload Game  File</h1>
       <div>
         <div className={style.imagesPreviewContainer}>
           {image?.map((img) => (
@@ -55,7 +55,7 @@ function UploadGameArchive({ UnploadArchive }) {
           id="upload-widget"
           onClick={handleOpenWidget}
         >
-          Upload Game Files  
+          Upload Files  
         </button>
       </div>
     </div>

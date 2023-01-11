@@ -34,7 +34,7 @@ export default function UploadGameCreate ({ UnploadImages }) {
   }
   return (
     <div>
-      <h1 className={style.h1}>Upload Images </h1>
+      <h1 className={style.h1}>Upload  Game Images </h1>
       <div>
         <div className={style.imagesPreviewContainer}>
           {image?.map((img) => (
@@ -55,7 +55,7 @@ export default function UploadGameCreate ({ UnploadImages }) {
           id="upload-widget"
           onClick={handleOpenWidget}
         >
-          Upload Game Image
+          Upload  Image
         </button>
       </div>
     </div>

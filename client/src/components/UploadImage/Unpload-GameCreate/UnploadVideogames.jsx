@@ -34,7 +34,7 @@ function UploadVideogame({ UnploadTrailer }) {
   }
   return (
     <div>
-      <h1 className={style.h1}>Upload Trailer </h1>
+      <h1 className={style.h1}>Upload Game Trailer </h1>
       <div>
         <div className={style.imagesPreviewContainer}>
           {image?.map((img) => (
@@ -55,7 +55,7 @@ function UploadVideogame({ UnploadTrailer }) {
           id="upload-widget"
           onClick={handleOpenWidget}
         >
-          Upload Game Trailer
+          Upload  Trailer
         </button>
       </div>
     </div>

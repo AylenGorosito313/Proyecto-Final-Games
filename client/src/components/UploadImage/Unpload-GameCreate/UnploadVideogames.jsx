@@ -6,7 +6,7 @@ function UploadVideogame({ UnploadTrailer }) {
   function handleOpenWidget() {
     let myWidget = window.cloudinary.createUploadWidget(
       {
-        cloudName: "deuc5vq5b",
+        cloudName: "dj8p0rdxn",
         uploadPreset: "andromedaPrueba",
       },
       (error, result) => {

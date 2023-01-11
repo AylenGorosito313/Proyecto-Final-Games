@@ -1,8 +1,10 @@
 .headerDiv{
     width: 100%;
-    height: 150px;
+    padding: 10px 0px 0px 20px;
+    height: 140px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 .h1Header{
     padding-left: 100px;
@@ -131,4 +133,18 @@ background: #3e3b3b;
     display: flex;
     flex-direction: row;
     gap: 50px;
+}
+
+.backhome{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pLink{
+    text-decoration: none;
+    margin: 0;
+    color: #ffff;
+  
 }

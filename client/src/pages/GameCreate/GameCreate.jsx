@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import "./Buttons.css";
 import UploadVideogame from "../../components/UploadImage/Unpload-GameCreate/UnploadVideogames";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { CreateGame, traerGenero, traerPlatforms } from "../../middleware";
+import ArrowBack from "../../svg/botones/ArrowBack";
 import style from "../GameCreate/GameCreate.module.css";
 import UploadGameCreate from "../../components/UploadImage/Unpload-GameCreate/Unpload-GameCreate";
 export default function GameCreate() {
@@ -46,13 +48,12 @@ export default function GameCreate() {
   };
 
   const onSubmit = async (data) => {
-    let userId = localStorage.getItem("id")
+    let userId = localStorage.getItem("id");
     let genres = gender.genere;
     let platforms = platform.platformarray;
-let gameInfo = { ...data, platforms,genres, trailer, background_images }
-console.log(gameInfo)
-    dispatch(CreateGame(gameInfo,userId))
-    // dispatch(CreateGame({ ...data,platforms, genres, trailer, background_images,userId }));
+    let gameInfo = { ...data, platforms, genres, trailer, background_images };
+    console.log(gameInfo);
+    dispatch(CreateGame(gameInfo, userId));
   };
 
   const handlerGender = (event) => {
@@ -104,6 +105,13 @@ console.log(gameInfo)
   return (
     <>
       <div className={style.headerDiv}>
+        <div className={style.backhome}>
+          <ArrowBack />
+          <Link className={style.pLink} to={"/home"}>
+            <p className={style.pLink}> Back to home </p>
+          </Link>
+        </div>
+
         <h1 className={style.h1Header}> Unpload your game </h1>
       </div>
 

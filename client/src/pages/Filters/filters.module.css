@@ -1,4 +1,110 @@
-.headerDiv{
+.container-all-content-center {
+    display: flex;
+    height: auto;
+    width: 90%;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cont-all-cardsmini {
+    height: auto;
+    width: 200px;
+  }
+  
+  .container-search-home {
+    display: flex;
+    width: 90%;
+    height: 77px;
+    padding: 5px;
+    gap: 20px;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+  }
+  .seccion-home-descubrir {
+    margin: 0;
+    display: flex;
+    padding-top: 20px;
+  }
+  .div-home {
+    background-color: #121212 !important;
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 90%;
+  }
+  
+  .img-background {
+    display: flex;
+    position: absolute;
+    width: auto;
+    height: auto;
+    pointer-events: none;
+    top: -20rem;
+    z-index: 0;
+  }
+  
+  .div-home-card {
+    width: 100%;
+    gap: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .container-home-swipper {
+    width: 70%;
+    display: flex;
+    padding: 10px;
+    justify-content: flex-end;
+  }
+  
+  .home-slider {
+    width: 90%;
+    display: flex;
+    padding: 10px;
+    justify-content: flex-start;
+  }
+  
+  .loading-home {
+    width: 100%;
+    height: 100%;
+  
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+  }
+  
+  .loadin-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 250px;
+  }
+  
+  
+  .div-buttoms-home {
+    display: flex;
+    height: 50%;
+    width: auto;
+    gap: 50px;
+    align-items: center
+  }
+  
+  .p-create-game {
+    margin: 0;
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  p.desplazado {
+    background-color: white;
+    border: black 1px solid;
+    position: relative;
+    left: 20px;
+  }
+  .headerDiv{
     width: 100%;
     height: 150px;
     display: flex;
@@ -22,6 +128,7 @@
     width: 40vh;
     height: 40px;
     display: flex;
+
     border: none !important;
     border-radius: 5px;
     color: #dad2d2;

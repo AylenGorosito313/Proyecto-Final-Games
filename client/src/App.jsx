@@ -13,6 +13,7 @@ import Favorite from "./pages/UserProfile/Favorite/Favorite";
 import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
 import axios from "axios";
+import Filter from "./pages/Filters/filters";
 function App() {
     axios.defaults.headers.common[
         "Authorization"
@@ -36,11 +37,14 @@ function App() {
                 <NavTop />
                 <Route exact path="/home" component={Home} />
             </Route>
+        
 
             <Route path="/game">
                 <NavTop />
                 <Route exact path="/game/form/create" component={GameCreate} />  
                 <Route exact path="/game/:id" component={CardDetail} />
+                <Route exact path="/game/cards/filter" component={Filter} />
+               
             </Route>
 
             <Route path="/profile">

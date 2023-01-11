@@ -5,6 +5,7 @@ const initialState = {
   games: [],
   popularGames: [],
   gamesReleasedLasthMonth: [],
+  gamesfilter: [],
   gameDetail: {},
   genre: [],
   cart:[],
@@ -32,6 +33,11 @@ export const toolkit_prueba = createSlice({
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
     },
+    getAllFilter: (state, actions) => {
+      state.gamesfilter = [...actions.payload];
+    },
+
+
     getDetail: (state,actions) => {
       state.gameDetail = actions.payload;
     },
@@ -112,6 +118,7 @@ export const {
   getUserActual,
   getItemsUser,
   cleanDetails,
+  getAllFilter,
   responseAddCart
 } = toolkit_prueba.actions;
 

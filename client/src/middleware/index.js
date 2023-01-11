@@ -18,6 +18,7 @@ import {
   getItemsUser,
   cleanDetails,
   getPlatforms,
+  getAllFilter,
   responseAddCart
 } from "../reducers/prueba/pruebaSlider";
 
@@ -34,6 +35,15 @@ export const getGames = () => {
             console.log(error.message);
         }
     };
+};
+export const getAlf = (name) => {
+  return async function (dispatch) {
+    let { data } = await axios({
+      method: "GET",
+      url: `http://localhost:3001/game?search=${name}`,
+    });
+    dispatch(getAllFilter(data));
+  };
 };
 
 export const isLoading = () => {
@@ -337,3 +347,6 @@ export const deletedDetails = () => {
     dispatch(cleanDetails());
   };
 };
+
+
+// crear

@@ -4,6 +4,7 @@ import "./Cart.css";
 import { deleteCart, deletedItemsToCart } from "../../middleware";
 import { useDispatch, useSelector } from "react-redux";
 import PaymentMP from "../../pages/Payment/PaymentMP";
+import { cleanDetails } from "../../reducers/prueba/pruebaSlider";
 
 function Cart() {
     const dispatch = useDispatch();
@@ -14,6 +15,14 @@ function Cart() {
         dispatch(deletedItemsToCart(id));
     };
     useEffect(() => {}, [cart.length]);
+
+    useEffect(() => {
+    
+      return () => {
+        dispatch(cleanDetails())
+      }
+    }, [])
+    
 
     return (
         <>

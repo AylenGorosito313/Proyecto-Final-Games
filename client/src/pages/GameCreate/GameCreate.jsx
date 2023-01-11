@@ -14,7 +14,6 @@ export default function GameCreate() {
   const { genre, platforms } = useSelector((state) => state.prueba);
   const [Price, setPrice] = useState(false);
 
-  
   const [gender, setGender] = useState({
     genere: [],
   });
@@ -36,21 +35,29 @@ export default function GameCreate() {
     },
     mode: "onChange",
   });
-  let  trailer = ""
+  let trailer = "";
+  let  background_images = ""
   const UnploadTrailer = (Urltrailer) => {
- trailer = Urltrailer
- console.log(trailer)
-
+    trailer = Urltrailer;
+    
   };
+
+
+  const UnploadImages = (ImagesURL) => {
+    background_images = ImagesURL;
+   
+  };
+
+
+
   const onSubmit = async (data) => {
-  
     let genre = gender.genere;
     let platforms = platform.platformarray;
 
-    console.log({ ...data, platforms, genre,trailer });
+    console.log({ ...data, platforms, genre, trailer, background_images });
     // dispatch(CreateGame({ ...data, platforms, genre }));
   };
- 
+
   const handlerGender = (event) => {
     if (!gender.genere.includes(event.target.value)) {
       setGender({ ...gender, genere: [...gender.genere, event.target.value] });
@@ -91,7 +98,6 @@ export default function GameCreate() {
       platformarray: platform.platformarray.filter((plat) => plat !== event),
     });
   };
-
 
   useEffect(() => {
     dispatch(traerGenero());
@@ -185,22 +191,26 @@ export default function GameCreate() {
           <div className={style.divSelect}>
             <label className={style.labels}> Platforms</label>
             <select className={style.Select} onChange={handlerPlatforms}>
+           
               {platforms &&
                 platforms.map((p, i) => (
-                  <option value={p} key={i}>
+                  <option className={style.gnreCard} value={p} key={i}>
                     {p}
                   </option>
                 ))}
             </select>
           </div>
-          {platform.platformarray.map((el, i) => (
-            <div key={i}>
-              <p>{el}</p>
-              <button className="" onClick={() => handleDeletedos(el)}>
+          <div  className={style.gnreContairner} >
+             {platform.platformarray.map((el, i) => (
+            <div className={style.gnreCard}  key={i}>
+              <p className={style.gnreP}> {el}</p>
+              <button className={style.gnreButton} onClick={() => handleDeletedos(el)}>
                 X
               </button>
             </div>
           ))}
+          </div>
+         
 
           <div className={style.checkBoxDIV}>
             <label className={style.labels}>
@@ -236,7 +246,7 @@ export default function GameCreate() {
             UnploadTrailer={UnploadTrailer}
             // onClick={UnploadTrailer}
           />
-          <UploadGameCreate />
+          <UploadGameCreate   UnploadImages={UnploadImages}/>
         </div>
       </div>
     </>

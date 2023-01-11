@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import style from "../Unpload-GameCreate/UnploadGameCreate.module.css";
 function UploadVideogame({ UnploadTrailer }) {
   const [image, setImage] = useState([]);
-  // const [Url, setUrl] = useState({
-  //   urlimg: [],
-  // });
+
   function handleOpenWidget() {
     let myWidget = window.cloudinary.createUploadWidget(
       {

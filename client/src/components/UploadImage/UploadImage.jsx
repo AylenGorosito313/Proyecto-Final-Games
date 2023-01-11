@@ -9,41 +9,52 @@ export default function UploadImage(props) {
   // };
 
   function handleOpenWidget() {
-    var myWidget = window.cloudinary.createUploadWidget(
+     const [image, setImage] = useState([]);
+  // const [Url, setUrl] = useState({
+  //   urlimg: [],
+  // });
+  function handleOpenWidget() {
+    let myWidget = window.cloudinary.createUploadWidget(
       {
-        cloudName: "dbgzbsigy",
+        cloudName: "deuc5vq5b",
         uploadPreset: "andromedaPrueba",
       },
-      
       (error, result) => {
         if (!error && result && result.event === "success") {
-          // setImage(prev => [...prev, {url: result.info.url, public_id: result.info.public_id, key: result.info.public_id}])
           setImage((prev) => [
+            ...prev,
             {
               url: result.info.url,
               public_id: result.info.public_id,
               key: result.info.public_id,
+              delete: result.info.delete_token,
             },
           ]);
+          console.log(image);
         }
       }
     );
     myWidget.open();
-    
   }
 
+  if (image) {
+    let trailer = image && image?.map((img) => img.url);
+
+    UnploadTrailer(trailer);
+  }
   return (
     <div>
-      <h1>Upload Image</h1>
+      <h1 className={style.h1}>Upload Trailer </h1>
       <div>
-        <div className="images-preview-container">
+        <div className={style.imagesPreviewContainer}>
           {image?.map((img) => (
             <div>
               <img
+                className={style.imgScale}
                 key={img.public_id}
                 src={img.url}
                 alt="UploadImage"
-                width="200px"
+                width="100px"
                 height="300px"
               />
             </div>
@@ -54,9 +65,11 @@ export default function UploadImage(props) {
           id="upload-widget"
           onClick={handleOpenWidget}
         >
-          Upload Image
+          Upload Game Image
         </button>
       </div>
     </div>
   );
+}
+
 }

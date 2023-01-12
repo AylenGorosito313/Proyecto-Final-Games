@@ -33,7 +33,7 @@ require('./src/models/providers')
 
 async function main() {
     try {
-        await sequelize.sync({ force: true });
+        await sequelize.sync({ force: false });  
         console.log("Conect to database");
         server.listen(3001, () => {
             console.log("server lisener in port 3001");

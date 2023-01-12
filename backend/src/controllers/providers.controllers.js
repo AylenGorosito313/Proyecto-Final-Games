@@ -59,7 +59,13 @@ const supplierProfit = async (req, res) => {
     const uuidRegex =
         /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
 
+    if (!games.length) {
+        return res.status(400).json({
+            message: "Cart is empty",
+        });
+    }
     try {
+        let profit = 0;
         let filterGames = games.filter((ele) => uuidRegex.test(ele.id));
         filterGames.length &&
             filterGames.forEach(async (element) => {
@@ -70,16 +76,13 @@ const supplierProfit = async (req, res) => {
                         userId: userProvider,
                     },
                 });
-                let priceGame =
-                    parseInt(searchUserProvider.profits) +
-                    parseInt(gameToShopping.price);
-                searchUserProvider.profits = priceGame;
+                profit += parseInt(element.price);
+                searchUserProvider.profits = profit;
                 await searchUserProvider.save();
-                return res.status(200).json({
-                    message: "amount added to supplier profile",
-                });
             });
-            res.status(200).json('Not providers')
+        return res.status(200).json({
+            message: "amount added to supplier profile",
+        });
     } catch (error) {
         return res.status(500).json({
             error: error.message,

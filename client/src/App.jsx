@@ -15,7 +15,7 @@ import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
 import axios from "axios";
 import Proveedor from "./pages/ProveedorProfile/Proveedor";
-
+import Footer from "./components/Footer/Footer";
 
 function App() {
   axios.defaults.headers.common[
@@ -37,6 +37,7 @@ function App() {
       <Route path="/home">
         <NavTop />
         <Route exact path="/home" component={Home} />
+        {/* <Route exact path="/home" component={Footer} /> */}
       </Route>
 
       <Route path="/game">

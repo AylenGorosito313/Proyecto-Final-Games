@@ -115,7 +115,6 @@ const getInactiveUser = async (req, res) => {
 
 
 const usuariosProveedores = async (req, res) => {
-    console.log("entro a la funcion?")
     try {
         const allProveedores = await Users.findAll({
                 where: {

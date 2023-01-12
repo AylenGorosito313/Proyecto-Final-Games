@@ -11,17 +11,19 @@ const { registerProvider, getGamesByProvider, supplierProfit } = require('../con
 
 const usersRouter = Router();
 
-
+//--------------------- GET / PUT / POST -> USERS ------------------------------
 usersRouter.post('/user/create', registerUser)
 usersRouter.get('/users', getAllUser)
 usersRouter.get('/user/:id', getUserById)
 usersRouter.put('/user/:id', updateUserProfile)
-usersRouter.get('/user/provider/setprofit', supplierProfit)
-usersRouter.get('/user/provider/videogames/create/:userId', getGamesByProvider)
+//-------------------- DELETED --------------------------------------------------
+usersRouter.get('/users/inactive', getInactiveUsers) 
+usersRouter.get('/user/inactive/:id', getInactiveUser ) 
+usersRouter.get('/user/setInactivityUser/:id', deletedUser) 
+//-------------------- PROVEEDOR ------------------------------------------------
 usersRouter.post('/user/provider/create/:userId', registerProvider)
-usersRouter.get('/users/inactive', getInactiveUsers) // obtener info de todos los usuarios eliminados    
-usersRouter.get('/user/inactive/:id', getInactiveUser ) // obtener info de un usuario eliminado en particular
-usersRouter.get('/user/setInactivityUser/:id', deletedUser)  // inhabilitar(borrado logico) el usuario mediante id
 usersRouter.get('/user/proveedor/usuario', usuariosProveedores)
+usersRouter.get('/user/provider/videogames/create/:userId', getGamesByProvider)
+usersRouter.get('/user/provider/setprofit', supplierProfit)
 module.exports = usersRouter;
 

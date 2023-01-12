@@ -46,5 +46,11 @@ const getFavorite = async (req,res) => {
     }
 }
 
+const deleteFavorite = async (req, res) => {
+    const {idUser, idGame} = req.params;
+    console.log("aca esta el idGame", idGame)
+    console.log("aca esta el idUser", idUser)
+}
 
-module.exports = { addFavorite, getFavorite };
+
+module.exports = { addFavorite, getFavorite, deleteFavorite };

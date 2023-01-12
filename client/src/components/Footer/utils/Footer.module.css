@@ -11,6 +11,7 @@
     display: flex;
     height: 100%;
     width: 90%;
+    padding-top: 10px;
     background: #303030;
     justify-content: space-around;
     flex-direction: row;
@@ -31,8 +32,21 @@
 .p{
     margin : 0 ; 
     font-size: 12px;
+    color : #868181;
 }
 
 .h1{
     font-size: 14px;
+    margin: 0;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+}
+.socialDiv{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 5px;
 }

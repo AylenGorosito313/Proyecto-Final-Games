@@ -41,12 +41,22 @@ export const toolkit_prueba = createSlice({
     },
     Filters: (state, actions) => {
       let genero = actions.payload.gender;
-
+     let platforms = actions.payload.platform
       if (actions.payload.type === "FILTER_BY_GENDER") {
         state.examinar= state.examinar.filter((games) =>
           games.genres.includes(genero)
         );
       }
+
+      if (actions.payload.type === "FILTER_BY_PLATFORM") {
+        state.examinar= state.examinar.filter((games) =>
+          games.parent_platforms.includes(platforms)
+        );
+      }
+//FILTER_BY_PLATFORM
+
+
+
       console.log(state.examinar);
       // state.games = [allGames];
     },

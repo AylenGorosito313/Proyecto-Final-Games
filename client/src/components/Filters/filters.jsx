@@ -28,7 +28,14 @@ export default function GameFilters() {
     dispatch(Filters(actions));
   };
 
-  const handlerPlatforms = (event) => {};
+  const handlerPlatforms = (event) => {
+    let platforms = event.target.value;
+    let actions = {
+      platform :platforms,
+      type: "FILTER_BY_PLATFORM",
+    };
+    dispatch(Filters(actions));
+  };
 
   useEffect(() => {
     dispatch(traerGenero());

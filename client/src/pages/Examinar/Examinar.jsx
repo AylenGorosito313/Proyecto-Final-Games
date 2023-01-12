@@ -1,14 +1,14 @@
 import React from "react";
 import GameFilters from "../../components/Filters/filters";
-import style from "./Examinar.modules.css"
+import style from "./Examinar.module.css"
 import CardsExam from "./CardsExam";
 export default function Examinar() {
   return (
     <>
-      <div className={style.container}>
+      <div className={style.filters}>
         <GameFilters />
       </div>
-      <div>
+      <div  >
         <CardsExam />
       </div>
     </>

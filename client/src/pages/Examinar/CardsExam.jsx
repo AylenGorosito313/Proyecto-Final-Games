@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import style from "./Examinar.module.css"
 import { getGames } from "../../middleware";
 import Card from "../../components/Cards/Cards";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,10 +9,10 @@ export default function CardsExam() {
    let dispatch =useDispatch()
   useEffect(() => {
     dispatch(getGames());
-  }, [examinar.length]);
+  }, []);
 
   return (
-    <div>
+    <div className={style.container}>
       {examinar.length &&
         examinar.map((ele) => {
           return (

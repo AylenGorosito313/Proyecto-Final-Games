@@ -15,6 +15,7 @@ import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
 import axios from "axios";
 import Proveedor from "./pages/ProveedorProfile/Proveedor";
+import GameDevForm from "./pages/GameDevForm/GameDevForm";
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
        
         <Route exact path="/game/form/create" component={GameCreate} />
         <Route exact path="/game/:id" component={CardDetail} />
-        
+        <Route exact path="/game/dev/form" component={GameDevForm} />
       </Route>
 
       <Route path="/profile">

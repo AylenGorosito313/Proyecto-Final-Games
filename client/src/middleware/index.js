@@ -19,7 +19,8 @@ import {
   cleanDetails,
   getPlatforms,
   getAllFilter,
-  responseAddCart
+  responseAddCart,
+  getExaminar
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
@@ -30,6 +31,7 @@ export const getGames = () => {
                 method: "GET",
                 url: `http://localhost:3001/games`,
             });
+            dispatch(getExaminar(data));
             dispatch(getAllGames(data));
         } catch (error) {
             console.log(error.message);

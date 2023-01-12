@@ -3,19 +3,20 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   users: [],
   games: [],
+  examinar:[],
   popularGames: [],
   gamesReleasedLasthMonth: [],
-  gamesfilter: [],
+
   gameDetail: {},
   genre: [],
-  cart:[],
+  cart: [],
   platforms: [],
-  payment:{
-    link:""
+  payment: {
+    link: "",
   },
   res: {
-    cart:"",
-    login:"",
+    cart: "",
+    login: "",
     register: "",
   },
   isLoader: false,
@@ -33,19 +34,31 @@ export const toolkit_prueba = createSlice({
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
     },
-    getAllFilter: (state, actions) => {
-      state.gamesfilter = [...actions.payload];
+
+  
+    getExaminar:(state, actions) => {
+      state.examinar = [...actions.payload];
     },
+    Filters: (state, actions) => {
+      let genero = actions.payload.gender;
 
-
-    getDetail: (state,actions) => {
+      if (actions.payload.type === "FILTER_BY_GENDER") {
+        state.examinar= state.examinar.filter((games) =>
+          games.genres.includes(genero)
+        );
+      }
+      console.log(state.examinar);
+      // state.games = [allGames];
+    },
+    //////////////////////
+    getDetail: (state, actions) => {
       state.gameDetail = actions.payload;
     },
     popularGames: (state, actions) => {
       state.popularGames = [...actions.payload];
     },
     releasedLasthMonth: (state, actions) => {
-      state.gamesReleasedLasthMonth = [...actions.payload]
+      state.gamesReleasedLasthMonth = [...actions.payload];
     },
     getByName: (state, actions) => {
       state.games = [...actions.payload];
@@ -63,38 +76,38 @@ export const toolkit_prueba = createSlice({
       state.games = [...actions.payload];
     },
     responseLogin: (state, actions) => {
-      state.res = { ...state.res, login: actions.payload};
+      state.res = { ...state.res, login: actions.payload };
     },
-    clearState:(state, actions) => {
-      state.res = { ...state.res, login:"", cart:""};
+    clearState: (state, actions) => {
+      state.res = { ...state.res, login: "", cart: "" };
     },
-    clearStateCart:(state, actions) => {
+    clearStateCart: (state, actions) => {
       state.cart = [];
     },
-    getGenre:(state, actions) => {
+    getGenre: (state, actions) => {
       state.genre = [...actions.payload];
     },
-    getPlatforms:(state, actions) => {
+    getPlatforms: (state, actions) => {
       state.platforms = [...actions.payload];
     },
-    getLinkPayment:(state, actions) => {
-      state.payment={ ...state.payment, link: actions.payload};
+    getLinkPayment: (state, actions) => {
+      state.payment = { ...state.payment, link: actions.payload };
     },
-    getCartRes:(state, actions) => {
-      state.cart=[...state.cart, ...actions.payload];
+    getCartRes: (state, actions) => {
+      state.cart = [...state.cart, ...actions.payload];
     },
     deleteCarItem: (state, actions) => {
-      state.cart = state.cart.filter(ele => ele.id !== actions.payload)
+      state.cart = state.cart.filter((ele) => ele.id !== actions.payload);
     },
     getUserActual: (state, actions) => {
-        state.userActual = actions.payload
+      state.userActual = actions.payload;
     },
     getItemsUser: (state, actions) => {
-      state.itemCar = [...actions.payload]
+      state.itemCar = [...actions.payload];
     },
     cleanDetails: (state, actions) => {
-      state.gameDetail = {}
-    }
+      state.gameDetail = {};
+    },
   },
 });
 export const {
@@ -119,7 +132,9 @@ export const {
   getItemsUser,
   cleanDetails,
   getAllFilter,
-  responseAddCart
+  responseAddCart,
+  Filters,
+  getExaminar
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

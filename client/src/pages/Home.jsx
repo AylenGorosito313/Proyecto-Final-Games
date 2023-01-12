@@ -23,7 +23,7 @@ function Home() {
   const { games, isLoader, res } = useSelector((state) => state.prueba);
   const backResponse = () => {
     if (res.cart) {
-   return   toast.error("You should register or login for add cart ", {
+      return toast.error("You should register or login for add cart ", {
         position: "bottom-right",
         duration: 2000,
         style: {
@@ -39,11 +39,15 @@ function Home() {
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
-    
+
     return () => {
-      dispatch(clearState())
-    } 
+      dispatch(clearState());
+    };
   }, []);
+
+  // useEffect(() => {
+  //   dispatch(getGames());
+  // }, [games.length]);
 
   if (isLoader && !games.length) {
     return (
@@ -58,12 +62,16 @@ function Home() {
       {res.cart && backResponse()}
 
       <Toaster />
+
       <div className="container-all-content-center">
         <div className="container-search-home">
           <Seach />
           <div className="div-buttoms-home">
             <Link className="p-create-game" to="/game/create">
               <p className="p-create-game">Discover</p>
+            </Link>
+             <Link className="p-create-game" to="/game/examinar/filtros">
+              <p className="p-create-game">Examinar</p>
             </Link>
 
             <Link className="p-create-game" to="/game/form/create">

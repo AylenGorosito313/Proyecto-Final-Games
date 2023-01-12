@@ -15,7 +15,7 @@ import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
 import axios from "axios";
 import Proveedor from "./pages/ProveedorProfile/Proveedor";
-
+import CreateSuccess from "./pages/GameCreate/SuccessCreate/CreateSuccess"
 
 function App() {
   axios.defaults.headers.common[

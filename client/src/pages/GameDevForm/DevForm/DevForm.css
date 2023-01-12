@@ -32,17 +32,21 @@ button {
     color: #707070;
     
 }
-.form-label {
+/* .form-label {
     position: absolute;
     top: 50%;
-    left: 15px;
+    left: 20px;
     transform: translateY(-50%);
     transition: all .8s ease;
     font-size: 13px;
     pointer-events: none;
     font-family: "Poppins";
+} */
+.form-label {
+    font-size: 14px;
+    margin-bottom: 13px;
+    margin-left: 13px;
 }
-
 
 .input-text, .input-text-area, .select-engines{
     border: 1px solid rgba(255, 255, 255, 0.281) !important;
@@ -54,7 +58,7 @@ button {
     border-radius: 4px;
     background-color: transparent;
     box-sizing: border-box;
-    font-size: 13px;
+    font-size: 14px;
 }
 .radio-container-yer-or-not{
     padding: 20px;
@@ -62,15 +66,18 @@ button {
 
 .radio-container-yer-or-not input {
     margin-left: 20px;
+    
 }
 .radio-container-yer-or-not label {
     margin-left: 20px;
+    font-size: 14px;
 }
 
-.input-text:focus + .form-label{
-    
-    top:-0.5rem;
+*:focus {
+    outline: none;
 }
+
+
 
 .dev-form-submit{
     margin: 30px;

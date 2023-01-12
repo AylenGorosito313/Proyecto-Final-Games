@@ -12,10 +12,12 @@ const initialState = {
   payment:{
     link:""
   },
+
   res: {
     cart:"",
     login:"",
     register: "",
+    provider: ""
   },
   isLoader: false,
   userActual: {},
@@ -49,6 +51,9 @@ export const toolkit_prueba = createSlice({
     },
     responseRegister: (state, actions) => {
       state.res = { ...state.res, register: actions.payload };
+    },
+    providerResponseEnable: (state, actions) => {
+      state.res = {...state.res, provider: actions.payload}
     },
     responseAddCart: (state, actions) => {
       state.res = { ...state.res, cart: actions.payload };
@@ -112,7 +117,8 @@ export const {
   getUserActual,
   getItemsUser,
   cleanDetails,
-  responseAddCart
+  responseAddCart,
+  providerResponseEnable
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

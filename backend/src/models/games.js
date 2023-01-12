@@ -13,7 +13,7 @@ const Game = sequelize.define("game", {
         allowNull: false,
     },
     background_image: {
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
         validator:{
             isUrl: true
@@ -35,7 +35,7 @@ const Game = sequelize.define("game", {
         allowNull: false
     },
     trailer: {
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true
     },
     createdBy:{

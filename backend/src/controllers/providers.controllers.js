@@ -52,6 +52,7 @@ const getGamesByProvider = async (req, res) => {
     }
 };
 
+// ruta para obtener las ganancias de cada proveedor por juego publicado. 
 const supplierProfit = async (req, res) => {
     const { userId } = req.query;
 

@@ -1,7 +1,7 @@
-input,
-select,
-label,
-button {
+.input,
+.select,
+.label,
+.button {
     margin: 0;
     border: 0;
     padding: 0;

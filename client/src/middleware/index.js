@@ -157,13 +157,7 @@ export const enableProvider = (id) => {
 
 // -------------------------------------------------
 
-export const CreateGame = ({
-  platforms,
-  background_image,
-  name,
-  rating,
-  genre,
-}) => {
+export const CreateGame = (gameInfo,userId) => {
   return async function (dispatch) {
     try {
       let res = await axios({

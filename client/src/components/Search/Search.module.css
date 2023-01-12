@@ -16,6 +16,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-family: "Poppins";
+    border-color: rgba(0, 0, 0, 0);
 }
 
 .search_input:focus {
@@ -26,6 +27,6 @@
     position: absolute;
     color: rgb(245, 245, 245);
     top: 15px;
-    right: 13px;
+    right: 20px;
 
 }

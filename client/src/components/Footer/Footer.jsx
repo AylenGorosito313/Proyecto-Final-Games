@@ -7,16 +7,33 @@ export default function Footer() {
       <div className={style.content}>
         <Logo />
 
-        <div className={style.text}>
-          <p>
-            {" "}
-            © 2023, Andromeda Games, Inc. Todos los derechos reservados.
-            Andromeda, Andromeda Games, el logotipo de Andromeda Gamess.
-          </p>
-          {/* <p>Términos de servicio</p>
-          <p>Política de privacidad</p>
-          <p>Política de reembolso de la tienda</p> */}
+        <div className={style.about}>
+          <h1 className={style.h1}>About us</h1>
+          <p className={style.p}>Términos de servicio</p>
+          <p className={style.p}>Política de privacidad</p>
+          <p className={style.p}>Política de reembolso de la tienda</p>
         </div>
+
+        <div className={style.contact}>
+          <h1 className={style.h1}>Contact us </h1>
+          <p className={style.p}>Términos de servicio</p>
+          <p className={style.p}>Política de privacidad</p>
+          <p className={style.p}>Política de reembolso de la tienda</p>
+        </div>
+
+        <div className={style.resurces}>
+          <h1 className={style.h1}>Resources</h1>
+          <p className={style.p}>Términos de servicio</p>
+          <p className={style.p}>Política de privacidad</p>
+          <p className={style.p}>Política de reembolso de la tienda</p>
+        </div>
+      </div>
+      <div className={style.text}>
+        <p className={style.p}>
+          {" "}
+          © 2023, Andromeda Games, Inc. Todos los derechos reservados.
+          Andromeda, Andromeda Games, el logotipo de Andromeda Gamess.
+        </p>
       </div>
     </div>
   );

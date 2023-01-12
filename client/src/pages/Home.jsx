@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
+import Footer from "../components/Footer/Footer";
 import {
   getGames,
   getGamesReleasedLasthMonth,
@@ -99,6 +100,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

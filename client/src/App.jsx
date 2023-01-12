@@ -17,6 +17,7 @@ import axios from "axios";
 import Proveedor from "./pages/ProveedorProfile/Proveedor";
 import GameDevForm from "./pages/GameDevForm/GameDevForm";
 
+import Footer from "./components/Footer/Footer";
 
 function App() {
   axios.defaults.headers.common[
@@ -38,6 +39,7 @@ function App() {
       <Route path="/home">
         <NavTop />
         <Route exact path="/home" component={Home} />
+        {/* <Route exact path="/home" component={Footer} /> */}
       </Route>
 
       <Route path="/game">

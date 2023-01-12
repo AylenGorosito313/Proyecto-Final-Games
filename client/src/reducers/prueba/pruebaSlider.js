@@ -17,6 +17,7 @@ const initialState = {
     cart:"",
     login:"",
     register: "",
+    created:"",
     provider: {},
   },
   isLoader: false,

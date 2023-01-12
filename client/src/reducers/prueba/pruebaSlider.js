@@ -102,26 +102,6 @@ export const toolkit_prueba = createSlice({
     cleanDetails: (state, actions) => {
       state.gameDetail = {}
     },
-  //   filtresSelect:(state, actions) => {
-  //     if (actions.payload) {
-  //       switch (order) {
-  //           case 'ASC_ALPHABETICALLY':
-  //               filterByName = filterByName.sort((a, b) => a.name.localeCompare(b.name));
-  //                  break;
-  //           case 'DES_ALPHABETICALLY':
-  //               filterByName = filterByName.sort((a, b) => b.name.localeCompare(a.name));
-  //               break;
-  //           case 'ASC_POPULATION':
-  //               filterByName = filterByName.sort((a, b) => a.population - b.population);
-  //               break;
-  //           case 'DES_POPULATION':
-  //               filterByName = filterByName.sort((a, b) => b.population - a.population);
-  //               break;
-  //           default:
-  //               break;
-  //       }
-  //   }
-  // }
 }
 });
 

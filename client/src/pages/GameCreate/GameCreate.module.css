@@ -132,7 +132,7 @@ background: #3e3b3b;
 
 .unploadDiv{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 20px;
 }
 

@@ -1,5 +1,4 @@
 const mapGamesToDataBase = (games) => {
-    console.log(games);
     return games.map((game) => {
         return {
             id: game.id,

@@ -14,7 +14,7 @@ import style from "../GameCreate/GameCreate.module.css";
 import UploadGameCreate from "../../components/UploadImage/Unpload-GameCreate/Unpload-GameCreate";
 export default function GameCreate() {
   const dispatch = useDispatch();
-  const { genre, platforms } = useSelector((state) => state.prueba);
+  const { genre, platforms, res } = useSelector((state) => state.prueba);
   const [Created, setCreated] = useState(false);
   const [Price, setPrice] = useState(false);
   const navigate = useHistory();
@@ -111,12 +111,9 @@ export default function GameCreate() {
     dispatch(traerPlatforms());
   }, []);
 
-  if (Created === true) {
+  if (res.created) {
     return (
-    
     <CreateSuccess />
-    
-    
     );
   }
   return (

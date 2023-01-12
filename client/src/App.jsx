@@ -44,6 +44,7 @@ function App() {
        
         <Route exact path="/game/form/create" component={GameCreate} />
         <Route exact path="/game/:id" component={CardDetail} />
+        
       </Route>
 
       <Route path="/profile">

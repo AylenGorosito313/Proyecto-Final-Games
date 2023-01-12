@@ -21,15 +21,15 @@
     display: flex;
     align-items: center;
     font-family: poppins;
-    font-weight: 500;
-    font-size: 17px;
+    font-weight: 90;
+    font-size: 15px;
     padding: 0.8em .5em 0.8em 0.9em;
     color: white;
     background: #ad5389;
     background: linear-gradient(to right, #343a40, #343a40, #495057);
     border: none;
     letter-spacing: 0.08em;
-    border-radius: 18px;
+    border-radius: 10px;
 }
   
 button svg {

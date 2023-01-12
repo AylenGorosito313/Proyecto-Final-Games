@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import style from "../Unpload-GameCreate/UnploadGameCreate.module.css";
-export default function UploadGameCreate ({ UnploadImages }) {
+function UploadGameArchive({ UnploadArchive }) {
   const [image, setImage] = useState([]);
 
   function handleOpenWidget() {
     let myWidget = window.cloudinary.createUploadWidget(
       {
-        cloudName: "deuc5vq5b",
+        cloudName: "dj8p0rdxn",
         uploadPreset: "andromedaPrueba",
       },
       (error, result) => {
@@ -28,13 +28,13 @@ export default function UploadGameCreate ({ UnploadImages }) {
   }
 
   if (image) {
-    let ImagesURL = image && image?.map((img) => img.url);
+    let archive = image && image?.map((img) => img.url);
 
-    UnploadImages(ImagesURL);
+    UnploadArchive(archive);
   }
   return (
     <div>
-      <h1 className={style.h1}>Upload  Game Images </h1>
+      <h1 className={style.h1}>Upload Game  File</h1>
       <div>
         <div className={style.imagesPreviewContainer}>
           {image?.map((img) => (
@@ -55,9 +55,11 @@ export default function UploadGameCreate ({ UnploadImages }) {
           id="upload-widget"
           onClick={handleOpenWidget}
         >
-          Upload  Image
+          Upload Files  
         </button>
       </div>
     </div>
   );
 }
+
+export default UploadGameArchive

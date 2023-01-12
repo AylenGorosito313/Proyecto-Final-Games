@@ -8,7 +8,7 @@ export default function WishList (){
 
     const dispatch = useDispatch();
     const {userActual} = useSelector(state => state.prueba);
-
+    console.log(userActual);
     useEffect( () =>{
         let userID = window.localStorage.getItem('id');
         dispatch(geUserActual(userID));
@@ -19,7 +19,7 @@ export default function WishList (){
             <nav className={style.nav}>
                 <ul className={style.ul}>
                     <li className={style.title}>Title</li>
-                    <li className={style.title}>Download</li>
+                    <li className={style.title}>Plataforms</li>
                     <li className={style.title}>More</li>
                 </ul> 
             </nav>
@@ -31,6 +31,7 @@ export default function WishList (){
                                 id={inf.id}
                                 image ={inf.background_image} 
                                 name= {inf.name} 
+                                platforms= {inf.parent_platforms}
                             />
                         )
                     }))

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import CreateSuccess from "./SuccessCreate/CreateSuccess";
 import "./Buttons.css";
 import UploadVideogame from "../../components/UploadImage/Unpload-GameCreate/UnploadVideogames";
 import UnploadGameArchive from "../../components/UploadImage/Unpload-GameCreate/UnploadGameArchive";
@@ -13,8 +14,8 @@ import style from "../GameCreate/GameCreate.module.css";
 import UploadGameCreate from "../../components/UploadImage/Unpload-GameCreate/Unpload-GameCreate";
 export default function GameCreate() {
   const dispatch = useDispatch();
-  const { genre, platforms } = useSelector((state) => state.prueba);
-  const [ Created, setCreated] = useState(false);
+  const { genre, platforms, res } = useSelector((state) => state.prueba);
+  const [Created, setCreated] = useState(false);
   const [Price, setPrice] = useState(false);
   const navigate = useHistory();
   const [gender, setGender] = useState({
@@ -40,14 +41,14 @@ export default function GameCreate() {
   });
   let trailer = "";
   let gameArchive = "";
-  let background_images = "";
+  let background_image  = "";
 
   const UnploadTrailer = (Urltrailer) => {
     trailer = Urltrailer;
   };
 
   const UnploadImages = (ImagesURL) => {
-    background_images = ImagesURL;
+    background_image  = ImagesURL;
   };
   const UnploadArchive = (archive) => {
     gameArchive = archive;
@@ -57,18 +58,11 @@ export default function GameCreate() {
     let userId = localStorage.getItem("id");
     let genres = gender.genere;
     let platforms = platform.platformarray;
-    let gameInfo = { ...data, platforms, genres, trailer, background_images };
+    let gameInfo = { ...data, platforms, genres, trailer, background_image  };
     console.log(gameInfo);
     dispatch(CreateGame(gameInfo, userId));
-    setCreated(true)
-  
+    setCreated(true);
   };
-
-  if( Created === true){
-    setTimeout(()=>{
-       navigate.push("/game/form/create/submit");
-    },2000)
-  }
 
 
   const handlerGender = (event) => {
@@ -117,19 +111,13 @@ export default function GameCreate() {
     dispatch(traerPlatforms());
   }, []);
 
-
-  if (Created === true  ){
+  if (res.created) {
     return (
-      <div className="loadin-home">
-        <Loading />
-      </div>
+    <CreateSuccess />
     );
   }
   return (
     <>
-
-    
-
       <div className={style.headerDiv}>
         <div className={style.backhome}>
           <ArrowBack />

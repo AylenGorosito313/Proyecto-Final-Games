@@ -7,7 +7,7 @@ function UploadGameArchive({ UnploadArchive }) {
     let myWidget = window.cloudinary.createUploadWidget(
       {
         cloudName: "dj8p0rdxn",
-        uploadPreset: "andromedaPrueba",
+        uploadPreset: "AndromedaGamesTEST",
       },
       (error, result) => {
         if (!error && result && result.event === "success") {

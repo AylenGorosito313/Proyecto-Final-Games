@@ -8,9 +8,9 @@ export default function Proveedor() {
 
         <div className={style.componente}>
 
-         {/* <div className={style.contenedorimg}>  */}
+      
          <img className={style.img} src="https://cdn2.unrealengine.com/launcher-473x569-f620b2c3ca18.png"/>
-          {/* </div>  */}
+
         
         <div className={style.logo}>
           <Logoproveedor />

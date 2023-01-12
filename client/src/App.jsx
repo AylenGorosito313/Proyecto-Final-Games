@@ -15,7 +15,9 @@ import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
 import axios from "axios";
 import Proveedor from "./pages/ProveedorProfile/Proveedor";
+import GameDevForm from "./pages/GameDevForm/GameDevForm";
 
+import Footer from "./components/Footer/Footer";
 
 function App() {
   axios.defaults.headers.common[
@@ -37,13 +39,15 @@ function App() {
       <Route path="/home">
         <NavTop />
         <Route exact path="/home" component={Home} />
+        {/* <Route exact path="/home" component={Footer} /> */}
       </Route>
 
       <Route path="/game">
         <NavTop />
-        <Route exact path="/game/form/create/submit" component={CreateSuccess}/>
+       
         <Route exact path="/game/form/create" component={GameCreate} />
         <Route exact path="/game/:id" component={CardDetail} />
+        <Route exact path="/game/dev/form" component={GameDevForm} />
       </Route>
 
       <Route path="/profile">

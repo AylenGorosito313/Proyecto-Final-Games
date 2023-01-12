@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
+import Footer from "../components/Footer/Footer";
 import {
   getGames,
   getGamesReleasedLasthMonth,
@@ -54,7 +55,7 @@ function Home() {
       </div>
     );
   }
-  console.log(res.cart);
+  console.log(res.created);
   return (
     <>
       {res.cart && backResponse()}
@@ -99,6 +100,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

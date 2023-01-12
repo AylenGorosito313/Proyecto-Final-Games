@@ -25,10 +25,10 @@ const getGames = async (req, res) => {
         let GamesDB = []
         let arrayFrom = Array.from(searchGamesDB)
         arrayFrom.forEach(element => {
-            GamesDB.push(element.dataValues);
+            GamesDB.push(element);
         });
         //le pasamos el path y el page a mapGame
-        let response = await paginate("games", page);
+        let response = await paginate("games", page); 
         let mapToGames = await mapGames(response);
         let mapToToGameDB = await mapGames(GamesDB)
         console.log(mapToToGameDB);

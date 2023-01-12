@@ -8,7 +8,7 @@ export default function CreateSuccess() {
   return (
     <div className="container">
       <div className="fondo-scss-payment">
-        {/* <img className="img-scss-payment" src={fondo} alt="fondo" /> */}
+    
       </div>
 
       <div className="container-succes">
@@ -25,7 +25,7 @@ export default function CreateSuccess() {
         <div className="buttons-sucss">
     
          
-          <button className="button-30" role="button">
+          <button className="button-29" role="button">
             View in profile
           </button>
           <div className="volver-home-div">
@@ -34,10 +34,7 @@ export default function CreateSuccess() {
             </Link>
           </div>
         </div>
-{/* 
-        <div className="contact-div-payment-succss">
-   
-        </div> */}
+
       </div>
     </div>
   );

@@ -12,10 +12,13 @@ const initialState = {
   payment:{
     link:""
   },
+
   res: {
     cart:"",
     login:"",
     register: "",
+    created:"",
+    provider: {},
   },
   isLoader: false,
   userActual: {},
@@ -50,6 +53,9 @@ export const toolkit_prueba = createSlice({
     responseRegister: (state, actions) => {
       state.res = { ...state.res, register: actions.payload };
     },
+    providerResponseEnable: (state, actions) => {
+      state.res = {...state.res, provider: actions.payload}
+    },
     responseAddCart: (state, actions) => {
       let verify = actions.payload.split(' ')[actions.length - 1]
       if(verify === '400'){
@@ -61,7 +67,7 @@ export const toolkit_prueba = createSlice({
     },
 
     GameCreate: (state, actions) => {
-      state.games = [...actions.payload];
+      state.res = { ...state.res, created: actions.payload};
     },
     responseLogin: (state, actions) => {
       state.res = { ...state.res, login: actions.payload};
@@ -96,26 +102,6 @@ export const toolkit_prueba = createSlice({
     cleanDetails: (state, actions) => {
       state.gameDetail = {}
     },
-  //   filtresSelect:(state, actions) => {
-  //     if (actions.payload) {
-  //       switch (order) {
-  //           case 'ASC_ALPHABETICALLY':
-  //               filterByName = filterByName.sort((a, b) => a.name.localeCompare(b.name));
-  //                  break;
-  //           case 'DES_ALPHABETICALLY':
-  //               filterByName = filterByName.sort((a, b) => b.name.localeCompare(a.name));
-  //               break;
-  //           case 'ASC_POPULATION':
-  //               filterByName = filterByName.sort((a, b) => a.population - b.population);
-  //               break;
-  //           case 'DES_POPULATION':
-  //               filterByName = filterByName.sort((a, b) => b.population - a.population);
-  //               break;
-  //           default:
-  //               break;
-  //       }
-  //   }
-  // }
 }
 });
 
@@ -143,7 +129,7 @@ export const {
   getItemsUser,
   cleanDetails,
   responseAddCart,
-  filtresSelect
+  providerResponseEnable
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

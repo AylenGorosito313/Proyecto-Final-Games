@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { platformImage } from "../../../CardDetail/utils/utils";
 import style from "../CardProfile/CardProfile.module.css";
 
 export default function CardProfile (props){
@@ -10,8 +12,16 @@ export default function CardProfile (props){
                 </div>
                 <div className={style.inf}>
                     <div className={style.p}>{props.name}</div>
-                    <div className={style.p}>Download  <i class="fa-solid fa-download"></i></div>
-                    <div className={style.p}>Details <i class="fa-solid fa-ellipsis"></i></div>
+                    <div className={style.p}>
+                        {
+                        props.platforms ? props.platforms.slice(0,3).map( el => (
+                            <span key={el}> 
+                                {platformImage(el)} 
+                            </span>
+                        )) : 
+                        <span>No available for plataforms</span>}
+                    </div>
+                    <div className={style.p}><Link to={`/game/${props.id}`}>Details  <i class="fa-solid fa-plus"></i></Link></div>
                 </div>
             </div>
             <br />

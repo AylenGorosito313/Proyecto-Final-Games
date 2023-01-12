@@ -1,7 +1,8 @@
 
 .container-cart{
     border-radius: 10px;
-    background: #2ea44fc6;
+
+    background: rgb(42, 42, 42);
     display: flex;
     width: 400px;
     height: 90px;
@@ -20,6 +21,7 @@ height: 100%;
     flex-wrap: wrap;
     width: 100%;
     gap: 10px;
+    justify-content: center;
 }
 
 
@@ -50,6 +52,42 @@ height: 100%;
     border-radius: 10px;  
 } 
 
+
+
+
+
+.cart-products-div::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.cart-products-div::-webkit-scrollbar:vertical {
+    width:1px;
+}
+
+.cart-products-div::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.card-cart-container::-webkit-scrollbar:horizontal {
+    height: 0%;
+}
+
+.cart-products-div::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 200px;
+   
+}
+
+.cart-products-div::-webkit-scrollbar-track {
+    border-radius: 10px;  
+} 
+
+
+
+
+
+
+
 .div-title-delete{
     padding: 10px;
     /* flex: auto; */
@@ -66,14 +104,16 @@ height: 100%;
     border: none;
     padding: 5px 8px;
     border-radius: 10px 20px;
-    background-color: black;
+    background-color: #838383;
     cursor: pointer;
+    font-family: Poppins;
+    font-size: 12px;
     transition: all .3s ease;
 }
 
 .delete:hover {
     /* border-bottom: 1px solid white; */
-    color: black;
+    color: #34302e;
     background-color: white;
 }
 

@@ -44,7 +44,7 @@ export default function PaymentMP() {
             <div className="price-total">
                 <h2>
                     {" "}
-                    Precio total US <span>${price}</span>
+                     Total price in  US <span>${price}</span>
                 </h2>
             </div>
             <div className="container-center-payment">
@@ -64,7 +64,7 @@ export default function PaymentMP() {
                         </a>
 
                         <button className="button-3" role="button">
-                            Comprar para regalo
+                        buy as a gift
                         </button>
                     </div>
                 </div>

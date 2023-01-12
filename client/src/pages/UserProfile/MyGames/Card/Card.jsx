@@ -21,7 +21,7 @@ export default function CardProfile(props) {
                         Download <i class="fa-solid fa-download"></i>
                     </div>
                     <div className={style.p}>
-                        Details <img src={i} alt="elipsis" />
+                        Details  <i class="fa-solid fa-plus"></i>
                     </div>
                 </div>
             </div>

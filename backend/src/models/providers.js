@@ -14,18 +14,20 @@ const Providers = sequelize.define('provider', {
         defaultValue: 0.00
     },
     videoGamesPropor:{
-        type:  DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: false,
+        type:  DataTypes.ARRAY(DataTypes.JSON),
+        allowNull: true,
         defaultValue: []
     },
 
 }, {freezeTableName: true});
+
+
 Users.hasOne(Providers, {
     foreignKey: 'userId'
   });
 Providers.belongsTo(Users);
-Providers.belongsToMany(Game, { through: "provider_game"})
-Game.belongsTo(Providers,{ through: "provider_game"})
+
+
 
 
 

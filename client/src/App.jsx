@@ -13,6 +13,7 @@ import Favorite from "./pages/UserProfile/Favorite/Favorite";
 import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
 import axios from "axios";
+import Proveedor from "./pages/ProveedorProfile/Proveedor";
 function App() {
     axios.defaults.headers.common[
         "Authorization"
@@ -50,7 +51,10 @@ function App() {
                 <Route exact path="/profile/games" component={MyGames} />
                 <Route exact path="/profile/favorite" component={Favorite} />
             </Route>
-
+ 
+             <Route exact path="/proveedor">
+                <Proveedor/>
+            </Route> 
         </>
     );
 }

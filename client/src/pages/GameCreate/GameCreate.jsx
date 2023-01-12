@@ -41,14 +41,14 @@ export default function GameCreate() {
   });
   let trailer = "";
   let gameArchive = "";
-  let background_images = "";
+  let background_image  = "";
 
   const UnploadTrailer = (Urltrailer) => {
     trailer = Urltrailer;
   };
 
   const UnploadImages = (ImagesURL) => {
-    background_images = ImagesURL;
+    background_image  = ImagesURL;
   };
   const UnploadArchive = (archive) => {
     gameArchive = archive;
@@ -58,7 +58,7 @@ export default function GameCreate() {
     let userId = localStorage.getItem("id");
     let genres = gender.genere;
     let platforms = platform.platformarray;
-    let gameInfo = { ...data, platforms, genres, trailer, background_images };
+    let gameInfo = { ...data, platforms, genres, trailer, background_image  };
     console.log(gameInfo);
     dispatch(CreateGame(gameInfo, userId));
     setCreated(true);

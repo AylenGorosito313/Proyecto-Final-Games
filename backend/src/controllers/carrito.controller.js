@@ -7,8 +7,7 @@ const addToCar = async (req, res) => {
     const { userId, gameId } = req.params;
     try {
         if (userId === 'null' || !gameId) {
-            console.log("hola", userId);
-            return res.status(401).json({
+            return res.status(406).json({
                 error: true,
                 msg: "User Unauthorized",
             });

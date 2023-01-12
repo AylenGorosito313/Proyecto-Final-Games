@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "../UploadImage/UploadImage.module.css"
 
 export default function UploadImage(props) {
-    const [image, setImage] = useState([]); 
+  const [image, setImage] = useState([]); 
     // [{
     //     url: result.info.url, 
     //     public_id: result.info.public_id, 
@@ -61,7 +61,7 @@ export default function UploadImage(props) {
         myWidget.open();
     }
 
-    return (
+  return (
         <div>
             <h1>Upload </h1>
 
@@ -92,5 +92,5 @@ export default function UploadImage(props) {
                 </button>
             </div>
         </div>
-    );
+  );
 }

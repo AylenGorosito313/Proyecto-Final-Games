@@ -2,6 +2,7 @@ const calculatePrice = require("./calculatePrice");
 
 const mapGames = async (games) => {
     let price = calculatePrice(100, 10);
+    console.log(games);
     try {
         return games.map((game) => {
             return {

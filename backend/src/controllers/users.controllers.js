@@ -3,6 +3,7 @@ const { Carrito } = require("../models/Carrito");
 const { Compras } = require("../models/compras");
 const { logicDeletUser } = require("../utils/logicDeletUser");
 const { Providers } = require("../models/providers");
+const {inactiveUsers} = require("../models/inactiveUsers")
 
 const getAllUser = async (req, res) => {
     try {
@@ -83,9 +84,38 @@ const deletedUser = async (req, res) => {
     }
 };
 
+// obtener toda la informacion de los usuarios inactivos
+const getInactiveUsers = async (req, res) => {
+    console.log("entramos en el getInactiveUsers")
+   try {
+       const getInactiveUsers = await inactiveUsers.findAll({
+           attributes: { exclude: ["passwordHash"] },
+}); 
+res.send(getInactiveUsers)
+   } catch (error) {
+       res.status(500).json({
+           error: error.message,
+       });
+   }
+}
+
+const getInactiveUser = async (req, res) => {
+    const {id} = req.params;
+    try {const getInactiveUser = await inactiveUsers.findByPk( id, 
+        { attributes: { exclude: ["passwordHash"] }} ); 
+        res.send(getInactiveUser)
+    } catch (error) {
+        res.status(500).json({
+            error: error.message,
+        });
+    }
+}
+
 module.exports = {
     getAllUser,
     getUserById,
     updateUserProfile,
     deletedUser,
+    getInactiveUsers,
+    getInactiveUser
 };

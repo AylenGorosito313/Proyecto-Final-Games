@@ -7,15 +7,27 @@ const { Game } = require("../models/games");
 const { Genre } = require("../models/genres");
 const getGamePopularOrReleased = require("../utils/getGamePopular");
 const { Users } = require("../models/users");
+const { Providers } = require("../models/providers");
 
 //obtener games 20 por pagina
 const getGames = async (req, res) => {
     const { page } = req.query;
     try {
+        let searchGamesDB = await Game.findAll({
+            include: {
+                model: Genre,
+                atributes: ["name"],
+                through: {
+                    attributes: [], //comprobacion que se hace (mediante los atributos)
+                },
+            },
+        });
+        // searchGamesDB = searchGamesDB.toJSON()
+        console.log(searchGamesDB);
         //le pasamos el path y el page a mapGame
         let response = await paginate("games", page);
         let mapToGames = await mapGames(response);
-        return res.status(200).json(mapToGames);
+        return res.status(200).json([...searchGamesDB, ...mapToGames]);
     } catch (error) {
         res.status(500).json({
             error: error.message,
@@ -53,7 +65,10 @@ const searchGame = async (req, res) => {
 const createGame = async (req, res) => {
     const gameInfo = req.body;
     const { userId } = req.params;
+  
     try {
+
+        console.log(gameInfo )
         if (
             !gameInfo.name ||
             !gameInfo.background_image ||
@@ -70,7 +85,7 @@ const createGame = async (req, res) => {
         const searchUser = await Users.findByPk(userId);
         let userIsProvider = searchUser.proveedor;
         if (userIsProvider) {
-            const [result, create] = await Game.findOrCreate({
+            let [result, create] = await Game.findOrCreate({
                 where: {
                     name: gameInfo.name,
                     background_image: gameInfo.background_image,
@@ -79,6 +94,8 @@ const createGame = async (req, res) => {
                     platforms: gameInfo.platforms,
                     description: gameInfo.description,
                     trailer: gameInfo.trailer ? gameInfo.trailer : null,
+                    platforms: gameInfo.platforms,
+                    createdBy: userId
                 },
             });
             if (create) {
@@ -88,9 +105,22 @@ const createGame = async (req, res) => {
                     },
                 });
                 result.addGenres(genreByGame);
-                return res.status(200).json({
-                    message: "game created successfully",
+                let userProvider = await Providers.findOne({
+                    where: {
+                        userId,
+                    },
                 });
+                userProvider.videoGamesPropor.length === 0
+                    ? (userProvider.videoGamesPropor = [gameInfo])
+                    : (userProvider.videoGamesPropor = [
+                          ...userProvider.videoGamesPropor,
+                          gameInfo,
+                      ]);
+                await userProvider.save();
+                return res.status(200).json(result);
+                // return res.status(200).json({
+                //     message: "game created successfully",
+                // });
             }
         } else {
             return res

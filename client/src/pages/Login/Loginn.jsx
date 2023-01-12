@@ -37,14 +37,8 @@ function Loginn() {
       navigateToHome.push("/home");
     }
   },2000);
-  // 
 
-  const responseFacebook = (response) => {
-    console.log(response);
-  };
-  const responseGoogle = (response) => {
-    console.log(response);
-  };
+
 
   console.log(res.login);
   return (
@@ -84,39 +78,7 @@ function Loginn() {
               <hr></hr>
             </p>
           </div>
-          {/* <div className="social-container">
-            //////// configurar api de los botones al hacer el deploy ////
-            <div className="google-container">
-              <FacebookLogin
-                appId="683503523496506"
-                autoLoad={false}
-                fields="name,email,picture"
-                callback={responseFacebook}
-                icon={<Facebook />}
-                cssClass="facebookButtom"
-              />
-            </div>
-            <div className="google-container">
-              <GoogleLogin
-                clientId="1057101534417-c493635inei9oa7mgsnkmfdi2abkbl2m.apps.googleusercontent.com"
-                render={(renderProps) => (
-                  <div>
-                    <button
-                      className="google-btm"
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                    >
-                      {<Google />}
-                      Sign in with Googlen
-                    </button>
-                  </div>
-                )}
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={"single_host_origin"}
-              />
-            </div> */}
-          {/* </div> */}
+     
         </div>
       </div>
     </>

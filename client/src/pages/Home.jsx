@@ -54,7 +54,7 @@ function Home() {
       </div>
     );
   }
-  console.log(res.cart);
+  console.log(res.created);
   return (
     <>
       {res.cart && backResponse()}

@@ -127,7 +127,7 @@ export const createUser = ({ name, lastName, email, password }) => {
 };
 // /game/create/:userId
 export const CreateGame = (gameInfo, userId) => {
-  console.log(gameInfo);
+ 
   
   return async function (dispatch) {
     try {
@@ -136,6 +136,7 @@ export const CreateGame = (gameInfo, userId) => {
         data: gameInfo,
         url: `http://localhost:3001/game/create/${userId}`,
       });
+      console.log(res.data)
       dispatch(GameCreate(res.data));
     } catch (error) {
       toast.error(error.message, {

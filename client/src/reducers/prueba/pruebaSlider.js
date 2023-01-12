@@ -16,6 +16,7 @@ const initialState = {
     cart:"",
     login:"",
     register: "",
+    created:""
   },
   isLoader: false,
   userActual: {},
@@ -61,7 +62,7 @@ export const toolkit_prueba = createSlice({
     },
 
     GameCreate: (state, actions) => {
-      state.games = [...actions.payload];
+      state.res = { ...state.res, created: actions.payload};
     },
     responseLogin: (state, actions) => {
       state.res = { ...state.res, login: actions.payload};

@@ -64,11 +64,6 @@ export default function GameCreate() {
     setCreated(true);
   };
 
-  // if (Created === true) {
-  //   setTimeout(() => {
-  //     navigate.push("/game/form/create/submit");
-  //   }, 2000);
-  // }
 
   const handlerGender = (event) => {
     if (!gender.genere.includes(event.target.value)) {

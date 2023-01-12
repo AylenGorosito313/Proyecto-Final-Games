@@ -10,6 +10,12 @@
     
 }
 
+.game-title-slider h2{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
 .games-slider-buttons-container {
   width: 80px;
   display:flex;

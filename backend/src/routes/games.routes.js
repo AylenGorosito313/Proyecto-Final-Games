@@ -8,4 +8,5 @@ gamesRouter.get('/games/popular', gameControllers.mostPopularGames)
 gamesRouter.get('/games/released', gameControllers.releasedLastMonth)
 gamesRouter.post("/game/create/:userId", gameControllers.createGame);
 gamesRouter.get("/game/:id", gameControllers.gameInformation);
+// gamesRouter.delete("/game/deleteGame/:userId/:idGame", deleteGame );
 module.exports = gamesRouter;

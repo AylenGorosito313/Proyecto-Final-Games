@@ -47,9 +47,22 @@ const getFavorite = async (req,res) => {
 }
 
 const deleteFavorite = async (req, res) => {
-    const {idUser, idGame} = req.params;
-    console.log("aca esta el idGame", idGame)
-    console.log("aca esta el idUser", idUser)
+    const {userId, gameId} = req.params;
+    try {
+        const findUser = await Users.findByPk(userId)       
+        let fav = findUser.favoritos 
+        const deletedFav = fav.filter(el => el.id != gameId)
+        findUser.set({
+            favoritos: deletedFav, 
+        })
+        await findUser.save()
+
+        res.send("game in favorite deleted with success")
+    } catch (error) {
+        res.status(500).json({
+            error: error.message,
+        });
+    }
 }
 
 

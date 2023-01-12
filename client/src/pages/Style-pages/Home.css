@@ -50,11 +50,13 @@
 }
 
 .div-home-card {
-  width: 100%;
+  width: 1200px;
   gap: 48px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  align-items: center;
+  text-align: center;
 }
 
 .container-home-swipper {
@@ -88,3 +90,16 @@
 }
 
 
+.div-home-all-games{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+.div-home-all-games h2 {
+  font-weight: 400;
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: left;
+}

@@ -73,23 +73,25 @@ function Home() {
                 <MostPopularSlider />
                 <ReleasedLasthMonth />
             </div>
-            <h1> All Games </h1>
-            <div className="div-home-card">
-              {games.length &&
-                games.map((ele) => {
-                  return (
-                    <Card
-                      key={ele.id}
-                      img={ele.background_image}
-                      name={ele.name}
-                      id={ele.id}
-                      rating={ele.rating}
-                      platforms={ele.parent_platforms}
-                      released={ele.released}
-                      genres={ele.genres}
-                    />
-                  );
-                })}
+            <div className="div-home-all-games">
+              <h2> All Games </h2>
+              <div className="div-home-card">
+                {games.length &&
+                  games.map((ele) => {
+                    return (
+                      <Card
+                        key={ele.id}
+                        img={ele.background_image}
+                        name={ele.name}
+                        id={ele.id}
+                        rating={ele.rating}
+                        platforms={ele.parent_platforms}
+                        released={ele.released}
+                        genres={ele.genres}
+                      />
+                    );
+                  })}
+              </div>
             </div>
           </div>
         </div>

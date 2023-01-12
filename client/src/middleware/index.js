@@ -19,6 +19,7 @@ import {
   cleanDetails,
   getPlatforms,
   responseAddCart,
+  providerResponseEnable
 } from "../reducers/prueba/pruebaSlider";
 
 export const getGames = () => {
@@ -102,6 +103,7 @@ export const getGameDetail = (id) => {
   };
 };
 
+//  Creeate User and Provider
 export const createUser = ({ name, lastName, email, password }) => {
   return async function (dispatch) {
     try {
@@ -125,10 +127,43 @@ export const createUser = ({ name, lastName, email, password }) => {
     }
   };
 };
-// /game/create/:userId
-export const CreateGame = (gameInfo, userId) => {
- 
-  
+
+export const enableProvider = (id) => {
+  return async function(dispatch) {
+    try {
+      dispatch(isLoading());
+      let { data } = await axios({
+        method: "POST",
+        url: `http://localhost:3001/user/provider/create/${id}`
+      })
+      dispatch(providerResponseEnable(data))
+      setTimeout(() => {
+        dispatch(isLoading());
+      }, 2000);
+    } catch (error){
+      toast.error(error.message, {
+        position: "bottom-right",
+        duration: 4000,
+
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
+  }
+}
+
+// -------------------------------------------------
+
+export const CreateGame = ({
+  platforms,
+  background_image,
+  name,
+  rating,
+  genre,
+}) => {
   return async function (dispatch) {
     try {
       let res = await axios({

@@ -1,6 +1,7 @@
 const { Game } = require("../models/games");
 const { Providers } = require("../models/providers");
 const { Users } = require("../models/users");
+const getItemsCar = require("../utils/getItemsCar");
 
 //crear un proveedor
 const registerProvider = async (req, res) => {
@@ -52,32 +53,35 @@ const getGamesByProvider = async (req, res) => {
 };
 
 const supplierProfit = async (req, res) => {
-    const { gameId } = req.query;
+    const { userId } = req.query;
 
-    if (!gameId) {
-        return res.status(300).json({
-            message: "game id must be provided",
-        });
-    }
+    let games = await getItemsCar(userId);
     const uuidRegex =
         /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
 
     try {
-        if (uuidRegex.test(gameId)) {
-            let gameToShopping = await Game.findByPk(gameId);
-            let userProvider = gameToShopping.createdBy;
-
-            let searchUserProvider = await Providers.findOne({
-                where: {
-                    userId: userProvider
-                }
-            })
-            searchUserProvider.profits += gameToShopping.price
-            await searchUserProvider.save()
-            res.status(200).json(searchUserProvider);
-        }
+        let filterGames = games.filter((ele) => uuidRegex.test(ele.id));
+        filterGames.length &&
+            filterGames.forEach(async (element) => {
+                let gameToShopping = await Game.findByPk(element.id);
+                let userProvider = gameToShopping.createdBy;
+                let searchUserProvider = await Providers.findOne({
+                    where: {
+                        userId: userProvider,
+                    },
+                });
+                let priceGame =
+                    parseInt(searchUserProvider.profits) +
+                    parseInt(gameToShopping.price);
+                searchUserProvider.profits = priceGame;
+                await searchUserProvider.save();
+                return res.status(200).json({
+                    message: "amount added to supplier profile",
+                });
+            });
+            res.status(200).json('Not providers')
     } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
             error: error.message,
         });
     }

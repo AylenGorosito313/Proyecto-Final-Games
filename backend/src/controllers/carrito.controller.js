@@ -1,4 +1,5 @@
 const { Carrito } = require("../models/Carrito");
+const { Game } = require("../models/games");
 const { Users } = require("../models/users");
 const apiClient = require("../utils/apiClient");
 const mapGames = require("../utils/mapGames");
@@ -12,6 +13,9 @@ const addToCar = async (req, res) => {
                 msg: "User Unauthorized",
             });
         }
+        const uuidRegex = /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
+        let gameVerify = uuidRegex.test(gameId);
+        let gameDataBase = undefined
 
         if (userId) {
             await Users.findByPk(userId);
@@ -21,8 +25,14 @@ const addToCar = async (req, res) => {
                 },
             });
 
-            let gameInfo = await apiClient(`games/${gameId}`);
-            gameInfo = await mapGames([gameInfo]);
+            let gameInfo = gameVerify ? await Game.findByPk(gameId) : await apiClient(`games/${gameId}`);
+            if(gameVerify){
+                gameDataBase = gameInfo.toJSON()
+                gameInfo = await mapGames([gameDataBase])
+            }else{
+                gameInfo = await mapGames([gameInfo]);
+            }
+            console.log(gameInfo);
             if (!searchUserCar) {
                 let addCarItem = await Carrito.create();
                 addCarItem.userId = userId;

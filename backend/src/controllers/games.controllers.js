@@ -28,7 +28,7 @@ const getGames = async (req, res) => {
             GamesDB.push(element);
         });
         //le pasamos el path y el page a mapGame
-        let response = await paginate("games", page);
+        let response = await paginate("games", page); 
         let mapToGames = await mapGames(response);
         let mapToToGameDB = await mapGames(GamesDB)
         console.log(mapToToGameDB);

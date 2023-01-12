@@ -1,32 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 import DevFormHeader from "./DevFormBanner/DevFormHeader";
 import DevForm from "./DevForm/DevForm";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // Css
 import "./GameDevForm.css";
 import FormReceived from "./FormReceived/FormReceived";
+import Loading from "../../components/Loading/Loading";
+import { isLoading } from "../../middleware";
 
 
 export default function GameDevForm () {
 
-    const { isLoader, res } = useSelector( state => state.prueba)
+    const { isLoader, res } = useSelector( state => state.prueba);
+    const dispatch = useDispatch();
 
+    setTimeout(() => {
+        if(res.provider.message) {
+            localStorage.setItem("provider", true);
+            
+        }
+    }, 2000);
 
     return (
         <>
             <div className="dev-form-main-container">
                 <div className="dev-form-wrapper">
-                    <DevFormHeader />
-                    <div className="form-container">
-                        {isLoader ? (
-                            <div className="loading">{<Loading />}</div>
-                        ) : res.provider.length > 0 ? (
-                            <FormReceived />
-                        ) : (
-                         <DevForm />
-                        )} 
-                    </div>
+                    {isLoader ? (
+                        <div className="dev-form-loading">
+                            {<Loading />}
+                        </div>
+                    ) : res.provider.message ? (
+                        <FormReceived />
+                    ) : (
+                        <>
+                        <DevFormHeader />
+                        <div className="form-container">
+                            <DevForm />
+                        </div>
+                        </>
+                    )}
                 </div>
             </div>
         </>

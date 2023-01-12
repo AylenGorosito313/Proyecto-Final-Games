@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 import "./DevForm.css"
-import { providerResponseEnable } from "../../../reducers/prueba/pruebaSlider";
+import { enableProvider } from "../../../middleware";
 
 export default function DevForm () {
 
@@ -15,10 +15,9 @@ export default function DevForm () {
 
     const onSubmit = (data) => {
         console.log(data)
-        providerResponseEnable(userID)
+        dispatch(enableProvider(userID))
     }
 
-    
 
     return (
         <>

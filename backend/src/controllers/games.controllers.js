@@ -22,12 +22,17 @@ const getGames = async (req, res) => {
                 },
             },
         });
-        // searchGamesDB = searchGamesDB.toJSON()
-        console.log(searchGamesDB);
+        let GamesDB = []
+        let arrayFrom = Array.from(searchGamesDB)
+        arrayFrom.forEach(element => {
+            GamesDB.push(element);
+        });
         //le pasamos el path y el page a mapGame
-        let response = await paginate("games", page);
+        let response = await paginate("games", page); 
         let mapToGames = await mapGames(response);
-        return res.status(200).json([...searchGamesDB, ...mapToGames]);
+        let mapToToGameDB = await mapGames(GamesDB)
+        console.log(mapToToGameDB);
+        return res.status(200).json([...mapToToGameDB, ...mapToGames]);
     } catch (error) {
         res.status(500).json({
             error: error.message,

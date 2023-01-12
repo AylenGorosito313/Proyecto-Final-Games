@@ -1,0 +1,52 @@
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    background: #303030;
+    flex-direction: column;
+    justify-content: center
+}
+
+.content{
+    display: flex;
+    height: 100%;
+    width: 90%;
+    padding-top: 10px;
+    background: #303030;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+.text{
+    padding-top: 20px;
+    margin: 0;
+    width: 100%;
+    font-size: 11px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+    
+.p{
+    margin : 0 ; 
+    font-size: 12px;
+    color : #868181;
+}
+
+.h1{
+    font-size: 14px;
+    margin: 0;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+}
+.socialDiv{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 5px;
+}

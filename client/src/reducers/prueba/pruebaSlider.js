@@ -12,10 +12,13 @@ const initialState = {
   payment:{
     link:""
   },
+
   res: {
     cart:"",
     login:"",
     register: "",
+    created:"",
+    provider: {},
   },
   isLoader: false,
   userActual: {},
@@ -50,6 +53,9 @@ export const toolkit_prueba = createSlice({
     responseRegister: (state, actions) => {
       state.res = { ...state.res, register: actions.payload };
     },
+    providerResponseEnable: (state, actions) => {
+      state.res = {...state.res, provider: actions.payload}
+    },
     responseAddCart: (state, actions) => {
       let verify = actions.payload.split(' ')[actions.length - 1]
       if(verify === '400'){
@@ -59,8 +65,9 @@ export const toolkit_prueba = createSlice({
       }
      
     },
+
     GameCreate: (state, actions) => {
-      state.games = [...actions.payload];
+      state.res = { ...state.res, created: actions.payload};
     },
     responseLogin: (state, actions) => {
       state.res = { ...state.res, login: actions.payload};
@@ -94,9 +101,12 @@ export const toolkit_prueba = createSlice({
     },
     cleanDetails: (state, actions) => {
       state.gameDetail = {}
-    }
-  },
+    },
+}
 });
+
+
+
 export const {
   addUser,
   getAllGames,
@@ -118,7 +128,8 @@ export const {
   getUserActual,
   getItemsUser,
   cleanDetails,
-  responseAddCart
+  responseAddCart,
+  providerResponseEnable
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

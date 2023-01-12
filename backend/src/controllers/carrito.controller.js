@@ -3,6 +3,7 @@ const { Game } = require("../models/games");
 const { Users } = require("../models/users");
 const apiClient = require("../utils/apiClient");
 const mapGames = require("../utils/mapGames");
+const mapGamesToDataBase = require("../utils/mapGamesToDataBase");
 
 const addToCar = async (req, res) => {
     const { userId, gameId } = req.params;
@@ -28,7 +29,7 @@ const addToCar = async (req, res) => {
             let gameInfo = gameVerify ? await Game.findByPk(gameId) : await apiClient(`games/${gameId}`);
             if(gameVerify){
                 gameDataBase = gameInfo.toJSON()
-                gameInfo = await mapGames([gameDataBase])
+                gameInfo = mapGamesToDataBase([gameDataBase])
             }else{
                 gameInfo = await mapGames([gameInfo]);
             }
@@ -58,7 +59,7 @@ const addToCar = async (req, res) => {
             searchUserCar.total_items = searchUserCar.items.length;
             searchUserCar.total_precio = searchUserCar.items.reduce(
                 (count, ele) => {
-                    return count + ele.price;
+                    return count + parseInt(ele.price); 
                 },
                 0
             );

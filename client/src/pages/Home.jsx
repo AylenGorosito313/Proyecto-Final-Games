@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
+import Footer from "../components/Footer/Footer";
 import {
   getGames,
   getGamesReleasedLasthMonth,
@@ -17,6 +18,7 @@ import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading/Loading";
 import { clearState } from "../reducers/prueba/pruebaSlider";
+import SearchBar from "../components/SearchBar/SearchBar";
 
 function Home() {
   const dispatch = useDispatch();
@@ -54,51 +56,47 @@ function Home() {
       </div>
     );
   }
-  console.log(res.cart);
+  console.log(res.created);
   return (
     <>
       {res.cart && backResponse()}
 
       <Toaster />
-      <div className="container-all-content-center">
-        <div className="container-search-home">
-          <Seach />
-          <div className="div-buttoms-home">
-            <Link className="p-create-game" to="/game/create">
-              <p className="p-create-game">Discover</p>
-            </Link>
-
-            <Link className="p-create-game" to="/game/form/create">
-              <p className="p-create-game">Create Game</p>
-            </Link>
+      <div className="main-container-home">
+        <div className="container-content-home">
+          <SearchBar />
+          <div className="home-slider">
+            <HomeSlider />
           </div>
-        </div>
-        <div className="home-slider">
-          <HomeSlider />
-        </div>
-        <div className="div-home">
-          <MostPopularSlider />
-          <ReleasedLasthMonth />
-          <h1> All Games </h1>
-          <div className="div-home-card">
-            {games.length &&
-              games.map((ele) => {
-                return (
-                  <Card
-                    key={ele.id}
-                    img={ele.background_image}
-                    name={ele.name}
-                    id={ele.id}
-                    rating={ele.rating}
-                    platforms={ele.parent_platforms}
-                    released={ele.released}
-                    genres={ele.genres}
-                  />
-                );
-              })}
+          <div className="div-home">
+            <div className="home-slider-games">
+                <MostPopularSlider />
+                <ReleasedLasthMonth />
+            </div>
+            <div className="div-home-all-games">
+              <h2> All Games </h2>
+              <div className="div-home-card">
+                {games.length &&
+                  games.map((ele) => {
+                    return (
+                      <Card
+                        key={ele.id}
+                        img={ele.background_image}
+                        name={ele.name}
+                        id={ele.id}
+                        rating={ele.rating}
+                        platforms={ele.parent_platforms}
+                        released={ele.released}
+                        genres={ele.genres}
+                      />
+                    );
+                  })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

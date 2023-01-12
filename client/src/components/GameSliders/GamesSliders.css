@@ -1,11 +1,19 @@
-
+.slider-game-container{
+    width: 1200px;
+}
 
 .game-title-slider {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 100%;
     
+}
+
+.game-title-slider h2{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.4;
 }
 
 .games-slider-buttons-container {
@@ -28,7 +36,11 @@
     vertical-align: middle;
     overflow: hidden;
 }
-
+.container-for-sliders-swipers{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
 .prev-popular-colored {
     display:inline-block;
     background: #3c3c3c;

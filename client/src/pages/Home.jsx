@@ -70,10 +70,8 @@ function Home() {
           </div>
           <div className="div-home">
             <div className="home-slider-games">
-           
                 <MostPopularSlider />
                 <ReleasedLasthMonth />
-
             </div>
             <h1> All Games </h1>
             <div className="div-home-card">

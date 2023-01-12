@@ -87,17 +87,4 @@
   padding-top: 250px;
 }
 
-.div-buttoms-home {
-  display: flex;
-  height: 50%;
-  width: auto;
-  gap: 50px;
-  align-items: center
-}
 
-.p-create-game {
-  margin: 0;
-  color: #fff;
-  font-size: 15px;
-  text-decoration: none;
-}

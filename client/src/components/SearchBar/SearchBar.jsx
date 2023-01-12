@@ -13,13 +13,16 @@ export default function SearchBar () {
     return (
         <>
             <div className={Style.searchBar_container}>
-                <Search />
-                <div className="div-buttoms-home">
-                    <Link className="p-create-game" to="/game/create">
+                <div className={Style.search_container}>
+                    <Search />
+                </div>
+                <div className={Style.links_searchBar}>
+                    
+                    <Link className={Style.p_create_game} to="/game/create">
                     <p className="p-create-game">Discover</p>
                     </Link>
 
-                    <Link className="p-create-game" to="/game/form/create">
+                    <Link className={Style.p_create_game} to="/game/form/create">
                     <p className="p-create-game">Create Game</p>
                     </Link>
                 </div>

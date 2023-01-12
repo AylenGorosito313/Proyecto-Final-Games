@@ -10,12 +10,12 @@ const mapGames = async (games) => {
                 name: game.name,
                 background_image: game.background_image,
                 rating: game.rating,
-                // released: game.released,
-                parent_platforms: game.platforms ? game.platform : game.parent_platforms.map(
+                released: game.released,
+                parent_platforms: game.parent_platforms.map(
                     (platform) => platform.platform.name
                 ),
-                // genres: game.genres.map((genre) => genre.name),
-                price: game.price ? game.price : price,
+                genres: game.genres.map((genre) => genre.name),
+                price,
             };
         });
     } catch (error) {

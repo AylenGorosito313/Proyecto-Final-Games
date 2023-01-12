@@ -18,20 +18,18 @@ const getGames = async (req, res) => {
                 model: Genre,
                 atributes: ["name"],
                 through: {
-                    attributes: [], //comprobacion que se hace (mediante los atributos)
+                    attributes: [],
                 },
             },
         });
-        let GamesDB = []
-        let arrayFrom = Array.from(searchGamesDB)
-        arrayFrom.forEach(element => {
+        let GamesDB = [];
+        let arrayFrom = Array.from(searchGamesDB);
+        arrayFrom.forEach((element) => {
             GamesDB.push(element);
         });
-        //le pasamos el path y el page a mapGame
         let response = await paginate("games", page); 
         let mapToGames = await mapGames(response);
-        let mapToToGameDB = await mapGames(GamesDB)
-        console.log(mapToToGameDB);
+        let mapToToGameDB = await mapGames(GamesDB);
         return res.status(200).json([...mapToToGameDB, ...mapToGames]);
     } catch (error) {
         res.status(500).json({
@@ -70,10 +68,8 @@ const searchGame = async (req, res) => {
 const createGame = async (req, res) => {
     const gameInfo = req.body;
     const { userId } = req.params;
-  
-    try {
 
-        console.log(gameInfo )
+    try {
         if (
             !gameInfo.name ||
             !gameInfo.background_image ||
@@ -83,7 +79,7 @@ const createGame = async (req, res) => {
             !gameInfo.description ||
             !gameInfo.genres
         ) {
-            return res.status(300).json({
+            return res.status(400).json({
                 message: "Missing required fields",
             });
         }
@@ -100,7 +96,7 @@ const createGame = async (req, res) => {
                     description: gameInfo.description,
                     trailer: gameInfo.trailer ? gameInfo.trailer : null,
                     platforms: gameInfo.platforms,
-                    createdBy: userId
+                    createdBy: userId,
                 },
             });
             if (create) {
@@ -123,9 +119,6 @@ const createGame = async (req, res) => {
                       ]);
                 await userProvider.save();
                 return res.status(200).json(result);
-                // return res.status(200).json({
-                //     message: "game created successfully",
-                // });
             }
         } else {
             return res

@@ -48,13 +48,13 @@ export const toolkit_prueba = createSlice({
       let price = actions.payload.price;
 
       if (actions.payload.type === "FILTER_BY_GENDER") {
-        state.examinar = state.games.filter((games) =>
+        state.examinar = state.filters.filter((games) =>
           games.genres.includes(genero)
         );
       }
 
       if (actions.payload.type === "FILTER_BY_PLATFORM") {
-        state.examinar = state.games.filter((games) =>
+        state.examinar = state.examinar.filter((games) =>
           games.parent_platforms.includes(platforms)
         );
       }

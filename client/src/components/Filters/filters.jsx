@@ -43,6 +43,8 @@ export default function GameFilters() {
 
 
   const handlerChangePrice= (event) => {
+ let parent_platforms = ["PC", "PlayStation", "Xbox", "Apple Macintosh","Android","Linux","iOS"];
+  const handlerChangePrice = (event) => {
     console.log(event.target.value);
     let prices = event.target.value;
     let actions = {
@@ -51,8 +53,6 @@ export default function GameFilters() {
     };
     dispatch(Filters(actions));
   };
-
-
 
   const handlerChangeOrden = (event) => {
     console.log(event.target.value);

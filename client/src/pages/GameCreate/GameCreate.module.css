@@ -63,10 +63,11 @@ gap: 20px;
 
 .gnreCard{
     font-size: 12px;
-    background: #5469FF;
+    background: #3c3c3d;
     display: flex;
     width: 100px;
     height: 30px;
+    border: none;
     flex-direction: row;
     border-radius: 5px;
     align-items: center;

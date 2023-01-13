@@ -48,20 +48,20 @@ export const toolkit_prueba = createSlice({
       let price = actions.payload.price;
 
       if (actions.payload.type === "FILTER_BY_GENDER") {
-        state.examinar = state.filters.filter((games) =>
+        state.examinar = state.games.filter((games) =>
           games.genres.includes(genero)
         );
       }
 
       if (actions.payload.type === "FILTER_BY_PLATFORM") {
-        state.examinar = state.filters.filter((games) =>
+        state.examinar = state.games.filter((games) =>
           games.parent_platforms.includes(platforms)
         );
       }
 
       if (actions.payload.type === "FILTER_BY_ORDER") {
         if (order === "ASC") {
-          state.examinar = state.filters.sort(function (a, b) {
+          state.examinar = state.examinar.sort(function (a, b) {
             if (a.name < b.name) {
               return -1;
             }
@@ -73,7 +73,7 @@ export const toolkit_prueba = createSlice({
         }
 
         if (order === "DESC") {
-          state.examinar = state.filters.sort(function (a, b) {
+          state.examinar = state.examinar.sort(function (a, b) {
             if (a.name > b.name) {
               return -1;
             }
@@ -88,12 +88,12 @@ export const toolkit_prueba = createSlice({
      
       if (actions.payload.type === "FILTER_BY_PRICE") {
         if (price === "MAYOR") {
-          state.examinar = state.filters.sort(function (a, b) {
+          state.examinar = state.examinar.sort(function (a, b) {
             return b.price - a.price;
           });
         }
         if (price === "LOW") {
-          state.examinar = state.filters.sort(function (a, b) {
+          state.examinar = state.examinar.sort(function (a, b) {
             return a.price - b.price;
           });
         }

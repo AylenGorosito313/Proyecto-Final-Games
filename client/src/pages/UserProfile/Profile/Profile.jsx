@@ -22,7 +22,7 @@ export default function Profile() {
                 <div className={style.div}>
                     <img className={style.img} 
                     src={ 
-                        !userActual ? userActual.profile_img
+                        userActual ? userActual.profile_img
                         : "https://raw.githubusercontent.com/multiavatar/Multiavatar/main/logo.png?v=001"
                     } 
                     alt="photoProfile"
@@ -40,7 +40,7 @@ export default function Profile() {
             <br />
             <div className={style.conteiner}>
                 <div className={style.div}>USERNAME</div>
-            <div className={style.div}>{userActual.name} {userActual.lastName}</div>
+            <div className={style.div}>{userActual ? `${userActual.name} ${userActual.lastName}` : ''}</div>
                 <div className={style.div}>USER LEVEL </div>
                 <div className={style.div}> 🌟 Growing Start</div>
             </div>

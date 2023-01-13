@@ -7,7 +7,7 @@ export default function Proveedor() {
 
   return (
     <div>
-      <div className={style.contenedor}>
+      <div id="up" className={style.contenedor}>
 
         <div className={style.contenedorbtn}>
           <Link className={style.link} to="/profile/profile">
@@ -103,6 +103,10 @@ export default function Proveedor() {
          <p className={style.respuesta}>Products that include the prohibited content listed below may not be posted on the Andromeda store. Content that incites hatred or is discriminatory, pornography, illegal content, content that infringes on intellectual property that you do not own or do not have the rights to use.</p>
          </div> 
           </div>
+      </div>
+      <br/>
+      <div className={style.up}>
+      <button className={style.arriba}><a className={style.link} href="#up"><span>⬆Back to top⬆</span></a></button>
       </div>
       <br/>
       <Footer/>

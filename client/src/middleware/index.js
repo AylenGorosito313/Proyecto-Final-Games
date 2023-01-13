@@ -218,17 +218,17 @@ export const traerPlatforms = () => {
   };
 };
 
-export const LoginUser = ({ email, password }) => {
+export const LoginUser = ({ email, password }, verify) => {
   return async function (dispatch) {
     try {
       let res = await axios({
         method: "POST",
-        data: { email, password },
+        data: { email, password, verify },
         url: "http://localhost:3001/login/user",
       });
       dispatch(responseLogin(res.data));
     } catch (error) {
-      toast.error(error.message, {
+      toast.error(error.request.response, {
         position: "bottom-right",
         duration: 4000,
 

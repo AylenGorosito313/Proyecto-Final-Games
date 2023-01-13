@@ -1,5 +1,6 @@
 import { Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Homepage from "./pages/Homepage/Homepage";
 import Cart from "./components/Cart/Cart";
 import PaymentMP from "./pages/Payment/PaymentMP";
 import NavTop from "./components/Nav/Nav-top";
@@ -27,7 +28,7 @@ function App() {
   ] = `Bearer ${localStorage.getItem("token")}`;
   return (
     <>
-  
+
       <Route path="/user">
         <Route exact path="/user/login" component={Loginn} />
         <Route exact path="/user/register" component={Register} />
@@ -40,6 +41,7 @@ function App() {
 
       <Route path="/home">
         <NavTop />
+        <Route exact path="/home/prueba" component={Homepage} />
         <Route exact path="/home" component={Home} />
         {/* <Route exact path="/home" component={Footer} /> */}
       </Route>

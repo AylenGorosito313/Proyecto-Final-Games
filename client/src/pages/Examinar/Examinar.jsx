@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-
+import SearchBar from "../../components/SearchBar/SearchBar";
 // Components
 import GameFilters from "../../components/Filters/filters";
 import CardsExam from "./CardsExam";
 
 // CSS Styles
+
 import style from "./Examinar.module.css"
 import Loading from "../../components/Loading/Loading";
 
@@ -18,7 +19,10 @@ export default function Examinar() {
   return (
     <>
       <div className={style.main_container_examinar}>
-        
+        <div className={style.divStiky}>
+                <SearchBar />
+        </div>
+
         {isLoader ? (
             <div className={style.loading}>
               <Loading />

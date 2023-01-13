@@ -18,7 +18,7 @@ import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading/Loading";
 import { clearState } from "../reducers/prueba/pruebaSlider";
-import SearchBar from "../components/SearchBar/SearchBar";
+
 
 function Home() {
   const dispatch = useDispatch();
@@ -68,7 +68,7 @@ function Home() {
       <Toaster />
       <div className="main-container-home">
         <div className="container-content-home">
-          <SearchBar />
+          
           <div className="home-slider">
             <HomeSlider />
           </div>
@@ -103,7 +103,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <Footer/>
+
     </>
   );
 }

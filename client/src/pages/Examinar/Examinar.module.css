@@ -46,3 +46,14 @@
 .filters_container{
     float: top;
 }
+
+
+.divStiky{
+    display: flex;
+    width: 100%;
+    position: sticky;
+    background: #121212;
+    top: 0;
+    z-index: 999;
+    justify-content: center;
+}

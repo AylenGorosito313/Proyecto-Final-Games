@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer"
 import Logoproveedor from "../../svg/Logoproveedor";
 import style from "../ProveedorProfile/Proveedor.module.css";
 export default function Proveedor() {
@@ -36,12 +37,12 @@ export default function Proveedor() {
 
             <div className={style.text}>
               <h1 className={style.acheuno}>
-                Llega a más de 100 millones de jugadores autopublicando tu juego
-                en Andromeda.
+              Reach more than 100 million players by self-publishing your game
+                on Andromeda.
               </h1>
               <Link className={style.link} to="/game/dev/form">
               <button className={style.button}>
-                Registrate para ser proveedor
+              Register to become a supplier
               </button>
               </Link>
             
@@ -52,59 +53,59 @@ export default function Proveedor() {
         <div className={style.allcards}>
           <div class={style.card}>
             <img src="https://cdn2.unrealengine.com/pie-face-eb6e2d93bea1.svg?h=960&resize=1&w=1280" />
-            <h2>Reparto de ingresos 88/12</h2>
+            <h2>Revenue sharing 88/12</h2>
             <span>
-              Quédate con el 88 % de los ingresos de tus juegos en lugar de con
-              el 70 %
+            Keep 88 % of your game revenues instead of 70 % of your game revenues
+              70% of
             </span>
           </div>
 
           <div class={style.carddos}>
             <img src="https://cdn2.unrealengine.com/megaphone-bb6349cd4cda.svg?h=960&resize=1&w=1280" />
-            <h2>Apoya a un creador</h2>
+            <h2>Support a creator</h2>
             <span>
-              Conecta con creadores e influencers con millones de seguidores
+            Connect with creators and influencers with millions of followers
             </span>
           </div>
 
           <div class={style.cardtres}>
             <img src="https://cdn2.unrealengine.com/editing-controller-9d4e52e14d9f.svg?h=960&resize=1&w=1280" />
-            <h2>Más control</h2>
+            <h2>More control</h2>
             <span>
-              Ten tu propia página del juego, canal de noticias y una relación
-              directa con tus jugadores
+            Have your own game page, news channel and a direct relationship with your players.
+              direct relationship with your players
             </span>
           </div>
         </div>
        <br/>
-       <h1>Preguntas frecuentes</h1>
+       <h1>Frequently Asked Questions</h1>
 
         <div className={style.contenedorpreguntas}>
 
           <div className={style.contenedorpregunta}>
-          <p className={style.pregunta}>¿Dónde está el truco? ¿El reparto de ingresos del 88 % es un porcentaje especial de inicio? <i class="fa-solid fa-plus fa-xl"></i></p>
-          <p className={style.respuesta}>No hay truco, el reparto del 88 % para el desarrollador es el porcentaje permanente. El 12 % correspondiente a Andromeda cubre los gastos de operación de la tienda y ya nos da beneficios</p>
+          <p className={style.pregunta}> Where's the catch - is the 88% revenue sharing a special start-up percentage?<i class="fa-solid fa-plus fa-xl"></i></p>
+          <p className={style.respuesta}>There is no catch, the 88 % share for the developer is the permanent percentage. The 12 % for Andromeda covers the operating costs of the store and already gives us profit.</p>
          </div> 
             
     
          <div className={style.contenedorpregunta}>
-         <p className={style.pregunta}> ¿Qué métodos de pago se admiten? <i class="fa-solid fa-plus fa-xl"></i></p>
-         <p className={style.respuesta}>Andromeda admite tarjetas de crédito, PayPal y una gran variedad de métodos de pago alternativos. Alrededor del 80 % de las transacciones de la tienda se realizan con tarjetas de crédito o PayPal. El 20 % restante corresponde a métodos de pago alternativos, sobre todo en países en los que las tarjetas de crédito no están tan extendidas.</p>
+         <p className={style.pregunta}> What payment methods are supported? <i class="fa-solid fa-plus fa-xl"></i></p>
+         <p className={style.respuesta}>Andromeda supports credit cards, PayPal and a variety of alternative payment methods. About 80% of the store's transactions are made with credit cards or PayPal. The remaining 20% are alternative payment methods, especially in countries where credit cards are not as widespread.</p>
          </div> 
 
          <div className={style.contenedorpregunta}>
-         <p className={style.pregunta}> ¿Qué se necesita para publicar un juego? <i class="fa-solid fa-plus fa-xl"></i></p>
-         <p className={style.respuesta}>Los títulos con funcionalidad multijugador deben ser compatibles con el juego multiplataforma en todas las tiendas de PC. Los usuarios esperan poder jugar con sus amigos en la misma plataforma, y no cumplir esa expectativa empobrecería mucho la experiencia de los clientes. Puedes usar cualquier solución para incluir el juego.</p>
+         <p className={style.pregunta}> What does it take to publish a game? <i class="fa-solid fa-plus fa-xl"></i></p>
+         <p className={style.respuesta}>Titles with multiplayer functionality must support cross-platform play on all PC stores. Users expect to be able to play with their friends on the same platform, and not meeting that expectation would greatly impoverish the customer experience. You can use any solution to include the game.</p>
          </div> 
 
          <div className={style.contenedorpregunta}>
-         <p className={style.pregunta}> ¿Qué contenido está prohibido? <i class="fa-solid fa-plus fa-xl"></i></p>
-         <p className={style.respuesta}>Los productos que incluyan el contenido prohibido mencionado a continuación no podrán publicarse en Andromeda store. Contenido que incite al odio o sea discriminatorio, pornografía, contenido ilegal, contenido que infringe una propiedad intelectual que no te pertenece o sobre la que no tienes los derechos de uso.</p>
+         <p className={style.pregunta}> What content is prohibited?<i class="fa-solid fa-plus fa-xl"></i></p>
+         <p className={style.respuesta}>Products that include the prohibited content listed below may not be posted on the Andromeda store. Content that incites hatred or is discriminatory, pornography, illegal content, content that infringes on intellectual property that you do not own or do not have the rights to use.</p>
          </div> 
-
-  
           </div>
       </div>
+      <br/>
+      <Footer/>
     </div>
  
   ); 

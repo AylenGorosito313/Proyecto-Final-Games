@@ -8,6 +8,7 @@ const { Genre } = require("../models/genres");
 const getGamePopularOrReleased = require("../utils/getGamePopular");
 const { Users } = require("../models/users");
 const { Providers } = require("../models/providers");
+const getGamesForExaminar = require("../utils/getGamesForExaminar");
 
 //obtener games 20 por pagina
 const getGames = async (req, res) => {
@@ -27,7 +28,7 @@ const getGames = async (req, res) => {
         arrayFrom.forEach((element) => {
             GamesDB.push(element);
         });
-        let response = await paginate("games", page); 
+        let response = await paginate("games", page);
         let mapToGames = await mapGames(response);
         let mapToToGameDB = await mapGames(GamesDB);
         return res.status(200).json([...mapToToGameDB, ...mapToGames]);
@@ -41,10 +42,17 @@ const getGames = async (req, res) => {
 //obtener la informacion de un juego junto con el trailer
 const gameInformation = async (req, res) => {
     const { id } = req.params;
+    const uuidRegex =
+        /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
     try {
-        let gameInfo = await apiClient(`games/${id}`);
-        let response = await gameTrailer([gameInfo], id);
-        return res.status(200).json(...response);
+        if (uuidRegex.test(id)) {
+            let gameDB = await Game.findByPk(id);
+            return res.status(200).json(gameDB);
+        } else {
+            let gameInfo = await apiClient(`games/${id}`);
+            let response = await gameTrailer([gameInfo], id);
+            return res.status(200).json(...response);
+        }
     } catch (error) {
         return res.status(404).json({
             error: error.message,
@@ -96,6 +104,7 @@ const createGame = async (req, res) => {
                     description: gameInfo.description,
                     trailer: gameInfo.trailer ? gameInfo.trailer : null,
                     platforms: gameInfo.platforms,
+                    parent_platforms: gameInfo.platforms,
                     createdBy: userId,
                 },
             });
@@ -156,6 +165,15 @@ const releasedLastMonth = async (req, res) => {
 //https://api.rawg.io/api/games?dates=2023-12-01,2023-12-30
 //https://api.rawg.io/api/games/{game_pk}/development-team
 
+const GamesExaminar = async (req, res) => {
+    try {
+        let results = await getGamesForExaminar()
+        res.status(200).json(results)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     gameInformation,
     getGames,
@@ -163,4 +181,5 @@ module.exports = {
     createGame,
     mostPopularGames,
     releasedLastMonth,
+    GamesExaminar
 };

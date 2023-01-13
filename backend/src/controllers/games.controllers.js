@@ -7,15 +7,31 @@ const { Game } = require("../models/games");
 const { Genre } = require("../models/genres");
 const getGamePopularOrReleased = require("../utils/getGamePopular");
 const { Users } = require("../models/users");
+const { Providers } = require("../models/providers");
+const getGamesForExaminar = require("../utils/getGamesForExaminar");
 
 //obtener games 20 por pagina
 const getGames = async (req, res) => {
     const { page } = req.query;
     try {
-        //le pasamos el path y el page a mapGame
+        let searchGamesDB = await Game.findAll({
+            include: {
+                model: Genre,
+                atributes: ["name"],
+                through: {
+                    attributes: [],
+                },
+            },
+        });
+        let GamesDB = [];
+        let arrayFrom = Array.from(searchGamesDB);
+        arrayFrom.forEach((element) => {
+            GamesDB.push(element);
+        });
         let response = await paginate("games", page);
         let mapToGames = await mapGames(response);
-        return res.status(200).json(mapToGames);
+        let mapToToGameDB = await mapGames(GamesDB);
+        return res.status(200).json([...mapToToGameDB, ...mapToGames]);
     } catch (error) {
         res.status(500).json({
             error: error.message,
@@ -26,10 +42,17 @@ const getGames = async (req, res) => {
 //obtener la informacion de un juego junto con el trailer
 const gameInformation = async (req, res) => {
     const { id } = req.params;
+    const uuidRegex =
+        /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
     try {
-        let gameInfo = await apiClient(`games/${id}`);
-        let response = await gameTrailer([gameInfo], id);
-        return res.status(200).json(...response);
+        if (uuidRegex.test(id)) {
+            let gameDB = await Game.findByPk(id);
+            return res.status(200).json(gameDB);
+        } else {
+            let gameInfo = await apiClient(`games/${id}`);
+            let response = await gameTrailer([gameInfo], id);
+            return res.status(200).json(...response);
+        }
     } catch (error) {
         return res.status(404).json({
             error: error.message,
@@ -53,6 +76,7 @@ const searchGame = async (req, res) => {
 const createGame = async (req, res) => {
     const gameInfo = req.body;
     const { userId } = req.params;
+
     try {
         if (
             !gameInfo.name ||
@@ -63,14 +87,14 @@ const createGame = async (req, res) => {
             !gameInfo.description ||
             !gameInfo.genres
         ) {
-            return res.status(300).json({
+            return res.status(400).json({
                 message: "Missing required fields",
             });
         }
         const searchUser = await Users.findByPk(userId);
         let userIsProvider = searchUser.proveedor;
         if (userIsProvider) {
-            const [result, create] = await Game.findOrCreate({
+            let [result, create] = await Game.findOrCreate({
                 where: {
                     name: gameInfo.name,
                     background_image: gameInfo.background_image,
@@ -79,6 +103,9 @@ const createGame = async (req, res) => {
                     platforms: gameInfo.platforms,
                     description: gameInfo.description,
                     trailer: gameInfo.trailer ? gameInfo.trailer : null,
+                    platforms: gameInfo.platforms,
+                    parent_platforms: gameInfo.platforms,
+                    createdBy: userId,
                 },
             });
             if (create) {
@@ -88,9 +115,19 @@ const createGame = async (req, res) => {
                     },
                 });
                 result.addGenres(genreByGame);
-                return res.status(200).json({
-                    message: "game created successfully",
+                let userProvider = await Providers.findOne({
+                    where: {
+                        userId,
+                    },
                 });
+                userProvider.videoGamesPropor.length === 0
+                    ? (userProvider.videoGamesPropor = [gameInfo])
+                    : (userProvider.videoGamesPropor = [
+                          ...userProvider.videoGamesPropor,
+                          gameInfo,
+                      ]);
+                await userProvider.save();
+                return res.status(200).json(result);
             }
         } else {
             return res
@@ -128,6 +165,15 @@ const releasedLastMonth = async (req, res) => {
 //https://api.rawg.io/api/games?dates=2023-12-01,2023-12-30
 //https://api.rawg.io/api/games/{game_pk}/development-team
 
+const GamesExaminar = async (req, res) => {
+    try {
+        let results = await getGamesForExaminar()
+        res.status(200).json(results)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     gameInformation,
     getGames,
@@ -135,4 +181,5 @@ module.exports = {
     createGame,
     mostPopularGames,
     releasedLastMonth,
+    GamesExaminar
 };

@@ -1,0 +1,33 @@
+.dev-form-main-container {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    font-family: "Poppins", sans-serif;
+    justify-content: center;
+    flex-direction: column
+}
+
+.dev-form-wrapper {
+    display:flex;
+    padding: 0 2rem;
+    align-items: center;
+    width: 1200px;
+    flex-direction: column;
+    justify-content: center;
+ }
+
+ .form-container {
+        padding: 0 1em;
+        width: 100%;
+        margin-top: 50px;
+ }
+
+ .dev-form-loading{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+ }

@@ -1,34 +1,97 @@
-.conteiner{
-    background-color: #212529;
-    width: 90%;
+.center{
     display: flex;
-    flex-direction: row;
-    border-radius: 15px;
-    position: relative;
-    margin: 0 auto;
-    
+    align-items: flex-end;
+    justify-content: center;
 }
 
-.imgC{
+.conteiner{
     display: flex;
-    width: 190px;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    padding: 15px;
+    background-color: #212529;
+    border-radius: 18px;
+    height: 130px
+}
+
+.div{
+    display: flex;
+    align-items: flex-start;
+    align-content:flex-start;
+    width: 200px;
+    height: 100px;
+    font-size: 17px;
+    font-family: poppins;
+    position: relative;
 }
 
 .img{
-    margin: 15px 0 15px 15px;
+    display: inline;
     border-radius: 7px;
 }
 
-.inf{
-    display: flex;
-    justify-content: space-between; 
-    width: 800px;
-    margin-top: 45px;
+.li {
+    text-decoration: none;
+    color: white;
+    font-family: poppins;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+  
+.li:focus,
+.li:hover {
+    color: #ffd166;
+}
+  
+.li:focus:after,
+.li:hover:after {
+    width: 100%;
+    left: 0%;
+}
+  
+.li:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #ffd166;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
 }
 
-.p{
-    display: flex;
-    width: 220px;
-    justify-content:flex-start;
+.button {
+    font-family: poppins;
+    font-size: 20px;
+    font-weight: 400;
+    height: 50px;
+    width: 100px;
+    border: 0px solid;
+    background-image: linear-gradient(45deg,#ef233c, #ef233c, #ef233c);
+    background-size: 500% 400%;
+    color: white;
+    border-radius: 50px;
+    transition: 0.6s all;
 }
-
+   
+.button:hover {
+    background-position: 75% 50%;
+    transform: perspective(100px);
+    background-image: linear-gradient(45deg,#48bfe3, #48bfe3, #48bfe3);
+}
+   
+.button:active {
+    transform: scale(1);
+    transition: 0.1s;
+}

@@ -1,0 +1,151 @@
+.container-succes{
+    width: 30%;
+    height: 50%;
+    color: #000;
+    gap: 30px;
+    z-index: 3;
+    display: flex;
+    background: #fff;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0px 1px 12px #726f6f31, 1px 1px 20px #2b2a2a;
+    border-radius: 10px;
+    flex-direction: column;
+  }
+  .logo-scss{
+    display: flex;
+    padding: 20px;
+  }
+  .fondo-scss {
+    position: absolute;
+    z-index: 1;
+  }
+  .img-scss-payment {
+    height: 103vh;
+    width: 200vh;
+    opacity: 0.8;
+  }
+  .text-scss {
+    display: flex;
+    height: 20%;
+    width: 90%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  
+  .p-scss {
+    margin: 0;
+    display: grid;
+    font-size: 1.6vh;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+  }
+  .link-payment-sucss {
+    text-decoration: none;
+    margin: 0;
+    font-family: "JetBrains Mono", monospace;
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+    height: 93vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      45deg,
+      rgb(31, 29, 29),
+      rgb(15, 15, 17),
+      rgb(26, 23, 29),
+      rgb(28, 28, 29)
+    );
+    background-size: 400% 400%;
+    position: relative;
+    animation: cambiar 9s ease-in-out infinite;
+    overflow-y: hidden;
+    display: flex;
+  }
+  @keyframes cambiar {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+  
+  .buttons-sucss {
+    display: flex;
+    gap: 20px;
+    width: 30vh;
+    flex-direction: column;
+  }
+  
+  .volver-home-div {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+
+
+  
+  .contact-div-payment-succss {
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .p-scs-return {
+    margin: 0;
+    font-size: 14px;
+    display: grid;
+    text-align: center;
+    color: rgb(42 42 42);
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .p-scs-return:hover {
+    color:#3d3e41;
+  }
+  
+  
+  @media (max-width: 900px) {
+    .text-scss-div {
+      display: none;
+    }
+    .container-succes-pay {
+      gap: 60px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .button-30 {
+      width: 110px;
+      font-size: 10px;
+    }
+    .button-29 {
+      width: 110px;
+      font-size: 10px;
+    }
+    .buttons-payment-sucss {
+      display: flex;
+      gap: 20px;
+      width: 30vh;
+      flex-direction: column;
+      align-items: center;
+    }
+    .p-scs-return {
+      font-size: 10px;
+    }
+  }
+  

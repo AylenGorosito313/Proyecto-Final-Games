@@ -14,10 +14,13 @@ const initialState = {
   payment: {
     link: "",
   },
+
   res: {
     cart: "",
     login: "",
     register: "",
+    created: "",
+    provider: {},
   },
   isLoader: false,
   userActual: {},
@@ -86,15 +89,13 @@ export const toolkit_prueba = createSlice({
       if (actions.payload.type === "FILTER_BY_PRICE") {
         if (price === "MAYOR") {
           state.examinar = state.examinar.sort(function (a, b) {
-              return b.price- a.price;
-            });
-       
+            return b.price - a.price;
+          });
         }
         if (price === "LOW") {
           state.examinar = state.examinar.sort(function (a, b) {
-              return a.price - b.price;
-            });
-        
+            return a.price - b.price;
+          });
         }
       }
 
@@ -119,11 +120,23 @@ export const toolkit_prueba = createSlice({
     responseRegister: (state, actions) => {
       state.res = { ...state.res, register: actions.payload };
     },
-    responseAddCart: (state, actions) => {
-      state.res = { ...state.res, cart: actions.payload };
+    providerResponseEnable: (state, actions) => {
+      state.res = { ...state.res, provider: actions.payload };
     },
+    responseAddCart: (state, actions) => {
+      let verify = actions.payload.split(" ")[actions.length - 1];
+      if (verify === "400") {
+        state.res = { ...state.res, cart: `You can't add repeat games` };
+      } else {
+        state.res = {
+          ...state.res,
+          cart: `You must login or register to add games to cart`,
+        };
+      }
+    },
+
     GameCreate: (state, actions) => {
-      state.games = [...actions.payload];
+      state.res = { ...state.res, created: actions.payload };
     },
     responseLogin: (state, actions) => {
       state.res = { ...state.res, login: actions.payload };
@@ -160,6 +173,7 @@ export const toolkit_prueba = createSlice({
     },
   },
 });
+
 export const {
   addUser,
   getAllGames,
@@ -181,10 +195,12 @@ export const {
   getUserActual,
   getItemsUser,
   cleanDetails,
-  getAllFilter,
+
   responseAddCart,
   Filters,
   getExaminar,
+
+  providerResponseEnable,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

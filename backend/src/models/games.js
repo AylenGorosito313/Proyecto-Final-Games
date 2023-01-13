@@ -13,7 +13,7 @@ const Game = sequelize.define("game", {
         allowNull: false,
     },
     background_image: {
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
         validator:{
             isUrl: true
@@ -26,6 +26,10 @@ const Game = sequelize.define("game", {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },
+    parent_platforms: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: false
+    },
     price: {
         type: DataTypes.DECIMAL,
         defaultValue: 0.00
@@ -35,13 +39,21 @@ const Game = sequelize.define("game", {
         allowNull: false
     },
     trailer: {
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true
+    },
+    createdBy:{
+        type: DataTypes.STRING,
+        defaultValue: null
     }
+
 }, {freezeTableName: true});
 
 Game.belongsToMany(Genre, { through: "game_genre" })
 Genre.belongsToMany(Game, { through: "game_genre" })
+
+// Game.belongsToMany(Platforms, { through: "platfom_game" })
+// Platforms.belongsToMany(Game, { through: "platfom_game" })
 
 
 module.exports = { Game };

@@ -1,28 +1,32 @@
 import React from "react";
 import style from "../Card/Card.module.css";
-import i from "./elipsis.png";
+import { Link } from "react-router-dom";
+import { platformImage } from "../../../CardDetail/utils/utils";
 
-export default function CardProfile(props) {
+export default function Card(props) {
     return (
-        <div>
+        <div className={style.center}>
             <div className={style.conteiner}>
-                <div className={style.imgC}>
-                    <img
-                        className={style.img}
-                        src={props.image}
-                        alt={props.name}
-                        width="150px"
-                        height="90px"
-                    />
+                <div className={style.div}>
+                    <Link className={style.li} to={`/game/${props.id}`}>
+                        <img className={style.img} src={props.image}  alt={props.name} width="150px" height="90px" />
+                    </Link>
                 </div>
-                <div className={style.inf}>
-                    <h3 className={style.p}>{props.name}</h3>
-                    <div className={style.p}>
-                        Download <i class="fa-solid fa-download"></i>
-                    </div>
-                    <div className={style.p}>
-                        Details <img src={i} alt="elipsis" />
-                    </div>
+                <div className={style.div}>{props.name}</div>
+                <div className={style.div}>
+                        {
+                        props.platforms ? props.platforms.slice(0,3).map( el => (
+                            <span key={el}> 
+                                {platformImage(el)} 
+                            </span>
+                        )) : 
+                        <span>No available for plataforms</span>}
+                </div>
+                <div className={style.div}>
+                    <i class="fa-solid fa-download"></i> 
+                </div>
+                <div >
+                  <button className={style.button}>🗑️</button>
                 </div>
             </div>
             <br />

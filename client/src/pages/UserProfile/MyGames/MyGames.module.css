@@ -1,20 +1,22 @@
 .nav{
     display: flex;
-    width: 800px;
-    margin-left: 350px;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .ul{
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    padding: 15px;
 }
 
 .title{
     display: flex;
-    margin-right: 240px;
-}
-
-.conteiner{
-    width: 80%;
-    position: relative;
-    margin: 0 auto;
+    align-items: flex-start;
+    align-content: space-around;
+    width: 200px;
+    font-family: poppins;
+    font-size: 20px;
 }

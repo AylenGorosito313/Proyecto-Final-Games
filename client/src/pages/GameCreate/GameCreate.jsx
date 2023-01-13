@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { Link, useHistory } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
+import CreateSuccess from "./SuccessCreate/CreateSuccess";
 import "./Buttons.css";
 import UploadVideogame from "../../components/UploadImage/Unpload-GameCreate/UnploadVideogames";
-
+import UnploadGameArchive from "../../components/UploadImage/Unpload-GameCreate/UnploadGameArchive";
 import { useDispatch, useSelector } from "react-redux";
 import { CreateGame, traerGenero, traerPlatforms } from "../../middleware";
+import ArrowBack from "../../svg/botones/ArrowBack";
 import style from "../GameCreate/GameCreate.module.css";
 import UploadGameCreate from "../../components/UploadImage/Unpload-GameCreate/Unpload-GameCreate";
 export default function GameCreate() {
   const dispatch = useDispatch();
-
-  const { genre, platforms } = useSelector((state) => state.prueba);
+  const { genre, platforms, res } = useSelector((state) => state.prueba);
+  const [Created, setCreated] = useState(false);
   const [Price, setPrice] = useState(false);
+  const navigate = useHistory();
   const [gender, setGender] = useState({
     genere: [],
   });
@@ -34,13 +39,31 @@ export default function GameCreate() {
     },
     mode: "onChange",
   });
+  let trailer = "";
+  let gameArchive = "";
+  let background_image  = "";
+
+  const UnploadTrailer = (Urltrailer) => {
+    trailer = Urltrailer;
+  };
+
+  const UnploadImages = (ImagesURL) => {
+    background_image  = ImagesURL;
+  };
+  const UnploadArchive = (archive) => {
+    gameArchive = archive;
+  };
 
   const onSubmit = async (data) => {
-    let genre = gender.genere;
+    let userId = localStorage.getItem("id");
+    let genres = gender.genere;
     let platforms = platform.platformarray;
-    console.log({ ...data, platforms, genre });
-    dispatch(CreateGame({ ...data, platforms, genre }));
+    let gameInfo = { ...data, platforms, genres, trailer, background_image  };
+    console.log(gameInfo);
+    dispatch(CreateGame(gameInfo, userId));
+    setCreated(true);
   };
+
 
   const handlerGender = (event) => {
     if (!gender.genere.includes(event.target.value)) {
@@ -82,17 +105,27 @@ export default function GameCreate() {
       platformarray: platform.platformarray.filter((plat) => plat !== event),
     });
   };
-  console.log(gender);
-  console.log(platform);
 
   useEffect(() => {
     dispatch(traerGenero());
     dispatch(traerPlatforms());
   }, []);
 
+  if (res.created) {
+    return (
+    <CreateSuccess />
+    );
+  }
   return (
     <>
       <div className={style.headerDiv}>
+        <div className={style.backhome}>
+          <ArrowBack />
+          <Link className={style.pLink} to={"/home"}>
+            <p className={style.pLink}> Back to home </p>
+          </Link>
+        </div>
+
         <h1 className={style.h1Header}> Unpload your game </h1>
       </div>
 
@@ -179,20 +212,25 @@ export default function GameCreate() {
             <select className={style.Select} onChange={handlerPlatforms}>
               {platforms &&
                 platforms.map((p, i) => (
-                  <option value={p} key={i}>
+                  <option className={style.gnreCard} value={p} key={i}>
                     {p}
                   </option>
                 ))}
             </select>
           </div>
-          {platform.platformarray.map((el, i) => (
-            <div key={i}>
-              <p>{el}</p>
-              <button className="" onClick={() => handleDeletedos(el)}>
-                X
-              </button>
-            </div>
-          ))}
+          <div className={style.gnreContairner}>
+            {platform.platformarray.map((el, i) => (
+              <div className={style.gnreCard} key={i}>
+                <p className={style.gnreP}> {el}</p>
+                <button
+                  className={style.gnreButton}
+                  onClick={() => handleDeletedos(el)}
+                >
+                  X
+                </button>
+              </div>
+            ))}
+          </div>
 
           <div className={style.checkBoxDIV}>
             <label className={style.labels}>
@@ -224,8 +262,9 @@ export default function GameCreate() {
           </button>
         </form>
         <div className={style.unploadDiv}>
-          <UploadVideogame />
-          <UploadGameCreate />
+          <UploadVideogame UnploadTrailer={UnploadTrailer} />
+          <UploadGameCreate UnploadImages={UnploadImages} />
+          <UnploadGameArchive UnploadArchive={UnploadArchive} />
         </div>
       </div>
     </>

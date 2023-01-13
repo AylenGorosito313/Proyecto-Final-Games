@@ -85,7 +85,7 @@ export const toolkit_prueba = createSlice({
         }
       }
 
-      console.log(actions.payload.type);
+     
       if (actions.payload.type === "FILTER_BY_PRICE") {
         if (price === "MAYOR") {
           state.examinar = state.filters.sort(function (a, b) {
@@ -97,10 +97,8 @@ export const toolkit_prueba = createSlice({
             return a.price - b.price;
           });
         }
-      }
 
-      if(state.examinar.length < 0 ){
-        state.examinar = state.filters
+       
       }
     },
 

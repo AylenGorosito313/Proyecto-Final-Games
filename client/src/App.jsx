@@ -18,6 +18,7 @@ import Proveedor from "./pages/ProveedorProfile/Proveedor";
 import GameDevForm from "./pages/GameDevForm/GameDevForm";
 
 import Footer from "./components/Footer/Footer";
+import ProveedorProfile from "./pages/ProveedorProfile/Profile/ProveedorProfile";
 
 function App() {
   axios.defaults.headers.common[
@@ -61,7 +62,8 @@ function App() {
 
       <Route exact path="/proveedor">
                 <Proveedor/>
-        </Route> 
+      </Route>
+      <Route exact path="/provedor/profile" component={ProveedorProfile} /> 
     </>
   );
 }

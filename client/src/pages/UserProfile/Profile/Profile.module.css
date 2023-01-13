@@ -1,9 +1,9 @@
 .conteiner{
     display: flex;
     justify-content: space-around;
-    padding-left: 150px;
+    padding-left: 40px;
     padding-top: 50px;
-    width: 1480px;
+    width: 90%;
     height: 150px;
     align-items: center;
 }
@@ -14,7 +14,7 @@
     align-content: center;
     width: 200px;
     height: 100px;
-    font-size: 21px;
+    font-size: 20px;
 }
 
 .img{
@@ -62,10 +62,8 @@ button:hover span {
     max-width: 190px;
     height: 20px;
     padding: 10px;
-    /* text-align: center; */
     border: 2px solid white;
     border-radius: 5px;
-    /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
 }
   
 .input:focus {
@@ -77,16 +75,14 @@ button:hover span {
     transition-property: box-shadow;
 }
 
-.select{
+/* .select{
     background-color: #212121;
     font-family: poppins;
     max-width: 190px;
     height: 40px;
     padding: 10px;
-    /* text-align: center; */
     border: 2px solid white;
     border-radius: 5px;
-    /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
 }
   
 .select:focus {
@@ -96,4 +92,4 @@ button:hover span {
     box-shadow: -3px -3px 15px rgb(0, 255, 255);
     transition: .1s;
     transition-property: box-shadow;
-}
+} */

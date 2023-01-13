@@ -32,21 +32,21 @@
     border-radius: 10px;
 }
   
-button svg {
+.button svg {
     margin-right: 1px;
     transform: rotate(30deg);
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
   
-button span {
+.button span {
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
   
-button:hover svg {
+.button:hover svg {
     transform: translateX(5px) rotate(90deg);
 }
   
-button:hover span {
+.button:hover span {
     transform: translateX(7px);
 }
 

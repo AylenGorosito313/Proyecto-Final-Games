@@ -4,25 +4,25 @@ import style from "./Examinar.module.css"
 import { getGames, isLoading } from "../../middleware";
 import Card from "../../components/Cards/Cards";
 import { useDispatch, useSelector } from "react-redux";
-
+import { getForFilters } from "../../middleware";
 export default function CardsExam() {
-  const { examinar } = useSelector((state) => state.prueba);
+  const { filters,examinar } = useSelector((state) => state.prueba);
    let dispatch = useDispatch()
   
   
    useEffect(() => {
-    dispatch(getGames());
+    dispatch(getForFilters());
     
       dispatch(isLoading());
-  }, []);
+  }, [filters.length]);
 
   return (
     <div className={style.cards_container}>
       {examinar.length &&
         examinar.map((ele) => {
           return (
-            <Card
-              key={ele.id}
+            <Card 
+              key={ele.id+ele.price}
               img={ele.background_image}
               name={ele.name}
               id={ele.id}

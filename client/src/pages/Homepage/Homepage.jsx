@@ -10,14 +10,14 @@ export default function Homepage() {
       <div className={style.divStiky}>
         <SearchBar />
       </div>
+<div className={style.separador}>
 
+</div>
       <div>
         <Home />
       </div>
 
-      {/* <div className={style.footer}>
-        <Footer />
-      </div> */}
+
     </div>
   );
 }

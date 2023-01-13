@@ -19,23 +19,38 @@ import {
   cleanDetails,
   getPlatforms,
   responseAddCart,
-  getExaminar
+  getExaminar,
 } from "../reducers/prueba/pruebaSlider";
-
+// localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
-    return async function (dispatch) {
-        try {
-            dispatch(isLoading());
-            let { data } = await axios({
-                method: "GET",
-                url: `http://localhost:3001/games`,
-            });
-            dispatch(getExaminar(data));
-            dispatch(getAllGames(data));
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
+  return async function (dispatch) {
+    try {
+      dispatch(isLoading());
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/games`,
+      });
+     
+      dispatch(getAllGames(data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+export const getForFilters = () => {
+  return async function (dispatch) {
+    try {
+      dispatch(isLoading());
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/games/filters/examinar/routes`,
+      });
+      console.log(data)
+      dispatch(getExaminar(data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 };
 
 export const isLoading = () => {
@@ -130,18 +145,18 @@ export const createUser = ({ name, lastName, email, password }) => {
 };
 
 export const enableProvider = (id) => {
-  return async function(dispatch) {
+  return async function (dispatch) {
     try {
       dispatch(isLoading());
       let { data } = await axios({
         method: "POST",
-        url: `http://localhost:3001/user/provider/create/${id}`
-      })
-      dispatch(providerResponseEnable(data))
+        url: `http://localhost:3001/user/provider/create/${id}`,
+      });
+      dispatch(providerResponseEnable(data));
       setTimeout(() => {
         dispatch(isLoading());
       }, 2000);
-    } catch (error){
+    } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",
         duration: 4000,
@@ -153,12 +168,12 @@ export const enableProvider = (id) => {
         },
       });
     }
-  }
-}
+  };
+};
 
 // -------------------------------------------------
 
-export const CreateGame = (gameInfo,userId) => {
+export const CreateGame = (gameInfo, userId) => {
   return async function (dispatch) {
     try {
       let res = await axios({
@@ -166,7 +181,7 @@ export const CreateGame = (gameInfo,userId) => {
         data: gameInfo,
         url: `http://localhost:3001/game/create/${userId}`,
       });
-      console.log(res.data)
+      console.log(res.data);
       dispatch(GameCreate(res.data));
     } catch (error) {
       toast.error(error.message, {
@@ -360,6 +375,5 @@ export const deletedDetails = () => {
     dispatch(cleanDetails());
   };
 };
-
 
 // crear

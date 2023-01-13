@@ -7,27 +7,24 @@ import CardsExam from "./CardsExam";
 import Footer from "../../components/Footer/Footer";
 // CSS Styles
 
-import style from "./Examinar.module.css"
+import style from "./Examinar.module.css";
 import Loading from "../../components/Loading/Loading";
 
 export default function Examinar() {
-
-  const { isLoader } = useSelector( state => state.prueba)
-
-
+  const { isLoader } = useSelector((state) => state.prueba);
 
   return (
     <>
       <div className={style.main_container_examinar}>
         <div className={style.divStiky}>
-                <SearchBar />
+          <SearchBar />
         </div>
-
+        <div className={style.separador}></div>
         {isLoader ? (
-            <div className={style.loading}>
-              <Loading />
-              </div>
-          ) : (
+          <div className={style.loading}>
+            <Loading />
+          </div>
+        ) : (
           <div className={style.cards_main_container}>
             <div className={style.left_container}>
               <CardsExam />

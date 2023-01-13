@@ -6,7 +6,7 @@ const initialState = {
   examinar: [],
   popularGames: [],
   gamesReleasedLasthMonth: [],
-
+  filters: [],
   gameDetail: {},
   genre: [],
   cart: [],
@@ -39,7 +39,7 @@ export const toolkit_prueba = createSlice({
     },
 
     getExaminar: (state, actions) => {
-      state.examinar = [...actions.payload];
+      state.filters = [...actions.payload];
     },
     Filters: (state, actions) => {
       let genero = actions.payload.gender;
@@ -48,20 +48,20 @@ export const toolkit_prueba = createSlice({
       let price = actions.payload.price;
 
       if (actions.payload.type === "FILTER_BY_GENDER") {
-        state.examinar = state.examinar.filter((games) =>
+        state.examinar = state.filters.filter((games) =>
           games.genres.includes(genero)
         );
       }
 
       if (actions.payload.type === "FILTER_BY_PLATFORM") {
-        state.examinar = state.examinar.filter((games) =>
+        state.examinar = state.filters.filter((games) =>
           games.parent_platforms.includes(platforms)
         );
       }
 
       if (actions.payload.type === "FILTER_BY_ORDER") {
         if (order === "ASC") {
-          state.examinar = state.examinar.sort(function (a, b) {
+          state.examinar = state.filters.sort(function (a, b) {
             if (a.name < b.name) {
               return -1;
             }
@@ -73,7 +73,7 @@ export const toolkit_prueba = createSlice({
         }
 
         if (order === "DESC") {
-          state.examinar = state.examinar.sort(function (a, b) {
+          state.examinar = state.filters.sort(function (a, b) {
             if (a.name > b.name) {
               return -1;
             }
@@ -88,18 +88,20 @@ export const toolkit_prueba = createSlice({
       console.log(actions.payload.type);
       if (actions.payload.type === "FILTER_BY_PRICE") {
         if (price === "MAYOR") {
-          state.examinar = state.examinar.sort(function (a, b) {
+          state.examinar = state.filters.sort(function (a, b) {
             return b.price - a.price;
           });
         }
         if (price === "LOW") {
-          state.examinar = state.examinar.sort(function (a, b) {
+          state.examinar = state.filters.sort(function (a, b) {
             return a.price - b.price;
           });
         }
       }
 
-      console.log(state.examinar);
+      if(state.examinar.length < 0 ){
+        state.examinar = state.filters
+      }
     },
 
     getDetail: (state, actions) => {

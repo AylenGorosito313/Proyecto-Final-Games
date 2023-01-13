@@ -192,15 +192,15 @@ background: #3e3b3b;
 .rendered_container_gender_options {
   width: 100%;
   display: none;
-  transition: 3s linear;
-  transition: 2s ease-in-out;
+  
+  transition: all .5s linear;
 }
 
 .expand_container_gender_options {
   width: 100%;
   
   display: inline;
-  transition-duration: 2400ms;
+  transition: all .5s linear;
 }
 
 .expand_container_gender_options:hover {

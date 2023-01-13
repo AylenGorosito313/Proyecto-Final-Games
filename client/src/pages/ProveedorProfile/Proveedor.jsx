@@ -35,7 +35,7 @@ export default function Proveedor() {
             </div>
 
             <div className={style.text}>
-              <h1>
+              <h1 className={style.acheuno}>
                 Llega a más de 100 millones de jugadores autopublicando tu juego
                 en Andromeda.
               </h1>

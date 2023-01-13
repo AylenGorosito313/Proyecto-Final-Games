@@ -42,6 +42,7 @@ export const toolkit_prueba = createSlice({
       let genero = actions.payload.gender;
       let platforms = actions.payload.platform;
       let order = actions.payload.order;
+      let price = actions.payload.price;
       if (actions.payload.type === "FILTER_BY_GENDER") {
         state.examinar = state.examinar.filter((games) =>
           games.genres.includes(genero)
@@ -81,18 +82,19 @@ export const toolkit_prueba = createSlice({
       }
 
       if (actions.payload.type === "FILTER_BY_PRICE") {
-        if (order === "MAYOR") {
+        if (price === "MAYOR") {
           state.examinar = state.examinar.sort(function (a, b) {
-            return b.poblacion - a.poblacion;
-          });
+              return b.price- a.price;
+            });
+       
         }
-        if (order === "LOW") {
+        if (price === "LOW") {
           state.examinar = state.examinar.sort(function (a, b) {
-            return a.poblacion - b.poblacion;
-          });
+              return a.price - b.price;
+            });
+        
         }
       }
-
 
       console.log(state.examinar);
     },

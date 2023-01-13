@@ -48,10 +48,13 @@
   top: -20rem;
   z-index: 0;
 }
-
+.div-title-home{
+  display: flex;
+  width: 92%;
+}
 .div-home-card {
-  width: 1200px;
-  gap: 48px;
+  max-width: 1200px;
+  gap: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -67,7 +70,7 @@
 }
 
 .home-slider {
-  width: 100%;
+  width: 92%;
   display: flex;
   padding: 10px;
   justify-content: flex-start;

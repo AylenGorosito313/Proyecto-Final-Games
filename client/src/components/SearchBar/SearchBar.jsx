@@ -18,8 +18,11 @@ export default function SearchBar () {
                 </div>
                 <div className={Style.links_searchBar}>
                     
-                    <Link className={Style.p_create_game} to="/game/create">
-                    <p className="p-create-game">Discover</p>
+                    <Link className={Style.p_create_game} to="/home">
+                    <p className="p-create-game">Home</p>
+                    </Link>
+                    <Link className={Style.p_create_game} to="/game/examinar/filtros">
+                    <p className="p-create-game">Examinar</p>
                     </Link>
 
                     <Link className={Style.p_create_game} to="/game/form/create">

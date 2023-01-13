@@ -26,6 +26,10 @@ const Game = sequelize.define("game", {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },
+    parent_platforms: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: false
+    },
     price: {
         type: DataTypes.DECIMAL,
         defaultValue: 0.00

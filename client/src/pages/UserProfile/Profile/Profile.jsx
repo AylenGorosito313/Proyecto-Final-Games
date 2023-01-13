@@ -17,13 +17,12 @@ export default function Profile() {
 
     return (
         <div>
-           <div>hi profile </div>  
             <div className={style.conteiner}>
                 <div className={style.div}>AVATAR</div>
                 <div className={style.div}>
                     <img className={style.img} 
                     src={ 
-                        !userActual ? userActual.profile_img
+                        userActual.profile_img ? userActual.profile_img
                         : "https://raw.githubusercontent.com/multiavatar/Multiavatar/main/logo.png?v=001"
                     } 
                     alt="photoProfile"
@@ -32,8 +31,8 @@ export default function Profile() {
                     />
                 </div>
                 <div className={style.div}> Last Buy </div>
-                <div className={style.div}> { !userActual ?
-                <img src={userActual?.compra[0]?.background_image} alt="BuyImage" /> : 
+                <div className={style.div}> { userActual.compra ?
+                <img src={userActual.compra[0]?.background_image} alt="BuyImage" /> : 
                     'You don´t have a buy yet'
                 }
                 </div>
@@ -41,9 +40,9 @@ export default function Profile() {
             <br />
             <div className={style.conteiner}>
                 <div className={style.div}>USERNAME</div>
-            <div className={style.div}>{ !userActual ? `${userActual.name} ${userActual.lastName}` : 'Your userName' }</div>
+            <div className={style.div}>{userActual.name ? `${userActual.name} ${userActual.lastName}` : ''}</div>
                 <div className={style.div}>USER LEVEL </div>
-                <div className={style.div}> 🌟 Growing Start</div>
+                <div className={style.div}> {userActual.name ? '🌟 Growing Start' : ''}</div>
             </div>
             <div className={style.conteiner}>
                 <div className={style.div}>BIRTHDAY</div>

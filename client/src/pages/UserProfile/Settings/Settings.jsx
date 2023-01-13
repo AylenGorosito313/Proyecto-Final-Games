@@ -52,11 +52,13 @@ export default function Settings() {
                 <div className={style.div}>
                     <img className={style.img} 
                     src={ 
-                        userActual ? userActual.profile_img
+                        userActual.length ? userActual.profile_img
                         : (image.length ? image[0].url: 
                         "https://raw.githubusercontent.com/multiavatar/Multiavatar/main/logo.png?v=001"
                         )
                     } 
+                    width= '120px' 
+                    height='110px'
                     alt="photoProfile" />
                 </div>
                 <div className={style.div}>

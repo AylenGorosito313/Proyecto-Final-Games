@@ -7,6 +7,7 @@ import style from "../NavProfile/NavProfile.module.css";
 export default function NavProfile() {
     const dispatch = useDispatch();
     const { userActual } = useSelector((state) => state.prueba);
+    // console.log(userActual)
 
     useEffect(() => {
         let userID = window.localStorage.getItem("id");
@@ -31,13 +32,13 @@ export default function NavProfile() {
                 />
                 </div>
                 
-                <div className={style.div}>{ !userActual ? userActual.name : 'Your Name'}</div>
+                <div className={style.div}>{ userActual !== null ? `Hello ${userActual.name}!` : 'Your Name'}</div>
                 <div className={style.div}>
                     <button className={style.button}>
-                        { userActual === null ?(
+                        { userActual !== null ?(
                             userActual.proveedor === false ? 
-                                <Link to ='/proveedor' className={style.link}> You want to be a Provider of Andromeda Games </Link> : 
-                                <Link  to ='' className={style.link}>💰 Provider Profile</Link> 
+                                <Link to ='/proveedor' className={style.link}> You want to be a Provider of Andromeda Games? </Link> : 
+                                <Link  to ='/provedor/profile' className={style.link}>💰 Provider Profile</Link> 
                             ) :  <Link to ='/proveedor' className={style.link}>  You are a Provider of Andromeda Games ?</Link>
                         }
                     </button>

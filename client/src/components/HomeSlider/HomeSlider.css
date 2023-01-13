@@ -20,7 +20,7 @@
     position: relative;
     object-fit: cover;
     overflow: hidden;
-    width: 90%;
+    width: 80%;
     height: auto;
     border-radius: 10px;
 }

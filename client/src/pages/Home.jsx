@@ -74,7 +74,10 @@ function Home() {
                 <ReleasedLasthMonth />
             </div>
             <div className="div-home-all-games">
-              <h2> All Games </h2>
+              <div className="div-title-home"> 
+              <h2 className="div-title-home"> All Games </h2>
+              </div>
+            
               <div className="div-home-card">
                 {games.length &&
                   games.map((ele) => {

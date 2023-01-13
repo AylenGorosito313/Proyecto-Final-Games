@@ -80,10 +80,23 @@ export const toolkit_prueba = createSlice({
         }
       }
 
+      if (actions.payload.type === "FILTER_BY_PRICE") {
+        if (order === "MAYOR") {
+          state.examinar = state.examinar.sort(function (a, b) {
+            return b.poblacion - a.poblacion;
+          });
+        }
+        if (order === "LOW") {
+          state.examinar = state.examinar.sort(function (a, b) {
+            return a.poblacion - b.poblacion;
+          });
+        }
+      }
+
+
       console.log(state.examinar);
-  
     },
-    //////////////////////
+
     getDetail: (state, actions) => {
       state.gameDetail = actions.payload;
     },

@@ -21,8 +21,23 @@ export default function GameFilters() {
   const defaultValueSelect = {
     ASC: "ASC",
     DESC: "DESC",
-  
+    MAYOR: "MAYOR",
+    LOW: "LOW",
   };
+
+
+  const handlerChangePrice= (event) => {
+    console.log(event.target.value);
+    let prices = event.target.value;
+    let actions = {
+      price: prices,
+      type: "FILTER_BY_PRICE",
+    };
+    dispatch(Filters(actions));
+  };
+
+
+
   const handlerChangeOrden = (event) => {
     console.log(event.target.value);
     let orders = event.target.value;
@@ -56,7 +71,7 @@ export default function GameFilters() {
     dispatch(traerGenero());
     dispatch(traerPlatforms());
   }, []);
-// let arrOrder =["Order Z-A"]
+
   return (
     <>
       <div className={style.divSelect}>
@@ -106,9 +121,16 @@ export default function GameFilters() {
       <div className={style.divSelect}>
         <label className={style.labels}> Order </label>
         <select onChange={handlerChangeOrden} className={style.Select}>
-          <option selected>Filter by Order</option>
           <option value={defaultValueSelect.ASC}>Order A-Z</option>
           <option value={defaultValueSelect.DESC}>Order Z-A</option>
+        </select>
+      </div>
+
+      <div className={style.divSelect}>
+        <label className={style.labels}> Price </label>
+        <select onChange={handlerChangePrice} className={style.Select}>
+          <option value={defaultValueSelect.MAYOR}>Mayor price </option>
+          <option value={defaultValueSelect.LOW}>Low price</option>
         </select>
       </div>
     </>

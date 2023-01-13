@@ -43,6 +43,7 @@ export const toolkit_prueba = createSlice({
       let platforms = actions.payload.platform;
       let order = actions.payload.order;
       let price = actions.payload.price;
+
       if (actions.payload.type === "FILTER_BY_GENDER") {
         state.examinar = state.examinar.filter((games) =>
           games.genres.includes(genero)
@@ -81,6 +82,7 @@ export const toolkit_prueba = createSlice({
         }
       }
 
+      console.log(actions.payload.type);
       if (actions.payload.type === "FILTER_BY_PRICE") {
         if (price === "MAYOR") {
           state.examinar = state.examinar.sort(function (a, b) {

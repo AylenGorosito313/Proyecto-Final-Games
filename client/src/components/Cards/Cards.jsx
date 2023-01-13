@@ -7,7 +7,7 @@ import { priceFactor } from "./utils";
 import { useDispatch, useSelector } from "react-redux";
 import { AddCart } from "../../middleware";
 import { motion } from "framer-motion";
-function Card({ name, img, id, rating, platforms, released, genres }) {
+function Card({ name, img, id, rating, platforms, released, genres, price}) {
   const dispatch = useDispatch();
   const [toggleFavorite, setToggleFavorite] = useState(false);
   const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
@@ -53,7 +53,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
               </div>
             </Link>
             <div className="price-cart">
-              <span className="price">US$ {priceFactor(rating)}</span>
+              <span className="price">US$ {price}</span>
               <div className="shopping-cart" onClick={handlerAddCart}>
                 <i className="fa-solid fa-cart-shopping cart"> </i>
                 <div className="check-plus">

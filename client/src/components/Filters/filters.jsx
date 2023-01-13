@@ -1,15 +1,20 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { traerGenero } from "../../middleware";
 import { traerPlatforms } from "../../middleware";
-import style from "./filters.module.css";
 import { Filters } from "../../reducers/prueba/pruebaSlider";
 
-import React from "react";
+// Css styles
+import style from "./filters.module.css";
+import "./rotateButton.css"
 
 export default function GameFilters() {
+
   const dispatch = useDispatch();
   const { genre, platforms } = useSelector((state) => state.prueba);
+
+  // Use states
   const [gender, setGender] = useState({
     genere: [],
   });
@@ -18,12 +23,23 @@ export default function GameFilters() {
     platformarray: [],
   });
 
+  // UseState for button div
+  const [toggleGenderButton, setToggleGenderButton] = useState(false);
+  const [togglePlatformButton, setTogglePlatformButton] = useState(false);
+  const [toggleOrderButton, setToggleOrderButton] = useState(false);
+  const [togglePriceButton, setTogglePriceButton] = useState(false);
+  
+
   const defaultValueSelect = {
     ASC: "ASC",
     DESC: "DESC",
     MAYOR: "MAYOR",
     LOW: "LOW",
   };
+
+  const expandGenderOption = () => {
+    setToggleGenderButton(!toggleGenderButton)
+  }
 
 
   const handlerChangePrice= (event) => {
@@ -49,8 +65,8 @@ export default function GameFilters() {
   };
 
   const handlerGender = (event) => {
-    console.log(event.target.value);
-    let genders = event.target.value;
+    console.log(event.target.getAttribute("value"));
+    let genders = event.target.getAttribute("value");
     let actions = {
       gender: genders,
       type: "FILTER_BY_GENDER",
@@ -85,19 +101,7 @@ export default function GameFilters() {
             ))}
         </select>
       </div>
-      <div className={style.gnreContairner}>
-        {gender.genere.map((el, i) => (
-          <div className={style.gnreCard} key={i}>
-            <p className={style.gnreP}>{el}</p>
-            <button
-              className={style.gnreButton}
-              onClick={() => handleDelete(el)}
-            >
-              X
-            </button>
-          </div>
-        ))}
-      </div>
+      
 
       <div className={style.divSelect}>
         <label className={style.labels}> Platforms</label>
@@ -133,6 +137,31 @@ export default function GameFilters() {
           <option value={defaultValueSelect.LOW}>Low price</option>
         </select>
       </div>
+
+          {/* prueba select */}
+          
+          <div className={style.gender_container_filter}>
+            
+            <button className={style.button_gender_filter} onChange={expandGenderOption}>
+              <span>GENDER</span>
+              <i className="fa-solid fa-angle-down rotate"></i>
+              {/* <i className="fa-solid fa-angle-up"></i> */}
+            </button>
+
+            <div className={style.rendered_container_gender_options} >
+              {genre &&
+                genre.map((g, i) => (
+                  <div 
+                  value={g}
+                  key={i} 
+                  className={style.gender_options}
+                  onClick={handlerGender}
+                  >
+                    <span value={g} >{g}</span>
+                  </div>
+            ))}
+            </div>
+          </div>
     </>
   );
 }

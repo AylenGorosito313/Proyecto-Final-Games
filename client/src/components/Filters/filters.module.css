@@ -1,4 +1,4 @@
-.headerDiv{
+/* .headerDiv{
   width: 100%;
   height: 150px;
   display: flex;
@@ -133,4 +133,62 @@ background: #3e3b3b;
   display: flex;
   flex-direction: row;
   gap: 50px;
+} */
+
+/* FILTER CONTAINER  */
+
+.gender_container_filter{
+  width: 100%;
+  font-size: 13px;
+  font-weight: 500;
 }
+
+.button_gender_filter {
+  justify-content: space-between;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  padding: 20px 14px;
+  color: rgb(143, 143, 143);
+  align-items: center;
+  /* color: rgb(245, 245, 245); */
+  border: none;
+}
+
+
+
+.rendered_container_gender_options {
+  width: 100%;
+  display: none;
+  transition: 3s linear;
+  transition: 2s ease-in-out;
+}
+
+.expand_container_gender_options {
+  width: 100%;
+  
+  display: inline;
+  transition-duration: 2400ms;
+}
+
+.gender_options{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: inherit;
+  margin-bottom: 5px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.gender_options span {
+  font-weight: 500;
+  letter-spacing: 0.19;
+  padding: 0;
+  line-height: 1.5;
+  color: rgb(143, 143, 143);
+  /* color: rgb(245, 245, 245); */
+}
+
+
+/* -------------------- */

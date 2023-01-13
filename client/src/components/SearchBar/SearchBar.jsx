@@ -21,6 +21,9 @@ export default function SearchBar () {
                     <Link className={Style.p_create_game} to="/game/create">
                     <p className="p-create-game">Discover</p>
                     </Link>
+                    <Link className={Style.p_create_game} to="/game/examinar/filtros">
+                    <p className="p-create-game">Examinar</p>
+                    </Link>
 
                     <Link className={Style.p_create_game} to="/game/form/create">
                     <p className="p-create-game">Create Game</p>

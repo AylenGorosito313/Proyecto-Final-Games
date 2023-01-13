@@ -3,7 +3,7 @@ const { Users } = require("../models/users");
 const bcrypt = require("bcrypt");
 const mainToEmail = require("../services/nodeMails");
 const { SECRET } = process.env;
-let userInfo = {};
+let userInfo = {}; 
 
 const registerUser = async (req, res) => {
     const { name, lastName, email, password, birth_date, profile_img, region } =
@@ -11,7 +11,7 @@ const registerUser = async (req, res) => {
 
     if (!name || !lastName || !email || !password) {
         res.status(400).json({
-            message: "Required fields",
+            message: "Required fields", 
         });
     }
     try {
@@ -85,11 +85,6 @@ const loginUser = async (req, res) => {
 
     if(search){
         try {
-            // const searchUser = await Users.findOne({
-            //     where: {
-            //         email, 
-            //     },
-            // });
             let pass = search.passwordHash;
             const passworCorrect =
                 search === null ? false : await bcrypt.compare(password, pass);

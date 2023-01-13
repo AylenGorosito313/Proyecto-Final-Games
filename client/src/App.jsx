@@ -41,8 +41,8 @@ function App() {
 
       <Route path="/home">
         <NavTop />
-        <Route exact path="/home/prueba" component={Homepage} />
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/home" component={Homepage} />
+      
         {/* <Route exact path="/home" component={Footer} /> */}
       </Route>
 

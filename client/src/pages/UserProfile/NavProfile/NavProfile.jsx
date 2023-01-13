@@ -32,10 +32,10 @@ export default function NavProfile() {
                 />
                 </div>
                 
-                <div className={style.div}>{ userActual ? `Hello ${userActual.name}!` : 'Your Name'}</div>
+                <div className={style.div}>{ userActual.name ? `Hello ${userActual.name}!` : 'Your Name'}</div>
                 <div className={style.div}>
                     <button className={style.button}>
-                        { userActual ?(
+                        { userActual.proveedor ?(
                             userActual.proveedor === false ? 
                                 <Link to ='/proveedor' className={style.link}> You want to be a Provider of Andromeda Games? </Link> : 
                                 <Link  to ='/provedor/profile' className={style.link}>💰 Provider Profile</Link> 

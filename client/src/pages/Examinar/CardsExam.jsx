@@ -1,18 +1,23 @@
 import React from "react";
 import { useEffect } from "react";
 import style from "./Examinar.module.css"
-import { getGames } from "../../middleware";
+import { getGames, isLoading } from "../../middleware";
 import Card from "../../components/Cards/Cards";
 import { useDispatch, useSelector } from "react-redux";
+
 export default function CardsExam() {
   const { examinar } = useSelector((state) => state.prueba);
-   let dispatch =useDispatch()
-  useEffect(() => {
+   let dispatch = useDispatch()
+  
+  
+   useEffect(() => {
     dispatch(getGames());
+    
+      dispatch(isLoading());
   }, []);
 
   return (
-    <div className={style.container}>
+    <div className={style.cards_container}>
       {examinar.length &&
         examinar.map((ele) => {
           return (

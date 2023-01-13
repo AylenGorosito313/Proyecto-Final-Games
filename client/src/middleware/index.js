@@ -38,15 +38,6 @@ export const getGames = () => {
         }
     };
 };
-export const getAlf = (name) => {
-  return async function (dispatch) {
-    let { data } = await axios({
-      method: "GET",
-      url: `http://localhost:3001/game?search=${name}`,
-    });
-    dispatch(getAllFilter(data));
-  };
-};
 
 export const isLoading = () => {
   return async function (dispatch) {

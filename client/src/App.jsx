@@ -65,7 +65,7 @@ function App() {
 
       <Route exact path="/proveedor">
         <Proveedor />
-        <Footer />
+      
       </Route>
       <Route exact path="/provedor/profile" component={ProveedorProfile} />
     </>

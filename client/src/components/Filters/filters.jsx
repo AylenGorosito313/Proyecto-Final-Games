@@ -75,6 +75,7 @@ export default function GameFilters() {
   };
 
   const handlerPlatforms = (event) => {
+    console.log(event.target.value)
     let platforms = event.target.value;
     let actions = {
       platform: platforms,
@@ -142,13 +143,17 @@ export default function GameFilters() {
           
           <div className={style.gender_container_filter}>
             
-            <button className={style.button_gender_filter} onChange={expandGenderOption}>
+            <button className={toggleGenderButton ?
+               style.button_gender_filter_selected : 
+               style.button_gender_filter} onClick={expandGenderOption}>
               <span>GENDER</span>
-              <i className="fa-solid fa-angle-down rotate"></i>
+              {toggleGenderButton ? <i className="fa-solid fa-angle-down rotate"></i> : <i className="fa-solid fa-angle-down rotate_down"></i>}
               {/* <i className="fa-solid fa-angle-up"></i> */}
             </button>
 
-            <div className={style.rendered_container_gender_options} >
+            <div className={toggleGenderButton ? 
+              style.expand_container_gender_options : 
+              style.rendered_container_gender_options} >
               {genre &&
                 genre.map((g, i) => (
                   <div 

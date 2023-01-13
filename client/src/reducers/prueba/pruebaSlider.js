@@ -12,9 +12,13 @@ const initialState = {
   payment:{
     link:""
   },
+
   res: {
+    cart:"",
     login:"",
     register: "",
+    created:"",
+    provider: {},
   },
   isLoader: false,
   userActual: {},
@@ -49,14 +53,27 @@ export const toolkit_prueba = createSlice({
     responseRegister: (state, actions) => {
       state.res = { ...state.res, register: actions.payload };
     },
+    providerResponseEnable: (state, actions) => {
+      state.res = {...state.res, provider: actions.payload}
+    },
+    responseAddCart: (state, actions) => {
+      let verify = actions.payload.split(' ')[actions.length - 1]
+      if(verify === '400'){
+         state.res = { ...state.res, cart: `You can't add repeat games` };
+      } else {
+        state.res = { ...state.res, cart: `You must login or register to add games to cart` };
+      }
+     
+    },
+
     GameCreate: (state, actions) => {
-      state.games = [...actions.payload];
+      state.res = { ...state.res, created: actions.payload};
     },
     responseLogin: (state, actions) => {
       state.res = { ...state.res, login: actions.payload};
     },
     clearState:(state, actions) => {
-      state.res = { ...state.res, login:""};
+      state.res = { ...state.res, login:"", cart:""};
     },
     clearStateCart:(state, actions) => {
       state.cart = [];
@@ -84,9 +101,12 @@ export const toolkit_prueba = createSlice({
     },
     cleanDetails: (state, actions) => {
       state.gameDetail = {}
-    }
-  },
+    },
+}
 });
+
+
+
 export const {
   addUser,
   getAllGames,
@@ -107,7 +127,9 @@ export const {
   deleteCarItem,
   getUserActual,
   getItemsUser,
-  cleanDetails
+  cleanDetails,
+  responseAddCart,
+  providerResponseEnable
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

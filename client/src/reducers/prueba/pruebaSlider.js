@@ -88,12 +88,12 @@ export const toolkit_prueba = createSlice({
      
       if (actions.payload.type === "FILTER_BY_PRICE") {
         if (price === "MAYOR") {
-          state.examinar = state.examinar.sort(function (a, b) {
+          state.examinar = state.filters.sort(function (a, b) {
             return b.price - a.price;
           });
         }
         if (price === "LOW") {
-          state.examinar = state.examinar.sort(function (a, b) {
+          state.examinar = state.filters.sort(function (a, b) {
             return a.price - b.price;
           });
         }

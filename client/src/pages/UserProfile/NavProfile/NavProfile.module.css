@@ -1,9 +1,9 @@
 .conteiner{
     display: flex;
     justify-content: space-around;
-    padding-left: 200px;
-    padding-top: 20px;
-    width: 1480px;
+    padding-left: 10px;
+    padding-top: 40px;
+    width: 90%;
     height: 150px;
     align-items: center;
 }
@@ -16,7 +16,7 @@
     height: 100px;
     font-family: poppins;
     font-weight: 80;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .button {
@@ -40,8 +40,6 @@ button:hover{
 
 .img{
     border-radius: 100px;
-    /* width: 80px;
-    height: 90px; */
 }
 
 .li{
@@ -73,18 +71,18 @@ button:hover{
     transition-property: color;
 }
   
-li:focus,
-li:hover {
+.li:focus,
+.li:hover {
     color: #ffd166;
 }
   
-li:focus:after,
-li:hover:after {
+.li:focus:after,
+.li:hover:after {
     width: 100%;
     left: 0%;
 }
   
-li:after {
+.li:after {
     content: "";
     pointer-events: none;
     bottom: -2px;

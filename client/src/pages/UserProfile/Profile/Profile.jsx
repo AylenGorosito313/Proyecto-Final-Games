@@ -17,7 +17,6 @@ export default function Profile() {
 
     return (
         <div>
-           <div>hi profile </div>  
             <div className={style.conteiner}>
                 <div className={style.div}>AVATAR</div>
                 <div className={style.div}>
@@ -41,7 +40,7 @@ export default function Profile() {
             <br />
             <div className={style.conteiner}>
                 <div className={style.div}>USERNAME</div>
-            <div className={style.div}>{ !userActual ? `${userActual.name} ${userActual.lastName}` : 'Your userName' }</div>
+            <div className={style.div}>{userActual.name} {userActual.lastName}</div>
                 <div className={style.div}>USER LEVEL </div>
                 <div className={style.div}> 🌟 Growing Start</div>
             </div>

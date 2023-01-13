@@ -1,18 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { platformImage } from "../../../CardDetail/utils/utils";
 import style from "./Card.module.css";
 
-export default function CardProfile (props){
+export default function Card(props){
+    console.log(props);
     return(
-        <div>
+        <div className={style.center}>
             <div className={style.conteiner}>
-                <div className={style.imgC}>
-                    <img className={style.img} src={props.image} alt={props.name} width='150px' height='90px'/>
+                <div className={style.div}>
+                    <img className={style.img} src={props.image} alt={props.name} width='300px' height='120px'/>
                 </div>
-                <div className={style.inf}>
-                    <div className={style.p}>{props.name}</div>
-                    <div className={style.p}>
+                <div className={style.div}>{props.name}</div>
+                <div className={style.div}>
                         {
                         props.platforms ? props.platforms.slice(0,3).map( el => (
                             <span key={el}> 
@@ -20,8 +20,10 @@ export default function CardProfile (props){
                             </span>
                         )) : 
                         <span>No available for plataforms</span>}
-                    </div>
-                    <div className={style.p}><Link to={`/game/${props.id}`}>Details  <i class="fa-solid fa-plus"></i></Link></div>
+                </div>
+                <div className={style.div}></div>
+                <div >
+                  <button className={style.button}>🗑️</button>
                 </div>
             </div>
             <br />

@@ -52,7 +52,7 @@ export default function MostPopularSlider() {
                         </button>
                     </div>
                 </div>
-
+                <div className="container-for-sliders-swipers">
                 <Swiper
                     slidesPerView={4}
                     spaceBetween={0}
@@ -88,6 +88,7 @@ export default function MostPopularSlider() {
                           ))
                         : "no games"}
                 </Swiper>
+                </div>
             </div>
         </>
     );

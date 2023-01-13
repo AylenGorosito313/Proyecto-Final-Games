@@ -52,42 +52,43 @@ export default function ReleasedLasthMonth() {
                         </button>
                     </div>
                 </div>
-
-                <Swiper
-                    slidesPerView={4}
-                    spaceBetween={0}
-                    loopFillGroupWithBlank={true}
-                    navigation={{
-                        prevEl: toggleButton
-                            ? ".prev-released"
-                            : ".prev-released-colored",
-                        nextEl: toggleButton
-                            ? ".next-released-colored"
-                            : ".next-released",
-                    }}
-                    modules={[Navigation]}
-                    className="game-slider-swiper"
-                >
-                    {gamesReleasedLasthMonth.length > 0
-                        ? gamesReleasedLasthMonth.map((ele, index) => (
-                              <SwiperSlide
-                                  key={index}
-                                  className="released-swiper-slide"
-                              >
-                                  <SliderCard
-                                      key={ele.id}
-                                      img={ele.background_image}
-                                      name={ele.name}
-                                      id={ele.id}
-                                      rating={ele.rating}
-                                      platforms={ele.parent_platforms}
-                                      released={ele.released}
-                                      genres={ele.genres}
-                                  />
-                              </SwiperSlide>
-                          ))
-                        : "no games"}
-                </Swiper>
+                <div className="container-for-sliders-swipers">
+                    <Swiper
+                        slidesPerView={4}
+                        spaceBetween={0}
+                        loopFillGroupWithBlank={true}
+                        navigation={{
+                            prevEl: toggleButton
+                                ? ".prev-released"
+                                : ".prev-released-colored",
+                            nextEl: toggleButton
+                                ? ".next-released-colored"
+                                : ".next-released",
+                        }}
+                        modules={[Navigation]}
+                        className="game-slider-swiper"
+                    >
+                        {gamesReleasedLasthMonth.length > 0
+                            ? gamesReleasedLasthMonth.map((ele, index) => (
+                                <SwiperSlide
+                                    key={index}
+                                    className="released-swiper-slide"
+                                >
+                                    <SliderCard
+                                        key={ele.id}
+                                        img={ele.background_image}
+                                        name={ele.name}
+                                        id={ele.id}
+                                        rating={ele.rating}
+                                        platforms={ele.parent_platforms}
+                                        released={ele.released}
+                                        genres={ele.genres}
+                                    />
+                                </SwiperSlide>
+                            ))
+                            : "no games"}
+                    </Swiper>
+                </div>
             </div>
         </>
     );

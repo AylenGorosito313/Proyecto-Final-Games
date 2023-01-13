@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getSearchByName } from "../../middleware";
-import SearchS from "../../svg/SearchSmall";
-import { Layout, ContainerSearch, Input, Svg, Div } from "./SearchStyled";
-import "./Search";
+
+import Style from "./Search.module.css";
 
 export default function Search() {
   const dispatch = useDispatch();
 
   const [input, setInput] = useState("");
+  
   
 
   function handleChange(e) {
@@ -24,28 +24,20 @@ export default function Search() {
   }
 
   return (
-    <div className="div-search">
+    <div className={Style.search_container}>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <Layout>
-          <ContainerSearch>
-            <Input
-              type="text"
-              placeholder="Search an game .."
-              value={input}
-              onChange={(e) => handleChange(e)}
+      
+          <i className="fa-solid fa-magnifying-glass"></i>
+          <input 
+            type="text" 
+            placeholder="Search for a game" 
+            className={Style.search_input} 
+            value={input}
+            onChange={(e) => handleChange(e)}
             />
-            <Svg>
-              {/* <Div> */}
-                <SearchS />
-              {/* </Div> */}
-            </Svg>
-          </ContainerSearch>
           
-        </Layout>
-
       </form>
     </div>
   );
 }
 
-//hola aylennn como estas ?

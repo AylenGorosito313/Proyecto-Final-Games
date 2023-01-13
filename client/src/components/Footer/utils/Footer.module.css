@@ -3,6 +3,7 @@
     height: auto;
     display: flex;
     background: #303030;
+    padding-top: 10px;
     flex-direction: column;
     justify-content: center
 }

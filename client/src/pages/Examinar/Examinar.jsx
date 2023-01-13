@@ -4,7 +4,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 // Components
 import GameFilters from "../../components/Filters/filters";
 import CardsExam from "./CardsExam";
-
+import Footer from "../../components/Footer/Footer";
 // CSS Styles
 
 import style from "./Examinar.module.css"

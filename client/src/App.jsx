@@ -14,7 +14,7 @@ import Favorite from "./pages/UserProfile/Favorite/Favorite";
 import Settings from "./pages/UserProfile/Settings/Settings";
 import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
-import Examinar from "./pages/Examinar/Examinar"
+import Examinar from "./pages/Examinar/Examinar";
 import axios from "axios";
 import Proveedor from "./pages/ProveedorProfile/Proveedor";
 import GameDevForm from "./pages/GameDevForm/GameDevForm";
@@ -28,7 +28,6 @@ function App() {
   ] = `Bearer ${localStorage.getItem("token")}`;
   return (
     <>
-
       <Route path="/user">
         <Route exact path="/user/login" component={Loginn} />
         <Route exact path="/user/register" component={Register} />
@@ -42,16 +41,16 @@ function App() {
       <Route path="/home">
         <NavTop />
         <Route exact path="/home" component={Homepage} />
-      
-        {/* <Route exact path="/home" component={Footer} /> */}
+        <Footer />
       </Route>
 
       <Route path="/game">
         <NavTop />
-        <Route exact path="/game/examinar/filtros" component={Examinar} />  
+        <Route exact path="/game/examinar/filtros" component={Examinar} />
         <Route exact path="/game/form/create" component={GameCreate} />
         <Route exact path="/game/:id" component={CardDetail} />
         <Route exact path="/game/dev/form" component={GameDevForm} />
+        <Footer />
       </Route>
 
       <Route path="/profile">
@@ -60,13 +59,15 @@ function App() {
         <Route exact path="/profile/profile" component={Profile} />
         <Route exact path="/profile/games" component={MyGames} />
         <Route exact path="/profile/favorite" component={Favorite} />
-        <Route exact path="/profile/settings"  component={Settings} />
+        <Route exact path="/profile/settings" component={Settings} />
+        <Footer />
       </Route>
 
       <Route exact path="/proveedor">
-                <Proveedor/>
+        <Proveedor />
+        <Footer />
       </Route>
-      <Route exact path="/provedor/profile" component={ProveedorProfile} /> 
+      <Route exact path="/provedor/profile" component={ProveedorProfile} />
     </>
   );
 }

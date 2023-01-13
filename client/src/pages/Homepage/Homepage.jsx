@@ -15,9 +15,9 @@ export default function Homepage() {
         <Home />
       </div>
 
-      <div className={style.footer}>
+      {/* <div className={style.footer}>
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -3,51 +3,58 @@
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    margin-top: 90px;
+    margin-top: 50px;
 }
 
 
 .componente{
     display: flex;
-    width: 80%;
+    flex-direction: row;
+    width: 1300px;
     padding: 0 2rem;
-    flex-direction: column;
     border-radius: 16px;
     border: 1px solid transparent;
     height: 500px;
     background-image: linear-gradient(to right top, #3e7bbc, #2874c5, #0c6dce, #0064d5, #005ada, #0a55dc, #1650dd, #214ade, #214ade, #214ade, #214ade, #214ade);
 }
 
+.contenedorimg {
+  display: flex;
+  flex-direction: column;
+  top: 175px ;
+  left:230px ;
+}
+
+.componente2{
+  display: flex;
+  flex-direction: column;
+}
 
 .logo{
-    display: block;
-    position: absolute;
-    left: 400px;
-    top:150px;
+  display: flex;
+ flex-direction: column;
+ text-align: center;
+margin-top:7% ;
+margin-left: 15%;
+ 
 }
 
-.contenedorimg {
-    display: flex;
-    position: absolute;
-    top: 100px ;
-    left:230px ;
-}
 
 .img{
+  display: flex;
+  flex-direction: column;
     width: 400px;
     height: 500px;
  }  
 
 
 .text{
-display: block;
-position: absolute; 
-top:260px;
-right: 180px;
-width:500px; 
-margin-left: auto;
+display: flex;
+flex-direction: column;
+width: 500px;
 text-align: center;
-padding: 30px;
+margin-top: 8%;
+margin-left: 30%;
 }
 
 h1{
@@ -88,28 +95,40 @@ line-height:37px;
 
    
 .allcards{
-    padding-top: 30px;
+    padding-top: 40px;
+
     display: flex;
     justify-content:space-around;
     align-items:center ;
+    width: 90%;
 }
 
    .card {
+    margin: 10px;
     width: 490px;
-    height: 280px;
+    height: 450px;
     background: #121212;
     position: relative;
-    display: flex;
+    display: grid;
     place-content: center;
     place-items: center;
     overflow: hidden;
     border-radius: 20px;
   }
   
-  .card h2 {
+  .card h2{
     z-index: 1;
     color: white;
     font-size: 2em;
+  }
+
+  .card span{
+    z-index: 1;
+    color: white;
+    font-size: 1em;
+  }
+  .card img {
+    z-index: 1;
   }
   
   .card::before {
@@ -142,11 +161,12 @@ line-height:37px;
   }  
  
   .carddos {
+    margin: 10px;
     width: 490px;
-    height: 280px;
+    height: 450px;
     background: #121212;
     position: relative;
-    display: flex;
+    display: grid;
     place-content: center;
     place-items: center;
     overflow: hidden;
@@ -158,6 +178,16 @@ line-height:37px;
     color: white;
     font-size: 2em;
   }
+  .carddos span{
+    z-index: 1;
+    color: white;
+    font-size: 1em;
+  }
+
+  .carddos img {
+    z-index: 1;
+  }
+  
   
   .carddos::before {
     content: '';
@@ -183,17 +213,17 @@ line-height:37px;
     content: '';
     position: absolute;
     background: #121212;
-    ;
     inset: 5px;
     border-radius: 15px;
   }  
 
   .cardtres {
+    margin: 10px;
     width: 490px;
-    height: 280px;
+    height: 450px;
     background: #121212;
     position: relative;
-    display: flex;
+    display: grid;
     place-content: center;
     place-items: center;
     overflow: hidden;
@@ -204,6 +234,15 @@ line-height:37px;
     z-index: 1;
     color: white;
     font-size: 2em;
+  }
+  .cardtres span{
+    z-index: 1;
+    color: white;
+    font-size: 1em;
+  }
+
+  .cardtres img {
+    z-index: 1;
   }
   
   .cardtres::before {
@@ -233,6 +272,177 @@ line-height:37px;
     inset: 5px;
     border-radius: 15px;
   }  
+
+  .contenedorbtn{
+  display: flex;
+  flex-direction: row;
+  margin-left: -1000px;
+  margin-bottom: 20px;
+  
+  }
+
+  .link{
+    text-decoration: none;
+  }
+
+  .btn {
+     margin-left: 20px;
+    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+    --border-width: .125em;
+    --curve-size: .5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #afffff;
+    color: var(--color);
+      /* use position: relative; so that BG is only for .btn */
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: .5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+    clip-path: polygon(
+              /* Top-left */
+              0% var(--curve-size),
+  
+              var(--curve-size) 0,
+              /* top-right */
+              100% 0,
+              100% calc(100% - var(--curve-size)),
+  
+              /* bottom-right 1 */
+              calc(100% - var(--curve-size)) 100%,
+              /* bottom-right 2 */
+              0 100%);
+    transition: color 250ms;
+  }
+  
+  .btn::after,
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  
+  .btn::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+  
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%
+    }
+  
+    50% {
+      background-position: 70% 100%
+    }
+  
+    100% {
+      background-position: 31% 0%
+    }
+  }
+  
+  .btn::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+              /* Top-left */
+              var(--border-width) 
+              calc(var(--curve-size) + var(--border-width) * .5),
+  
+              calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
+  
+              /* top-right */
+              calc(100% - var(--border-width)) 
+              var(--border-width),
+  
+              calc(100% - var(--border-width)) 
+              calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+  
+              /* bottom-right 1 */
+              calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+              /* bottom-right 2 */
+              var(--border-width) calc(100% - var(--border-width)));
+    transition: clip-path 500ms;
+  }
+  
+  .btn:where(:hover, :focus)::after {
+    clip-path: polygon(
+                  /* Top-left */
+                  calc(100% - var(--border-width)) 
+  
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      
+                  calc(100% - var(--border-width))
+  
+                  var(--border-width),
+      
+                  /* top-right */
+                  calc(100% - var(--border-width))
+  
+                   var(--border-width),
+      
+                  calc(100% - var(--border-width)) 
+  
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+      
+                  /* bottom-right 1 */
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
+                  calc(100% - var(--border-width)),
+  
+                  /* bottom-right 2 */
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+                  calc(100% - var(--border-width)));
+    transition: 200ms;
+  }
+  
+  .btn:where(:hover, :focus) {
+    color: #fff;
+  }
  
-  
-  
+  .contenedorpreguntas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contenedorpregunta{
+    background-color: #121212;
+    padding: 40px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .3s ease all;
+    cursor: pointer;
+
+  }
+
+  .contenedorpregunta:hover{
+    color:black;
+    background-color: white;
+
+  }
+
+
+  .pregunta{
+font-weight: 700;
+font-size: 15px;
+line-height: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+  }
+
+  .respuesta {
+line-height: 30px;
+max-height: 0;
+color:#121212;
+transition: .3s ease all;
+  }
+

@@ -35,14 +35,14 @@
 
 .righ_container{
    
+    /* display: flex;
+    flex-direction: start; */
     display: flex;
-    flex-direction: start;
+        justify-content: flex-end;
+        align-items: flex-start;
     
 }
 
 .filters_container{
     float: top;
-        
-   
-
 }

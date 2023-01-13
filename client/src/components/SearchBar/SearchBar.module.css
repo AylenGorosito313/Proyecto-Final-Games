@@ -25,10 +25,15 @@
     margin-left: 0;
     color: rgb(143, 143, 143);
 
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: none;
 }
 
 .p_create_game:hover {
     color: rgb(245, 245, 245);
+}
+
+
+.Links{
+    font-size: 12px;
 }

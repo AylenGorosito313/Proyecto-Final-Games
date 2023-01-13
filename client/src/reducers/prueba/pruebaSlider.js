@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   users: [],
   games: [],
-  examinar:[],
+  examinar: [],
   popularGames: [],
   gamesReleasedLasthMonth: [],
 
@@ -35,30 +35,53 @@ export const toolkit_prueba = createSlice({
       state.games = [...actions.payload];
     },
 
-  
-    getExaminar:(state, actions) => {
+    getExaminar: (state, actions) => {
       state.examinar = [...actions.payload];
     },
     Filters: (state, actions) => {
       let genero = actions.payload.gender;
-     let platforms = actions.payload.platform
+      let platforms = actions.payload.platform;
+      let order = actions.payload.order;
       if (actions.payload.type === "FILTER_BY_GENDER") {
-        state.examinar= state.examinar.filter((games) =>
+        state.examinar = state.examinar.filter((games) =>
           games.genres.includes(genero)
         );
       }
 
       if (actions.payload.type === "FILTER_BY_PLATFORM") {
-        state.examinar= state.examinar.filter((games) =>
+        state.examinar = state.examinar.filter((games) =>
           games.parent_platforms.includes(platforms)
         );
       }
-//FILTER_BY_PLATFORM
 
+      if (actions.payload.type === "FILTER_BY_ORDER") {
+        if (order === "ASC") {
+          state.examinar = state.examinar.sort(function (a, b) {
+            if (a.name < b.name) {
+              return -1;
+            }
+            if (a.name > b.name) {
+              return 1;
+            }
+            return 0;
+          });
+        }
 
+        if (order === "DESC") {
+          state.examinar = state.examinar.sort(function (a, b) {
+            if (a.name > b.name) {
+              return -1;
+            }
+            if (a.name < b.name) {
+              return 1;
+            }
+            return 0;
+          });
+        }
+      }
 
       console.log(state.examinar);
-      // state.games = [allGames];
+  
     },
     //////////////////////
     getDetail: (state, actions) => {
@@ -144,7 +167,7 @@ export const {
   getAllFilter,
   responseAddCart,
   Filters,
-  getExaminar
+  getExaminar,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

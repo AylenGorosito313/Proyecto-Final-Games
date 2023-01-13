@@ -18,8 +18,23 @@ export default function GameFilters() {
     platformarray: [],
   });
 
+  const defaultValueSelect = {
+    ASC: "ASC",
+    DESC: "DESC",
+  
+  };
+  const handlerChangeOrden = (event) => {
+    console.log(event.target.value);
+    let orders = event.target.value;
+    let actions = {
+      order: orders,
+      type: "FILTER_BY_ORDER",
+    };
+    dispatch(Filters(actions));
+  };
+
   const handlerGender = (event) => {
-  console.log(event.target.value)
+    console.log(event.target.value);
     let genders = event.target.value;
     let actions = {
       gender: genders,
@@ -31,7 +46,7 @@ export default function GameFilters() {
   const handlerPlatforms = (event) => {
     let platforms = event.target.value;
     let actions = {
-      platform :platforms,
+      platform: platforms,
       type: "FILTER_BY_PLATFORM",
     };
     dispatch(Filters(actions));
@@ -41,7 +56,7 @@ export default function GameFilters() {
     dispatch(traerGenero());
     dispatch(traerPlatforms());
   }, []);
-
+// let arrOrder =["Order Z-A"]
   return (
     <>
       <div className={style.divSelect}>
@@ -88,6 +103,14 @@ export default function GameFilters() {
           </button>
         </div>
       ))}
+      <div className={style.divSelect}>
+        <label className={style.labels}> Order </label>
+        <select onChange={handlerChangeOrden} className={style.Select}>
+          <option selected>Filter by Order</option>
+          <option value={defaultValueSelect.ASC}>Order A-Z</option>
+          <option value={defaultValueSelect.DESC}>Order Z-A</option>
+        </select>
+      </div>
     </>
   );
 }

@@ -3,21 +3,23 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   users: [],
   games: [],
+  examinar: [],
   popularGames: [],
   gamesReleasedLasthMonth: [],
+  filters: [],
   gameDetail: {},
   genre: [],
-  cart:[],
+  cart: [],
   platforms: [],
-  payment:{
-    link:""
+  payment: {
+    link: "",
   },
 
   res: {
-    cart:"",
-    login:"",
+    cart: "",
+    login: "",
     register: "",
-    created:"",
+    created: "",
     provider: {},
   },
   isLoader: false,
@@ -35,14 +37,79 @@ export const toolkit_prueba = createSlice({
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
     },
-    getDetail: (state,actions) => {
+
+    getExaminar: (state, actions) => {
+      state.filters = [...actions.payload];
+    },
+    Filters: (state, actions) => {
+      let genero = actions.payload.gender;
+      let platforms = actions.payload.platform;
+      let order = actions.payload.order;
+      let price = actions.payload.price;
+
+      if (actions.payload.type === "FILTER_BY_GENDER") {
+        state.examinar = state.filters.filter((games) =>
+          games.genres.includes(genero)
+        );
+      }
+
+      if (actions.payload.type === "FILTER_BY_PLATFORM") {
+        state.examinar = state.filters.filter((games) =>
+          games.parent_platforms.includes(platforms)
+        );
+      }
+
+      if (actions.payload.type === "FILTER_BY_ORDER") {
+        if (order === "ASC") {
+          state.examinar = state.filters.sort(function (a, b) {
+            if (a.name < b.name) {
+              return -1;
+            }
+            if (a.name > b.name) {
+              return 1;
+            }
+            return 0;
+          });
+        }
+
+        if (order === "DESC") {
+          state.examinar = state.filters.sort(function (a, b) {
+            if (a.name > b.name) {
+              return -1;
+            }
+            if (a.name < b.name) {
+              return 1;
+            }
+            return 0;
+          });
+        }
+      }
+
+     
+      if (actions.payload.type === "FILTER_BY_PRICE") {
+        if (price === "MAYOR") {
+          state.examinar = state.filters.sort(function (a, b) {
+            return b.price - a.price;
+          });
+        }
+        if (price === "LOW") {
+          state.examinar = state.filters.sort(function (a, b) {
+            return a.price - b.price;
+          });
+        }
+
+       
+      }
+    },
+
+    getDetail: (state, actions) => {
       state.gameDetail = actions.payload;
     },
     popularGames: (state, actions) => {
       state.popularGames = [...actions.payload];
     },
     releasedLasthMonth: (state, actions) => {
-      state.gamesReleasedLasthMonth = [...actions.payload]
+      state.gamesReleasedLasthMonth = [...actions.payload];
     },
     getByName: (state, actions) => {
       state.games = [...actions.payload];
@@ -54,58 +121,58 @@ export const toolkit_prueba = createSlice({
       state.res = { ...state.res, register: actions.payload };
     },
     providerResponseEnable: (state, actions) => {
-      state.res = {...state.res, provider: actions.payload}
+      state.res = { ...state.res, provider: actions.payload };
     },
     responseAddCart: (state, actions) => {
-      let verify = actions.payload.split(' ')[actions.length - 1]
-      if(verify === '400'){
-         state.res = { ...state.res, cart: `You can't add repeat games` };
+      let verify = actions.payload.split(" ")[actions.length - 1];
+      if (verify === "400") {
+        state.res = { ...state.res, cart: `You can't add repeat games` };
       } else {
-        state.res = { ...state.res, cart: `You must login or register to add games to cart` };
+        state.res = {
+          ...state.res,
+          cart: `You must login or register to add games to cart`,
+        };
       }
-     
     },
 
     GameCreate: (state, actions) => {
-      state.res = { ...state.res, created: actions.payload};
+      state.res = { ...state.res, created: actions.payload };
     },
     responseLogin: (state, actions) => {
-      state.res = { ...state.res, login: actions.payload};
+      state.res = { ...state.res, login: actions.payload };
     },
-    clearState:(state, actions) => {
-      state.res = { ...state.res, login:"", cart:""};
+    clearState: (state, actions) => {
+      state.res = { ...state.res, login: "", cart: "" };
     },
-    clearStateCart:(state, actions) => {
+    clearStateCart: (state, actions) => {
       state.cart = [];
     },
-    getGenre:(state, actions) => {
+    getGenre: (state, actions) => {
       state.genre = [...actions.payload];
     },
-    getPlatforms:(state, actions) => {
+    getPlatforms: (state, actions) => {
       state.platforms = [...actions.payload];
     },
-    getLinkPayment:(state, actions) => {
-      state.payment={ ...state.payment, link: actions.payload};
+    getLinkPayment: (state, actions) => {
+      state.payment = { ...state.payment, link: actions.payload };
     },
-    getCartRes:(state, actions) => {
-      state.cart=[...state.cart, ...actions.payload];
+    getCartRes: (state, actions) => {
+      state.cart = [...state.cart, ...actions.payload];
     },
     deleteCarItem: (state, actions) => {
-      state.cart = state.cart.filter(ele => ele.id !== actions.payload)
+      state.cart = state.cart.filter((ele) => ele.id !== actions.payload);
     },
     getUserActual: (state, actions) => {
-        state.userActual = actions.payload
+      state.userActual = actions.payload;
     },
     getItemsUser: (state, actions) => {
-      state.itemCar = [...actions.payload]
+      state.itemCar = [...actions.payload];
     },
     cleanDetails: (state, actions) => {
-      state.gameDetail = {}
+      state.gameDetail = {};
     },
-}
+  },
 });
-
-
 
 export const {
   addUser,
@@ -128,8 +195,12 @@ export const {
   getUserActual,
   getItemsUser,
   cleanDetails,
+
   responseAddCart,
-  providerResponseEnable
+  Filters,
+  getExaminar,
+
+  providerResponseEnable,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

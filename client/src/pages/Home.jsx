@@ -18,7 +18,7 @@ import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading/Loading";
 import { clearState } from "../reducers/prueba/pruebaSlider";
-import SearchBar from "../components/SearchBar/SearchBar";
+
 
 function Home() {
   const dispatch = useDispatch();
@@ -45,9 +45,13 @@ function Home() {
     dispatch(clearState())
     
     return () => {
-      dispatch(clearState())
-    } 
+      dispatch(clearState());
+    };
   }, []);
+
+  // useEffect(() => {
+  //   dispatch(getGames());
+  // }, [games.length]);
 
   if (isLoader && !games.length) {
     return (
@@ -64,7 +68,7 @@ function Home() {
       <Toaster />
       <div className="main-container-home">
         <div className="container-content-home">
-          <SearchBar />
+          
           <div className="home-slider">
             <HomeSlider />
           </div>
@@ -74,7 +78,10 @@ function Home() {
                 <ReleasedLasthMonth />
             </div>
             <div className="div-home-all-games">
-              <h2> All Games </h2>
+              <div className="div-title-home"> 
+              <h2 className="div-title-home"> All Games </h2>
+              </div>
+            
               <div className="div-home-card">
                 {games.length &&
                   games.map((ele) => {
@@ -96,7 +103,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <Footer/>
+
     </>
   );
 }

@@ -65,7 +65,7 @@ export default function HomeSlider() {
               <div className="content">
                 <TextBanners
                   description="Purchase DOOM and get early access to the game!"
-                  price={games.length > 0 ? priceFactor(games[15].rating) : 0}
+                 
                   logo={doom}
                   textBtn="PLAY NOW"
                 />
@@ -79,7 +79,7 @@ export default function HomeSlider() {
                 <TextBanners
                   description="The fourth game in the post-apocalyptic action RPG series from
                   Bethesda studious brings players back to the retro-future."
-                  price={games.length > 0 ? priceFactor(games[16].rating) : 0}
+                 
                   logo={godOfWar}
                   textBtn="BUY NOW"
                 />
@@ -93,7 +93,7 @@ export default function HomeSlider() {
                 <TextBanners
                   description="   Enter the Norse realm. His vengeance against the Gods of
                   Olympus years behind him.."
-                  price={games.length > 0 ? priceFactor(games[16].rating) : 0}
+        
                   logo={fallout}
                   
                   textBtn="BUY NOW"
@@ -110,7 +110,7 @@ export default function HomeSlider() {
                 <TextBanners
                   description="   Enter the Norse realm. His vengeance against the Gods of
                   Olympus years behind him.."
-                  price={games.length > 0 ? priceFactor(games[16].rating) : 0}
+               
                   logo={fallout}
                   
                   textBtn="BUY NOW"

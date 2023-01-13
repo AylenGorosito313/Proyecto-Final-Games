@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import { LoginUser } from "../../../middleware";
 import { useForm } from "react-hook-form";
 import { useDispatch} from "react-redux";
-function FormLogin() {
+function FormLogin({verify}) {
   const { res } = useSelector((state) => state.prueba);
   const navigate = useHistory()
   const dispatch = useDispatch()
@@ -19,7 +19,7 @@ function FormLogin() {
 
   const OnSubmit = async (data) => {
     console.log(data);
-    dispatch(LoginUser(data));
+    dispatch(LoginUser(data, verify));
   //   if(res.login.token){
   //  navigate.push('/')
   //   }

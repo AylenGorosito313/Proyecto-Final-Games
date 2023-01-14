@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
-import Loading from "../../components/Loading/Loading";
+
 import CreateSuccess from "./SuccessCreate/CreateSuccess";
 import "./Buttons.css";
 import UploadVideogame from "../../components/UploadImage/Unpload-GameCreate/UnploadVideogames";
@@ -14,10 +14,12 @@ import style from "../GameCreate/GameCreate.module.css";
 import UploadGameCreate from "../../components/UploadImage/Unpload-GameCreate/Unpload-GameCreate";
 export default function GameCreate() {
   const dispatch = useDispatch();
+  // errorsImg
   const { genre, platforms, res } = useSelector((state) => state.prueba);
   const [Created, setCreated] = useState(false);
+  const [errorsImg, setErrorsImg] = useState(false);
   const [Price, setPrice] = useState(false);
-  const navigate = useHistory();
+
   const [gender, setGender] = useState({
     genere: [],
   });
@@ -54,14 +56,23 @@ export default function GameCreate() {
     gameArchive = archive;
   };
 
+
+  
+
   const onSubmit = async (data) => {
     let userId = localStorage.getItem("id");
     let genres = gender.genere;
     let platforms = platform.platformarray;
-    let gameInfo = { ...data, platforms, genres, trailer, background_image  };
+ 
+    if(typeof background_image.length === [] ){
+      setErrorsImg(true)
+    }else{
+       let gameInfo = { ...data, platforms, genres, trailer, background_image  };
     console.log(gameInfo);
     dispatch(CreateGame(gameInfo, userId));
     setCreated(true);
+    }
+   
   };
 
 
@@ -257,13 +268,20 @@ export default function GameCreate() {
             </div>
           )}
 
-          <button className="button-9" role="button" type="submit">
+          <button  disabled={errorsImg } className="button-9" role="button" type="submit">
             Create Game
           </button>
         </form>
         <div className={style.unploadDiv}>
           <UploadVideogame UnploadTrailer={UnploadTrailer} />
+          <div>
           <UploadGameCreate UnploadImages={UnploadImages} />
+
+          {
+            errorsImg && <p>  image is required</p>
+          } 
+          </div>
+        
           <UnploadGameArchive UnploadArchive={UnploadArchive} />
         </div>
       </div>

@@ -56,9 +56,10 @@
     width: 100%;
     padding: 20px;
     border-radius: 4px;
-    background-color: transparent;
+    background-color: #1e1e1e;
     box-sizing: border-box;
     font-size: 14px;
+    color:rgb(143, 135, 135);
 }
 .radio-container-yer-or-not{
     padding: 20px;

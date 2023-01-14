@@ -43,38 +43,29 @@ export default function GameCreate() {
   });
   let trailer = "";
   let gameArchive = "";
-  let background_image  = "";
+  let background_image = "";
 
   const UnploadTrailer = (Urltrailer) => {
     trailer = Urltrailer;
   };
 
   const UnploadImages = (ImagesURL) => {
-    background_image  = ImagesURL;
+    background_image = ImagesURL;
   };
   const UnploadArchive = (archive) => {
     gameArchive = archive;
   };
 
-
-  
-
   const onSubmit = async (data) => {
     let userId = localStorage.getItem("id");
     let genres = gender.genere;
     let platforms = platform.platformarray;
- 
-    if(typeof background_image.length === [] ){
-      setErrorsImg(true)
-    }else{
-       let gameInfo = { ...data, platforms, genres, trailer, background_image  };
-    console.log(gameInfo);
+
+    let gameInfo = { ...data, platforms, genres, trailer, background_image };
+
     dispatch(CreateGame(gameInfo, userId));
     setCreated(true);
-    }
-   
   };
-
 
   const handlerGender = (event) => {
     if (!gender.genere.includes(event.target.value)) {
@@ -123,9 +114,7 @@ export default function GameCreate() {
   }, []);
 
   if (res.created) {
-    return (
-    <CreateSuccess />
-    );
+    return <CreateSuccess />;
   }
   return (
     <>
@@ -268,20 +257,23 @@ export default function GameCreate() {
             </div>
           )}
 
-          <button  disabled={errorsImg } className="button-9" role="button" type="submit">
+          <button
+            disabled={errorsImg}
+            className="button-9"
+            role="button"
+            type="submit"
+          >
             Create Game
           </button>
         </form>
         <div className={style.unploadDiv}>
           <UploadVideogame UnploadTrailer={UnploadTrailer} />
           <div>
-          <UploadGameCreate UnploadImages={UnploadImages} />
+            <UploadGameCreate UnploadImages={UnploadImages} />
 
-          {
-            errorsImg && <p>  image is required</p>
-          } 
+            {errorsImg && <p> image is required</p>}
           </div>
-        
+
           <UnploadGameArchive UnploadArchive={UnploadArchive} />
         </div>
       </div>

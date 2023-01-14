@@ -34,18 +34,19 @@
     
 }
 
-.righ_container{
+.right_container{
    
     /* display: flex;
     flex-direction: start; */
     display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: flex-start;
+        width: 250px;
     
 }
 
 .filters_container{
-    float: top;
+    width: 100%;
 }
 
 

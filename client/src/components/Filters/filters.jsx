@@ -44,9 +44,6 @@ export default function GameFilters() {
     setTogglePlatformButton(!togglePlatformButton)
   }
 
-  const expandPlatformOption = () => {
-    setTogglePlatformButton(!togglePlatform)
-  }
 
 
   const handlerChangePrice= (event) => {
@@ -118,7 +115,7 @@ export default function GameFilters() {
           
           <hr className={style.line_between_filters} />
           
-          {/* Filter Select */}
+          {/* Gender Filters */}
           
           <div className={style.gender_container_filter}>
             

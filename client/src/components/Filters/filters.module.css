@@ -93,10 +93,16 @@
 
 /* -------------------- */
 
+/* Platform Container */
+
 .platforms_container_filter {
   width: 100%;
   font-size: 13px;
   font-weight: 500;
+}
+
+.platforms_container_filter:hover{
+  color: rgb(245, 245, 245);
 }
 
 .button_platforms_filter_selected {
@@ -113,6 +119,11 @@
   transition-property: all;
 }
 
+.button_platforms_filter_selected:hover{
+  color: rgb(245, 245, 245);
+  border: 1px solid rgb(245, 245, 245);
+}
+
 .button_platforms_filter {
   justify-content: space-between;
   width: 100%;
@@ -127,3 +138,24 @@
   transition-property: all;
 }
 
+.expand_container_platforms_options {
+  width: 100%;
+  display: inline;
+  transition: all .5s linear;
+}
+
+.rendered_container_platforms_options {
+  width: 100%;
+  display: none;
+  transition: all .5s linear;
+}
+
+.platforms_options{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: inherit;
+  margin-bottom: 5px;
+  padding: 12px;
+  cursor: pointer;
+}

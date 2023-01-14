@@ -20,6 +20,7 @@ import {
   getPlatforms,
   responseAddCart,
   getExaminar,
+  providerResponseEnable
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -153,8 +154,9 @@ export const enableProvider = (id) => {
         url: `http://localhost:3001/user/provider/create/${id}`,
       });
       dispatch(providerResponseEnable(data));
-
-      dispatch(isLoading());
+      setTimeout(() => {
+        dispatch(isLoading());
+      }, 2000)
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",

@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 80px;
+  
     margin-bottom: 80px;
     font-family: "Poppins", sans-serif;
 }
@@ -16,7 +16,7 @@
 
 .left-container {
     margin: 0 2rem;
-    padding: 0 2rem;
+    padding-top: 10rem;
     width: 800px;
 }
 

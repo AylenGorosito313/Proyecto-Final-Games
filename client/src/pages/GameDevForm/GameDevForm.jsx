@@ -12,15 +12,8 @@ import Loading from "../../components/Loading/Loading";
 export default function GameDevForm () {
 
     const { isLoader } = useSelector( state => state.prueba);
-    const providerCreated = useSelector ( state => state.prueba.res.provider.createUserProvider)
+    const providerCreated = useSelector( state => state.prueba.res.provider.createUserProvider)
     
-
-    setTimeout(() => {
-        if(providerCreated) {
-            localStorage.setItem("provider", providerCreated.id);
-            
-        }
-    }, 2000);
 
     return (
         <>

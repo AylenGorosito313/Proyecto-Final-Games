@@ -1,8 +1,12 @@
 .container{
     width: 100%;
     height: auto;
+    position: relative;
+    bottom: 0;
+    left: 0;
     display: flex;
     background: #303030;
+    padding-top: 10px;
     flex-direction: column;
     justify-content: center
 }

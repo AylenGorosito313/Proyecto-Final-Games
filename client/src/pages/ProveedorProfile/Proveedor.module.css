@@ -10,7 +10,7 @@
 .componente{
     display: flex;
     flex-direction: row;
-    width: 1300px;
+    min-width: 1200px;
     padding: 0 2rem;
     border-radius: 16px;
     border: 1px solid transparent;
@@ -124,8 +124,9 @@ line-height:37px;
 
   .card span{
     z-index: 1;
-    color: white;
+    color: #918a8a;
     font-size: 1em;
+    text-align: center;
   }
   .card img {
     z-index: 1;
@@ -175,13 +176,16 @@ line-height:37px;
   
   .carddos h2 {
     z-index: 1;
-    color: white;
+    color: #ffffff;
     font-size: 2em;
+    text-align: center;
+
   }
   .carddos span{
     z-index: 1;
-    color: white;
+    color: #918a8a;
     font-size: 1em;
+    text-align: center;
   }
 
   .carddos img {
@@ -237,8 +241,9 @@ line-height:37px;
   }
   .cardtres span{
     z-index: 1;
-    color: white;
+    color: #918a8a;
     font-size: 1em;
+    text-align: center;
   }
 
   .cardtres img {
@@ -407,25 +412,30 @@ line-height:37px;
   }
  
   .contenedorpreguntas {
-    display: grid;
+    width: 100%;
+    display: flex;
     grid-template-columns: 1fr;
     gap: 40px;
+    flex-direction: column;
+    align-items: center;
   }
 
   .contenedorpregunta{
     background-color: #121212;
-    padding: 40px;
+    padding: 60px;
+    width: 80%;
     border: 2px solid transparent;
     border-radius: 10px;
     overflow: hidden;
     transition: .3s ease all;
     cursor: pointer;
 
+
   }
 
   .contenedorpregunta:hover{
     color:black;
-    background-color: white;
+    background-color: rgb(88, 86, 86);
 
   }
 
@@ -435,12 +445,13 @@ font-weight: 700;
 font-size: 15px;
 line-height: 20px;
 display: flex;
+margin :0;
 justify-content: space-between;
 align-items: center;
   }
 
   .respuesta {
-line-height: 30px;
+line-height: 20px;
 max-height: 0;
 color:#121212;
 transition: .3s ease all;

@@ -1,24 +1,25 @@
 import React from "react";
-import { useEffect, useState } from "react"; 
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { geUserActual } from "../../../middleware";
 import style from "../Profile/Profile.module.css";
 
 export default function Profile() {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
+  useEffect(() => {
+    let userID = window.localStorage.getItem("id");
+    dispatch(geUserActual(userID));
+  }, []);
 
-    useEffect(() => {
-        let userID = window.localStorage.getItem("id");
-        dispatch(geUserActual(userID));
-    }, []);
+  const { userActual } = useSelector((state) => state.prueba);
 
-    const { userActual } = useSelector((state) => state.prueba);
+  return (
+    <div className={style.layoutProfile} >
 
-    return (
-        <div>
+  <div>
             <div className={style.conteiner}>
-                <div className={style.div}>AVATAR</div>
+                <div className={style.div}>Avatar</div>
                 <div className={style.div}>
                     <img className={style.img} 
                     src={ 
@@ -39,23 +40,24 @@ export default function Profile() {
             </div>
             <br />
             <div className={style.conteiner}>
-                <div className={style.div}>USERNAME</div>
+                <div className={style.div}>Username</div>
             <div className={style.div}>{userActual.name ? `${userActual.name} ${userActual.lastName}` : ''}</div>
-                <div className={style.div}>USER LEVEL </div>
+                <div className={style.div}>User level </div>
                 <div className={style.div}> {userActual.name ? '🌟 Growing Start' : ''}</div>
             </div>
             <div className={style.conteiner}>
-                <div className={style.div}>BIRTHDAY</div>
+                <div className={style.div}>Birthday</div>
                 <div className={style.div}>{ !userActual ? userActual.birth_date : ''}</div>
                 <div className={style.div}></div>
                 <div className={style.div}></div>
             </div>
             <div className={style.conteiner}>
-                <div className={style.div}>LOCATION</div>
+                <div className={style.div}>Location</div>
                 <div className={style.div}>{ !userActual ? userActual.region : ''} </div>
                 <div className={style.div}></div>
                 <div className={style.div}></div>
             </div>
         </div>
-    );
-};
+        </div>
+  );
+}

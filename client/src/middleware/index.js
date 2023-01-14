@@ -30,7 +30,7 @@ export const getGames = () => {
         method: "GET",
         url: `http://localhost:3001/games`,
       });
-     
+
       dispatch(getAllGames(data));
     } catch (error) {
       console.log(error.message);
@@ -45,7 +45,7 @@ export const getForFilters = () => {
         method: "GET",
         url: `http://localhost:3001/games/filters/examinar/routes`,
       });
-      console.log(data)
+      console.log(data);
       dispatch(getExaminar(data));
     } catch (error) {
       console.log(error.message);
@@ -153,9 +153,8 @@ export const enableProvider = (id) => {
         url: `http://localhost:3001/user/provider/create/${id}`,
       });
       dispatch(providerResponseEnable(data));
-      setTimeout(() => {
-        dispatch(isLoading());
-      }, 2000);
+
+      dispatch(isLoading());
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",

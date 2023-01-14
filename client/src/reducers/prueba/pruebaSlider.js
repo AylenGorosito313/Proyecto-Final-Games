@@ -21,6 +21,7 @@ const initialState = {
     register: "",
     created: "",
     provider: {},
+  
   },
   isLoader: false,
   userActual: {},

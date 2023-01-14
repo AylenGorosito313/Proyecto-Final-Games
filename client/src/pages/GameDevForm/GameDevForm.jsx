@@ -15,12 +15,12 @@ export default function GameDevForm () {
     const providerCreated = useSelector ( state => state.prueba.res.provider.createUserProvider)
     
 
-    setTimeout(() => {
+    
         if(providerCreated) {
             localStorage.setItem("provider", providerCreated.id);
             
         }
-    }, 2000);
+
 
     return (
         <>

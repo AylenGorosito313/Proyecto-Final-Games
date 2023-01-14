@@ -114,6 +114,7 @@
 
 .cart_empty {
   font-size: 40px;
+  margin : 0 ;
   text-align: center;
   padding-top: 200px;
 }

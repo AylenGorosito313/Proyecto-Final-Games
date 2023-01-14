@@ -39,6 +39,9 @@ function Home() {
   };
 
   useEffect(() => {
+    // if(games.length){
+    //   return
+    // }
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
@@ -95,6 +98,7 @@ function Home() {
                         platforms={ele.parent_platforms}
                         released={ele.released}
                         genres={ele.genres}
+                        price={ele.price}
                       />
                     );
                   })}

@@ -21,6 +21,11 @@ export default function Search() {
     e.preventDefault();
     dispatch(getSearchByName(input)); //actualización de atributo
     setInput("");
+    window.scroll({
+      top: 1500,
+      bottom: 900,
+      behavior: 'smooth'
+    });
   }
 
   return (

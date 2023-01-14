@@ -1,8 +1,5 @@
 .dev-form-header {
-    /* width: 600px;
-    position: relative;
-    overflow: hidden;
-    display: flex; */
+    padding-top: 100px;
 }
 .form-img-container{
     display: flex;

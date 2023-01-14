@@ -5,31 +5,31 @@ import { Link } from "react-router-dom";
 import Search from "../Search/Search";
 
 // CSS Styles
-import Style from "./SearchBar.module.css"
+import Style from "./SearchBar.module.css";
+let Idpovider = false;
+let id = localStorage.getItem("providerId");
 
-export default function SearchBar () {
+if (id) Idpovider = true;
 
-
-    return (
-        <>
-            <div className={Style.searchBar_container}>
-                <div className={Style.search_container}>
-                    <Search />
-                </div>
-                <div className={Style.links_searchBar}>
-                    
-                    <Link className={Style.p_create_game} to="/home">
-                    <p className="p-create-game">Home</p>
-                    </Link>
-                    <Link className={Style.p_create_game} to="/game/examinar/filtros">
-                    <p className="p-create-game">Examinar</p>
-                    </Link>
-
-                    <Link className={Style.p_create_game} to="/game/form/create">
-                    <p className="p-create-game">Create Game</p>
-                    </Link>
-                </div>
+export default function SearchBar() {
+  return (
+    <>
+      <div className={Style.searchBar_container}>
+        <div className={Style.search_container}>
+          <Search />
         </div>
-        </>
-    )
+        <div className={Style.links_searchBar}>
+          <Link className={Style.p_create_game} to="/home">
+            <p className="p-create-game">Home</p>
+          </Link>
+          <Link className={Style.p_create_game} to="/game/examinar/filtros">
+            <p className="p-create-game">Examinar</p>
+          </Link>
+
+        
+        
+        </div>
+      </div>
+    </>
+  );
 }

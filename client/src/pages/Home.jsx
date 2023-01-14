@@ -57,6 +57,7 @@ function Home() {
     );
   }
 
+
   return (
     <>
       {res.cart && backResponse()}

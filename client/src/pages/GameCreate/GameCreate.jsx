@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
-import Loading from "../../components/Loading/Loading";
+
 import CreateSuccess from "./SuccessCreate/CreateSuccess";
 import "./Buttons.css";
 import UploadVideogame from "../../components/UploadImage/Unpload-GameCreate/UnploadVideogames";
@@ -14,10 +14,12 @@ import style from "../GameCreate/GameCreate.module.css";
 import UploadGameCreate from "../../components/UploadImage/Unpload-GameCreate/Unpload-GameCreate";
 export default function GameCreate() {
   const dispatch = useDispatch();
+  // errorsImg
   const { genre, platforms, res } = useSelector((state) => state.prueba);
   const [Created, setCreated] = useState(false);
+  const [errorsImg, setErrorsImg] = useState(false);
   const [Price, setPrice] = useState(false);
-  const navigate = useHistory();
+
   const [gender, setGender] = useState({
     genere: [],
   });
@@ -41,14 +43,14 @@ export default function GameCreate() {
   });
   let trailer = "";
   let gameArchive = "";
-  let background_image  = "";
+  let background_image = "";
 
   const UnploadTrailer = (Urltrailer) => {
     trailer = Urltrailer;
   };
 
   const UnploadImages = (ImagesURL) => {
-    background_image  = ImagesURL;
+    background_image = ImagesURL;
   };
   const UnploadArchive = (archive) => {
     gameArchive = archive;
@@ -58,12 +60,12 @@ export default function GameCreate() {
     let userId = localStorage.getItem("id");
     let genres = gender.genere;
     let platforms = platform.platformarray;
-    let gameInfo = { ...data, platforms, genres, trailer, background_image  };
-    console.log(gameInfo);
+
+    let gameInfo = { ...data, platforms, genres, trailer, background_image };
+
     dispatch(CreateGame(gameInfo, userId));
     setCreated(true);
   };
-
 
   const handlerGender = (event) => {
     if (!gender.genere.includes(event.target.value)) {
@@ -112,9 +114,7 @@ export default function GameCreate() {
   }, []);
 
   if (res.created) {
-    return (
-    <CreateSuccess />
-    );
+    return <CreateSuccess />;
   }
   return (
     <>
@@ -257,13 +257,23 @@ export default function GameCreate() {
             </div>
           )}
 
-          <button className="button-9" role="button" type="submit">
+          <button
+            disabled={errorsImg}
+            className="button-9"
+            role="button"
+            type="submit"
+          >
             Create Game
           </button>
         </form>
         <div className={style.unploadDiv}>
           <UploadVideogame UnploadTrailer={UnploadTrailer} />
-          <UploadGameCreate UnploadImages={UnploadImages} />
+          <div>
+            <UploadGameCreate UnploadImages={UnploadImages} />
+
+            {errorsImg && <p> image is required</p>}
+          </div>
+
           <UnploadGameArchive UnploadArchive={UnploadArchive} />
         </div>
       </div>

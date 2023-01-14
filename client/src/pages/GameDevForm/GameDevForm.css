@@ -1,11 +1,11 @@
 .dev-form-main-container {
     display: flex;
     align-items: center;
-    margin-top: 50px;
+    height: auto;
     margin-bottom: 80px;
     font-family: "Poppins", sans-serif;
-    justify-content: center;
-    flex-direction: column
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 .dev-form-wrapper {
@@ -20,7 +20,7 @@
  .form-container {
         padding: 0 1em;
         width: 100%;
-        margin-top: 50px;
+     
  }
 
  .dev-form-loading{

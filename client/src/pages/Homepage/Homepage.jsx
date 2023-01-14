@@ -5,11 +5,14 @@ import Footer from "../../components/Footer/Footer";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Examinar from "../Examinar/Examinar";
 export default function Homepage() {
+
+
   return (
     <div className={style.container}>
       <div className={style.divStiky}>
         <SearchBar />
       </div>
+
 <div className={style.separador}>
 
 </div>

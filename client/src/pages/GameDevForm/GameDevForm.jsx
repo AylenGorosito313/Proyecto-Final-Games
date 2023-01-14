@@ -14,7 +14,8 @@ export default function GameDevForm () {
     const { isLoader } = useSelector( state => state.prueba);
     const providerCreated = useSelector( state => state.prueba.res.provider.createUserProvider)
     
-
+if (providerCreated){    window.localStorage.setItem("providerId", providerCreated.id)
+    console.log(providerCreated.id)}
     return (
         <>
             <div className="dev-form-main-container">

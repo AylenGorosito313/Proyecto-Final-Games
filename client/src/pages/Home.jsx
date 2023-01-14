@@ -98,6 +98,7 @@ function Home() {
                         platforms={ele.parent_platforms}
                         released={ele.released}
                         genres={ele.genres}
+                        price={ele.price}
                       />
                     );
                   })}

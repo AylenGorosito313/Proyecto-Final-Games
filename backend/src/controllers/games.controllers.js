@@ -192,6 +192,7 @@ const deleteGameProvider = async (req, res) => {
             videoGamesPropor : arrayFiltrado
         })
         await getUser.provider.save()
+        console.log("esto es lo que quedo en videoGamesPropor", arrayJuegos)
        res.send("game deleted whit success") 
     } catch (error) {
         return res.status(500).json({

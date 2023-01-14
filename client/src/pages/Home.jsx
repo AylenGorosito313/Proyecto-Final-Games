@@ -39,6 +39,9 @@ function Home() {
   };
 
   useEffect(() => {
+    // if(games.length){
+    //   return
+    // }
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());

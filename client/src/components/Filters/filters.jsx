@@ -28,7 +28,6 @@ export default function GameFilters() {
   const [togglePlatformButton, setTogglePlatformButton] = useState(false);
   const [toggleOrderButton, setToggleOrderButton] = useState(false);
   const [togglePriceButton, setTogglePriceButton] = useState(false);
-  
 
   const defaultValueSelect = {
     ASC: "ASC",
@@ -41,18 +40,27 @@ export default function GameFilters() {
     setToggleGenderButton(!toggleGenderButton)
   }
 
+  const expandPlatformOption = () => {
+    setTogglePlatformButton(!togglePlatformButton)
+  }
+
+  const expandPlatformOption = () => {
+    setTogglePlatformButton(!togglePlatform)
+  }
+
 
   const handlerChangePrice= (event) => {
- let parent_platforms = ["PC", "PlayStation", "Xbox", "Apple Macintosh","Android","Linux","iOS"];
-  const handlerChangePrice = (event) => {
-    console.log(event.target.value);
-    let prices = event.target.value;
-    let actions = {
-      price: prices,
-      type: "FILTER_BY_PRICE",
-    };
-    dispatch(Filters(actions));
+  let parent_platforms = ["PC", "PlayStation", "Xbox", "Apple Macintosh","Android","Linux","iOS"];
+    const handlerChangePrice = (event) => {
+      console.log(event.target.value);
+      let prices = event.target.value;
+      let actions = {
+        price: prices,
+        type: "FILTER_BY_PRICE",
+      };
+      dispatch(Filters(actions));
   };
+ }
 
   const handlerChangeOrden = (event) => {
     console.log(event.target.value);
@@ -91,55 +99,26 @@ export default function GameFilters() {
 
   return (
     <>
-      <div className={style.divSelect}>
-        <label className={style.labels}> Game genere </label>
-        <select className={style.Select} onChange={handlerGender}>
-          {genre &&
-            genre.map((g, i) => (
-              <option value={g} key={i}>
-                {g}
-              </option>
-            ))}
-        </select>
-      </div>
-      
+    
+          <div className={style.divSelect}>
+            <label className={style.labels}> Order </label>
+            <select onChange={handlerChangeOrden} className={style.Select}>
+              <option value={defaultValueSelect.ASC}>Order A-Z</option>
+              <option value={defaultValueSelect.DESC}>Order Z-A</option>
+            </select>
+          </div>
 
-      <div className={style.divSelect}>
-        <label className={style.labels}> Platforms</label>
-        <select className={style.Select} onChange={handlerPlatforms}>
-          {platforms &&
-            platforms.map((p, i) => (
-              <option value={p} key={i}>
-                {p}
-              </option>
-            ))}
-        </select>
-      </div>
-      {platform.platformarray.map((el, i) => (
-        <div key={i}>
-          <p>{el}</p>
-          <button className="" onClick={() => handleDeletedos(el)}>
-            X
-          </button>
-        </div>
-      ))}
-      <div className={style.divSelect}>
-        <label className={style.labels}> Order </label>
-        <select onChange={handlerChangeOrden} className={style.Select}>
-          <option value={defaultValueSelect.ASC}>Order A-Z</option>
-          <option value={defaultValueSelect.DESC}>Order Z-A</option>
-        </select>
-      </div>
-
-      <div className={style.divSelect}>
-        <label className={style.labels}> Price </label>
-        <select onChange={handlerChangePrice} className={style.Select}>
-          <option value={defaultValueSelect.MAYOR}>Mayor price </option>
-          <option value={defaultValueSelect.LOW}>Low price</option>
-        </select>
-      </div>
-
-          {/* prueba select */}
+          <div className={style.divSelect}>
+            <label className={style.labels}> Price </label>
+            <select onChange={handlerChangePrice} className={style.Select}>
+              <option value={defaultValueSelect.MAYOR}>Mayor price </option>
+              <option value={defaultValueSelect.LOW}>Low price</option>
+            </select>
+          </div>
+          
+          <hr className={style.line_between_filters} />
+          
+          {/* Filter Select */}
           
           <div className={style.gender_container_filter}>
             
@@ -147,7 +126,9 @@ export default function GameFilters() {
                style.button_gender_filter_selected : 
                style.button_gender_filter} onClick={expandGenderOption}>
               <span>GENDER</span>
-              {toggleGenderButton ? <i className="fa-solid fa-angle-down rotate"></i> : <i className="fa-solid fa-angle-down rotate_down"></i>}
+              {toggleGenderButton ? 
+              <i className="fa-solid fa-angle-down rotate"></i> : 
+              <i className="fa-solid fa-angle-down rotate_down"></i>}
               {/* <i className="fa-solid fa-angle-up"></i> */}
             </button>
 
@@ -164,9 +145,43 @@ export default function GameFilters() {
                   >
                     <span value={g} >{g}</span>
                   </div>
-            ))}
-            </div>
+                ))}
+              </div>
           </div>
+          <hr className={style.line_between_filters} />
+          
+          {/* Filter Platforms */}
+
+            <div className={style.platforms_container_filter}>
+            
+            <button className={togglePlatformButton ?
+               style.button_platforms_filter_selected : 
+               style.button_platforms_filter} onClick={expandPlatformOption}>
+              <span>PLATFORMS</span>
+              {togglePlatformButton ? 
+              <i className="fa-solid fa-angle-down rotate"></i> : 
+              <i className="fa-solid fa-angle-down rotate_down"></i>}
+              {/* <i className="fa-solid fa-angle-up"></i> */}
+            </button>
+
+            <div className={togglePlatformButton ? 
+              style.expand_container_platforms_options : 
+              style.rendered_container_platforms_options} >
+              {platforms &&
+                platforms.map((g, i) => (
+                  <div 
+                  value={g}
+                  key={i} 
+                  className={style.platforms_options}
+                  onClick={handlerGender}
+                  >
+                    <span value={g} >{g}</span>
+                  </div>
+                ))}
+              </div>
+          </div>
+
+          <hr className={style.line_between_filters} />
     </>
   );
 }

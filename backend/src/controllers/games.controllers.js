@@ -174,6 +174,34 @@ const GamesExaminar = async (req, res) => {
     }
 }
 
+const deleteGameProvider = async (req, res) => {
+    const {userId, gameId} = req.params 
+    // console.log("este es el congole.log de userId y userGame:",userId, gameId )
+    try {
+        const getUser = await Users.findOne({
+            where: { id: userId }, 
+            include: {
+                model: Providers, 
+            }
+        })
+        // console.log(getUser) 
+        const arrayJuegos = getUser.provider.videoGamesPropor 
+        // console.log("aca esta la info del juego del usuario",arrayJuegos)
+        const arrayFiltrado = arrayJuegos.filter(el => el.id != gameId)
+        getUser.provider.set({
+            videoGamesPropor : arrayFiltrado
+        })
+        await getUser.provider.save()
+       res.send("game deleted whit success") 
+    } catch (error) {
+        return res.status(500).json({
+            error: error.message,
+        })
+    }
+}
+
+
+
 module.exports = {
     gameInformation,
     getGames,
@@ -181,5 +209,6 @@ module.exports = {
     createGame,
     mostPopularGames,
     releasedLastMonth,
-    GamesExaminar
+    GamesExaminar,
+    deleteGameProvider
 };

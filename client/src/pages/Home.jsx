@@ -42,6 +42,7 @@ function Home() {
     // if(games.length){
     //   return
     // }
+    
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
@@ -50,19 +51,19 @@ function Home() {
     return () => {
       dispatch(clearState());
     };
-  }, []);
+  }, [dispatch]);
 
   // useEffect(() => {
   //   dispatch(getGames());
   // }, [games.length]);
 
-  if (isLoader && !games.length) {
-    return (
-      <div className="loadin-home">
-        <Loading />
-      </div>
-    );
-  }
+  // if (isLoader && !games.length) {
+  //   return (
+  //     <div className="loadin-home">
+  //       <Loading />
+  //     </div>
+  //   );
+  // }
   console.log(res.created);
   return (
     <>

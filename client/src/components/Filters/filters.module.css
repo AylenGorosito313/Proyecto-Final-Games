@@ -76,6 +76,7 @@
   margin-bottom: 5px;
   padding: 12px;
   cursor: pointer;
+  color: rgb(143, 143, 143);
 }
 
 .gender_options:hover {
@@ -87,7 +88,7 @@
   letter-spacing: 0.19;
   padding: 0;
   line-height: 1.5;
-  color: rgb(143, 143, 143);
+  
   /* color: rgb(245, 245, 245); */
 }
 
@@ -138,6 +139,10 @@
   transition-property: all;
 }
 
+.button_platforms_filter:hover{
+  color: rgb(245, 245, 245);
+}
+
 .expand_container_platforms_options {
   width: 100%;
   display: inline;
@@ -158,4 +163,16 @@
   margin-bottom: 5px;
   padding: 12px;
   cursor: pointer;
+  color: rgb(143, 143, 143);
+}
+
+.platforms_options:hover{
+  color: rgb(245, 245, 245);
+}
+
+.platforms_options span{
+  font-weight: 500;
+  letter-spacing: 0.19;
+  padding: 0;
+  line-height: 1.5;
 }

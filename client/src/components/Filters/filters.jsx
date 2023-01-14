@@ -29,6 +29,9 @@ export default function GameFilters() {
   const [toggleOrderButton, setToggleOrderButton] = useState(false);
   const [togglePriceButton, setTogglePriceButton] = useState(false);
 
+  // UseState for gender options
+  const [selectedGenderOption, setSelectedGenderOption] = useState(false);
+
   const defaultValueSelect = {
     ASC: "ASC",
     DESC: "DESC",
@@ -124,8 +127,8 @@ export default function GameFilters() {
                style.button_gender_filter} onClick={expandGenderOption}>
               <span>GENDER</span>
               {toggleGenderButton ? 
-              <i className="fa-solid fa-angle-down rotate"></i> : 
-              <i className="fa-solid fa-angle-down rotate_down"></i>}
+              <i className="fa-solid fa-angle-up rotate"></i> : 
+              <i className="fa-solid fa-angle-up rotate_down"></i>}
               {/* <i className="fa-solid fa-angle-up"></i> */}
             </button>
 
@@ -149,15 +152,15 @@ export default function GameFilters() {
           
           {/* Filter Platforms */}
 
-            <div className={style.platforms_container_filter}>
+          <div className={style.platforms_container_filter}>
             
             <button className={togglePlatformButton ?
                style.button_platforms_filter_selected : 
                style.button_platforms_filter} onClick={expandPlatformOption}>
               <span>PLATFORMS</span>
               {togglePlatformButton ? 
-              <i className="fa-solid fa-angle-down rotate"></i> : 
-              <i className="fa-solid fa-angle-down rotate_down"></i>}
+              <i className="fa-solid fa-angle-up rotate"></i> : 
+              <i className="fa-solid fa-angle-up rotate_down"></i>}
               {/* <i className="fa-solid fa-angle-up"></i> */}
             </button>
 

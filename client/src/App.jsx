@@ -16,7 +16,7 @@ import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
 import Examinar from "./pages/Examinar/Examinar";
 import axios from "axios";
-import ProfilePage from "./pages/UserProfile/Profile/ProfilePage";
+import ProfilePage from "./pages/UserProfile/Profile/ProfilePage"
 import Proveedor from "./pages/ProveedorProfile/Proveedor";
 import GameDevForm from "./pages/GameDevForm/GameDevForm";
 
@@ -53,16 +53,16 @@ function App() {
         <Route exact path="/game/dev/form" component={GameDevForm} />
         <Footer />
       </Route>
-
+    
       <Route exact path="/user">
-        <NavTop />
-        <Route path="/user" component={ProfilePage} />
-        <Footer />
+      <NavTop />
+          <Route path="/user" component={ProfilePage} />
+          <Footer />
       </Route>
 
       <Route path="/profile">
         <NavTop />
-
+     
         {/* <Route exact path="/profile/profile" component={Profile} /> */}
         <Route exact path="/profile/games" component={MyGames} />
         <Route exact path="/profile/favorite" component={Favorite} />
@@ -72,12 +72,12 @@ function App() {
 
       <Route exact path="/proveedor">
         <Proveedor />
+      
       </Route>
-      <Route exact path="/proveedor">
-        <NavTop />
-        <Route exact path="/provedor/profile" component={ProveedorProfile} />
-        <Footer />
-      </Route>
+      
+      <Route exact path="/provedor/profile" component={ProveedorProfile} />
+    
+      
     </>
   );
 }

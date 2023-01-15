@@ -15,7 +15,7 @@ export default function NavProfile() {
     }, [dispatch]);
 
     return (
-        <div>
+        <div className={style.Layout}>
             <br />
             <div className={style.conteiner}>
                 <div className={style.div}>
@@ -44,23 +44,23 @@ export default function NavProfile() {
                     </button>
                 </div>
             </div>
-            <ul className={style.conteiner}>
-                <div className={style.div}>
+            <ul className={style.conteinerNav}>
+                <div className={style.divTab}>
                     <li className={style.li}>
                         <Link to="/profile/profile" className={style.link}>🧑 PROFILE</Link>
                     </li>
                 </div>
-                <div className={style.div}>
+                <div className={style.divTab}>
                     <li className={style.li}>
                         <Link to="/profile/games" className={style.link}>🎮 MY GAMES</Link>
                     </li>
                 </div>
-                <div className={style.div}>
+                <div className={style.divTab}>
                     <li className={style.li}>
                         <Link to="/profile/favorite" className={style.link}>❤️ FAVORITES</Link>
                     </li>
                 </div>
-                <div className={style.div}>
+                <div className={style.divTab}>
                     <li className={style.li}>
                         <Link to="/profile/settings" className={style.link}>⚙️ Settings</Link>
                     </li>

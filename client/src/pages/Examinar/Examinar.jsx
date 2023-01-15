@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import SearchBar from "../../components/SearchBar/SearchBar";
+
 // Components
 import GameFilters from "../../components/Filters/filters";
 import CardsExam from "./CardsExam";

@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-around;
   padding-left: 40px;
-  padding-top: 50px;
+  padding-top: 70px;
   width: 50%;
+  box-shadow: -1px 1px 1px #424141, 0 0 #fff;
   background: #ffffff1f;
   align-items: flex-start;
   flex-direction: column;
@@ -24,38 +25,36 @@
 }
 
 .button {
-  align-items: center;
-  appearance: none;
-  background-color: #fcfcfd;
-  border-radius: 4px;
-
-  width: 200px;
-
-  border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,
-    rgba(45, 35, 66, 0.15) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-  box-sizing: border-box;
-  color: #36395a;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: Poppins;
-  height: 48px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
-  text-align: left;
-  text-decoration: none;
-  transition: box-shadow 0.15s, transform 0.15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow, transform;
-  font-size: 18px;
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 4px;
+    width: 200px;
+    border-width: 0;
+    box-shadow: rgb(45 35 66 / 20%) 0 2px 4px, rgb(45 35 66 / 15%) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395a;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Poppins;
+    height: 37px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    /* font-size: 18px; */
+    font-size: 15px;
 }
 
 .button:focus {

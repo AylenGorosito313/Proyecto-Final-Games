@@ -31,7 +31,7 @@ export default function Card(props) {
           <span className={style.text}>No available for plataforms</span>
         )}
       </div>
-      <a     className={style.icon}   download={props.name} href={file}>
+      <a     className={style.icon}   download={props.name} href="https://res.cloudinary.com/dj8p0rdxn/video/upload/v1673797875/AndromedaGames/ncuz3w8gdvfrmqdam7wb.mp4">
         <div className={style.div}>
           <i class="fa-solid fa-download"></i>
         </div>

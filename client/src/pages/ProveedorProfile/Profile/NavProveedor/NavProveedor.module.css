@@ -1,0 +1,213 @@
+.conteiner {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 200px;
+    background: #ffffff17;
+    align-items: center;
+  }
+  .divAvatar {
+    display: flex;
+    gap: 40px;
+    font-weight: 400;
+    font-size: 24px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .divTab {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 200px;
+    height: 50px;
+    font-family: poppins;
+    font-weight: 80;
+    font-size: 22px;
+    justify-content: center;
+  }
+  
+  .button {
+    font-size: 18px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    will-change: box-shadow, transform;
+    background: radial-gradient(100% 100% at 100% 0%, #89e5ff 0%, #7382f3 100%);
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%),
+      0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%),
+      inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    padding: 0 2em;
+    border-radius: 0.3em;
+    color: rgb(204, 204, 204);
+    height: 2.6em;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  
+  .button:hover {
+    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%),
+      0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
+    transform: translateY(-0.1em);
+  }
+  
+  .button:active {
+    box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
+    transform: translateY(0em);
+  }
+  
+  .img {
+    width: 100px;
+    border-radius: 50px;
+    background: #fff;
+    height: 100px;
+  }
+  
+  .li {
+    display: inline;
+    margin: 0 0 0 80px;
+  }
+  
+  .link {
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: poppins;
+    font-weight: 90;
+    font-size: 18px;
+  }
+  
+  .li {
+    color: #2a9d8f;
+    font-family: poppins;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+  }
+  
+  .li:focus,
+  .li:hover {
+    color: #ffd166;
+  }
+  
+  .li:focus:after,
+  .li:hover:after {
+    width: 100%;
+    left: 0%;
+  }
+  
+  .li:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    margin: 0;
+    height: 2px;
+    background-color: #ffd166;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+  }
+  .Layout {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+  
+    height: 300px;
+  
+    justify-content: flex-end;
+  }
+  .Layoutcontainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    /* background: linear-gradient(
+          45deg,
+          rgb(70, 20, 20),
+          rgb(50, 50, 122),
+          rgb(113, 58, 158),
+          rgb(47, 14, 88)
+        );
+        background-size: 400% 400%;
+    animation: cambiar 14s ease-in-out infinite; */
+    height: auto;
+  
+    justify-content: flex-end;
+  }
+  
+  /* @keyframes cambiar{
+      0% {
+        background-position: 0 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0 50%;
+      }
+    } */
+  
+  .conteinerNav {
+    display: flex;
+    border-radius: 5px;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    background: #ffffff36;
+  }
+  
+  .loader {
+    display: inline-block;
+    width: 830px;
+    height: 2px;
+    border-radius: 40px;
+    background-color: #b44ab8;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .loader span {
+    font: 700 22px monospace;
+    text-transform: uppercase;
+    margin: auto;
+    color: #9a5eb627;
+    letter-spacing: 5px;
+  }
+  
+  .loader::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 150%;
+    height: 100%;
+    background-image: linear-gradient( 45deg, rgb(63, 187, 224), rgb(50, 50, 122), rgb(59 58 116), rgb(255, 0, 85) );;
+    border-radius: inherit;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: load5123  14s ease-in-out infinite;
+  }
+  
+  @keyframes load5123 {
+    50% {
+      transform: scaleX(1);
+    }
+  
+    100% {
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+  }
+  
+ 

@@ -25,6 +25,5 @@ usersRouter.post('/user/provider/create/:userId', registerProvider)
 usersRouter.get('/user/proveedor/usuario', usuariosProveedores)
 usersRouter.get('/user/provider/videogames/create/:userId', getGamesByProvider)
 usersRouter.get('/user/provider/setprofit', supplierProfit)
-// usersRouter.delete('/user/provider/deleteGameProvider/:userId/:userGame', deleteGameProvider)
 module.exports = usersRouter;
 

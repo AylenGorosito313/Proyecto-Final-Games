@@ -30,7 +30,7 @@ export default function GameFilters() {
   const [togglePriceButton, setTogglePriceButton] = useState(false);
 
   // UseState for gender options
-  const [selectedGenderOption, setSelectedGenderOption] = useState(false);
+  const [selectedOption, setSelectedOption] = useState({status:false, name:""});
 
   const defaultValueSelect = {
     ASC: "ASC",
@@ -47,7 +47,9 @@ export default function GameFilters() {
     setTogglePlatformButton(!togglePlatformButton)
   }
 
-
+  const expandPriceOption = () => {
+    setTogglePriceButton(!togglePriceButton)
+  }
 
   const handlerChangePrice= (event) => {
   let parent_platforms = ["PC", "PlayStation", "Xbox", "Apple Macintosh","Android","Linux","iOS"];
@@ -73,7 +75,11 @@ export default function GameFilters() {
   };
 
   const handlerGender = (event) => {
-    console.log(event.target.getAttribute("value"));
+    setSelectedOption({
+      ...selectedOption, 
+      status: true, 
+      name: event.target.getAttribute("value")})
+    
     let genders = event.target.getAttribute("value");
     let actions = {
       gender: genders,
@@ -83,8 +89,12 @@ export default function GameFilters() {
   };
 
   const handlerPlatforms = (event) => {
-    console.log(event.target.value)
-    let platforms = event.target.value;
+    setSelectedOption({
+      ...selectedOption, 
+      status: true, 
+      name: event.target.getAttribute("value")})
+
+    let platforms = event.target.getAttribute("value");
     let actions = {
       platform: platforms,
       type: "FILTER_BY_PLATFORM",
@@ -115,6 +125,48 @@ export default function GameFilters() {
               <option value={defaultValueSelect.LOW}>Low price</option>
             </select>
           </div>
+
+          {/* Price Filters */}
+
+          <div className={style.price_container_filter}>
+            
+            <button className={togglePriceButton ?
+               style.button_price_filter_selected : 
+               style.button_price_filter} onClick={expandPriceOption}>
+              <span>PRICE</span>
+              {togglePriceButton ? 
+              <i className="fa-solid fa-angle-up rotate"></i> : 
+              <i className="fa-solid fa-angle-up rotate_down"></i>}
+            </button>
+
+            <div className={togglePriceButton ? 
+              style.expand_container_price_options : 
+              style.rendered_container_price_options} >
+
+                <div value="MAYOR"
+                  className={selectedOption.name == "MAYOR" ? 
+                    style.price_options_selected :
+                    style.price_options }
+                    onClick={handlerGender}
+                  >
+                  <span value="MAYOR" >High to Low</span>
+                  {selectedOption.name == "MAYOR" &&
+                    <i class="fa-solid fa-check"></i>}
+                </div>
+
+                <div value="LOW"
+                  className={selectedOption.name == "LOW" ? 
+                    style.price_options_selected :
+                    style.price_options }
+                    onClick={handlerGender}
+                  >
+                  <span value="LOW" >Low to High</span>
+                  {selectedOption.name == "LOW" &&
+                    <i class="fa-solid fa-check"></i>}
+                </div>
+
+            </div>
+          </div>
           
           <hr className={style.line_between_filters} />
           
@@ -129,7 +181,6 @@ export default function GameFilters() {
               {toggleGenderButton ? 
               <i className="fa-solid fa-angle-up rotate"></i> : 
               <i className="fa-solid fa-angle-up rotate_down"></i>}
-              {/* <i className="fa-solid fa-angle-up"></i> */}
             </button>
 
             <div className={toggleGenderButton ? 
@@ -140,14 +191,21 @@ export default function GameFilters() {
                   <div 
                   value={g}
                   key={i} 
-                  className={style.gender_options}
-                  onClick={handlerGender}
+                  className={selectedOption.name == g ? 
+                    style.gender_options_selected :
+                    style.gender_options }
+                    onClick={handlerGender}
                   >
-                    <span value={g} >{g}</span>
+                    <span value={g} >{g}
+                    </span>
+                    {selectedOption.name == g &&
+                     <i class="fa-solid fa-check"></i>}
+                    
                   </div>
                 ))}
               </div>
           </div>
+
           <hr className={style.line_between_filters} />
           
           {/* Filter Platforms */}
@@ -161,7 +219,6 @@ export default function GameFilters() {
               {togglePlatformButton ? 
               <i className="fa-solid fa-angle-up rotate"></i> : 
               <i className="fa-solid fa-angle-up rotate_down"></i>}
-              {/* <i className="fa-solid fa-angle-up"></i> */}
             </button>
 
             <div className={togglePlatformButton ? 
@@ -172,10 +229,14 @@ export default function GameFilters() {
                   <div 
                   value={g}
                   key={i} 
-                  className={style.platforms_options}
-                  onClick={handlerGender}
+                  className={ selectedOption.name == g ?
+                    style.platforms_options_selected :
+                    style.platforms_options }
+                    onClick={handlerPlatforms}
                   >
                     <span value={g} >{g}</span>
+                    {selectedOption.name == g &&
+                     <i class="fa-solid fa-check"></i>}
                   </div>
                 ))}
               </div>

@@ -32,13 +32,14 @@ export default function GameFilters() {
   // UseState for gender options
   const [selectedOption, setSelectedOption] = useState({status:false, name:""});
 
-  const defaultValueSelect = {
+  const defaultValues = {
     ASC: "ASC",
     DESC: "DESC",
     MAYOR: "MAYOR",
     LOW: "LOW",
   };
 
+  // onClick Expand Button options
   const expandGenderOption = () => {
     setToggleGenderButton(!toggleGenderButton)
   }
@@ -51,6 +52,12 @@ export default function GameFilters() {
     setTogglePriceButton(!togglePriceButton)
   }
 
+  const expandOrderOption = () => {
+    setToggleOrderButton(!toggleOrderButton)
+  }
+
+  // ===============================
+
   const handlerChangePrice= (event) => {
   let parent_platforms = ["PC", "PlayStation", "Xbox", "Apple Macintosh","Android","Linux","iOS"];
     const handlerChangePrice = (event) => {
@@ -62,7 +69,7 @@ export default function GameFilters() {
       };
       dispatch(Filters(actions));
   };
- }
+ };
 
   const handlerChangeOrden = (event) => {
     console.log(event.target.value);
@@ -109,24 +116,53 @@ export default function GameFilters() {
 
   return (
     <>
-    
-          <div className={style.divSelect}>
-            <label className={style.labels}> Order </label>
-            <select onChange={handlerChangeOrden} className={style.Select}>
-              <option value={defaultValueSelect.ASC}>Order A-Z</option>
-              <option value={defaultValueSelect.DESC}>Order Z-A</option>
-            </select>
+          {/* Order Filters */}
+
+          <hr className={style.line_between_filters} />
+
+          <div className={style.order_container_filter}>
+            
+            <button className={toggleOrderButton ?
+               style.button_order_filter_selected : 
+               style.button_order_filter} onClick={expandOrderOption}>
+              <span>ORDER</span>
+              {toggleOrderButton ? 
+              <i className="fa-solid fa-angle-up rotate"></i> : 
+              <i className="fa-solid fa-angle-up rotate_down"></i>}
+            </button>
+              
+            <div className={toggleOrderButton ? 
+              style.expand_container_order_options : 
+              style.rendered_container_order_options} >
+
+                <div value={defaultValues.ASC}
+                  className={selectedOption.name == "ASC" ? 
+                    style.order_options_selected :
+                    style.order_options }
+                    onClick={handlerChangeOrden}
+                  >
+                  <span value={defaultValues.ASC} >Ascendent</span>
+                  {selectedOption.name == "ASC" &&
+                    <i class="fa-solid fa-check"></i>}
+                </div>
+
+                <div value={defaultValues.DESC}
+                  className={selectedOption.name == "DESC" ? 
+                    style.order_options_selected :
+                    style.order_options }
+                    onClick={handlerGender}
+                  >
+                  <span value={defaultValues.DESC} >Descendent</span>
+                  {selectedOption.name == "DESC" &&
+                    <i class="fa-solid fa-check"></i>}
+                </div>
+
+            </div>
           </div>
 
-          <div className={style.divSelect}>
-            <label className={style.labels}> Price </label>
-            <select onChange={handlerChangePrice} className={style.Select}>
-              <option value={defaultValueSelect.MAYOR}>Mayor price </option>
-              <option value={defaultValueSelect.LOW}>Low price</option>
-            </select>
-          </div>
+          <hr className={style.line_between_filters} />
 
-          {/* Price Filters */}
+          {/* Price Filter */}
 
           <div className={style.price_container_filter}>
             
@@ -170,7 +206,7 @@ export default function GameFilters() {
           
           <hr className={style.line_between_filters} />
           
-          {/* Gender Filters */}
+          {/* Gender Filter */}
           
           <div className={style.gender_container_filter}>
             
@@ -208,7 +244,7 @@ export default function GameFilters() {
 
           <hr className={style.line_between_filters} />
           
-          {/* Filter Platforms */}
+          {/* Platforms Filter */}
 
           <div className={style.platforms_container_filter}>
             

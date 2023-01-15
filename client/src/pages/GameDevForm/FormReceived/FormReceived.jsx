@@ -22,7 +22,7 @@ export default function FormReceived () {
                             BACK TO HOME
                         </button>
                     </Link>
-                    <Link to="/provedor/profile">
+                    <Link to="/user">
                         <button className="buttons-after-received">
                             GO TO MY PROFILE 
                         </button>

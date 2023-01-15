@@ -178,7 +178,6 @@ const releasedLastMonth = async (req, res) => {
 
 const deleteGameProvider = async (req, res) => {
     const {userId, gameId} = req.params 
-    // console.log("este es el congole.log de userId y userGame:",userId, gameId )
     try {
         const getUser = await Users.findOne({
             where: { id: userId }, 
@@ -186,15 +185,16 @@ const deleteGameProvider = async (req, res) => {
                 model: Providers, 
             }
         })
-        // console.log(getUser) 
         const arrayJuegos = getUser.provider.videoGamesPropor 
         // console.log("aca esta la info del juego del usuario",arrayJuegos)
-        const arrayFiltrado = arrayJuegos.filter(el => el.id != gameId)
+        arrayJuegos.map(el => console.log(el.id))
+        const arrayFiltrado = arrayJuegos.filter(el => el.id !== gameId)
         getUser.provider.set({
             videoGamesPropor : arrayFiltrado
         })
+        console.log("esto es lo que quedo en videoGamesPropor", arrayFiltrado)
         await getUser.provider.save()
-        console.log("esto es lo que quedo en videoGamesPropor", arrayJuegos)
+
        res.send("game deleted whit success") 
     } catch (error) {
         return res.status(500).json({
@@ -204,7 +204,6 @@ const deleteGameProvider = async (req, res) => {
 }
 
 const filtrado = async (req, res) => {
-    // idea sobre el filtradooooooooooo ...................
     const { platform, genre, alphabeth, price, rating } = req.query;
 
     let api = await getGamesForExaminar();

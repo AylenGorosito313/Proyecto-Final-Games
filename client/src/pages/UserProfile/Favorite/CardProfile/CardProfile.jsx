@@ -1,9 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { deletedFavorites } from "../../../../middleware";
 import { platformImage } from "../../../CardDetail/utils/utils";
 import style from "../CardProfile/CardProfile.module.css";
 
 export default function CardProfile(props) {
+
+  const dispatch = useDispatch()
+
+  const handleDelete = (id) => {
+    dispatch(deletedFavorites(id))
+  }
+
   return (
     <div className={style.conteiner}>
       <div className={style.divImg}>
@@ -32,12 +41,12 @@ export default function CardProfile(props) {
         )}
       </div>
       <div className={style.div}>
-        <Link className={style.li} to={`/game/${props.id}`}>
-          Details ➕
+        <Link className={style.Link} to={`/game/${props.id}`}>
+        ➕   Details 
         </Link>
       </div>
       <div className={style.divButton}>
-        <button className={style.button}>🗑️</button>
+        <button onClick={() => handleDelete(props.id)} className={style.button}>🗑️</button>
       </div>
     </div>
   );

@@ -74,7 +74,10 @@ function App() {
         <Proveedor />
       
       </Route>
+      
       <Route exact path="/provedor/profile" component={ProveedorProfile} />
+    
+      
     </>
   );
 }

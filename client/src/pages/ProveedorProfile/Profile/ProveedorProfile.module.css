@@ -4,6 +4,34 @@
     height: 200px;
 }
 
+.LayoutProfilePage{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient( 45deg, rgb(35 95 131), rgb(50, 50, 122), rgb(59 58 116), rgb(135 34 68) );
+    background-size: 400% 400%;
+animation: cambiar 14s ease-in-out infinite;
+  height: 110vh;
+
+  padding-top: 80px;
+  padding-bottom: 80px;
+  justify-content: flex-end;
+
+}
+.conteiner{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding-left: 40px;
+  padding-top: 50px;
+  width: 760px;
+  height: 100%;
+  background: #ffffff17;
+  align-items: center;
+
+}
+
 .nav{
     display: flex;
     align-items: flex-end;

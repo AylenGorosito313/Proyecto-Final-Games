@@ -12,12 +12,12 @@ export default function WishList() {
   useEffect(() => {
     let userID = window.localStorage.getItem("id");
     dispatch(geUserActual(userID));
-  }, []);
+  }, [userActual.favoritos?.length]);
 
   return (
     <div className={style.LayoutProfilePage}>
       <NavProfile />
-      {userActual.favoritos.length ? (
+      {userActual.favoritos ? (
         <div className={style.conteiner}>
           {userActual.favoritos.map((inf) => {
             return (
@@ -42,20 +42,3 @@ export default function WishList() {
   );
 }
 
-{
-  /* {
-                    userActual.favoritos?.length && (userActual.favoritos.map(inf =>{
-                        return(
-                            <div>
-                                <CardProfile 
-                                id={inf.id}
-                                image ={inf.background_image} 
-                                name= {inf.name} 
-                                platforms= {inf.parent_platforms}
-                                />
-                              <br/>
-                            </div>
-                        )
-                    }))
-                } */
-}

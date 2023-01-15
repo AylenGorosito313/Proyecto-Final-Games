@@ -71,7 +71,7 @@ export default function NavProfile() {
           </div>
           <div className={style.divTab}>
             <Link to="/profile/games" className={style.link}>
-              🎮 Games
+              🎮 History 
             </Link>
           </div>
           <div className={style.divTab}>

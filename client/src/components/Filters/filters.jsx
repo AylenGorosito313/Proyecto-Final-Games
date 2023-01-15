@@ -23,13 +23,14 @@ export default function GameFilters() {
     platformarray: [],
   });
 
-  // UseState for button div
+  // UseState For Expand Options
   const [toggleGenderButton, setToggleGenderButton] = useState(false);
   const [togglePlatformButton, setTogglePlatformButton] = useState(false);
   const [toggleOrderButton, setToggleOrderButton] = useState(false);
   const [togglePriceButton, setTogglePriceButton] = useState(false);
+  const [toggleRatingButton, setToggleRatingButton] = useState(false);
 
-  // UseState for gender options
+  // UseState for Gender Options
   const [selectedOption, setSelectedOption] = useState({status:false, name:""});
 
   const defaultValues = {
@@ -39,7 +40,7 @@ export default function GameFilters() {
     LOW: "LOW",
   };
 
-  // onClick Expand Button options
+  // onClick Expand Button Options
   const expandGenderOption = () => {
     setToggleGenderButton(!toggleGenderButton)
   }
@@ -54,6 +55,10 @@ export default function GameFilters() {
 
   const expandOrderOption = () => {
     setToggleOrderButton(!toggleOrderButton)
+  }
+
+  const expandRatingOption = () => {
+    setToggleRatingButton(!toggleRatingButton)
   }
 
   // ===============================
@@ -71,9 +76,14 @@ export default function GameFilters() {
   };
  };
 
-  const handlerChangeOrden = (event) => {
-    console.log(event.target.value);
-    let orders = event.target.value;
+  const handlerChangeOrder = (event) => {
+    setSelectedOption({
+      ...selectedOption, 
+      status: true, 
+      name: event.target.getAttribute("value")})
+    
+    let orders = event.target.getAttribute("value")
+
     let actions = {
       order: orders,
       type: "FILTER_BY_ORDER",
@@ -109,6 +119,13 @@ export default function GameFilters() {
     dispatch(Filters(actions));
   };
 
+  const handlerRating = (event) => {
+    setSelectedOption({
+      ...selectedOption, 
+      status: true, 
+      name: event.target.getAttribute("value")})
+  };
+
   useEffect(() => {
     dispatch(traerGenero());
     dispatch(traerPlatforms());
@@ -125,7 +142,7 @@ export default function GameFilters() {
             <button className={toggleOrderButton ?
                style.button_order_filter_selected : 
                style.button_order_filter} onClick={expandOrderOption}>
-              <span>ORDER</span>
+              <span>ALPHABETIC ORDER</span>
               {toggleOrderButton ? 
               <i className="fa-solid fa-angle-up rotate"></i> : 
               <i className="fa-solid fa-angle-up rotate_down"></i>}
@@ -139,7 +156,7 @@ export default function GameFilters() {
                   className={selectedOption.name == "ASC" ? 
                     style.order_options_selected :
                     style.order_options }
-                    onClick={handlerChangeOrden}
+                    onClick={handlerChangeOrder}
                   >
                   <span value={defaultValues.ASC} >Ascendent</span>
                   {selectedOption.name == "ASC" &&
@@ -150,7 +167,7 @@ export default function GameFilters() {
                   className={selectedOption.name == "DESC" ? 
                     style.order_options_selected :
                     style.order_options }
-                    onClick={handlerChangeOrden}
+                    onClick={handlerChangeOrder}
                   >
                   <span value={defaultValues.DESC} >Descendent</span>
                   {selectedOption.name == "DESC" &&
@@ -206,6 +223,50 @@ export default function GameFilters() {
           
           <hr className={style.line_between_filters} />
           
+          {/* Rating Filter */}
+
+          <div className={style.rating_container_filter}>
+            
+            <button className={toggleRatingButton ?
+               style.button_rating_filter_selected : 
+               style.button_rating_filter} onClick={expandRatingOption}>
+              <span>RATING</span>
+              {toggleRatingButton ? 
+              <i className="fa-solid fa-angle-up rotate"></i> : 
+              <i className="fa-solid fa-angle-up rotate_down"></i>}
+            </button>
+            
+            <div className={toggleRatingButton ? 
+              style.expand_container_rating_options : 
+              style.rendered_container_rating_options} >
+
+                <div value={defaultValues.ASC}
+                  className={selectedOption.name == "ASC" ? 
+                    style.rating_options_selected :
+                    style.rating_options }
+                    onClick={handlerRating}
+                  >
+                  <span value={defaultValues.ASC} >High to Low</span>
+                  {selectedOption.name == "ASC" &&
+                    <i class="fa-solid fa-check"></i>}
+                </div>
+
+                <div value={defaultValues.DESC}
+                  className={selectedOption.name == "DESC" ? 
+                    style.rating_options_selected :
+                    style.rating_options }
+                    onClick={handlerRating}
+                  >
+                  <span value={defaultValues.DESC} >Low to High</span>
+                  {selectedOption.name == "DESC" &&
+                    <i class="fa-solid fa-check"></i>}
+                </div>
+
+            </div>
+          </div>
+          
+          <hr className={style.line_between_filters} />
+
           {/* Gender Filter */}
           
           <div className={style.gender_container_filter}>

@@ -56,7 +56,7 @@ function App() {
       <Route path="/profile">
         <NavTop />
         <Route path="/profile" component={NavProfile} />
-        <Route exact path="/profile/profile" component={Profile} />
+        {/* <Route exact path="/profile/profile" component={Profile} /> */}
         <Route exact path="/profile/games" component={MyGames} />
         <Route exact path="/profile/favorite" component={Favorite} />
         <Route exact path="/profile/settings" component={Settings} />

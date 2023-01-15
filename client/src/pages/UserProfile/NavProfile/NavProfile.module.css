@@ -123,7 +123,7 @@
     align-items: center;
  
     height: 300px;
-    padding-top: 80px;
+   
     justify-content: flex-end;
 
 }
@@ -141,7 +141,7 @@
       );
       background-size: 400% 400%;
   animation: cambiar 14s ease-in-out infinite;
-    height: 300px;
+    height: auto;
     padding-top: 80px;
     justify-content: flex-end;
 

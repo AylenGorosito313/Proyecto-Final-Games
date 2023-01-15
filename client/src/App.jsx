@@ -54,7 +54,7 @@ function App() {
         <Footer />
       </Route>
     
-      <Route path="/user">
+      <Route exact path="/user">
       <NavTop />
           <Route path="/user" component={ProfilePage} />
           <Footer />

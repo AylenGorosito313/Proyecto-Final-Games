@@ -36,7 +36,7 @@ export default function CardProfile(props) {
           Details ➕
         </Link>
       </div>
-      <div>
+      <div className={style.divButton}>
         <button className={style.button}>🗑️</button>
       </div>
     </div>

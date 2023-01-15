@@ -36,7 +36,7 @@ export default function Card(props) {
       <div className={style.div}>
         <i class="fa-solid fa-download"></i>
       </div>
-      <div>
+      <div className={style.divButton}>
         <button className={style.button}>🗑️</button>
       </div>
     </div>

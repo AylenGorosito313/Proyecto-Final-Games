@@ -83,12 +83,15 @@
     transition-property: width, left;
   }
   
+  .divButton{
+    padding: 10px;
+}
   .button {
     font-family: poppins;
     font-size: 20px;
     font-weight: 400;
     height: 50px;
-    width: 100px;
+    width: 50px;
     border: 0px solid;
     background-image: linear-gradient(45deg, #ef233c, #ef233c, #ef233c);
     background-size: 500% 400%;

@@ -123,10 +123,10 @@ const createGame = async (req, res) => {
                     },
                 });
                 userProvider.videoGamesPropor.length === 0
-                    ? (userProvider.videoGamesPropor = [gameInfo])
+                    ? (userProvider.videoGamesPropor = [result])
                     : (userProvider.videoGamesPropor = [
                           ...userProvider.videoGamesPropor,
-                          gameInfo,
+                          result,
                       ]);
                 await userProvider.save();
                 return res.status(200).json(result);

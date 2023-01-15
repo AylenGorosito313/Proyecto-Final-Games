@@ -12,7 +12,7 @@ export default function WishList() {
   useEffect(() => {
     let userID = window.localStorage.getItem("id");
     dispatch(geUserActual(userID));
-  }, []);
+  }, [userActual.favoritos?.length]);
 
   return (
     <div className={style.LayoutProfilePage}>

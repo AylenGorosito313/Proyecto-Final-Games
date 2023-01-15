@@ -3,9 +3,11 @@
     justify-content: space-around;
     padding-left: 40px;
     padding-top: 50px;
-    width: 90%;
-    height: 150px;
+    width: 50%;
+    background: #ffffff1f;
+   
     align-items: center;
+    flex-direction: column;
 }
 
 .div{
@@ -110,7 +112,7 @@
       );
       background-size: 400% 400%;
   animation: cambiar 14s ease-in-out infinite;
-    height: 110vh;
+    height: auto;
     padding-top: 80px;
     justify-content: flex-start;
 

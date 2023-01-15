@@ -38,20 +38,42 @@ export const getGames = () => {
     }
   };
 };
-export const getForFilters = () => {
+export const getForFilters = (parameter) => {
+
+  const { platform, genre, alphabeth, price, rating } = parameter;
+  
   return async function (dispatch) {
-    try {
-      dispatch(isLoading());
-      let { data } = await axios({
-        method: "GET",
-        url: `http://localhost:3001/games/filters/examinar/routes`,
-      });
-      console.log(data);
-      dispatch(getExaminar(data));
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+        
+        if(Object.keys(parameter).length === 0){
+
+          try {
+          
+          let { data } = await axios({
+            method: "GET",
+            url: `http://localhost:3001/games/filters/examinar`,
+          });
+          console.log(data);
+          dispatch(getExaminar(data));
+          } catch (error) {
+            console.log(error.message);
+          }
+
+        } else {
+
+          try {
+          
+          let { data } = await axios({
+            method: "GET",
+            url: `http://localhost:3001/games/filters/examinar?platform=${platform}&genre=${genre}&alphabeth=${alphabeth}&price=${price}&rating=${rating}`,
+          });
+          console.log(data);
+          dispatch(getExaminar(data));
+          } catch (error) {
+            console.log(error.message);
+          }
+        }
+      }
+    
 };
 
 export const isLoading = () => {

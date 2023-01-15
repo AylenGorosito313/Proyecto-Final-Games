@@ -38,71 +38,9 @@ export const toolkit_prueba = createSlice({
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
     },
-
     getExaminar: (state, actions) => {
-      state.filters = [...actions.payload];
+      state.examinar = [...actions.payload];
     },
-    Filters: (state, actions) => {
-      let genero = actions.payload.gender;
-      let platforms = actions.payload.platform;
-      let order = actions.payload.order;
-      let price = actions.payload.price;
-
-      if (actions.payload.type === "FILTER_BY_GENDER") {
-        state.examinar = state.filters.filter((games) =>
-          games.genres.includes(genero)
-        );
-      }
-
-      if (actions.payload.type === "FILTER_BY_PLATFORM") {
-        state.examinar = state.examinar.filter((games) =>
-          games.parent_platforms.includes(platforms)
-        );
-      }
-
-      if (actions.payload.type === "FILTER_BY_ORDER") {
-        if (order === "ASC") {
-          state.examinar = state.examinar.sort(function (a, b) {
-            if (a.name < b.name) {
-              return -1;
-            }
-            if (a.name > b.name) {
-              return 1;
-            }
-            return 0;
-          });
-        }
-
-        if (order === "DESC") {
-          state.examinar = state.examinar.sort(function (a, b) {
-            if (a.name > b.name) {
-              return -1;
-            }
-            if (a.name < b.name) {
-              return 1;
-            }
-            return 0;
-          });
-        }
-      }
-
-     
-      if (actions.payload.type === "FILTER_BY_PRICE") {
-        if (price === "MAYOR") {
-          state.examinar = state.examinar.sort(function (a, b) {
-            return b.price - a.price;
-          });
-        }
-        if (price === "LOW") {
-          state.examinar = state.examinar.sort(function (a, b) {
-            return a.price - b.price;
-          });
-        }
-
-       
-      }
-    },
-
     getDetail: (state, actions) => {
       state.gameDetail = actions.payload;
     },

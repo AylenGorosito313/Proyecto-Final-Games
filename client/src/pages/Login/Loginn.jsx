@@ -1,7 +1,5 @@
 import React from "react";
 
-import FacebookLogin from "react-facebook-login";
-import { GoogleLogin } from "react-google-login";
 import "./css/Login.css";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";

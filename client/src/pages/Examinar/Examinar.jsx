@@ -13,6 +13,8 @@ import Loading from "../../components/Loading/Loading";
 
 export default function Examinar() {
   const { isLoader } = useSelector((state) => state.prueba);
+  
+
 
   return (
     <>
@@ -21,14 +23,15 @@ export default function Examinar() {
           <SearchBar />
         </div>
         <div className={style.separador}></div>
-        {isLoader ? (
-          <div className={style.loading}>
-            <Loading />
-          </div>
-        ) : (
           <div className={style.cards_main_container}>
             <div className={style.left_container}>
+            {isLoader ? (
+              <div className={style.loading}>
+              <Loading />
+            </div>
+            ) : (
               <CardsExam />
+            )}
             </div>
             <div className={style.right_container}>
               <div className={style.filters_container}>
@@ -36,7 +39,6 @@ export default function Examinar() {
               </div>
             </div>
           </div>
-        )}
       </div>
     </>
   );

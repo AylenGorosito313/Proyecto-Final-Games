@@ -1,9 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { traerGenero } from "../../middleware";
-import { traerPlatforms } from "../../middleware";
-import { Filters } from "../../reducers/prueba/pruebaSlider";
+import { getForFilters, isLoading, traerGenero, traerPlatforms } from "../../middleware";
 
 // Css styles
 import style from "./filters.module.css";
@@ -14,13 +12,9 @@ export default function GameFilters() {
   const dispatch = useDispatch();
   const { genre, platforms } = useSelector((state) => state.prueba);
 
-  // Use states
-  const [gender, setGender] = useState({
-    genere: [],
-  });
-
-  const [platform, setPlatform] = useState({
-    platformarray: [],
+  // Use state of querys to send
+  const [filterOptions, setFilterOptions] = useState({
+    platform: "", genre: "", alphabeth: "", price: "", rating: "" 
   });
 
   // UseState For Expand Options
@@ -34,14 +28,14 @@ export default function GameFilters() {
   const [selectedGenderOption, setSelectedGenderOption] = useState({status:false, name:""});
   const [selectedPlatformOption, setSelectedPlatformOption] = useState({status:false, name:""});
   const [selectedOrderOption, setSelectedOrderOption] = useState({status:false, name:""});
-  const [selectedPriceOption, setSelectedPriceOption] = useState({status:false, name:""});
+  const [selectedPriceOption, setSelectedPriceOption] = useState("");
   const [selectedRatingOption, setSelectedRatingOption] = useState({status:false, name:""});
 
   const defaultValues = {
     ASC: "ASC",
-    DESC: "DESC",
-    MAYOR: "MAYOR",
-    LOW: "LOW",
+    DESC: "DESC", 
+    A_Z: "A-Z",
+    Z_A: "Z-A",
   };
 
   // onClick Expand Button Options
@@ -68,27 +62,37 @@ export default function GameFilters() {
   // ===============================
 
   const handlerPrice= (event) => {
-  
-  setSelectedPriceOption({
-      ...selectedPriceOption, 
-      status: true, 
-      name: event.target.getAttribute("value")})
-  
+    
+    let price = event.target.getAttribute("value")
+    
+    setSelectedPriceOption(price)
+
+    setFilterOptions({
+      ...filterOptions,
+      price: price
+    })
+
+    dispatch(getForFilters(
+      filterOptions
+    ));
+
   };
 
   const handlerOrder = (event) => {
-    setSelectedOrderOption({
-      ...selectedOrderOption, 
-      status: true, 
-      name: event.target.getAttribute("value")})
-    
-    let orders = event.target.getAttribute("value")
+    let order = event.target.getAttribute("value")
 
-    let actions = {
-      order: orders,
-      type: "FILTER_BY_ORDER",
-    };
-    dispatch(Filters(actions));
+    setFilterOptions({
+      ...filterOptions, 
+      alphabeth: order
+    })
+    
+    setSelectedOrderOption(order)
+    
+    
+    dispatch(getForFilters(
+      filterOptions
+    ));
+
   };
 
   const handlerGender = (event) => {
@@ -97,26 +101,16 @@ export default function GameFilters() {
       status: true, 
       name: event.target.getAttribute("value")})
     
-    let genders = event.target.getAttribute("value");
-    let actions = {
-      gender: genders,
-      type: "FILTER_BY_GENDER",
-    };
-    dispatch(Filters(actions));
+    let gender = event.target.getAttribute("value");
+    
   };
-
+  
   const handlerPlatforms = (event) => {
     setSelectedPlatformOption({
       ...selectedPlatformOption, 
       status: true, 
       name: event.target.getAttribute("value")})
 
-    let platforms = event.target.getAttribute("value");
-    let actions = {
-      platform: platforms,
-      type: "FILTER_BY_PLATFORM",
-    };
-    dispatch(Filters(actions));
   };
 
   const handlerRating = (event) => {
@@ -152,25 +146,25 @@ export default function GameFilters() {
               style.expand_container_order_options : 
               style.rendered_container_order_options} >
 
-                <div value={defaultValues.ASC}
-                  className={selectedOrderOption.name == "ASC" ? 
+                <div value={defaultValues.A_Z}
+                  className={selectedOrderOption === defaultValues.A_Z ? 
                     style.order_options_selected :
                     style.order_options }
                     onClick={handlerOrder}
                   >
-                  <span value={defaultValues.ASC} >Ascendent</span>
-                  {selectedOrderOption.name == "ASC" &&
+                  <span value={defaultValues.A_Z} >A - Z</span>
+                  {selectedOrderOption === defaultValues.A_Z &&
                     <i class="fa-solid fa-check"></i>}
                 </div>
 
-                <div value={defaultValues.DESC}
-                  className={selectedOrderOption.name == "DESC" ? 
+                <div value={defaultValues.Z_A}
+                  className={selectedOrderOption === defaultValues.Z_A ? 
                     style.order_options_selected :
                     style.order_options }
                     onClick={handlerOrder}
                   >
-                  <span value={defaultValues.DESC} >Descendent</span>
-                  {selectedOrderOption.name == "DESC" &&
+                  <span value={defaultValues.Z_A} >Z - A</span>
+                  {selectedOrderOption === defaultValues.Z_A &&
                     <i class="fa-solid fa-check"></i>}
                 </div>
 
@@ -197,24 +191,24 @@ export default function GameFilters() {
               style.rendered_container_price_options} >
 
                 <div value={defaultValues.ASC}
-                  className={selectedPriceOption.name == "ASC" ? 
-                    style.price_options_selected :
-                    style.price_options }
-                    onClick={handlerPrice}
+                    className={selectedPriceOption === defaultValues.ASC ? 
+                      style.price_options_selected :
+                      style.price_options }
+                      onClick={handlerPrice}
                   >
-                  <span value={defaultValues.ASC} >High to Low</span>
-                  {selectedPriceOption.name == "ASC" &&
+                  <span value={defaultValues.ASC} >Low to High</span>
+                  {selectedPriceOption === defaultValues.ASC &&
                     <i class="fa-solid fa-check"></i>}
                 </div>
 
                 <div value={defaultValues.DESC}
-                  className={selectedPriceOption.name == "DESC" ? 
+                    onClick={handlerPrice}
+                    className={selectedPriceOption === defaultValues.DESC ? 
                     style.price_options_selected :
                     style.price_options }
-                    onClick={handlerPrice}
                   >
-                  <span value={defaultValues.DESC} >Low to High</span>
-                  {selectedPriceOption.name == "DESC" &&
+                  <span value={defaultValues.DESC} >High to Low</span>
+                  {selectedPriceOption === defaultValues.DESC &&
                     <i class="fa-solid fa-check"></i>}
                 </div>
 

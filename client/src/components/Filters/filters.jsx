@@ -150,7 +150,7 @@ export default function GameFilters() {
                   className={selectedOption.name == "DESC" ? 
                     style.order_options_selected :
                     style.order_options }
-                    onClick={handlerGender}
+                    onClick={handlerChangeOrden}
                   >
                   <span value={defaultValues.DESC} >Descendent</span>
                   {selectedOption.name == "DESC" &&

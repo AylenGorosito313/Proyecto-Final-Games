@@ -42,20 +42,3 @@ export default function WishList() {
   );
 }
 
-{
-  /* {
-                    userActual.favoritos?.length && (userActual.favoritos.map(inf =>{
-                        return(
-                            <div>
-                                <CardProfile 
-                                id={inf.id}
-                                image ={inf.background_image} 
-                                name= {inf.name} 
-                                platforms= {inf.parent_platforms}
-                                />
-                              <br/>
-                            </div>
-                        )
-                    }))
-                } */
-}

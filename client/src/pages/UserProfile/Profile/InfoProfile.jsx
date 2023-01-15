@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { geUserActual } from "../../../middleware";
 import style from "../Profile/Profile.module.css";
 
-export default function Profile() {
+export default function infoProfile() {
   const dispatch = useDispatch();
 
   useEffect(() => {

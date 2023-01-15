@@ -35,7 +35,7 @@ function FormLogin({verify}) {
             placeholder="Enter your email..."
             className="input"
             {...register("email", {
-              maxLength: 30,
+              maxLength: 50,
               required: true,
               pattern: /\S+@\S+\.\S+/,
             })}

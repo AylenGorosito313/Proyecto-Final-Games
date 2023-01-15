@@ -27,13 +27,8 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(
-        45deg,
-        rgb(70, 20, 20),
-        rgb(50, 50, 122),
-        rgb(113, 58, 158),
-        rgb(47, 14, 88)
-      );
+    background: linear-gradient( 45deg, rgb(35 95 131), rgb(50, 50, 122), rgb(59 58 116), rgb(135 34 68) );
+
       background-size: 400% 400%;
   animation: cambiar 14s ease-in-out infinite;
     height: 100vh;

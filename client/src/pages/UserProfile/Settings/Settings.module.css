@@ -5,9 +5,10 @@
     padding-top: 50px;
     width: 50%;
     background: #ffffff1f;
-   
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
+    gap: 20px;
+
 }
 
 .div{
@@ -57,25 +58,29 @@
 }
 
 .input {
-    background-color: #212121;
+    background-color: #ffffff15;
     font-family: poppins;
     max-width: 190px;
     height: 20px;
     padding: 10px;
+    
     /* text-align: center; */
-    border: 2px solid white;
+    border: 1px solid white;
     border-radius: 5px;
     /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
 }
-  
-.input:focus {
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.438);
+    font-size: 14px;
+  }
+/* .input:focus {
     color: rgb(0, 255, 255);
     background-color: #212121;
     outline-color: rgb(0, 255, 255);
     box-shadow: -3px -3px 15px rgb(0, 255, 255);
     transition: .1s;
     transition-property: box-shadow;
-}
+} */
 
 .select{
     background-color: #212121;
@@ -98,18 +103,29 @@
     transition-property: box-shadow;
 }
 
+
+
+.Change{
+    display: flex;
+    flex-direction: column;
+  gap:10px;
+}
+
+
+.divInputs{
+    display: flex;
+    width: 100%;
+    gap:20px;
+}
+
+
+
 .LayoutProfilePage{
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(
-        45deg,
-        rgb(70, 20, 20),
-        rgb(50, 50, 122),
-        rgb(113, 58, 158),
-        rgb(47, 14, 88)
-      );
+    background: linear-gradient( 45deg, rgb(35 95 131), rgb(50, 50, 122), rgb(59 58 116), rgb(135 34 68) );
       background-size: 400% 400%;
   animation: cambiar 14s ease-in-out infinite;
     height: auto;

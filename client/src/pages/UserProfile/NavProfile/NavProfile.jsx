@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { geUserActual } from "../../../middleware";
 import style from "../NavProfile/NavProfile.module.css";
+import Profile from "../Profile/Profile";
 
-import InfoProfile from "../Profile/InfoProfile";
 export default function NavProfile() {
   const dispatch = useDispatch();
   const { userActual } = useSelector((state) => state.prueba);
@@ -46,7 +46,7 @@ export default function NavProfile() {
                 userActual.proveedor === false ? (
                   <Link to="/proveedor" className={style.link}>
                     {" "}
-                    You want to be a Provider of Andromeda Games?{" "}
+                     be a Provider of Andromeda Games?{" "}
                   </Link>
                 ) : (
                   <Link to="/provedor/profile" className={style.link}>
@@ -65,7 +65,7 @@ export default function NavProfile() {
         </div>
         <ul className={style.conteinerNav}>
           <div className={style.divTab}>
-            <Link to="/profile/profile" className={style.link}>
+            <Link to="/user" className={style.link}>
               🧑 Profile
             </Link>
           </div>
@@ -87,7 +87,7 @@ export default function NavProfile() {
         </ul>
         <div className={style.loader}></div>
       </div>
-      <InfoProfile />
+  
     </div>
   );
 }

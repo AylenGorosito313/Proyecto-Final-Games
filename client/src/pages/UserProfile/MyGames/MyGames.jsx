@@ -3,7 +3,7 @@ import { useDispatch, useSelector}from "react-redux";
 import { getItemsCar } from "../../../middleware";
 import style from "../MyGames/MyGames.module.css";
 import Card from "./Card/Card";
-
+import NavProfile from "../NavProfile/NavProfile";
 export default function MyGames (){
     
     const dispatch = useDispatch();
@@ -15,7 +15,10 @@ export default function MyGames (){
     const { userActual } = useSelector((state) => state.prueba);
 
     return(
-        <div>
+
+        <div className={style.LayoutProfilePage}>
+             < NavProfile/>
+             <h1>holi</h1>
             { userActual ? ( 
                 <div>
                     <nav className={style.nav}>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { geUserActual } from "../../../middleware";
 import countries from "./countries.js";
 import style from "../Settings/Settings.module.css";
-
+import NavProfile from "../NavProfile/NavProfile";
 export default function Settings() {
     const dispatch = useDispatch();
     const { userActual } = useSelector((state) => state.prueba);
@@ -45,7 +45,8 @@ export default function Settings() {
     });
 
     return (
-        <div>
+        <div className={style.LayoutProfilePage}>
+<NavProfile/>
             <br />
             <div className={style.conteiner}>
                 <div className={style.div}>AVATAR</div>

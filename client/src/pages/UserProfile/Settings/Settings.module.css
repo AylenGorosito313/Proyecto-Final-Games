@@ -95,3 +95,35 @@
     transition: .1s;
     transition-property: box-shadow;
 }
+
+.LayoutProfilePage{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(
+        45deg,
+        rgb(70, 20, 20),
+        rgb(50, 50, 122),
+        rgb(113, 58, 158),
+        rgb(47, 14, 88)
+      );
+      background-size: 400% 400%;
+  animation: cambiar 14s ease-in-out infinite;
+    height: 100vh;
+    padding-top: 80px;
+    justify-content: flex-start;
+
+}
+
+@keyframes cambiar{
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }

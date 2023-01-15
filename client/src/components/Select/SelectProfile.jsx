@@ -49,7 +49,7 @@ export default function SelectProfile({ setOpen, setLogin }) {
             <div>
               <Profile />
             </div>{" "}
-            <Link className="Link-select" to={"/profile/profile"}>
+            <Link className="Link-select" to={"/user"}>
               <p className="option-name"> Profile</p>
             </Link>
           </div>

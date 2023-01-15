@@ -16,6 +16,7 @@ import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
 import Examinar from "./pages/Examinar/Examinar";
 import axios from "axios";
+import ProfilePage from "./pages/UserProfile/Profile/ProfilePage"
 import Proveedor from "./pages/ProveedorProfile/Proveedor";
 import GameDevForm from "./pages/GameDevForm/GameDevForm";
 
@@ -52,10 +53,16 @@ function App() {
         <Route exact path="/game/dev/form" component={GameDevForm} />
         <Footer />
       </Route>
+    
+      <Route path="/user">
+      <NavTop />
+          <Route path="/user" component={ProfilePage} />
+          <Footer />
+      </Route>
 
       <Route path="/profile">
         <NavTop />
-        <Route path="/profile" component={NavProfile} />
+     
         {/* <Route exact path="/profile/profile" component={Profile} /> */}
         <Route exact path="/profile/games" component={MyGames} />
         <Route exact path="/profile/favorite" component={Favorite} />

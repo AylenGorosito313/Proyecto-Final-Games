@@ -3,7 +3,7 @@ import { useDispatch, useSelector}from "react-redux";
 import { geUserActual } from "../../../middleware";
 import CardProfile from "./CardProfile/CardProfile";
 import style from "../Favorite/Favorite.module.css";
-
+import NavProfile from "../NavProfile/NavProfile";
 export default function WishList (){
 
     const dispatch = useDispatch();
@@ -15,7 +15,8 @@ export default function WishList (){
     }, []);
 
     return(
-        <div >
+        <div className={style.LayoutProfilePage}>
+            <NavProfile/>
             <nav className={style.nav}>
                 <ul className={style.ul}>
                     <li className={style.title}></li>

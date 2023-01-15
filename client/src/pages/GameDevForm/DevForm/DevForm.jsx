@@ -12,12 +12,11 @@ export default function DevForm () {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     let userID = window.localStorage.getItem("id");
-
+    
     const onSubmit = (data) => {
         console.log(data)
         dispatch(enableProvider(userID))
     }
-
 
     return (
         <>

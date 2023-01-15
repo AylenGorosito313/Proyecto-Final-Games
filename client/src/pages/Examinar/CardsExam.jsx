@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getForFilters } from "../../middleware";
 export default function CardsExam() {
   const { filters, examinar, games } = useSelector((state) => state.prueba);
-  let filterSlice = filters.slice(0,10)
+  let filterSlice = filters.slice(0,20)
   let dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,21 +33,22 @@ console.log(examinar)
               price={ele.price}
             />
           );
-        }) : filterSlice.map((ele) => {
-          return (
-            <Card
-              key={ele.id + ele.price}
-              img={ele.background_image}
-              name={ele.name}
-              id={ele.id}
-              rating={ele.rating}
-              platforms={ele.parent_platforms}
-              released={ele.released}
-              genres={ele.genres}
-              price={ele.price}
-            />
-          );
-        })
+        }) : "holi"
+        //  filterSlice.map((ele) => {
+        //   return (
+        //     <Card
+        //       key={ele.id + ele.price}
+        //       img={ele.background_image}
+        //       name={ele.name}
+        //       id={ele.id}
+        //       rating={ele.rating}
+        //       platforms={ele.parent_platforms}
+        //       released={ele.released}
+        //       genres={ele.genres}
+        //       price={ele.price}
+        //     />
+        //   );
+        // })
       }
       {/* {examinar.length &&
         } */}

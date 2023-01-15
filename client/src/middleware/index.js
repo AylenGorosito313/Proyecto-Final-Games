@@ -20,6 +20,7 @@ import {
   getPlatforms,
   responseAddCart,
   getExaminar,
+  providerResponseEnable
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -30,7 +31,7 @@ export const getGames = () => {
         method: "GET",
         url: `http://localhost:3001/games`,
       });
-     
+
       dispatch(getAllGames(data));
     } catch (error) {
       console.log(error.message);
@@ -45,7 +46,7 @@ export const getForFilters = () => {
         method: "GET",
         url: `http://localhost:3001/games/filters/examinar/routes`,
       });
-      console.log(data)
+      console.log(data);
       dispatch(getExaminar(data));
     } catch (error) {
       console.log(error.message);
@@ -155,7 +156,7 @@ export const enableProvider = (id) => {
       dispatch(providerResponseEnable(data));
       setTimeout(() => {
         dispatch(isLoading());
-      }, 2000);
+      }, 2000)
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",
@@ -218,17 +219,17 @@ export const traerPlatforms = () => {
   };
 };
 
-export const LoginUser = ({ email, password }) => {
+export const LoginUser = ({ email, password }, verify) => {
   return async function (dispatch) {
     try {
       let res = await axios({
         method: "POST",
-        data: { email, password },
+        data: { email, password, verify },
         url: "http://localhost:3001/login/user",
       });
       dispatch(responseLogin(res.data));
     } catch (error) {
-      toast.error(error.message, {
+      toast.error(error.request.response, {
         position: "bottom-right",
         duration: 4000,
 

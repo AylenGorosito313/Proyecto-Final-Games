@@ -3,7 +3,7 @@ import React from "react";
 import FacebookLogin from "react-facebook-login";
 import { GoogleLogin } from "react-google-login";
 import "./css/Login.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import LogoLogin from "../../svg/LogoLogin";
 import FormLogin from "./formularios/FormLogin";
@@ -14,6 +14,8 @@ import { useSelector } from "react-redux";
 import mario from "../../assets/mario.jpg";
 
 function Loginn() {
+  const search = useLocation().search;
+  const verify = new URLSearchParams(search).get('verify');
   const { res } = useSelector((state) => state.prueba);
   const navigateToHome = useHistory();
   const backResponse = () =>
@@ -59,7 +61,7 @@ function Loginn() {
             <LogoLogin />
           </div>
           <div>
-            <FormLogin />
+            <FormLogin verify={verify}/>
           </div>
           <div className="container-singnup">
             <div className="singnup">

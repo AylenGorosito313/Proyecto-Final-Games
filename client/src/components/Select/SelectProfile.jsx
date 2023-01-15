@@ -1,10 +1,12 @@
 import { useDispatch } from "react-redux";
 import "./SelectProfile.css";
+import DeveloperIcon from "../../svg/icons-menu/Developer-Icon";
 import Logout from "../../svg/icons-menu/Logout";
 import Settings from "../../svg/icons-menu/Settings";
 import Profile from "../../svg/icons-menu/Profile";
 import { clearState } from "../../reducers/prueba/pruebaSlider";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 export default function SelectProfile({ setOpen, setLogin }) {
   const dispatch = useDispatch();
   const handlerLogout = () => {
@@ -14,6 +16,13 @@ export default function SelectProfile({ setOpen, setLogin }) {
 
     dispatch(clearState());
   };
+
+  let Idpovider = false;
+  let id = localStorage.getItem("providerId");
+
+  if (id) Idpovider = true;
+
+  console.log(Idpovider);
 
   return (
     <motion.div
@@ -26,15 +35,66 @@ export default function SelectProfile({ setOpen, setLogin }) {
       }}
     >
       <div className="select-container">
+        {Idpovider ? (
+          <div className="option-container">
+            <div>
+              <Profile />
+            </div>
+            <Link className="Link-select" to={"/provedor/profile"}>
+              <p className="option-name"> Profile</p>
+            </Link>
+          </div>
+        ) : (
+          <div className="option-container">
+            <div>
+              <Profile />
+            </div>{" "}
+            <Link className="Link-select" to={"/profile/profile"}>
+              <p className="option-name"> Profile</p>
+            </Link>
+          </div>
+        )}
+
+        {/* <div className="option-container">
+          <div>
+            <Profile />
+          </div>
+          <Link className="Link-select" to={"/provedor/profile"}>
+              <p className="option-name"> Profile</p>
+          </Link>
+        
+        </div> */}
         <div className="option-container">
-          <Profile /> <p className="option-name"> Profile</p>
-        </div>
-        <div className="option-container">
-          <Settings /> <p className="option-name">Settings</p>
+          <div>
+            <Settings />
+          </div>
+          <p className="option-name">Settings</p>
         </div>
 
+        {Idpovider ? (
+          <div className="option-container">
+            <div>
+              <DeveloperIcon />
+            </div>{" "}
+            <Link className="Link-select" to={"/game/form/create"}>
+              <p className="option-name"> Unpload Game </p>
+            </Link>
+          </div>
+        ) : (
+          <div className="option-container">
+            <div>
+              <DeveloperIcon />
+            </div>{" "}
+            <Link className="Link-select" to={"/proveedor"}>
+              <p className="option-name">Be Developer </p>
+            </Link>
+          </div>
+        )}
+
         <div className="option-container" onClick={handlerLogout}>
-          <Logout className="div-icon-menu-perfil" />{" "}
+          <div>
+            <Logout className="div-icon-menu-perfil" />
+          </div>{" "}
           <p className="option-name">Logut</p>
         </div>
       </div>

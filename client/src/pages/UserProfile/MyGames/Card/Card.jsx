@@ -6,8 +6,8 @@ import { platformImage } from "../../../CardDetail/utils/utils";
 export default function Card(props) {
   return (
     <div className={style.conteiner}>
-      <div className={style.div}>
-        <Link  to={`/game/${props.id}`}>
+      <div className={style.divImg}>
+  
           <img
             className={style.img}
             src={props.image}
@@ -15,7 +15,7 @@ export default function Card(props) {
             width="150px"
             height="90px"
           />
-        </Link>
+     
       </div>
 
       <div className={style.div}>
@@ -30,7 +30,7 @@ export default function Card(props) {
             .slice(0, 3)
             .map((el) => <span key={el}>{platformImage(el)}</span>)
         ) : (
-          <span>No available for plataforms</span>
+          <span className={style.text}>No available for plataforms</span>
         )}
       </div>
       <div className={style.div}>

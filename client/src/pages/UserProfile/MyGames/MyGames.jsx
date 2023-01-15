@@ -21,7 +21,7 @@ export default function MyGames (){
            
             { userActual ? ( 
                <div className={style.conteiner}>
-                    <nav className={style.nav}>
+                    {/* <nav className={style.nav}>
                         <ul className={style.ul}>
                          
                             <li className={style.title}>Title</li>
@@ -34,7 +34,7 @@ export default function MyGames (){
                                 </div> 
                             </li>
                         </ul> 
-                    </nav>
+                    </nav> */}
                     {/* <nav className={style.nav}>
                         <ul className={style.ul}>
                             <li className={style.title}>Title</li>

@@ -19,20 +19,11 @@ const getGames = async (req, res) => {
         let searchGamesDB = await Game.findAll({
             include: {
                 model: Genre,
-                attributes: ["name"],
-                through: {
-                    attributes: [],
-                },
             },
-        });
-        let GamesDB = [];
-        let arrayFrom = Array.from(searchGamesDB);
-        arrayFrom.forEach((element) => {
-            GamesDB.push(element);
         });
         let response = await paginate("games", page);
         let mapToGames = await mapGames(response);
-        let mapToToGameDB = await mapGames(GamesDB);
+        let mapToToGameDB = await mapGames([...searchGamesDB]);
         return res.status(200).json([...mapToToGameDB, ...mapToGames]);
     } catch (error) {
         res.status(500).json({

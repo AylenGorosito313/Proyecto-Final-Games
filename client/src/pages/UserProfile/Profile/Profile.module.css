@@ -8,16 +8,23 @@
     background: #1d1e1f;
 }
 
+.containerProfile{
+    width: 180vh;
+    display: flex;
+    justify-content: center;
+}
 
 .conteiner{
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
     padding-left: 40px;
     padding-top: 50px;
-    width: 90%;
+    width: 50%;
     height: 100%;
-    background: #1d1e1f;
+    background: #ffffff17;
     align-items: center;
+
 }
 
 .div{

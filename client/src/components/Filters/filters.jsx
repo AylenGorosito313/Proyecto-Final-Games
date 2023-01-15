@@ -30,7 +30,7 @@ export default function GameFilters() {
   const [togglePriceButton, setTogglePriceButton] = useState(false);
   const [toggleRatingButton, setToggleRatingButton] = useState(false);
 
-  // UseState for Gender Options
+  // UseState For Selected Options
   const [selectedGenderOption, setSelectedGenderOption] = useState({status:false, name:""});
   const [selectedPlatformOption, setSelectedPlatformOption] = useState({status:false, name:""});
   const [selectedOrderOption, setSelectedOrderOption] = useState({status:false, name:""});

@@ -15,10 +15,12 @@ export default function NavProfile() {
     }, [dispatch]);
 
     return (
+      
+        <div className={style.Layoutcontainer}>
         <div className={style.Layout}>
             <br />
             <div className={style.conteiner}>
-                <div className={style.div}>
+                <div className={style.divAvatar}>
                     <img
                         className={style.img}
                         src={
@@ -27,18 +29,20 @@ export default function NavProfile() {
                             : "https://raw.githubusercontent.com/multiavatar/Multiavatar/main/logo.png?v=001"
                         }
                     alt="ImgProfile"
-                    width="150px"
-                    height="150px"
+                    width="200px"
+                    height="200px"
                 />
+                  <div className={style.divAvatar}>{userActual.name ? `${userActual.name} ${userActual.lastName}` : ''}</div>
+                
                 </div>
                 
-                <div className={style.div}>{ userActual.name ? `Hello ${userActual.name}!` : 'Your Name'}</div>
+                {/* <div className={style.div}>{ userActual.name ? `Hello ${userActual.name}!` : 'Your Name'}</div> */}
                 <div className={style.div}>
                     <button className={style.button}>
                         { userActual.proveedor ?(
                             userActual.proveedor === false ? 
                                 <Link to ='/proveedor' className={style.link}> You want to be a Provider of Andromeda Games? </Link> : 
-                                <Link  to ='/provedor/profile' className={style.link}>💰 Provider Profile</Link> 
+                                <Link  to ='/provedor/profile' className={style.link}> Provider Profile</Link> 
                             ) :  <Link to ='/proveedor' className={style.link}>  You are a Provider of Andromeda Games ?</Link>
                         }
                     </button>
@@ -46,27 +50,28 @@ export default function NavProfile() {
             </div>
             <ul className={style.conteinerNav}>
                 <div className={style.divTab}>
-                    <li className={style.li}>
-                        <Link to="/profile/profile" className={style.link}>🧑 PROFILE</Link>
-                    </li>
+                  
+                        <Link to="/profile/profile" className={style.link}>🧑 Profile</Link>
+                  
                 </div>
                 <div className={style.divTab}>
-                    <li className={style.li}>
-                        <Link to="/profile/games" className={style.link}>🎮 MY GAMES</Link>
-                    </li>
+                 
+                        <Link to="/profile/games" className={style.link}>🎮 Games</Link>
+                   
                 </div>
                 <div className={style.divTab}>
-                    <li className={style.li}>
-                        <Link to="/profile/favorite" className={style.link}>❤️ FAVORITES</Link>
-                    </li>
+               
+                        <Link to="/profile/favorite" className={style.link}>❤️ Favorites</Link>
+                
                 </div>
                 <div className={style.divTab}>
-                    <li className={style.li}>
+               
                         <Link to="/profile/settings" className={style.link}>⚙️ Settings</Link>
-                    </li>
+                  
                 </div>
             </ul>        
             <div className={style.loader}></div>
+        </div>
         </div>
     );
 }

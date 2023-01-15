@@ -38,7 +38,7 @@ export default function Card(props) {
       </a>
 
       <div className={style.divButton}>
-        <button className={style.button}>🗑️</button>
+        <button className={style.button}>✔️</button>
       </div>
     </div>
   );

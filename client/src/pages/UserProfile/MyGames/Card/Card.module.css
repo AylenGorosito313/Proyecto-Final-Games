@@ -18,14 +18,15 @@
 }
 
 .div {
-  display: flex;
-  align-items: center;
-  align-content: flex-start;
-  width: 200px;
-  height: auto;
-  font-size: 17px;
-  font-family: Poppins;
-  position: relative;
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    width: 200px;
+    height: auto;
+    font-size: 17px;
+    font-family: Poppins;
+    position: relative;
+    justify-content: center;
 }
 
 .divImg {
@@ -83,7 +84,7 @@
   transition-property: width, left;
 }
 .divButton{
-    padding: 10px;
+    padding: 20px;
 }
 .button {
   font-family: poppins;
@@ -122,4 +123,9 @@
 
 .text {
   font-size: 14px;
+}
+
+
+.icon{
+    color: #fff
 }

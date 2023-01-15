@@ -32,8 +32,8 @@ export default function CardProfile(props) {
         )}
       </div>
       <div className={style.div}>
-        <Link className={style.li} to={`/game/${props.id}`}>
-          Details ➕
+        <Link className={style.Link} to={`/game/${props.id}`}>
+        ➕   Details 
         </Link>
       </div>
       <div className={style.divButton}>

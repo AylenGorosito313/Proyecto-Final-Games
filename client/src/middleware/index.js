@@ -245,6 +245,26 @@ export const LoginUser = ({ email, password }, verify) => {
 
 //"/user/addCard/:userId/:gameId"
 
+
+export const AddFavorite = (user_id, id) => {
+  return async function (dispatch) {
+    try {
+      let res = await axios({
+        method: "POST",
+        data: {},
+        url: `http://localhost:3001/game/addFavorite/${user_id}/${id}`,
+      });
+
+      return res.request.status;
+    } catch (error) {
+      console.log(error.message);
+      dispatch(responseAddCart(error.message));
+    }
+  };
+};
+
+
+
 export const AddCart = (userId, gameId) => {
   return async function (dispatch) {
     try {

@@ -35,12 +35,35 @@ export default function SelectProfile({ setOpen, setLogin }) {
       }}
     >
       <div className="select-container">
-        <div className="option-container">
+        {Idpovider ? (
+          <div className="option-container">
+            <div>
+              <Profile />
+            </div>
+            <Link className="Link-select" to={"/provedor/profile"}>
+              <p className="option-name"> Profile</p>
+            </Link>
+          </div>
+        ) : (
+          <div className="option-container">
+            <div>
+              <Profile />
+            </div>{" "}
+            <Link className="Link-select" to={"/profile/profile"}>
+              <p className="option-name"> Profile</p>
+            </Link>
+          </div>
+        )}
+
+        {/* <div className="option-container">
           <div>
             <Profile />
           </div>
-          <p className="option-name"> Profile</p>
-        </div>
+          <Link className="Link-select" to={"/provedor/profile"}>
+              <p className="option-name"> Profile</p>
+          </Link>
+        
+        </div> */}
         <div className="option-container">
           <div>
             <Settings />

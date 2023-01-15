@@ -75,10 +75,12 @@
     font-size: 16px;
 }
 
+
+
 .loader {
     display: inline-block;
     width: 100%;
-    height: 8px;
+    height: 1px;
     border-radius: 40px;
     background-color: #4cc9f0;
     position: relative;

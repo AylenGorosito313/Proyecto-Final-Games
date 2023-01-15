@@ -2,20 +2,18 @@ import React from "react";
 import style from "../Card/Card.module.css";
 import { Link } from "react-router-dom";
 import { platformImage } from "../../../CardDetail/utils/utils";
-
+import file from "../../../../assets/img/videoplayback.mp4"
 export default function Card(props) {
   return (
     <div className={style.conteiner}>
       <div className={style.divImg}>
-  
-          <img
-            className={style.img}
-            src={props.image}
-            alt={props.name}
-            width="150px"
-            height="90px"
-          />
-     
+        <img
+          className={style.img}
+          src={props.image}
+          alt={props.name}
+          width="150px"
+          height="90px"
+        />
       </div>
 
       <div className={style.div}>
@@ -33,9 +31,16 @@ export default function Card(props) {
           <span className={style.text}>No available for plataforms</span>
         )}
       </div>
-      <div className={style.div}>
-        <i class="fa-solid fa-download"></i>
-      </div>
+      <a
+      
+        download={props.name}
+        href={file}
+      >
+        <div className={style.div}>
+          <i class="fa-solid fa-download"></i>
+        </div>
+      </a>
+
       <div className={style.divButton}>
         <button className={style.button}>🗑️</button>
       </div>

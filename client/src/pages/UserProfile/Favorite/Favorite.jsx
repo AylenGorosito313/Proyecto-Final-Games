@@ -17,7 +17,7 @@ export default function WishList() {
   return (
     <div className={style.LayoutProfilePage}>
       <NavProfile />
-      {userActual.favoritos.length ? (
+      {userActual.favoritos ? (
         <div className={style.conteiner}>
           {userActual.favoritos.map((inf) => {
             return (

@@ -34,7 +34,54 @@ export default function SelectProfile({ setOpen, setLogin }) {
         ease: "backOut",
       }}
     >
-      <div className="select-container">
+       <div className="select-container">
+      <div className="option-container">
+        <div>
+          <Profile />
+        </div>
+        <Link className="Link-select" to={"/user"}>
+          <p className="option-name"> Profile</p>
+        </Link>
+      </div>
+      <div className="option-container">
+        <div>
+          <Settings />
+        </div>
+        <p className="option-name">Settings</p>
+      </div>
+
+      {Idpovider ? (
+        <div className="option-container">
+          <div>
+            <DeveloperIcon />
+          </div>{" "}
+          <Link className="Link-select" to={"/game/form/create"}>
+            <p className="option-name"> Unpload Game </p>
+          </Link>
+        </div>
+      ) : (
+        <div className="option-container">
+          <div>
+            <DeveloperIcon />
+          </div>{" "}
+          <Link className="Link-select" to={"/proveedor"}>
+            <p className="option-name">Be Developer </p>
+          </Link>
+        </div>
+      )}
+
+      <div className="option-container" onClick={handlerLogout}>
+        <div>
+          <Logout className="div-icon-menu-perfil" />
+        </div>{" "}
+        <p className="option-name">Logut</p>
+      </div>
+      </div>
+    </motion.div>
+  );
+}
+{
+  /* <div className="select-container">
         {Idpovider ? (
           <div className="option-container">
             <div>
@@ -45,59 +92,13 @@ export default function SelectProfile({ setOpen, setLogin }) {
             </Link>
           </div>
         ) : (
-          <div className="option-container">
-            <div>
-              <Profile />
-            </div>{" "}
-            <Link className="Link-select" to={"/user"}>
-              <p className="option-name"> Profile</p>
-            </Link>
-          </div>
-        )}
-
-        {/* <div className="option-container">
-          <div>
-            <Profile />
-          </div>
-          <Link className="Link-select" to={"/provedor/profile"}>
-              <p className="option-name"> Profile</p>
-          </Link>
-        
-        </div> */}
-        <div className="option-container">
-          <div>
-            <Settings />
-          </div>
-          <p className="option-name">Settings</p>
-        </div>
-
-        {Idpovider ? (
-          <div className="option-container">
-            <div>
-              <DeveloperIcon />
-            </div>{" "}
-            <Link className="Link-select" to={"/game/form/create"}>
-              <p className="option-name"> Unpload Game </p>
-            </Link>
-          </div>
-        ) : (
-          <div className="option-container">
-            <div>
-              <DeveloperIcon />
-            </div>{" "}
-            <Link className="Link-select" to={"/proveedor"}>
-              <p className="option-name">Be Developer </p>
-            </Link>
-          </div>
-        )}
-
-        <div className="option-container" onClick={handlerLogout}>
-          <div>
-            <Logout className="div-icon-menu-perfil" />
-          </div>{" "}
-          <p className="option-name">Logut</p>
-        </div>
-      </div>
-    </motion.div>
-  );
+          // <div className="option-container">
+          //   <div>
+          //     <Profile />
+          //   </div>{" "}
+          //   <Link className="Link-select" to={"/user"}>
+          //     <p className="option-name"> Profile</p>
+          //   </Link>
+          // </div>
+        )} */
 }

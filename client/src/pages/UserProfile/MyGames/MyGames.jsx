@@ -18,12 +18,12 @@ export default function MyGames (){
 
         <div className={style.LayoutProfilePage}>
              < NavProfile/>
-             <h1>holi</h1>
+           
             { userActual ? ( 
-                <div>
+               <div className={style.conteiner}>
                     <nav className={style.nav}>
                         <ul className={style.ul}>
-                            <li className={style.title}></li>
+                         
                             <li className={style.title}>Title</li>
                             <li className={style.title}>Plataforms</li>
                             <li className={style.title}>Download</li>
@@ -42,11 +42,11 @@ export default function MyGames (){
                             <li className={style.title}>More</li>
                         </ul> 
                     </nav> */}
-                <div className={style.conteiner}>
+               
                 {
                     userActual.compra?.historialDeCompras?.map(inf => {
                         return (
-                            <div key = {inf.id}>
+                            <div  className={style.CardContainer} key = {inf.id}>
                                 <Card
                                 id={inf.id}
                                 image ={inf.background_image} 
@@ -59,7 +59,7 @@ export default function MyGames (){
                     })
                 }
                 </div>
-                </div>
+               
             ) : <h2> I'm sorry you don't have Games yet</h2>  }
             
         </div>

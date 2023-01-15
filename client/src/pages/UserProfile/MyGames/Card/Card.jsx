@@ -5,7 +5,7 @@ import { platformImage } from "../../../CardDetail/utils/utils";
 
 export default function Card(props) {
     return (
-        <div className={style.center}>
+     
             <div className={style.conteiner}>
                 <div className={style.div}>
                     <Link className={style.li} to={`/game/${props.id}`}>
@@ -29,7 +29,6 @@ export default function Card(props) {
                   <button className={style.button}>🗑️</button>
                 </div>
             </div>
-            <br />
-        </div>
+       
     );
 }

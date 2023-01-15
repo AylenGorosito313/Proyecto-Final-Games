@@ -8,12 +8,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
+    width: 100%;
     padding: 15px;
-    background-color: #212529;
-    border-radius: 18px;
-    height: 130px
+    background: #ffffff36;
+    /* background-color: #212529; */
+    border-radius: 10px;
+    height: 130px;
 }
+
+
 
 .div{
     display: flex;

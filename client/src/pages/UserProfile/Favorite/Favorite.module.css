@@ -31,8 +31,9 @@
 
       background-size: 400% 400%;
   animation: cambiar 14s ease-in-out infinite;
-    height: 100vh;
+    height: 110vh;
     padding-top: 80px;
+    padding-bottom: 80px;
     justify-content: flex-start;
 
 }
@@ -48,3 +49,86 @@
       background-position: 0 50%;
     }
   }
+
+  .conteiner{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 40px;
+    width: 50%;
+    background: #ffffff1f;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: scroll;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .CardContainer{
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    padding: 10px;
+  
+   
+  }
+  
+  
+  .conteiner::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  
+  .conteiner::-webkit-scrollbar:vertical {
+    width:4px;
+  }
+  
+  .conteiner::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+  } 
+  
+  .conteiner::-webkit-scrollbar:horizontal {
+    height: 0%;
+  }
+  
+  .conteiner::-webkit-scrollbar-thumb {
+    background-color: #ffffff9d;
+    border-radius: 10px;
+   
+  }
+  
+  .conteiner::-webkit-scrollbar-track {
+    border-radius: 10px;  
+  } 
+  
+  
+  
+  
+  
+  .cart-products-div::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  
+  .cart-products-div::-webkit-scrollbar:vertical {
+    width:1px;
+  }
+  
+  .cart-products-div::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+  } 
+  
+  .card-cart-container::-webkit-scrollbar:horizontal {
+    height: 0%;
+  }
+  
+  .cart-products-div::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 200px;
+   
+  }
+  
+  .cart-products-div::-webkit-scrollbar-track {
+    border-radius: 10px;  
+  } 
+  
+  
+  

@@ -21,28 +21,8 @@ export default function MyGames (){
            
             { userActual ? ( 
                <div className={style.conteiner}>
-                    {/* <nav className={style.nav}>
-                        <ul className={style.ul}>
-                         
-                            <li className={style.title}>Title</li>
-                            <li className={style.title}>Plataforms</li>
-                            <li className={style.title}>Download</li>
-                            <li className={style.title}>
-                                <div className={style.ul}>
-                                    <button><i class="fa-solid fa-list-ul fa-xl"></i></button>
-                                    <button><i class="fa-solid fa-border-all fa-xl"></i></button>
-                                </div> 
-                            </li>
-                        </ul> 
-                    </nav> */}
-                    {/* <nav className={style.nav}>
-                        <ul className={style.ul}>
-                            <li className={style.title}>Title</li>
-                            <li className={style.title}>Download</li>
-                            <li className={style.title}>More</li>
-                        </ul> 
-                    </nav> */}
-               
+          
+
                 {
                     userActual.compra?.historialDeCompras?.map(inf => {
                         return (

@@ -243,7 +243,6 @@ module.exports = {
     createGame,
     mostPopularGames,
     releasedLastMonth,
-    // GamesExaminar,
     deleteGameProvider,
     filtrado
 };

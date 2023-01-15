@@ -244,5 +244,5 @@ export default function GameFilters() {
 
           <hr className={style.line_between_filters} />
     </>
-  );
-}
+  )
+      }

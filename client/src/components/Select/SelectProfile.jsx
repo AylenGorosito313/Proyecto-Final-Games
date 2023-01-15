@@ -17,6 +17,13 @@ export default function SelectProfile({ setOpen, setLogin }) {
     dispatch(clearState());
   };
 
+  let Idpovider = false;
+  let id = localStorage.getItem("providerId");
+
+  if (id) Idpovider = true;
+
+  console.log(Idpovider);
+
   return (
     <motion.div
       className="select-layout"
@@ -29,19 +36,42 @@ export default function SelectProfile({ setOpen, setLogin }) {
     >
       <div className="select-container">
         <div className="option-container">
-          <Profile /> <p className="option-name"> Profile</p>
+          <div>
+            <Profile />
+          </div>
+          <p className="option-name"> Profile</p>
         </div>
         <div className="option-container">
-          <Settings /> <p className="option-name">Settings</p>
+          <div>
+            <Settings />
+          </div>
+          <p className="option-name">Settings</p>
         </div>
-        <div className="option-container">
-          <DeveloperIcon />{" "}
-          <Link to={'/proveedor'}>
-            <p className="option-name">Be Developer </p>
-          </Link>
-        </div>
+
+        {Idpovider ? (
+          <div className="option-container">
+            <div>
+              <DeveloperIcon />
+            </div>{" "}
+            <Link className="Link-select" to={"/game/form/create"}>
+              <p className="option-name"> Unpload Game </p>
+            </Link>
+          </div>
+        ) : (
+          <div className="option-container">
+            <div>
+              <DeveloperIcon />
+            </div>{" "}
+            <Link className="Link-select" to={"/proveedor"}>
+              <p className="option-name">Be Developer </p>
+            </Link>
+          </div>
+        )}
+
         <div className="option-container" onClick={handlerLogout}>
-          <Logout className="div-icon-menu-perfil" />{" "}
+          <div>
+            <Logout className="div-icon-menu-perfil" />
+          </div>{" "}
           <p className="option-name">Logut</p>
         </div>
       </div>

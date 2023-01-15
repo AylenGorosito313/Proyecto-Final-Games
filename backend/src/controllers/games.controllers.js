@@ -9,6 +9,8 @@ const getGamePopularOrReleased = require("../utils/getGamePopular");
 const { Users } = require("../models/users");
 const { Providers } = require("../models/providers");
 const getGamesForExaminar = require("../utils/getGamesForExaminar");
+const { orderAlphabeth, orderPrices, orderRating } = require("../utils/order");
+const getAllGamesDb = require("../utils/getAllGamesDB");
 
 //obtener games 20 por pagina
 const getGames = async (req, res) => {
@@ -17,7 +19,7 @@ const getGames = async (req, res) => {
         let searchGamesDB = await Game.findAll({
             include: {
                 model: Genre,
-                atributes: ["name"],
+                attributes: ["name"],
                 through: {
                     attributes: [],
                 },
@@ -121,10 +123,10 @@ const createGame = async (req, res) => {
                     },
                 });
                 userProvider.videoGamesPropor.length === 0
-                    ? (userProvider.videoGamesPropor = [gameInfo])
+                    ? (userProvider.videoGamesPropor = [result])
                     : (userProvider.videoGamesPropor = [
                           ...userProvider.videoGamesPropor,
-                          gameInfo,
+                          result,
                       ]);
                 await userProvider.save();
                 return res.status(200).json(result);
@@ -165,14 +167,57 @@ const releasedLastMonth = async (req, res) => {
 //https://api.rawg.io/api/games?dates=2023-12-01,2023-12-30
 //https://api.rawg.io/api/games/{game_pk}/development-team
 
-const GamesExaminar = async (req, res) => {
-    try {
-        let results = await getGamesForExaminar()
-        res.status(200).json(results)
-    } catch (error) {
-        console.log(error);
+// const GamesExaminar = async () => {
+//     try {
+//         let results = await getGamesForExaminar();
+//         res.status(200).json(results);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
+
+const filtrado = async (req, res) => {
+    // idea sobre el filtradooooooooooo ...................
+    const { platform, genre, alphabeth, price, rating } = req.query;
+
+    let api = await getGamesForExaminar();
+    let DB = await getAllGamesDb();
+    let allGames = [...DB, ...api];
+    let sorT = allGames;
+
+    if (!req.query) {
+        return res.status(200).json(allGames);
+    } else {
+        if (platform) {
+            sorT = allGames.filter((plat) =>
+                plat.parent_platforms.includes(platform)
+            );
+        }
+        if (genre && sorT) {
+            sorT = sorT.filter((ele) => ele.genres.includes(genre));
+        } else if (genre && !sorT) {
+            sorT = allGames.filter((ele) => ele.includes(genre));
+        }
+        if (alphabeth && sorT) {
+            sorT = orderAlphabeth(alphabeth, sorT);
+        } else if (alphabeth && !sorT) {
+            sorT = orderAlphabeth(alphabeth, allGames);
+        }
+
+        if (price && sorT) {
+            sorT = orderPrices(price, sorT);
+        } else if (price && !sorT) {
+            sorT = orderPrices(price, allGames);
+        }
+
+        if (rating && sorT) {
+            sorT = orderRating(rating, sorT);
+        } else if (rating && !sorT) {
+            sorT = orderRating(rating, allGames);
+        }
+        return res.status(200).json(sorT);
     }
-}
+};
 
 module.exports = {
     gameInformation,
@@ -181,5 +226,5 @@ module.exports = {
     createGame,
     mostPopularGames,
     releasedLastMonth,
-    GamesExaminar
+    filtrado,
 };

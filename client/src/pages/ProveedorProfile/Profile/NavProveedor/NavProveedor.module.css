@@ -1,7 +1,7 @@
 .conteiner {
   display: flex;
   justify-content: space-around;
-  width: 96vh;
+  width: 94vh;
   height: 200px;
   background: #ffffff17;
   align-items: center;
@@ -161,7 +161,7 @@
   .conteinerNav {
     display: flex;
     border-radius: 5px;
-    width: 96vh;
+    width: 95vh;
     justify-content: center;
     margin: 0;
     background: #ffffff36;

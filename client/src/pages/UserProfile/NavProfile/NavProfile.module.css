@@ -161,7 +161,7 @@
 .conteinerNav {
   display: flex;
   border-radius: 5px;
-  width: 100%;
+  width: 90vh;
   justify-content: center;
   margin: 0;
   background: #ffffff36;

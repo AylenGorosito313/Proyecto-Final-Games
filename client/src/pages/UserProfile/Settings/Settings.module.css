@@ -3,12 +3,13 @@
   justify-content: space-around;
   padding-left: 40px;
   padding-top: 70px;
-  width: 50%;
+  min-width: 840px;
   box-shadow: -1px 1px 1px #424141, 0 0 #fff;
   background: #ffffff1f;
   align-items: flex-start;
   flex-direction: column;
   gap: 20px;
+  border-radius: 10px;
 }
 
 .div {

@@ -50,17 +50,19 @@
     }
   }
 
+
+
   .conteiner{
     display: flex;
-
     padding-left: 40px;
-    width: 50%;
+    max-width: 840px;
     background: #ffffff1f;
     flex-direction: column;
     gap: 20px;
+    border-radius: 5px;
+    height: auto;
     overflow-y: scroll;
     padding-top: 20px;
-    height: 500px;
     padding-bottom: 20px;
 
   }

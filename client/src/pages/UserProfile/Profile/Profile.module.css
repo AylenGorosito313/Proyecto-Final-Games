@@ -20,8 +20,9 @@
     flex-direction: column;
     padding-left: 40px;
     padding-top: 50px;
-    width: 710px;
+   min-width: 840px;
     height: 100%;
+    border-radius: 10px;
     background: #ffffff17;
     align-items: center;
 

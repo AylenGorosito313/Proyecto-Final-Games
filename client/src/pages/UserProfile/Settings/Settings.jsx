@@ -50,6 +50,7 @@ export default function Settings() {
       <NavProfile />
 
       <div className={style.conteiner}>
+        <div className={style.divNameAvatar}>
         <div className={style.Change}>
           <h1> Edit Avatar</h1>
           <button className={style.button}>
@@ -85,7 +86,7 @@ export default function Settings() {
             <span>Change Name</span>
           </button>
         </div>
-       
+       </div>
         <div className={style.Change}>
           <h1> Edit Birthday</h1>
 

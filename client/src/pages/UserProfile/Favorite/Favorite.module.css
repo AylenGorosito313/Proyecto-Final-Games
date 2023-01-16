@@ -60,7 +60,7 @@
     gap: 20px;
     overflow-y: scroll;
     padding-top: 20px;
-    height: 500px;
+    height: auto;
     padding-bottom: 20px;
 
   }

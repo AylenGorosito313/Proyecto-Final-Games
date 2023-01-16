@@ -24,10 +24,13 @@ export default function CreateSuccess() {
         </div>
         <div className="buttons-sucss">
     
-         
+        
           <button className="button-29" role="button">
+          <Link className="link-payment-sucss" to={"/provedor/profile"}>
             View in profile
+            </Link>
           </button>
+       
           <div className="volver-home-div">
             <Link className="link-payment-sucss" to={"/home"}>
               <p className="p-scs-return"> Return to Andromeda homepage</p>

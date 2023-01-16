@@ -41,26 +41,33 @@ export default function NavProfile() {
 
           {/* <div className={style.div}>{ userActual.name ? `Hello ${userActual.name}!` : 'Your Name'}</div> */}
           <div className={style.div}>
-            <button className={style.button}>
-              {userActual.proveedor ? (
-                userActual.proveedor === false ? (
-                  <Link to="/proveedor" className={style.link}>
-                    {" "}
-                     be a Provider of Andromeda Games?{" "}
-                  </Link>
-                ) : (
-                  <Link to="/provedor/profile" className={style.link}>
-                    {" "}
-                    Provider Profile
-                  </Link>
-                )
-              ) : (
+            {/* <button className={style.button}> */}
+            {userActual.proveedor ? (
+              userActual.proveedor === false ? (
                 <Link to="/proveedor" className={style.link}>
                   {" "}
-                  You are a Provider of Andromeda Games ?
+                  be a Provider of Andromeda Games?{" "}
+                  <button className={style.button}>start</button>
                 </Link>
-              )}
-            </button>
+              ) : (
+                <div className={style.divBeDev}>
+                  <Link to="/provedor/profile" className={style.link}>
+                    {" "}
+                    <button className={style.button}>Provider Profile</button> 
+                  </Link>
+                </div>
+              )
+            ) : (
+              <div className={style.divBeDev}>
+               
+                  {" "}
+                  You are a Provider of Andromeda Games ?
+                  <Link to="/proveedor" className={style.link}>
+                <button className={style.button}>Start</button>
+                </Link>
+              </div>
+            )}
+            {/* </button> */}
           </div>
         </div>
         <ul className={style.conteinerNav}>
@@ -71,7 +78,7 @@ export default function NavProfile() {
           </div>
           <div className={style.divTab}>
             <Link to="/profile/games" className={style.link}>
-              🎮 History 
+              🎮 History
             </Link>
           </div>
           <div className={style.divTab}>
@@ -87,7 +94,6 @@ export default function NavProfile() {
         </ul>
         <div className={style.loader}></div>
       </div>
-  
     </div>
   );
 }

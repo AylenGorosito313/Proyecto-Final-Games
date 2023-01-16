@@ -11,7 +11,13 @@
   gap: 20px;
   border-radius: 10px;
 }
-
+.divNameAvatar{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+gap: 20px;
+}
 .div {
   display: flex;
   align-items: flex-start;
@@ -117,6 +123,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  justify-content: space-between;
 }
 
 .divInputs {

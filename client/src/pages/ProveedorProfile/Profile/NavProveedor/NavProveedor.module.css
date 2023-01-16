@@ -28,9 +28,10 @@
   
   .button {
     font-size: 16px;
+    width: 200px;
     display: inline-block;
     outline: 0;
-    width: 200px;
+  
     border: 0;
     cursor: pointer;
     will-change: box-shadow, transform;
@@ -161,9 +162,9 @@
     display: flex;
     border-radius: 5px;
     width: 95vh;
-    justify-content: center;
     margin: 0;
     background: #ffffff36;
+    justify-content: center;
   }
   
   .loader {

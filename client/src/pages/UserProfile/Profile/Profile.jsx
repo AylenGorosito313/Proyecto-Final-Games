@@ -16,44 +16,39 @@ export default function Profile() {
 
   return (
     <div className={style.containerProfile}>
-    <div className={style.conteiner}>
-      <div className={style.div}> Last Buy </div>
-      <div className={style.div}>
-        {" "}
-        {userActual.compra ? (
-          <img src={userActual.compra[0]?.background_image} alt="BuyImage" />
-        ) : (
-          "You don´t have a buy yet"
-        )}
-      </div>
-  
-     <div className={style.div}>Username</div>
-    <div className={style.div}>
-      {userActual.name ? `${userActual.name} ${userActual.lastName}` : ""}
-    </div>
-    <div className={style.div}>User level </div>
-    <div className={style.div}>
-      {" "}
-      {userActual.name ? "🌟 Growing Start" : ""}
-    </div>
-
-    <div className={style.div}>Birthday</div>
-    <div className={style.div}>
-      {!userActual ? userActual.birth_date : ""}
-    </div>
-    <div className={style.div}></div>
-    <div className={style.div}></div>
-
-    <div className={style.div}>Location</div>
-    <div className={style.div}>{!userActual ? userActual.region : ""} </div>
-    <div className={style.div}></div>
-    <div className={style.div}></div>
-  </div>
-  
-    </div>
-
+      <div className={style.conteiner}>
  
+        <div className={style.div}>
+          {" "}
+          <p>Last Buy</p>
+          {userActual.compra ? (
+            <img src={userActual.compra[0]?.background_image} alt="BuyImage" />
+          ) : (
+            "You don´t have a buy yet"
+          )}
+        </div>
 
-   
+        <div className={style.div}>
+          <p>Username</p>
+          {userActual.name ? `${userActual.name} ${userActual.lastName}` : ""}
+        </div>
+
+        <div className={style.div}>
+          {" "}
+          <p>User level</p>
+          {userActual.name ? "🌟 Growing Start" : ""}
+        </div>
+
+        <div className={style.div}>
+          <p>Birthday</p>
+          {!userActual ? userActual.birth_date : ""}
+        </div>
+
+        <div className={style.div}>
+          <p>Location</p>
+          {!userActual ? userActual.region : ""}
+        </div>
+      </div>
+    </div>
   );
 }

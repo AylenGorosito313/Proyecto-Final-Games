@@ -45,7 +45,7 @@ export default function ProveedorProfile() {
             </span>
           </button>
         </div>
-        <li className={style.title}>Games Upload</li>
+        {/* <li className={style.title}>Games Upload</li> */}
       
       
       </div>
@@ -54,7 +54,7 @@ export default function ProveedorProfile() {
       
       
       
-        <div className={style.conteiner}>
+        {/* <div className={style.conteiner}>
         {!userActual.provider ? (
           <div className={style.nav}>
             <div className={style.noGame}></div>
@@ -85,7 +85,7 @@ export default function ProveedorProfile() {
             </div>
           </div>
         )}
-      </div>
+      </div> */}
     </div>
     <Footer/>
     </>

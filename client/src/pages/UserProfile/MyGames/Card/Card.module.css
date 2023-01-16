@@ -8,25 +8,27 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-
+  height: auto;
+  overflow: hidden;
   background: #ffffff36;
-  /* background-color: #212529; */
+  box-shadow: -1px 1px 1px #424141, 0 0 #fff;
   border-radius: 5px;
-  height: 130px;
+  height: 110px;
   gap: 20px;
   align-items: center;
+
 }
 
 .div {
-    display: flex;
-    align-items: center;
-    align-content: flex-start;
-    width: 200px;
-    height: auto;
-    font-size: 17px;
-    font-family: Poppins;
-    position: relative;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  width: 200px;
+  height: auto;
+  font-size: 12px;
+  font-family: Poppins;
+  position: relative;
+  justify-content: center;
 }
 
 .divImg {
@@ -83,15 +85,17 @@
   transition-duration: 400ms;
   transition-property: width, left;
 }
-.divButton{
-    padding: 20px;
+.divButton {
+  display: flex;
+  width: 200px;
+  padding-right: 20px;
 }
 .button {
   font-family: poppins;
   font-size: 20px;
   font-weight: 400;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border: 0px solid;
   background: #ffffff3d;
   background-size: 500% 400%;
@@ -99,7 +103,6 @@
   border-radius: 50px;
   transition: 0.6s all;
 }
-
 
 .button:active {
   transform: scale(1);
@@ -117,10 +120,9 @@
 }
 
 .text {
-  font-size: 14px;
+  font-size: 12px;
 }
 
-
-.icon{
-    color: #fff
+.icon {
+  color: #fff;
 }

@@ -50,14 +50,15 @@
 
 .conteiner{
   display: flex;
-  justify-content: space-around;
+
   padding-left: 40px;
   width: 50%;
   background: #ffffff1f;
   flex-direction: column;
   gap: 20px;
+  height: auto;
   overflow-y: scroll;
-  padding-top: 40px;
+  padding-top:20px ;
   padding-bottom: 20px;
 }
 

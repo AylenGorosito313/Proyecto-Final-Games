@@ -1,10 +1,10 @@
 .conteiner {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 200px;
-    background: #ffffff17;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 94vh;
+  height: 200px;
+  background: #ffffff17;
+  align-items: center;
   }
   .divAvatar {
     display: flex;
@@ -22,14 +22,16 @@
     height: 50px;
     font-family: poppins;
     font-weight: 80;
-    font-size: 22px;
+    font-size: 18px;
     justify-content: center;
   }
   
   .button {
-    font-size: 18px;
+    font-size: 16px;
+    width: 200px;
     display: inline-block;
     outline: 0;
+  
     border: 0;
     cursor: pointer;
     will-change: box-shadow, transform;
@@ -74,7 +76,7 @@
     text-decoration: none;
     font-family: poppins;
     font-weight: 90;
-    font-size: 18px;
+    font-size: 16px;
   }
   
   .li {
@@ -118,12 +120,10 @@
   }
   .Layout {
     display: flex;
-    width: 50%;
+    max-width: 1200px;
     flex-direction: column;
     align-items: center;
-  
     height: 300px;
-  
     justify-content: flex-end;
   }
   .Layoutcontainer {
@@ -161,15 +161,15 @@
   .conteinerNav {
     display: flex;
     border-radius: 5px;
-    width: 100%;
-    justify-content: center;
+    width: 95vh;
     margin: 0;
     background: #ffffff36;
+    justify-content: center;
   }
   
   .loader {
     display: inline-block;
-    width: 830px;
+    width: 700px;
     height: 2px;
     border-radius: 40px;
     background-color: #b44ab8;

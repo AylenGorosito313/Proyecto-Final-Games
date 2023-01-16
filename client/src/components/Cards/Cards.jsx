@@ -69,7 +69,7 @@ function Card({ name, img, id, rating, platforms, released, genres, price}) {
 
             {/* This is the div that appears with the hover  */}
 
-            <div className="magic-hover">
+            {/* <div className="magic-hover">
               <div className="line" />
               <br></br>
 
@@ -106,7 +106,7 @@ function Card({ name, img, id, rating, platforms, released, genres, price}) {
                     : "No available for plataforms"}
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

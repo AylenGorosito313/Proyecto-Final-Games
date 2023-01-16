@@ -1,7 +1,15 @@
+.divBeDev{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+
 .conteiner {
   display: flex;
   justify-content: space-around;
-  width: 104%;
+  width: 94vh;
   height: 200px;
   background: #ffffff17;
   align-items: center;
@@ -27,9 +35,12 @@
 }
 
 .button {
-  font-size: 18px;
+  font-size: 16px;
   display: inline-block;
+  width: 200px;
   outline: 0;
+  font-family: Poppins;
+font-weight: 200;
   border: 0;
   cursor: pointer;
   will-change: box-shadow, transform;
@@ -39,7 +50,7 @@
     inset 0px -0.01em 0px rgb(58 65 111 / 50%);
   padding: 0 2em;
   border-radius: 0.3em;
-  color: rgb(204, 204, 204);
+  color: rgb(255, 250, 250);
   height: 2.6em;
   text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
   transition: box-shadow 0.15s ease, transform 0.15s ease;
@@ -118,7 +129,7 @@
 }
 .Layout {
   display: flex;
-  width: 50%;
+  max-width: 1200px;
   flex-direction: column;
   align-items: center;
 
@@ -161,7 +172,7 @@
 .conteinerNav {
   display: flex;
   border-radius: 5px;
-  width: 100%;
+  width: 90vh;
   justify-content: center;
   margin: 0;
   background: #ffffff36;

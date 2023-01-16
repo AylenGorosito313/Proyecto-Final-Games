@@ -165,12 +165,12 @@
     color: red;
 }
 
-.magic-hover {
+/* .magic-hover {
     display: none;
     transition: 3s linear;
   
     transition:  2s ease-in-out;
-}
+} */
 
 
 .card:hover  .magic-hover   {

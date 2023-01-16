@@ -20,8 +20,9 @@
     flex-direction: column;
     padding-left: 40px;
     padding-top: 50px;
-    width: 710px;
+   min-width: 840px;
     height: 100%;
+    border-radius: 10px;
     background: #ffffff17;
     align-items: center;
 
@@ -29,11 +30,11 @@
 
 .div{
     display: flex;
-    align-items: flex-start;
-    align-content: center;
-    width: 200px;
+    width: 70%;
     height: 100px;
     font-size: 20px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .avatar{

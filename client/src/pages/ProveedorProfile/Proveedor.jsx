@@ -10,7 +10,7 @@ export default function Proveedor() {
       <div id="up" className={style.contenedor}>
 
         <div className={style.contenedorbtn}>
-          <Link className={style.link} to="/profile/profile">
+          <Link className={style.link} to="/user">
             <button className={style.btn} type="button">
               Back
             </button>

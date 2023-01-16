@@ -120,13 +120,15 @@ export default function GameCreate() {
     <>
       <div className={style.headerDiv}>
         <div className={style.backhome}>
+          <Link className={style.pLink} to={"/provedor/profile"}>
           <ArrowBack />
-          <Link className={style.pLink} to={"/home"}>
-            <p className={style.pLink}> Back to home </p>
+            <p className={style.pLink}> Back to profile </p>
           </Link>
         </div>
+        <div className={style.title}>
 
-        <h1 className={style.h1Header}> Unpload your game </h1>
+        <h1 className={style.h1Header}> Upload your game </h1>
+        </div>
       </div>
 
       <div className={style.fondo}>

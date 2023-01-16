@@ -18,7 +18,9 @@
   align-items: center;
 
 }
-
+.divDowload{
+  width: 100px;
+}
 .div {
   display: flex;
   align-items: center;

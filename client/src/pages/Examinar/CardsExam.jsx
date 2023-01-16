@@ -6,19 +6,10 @@ import Card from "../../components/Cards/Cards";
 import { useDispatch, useSelector } from "react-redux";
 import { getForFilters } from "../../middleware";
 
-export default function CardsExam() {
-  const { examinar } = useSelector((state) => state.prueba);
+export default function CardsExam(paginatedCards) {
  
-  let dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getForFilters({}));
-    
-  }, [dispatch]);
-
   
 
-console.log(examinar)
   return (
     <div className={style.cards_container}>
       { examinar.length  && examinar.map((ele, index) => {

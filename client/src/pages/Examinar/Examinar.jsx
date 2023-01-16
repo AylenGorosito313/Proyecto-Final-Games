@@ -1,20 +1,26 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 // Components
 import GameFilters from "../../components/Filters/filters";
-import CardsExam from "./CardsExam";
 
 // CSS Styles
 
 import style from "./Examinar.module.css";
 import Loading from "../../components/Loading/Loading";
+import PaginatedCards from "./Pagination/Pagination";
+
 
 export default function Examinar() {
-  const { isLoader } = useSelector((state) => state.prueba);
-  
+  const { isLoader, examinar } = useSelector((state) => state.prueba);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getForFilters({}));
+    
+  }, [dispatch]);
 
   return (
     <>
@@ -30,7 +36,11 @@ export default function Examinar() {
               <Loading />
             </div>
             ) : (
-              <CardsExam />
+              <>
+                <PaginatedCards 
+                  examinarGames={examinar}
+                />
+              </>
             )}
             </div>
             <div className={style.right_container}>

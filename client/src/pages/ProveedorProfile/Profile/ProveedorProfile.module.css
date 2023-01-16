@@ -37,14 +37,15 @@ animation: cambiar 14s ease-in-out infinite;
 
 .Statistics{
   display: flex;
-  padding-left: 40px;
-  width: 90vh;
-  background: #ffffff1f;
-  flex-direction: column;
-  gap: 83px;
-  padding-top: 20px;
-  height: auto;
-  padding-bottom: 20px;
+    padding-left: 40px;
+    min-width: 840px;
+    border-radius: 5px;
+    background: #ffffff1f;
+    flex-direction: column;
+    gap: 83px;
+    padding-top: 20px;
+    height: auto;
+    padding-bottom: 20px;
 
 }
 
@@ -53,9 +54,10 @@ animation: cambiar 14s ease-in-out infinite;
 .conteiner{
   display: flex;
   padding-left: 40px;
-  width: 90vh;
+  min-width: 840px;
   background: #ffffff1f;
   flex-direction: column;
+  border-radius: 5px;
   gap: 20px;
   overflow-y: scroll;
   padding-top: 20px;

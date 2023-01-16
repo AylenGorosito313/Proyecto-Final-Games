@@ -45,7 +45,7 @@ export default function NavProvedor() {
             
                   <Link to="/user" className={style.link}>
                     {" "}
-                    BacK{" "}
+                    User Profile{" "}
                   </Link>
               
             </button>

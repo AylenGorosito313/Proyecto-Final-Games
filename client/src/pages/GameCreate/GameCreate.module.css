@@ -6,6 +6,11 @@
     align-items: flex-start;
     flex-direction: column;
 }
+
+.title{
+    width: 100%;
+    text-align: center;
+}
 .h1Header{
     padding-left: 100px;
 }
@@ -139,8 +144,10 @@ background: #3e3b3b;
 .backhome{
     text-decoration: none;
     display: flex;
-    align-items: center;
+   
     gap: 10px;
+   
+    
 }
 
 .pLink{
@@ -148,5 +155,11 @@ background: #3e3b3b;
     margin: 0;
     font-size: 14px;
     color: #ffff;
-  
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.pLink p {
+    margin-left: 10px;
 }

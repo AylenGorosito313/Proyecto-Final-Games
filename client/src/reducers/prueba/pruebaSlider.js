@@ -172,6 +172,9 @@ export const toolkit_prueba = createSlice({
     cleanDetails: (state, actions) => {
       state.gameDetail = {};
     },
+    deletedFavoriteUser: (state, actions) => {
+      state.userActual.favoritos = state.userActual.favoritos.filter(ele => ele.id !== actions.payload)
+    }
   },
 });
 
@@ -200,6 +203,7 @@ export const {
   responseAddCart,
   Filters,
   getExaminar,
+  deletedFavoriteUser,
 
   providerResponseEnable,
 } = toolkit_prueba.actions;

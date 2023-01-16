@@ -19,20 +19,11 @@ const getGames = async (req, res) => {
         let searchGamesDB = await Game.findAll({
             include: {
                 model: Genre,
-                attributes: ["name"],
-                through: {
-                    attributes: [],
-                },
             },
-        });
-        let GamesDB = [];
-        let arrayFrom = Array.from(searchGamesDB);
-        arrayFrom.forEach((element) => {
-            GamesDB.push(element);
         });
         let response = await paginate("games", page);
         let mapToGames = await mapGames(response);
-        let mapToToGameDB = await mapGames(GamesDB);
+        let mapToToGameDB = await mapGames([...searchGamesDB]);
         return res.status(200).json([...mapToToGameDB, ...mapToGames]);
     } catch (error) {
         res.status(500).json({
@@ -123,10 +114,10 @@ const createGame = async (req, res) => {
                     },
                 });
                 userProvider.videoGamesPropor.length === 0
-                    ? (userProvider.videoGamesPropor = [gameInfo])
+                    ? (userProvider.videoGamesPropor = [result])
                     : (userProvider.videoGamesPropor = [
                           ...userProvider.videoGamesPropor,
-                          gameInfo,
+                          result,
                       ]);
                 await userProvider.save();
                 return res.status(200).json(result);

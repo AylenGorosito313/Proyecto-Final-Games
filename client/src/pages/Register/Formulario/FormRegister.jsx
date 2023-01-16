@@ -91,7 +91,7 @@ function FormRegister() {
           className="input-register"
           {...register("email", {
             minLength: 5,
-            maxLength: 30,
+            maxLength: 100,
             required: true,
             pattern: /\S+@\S+\.\S+/,
           })}

@@ -2,8 +2,9 @@ const jwt = require("jsonwebtoken");
 const { Users } = require("../models/users");
 const bcrypt = require("bcrypt");
 const mainToEmail = require("../services/nodeMails");
+const { createUser, verifyUser } = require("./createUserAndVerify");
 const { SECRET } = process.env;
-let userInfo = {}; 
+let userInfo = {};
 
 const registerUser = async (req, res) => {
     const { name, lastName, email, password, birth_date, profile_img, region } =
@@ -11,11 +12,13 @@ const registerUser = async (req, res) => {
 
     if (!name || !lastName || !email || !password) {
         res.status(400).json({
-            message: "Required fields", 
+            message: "Required fields",
         });
     }
     try {
-        const passwordHash = await bcrypt.hash(name, 10);
+        const token = jwt.sign({ name, email }, SECRET, {
+            expiresIn: "1h",
+        });
         // send mail with defined transport object
         await mainToEmail({
             from: '"Verify your acount 👻" <andromedagames1507@gmail.com>',
@@ -23,108 +26,69 @@ const registerUser = async (req, res) => {
             subject: "Verify your acount ✔", // Subject line
             html: `
               <b> Hello ${name} Click on the following link to verify your account </b>
-              <a href="http://127.0.0.1:5173/user/login?verify=${passwordHash}">Click here</a>
+              <a href="http://127.0.0.1:5173/user/login?verify=${token}">Click here</a>
             `,
         });
         userInfo = req.body;
         res.status(200).json({
-            message: 'Check your mail'
+            message: "Check your mail",
         });
     } catch (error) {
-        console.log(error);
+        return res.status(400).json("oops something went wrong");
     }
-
-    // try {
-    //     if (!name || !lastName || !email || !password ) {
-    //         res.status(406).json({
-    //             message: "Not acceptable",
-    //         });
-    //     } else {
-    //         const passwordHash = await bcrypt.hash(password, 10);
-    //         const createUser = await Users.create({
-    //             name,
-    //             lastName,
-    //             email,
-    //             birth_date,
-    //             profile_img,
-    //             region,
-    //             passwordHash
-    //         });
-
-    //         res.status(201).json({message: 'User created'});
-    //     }
-    // } catch (error) {
-    //     console.log(error);
-    // }
-};
-
-const createUser = async (user) => {
-    const passwordHash = await bcrypt.hash(userInfo.password, 10);
-    const createUser = await Users.create({
-        name: user.name,
-        lastName: user.lastName,
-        email: user.email,
-        birth_date: user.birth_date,
-        profile_img: user.profile_img,
-        region: user.region,
-        passwordHash,
-    });
 };
 
 const loginUser = async (req, res) => {
     const { email, password, verify } = req.body;
 
+    let user = {};
     const search = await Users.findOne({
         where: {
             email,
         },
     });
-    if (!search && verify !== null) { 
-        await createUser(userInfo);
+    let userLoggin = search === null ? verifyUser(verify) : true; 
+
+    if (!verify && !search) {
+        return res.status(400).json("You must verify your account");
+    }
+    if (!userLoggin) {
+        return res.status(400).json("your token has expired");
     }
 
-    if(search){
+    if (!search) {
+        let createdUser = await createUser(userInfo);
+        user = createdUser;
+    }
+
+    if (search || userLoggin) {
         try {
-            let pass = search.passwordHash;
-            const passworCorrect =
-                search === null ? false : await bcrypt.compare(password, pass);
-    
+            let pass =
+                search === null ? user.passwordHash : search.passwordHash;
+            console.log(pass);
+            const passworCorrect = await bcrypt.compare(password, pass);
+
             if (!passworCorrect) {
-                return res.status(401).json({
-                    message: "invalid user or password",
-                });
+                return res.status(401).json("invalid user or password");
             }
-    
-            let id = search.id;
-            let name = search.name; 
+            let id = search === null ? user.id : search.id;
+            let name = search === null ? user.name : search.name;
             const tokenForUser = {
                 id,
                 name,
             };
             const token = jwt.sign(tokenForUser, SECRET);
-             return res.status(200).json({
+            return res.status(200).json({
                 id,
                 name,
                 token,
             });
         } catch (error) {
-          return res.status(500).json({
-                message: error.message,  
+            return res.status(500).json({
+                message: error.message,
             });
         }
     }
-
-    if(!verify){
-       return res.status(400).json("You must verify your account")
-    }
-
-    let userLoggin = await bcrypt.compare(userInfo.name, verify)
-
-    if (!userLoggin) {
-        return res.status(400).json("You must verify your account")
-    }
-
-    
 };
 
 module.exports = { registerUser, loginUser };

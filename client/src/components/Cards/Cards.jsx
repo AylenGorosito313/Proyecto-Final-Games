@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Cards.css";
-
+import { AddFavorite } from "../../middleware";
 import { Link } from "react-router-dom";
 import { platformImage } from "./utils";
-import { priceFactor } from "./utils";
-import { useDispatch, useSelector } from "react-redux";
+
+import { useDispatch } from "react-redux";
 import { AddCart } from "../../middleware";
-import { motion } from "framer-motion";
+
+
+
 function Card({ name, img, id, rating, platforms, released, genres, price}) {
   const dispatch = useDispatch();
   const [toggleFavorite, setToggleFavorite] = useState(false);
@@ -17,10 +19,9 @@ function Card({ name, img, id, rating, platforms, released, genres, price}) {
 
   const HandlerAddFavorite = () => {
     setToggleFavorite(!toggleFavorite);
+     dispatch(AddFavorite(user_id, id))
   };
-  // if(toggleFavorite){
-  //   //dispatch(AddFavorite(user_id, id))
-  // }
+
 
   const handlerAddCart = () => {
     dispatch(AddCart(user_id, id));

@@ -1,0 +1,27 @@
+.LayoutProfilePage{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient( 45deg, rgb(35 95 131), rgb(50, 50, 122), rgb(59 58 116), rgb(135 34 68) );
+      background-size: 400% 400%;
+  animation: cambiar 14s ease-in-out infinite;
+    height: auto;
+ 
+    padding-top: 80px;
+    padding-bottom: 80px;
+    justify-content: flex-end;
+
+}
+
+@keyframes cambiar{
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }

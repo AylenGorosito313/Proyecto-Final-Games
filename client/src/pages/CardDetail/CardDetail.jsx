@@ -30,6 +30,8 @@ export default function CardDetail() {
       }
     }, [])
 
+    if(gameDetail) window.scroll({top: 0})
+
     return (
         <>
             <div className="main-detail-container">

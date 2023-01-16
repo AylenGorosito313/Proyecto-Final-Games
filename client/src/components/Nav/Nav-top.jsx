@@ -11,14 +11,20 @@ import { motion } from "framer-motion";
 import "../Botones/BotonLogin.css";
 import Car from "../../svg/Car";
 import User from "../../svg/User";
-// import { useLocalStorage } from "../../middleware/utils/useLocalStorage";
+
 function NavTop() {
+
   const [Login, setLogin] = useState(false);
-  const [Logout, setLogout] = useState(true);
+
+  const [Dev, setDev] = useState(false);
   const [OpenUser, setOpenUser] = useState(null);
   const [OpenNotifica, setOpenNotifica] = useState(false);
   const [OpenCar, setOpenCar] = useState(false);
   const navigate = useHistory();
+
+  // if (Idprovider) {
+  //   setDev(true);
+  // }
 
   const handleLogin = () => {
     navigate.push("/user/login");
@@ -53,13 +59,12 @@ function NavTop() {
   }, []);
   return (
     <>
-    <Link to={'/home'}>
-    <motion.div className="div-logo">
-        
-        <Logo />
-      </motion.div>
-    </Link>
-    
+      <Link to={"/home"}>
+        <motion.div className="div-logo">
+          <Logo />
+        </motion.div>
+      </Link>
+
       <div className="Nav-layout">
         <div className="div-layout-icon-nav">
           <div className="Nav-top-container-sticky">

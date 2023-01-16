@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import Footer from "../components/Footer/Footer";
@@ -19,14 +19,14 @@ import { Link } from "react-router-dom";
 import Loading from "../components/Loading/Loading";
 import { clearState } from "../reducers/prueba/pruebaSlider";
 
-
 function Home() {
+  const [Developer, setDeveloper] = useState(false);
   const dispatch = useDispatch();
   const { games, isLoader, res } = useSelector((state) => state.prueba);
   console.log(res);
   const backResponse = () => {
     if (res.cart) {
-   return   toast.error(res.cart, {
+      return toast.error(res.cart, {
         position: "bottom-right",
         duration: 2000,
         style: {
@@ -39,23 +39,16 @@ function Home() {
   };
 
   useEffect(() => {
-    // if(games.length){
-    //   return
-    // }
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
-    dispatch(clearState())
-    
+    dispatch(clearState());
+
     return () => {
       dispatch(clearState());
     };
   }, []);
-
-  // useEffect(() => {
-  //   dispatch(getGames());
-  // }, [games.length]);
-
+  
   if (isLoader && !games.length) {
     return (
       <div className="loadin-home">
@@ -63,7 +56,8 @@ function Home() {
       </div>
     );
   }
-  console.log(res.created);
+
+
   return (
     <>
       {res.cart && backResponse()}
@@ -71,20 +65,19 @@ function Home() {
       <Toaster />
       <div className="main-container-home">
         <div className="container-content-home">
-          
           <div className="home-slider">
             <HomeSlider />
           </div>
           <div className="div-home">
             <div className="home-slider-games">
-                <MostPopularSlider />
-                <ReleasedLasthMonth />
+              <MostPopularSlider />
+              <ReleasedLasthMonth />
             </div>
             <div className="div-home-all-games">
-              <div className="div-title-home"> 
-              <h2 className="div-title-home"> All Games </h2>
+              <div className="div-title-home">
+                <h2 className="div-title-home"> All Games </h2>
               </div>
-            
+
               <div className="div-home-card">
                 {games.length &&
                   games.map((ele) => {
@@ -107,7 +100,6 @@ function Home() {
           </div>
         </div>
       </div>
-
     </>
   );
 }

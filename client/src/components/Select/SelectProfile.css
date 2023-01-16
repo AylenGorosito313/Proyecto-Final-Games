@@ -1,6 +1,6 @@
 .select-container {
   height: auto;
-  width: 140px;
+  width: 200px;
   background:rgb(42, 42, 42) ; 
 border-radius: 10px;
   position: relative;
@@ -21,9 +21,10 @@ align-items: center;
 }
 .option-name {
   padding: 5px;
-  font-size: 12px;
+  font-size: 13px;
   font-family: Poppins;
   color: #D9D9D9;
+  text-decoration: none;
   border-radius: 5px;
 }
 
@@ -39,4 +40,8 @@ align-items: center;
 
 .div-icon-menu-perfil{
     padding: 0px 10px 10px 10px;
+}
+
+.Link-select{
+  text-decoration: none;
 }

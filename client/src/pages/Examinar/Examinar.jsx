@@ -10,6 +10,7 @@ import GameFilters from "../../components/Filters/filters";
 import style from "./Examinar.module.css";
 import Loading from "../../components/Loading/Loading";
 import PaginatedCards from "./Pagination/Pagination";
+import { getForFilters, traerGenero, traerPlatforms } from "../../middleware";
 
 
 export default function Examinar() {
@@ -20,6 +21,11 @@ export default function Examinar() {
   useEffect(() => {
     dispatch(getForFilters({}));
     
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(traerGenero());
+    dispatch(traerPlatforms());
   }, [dispatch]);
 
   return (

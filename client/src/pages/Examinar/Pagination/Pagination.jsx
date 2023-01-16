@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactPaginate from 'react-paginate';
 import CardsExam from "../CardsExam";
+import Style from "../Examinar.module.css";
 
 export default function PaginatedCards({ examinarGames }) {
   // Here we use item offsets; we could also use page offsets
@@ -27,16 +28,23 @@ export default function PaginatedCards({ examinarGames }) {
 
   return (
     <>
-      <CardsExam />
+      <CardsExam 
+        currentCards={currentItems}
+      />
       <div>
         <ReactPaginate
           breakLabel="..."
-          nextLabel="next >"
+          nextLabel=">"
           onPageChange={handlePageClick}
           pageRangeDisplayed={5}
           pageCount={pageCount}
-          previousLabel="< previous"
+          previousLabel="<"
           renderOnZeroPageCount={null}
+          containerClassName={Style.pagination}
+          pageLinkClassName={Style.page_num}
+          previousLinkClassName={Style.page_num}
+          nextLinkClassName={Style.page_num}
+          activeClassName={Style.active}
         />
       </div>
     </>

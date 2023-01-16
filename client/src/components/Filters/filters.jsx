@@ -78,8 +78,10 @@ export default function GameFilters() {
 
   };
 
-  const handlerOrder = (event) => {
+  // Handle click
+  const handlerOrder = async (event) => {
     let order = event.target.getAttribute("value")
+    console.log(order)
 
     setFilterOptions({
       ...filterOptions, 
@@ -87,11 +89,11 @@ export default function GameFilters() {
     })
     
     setSelectedOrderOption(order)
-    
-    
+
     dispatch(getForFilters(
-      filterOptions
+      order
     ));
+    
 
   };
 
@@ -120,10 +122,7 @@ export default function GameFilters() {
       name: event.target.getAttribute("value")})
   };
 
-  useEffect(() => {
-    dispatch(traerGenero());
-    dispatch(traerPlatforms());
-  }, []);
+  
 
   return (
     <>
@@ -145,7 +144,8 @@ export default function GameFilters() {
             <div className={toggleOrderButton ? 
               style.expand_container_order_options : 
               style.rendered_container_order_options} >
-
+                
+                {/* option A-Z */}
                 <div value={defaultValues.A_Z}
                   className={selectedOrderOption === defaultValues.A_Z ? 
                     style.order_options_selected :
@@ -156,14 +156,15 @@ export default function GameFilters() {
                   {selectedOrderOption === defaultValues.A_Z &&
                     <i class="fa-solid fa-check"></i>}
                 </div>
-
+                
+                {/* Option Z-A */}
                 <div value={defaultValues.Z_A}
                   className={selectedOrderOption === defaultValues.Z_A ? 
                     style.order_options_selected :
                     style.order_options }
                     onClick={handlerOrder}
                   >
-                  <span value={defaultValues.Z_A} >Z - A</span>
+                  <span value={defaultValues.Z_A}>Z - A</span>
                   {selectedOrderOption === defaultValues.Z_A &&
                     <i class="fa-solid fa-check"></i>}
                 </div>

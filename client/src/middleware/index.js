@@ -42,7 +42,7 @@ export const getGames = () => {
 export const getForFilters = (parameter) => {
 
   const { platform, genre, alphabeth, price, rating } = parameter;
-  
+  console.log(alphabeth);
   return async function (dispatch) {
         
         if(Object.keys(parameter).length === 0){
@@ -61,11 +61,30 @@ export const getForFilters = (parameter) => {
 
         } else {
 
+          let filter = "?"
+          if(platform) {
+            console.log(platform);
+            filter+="platform="+platform+"&"
+          } if (genre){
+            filter+="genre="+genre+"&"
+          }  if (alphabeth) {
+            console.log(alphabeth);
+            filter+="alphabeth="+alphabeth+"&"
+          } if (price) {
+            filter+="price="+price+"&"
+          } if (rating) {
+            filter+="rating="+rating+"&"
+          }
+          
+          let count = filter.length
+
+          filter = filter.substring(count - 1)
+          console.log(filter)
           try {
           
           let { data } = await axios({
             method: "GET",
-            url: `http://localhost:3001/games/filters/examinar?platform=${platform}&genre=${genre}&alphabeth=${alphabeth}&price=${price}&rating=${rating}`,
+            url: `http://localhost:3001/games/filters/examinar${filter}`,
           });
           console.log(data);
           dispatch(getExaminar(data));

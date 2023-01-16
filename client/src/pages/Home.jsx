@@ -51,7 +51,7 @@ function Home() {
   
   if (isLoader && !games.length) {
     return (
-      <div className="loadin-home">
+      <div className="loading-home">
         <Loading />
       </div>
     );

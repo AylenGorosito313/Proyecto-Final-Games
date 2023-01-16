@@ -52,7 +52,7 @@
 
   .conteiner{
     display: flex;
-    justify-content: space-around;
+
     padding-left: 40px;
     width: 50%;
     background: #ffffff1f;
@@ -60,7 +60,9 @@
     gap: 20px;
     overflow-y: scroll;
     padding-top: 20px;
+    height: auto;
     padding-bottom: 20px;
+
   }
   
   .CardContainer{

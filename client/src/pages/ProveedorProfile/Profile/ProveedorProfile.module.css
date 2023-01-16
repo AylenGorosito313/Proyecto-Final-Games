@@ -28,21 +28,30 @@ animation: cambiar 14s ease-in-out infinite;
   width: 760px;
   height: 100%;
   background: #ffffff17;
-  align-items: center;
-
+  align-items: flex-start;
 }
 
+.h1{
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
+
 .nav{
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+  justify-content: space-between;
 }
 .ul{
     display: flex;
-    justify-content: space-around;
+
     align-items: center;
-    width: 80%;
-    padding: 15px;
+    width: 100%;
+   
 }
 
 .noGame{
@@ -60,7 +69,11 @@ animation: cambiar 14s ease-in-out infinite;
     font-family: poppins;
     font-size: 20px;
 }
+.DivCardProveedor{
+  width: 600px;
+    padding: 20px;
 
+}
 .button {
     display: flex;
     align-items: center;

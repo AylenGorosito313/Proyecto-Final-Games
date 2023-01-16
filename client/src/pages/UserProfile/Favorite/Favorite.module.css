@@ -59,8 +59,9 @@
     flex-direction: column;
     gap: 20px;
     overflow-y: scroll;
-    padding-top: 20px;
+    padding-top: 200px;
     padding-bottom: 20px;
+
   }
   
   .CardContainer{

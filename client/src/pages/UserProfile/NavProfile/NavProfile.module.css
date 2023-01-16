@@ -27,8 +27,9 @@
 }
 
 .button {
-  font-size: 18px;
+  font-size: 16px;
   display: inline-block;
+  width: 200px;
   outline: 0;
   border: 0;
   cursor: pointer;

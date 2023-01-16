@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import NavTop from "../../../components/Nav/Nav-top";
+import Footer from "../../../components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { geUserActual } from "../../../middleware";
 import style from "./ProveedorProfile.module.css";
@@ -18,9 +20,11 @@ export default function ProveedorProfile() {
   }, [dispatch]);
 
   return (
+    <>
+    <NavTop />
     <div className={style.LayoutProfilePage}>
       <NavProvedor />
-      <div className={style.conteiner}>
+      <div className={style.Statistics}>
         <h1 className={style.h1}> Games Statistics</h1>
         <div className={style.nav}>
           <div className={style.ul}> Ingresos Generados</div>
@@ -41,7 +45,16 @@ export default function ProveedorProfile() {
             </span>
           </button>
         </div>
-
+        <li className={style.title}>Games Upload</li>
+      
+      
+      </div>
+     
+      
+      
+      
+      
+        <div className={style.conteiner}>
         {!userActual.provider ? (
           <div className={style.nav}>
             <div className={style.noGame}></div>
@@ -53,8 +66,9 @@ export default function ProveedorProfile() {
           </div>
         ) : (
           <div>
+             
             <div>
-              <li className={style.title}>Games Upload</li>
+             
               {userActual.provider?.videoGamesPropor?.length &&
                 userActual.provider.videoGamesPropor.map((inf) => {
                   return (
@@ -73,5 +87,8 @@ export default function ProveedorProfile() {
         )}
       </div>
     </div>
+    <Footer/>
+    </>
+    
   );
 }

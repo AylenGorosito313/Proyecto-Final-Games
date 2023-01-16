@@ -12,24 +12,91 @@
   background: linear-gradient( 45deg, rgb(35 95 131), rgb(50, 50, 122), rgb(59 58 116), rgb(135 34 68) );
     background-size: 400% 400%;
 animation: cambiar 14s ease-in-out infinite;
-  height: 110vh;
+  height: auto;
 
   padding-top: 80px;
   padding-bottom: 80px;
   justify-content: flex-end;
 
 }
+
+@keyframes cambiar{
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+
+
+
+.Statistics{
+  display: flex;
+  padding-left: 40px;
+  width: 90vh;
+  background: #ffffff1f;
+  flex-direction: column;
+  gap: 83px;
+  padding-top: 20px;
+  height: auto;
+  padding-bottom: 20px;
+
+}
+
+
+
 .conteiner{
   display: flex;
-  justify-content: space-around;
-  flex-direction: column;
   padding-left: 40px;
-  padding-top: 50px;
-  width: 760px;
-  height: 100%;
-  background: #ffffff17;
-  align-items: flex-start;
+  width: 90vh;
+  background: #ffffff1f;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: scroll;
+  padding-top: 20px;
+  height: auto;
+  padding-bottom: 20px;
+
 }
+
+.conteiner::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.conteiner::-webkit-scrollbar:vertical {
+  width:4px;
+}
+
+.conteiner::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.conteiner::-webkit-scrollbar:horizontal {
+  height: 0%;
+}
+
+.conteiner::-webkit-scrollbar-thumb {
+  background-color: #ffffff9d;
+  border-radius: 10px;
+ 
+}
+
+.conteiner::-webkit-scrollbar-track {
+  border-radius: 10px;  
+} 
+
+
+
+
+
+
+
+
 
 .h1{
   font-size: 24px;

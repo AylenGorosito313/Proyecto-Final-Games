@@ -174,6 +174,66 @@ const GamesExaminar = async (req, res) => {
     }
 }
 
+const filtrado = async (req, res) =>{ // idea sobre el filtradooooooooooo ...................
+    const { filtrado, gerne } = req.query;
+    try{
+        let api = await GamesExaminar();
+        let DB = await getGames();
+        let allGames = [...DB, ...api];
+        let sorT;
+        switch (ordenamiento) {
+            case  '':
+                sorT = [...allGames];
+                break;
+            case 'A-Z':
+                sorT = allGames.sort(function(a, b) {
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                        return 1
+                    }
+                    if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                        return -1
+                    }
+                    return 0;
+                });  
+                break;
+            case 'Z-A':
+                sorT = allGames.sort(function(a, b) {
+                    if(a.name.toLowerCase() < b.name.toLowerCase()) {
+                        return 1;
+                    }
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                        return -1;
+                    }
+                    return 0;
+                })
+                break;
+            case 'RatingAsc':
+                sorT = allGames.sort(function(a, b) {
+                    return a.rating - b.rating
+                })
+                break;
+            case 'RatingDesc':
+                sorT = allGames.sort(function(a, b) {
+                    return b.rating - a.rating
+                })
+                break;
+            case 'genre':
+                sorT = sorT.filter(v => v.genres?.some(e => e === gerne)); 
+            case 'genre':
+                sorT = sorT.filter(v => v.genres?.some(e => e === gerne)); 
+            default:
+                sorT = allGames;
+                break;
+        }
+    }catch(e){
+        console.log(e);
+    };
+};
+
+
+
+
+
 module.exports = {
     gameInformation,
     getGames,

@@ -42,24 +42,29 @@ export default function NavProvedor() {
           {/* <div className={style.div}>{ userActual.name ? `Hello ${userActual.name}!` : 'Your Name'}</div> */}
           <div className={style.div}>
             <button className={style.button}>
-            
-                  <Link to="/user" className={style.link}>
-                    {" "}
-                    User Profile{" "}
-                  </Link>
-              
+              <Link to="/user" className={style.link}>
+                {" "}
+                User Profile{" "}
+              </Link>
             </button>
           </div>
         </div>
         <div className={style.conteinerNav}>
           <div className={style.divTab}>
-            
+            <Link to="/provedor/profile" className={style.link}>
               📌 Statistics
-          
+            </Link>
           </div>
+          <div className={style.divTab}>
+            <Link to="/provedor/unpload" className={style.link}>
+            🎮 Unploads
+            </Link>
+          </div>
+          </div>
+
+          <div className={style.loader}></div>
         </div>
-        <div className={style.loader}></div>
       </div>
-    </div>
+    
   );
 }

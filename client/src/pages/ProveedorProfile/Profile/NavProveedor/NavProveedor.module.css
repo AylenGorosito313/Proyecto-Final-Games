@@ -162,9 +162,9 @@
     display: flex;
     border-radius: 5px;
     width: 95vh;
-    justify-content: center;
     margin: 0;
     background: #ffffff36;
+    justify-content: center;
   }
   
   .loader {

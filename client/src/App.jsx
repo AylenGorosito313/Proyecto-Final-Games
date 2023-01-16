@@ -2,6 +2,7 @@ import { Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Homepage from "./pages/Homepage/Homepage";
 import Cart from "./components/Cart/Cart";
+import UnploadGame from "./pages/ProveedorProfile/UnploadGame/UnploadGame";
 import PaymentMP from "./pages/Payment/PaymentMP";
 import NavTop from "./components/Nav/Nav-top";
 import Loginn from "./pages/Login/Loginn";
@@ -74,7 +75,8 @@ function App() {
         <Proveedor />
       
       </Route>
-      
+     
+      <Route exact path="/provedor/unpload" component={UnploadGame} />
       <Route exact path="/provedor/profile" component={ProveedorProfile} />
     
       

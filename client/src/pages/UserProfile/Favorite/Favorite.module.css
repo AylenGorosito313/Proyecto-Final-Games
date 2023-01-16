@@ -55,6 +55,7 @@
   .conteiner{
     display: flex;
     padding-left: 40px;
+    min-width: 840px;
     max-width: 840px;
     background: #ffffff1f;
     flex-direction: column;

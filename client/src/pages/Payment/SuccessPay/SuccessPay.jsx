@@ -47,10 +47,11 @@ function SuccessPay() {
           <button className="button-29" role="button">
             Download
           </button>
+          <Link className="link-payment-sucss" to={"/user"}>
           <button className="button-30" role="button">
             View in profile
           </button>
-
+          </Link>
           <div className="volver-home-div">
             <Link className="link-payment-sucss" to={"/home"}>
               <p className="p-scs-return"> Return to Andromeda homepage</p>

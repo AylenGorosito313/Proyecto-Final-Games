@@ -25,11 +25,11 @@ export default function GameFilters() {
   const [toggleRatingButton, setToggleRatingButton] = useState(false);
 
   // UseState For Selected Options
-  const [selectedGenderOption, setSelectedGenderOption] = useState({status:false, name:""});
-  const [selectedPlatformOption, setSelectedPlatformOption] = useState({status:false, name:""});
-  const [selectedOrderOption, setSelectedOrderOption] = useState({status:false, name:""});
+  const [selectedGenderOption, setSelectedGenderOption] = useState("");
+  const [selectedPlatformOption, setSelectedPlatformOption] = useState("");
+  const [selectedOrderOption, setSelectedOrderOption] = useState("");
   const [selectedPriceOption, setSelectedPriceOption] = useState("");
-  const [selectedRatingOption, setSelectedRatingOption] = useState({status:false, name:""});
+  const [selectedRatingOption, setSelectedRatingOption] = useState("");
 
   const defaultValues = {
     ASC: "ASC",
@@ -93,7 +93,7 @@ export default function GameFilters() {
     dispatch(getForFilters(
       order
     ));
-    
+  
 
   };
 

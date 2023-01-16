@@ -1,6 +1,9 @@
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 //Import images assets
+import Andromeda2 from "../../assets/devForm/andromeda2.jpg"
+import Andromeda1 from "../../assets/devForm/andromeda3.jpg"
+import Andromeda3 from "../../assets/devForm/andromeda1.jpg"
 import fondo from "../../assets/img/fondo4.png"
 import offerImage from "../../assets/slides/free_offers.jpg";
 import doom from "../../assets/slides/doom_logo.png";
@@ -46,15 +49,27 @@ export default function HomeSlider() {
           className="swiper"
         >
           <SwiperSlide className="swiper-slide">
-            <img src={offerImage} alt="" />
+            <img src={Andromeda1} alt="" />
             <div className="banner-contaiter">
               <div className="content">
-                <TextBanners
-                  title="ANDROMEDA GAMES"
-                  description="  Take advantage of these free cosmetics during Holiday Sale and
-                  look the part this season!"
-                  textBtn="DISCOVER"
-                />
+             
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide className="swiper-slide">
+            <img src={Andromeda2} alt="" />
+            <div className="banner-contaiter">
+              <div className="content">
+             
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className="swiper-slide">
+            <img src={Andromeda3} alt="" />
+            <div className="banner-contaiter">
+              <div className="content">
+              
               </div>
             </div>
           </SwiperSlide>

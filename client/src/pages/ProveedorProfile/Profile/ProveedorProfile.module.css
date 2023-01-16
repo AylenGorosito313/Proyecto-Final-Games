@@ -44,7 +44,7 @@ animation: cambiar 14s ease-in-out infinite;
     flex-direction: column;
     gap: 83px;
     padding-top: 20px;
-    height: auto;
+    height: 60vh;
     padding-bottom: 20px;
 
 }

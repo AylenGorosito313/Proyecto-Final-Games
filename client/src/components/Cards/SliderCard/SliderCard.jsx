@@ -1,30 +1,43 @@
 import React, { useEffect, useState } from "react";
 import "./SliderCard.css";
 import { Link } from "react-router-dom";
-import { platformImage } from "../utils";
+import { platformImage, noLoginNoCart, gamesRepeatedInCart } from "../utils";
 import { priceFactor } from "../utils";
 import { AddCart } from "../../../middleware";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 
 function Card({ name, img, id, rating, platforms, released, genres }) {
   const dispatch = useDispatch();
+
+  const { cart } = useSelector( state => state.prueba)
   const [toggleFavorite, setToggleFavorite] = useState(false);
   const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
 
   let user_id = localStorage.getItem("id");
 
   useEffect(() => {
-        if(toggleShoppingCart === true){
-          dispatch(AddCart(user_id, id))
-        }
+      if(toggleShoppingCart === true){
+        dispatch(AddCart(user_id, id))
+      }
     }, [toggleShoppingCart])
 
   const onClickFavorite = () => {
+    
     setToggleFavorite(!toggleFavorite);
+    
   };
 
   const onClickShoppingCart = (e) => {
-    setToggleShoppingCart(true);
+    if(cart.some( game => game.id === id)){
+      gamesRepeatedInCart() 
+    } else if (!user_id) {
+      noLoginNoCart()
+    } else {
+      setToggleShoppingCart(true);
+    }
+      
+    
   };
 
   return (

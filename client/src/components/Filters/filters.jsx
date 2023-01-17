@@ -7,7 +7,7 @@ import { getForFilters, isLoading, traerGenero, traerPlatforms } from "../../mid
 import ResetButton from "./ResetButton";
 
 // Css styles
-import style from "./filters.module.css";
+import style from "./Filters.module.css";
 import "./rotateButton.css"
 
 export default function GameFilters() {
@@ -129,8 +129,8 @@ export default function GameFilters() {
 
   };
 
-  const resetFilters = (event) => {
-
+  const handleResetFilters = () => {
+    console.log(intentar)
     window.location.reload
     
   }
@@ -144,8 +144,8 @@ export default function GameFilters() {
 
   return (
     <>
-          <div className={style.reset_button} onClick={resetFilters}>
-            <ResetButton  />
+          <div className={style.reset_button} >
+            <ResetButton onClick={handleResetFilters} />
           </div>
 
           {/* Order Filters */}
@@ -168,7 +168,7 @@ export default function GameFilters() {
               style.rendered_container_order_options} >
                 
                 {/* option A-Z */}
-                <div 
+                <div value={defaultValues.A_Z}
                   className={selectedOrderOption === defaultValues.A_Z ? 
                     style.order_options_selected :
                     style.order_options }
@@ -180,7 +180,7 @@ export default function GameFilters() {
                 </div>
                 
                 {/* Option Z-A */}
-                <div 
+                <div value={defaultValues.Z_A}
                   className={selectedOrderOption === defaultValues.Z_A ? 
                     style.order_options_selected :
                     style.order_options }

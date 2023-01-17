@@ -476,3 +476,10 @@
 .rating_options:hover {
   color: rgb(245, 245, 245);
 }
+
+/* RESET BUTTON */
+
+.reset_button {
+  width: 100%;
+  margin-bottom: 20px;
+}

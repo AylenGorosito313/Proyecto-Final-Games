@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 // Components
-import GameFilters from "../../components/Filters/filters";
+import GameFilters from "../../components/Filters/Filters";
 
 // CSS Styles
 
@@ -52,6 +52,7 @@ export default function Examinar() {
             <div className={style.right_container}>
               <div className={style.filters_container}>
                 <GameFilters />
+                
               </div>
             </div>
           </div>

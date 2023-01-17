@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getForFilters, isLoading, traerGenero, traerPlatforms } from "../../middleware";
 
+// components
+import ResetButton from "./ResetButton";
+
 // Css styles
 import style from "./filters.module.css";
 import "./rotateButton.css"
@@ -126,6 +129,12 @@ export default function GameFilters() {
 
   };
 
+  const resetFilters = (event) => {
+
+    window.location.reload
+    
+  }
+
   useEffect(() => {
 
     dispatch(getForFilters(
@@ -135,6 +144,10 @@ export default function GameFilters() {
 
   return (
     <>
+          <div className={style.reset_button} onClick={resetFilters}>
+            <ResetButton  />
+          </div>
+
           {/* Order Filters */}
 
           <hr className={style.line_between_filters} />
@@ -248,25 +261,25 @@ export default function GameFilters() {
 
                 {/* option ASC */}
                 <div value={defaultValues.ASC}
-                  className={selectedRatingOption.name == defaultValues.ASC ? 
+                  className={selectedRatingOption == defaultValues.ASC ? 
                     style.rating_options_selected :
                     style.rating_options }
                     onClick={handlerRating}
                   >
                   <span value={defaultValues.ASC} >Low to High</span>
-                  {selectedRatingOption.name == defaultValues.ASC &&
+                  {selectedRatingOption == defaultValues.ASC &&
                     <i className="fa-solid fa-check"></i>}
                 </div>
                 
                 {/* option DESC */}
                 <div value={defaultValues.DESC}
                     onClick={handlerRating}
-                    className={selectedRatingOption.name === defaultValues.DESC ? 
+                    className={selectedRatingOption === defaultValues.DESC ? 
                     style.rating_options_selected :
                     style.rating_options }
                   >
                   <span value={defaultValues.DESC}>High to Low</span>
-                  {selectedRatingOption.name === defaultValues.DESC &&
+                  {selectedRatingOption === defaultValues.DESC &&
                     <i className="fa-solid fa-check"></i>}
                 </div>
 
@@ -296,14 +309,14 @@ export default function GameFilters() {
                   <div 
                   value={g}
                   key={i} 
-                  className={selectedGenderOption.name == g ? 
+                  className={selectedGenderOption == g ? 
                     style.gender_options_selected :
                     style.gender_options }
                     onClick={handlerGender}
                   >
                     <span value={g} >{g}
                     </span>
-                    {selectedGenderOption.name == g &&
+                    {selectedGenderOption == g &&
                      <i className="fa-solid fa-check"></i>}
                     
                   </div>
@@ -334,13 +347,13 @@ export default function GameFilters() {
                   <div 
                   value={g}
                   key={i} 
-                  className={ selectedPlatformOption.name == g ?
+                  className={ selectedPlatformOption == g ?
                     style.platforms_options_selected :
                     style.platforms_options }
                     onClick={handlerPlatforms}
                   >
                     <span value={g} >{g}</span>
-                    {selectedPlatformOption.name == g &&
+                    {selectedPlatformOption == g &&
                      <i className="fa-solid fa-check"></i>}
                   </div>
                 ))}
@@ -348,6 +361,7 @@ export default function GameFilters() {
           </div>
 
           <hr className={style.line_between_filters} />
+          
     </>
   )
 }

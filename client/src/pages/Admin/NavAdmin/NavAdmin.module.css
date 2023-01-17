@@ -1,0 +1,21 @@
+.Contairner{
+    height:90vh;
+   min-width: 1200px;
+   background: #171B2D;
+    border-radius: 10px;
+}
+
+.nav{
+    background: #171B2D;
+    height: 100%;
+    width: 25vh;
+    box-shadow: 0 0px 0px 0.5px #333333;
+
+}
+.Logo{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

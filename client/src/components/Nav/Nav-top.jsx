@@ -104,8 +104,7 @@ function NavTop() {
               {OpenUser && (
                 <SelectProfile setOpen={setOpenUser} setLogin={setLogin} />
               )}
-              {OpenCar && <SelectCar />}
-              {OpenNotifica && <SelectNotificaciones />}
+            
             </div>
           </div>
         </div>

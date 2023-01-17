@@ -30,7 +30,7 @@ export default function SelectProfile({ setOpen, setLogin }) {
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{
-        duration: 0.8,
+        duration: 0.4,
         ease: "backOut",
       }}
     >

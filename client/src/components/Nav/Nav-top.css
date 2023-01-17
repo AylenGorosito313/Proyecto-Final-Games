@@ -1,18 +1,33 @@
 .Nav-layout {
   display: flex;
   justify-content: flex-end;
-  height: fit-content;
+  height: 50px;
   width: 100%;
   z-index: 20;
   position: absolute;
   background: rgb(42, 42, 42);
-  box-shadow: 2px 2px 1px #27213b
+  box-shadow: 2px 2px 1px #27213b;
+  align-items: center;
 
 }
 .div-icon {
+  width: 170px;
+  display: flex;
+  gap: 10px;
   cursor: pointer;
-  padding: 10px ;
+  font-size: 14px;
+  /* padding: 10px; */
+  align-items: center;
+  justify-content: center;
+
 }
+
+.Link-nav{
+  text-decoration: none;
+
+  color:#fff
+}
+
 
 .op{
   padding-top: 40px;
@@ -106,8 +121,8 @@ display: flex;
 } */
 
 
-.div-layout-icon-nav{
+/* .div-layout-icon-nav{
   height: fit-content;
   width: 20%;
   display: flex;
-}
+} */

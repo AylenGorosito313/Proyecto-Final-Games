@@ -414,7 +414,7 @@
 
 .button_rating_filter_selected:hover{
   color: rgb(245, 245, 245);
-    border: 1px solid rgb(245, 245, 245);
+  border: 1px solid rgb(245, 245, 245);
 }
 
 .button_rating_filter{
@@ -429,6 +429,10 @@
     border: none;
     background-color: transparent;
     transition-property: all;
+}
+
+.button_rating_filter:hover{
+  color: rgb(245, 245, 245);
 }
 
 .expand_container_rating_options{
@@ -467,4 +471,8 @@
   padding: 12px;
   cursor: pointer;
   color: rgb(143, 143, 143);
+}
+
+.rating_options:hover {
+  color: rgb(245, 245, 245);
 }

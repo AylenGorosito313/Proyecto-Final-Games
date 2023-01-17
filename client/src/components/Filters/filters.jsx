@@ -200,6 +200,7 @@ export default function GameFilters() {
               style.expand_container_price_options : 
               style.rendered_container_price_options} >
 
+                {/* option ASC */}
                 <div value={defaultValues.ASC}
                     className={selectedPriceOption === defaultValues.ASC ? 
                       style.price_options_selected :
@@ -210,14 +211,15 @@ export default function GameFilters() {
                   {selectedPriceOption === defaultValues.ASC &&
                     <i className="fa-solid fa-check"></i>}
                 </div>
-
+                
+                {/* option DESC */}
                 <div value={defaultValues.DESC}
                     onClick={handlerPrice}
                     className={selectedPriceOption === defaultValues.DESC ? 
                     style.price_options_selected :
                     style.price_options }
                   >
-                  <span value={defaultValues.DESC} >High to Low</span>
+                  <span value={defaultValues.DESC}>High to Low</span>
                   {selectedPriceOption === defaultValues.DESC &&
                     <i className="fa-solid fa-check"></i>}
                 </div>
@@ -251,20 +253,20 @@ export default function GameFilters() {
                     style.rating_options }
                     onClick={handlerRating}
                   >
-                  <span value={defaultValues.ASC} Low to High></span>
+                  <span value={defaultValues.ASC} >Low to High</span>
                   {selectedRatingOption.name == defaultValues.ASC &&
                     <i className="fa-solid fa-check"></i>}
                 </div>
                 
                 {/* option DESC */}
                 <div value={defaultValues.DESC}
-                  className={selectedRatingOption.name == defaultValues.DESC ? 
+                    onClick={handlerRating}
+                    className={selectedRatingOption.name === defaultValues.DESC ? 
                     style.rating_options_selected :
                     style.rating_options }
-                    onClick={handlerRating}
                   >
-                  <span value={defaultValues.DESC} >High to Low</span>
-                  {selectedRatingOption.name == defaultValues.DESC &&
+                  <span value={defaultValues.DESC}>High to Low</span>
+                  {selectedRatingOption.name === defaultValues.DESC &&
                     <i className="fa-solid fa-check"></i>}
                 </div>
 

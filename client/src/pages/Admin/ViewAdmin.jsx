@@ -6,14 +6,15 @@ import NavTop from "../../components/Nav/Nav-top";
 export default function ViewAdmin() {
   return (
     <>
-     <div className={style.Layout}>
-      <div className={style.Contairner}>
-   
-       < NavAdmin/>
+      <div className={style.Layout}>
+        <div className={style.Contairner}>
+          <NavAdmin />
+        </div>
+<div>
+  
+</div>
+
       </div>
-    </div>
-    
     </>
-   
   );
 }

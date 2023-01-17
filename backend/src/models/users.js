@@ -53,5 +53,9 @@ const Users = sequelize.define('users', {
 Game.belongsToMany(Users, { through: "users_game" })
 Users.belongsToMany(Game, { through: "users_game" })
 
+// Game.belongsToMany(Users, {as:"favoritegames", through: "favorites" })
+// Users.belongsToMany(Game, {as:"favoriteusers" , through: "favorites"})
+
+
 module.exports = {Users};
 

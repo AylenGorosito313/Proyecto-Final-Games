@@ -11,7 +11,6 @@ const paymentRouter = Router();
 
 
 paymentRouter.get("/payment", getPaymentLink);
-
 paymentRouter.get("/subscription", getSubscriptionLink);
 paymentRouter.get('/payment/success', paymentSuccsess)
 

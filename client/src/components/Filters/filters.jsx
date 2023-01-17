@@ -72,57 +72,66 @@ export default function GameFilters() {
       price: price
     })
 
-    dispatch(getForFilters(
-      filterOptions
-    ));
-
   };
 
-  // Handle click
-  const handlerOrder = async (event) => {
+  // Handle click order
+  const handlerOrder = (event) => {
+
     let order = event.target.getAttribute("value")
-    console.log(order)
+    
+    setSelectedOrderOption(order)
 
     setFilterOptions({
       ...filterOptions, 
       alphabeth: order
     })
-    
-    setSelectedOrderOption(order)
-
-    dispatch(getForFilters(
-      order
-    ));
-  
 
   };
 
   const handlerGender = (event) => {
-    setSelectedGenderOption({
-      ...selectedGenderOption, 
-      status: true, 
-      name: event.target.getAttribute("value")})
-    
+
     let gender = event.target.getAttribute("value");
     
+    setSelectedGenderOption(gender)
+
+    setFilterOptions({
+      ...filterOptions,
+      genre: gender
+    })
   };
   
   const handlerPlatforms = (event) => {
-    setSelectedPlatformOption({
-      ...selectedPlatformOption, 
-      status: true, 
-      name: event.target.getAttribute("value")})
+
+    let platform = event.target.getAttribute("value");
+    
+    setSelectedPlatformOption(platform)
+
+    setFilterOptions({
+      ...filterOptions,
+      platform: platform
+    })
 
   };
 
   const handlerRating = (event) => {
-    setSelectedRatingOption({
-      ...selectedRatingOption, 
-      status: true, 
-      name: event.target.getAttribute("value")})
+    
+    let rating = event.target.getAttribute("value");
+    
+    setSelectedRatingOption(rating)
+
+    setFilterOptions({
+      ...filterOptions,
+      rating: rating
+    })
+
   };
 
-  
+  useEffect(() => {
+
+    dispatch(getForFilters(
+      filterOptions
+    ));
+  }, [filterOptions])
 
   return (
     <>
@@ -146,7 +155,7 @@ export default function GameFilters() {
               style.rendered_container_order_options} >
                 
                 {/* option A-Z */}
-                <div value={defaultValues.A_Z}
+                <div 
                   className={selectedOrderOption === defaultValues.A_Z ? 
                     style.order_options_selected :
                     style.order_options }
@@ -154,11 +163,11 @@ export default function GameFilters() {
                   >
                   <span value={defaultValues.A_Z} >A - Z</span>
                   {selectedOrderOption === defaultValues.A_Z &&
-                    <i class="fa-solid fa-check"></i>}
+                    <i className="fa-solid fa-check"></i>}
                 </div>
                 
                 {/* Option Z-A */}
-                <div value={defaultValues.Z_A}
+                <div 
                   className={selectedOrderOption === defaultValues.Z_A ? 
                     style.order_options_selected :
                     style.order_options }
@@ -166,7 +175,7 @@ export default function GameFilters() {
                   >
                   <span value={defaultValues.Z_A}>Z - A</span>
                   {selectedOrderOption === defaultValues.Z_A &&
-                    <i class="fa-solid fa-check"></i>}
+                    <i className="fa-solid fa-check"></i>}
                 </div>
 
             </div>
@@ -199,7 +208,7 @@ export default function GameFilters() {
                   >
                   <span value={defaultValues.ASC} >Low to High</span>
                   {selectedPriceOption === defaultValues.ASC &&
-                    <i class="fa-solid fa-check"></i>}
+                    <i className="fa-solid fa-check"></i>}
                 </div>
 
                 <div value={defaultValues.DESC}
@@ -210,7 +219,7 @@ export default function GameFilters() {
                   >
                   <span value={defaultValues.DESC} >High to Low</span>
                   {selectedPriceOption === defaultValues.DESC &&
-                    <i class="fa-solid fa-check"></i>}
+                    <i className="fa-solid fa-check"></i>}
                 </div>
 
             </div>
@@ -235,26 +244,28 @@ export default function GameFilters() {
               style.expand_container_rating_options : 
               style.rendered_container_rating_options} >
 
+                {/* option ASC */}
                 <div value={defaultValues.ASC}
-                  className={selectedRatingOption.name == "ASC" ? 
+                  className={selectedRatingOption.name == defaultValues.ASC ? 
                     style.rating_options_selected :
                     style.rating_options }
                     onClick={handlerRating}
                   >
-                  <span value={defaultValues.ASC} >High to Low</span>
-                  {selectedRatingOption.name == "ASC" &&
-                    <i class="fa-solid fa-check"></i>}
+                  <span value={defaultValues.ASC} Low to High></span>
+                  {selectedRatingOption.name == defaultValues.ASC &&
+                    <i className="fa-solid fa-check"></i>}
                 </div>
-
+                
+                {/* option DESC */}
                 <div value={defaultValues.DESC}
-                  className={selectedRatingOption.name == "DESC" ? 
+                  className={selectedRatingOption.name == defaultValues.DESC ? 
                     style.rating_options_selected :
                     style.rating_options }
                     onClick={handlerRating}
                   >
-                  <span value={defaultValues.DESC} >Low to High</span>
-                  {selectedRatingOption.name == "DESC" &&
-                    <i class="fa-solid fa-check"></i>}
+                  <span value={defaultValues.DESC} >High to Low</span>
+                  {selectedRatingOption.name == defaultValues.DESC &&
+                    <i className="fa-solid fa-check"></i>}
                 </div>
 
             </div>
@@ -291,7 +302,7 @@ export default function GameFilters() {
                     <span value={g} >{g}
                     </span>
                     {selectedGenderOption.name == g &&
-                     <i class="fa-solid fa-check"></i>}
+                     <i className="fa-solid fa-check"></i>}
                     
                   </div>
                 ))}
@@ -328,7 +339,7 @@ export default function GameFilters() {
                   >
                     <span value={g} >{g}</span>
                     {selectedPlatformOption.name == g &&
-                     <i class="fa-solid fa-check"></i>}
+                     <i className="fa-solid fa-check"></i>}
                   </div>
                 ))}
               </div>

@@ -5,6 +5,7 @@
   align-items: center;
 }
 .h1Header{
+  display: flex;
   padding-left: 100px;
 }
 

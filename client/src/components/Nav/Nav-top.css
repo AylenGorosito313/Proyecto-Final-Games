@@ -3,8 +3,8 @@
   justify-content: flex-end;
   height: 50px;
   width: 100%;
-  z-index: 20;
-  position: absolute;
+  /* z-index: 20;
+  position: absolute; */
   background: rgb(42, 42, 42);
   box-shadow: 2px 2px 1px #27213b;
   align-items: center;

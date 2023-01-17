@@ -26,14 +26,16 @@ const addPurchaseUser = async (userId) => {
                 ...searchPurchase.historialDeCompras,
                 ...searchUserCar.items,
             ];
-            searchUserCar.set({
-                total_items: 0,
-                total_precio: 0,
-                items: [],
-            });
-            await searchPurchase.save();
-            await searchUserCar.save();
         }
+
+        searchUserCar.set({
+            total_items: 0,
+            total_precio: 0,
+            items: [],
+        });
+        await searchPurchase.save();
+        await searchUserCar.save();
+        
         return "Agregado al historial de compra";
     } catch (error) {
         return {

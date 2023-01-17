@@ -200,6 +200,7 @@ const filtrado = async (req, res) => {
     let api = await getGamesForExaminar();
     let DB = await getAllGamesDb();
     let allGames = [...DB, ...api];
+    console.log(allGames)
     let sorT = allGames;
 
     if (!req.query) {

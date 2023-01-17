@@ -20,7 +20,7 @@ import axios from "axios";
 import ProfilePage from "./pages/UserProfile/Profile/ProfilePage"
 import Proveedor from "./pages/ProveedorProfile/Proveedor";
 import GameDevForm from "./pages/GameDevForm/GameDevForm";
-
+import ViewAdmin from "./pages/Admin/ViewAdmin";
 import Footer from "./components/Footer/Footer";
 import ProveedorProfile from "./pages/ProveedorProfile/Profile/ProveedorProfile";
 
@@ -75,7 +75,12 @@ function App() {
         <Proveedor />
       
       </Route>
-     
+      <Route exact path="/admin">
+        <ViewAdmin />
+      
+      </Route>
+
+
       <Route exact path="/provedor/unpload" component={UnploadGame} />
       <Route exact path="/provedor/profile" component={ProveedorProfile} />
     

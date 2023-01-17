@@ -14,13 +14,12 @@
     
 }
 .left_container{
-   
     width: 900px;
     display: flex;
     align-items: center;
     text-align: center;
     vertical-align: middle;
-    
+    flex-direction: column;
 }
 
 .cards_container {
@@ -34,18 +33,19 @@
     
 }
 
-.righ_container{
+.right_container{
    
     /* display: flex;
     flex-direction: start; */
     display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: flex-start;
+        width: 250px;
     
 }
 
 .filters_container{
-    float: top;
+    width: 100%;
 }
 
 
@@ -62,4 +62,30 @@
 
 .separador{
     height: 20px;
+}
+
+.pagination {
+    margin-top: 3rem;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+    font-weight: 300;
+    gap: 5px;
+    color: rgb(143, 143, 143);
+}
+
+.pagination .page_num {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.pagination .page_num:hover{
+    color: rgb(245, 245, 245);
+}
+
+.pagination .active{
+    color: rgb(245, 245, 245);
 }

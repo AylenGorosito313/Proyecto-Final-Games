@@ -38,7 +38,11 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
               <i className="fa-regular fa-heart fa-2xl"></i>
             )}
           </div>
-          <img src={img} alt={name} />
+          {img ? 
+          <img src={img} alt={name} /> :
+          <div className="no-image">
+            <h4>There is no image for this game card</h4>
+          </div> }
         </div>
 
         <div className="card-content-slider">

@@ -14,6 +14,22 @@
 
 }
 
+.no-image{
+    display: flex;
+    width: 328px;
+    height: 180px;
+    align-items: center;
+    text-align:center;
+    justify-content: center;
+}
+
+.no-image h4{
+    width:200px;
+    text-align: center;
+    margin-right: 45px;
+}
+
+
 .single-card-slider {
     width: 280px;
     border-radius: 0.5rem;

@@ -130,7 +130,7 @@ export default function GameCreate() {
         <h1 className={style.h1Header}> Upload your game </h1>
         </div>
       </div>
-
+        
       <div className={style.fondo}>
         <form className={style.formContainer} onSubmit={handleSubmit(onSubmit)}>
           <div>

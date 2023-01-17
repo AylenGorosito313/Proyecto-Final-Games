@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { gameEngines } from "../utils/utils";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./DevForm.css"
 import { enableProvider } from "../../../middleware";
@@ -10,13 +10,17 @@ export default function DevForm () {
 
     const dispatch = useDispatch()
     const { register, handleSubmit, formState: { errors } } = useForm();
-
+    const { res } = useSelector( state => state.prueba )
+    
     let userID = window.localStorage.getItem("id");
     
     const onSubmit = (data) => {
         console.log(data)
         dispatch(enableProvider(userID))
+        
     }
+
+    
 
     return (
         <>

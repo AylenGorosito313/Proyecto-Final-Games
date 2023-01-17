@@ -1,0 +1,24 @@
+.rotate {
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+    color: rgb(143, 143, 143);
+    /* color: rgb(245, 245, 245); */
+}
+
+.rotate_down {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    color: rgb(143, 143, 143);
+    transition: all .5s linear;
+    /* color: rgb(245, 245, 245); */
+}
+
+.rotate:hover {
+    color: rgb(245, 245, 245);
+}
+
+.rotate_down:hover {
+    color: rgb(245, 245, 245);
+}

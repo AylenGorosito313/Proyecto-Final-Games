@@ -23,7 +23,7 @@ export default function SearchBar() {
             <p className="p-create-game">Home</p>
           </Link>
           <Link className={Style.p_create_game} to="/game/examinar/filtros">
-            <p className="p-create-game">Examinar</p>
+            <p className="p-create-game">Browser</p>
           </Link>
 
         

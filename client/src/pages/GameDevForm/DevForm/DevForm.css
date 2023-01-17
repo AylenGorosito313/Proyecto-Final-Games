@@ -44,8 +44,10 @@
 } */
 .form-label {
     font-size: 14px;
+    color: #b3a8a8;
     margin-bottom: 13px;
     margin-left: 13px;
+  
 }
 
 .input-text, .input-text-area, .select-engines{
@@ -55,11 +57,12 @@
 .input-text, .select-engines {
     width: 100%;
     padding: 20px;
+    color: rgb(205 200 200);
     border-radius: 4px;
-    background-color: #1e1e1e;
+    background-color: #424040;
     box-sizing: border-box;
     font-size: 14px;
-    color:rgb(143, 135, 135);
+
 }
 .radio-container-yer-or-not{
     padding: 20px;

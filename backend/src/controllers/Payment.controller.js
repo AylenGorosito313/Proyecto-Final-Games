@@ -1,3 +1,4 @@
+const { Users } = require("../models/users");
 const {
     createPayment,
     createSubscription,
@@ -55,13 +56,17 @@ const paymentOneItem = async (req, res) => {
     const game = req.body;
     const { id } = req.query;
 
-console.log(game)
     try {
         if (!game) {
             return res.status(400).json("Game info is require");
         }
+        let user = await Users.findByPk(id);
+        if (!user) {
+            return res.status(400).json("you are not logged")
+        }
         const payment = await createPayment([game], id);
         return res.json(payment.init_point);
+
     } catch (error) {
         return res.status(500).json({
             message: error.message,

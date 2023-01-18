@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./NavAdmin.module.css";
-import LogoPanel from "../../../svg/Logos/LogoPanel";
+import LogoPanel from "../AdminSvg/LogoAdmins";
 import { Link } from "react-router-dom";
 // import icons
 import BannerIcon from "../AdminSvg/BannersNav";

@@ -8,16 +8,15 @@ const getItemsCar = require("../utils/getItemsCar");
 const getPaymentLink = async (req, res) => {
     const { id } = req.query;
 
-   
     try {
-        if(!id){
+        if (!id) {
             return res.status(400).json({
-                message: 'id has must provider'
-            })
+                message: "id has must provider",
+            });
         }
         let carItems = await getItemsCar(id);
-        if(!Array.isArray(carItems)){
-            return
+        if (!Array.isArray(carItems)) {
+            return;
         }
         const payment = await createPayment(carItems, id);
         return res.json(payment.init_point);
@@ -42,14 +41,37 @@ const getSubscriptionLink = async (req, res) => {
     }
 };
 
-const paymentSuccsess = async(req, res) => {
+const paymentSuccsess = async (req, res) => {
     const { userId } = req.query;
     try {
-        const createPurchase = await addPurchaseUser(userId)
-        res.status(200).json({createPurchase})
+        const createPurchase = await addPurchaseUser(userId);
+        res.status(200).json({ createPurchase });
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 };
 
-module.exports = { getPaymentLink, getSubscriptionLink, paymentSuccsess };
+const paymentOneItem = async (req, res) => {
+    const game = req.body;
+    const { id } = req.query;
+
+
+    try {
+        if (!game) {
+            return res.status(400).json("Game info is require");
+        }
+        const payment = await createPayment([game], id);
+        return res.json(payment.init_point);
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message,
+        });
+    }
+};
+
+module.exports = {
+    getPaymentLink,
+    getSubscriptionLink,
+    paymentSuccsess,
+    paymentOneItem,
+};

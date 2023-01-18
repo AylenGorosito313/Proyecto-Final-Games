@@ -34,7 +34,7 @@ require('./src/models/providers')
 
 async function main() {
     try {
-        await sequelize.sync({ force: false }); 
+        await sequelize.sync({ force: true }); 
         // await getGamesForExaminar() 
         console.log("Conect to database"); 
         server.listen(3001, () => {

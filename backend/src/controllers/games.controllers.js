@@ -155,17 +155,6 @@ const releasedLastMonth = async (req, res) => {
         });
     }
 };
-//https://api.rawg.io/api/games?dates=2023-12-01,2023-12-30
-//https://api.rawg.io/api/games/{game_pk}/development-team
-
-// const GamesExaminar = async () => {
-//     try {
-//         let results = await getGamesForExaminar();
-//         res.status(200).json(results);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
 
 const deleteGameProvider = async (req, res) => {
     const {userId, gameId} = req.params 

@@ -5,7 +5,6 @@ import Andromeda2 from "../../assets/devForm/andromeda2.jpg"
 import Andromeda1 from "../../assets/devForm/andromeda3.jpg"
 import Andromeda3 from "../../assets/devForm/andromeda1.jpg"
 import fondo from "../../assets/img/fondo4.png"
-import offerImage from "../../assets/slides/free_offers.jpg";
 import doom from "../../assets/slides/doom_logo.png";
 import fallout from "../../assets/slides/fallout_4.png";
 import godOfWar from "../../assets/slides/godOfWar.png";
@@ -20,7 +19,6 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import TextBanners from "./TextBanners";
 // other utils from card
-import { priceFactor } from "../Cards/utils";
 
 export default function HomeSlider() {
   const { games } = useSelector((state) => state.prueba);

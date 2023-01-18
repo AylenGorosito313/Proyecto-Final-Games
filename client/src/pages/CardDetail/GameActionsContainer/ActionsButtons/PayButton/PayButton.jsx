@@ -5,43 +5,46 @@ import { useDispatch } from "react-redux";
 import "./PayButton.css";
 
 // ACTIONS
-import { getCheckOut} from "../../../../../middleware";
-import { priceFactor } from "../../../utils/utils";
+import { AddCart } from "../../../../../middleware";
 
 
-export default function PayButton ({priceGame, name, img, id, genres}) {
+export default function PayButton ({ id }) {
 
     const dispatch = useDispatch();
+    const [gameAddedToCart, setGameAddedToCart] = useState("");
+    let user_id =localStorage.getItem("id");
+    
+    useEffect(() => {
+        if(gameAddedToCart === "ADDED"){
+            setTimeout(() => {
+                dispatch(AddCart(user_id, id))
+            }, [1000])
+        }
+    }, [gameAddedToCart])
 
-    const [buyingGame, setBuyingGame] = useState("");
-
-    let price = priceFactor(priceGame);
-    const data = {
-      name,
-      img,
-      id,
-      genres,
-      price,
-    };
-
-    // useEffect(() => {
-    //     if(buyingGame === "...BUYING"){
-    //         setTimeout(() => {
-    //             dispatch(getCheckOut(data))
-    //         }, [1500])
-    //     }
-    // })
-
-    const onClickBuyButton = (e) => {
-        setBuyingGame("...BUYING")
-        dispatch(getCheckOut(data))
+    const onClickCartButton = (e) => {
+        setGameAddedToCart("ADDED")
+        setTimeout( function() { window.location.href = "http://127.0.0.1:5173/payment"}, 5000)
+        
     }
 
+
+
     return (
-        <>
-        <button className="pay-button" onClick={onClickBuyButton}>
-            {buyingGame === "...BUYING" ?  <span>{buyingGame}</span> : <span>BUY</span> }
+ 
+      <>
+        <button className="pay-button" onClick={onClickCartButton}>
+
+            <span  >{gameAddedToCart}</span> 
+             <span  >BUY</span> 
+
+           
+           
+
         </button>
         </>
+ 
     )
 }
+
+

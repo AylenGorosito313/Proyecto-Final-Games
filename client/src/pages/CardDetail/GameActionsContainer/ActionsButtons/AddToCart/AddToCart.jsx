@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 // Utils and Actions
-import { priceFactor } from "../../../utils/utils";
 import { AddCart } from "../../../../../middleware";
 
 //  CSS Styles

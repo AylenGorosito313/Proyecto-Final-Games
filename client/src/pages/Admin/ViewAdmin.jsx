@@ -11,17 +11,15 @@ export default function ViewAdmin() {
 
         <div className={style.Contairner}>
           <NavAdmin />
-          <div className={style.content}>
-
-
+          <div className={style.content_View}>
             <h1>WELCOME TO DE JUNGLEEEE</h1>
-
-
+            <p>
+              Aca va la bienvenida del admin y tips de usos o lo que queramos
+              poner, se vuelve aca dandole click al logo
+            </p>
           </div>
         </div>
         {/* </div> */}
-
-
       </div>
     </>
   );

@@ -12,10 +12,11 @@ import UserIcon from "../AdminSvg/UserNav";
 export default function NavAdmin() {
   return (
     <div className={style.nav}>
-      <div className={style.Logo}>
-        <LogoPanel />
-      </div>
-
+      <Link to={"/panelView"} className={style.Link}>
+        <div className={style.Logo}>
+          <LogoPanel />
+        </div>
+      </Link>
       <div className={style.MetaContainer}>
         <Link to={"/admin/dashboard"} className={style.Link}>
           <div className={style.container}>
@@ -32,7 +33,7 @@ export default function NavAdmin() {
         <Link to={"/admin/games"} className={style.Link}>
           <div className={style.container}>
             <GamesIcon />
-            <p className={style.p} >Admin. de Games</p>
+            <p className={style.p}>Admin. de Games</p>
           </div>
         </Link>
         <Link to={"/admin/banners"} className={style.Link}>

@@ -20,7 +20,12 @@ const addToCar = async (req, res) => {
         let gameDataBase = undefined;
 
         if (userId) {
-            await Users.findByPk(userId);
+            let userSearch = await Users.findByPk(userId);
+            if (!userSearch) {
+                return res
+                    .status(400)
+                    .json("You must login or register to add games to cart");
+            }
             let searchUserCar = await Carrito.findOne({
                 where: {
                     userId,
@@ -36,7 +41,7 @@ const addToCar = async (req, res) => {
             } else {
                 gameInfo = await mapGames([gameInfo]);
             }
-            
+
             if (!searchUserCar) {
                 let addCarItem = await Carrito.create();
                 addCarItem.userId = userId;

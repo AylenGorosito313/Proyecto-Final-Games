@@ -75,6 +75,25 @@ export const getForFilters = (parameter) => {
   };
 };
 
+
+export const getForFiltersRESET = () => {
+  return async function (dispatch) {
+    try {
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/games/filters/examinar`,
+      });
+      console.log(data);
+      dispatch(getExaminar(data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+
+
+
 export const isLoading = () => {
   return async function (dispatch) {
     try {

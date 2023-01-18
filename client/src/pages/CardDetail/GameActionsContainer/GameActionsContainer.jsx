@@ -6,6 +6,7 @@ import AddToCart from "./ActionsButtons/AddToCart/AddToCart";
 import AddToWishlist from "./ActionsButtons/AddToWishlist/AddToWishlist";
 
 export default function GamesActions ( {priceGame, name, img, id, genres,price, description} ) {
+console.log(id)
 
     return (
         <>
@@ -29,7 +30,9 @@ export default function GamesActions ( {priceGame, name, img, id, genres,price, 
                         priceGame={priceGame}
                         id={id}
                     />
-                    <AddToWishlist />
+                    <AddToWishlist
+                    id={id}
+                    />
                 </div>
             </div>
         </>

@@ -45,6 +45,7 @@ top: -20px;
 .Nav-top-container-sticky {
   display: flex;
   z-index: 2;
+  padding-right: 100px;
   height: fit-content;
   align-items: center;
   width: 100%;

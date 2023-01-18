@@ -23,7 +23,7 @@ function Card({ name, img, id, rating, platforms, released, genres, price}) {
     dispatch(AddFavorite(user_id, id));
   };
 
-  const onClickShoppingCart = (e) => {
+  const handlerAddCart = (e) => {
     dispatch(AddCart(user_id, id));
   };
 
@@ -33,7 +33,7 @@ function Card({ name, img, id, rating, platforms, released, genres, price}) {
         <div className="card">
           <div className="game-image">
             <div className="favourite-tag" onClick={HandlerAddFavorite}>
-              {identifyingFavoriteId={} ? (
+              {identifyingFavoriteId ? (
                 <i className="fa-solid fa-heart fa-2xl red-heart"></i>
               ) : (
                 <i className="fa-regular fa-heart fa-2xl"></i>

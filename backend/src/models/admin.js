@@ -20,7 +20,7 @@ const Admin = sequelize.define(
         password: {
             type: DataTypes.STRING,
             defaultValue: "andromedaAdmin"
-        }
+        },
     },
     { timestamps: false, freezeTableName: true }
 );

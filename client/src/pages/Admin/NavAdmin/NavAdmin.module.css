@@ -24,13 +24,21 @@
 
 .container{
     height: 50px;
-    width: 100%;
+    width: 90%;
     gap: 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    padding-left: 5px;
 
 }
+
+
+.container:hover{
+    background: rgba(255, 255, 255, 0.068);
+    box-shadow: 0 0px 0px 0.2px #ffffff;
+}
+
 
 .p{
     font-size: 12px;
@@ -41,7 +49,7 @@
     height: 60%;
     width: 100%;
     gap: 20px;
-    padding-left: 10px;
+   
     display: flex;
     flex-direction: column;
     justify-content: center;

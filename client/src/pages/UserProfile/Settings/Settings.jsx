@@ -58,13 +58,6 @@ export default function Settings() {
           </button>
         </div>
 
-        {/* <div className={style.div}>Usarme</div>
-        <div className={style.div}>
-          {userActual?.name
-            ? `${userActual.name} ${userActual.lastName}`
-            : "Your userName"}
-        </div> */}
-
         <div className={style.Change}>
           <h1> Edit name</h1>
           <div className={style.divInputs}>
@@ -101,7 +94,7 @@ export default function Settings() {
               max="2023-12-31"
             />
 
-<label >Location</label>
+            <label >Location</label>
             <select name="city" className={style.select}>
               <option key="none" value="none">
                 country

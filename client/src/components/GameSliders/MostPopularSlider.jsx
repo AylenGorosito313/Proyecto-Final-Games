@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import SliderCard from "../Cards/SliderCard/SliderCard";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,8 +10,11 @@ import { Navigation } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "./GamesSliders.css";
+import { getCart } from "../../middleware";
 
 export default function MostPopularSlider() {
+
+    const dispatch = useDispatch();
     const [toggleButton, setToggleButton] = useState(true);
 
     const { popularGames } = useSelector((state) => state.prueba);
@@ -23,6 +26,8 @@ export default function MostPopularSlider() {
     const prevButton = () => {
         setToggleButton(false);
     };
+
+    
 
     return (
         <>

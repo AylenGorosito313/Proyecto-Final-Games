@@ -267,6 +267,7 @@ export const LoginUser = ({ email, password }, verify) => {
 //"/user/addCard/:userId/:gameId"
 
 export const AddFavorite = (user_id, id) => {
+  console.log(user_id, id)
   return async function (dispatch) {
     try {
       let res = await axios({

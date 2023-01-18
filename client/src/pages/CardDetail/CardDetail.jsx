@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getGameDetail } from "../../middleware";
 import { Link, useParams } from "react-router-dom";
 
-// Components
 import Loading from "../../components/Loading/Loading.jsx";
 import DetailSlider from "./DetailSlider/DetailSlider";
 import GamesActionsContainer from "./GameActionsContainer/GameActionsContainer";
@@ -105,6 +104,7 @@ console.log(gameDetail.price)
                                     description={gameDetail.description}
                                 />
                             </div>
+
                         </div>
                     </div>
                 )}

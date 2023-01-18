@@ -19,11 +19,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0px 0px 0.5px #333333;
 }
 
 .container{
     height: 50px;
     width: 100%;
+    gap: 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -31,14 +33,16 @@
 }
 
 .p{
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
 .MetaContainer{
-    height: 80%;
+    height: 60%;
     width: 100%;
     gap: 20px;
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }

@@ -17,13 +17,18 @@ import CardDetail from "./pages/CardDetail/CardDetail";
 import SuccessPay from "./pages/Payment/SuccessPay/SuccessPay";
 import Examinar from "./pages/Examinar/Examinar";
 import axios from "axios";
-import ProfilePage from "./pages/UserProfile/Profile/ProfilePage"
+import ProfilePage from "./pages/UserProfile/Profile/ProfilePage";
 import Proveedor from "./pages/ProveedorProfile/Proveedor";
 import GameDevForm from "./pages/GameDevForm/GameDevForm";
 import ViewAdmin from "./pages/Admin/ViewAdmin";
 import Footer from "./components/Footer/Footer";
 import ProveedorProfile from "./pages/ProveedorProfile/Profile/ProveedorProfile";
-
+//admins import
+import Dashboard from "./pages/Admin/Dashboard/Dashboard"
+import AdminUser from "./pages/Admin/AdminUsuario/AdminUsuario"
+import AdminGames from "./pages/Admin/AdminGames/AdminGames"
+import AdminBanners from "./pages/Admin/AdminBanners/AdminBanners"
+import AdminSettings from "./pages/Admin/AdminSettings/AdminSettings"
 function App() {
   axios.defaults.headers.common[
     "Authorization"
@@ -54,16 +59,16 @@ function App() {
         <Route exact path="/game/dev/form" component={GameDevForm} />
         <Footer />
       </Route>
-    
+
       <Route exact path="/user">
-      <NavTop />
-          <Route path="/user" component={ProfilePage} />
-          <Footer />
+        <NavTop />
+        <Route path="/user" component={ProfilePage} />
+        <Footer />
       </Route>
 
       <Route path="/profile">
         <NavTop />
-     
+
         {/* <Route exact path="/profile/profile" component={Profile} /> */}
         <Route exact path="/profile/games" component={MyGames} />
         <Route exact path="/profile/favorite" component={Favorite} />
@@ -73,20 +78,20 @@ function App() {
 
       <Route exact path="/proveedor">
         <Proveedor />
-      
       </Route>
-      <Route exact path="/admin">
-      <NavTop />
-     
-        <ViewAdmin />
-      
+      <Route  path="/admin">
+        <NavTop />
+        {/* <ViewAdmin /> */}
+        <Route  path="/admin" component={ViewAdmin} />
+        <Route exact path="/admin/dashboard" component={Dashboard} />
+        <Route exact path="/admin/users" component={AdminUser} />
+        <Route exact path="/admin/games" component={AdminGames} />
+        <Route exact path="/admin/banners" component={AdminBanners} />
+        <Route exact path="/admin/settings" component={AdminSettings } />
       </Route>
-
 
       <Route exact path="/provedor/unpload" component={UnploadGame} />
       <Route exact path="/provedor/profile" component={ProveedorProfile} />
-    
-      
     </>
   );
 }

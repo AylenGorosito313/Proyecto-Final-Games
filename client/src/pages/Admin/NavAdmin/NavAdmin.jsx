@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./NavAdmin.module.css";
 import LogoPanel from "../../../svg/Logos/LogoPanel";
+import { Link } from "react-router-dom";
 export default function NavAdmin() {
   return (
     <div className={style.nav}>

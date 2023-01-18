@@ -76,6 +76,8 @@ function App() {
       
       </Route>
       <Route exact path="/admin">
+      <NavTop />
+     
         <ViewAdmin />
       
       </Route>

@@ -25,14 +25,10 @@ function Home() {
   const dispatch = useDispatch();
   const { games, isLoader, res } = useSelector((state) => state.prueba);
 
-  // get id of user
-  let user_id = localStorage.getItem("id");
-
   useEffect(() => {
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
-    dispatch(getCart(user_id))
     dispatch(clearState());
 
     return () => {

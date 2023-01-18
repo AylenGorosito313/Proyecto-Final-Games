@@ -8,6 +8,7 @@
 .nav{
     background: #171B2D;
     height: 100%;
+    gap: 20px;
     width: 25vh;
     box-shadow: 0 0px 0px 0.5px #333333;
 
@@ -18,4 +19,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.container{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.p{
+    font-size: 14px;
+}
+
+
+.MetaContainer{
+    height: 80%;
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
 }

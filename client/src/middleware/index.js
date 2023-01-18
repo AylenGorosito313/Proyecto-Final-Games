@@ -298,7 +298,17 @@ export const AddFavorite = (user_id, id) => {
       console.log(data)
       dispatch(resProvisoryFavoriteIds(data))
     } catch (error) {
-      
+      console.log(error.message);
+      toast(error.request.response, {
+        position: "bottom-right",
+        duration: 3000,
+        icon: error.request.response === "You already have that game in favorites" ? "🤷" : "❌",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff"
+      },
+    });
     }
   };
 };

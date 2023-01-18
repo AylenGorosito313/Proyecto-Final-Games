@@ -46,3 +46,7 @@
     flex-direction: column;
     justify-content: center;
 }
+.Link{
+    text-decoration: none;
+    color:#fff
+}

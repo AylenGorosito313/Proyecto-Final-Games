@@ -13,6 +13,7 @@ const initialState = {
   platforms: [],
   payment: {
     link: "",
+    detailLink: "",
   },
 
   res: {
@@ -21,7 +22,6 @@ const initialState = {
     register: "",
     created: "",
     provider: {},
-  
   },
   isLoader: false,
   userActual: {},
@@ -88,6 +88,9 @@ export const toolkit_prueba = createSlice({
     getLinkPayment: (state, actions) => {
       state.payment = { ...state.payment, link: actions.payload };
     },
+    getLinkPaymentDETAIL: (state, actions) => {
+      state.payment = { ...state.payment, detailLink: actions.payload };
+    },
     getCartRes: (state, actions) => {
       state.cart = [...state.cart, ...actions.payload];
     },
@@ -104,8 +107,10 @@ export const toolkit_prueba = createSlice({
       state.gameDetail = {};
     },
     deletedFavoriteUser: (state, actions) => {
-      state.userActual.favoritos = state.userActual.favoritos.filter(ele => ele.id !== actions.payload)
-    }
+      state.userActual.favoritos = state.userActual.favoritos.filter(
+        (ele) => ele.id !== actions.payload
+      );
+    },
   },
 });
 
@@ -137,6 +142,7 @@ export const {
   deletedFavoriteUser,
 
   providerResponseEnable,
+  getLinkPaymentDETAIL,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

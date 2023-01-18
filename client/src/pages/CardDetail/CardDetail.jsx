@@ -21,7 +21,7 @@ export default function CardDetail() {
     const dispatch = useDispatch();
     const { gameDetail, isLoader } = useSelector((state) => state.prueba);
     // const [loading, setLoading] = useState(true);
-
+console.log(gameDetail.price)
     useEffect(() => {
     dispatch(getGameDetail(id));
     
@@ -100,7 +100,9 @@ export default function CardDetail() {
                                     name={gameDetail.name}
                                     img={gameDetail.background_image}
                                     id={id}
+                                    price={gameDetail.price}
                                     genres={gameDetail.genres}
+                                    description={gameDetail.description}
                                 />
                             </div>
                         </div>

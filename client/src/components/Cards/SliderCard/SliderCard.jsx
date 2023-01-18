@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SliderCard.css";
+import { AddFavorite } from "../../../middleware";
 import { Link } from "react-router-dom";
 import { platformImage, noLoginNoCart, gamesRepeatedInCart } from "../utils";
 import { priceFactor } from "../utils";
@@ -13,20 +14,17 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
   const { cart } = useSelector( state => state.prueba)
   const [toggleFavorite, setToggleFavorite] = useState(false);
   const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
-
   let user_id = localStorage.getItem("id");
+  const HandlerAddFavorite = () => {
+    setToggleFavorite(!toggleFavorite);
+    dispatch(AddFavorite(user_id, id));
+  };
 
   useEffect(() => {
-      if(toggleShoppingCart === true){
-        dispatch(AddCart(user_id, id))
-      }
-    }, [toggleShoppingCart])
-
-  const onClickFavorite = () => {
-    
-    setToggleFavorite(!toggleFavorite);
-    
-  };
+    if (toggleShoppingCart === true) {
+      dispatch(AddCart(user_id, id));
+    }
+  }, [toggleShoppingCart]);
 
   const onClickShoppingCart = (e) => {
     if(cart.some( game => game.id === id)){
@@ -44,18 +42,20 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
     <div className="single-card-slider">
       <div className="card-slider">
         <div className="game-image-slider">
-          <div className="favourite-tag-slider" onClick={onClickFavorite}>
+          <div className="favourite-tag-slider" onClick={HandlerAddFavorite}>
             {toggleFavorite ? (
               <i className="fa-solid fa-heart fa-2xl red-heart"></i>
             ) : (
               <i className="fa-regular fa-heart fa-2xl"></i>
             )}
           </div>
-          {img ? 
-          <img src={img} alt={name} /> :
-          <div className="no-image">
-            <h4>There is no image for this game card</h4>
-          </div> }
+          {img ? (
+            <img src={img} alt={name} />
+          ) : (
+            <div className="no-image">
+              <h4>There is no image for this game card</h4>
+            </div>
+          )}
         </div>
 
         <div className="card-content-slider">

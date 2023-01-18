@@ -23,6 +23,7 @@ const gameTrailer = async (gameInfo, id) => {
                     description_raw: ele.description_raw,
                     screenshot: screenshot?.map(screen => screen.image),
                     trailer: trailer.results[0]?.data,
+                    price: ele.name.length * 1.0
                 };
             });
             return results;

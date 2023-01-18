@@ -17,7 +17,7 @@ export default function PayButton({
 }) {
   const dispatch = useDispatch();
   const { payment } = useSelector((state) => state.prueba);
-  //   const [buyingGame, setBuyingGame] = useState(false);
+  const [buyload, setBuyload] = useState(false);
   let userId = localStorage.getItem("id");
 
   let background_image = img;
@@ -30,24 +30,34 @@ export default function PayButton({
     price,
     description,
   };
-
+  let BuyingGame = false;
   const onClickBuyButton = () => {
+    setBuyload(true);
     dispatch(getCheckOutByDetail(game, userId));
   };
-  let BuyingGame = false;
+  let textBtn = "BUY NOW"
+
+  if (buyload === true) {
+    textBtn = "Loading . . . "
+}
+
   if (payment.detailLink) {
-      BuyingGame = true;
+    BuyingGame = true;
   }
   //   <a href={payment.detailLink}>
   return (
     <>
       <button className="pay-button" onClick={onClickBuyButton}>
         {BuyingGame === true ? (
-          <a target="_blank"    className="a-payment-detail" href={payment.detailLink}>
+          <a
+            target="_blank"
+            className="a-payment-detail"
+            href={payment.detailLink}
+          >
             <span>BUY GAME</span>
           </a>
         ) : (
-          <span>BUY </span>
+          <span className={textBtn === "Loading . . . " && "span-loading"}>{textBtn}</span>
         )}
       </button>
     </>

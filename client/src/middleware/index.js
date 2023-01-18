@@ -298,8 +298,7 @@ export const AddFavorite = (user_id, id) => {
       console.log(data)
       dispatch(resProvisoryFavoriteIds(data))
     } catch (error) {
-      console.log(error.message);
-      dispatch(responseAddCart(error.message));
+      
     }
   };
 };

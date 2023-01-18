@@ -11,11 +11,12 @@ import toast, { Toaster } from "react-hot-toast";
 function Card({ name, img, id, rating, platforms, released, genres }) {
   const dispatch = useDispatch();
 
-  const { cart, provisoryCartIds } = useSelector( state => state.prueba)
+  const { cart, provisoryCartIds, provisoryFavoriteIds } = useSelector( state => state.prueba)
   
   let user_id = localStorage.getItem("id");
   
   const identifyingCartId = provisoryCartIds.some(item => item === id)
+  const identifyingFavoriteId = provisoryFavoriteIds.some(item => item === id)
 
   const HandlerAddFavorite = () => {
     dispatch(AddFavorite(user_id, id));
@@ -30,7 +31,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
       <div className="card-slider">
         <div className="game-image-slider">
           <div className="favourite-tag-slider" onClick={HandlerAddFavorite}>
-            {toggleFavorite ? (
+            {identifyingFavoriteId ? (
               <i className="fa-solid fa-heart fa-2xl red-heart"></i>
             ) : (
               <i className="fa-regular fa-heart fa-2xl"></i>

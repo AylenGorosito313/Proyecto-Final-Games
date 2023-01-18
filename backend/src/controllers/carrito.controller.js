@@ -9,10 +9,7 @@ const addToCar = async (req, res) => {
     const { userId, gameId } = req.params;
     try {
         if (userId === "null" || !gameId) {
-            return res.status(406).json({
-                error: true,
-                msg: "User Unauthorized",
-            });
+            return res.status(406).send("You must login or register to add games to cart");
         }
         const uuidRegex =
             /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
@@ -24,7 +21,7 @@ const addToCar = async (req, res) => {
             if (!userSearch) {
                 return res
                     .status(400)
-                    .json("You must login or register to add games to cart");
+                    .send("You must login or register to add games to cart");
             }
             let searchUserCar = await Carrito.findOne({
                 where: {
@@ -59,9 +56,7 @@ const addToCar = async (req, res) => {
             }
             let verifyItems = searchUserCar.toJSON();
             if (verifyItems.items.find((ele) => ele.id.toString() === gameId)) {
-                return res.status(400).json({
-                    message: "the game already exists",
-                });
+                return res.status(400).send("the game already exists in your cart")
             }
             searchUserCar.items = [...searchUserCar.items, ...gameInfo];
             searchUserCar.total_items = searchUserCar.items.length;

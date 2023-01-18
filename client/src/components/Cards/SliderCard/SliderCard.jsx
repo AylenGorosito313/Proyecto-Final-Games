@@ -11,31 +11,18 @@ import toast, { Toaster } from "react-hot-toast";
 function Card({ name, img, id, rating, platforms, released, genres }) {
   const dispatch = useDispatch();
 
-  const { cart } = useSelector( state => state.prueba)
-  const [toggleFavorite, setToggleFavorite] = useState(false);
-  const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
+  const { cart, provisoryCartIds } = useSelector( state => state.prueba)
+  
   let user_id = localStorage.getItem("id");
+  
+  const identifyingCartId = provisoryCartIds.some(item => item === id)
+
   const HandlerAddFavorite = () => {
-    setToggleFavorite(!toggleFavorite);
     dispatch(AddFavorite(user_id, id));
   };
 
-  useEffect(() => {
-    if (toggleShoppingCart === true) {
-      dispatch(AddCart(user_id, id));
-    }
-  }, [toggleShoppingCart]);
-
   const onClickShoppingCart = (e) => {
-    if(cart.some( game => game.id === id)){
-      gamesRepeatedInCart() 
-    } else if (!user_id) {
-      noLoginNoCart()
-    } else {
-      setToggleShoppingCart(true);
-    }
-      
-    
+    dispatch(AddCart(user_id, id));
   };
 
   return (
@@ -83,7 +70,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             <div className="shopping-cart-slider" onClick={onClickShoppingCart}>
               <i className="fa-solid fa-cart-shopping cart"> </i>
               <div className="check-plus-slider">
-                {toggleShoppingCart ? (
+                {identifyingCartId ? (
                   <i className="fa-solid fa-check check"></i>
                 ) : (
                   <i className="fa-solid fa-plus plus"></i>

@@ -24,11 +24,11 @@ import ViewAdmin from "./pages/Admin/ViewAdmin";
 import Footer from "./components/Footer/Footer";
 import ProveedorProfile from "./pages/ProveedorProfile/Profile/ProveedorProfile";
 //admins import
-import Dashboard from "./pages/Admin/Dashboard/Dashboard"
-import AdminUser from "./pages/Admin/AdminUsuario/AdminUsuario"
-import AdminGames from "./pages/Admin/AdminGames/AdminGames"
-import AdminBanners from "./pages/Admin/AdminBanners/AdminBanners"
-import AdminSettings from "./pages/Admin/AdminSettings/AdminSettings"
+import Dashboard from "./pages/Admin/Dashboard/Dashboard";
+import AdminUser from "./pages/Admin/AdminUsuario/AdminUsuario";
+import AdminGames from "./pages/Admin/AdminGames/AdminGames";
+import AdminBanners from "./pages/Admin/AdminBanners/AdminBanners";
+import AdminSettings from "./pages/Admin/AdminSettings/AdminSettings";
 function App() {
   axios.defaults.headers.common[
     "Authorization"
@@ -79,15 +79,17 @@ function App() {
       <Route exact path="/proveedor">
         <Proveedor />
       </Route>
-      <Route  path="/admin">
+      <Route path="/panelView">
         <NavTop />
-        {/* <ViewAdmin /> */}
-        <Route  path="/admin" component={ViewAdmin} />
+        <ViewAdmin />
+      </Route>
+      <Route path="/admin">
+        <Route path="/admin" component={NavTop} />
         <Route exact path="/admin/dashboard" component={Dashboard} />
         <Route exact path="/admin/users" component={AdminUser} />
         <Route exact path="/admin/games" component={AdminGames} />
         <Route exact path="/admin/banners" component={AdminBanners} />
-        <Route exact path="/admin/settings" component={AdminSettings } />
+        <Route exact path="/admin/settings" component={AdminSettings} />
       </Route>
 
       <Route exact path="/provedor/unpload" component={UnploadGame} />

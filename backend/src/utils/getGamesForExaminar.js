@@ -11,7 +11,7 @@ const getGamesForExaminar = async () => {
         }
 
         if (!arrayForGames.length) {//5 5 5
-            for (var i = 1; i < 5; i++) {
+            for (let i = 1; i < 5; i++) {
                 const getGames = await apiClient(
                     "games",
                     `&page_size=40&page${i}`

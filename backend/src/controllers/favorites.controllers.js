@@ -5,7 +5,12 @@ const mapGames = require("../utils/mapGames");
 
 const addFavorite = async (req, res) => {
     const { userId, gameId } = req.params;
+
     try {
+        if (userId === "null" || !gameId) {
+            return res.status(406).send("You must login or register to add games to favorites");
+        }
+
         const uuidRegex =
             /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
         let addGameFavorite = await Users.findByPk(userId);
@@ -13,7 +18,7 @@ const addFavorite = async (req, res) => {
         if (favoriteUser.favoritos.find((ele) => ele.id === parseInt(gameId))) {
             return res
                 .status(400)
-                .json("you already have that game in favorites");
+                .send("You already have that game in favorites");
         }
         if (uuidRegex.test(gameId)) {
             let gameInfo = await Game.findByPk(gameId);
@@ -32,9 +37,7 @@ const addFavorite = async (req, res) => {
 
             await addGameFavorite.save();
         }
-        res.status(200).json({
-            message: "game added to favorites list",
-        });
+        res.status(200).json(addGameFavorite);
     } catch (error) {
         res.status(500).json({
             error: error.message,

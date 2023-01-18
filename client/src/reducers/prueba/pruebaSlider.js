@@ -15,7 +15,8 @@ const initialState = {
     link: "",
     detailLink: "",
   },
-
+  provisoryCartIds: [],
+  provisoryFavoriteIds: [],
   res: {
     cart: "",
     login: "",
@@ -62,18 +63,12 @@ export const toolkit_prueba = createSlice({
     providerResponseEnable: (state, actions) => {
       state.res = { ...state.res, provider: actions.payload };
     },
-    responseAddCart: (state, actions) => {
-      let verify = actions.payload.split(" ")[actions.length - 1];
-      if (verify === "400") {
-        state.res = { ...state.res, cart: `You can't add repeat games` };
-      } else {
-        state.res = {
-          ...state.res,
-          cart: `You must login or register to add games to cart`,
-        };
-      }
+    resProvisoryCartIds: (state, actions) => {
+      state.provisoryCartIds = [...actions.payload.map( item => item.id)]
     },
-
+    resProvisoryFavoriteIds: (state, actions) => {
+      state.provisoryFavoriteIds = [...actions.payload.map( item => item.id)]
+    },
     GameCreate: (state, actions) => {
       state.res = { ...state.res, created: actions.payload };
     },
@@ -142,14 +137,13 @@ export const {
   getUserActual,
   getItemsUser,
   cleanDetails,
-
-  responseAddCart,
   Filters,
   getExaminar,
   deletedFavoriteUser,
-
+  resProvisoryCartIds,
   providerResponseEnable,
   getLinkPaymentDETAIL,
+  resProvisoryFavoriteIds
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

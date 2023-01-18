@@ -18,11 +18,12 @@ import {
   getItemsUser,
   cleanDetails,
   getPlatforms,
-  responseAddCart,
   getExaminar,
   providerResponseEnable,
   deletedFavoriteUser,
   getLinkPaymentDETAIL,
+  resProvisoryCartIds,
+  resProvisoryFavoriteIds
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -289,16 +290,25 @@ export const AddFavorite = (user_id, id) => {
   console.log(user_id, id)
   return async function (dispatch) {
     try {
-      let res = await axios({
+      let { data } = await axios({
         method: "POST",
         data: {},
         url: `http://localhost:3001/game/addFavorite/${user_id}/${id}`,
       });
-
-      return res.request.status;
+      
+      dispatch(resProvisoryFavoriteIds(data.favoritos))
     } catch (error) {
-      console.log(error.message);
-      dispatch(responseAddCart(error.message));
+     
+      toast(error.request.response, {
+        position: "bottom-right",
+        duration: 3000,
+        icon: error.request.response === "You already have that game in favorites" ? "🤷" : "❌",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff"
+      },
+    });
     }
   };
 };
@@ -306,16 +316,26 @@ export const AddFavorite = (user_id, id) => {
 export const AddCart = (userId, gameId) => {
   return async function (dispatch) {
     try {
-      let res = await axios({
+      let {data} = await axios({
         method: "POST",
         data: {},
         url: `http://localhost:3001/user/addCard/${userId}/${gameId}`,
       });
 
-      return res.request.status;
+      dispatch(resProvisoryCartIds(data.items))
+      
     } catch (error) {
-      console.log(error.message);
-      dispatch(responseAddCart(error.message));
+      
+      toast(error.request.response, {
+        position: "bottom-right",
+        duration: 3000,
+        icon: error.request.response === "the game already exists in your cart" ? "🤷" : "❌",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff"
+      },
+    });
     }
   };
 };

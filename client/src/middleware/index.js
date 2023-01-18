@@ -295,10 +295,10 @@ export const AddFavorite = (user_id, id) => {
         data: {},
         url: `http://localhost:3001/game/addFavorite/${user_id}/${id}`,
       });
-      console.log(data)
-      dispatch(resProvisoryFavoriteIds(data))
+      
+      dispatch(resProvisoryFavoriteIds(data.favoritos))
     } catch (error) {
-      console.log(error.message);
+     
       toast(error.request.response, {
         position: "bottom-right",
         duration: 3000,
@@ -325,7 +325,7 @@ export const AddCart = (userId, gameId) => {
       dispatch(resProvisoryCartIds(data.items))
       
     } catch (error) {
-      console.log(error.message);
+      
       toast(error.request.response, {
         position: "bottom-right",
         duration: 3000,

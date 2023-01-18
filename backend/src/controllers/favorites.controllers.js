@@ -18,7 +18,7 @@ const addFavorite = async (req, res) => {
         if (favoriteUser.favoritos.find((ele) => ele.id === parseInt(gameId))) {
             return res
                 .status(400)
-                .json("You already have that game in favorites");
+                .send("You already have that game in favorites");
         }
         if (uuidRegex.test(gameId)) {
             let gameInfo = await Game.findByPk(gameId);
@@ -37,9 +37,7 @@ const addFavorite = async (req, res) => {
 
             await addGameFavorite.save();
         }
-        res.status(200).json({
-            message: "game added to favorites list",
-        });
+        res.status(200).json(addGameFavorite);
     } catch (error) {
         res.status(500).json({
             error: error.message,

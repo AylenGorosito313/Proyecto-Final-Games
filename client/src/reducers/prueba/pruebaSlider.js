@@ -67,7 +67,7 @@ export const toolkit_prueba = createSlice({
       state.provisoryCartIds = [...actions.payload.map( item => item.id)]
     },
     resProvisoryFavoriteIds: (state, actions) => {
-      state.provisoryFavoriteIds = [...actions.payload]
+      state.provisoryFavoriteIds = [...actions.payload.map( item => item.id)]
     },
     GameCreate: (state, actions) => {
       state.res = { ...state.res, created: actions.payload };

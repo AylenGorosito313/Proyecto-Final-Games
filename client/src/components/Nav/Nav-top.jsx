@@ -87,7 +87,7 @@ function NavTop() {
               {Login ? (
                 <div onClick={handlerOpenUser} className="div-icon">
                   <User />
-                  Profile
+                 <p className="p-profile"> Profile</p>
                 </div>
               ) : (
                 <button

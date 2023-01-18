@@ -55,7 +55,7 @@ const paymentOneItem = async (req, res) => {
     const game = req.body;
     const { id } = req.query;
 
-
+console.log(game)
     try {
         if (!game) {
             return res.status(400).json("Game info is require");

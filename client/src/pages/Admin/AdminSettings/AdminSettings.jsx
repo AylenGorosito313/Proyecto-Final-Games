@@ -7,7 +7,7 @@ export default function AdminSettings() {
     <div className={style.Layout}>
     <div className={style.Contairner}>
       <NavAdmin />
-      <div className={style.content}>
+      <div className={style.content_Settings}>
         <h1>WELCOME to SETTINGS</h1>
       </div>
     </div>

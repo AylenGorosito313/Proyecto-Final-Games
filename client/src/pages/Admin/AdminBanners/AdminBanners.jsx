@@ -7,7 +7,7 @@ export default function AdminBanners() {
     <div className={style.Layout}>
     <div className={style.Contairner}>
       <NavAdmin />
-      <div className={style.content}>
+      <div className={style.content_Banner}>
         <h1>WELCOME to ADMIN BANNERS</h1>
       </div>
     </div>

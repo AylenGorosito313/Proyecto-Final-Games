@@ -6,7 +6,7 @@ export default function AdminUsuario() {
     <div className={style.Layout}>
     <div className={style.Contairner}>
       <NavAdmin />
-      <div className={style.content}>
+      <div className={style.content_User}>
         <h1>WELCOME to ADMIN USER</h1>
       </div>
     </div>

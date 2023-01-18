@@ -7,7 +7,7 @@ export default function Dashboard() {
       <div className={style.Layout}>
         <div className={style.Contairner}>
           <NavAdmin />
-          <div className={style.content}>
+          <div className={style.content_Dasboard}>
             <h1>WELCOME to DASHBOARD</h1>
           </div>
         </div>

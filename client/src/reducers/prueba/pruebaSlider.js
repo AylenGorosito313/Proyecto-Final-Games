@@ -23,6 +23,7 @@ const initialState = {
     register: "",
     created: "",
     provider: {},
+    admLogin:""
   },
   isLoader: false,
   userActual: {},
@@ -113,6 +114,9 @@ export const toolkit_prueba = createSlice({
         (ele) => ele.id !== actions.payload
       );
     },
+    responseLoginAdmin: (state, actions) => {
+      state.res = { ...state.res, admLogin: actions.payload };
+    },
   },
 });
 
@@ -143,7 +147,8 @@ export const {
   resProvisoryCartIds,
   providerResponseEnable,
   getLinkPaymentDETAIL,
-  resProvisoryFavoriteIds
+  resProvisoryFavoriteIds,
+  responseLoginAdmin
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

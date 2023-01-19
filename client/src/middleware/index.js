@@ -23,7 +23,8 @@ import {
   deletedFavoriteUser,
   getLinkPaymentDETAIL,
   resProvisoryCartIds,
-  resProvisoryFavoriteIds
+  resProvisoryFavoriteIds,
+  responseLoginAdmin
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -260,6 +261,7 @@ export const traerPlatforms = () => {
   };
 };
 
+// login user // login admin
 export const LoginUser = ({ email, password }, verify) => {
   return async function (dispatch) {
     try {
@@ -283,6 +285,33 @@ export const LoginUser = ({ email, password }, verify) => {
     }
   };
 };
+
+export const LoginAdmin = ({ email, password }) => {
+  return async function (dispatch) {
+    try {
+      let res = await axios({
+        method: "POST",
+        data: { email, password },
+        url: "",
+      });
+      dispatch(responseLoginAdmin(res.data));
+    } catch (error) {
+      toast.error(error.request.response, {
+        position: "bottom-right",
+        duration: 4000,
+
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
+  };
+};
+
+
+
 
 //"/user/addCard/:userId/:gameId"
 

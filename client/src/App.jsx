@@ -24,6 +24,7 @@ import ViewAdmin from "./pages/Admin/ViewAdmin";
 import Footer from "./components/Footer/Footer";
 import ProveedorProfile from "./pages/ProveedorProfile/Profile/ProveedorProfile";
 //admins import
+import AdminLogin from "./pages/Admin/AdminLogin/AdminLogin";
 import Dashboard from "./pages/Admin/Dashboard/Dashboard";
 import AdminUser from "./pages/Admin/AdminUsuario/AdminUsuario";
 import AdminGames from "./pages/Admin/AdminGames/AdminGames";
@@ -82,6 +83,11 @@ function App() {
       <Route path="/panelView">
         <NavTop />
         <ViewAdmin />
+        </Route>
+
+        <Route path="/panelLogin">
+       
+        <AdminLogin />
       </Route>
       <Route path="/admin">
         <Route path="/admin" component={NavTop} />

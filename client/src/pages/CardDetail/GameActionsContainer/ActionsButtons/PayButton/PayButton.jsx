@@ -6,6 +6,7 @@ import "./PayButton.css";
 
 // ACTIONS
 import { getCheckOutByDetail } from "../../../../../middleware";
+import { noLoginNoBuy } from "./utils";
 
 export default function PayButton({
   name,
@@ -15,6 +16,7 @@ export default function PayButton({
   price,
   description,
 }) {
+  
   const dispatch = useDispatch();
   const { payment } = useSelector((state) => state.prueba);
   const [buyload, setBuyload] = useState(false);
@@ -30,10 +32,16 @@ export default function PayButton({
     price,
     description,
   };
+
   let BuyingGame = false;
+
   const onClickBuyButton = () => {
-    setBuyload(true);
-    dispatch(getCheckOutByDetail(game, userId));
+    if(userId){
+      setBuyload(true);
+      dispatch(getCheckOutByDetail(game, userId));
+    } else {
+      noLoginNoBuy()
+    }
   };
   let textBtn = "BUY NOW"
 

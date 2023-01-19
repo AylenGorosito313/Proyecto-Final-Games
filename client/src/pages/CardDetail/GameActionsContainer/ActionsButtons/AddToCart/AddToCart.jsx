@@ -15,11 +15,11 @@ export default function AddToCart ({ id }) {
     
     const { provisoryCartIds } = useSelector( state => state.prueba)
 
-    console.log(id)
+  
     let user_id =localStorage.getItem("id");
-    console.log(provisoryCartIds)
+   
     const identifyingCartId = provisoryCartIds.some(item => item === parseInt(id))
-    console.log(identifyingCartId)
+  
 
     const onClickCartButton = (e) => {
         dispatch(AddCart(user_id, id))

@@ -16,6 +16,7 @@ export default function WishList() {
 console.log(userActual.favoritos)
   return (
     <div className={style.LayoutProfilePage}>
+            <div className={style.containerData}>
       <NavProfile />
       {userActual.favoritos ? (
         <div className={style.conteiner}>
@@ -38,6 +39,7 @@ console.log(userActual.favoritos)
           <h2> I'm sorry you don't have favorite yet</h2>
         </div>
       )}
+    </div>
     </div>
   );
 }

@@ -16,9 +16,8 @@ export default function NavProfile() {
   }, [dispatch]);
 
   return (
-    <div className={style.Layoutcontainer}>
-      <div className={style.Layout}>
-        <br />
+<>
+   
         <div className={style.conteiner}>
           <div className={style.divAvatar}>
             <img
@@ -93,7 +92,6 @@ export default function NavProfile() {
           </div>
         </ul>
         <div className={style.loader}></div>
-      </div>
-    </div>
+   </>
   );
 }

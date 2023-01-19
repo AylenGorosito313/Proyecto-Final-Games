@@ -1,28 +1,21 @@
-const { Providers } = require("../../models/providers")
-const { Users } = require("../../models/users")
+// const { Providers } = require("../../models/providers")
+// const { Users } = require("../../models/users")
+const { Game } =  require("../../models/games")
+const deleteGameProvider = require("../../utils/logicDeleteGame")
 
+// eliminamos juegos que se encuentran unicamente en la base de datos 
 
-
-const deleteGameProvider = async (req, res) => {
-    const {userId, gameId} = req.params 
+const deleteGame = async (req, res) => {
+    const {gameId, userId} = req.params
     try {
-        const getUser = await Users.findOne({
-            where: { id: userId }, 
-            include: {
-                model: Providers, 
-            }
-        })
-        const arrayJuegos = getUser.provider.videoGamesPropor 
-        // console.log("aca esta la info del juego del usuario",arrayJuegos)
-        arrayJuegos.map(el => console.log(el.id))
-        const arrayFiltrado = arrayJuegos.filter(el => el.id !== gameId)
-        getUser.provider.set({
-            videoGamesPropor : arrayFiltrado
-        })
-        console.log("esto es lo que quedo en videoGamesPropor", arrayFiltrado)
-        await getUser.provider.save()
-
-       res.send("game deleted whit success") 
+        const findGame =  await Game.findByPk(gameId) 
+        if(!findGame){
+            res.status(400).json({message: "idGame not found"})
+        }
+        const deleteInfoArrayProvider = await deleteGameProvider(userId, gameId)
+        const deletedGame = await findGame.destroy()
+        
+        res.send({message: "aca esta la ruta"})
     } catch (error) {
         return res.status(500).json({
             error: error.message,
@@ -31,4 +24,7 @@ const deleteGameProvider = async (req, res) => {
 }
 
 
-module.exports = {deleteGameProvider}
+
+
+
+module.exports = {deleteGameProvider, deleteGame}

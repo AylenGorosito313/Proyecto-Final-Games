@@ -354,7 +354,7 @@ export const AddCart = (userId, gameId) => {
         data: {},
         url: `http://localhost:3001/user/addCard/${userId}/${gameId}`,
       });
-      
+      console.log(data)
       let filterId = data.items.find( item => item.id === gameId)
       
       dispatch(resProvisoryCartIds(filterId.id))

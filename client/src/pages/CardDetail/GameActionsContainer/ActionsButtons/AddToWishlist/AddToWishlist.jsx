@@ -13,7 +13,7 @@ export default function AddToWishlist({id}) {
   const identifyingFavoriteId = provisoryFavoriteIds.some(item => item === parseInt(id))
 
   const HandlerAddFav = () => {
-    dispatch(AddFavorite(user_id, id));
+    dispatch(AddFavorite(user_id, parseInt(id)));
   };
 
   return (

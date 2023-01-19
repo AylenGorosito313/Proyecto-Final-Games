@@ -286,13 +286,13 @@ export const LoginUser = ({ email, password }, verify) => {
   };
 };
 
-export const LoginAdmin = ({ email, password }) => {
+export const LoginAdmin = ({ mail, password }) => {
   return async function (dispatch) {
     try {
       let res = await axios({
         method: "POST",
-        data: { email, password },
-        url: "",
+        data: { mail, password },
+        url: "http://localhost:3001/admin/login",
       });
       dispatch(responseLoginAdmin(res.data));
     } catch (error) {

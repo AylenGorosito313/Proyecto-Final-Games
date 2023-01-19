@@ -12,7 +12,7 @@ export default function AdminLogin() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm({ defaultValues: { email: "", password: "" }, mode: "onChange" });
+  } = useForm({ defaultValues: { mail: "", password: "" }, mode: "onChange" });
 
   const OnSubmit = async (data) => {
     console.log(data);
@@ -33,15 +33,15 @@ export default function AdminLogin() {
                   type="text"
                   className={style.form__field}
                   placeholder="Input text"
-                  {...register("email", {
-                    maxLength: 100,
-                    required: true,
-                    pattern: /\S+@\S+\.\S+/,
+                  {...register("mail", {
+                    // maxLength: 100,
+                    // required: true,
+                    // pattern: /\S+@\S+\.\S+/,
                   })}
                 />
                 <label className={style.form__label}> Email </label>
               </div>
-              {errors.email?.type === "required" && (
+              {/* {errors.email?.type === "required" && (
                 <p className={style.p_error_input}>'The email is required'</p>
               )}
               {errors.email?.type === "maxLength" && (
@@ -51,25 +51,26 @@ export default function AdminLogin() {
                 <p className={style.p_error_input}>
                   'The email format is wrong'
                 </p>
-              )}
+              )} */}
               <div className={style.form__group}>
                 <input
                   type="password"
                   className={style.form__field}
                   placeholder="Input text"
                   {...register("password", {
-                    maxLength: 12,
+                    // maxLength: 12,
                     required: true,
-                    pattern:
-                      /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
-                  })}
+                    // pattern:
+                    //   /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
+                  
+                    })}
                 />
                 {errors.password?.type === "required" && (
                   <p className={style.p_error_input}>
                     'The passwordis required'
                   </p>
                 )}
-                {errors.password?.type === "maxLength" && (
+                {/* {errors.password?.type === "maxLength" && (
                   <p className={style.p_error_input}>
                     'The passwordformat is wrong'
                   </p>
@@ -78,7 +79,7 @@ export default function AdminLogin() {
                   <p className={style.p_error_input}>
                     the password formt must be Example31#
                   </p>
-                )}
+                )} */}
                 <label className={style.form__label}> Password </label>
               </div>
               <button className={style.button}>Login</button>

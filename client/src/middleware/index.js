@@ -25,7 +25,8 @@ import {
   resProvisoryCartIds,
   resProvisoryFavoriteIds,
   responseLoginAdmin,
-  deleteProvisoryCartIds
+  deleteProvisoryCartIds,
+  deleteProvisoryFavoriteIds
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -326,7 +327,9 @@ export const AddFavorite = (user_id, id) => {
         url: `http://localhost:3001/game/addFavorite/${user_id}/${id}`,
       });
       
-      dispatch(resProvisoryFavoriteIds(data.favoritos))
+      let filterId = data.favoritos.find( item => item.id === id)
+      
+      dispatch(resProvisoryFavoriteIds(filterId.id))
     } catch (error) {
      
       toast(error.request.response, {
@@ -351,8 +354,10 @@ export const AddCart = (userId, gameId) => {
         data: {},
         url: `http://localhost:3001/user/addCard/${userId}/${gameId}`,
       });
-
-      dispatch(resProvisoryCartIds(data.items))
+      
+      let filterId = data.items.find( item => item.id === gameId)
+      
+      dispatch(resProvisoryCartIds(filterId.id))
       
     } catch (error) {
       
@@ -482,6 +487,7 @@ export const deletedItemsToCart = (id) => {
     dispatch(deleteCarItem(id));
     let userId = localStorage.getItem("id");
     dispatch(deleteCart(userId, id));
+    dispatch(deleteProvisoryCartIds(id))
   };
 };
 
@@ -489,6 +495,7 @@ export const deletedFavorites = (id) => {
   return async (dispatch) => {
     try {
       dispatch(deletedFavoriteUser(id));
+      dispatch(deleteProvisoryFavoriteIds(id))
       let userId = localStorage.getItem("id");
       let { data } = await axios({
         method: "DELETE",

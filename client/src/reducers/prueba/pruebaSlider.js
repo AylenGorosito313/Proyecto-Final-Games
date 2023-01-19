@@ -65,10 +65,16 @@ export const toolkit_prueba = createSlice({
       state.res = { ...state.res, provider: actions.payload };
     },
     resProvisoryCartIds: (state, actions) => {
-      state.provisoryCartIds = [...actions.payload.map( item => item.id)]
+      state.provisoryCartIds = [...state.provisoryCartIds, actions.payload]
     },
     resProvisoryFavoriteIds: (state, actions) => {
-      state.provisoryFavoriteIds = [...actions.payload.map( item => item.id)]
+      state.provisoryFavoriteIds = [...state.provisoryFavoriteIds, actions.payload]
+    },
+    deleteProvisoryCartIds: (state, actions) => {
+      state.provisoryCartIds = state.provisoryCartIds.filter( id => id !== actions.payload)
+    },
+    deleteProvisoryFavoriteIds: (state, actions) => {
+      state.provisoryFavoriteIds = state.provisoryFavoriteIds.filter( id => id !== actions.payload)
     },
     GameCreate: (state, actions) => {
       state.res = { ...state.res, created: actions.payload };
@@ -148,7 +154,9 @@ export const {
   providerResponseEnable,
   getLinkPaymentDETAIL,
   resProvisoryFavoriteIds,
-  responseLoginAdmin
+  responseLoginAdmin,
+  deleteProvisoryCartIds,
+  deleteProvisoryFavoriteIds
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

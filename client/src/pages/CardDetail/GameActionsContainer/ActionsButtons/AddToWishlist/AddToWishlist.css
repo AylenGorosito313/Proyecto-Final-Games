@@ -44,3 +44,11 @@
 .detail-plus {
     padding: 0px 5px;
 }
+
+.wishList-added {
+    font-family: "Poppins";
+    font-size: 14px;
+    padding: 0px 10px;
+    font-weight: 700;
+    color: white;
+}

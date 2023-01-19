@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const admin = require("../Administrador/admin.controllers");
+const { deleteGameProvider } = require("../Administrador/CRUD/Admin_Games");
 const adminUsers = require('../Administrador/CRUD/Admin_Users')
 
 const adminRouter = Router();
@@ -21,5 +22,9 @@ adminRouter.delete('/user/setInactivityUser/:id', adminUsers.deletedUser) //admi
 //Admin -> providers
 adminRouter.post('/user/provider/create/:userId', adminUsers.registerProvider) //admin
 adminRouter.delete('/user/provider/denied/:userId', adminUsers.denyRequest)
+
+
+//Admin -> games
+adminRouter.delete("/game/provider/deleteGameProvider/:userId/:gameId", deleteGameProvider); 
 
 module.exports = adminRouter

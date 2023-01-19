@@ -12,14 +12,19 @@ const Admin = sequelize.define(
             defaultValue: DataTypes.UUIDV4 
         },
 
+        name: {
+            type: DataTypes.STRING,
+            defaultValue: 'Admin'
+        },
+
         mail: {
             type: DataTypes.STRING,
-            defaultValue: "admin",
+            defaultValue: "admin@andromeda.com",
             allowNull: false,
         },
         password: {
             type: DataTypes.STRING,
-            defaultValue: "andromedaAdmin"
+            defaultValue: "Admin07@"
         },
     },
     { timestamps: false, freezeTableName: true }

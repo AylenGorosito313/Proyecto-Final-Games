@@ -38,7 +38,7 @@ require('./src/models/providerAplication')
 
 async function main() {
     try {
-        await sequelize.sync({ force: true });  
+        await sequelize.sync({ force: false }); 
         // await getGamesForExaminar() 
         let crearAdministrador = await createAdmin() 
         console.log("console.log crearAdministrador",crearAdministrador)

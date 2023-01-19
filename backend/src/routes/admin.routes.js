@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const admin = require("../Administrador/admin.controllers");
-const { deleteGameProvider } = require("../Administrador/CRUD/Admin_Games");
+const { deleteGameProvider, deleteGame } = require("../Administrador/CRUD/Admin_Games");
 const adminUsers = require('../Administrador/CRUD/Admin_Users')
 
 const adminRouter = Router();
@@ -25,6 +25,6 @@ adminRouter.delete('/user/provider/denied/:userId', adminUsers.denyRequest)
 
 
 //Admin -> games
-adminRouter.delete("/game/provider/deleteGameProvider/:userId/:gameId", deleteGameProvider); 
-
+adminRouter.delete("/game/provider/deleteGameProvider/:userId/:gameId", deleteGame); 
+// adminRouter.delete("/juego/eliminado/:gameId", deleteGame)
 module.exports = adminRouter

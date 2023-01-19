@@ -19,7 +19,7 @@ usersRouter.put('/user/:id', updateUserProfile)
 //-------------------- DELETED --------------------------------------------------
 usersRouter.get('/users/inactive', getInactiveUsers) 
 usersRouter.get('/user/inactive/:id', getInactiveUser ) 
-usersRouter.get('/user/setInactivityUser/:id', deletedUser) 
+usersRouter.delete('/user/setInactivityUser/:id', deletedUser) 
 //-------------------- PROVEEDOR ------------------------------------------------
 usersRouter.post('/user/provider/create/:userId', registerProvider)
 usersRouter.get('/user/proveedor/usuario', usuariosProveedores)

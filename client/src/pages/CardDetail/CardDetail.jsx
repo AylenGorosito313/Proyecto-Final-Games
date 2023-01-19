@@ -56,13 +56,18 @@ console.log(gameDetail.price)
                                         {gameDetail.rating}
                                     </div>
                                     <div className="website-container">
-                                        <i className="fa-solid fa-link fa-lg"></i>
-                                        <a
-                                            href={gameDetail.website}
-                                            target="blank"
-                                        >
-                                            visit the website
-                                        </a>
+                                        {gameDetail.website && (
+                                        <>
+                                            <i className="fa-solid fa-link fa-lg"></i>
+                                            <a
+                                                href={gameDetail.website}
+                                                target="blank"
+                                            >
+                                                visit the website
+                                            </a>
+                                        </>
+                                        )
+                                        }
                                     </div>
                                 </div>
                             </div>

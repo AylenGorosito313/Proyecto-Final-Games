@@ -1,15 +1,3 @@
-// meteme eso admin en la tabla
-// usuario que sea admin? 
-// admin que tenga una ruta predeterminada para crear otros admins
-// loggin para el admin
-// ingreso por el mismo logging del usuario y dentro del home haya un boton que nos deribe al panel del admin
-// ingros del admin directamente al perfil?
-// solo ingresar con el mail y la contraseña
-// la contraseña tendria que ser otro atributo en la tabla
-// crear una ruta donde el 1er admin mandara mail de los demas admins
-// contraseña por defecto
-// crear un formulario para enviar los datos de los nuevos admins?
-//
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { Admin } = require("../models/admin");
@@ -83,5 +71,7 @@ const adminLogin = async (mail, password) => {
         })
     }
 };
+
+
 
 module.exports = { createNewAdmin, adminLogin };

@@ -89,7 +89,7 @@
     border: 1px solid silver !important;
     border-radius: 5px;
     box-sizing: border-box;
-    color: #313a46;
+    color: #455972;
     height: 40px;
     padding: 0rem 15px;
   }
@@ -107,7 +107,7 @@
   .form__label {
     background-color: rgba(255, 255, 255, 0);
   
-    color: #04051bd3;
+    color: #353cb6d3;
     display: block;
     font-size: .9em;
     margin-left: 10px;
@@ -126,7 +126,7 @@
   .form__field:focus ~ .form__label {
     /* background: rgb(23,27,45); */
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 53%, transparent);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 53%,  rgba(255, 255, 255, 0.377));
     border-right: 1px solid rgba(255, 255, 255, 0.212);
     border-left: 1px solid rgba(255, 255, 255, 0.212);
     color: rgb(14, 9, 65);
@@ -135,6 +135,7 @@
     padding: 0 10px;
     position: absolute;
     top: -10px;
+    border-radius: 6px;
     transition: 0.2s;
   }
 

@@ -6,7 +6,6 @@ const updateUserProfile = async (req, res) => {
     const userUpdate = req.body;
     try {
         const user = await Users.findByPk(id);
-        // console.log("aca consologeamos user", user)
         user.update(userUpdate);
         await user.save();
 

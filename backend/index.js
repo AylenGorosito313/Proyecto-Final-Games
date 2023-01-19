@@ -34,6 +34,7 @@ require('./src/models/inactiveUsers')
 require('./src/models/providers')
 require('./src/models/banner')
 require('./src/models/admin')
+require('./src/models/providerAplication')
 
 async function main() {
     try {

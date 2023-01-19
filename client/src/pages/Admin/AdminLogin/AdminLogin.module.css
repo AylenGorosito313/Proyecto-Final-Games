@@ -1,0 +1,159 @@
+
+.Layout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient( 45deg, rgb(35 95 131), rgb(50, 50, 122), rgb(59 58 116), rgb(135 34 68) );
+    background-size: 400% 400%;
+    height: 100vh;
+    animation: cambiar 14s ease-in-out infinite;
+}
+
+@keyframes cambiar{
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+.contairner_Login{
+    height: 40vh;
+    min-width: 400px;
+    background: #171b2db0;
+    border-radius: 10px;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.nav{
+    background: #171B2D;
+    height: 100%;
+    width: 25vh;
+    box-shadow: 0 0px 0px 0.5px #333333;
+
+}
+.Logo_admin_login{
+   
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content_Login{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formLogin{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.p_error_input {
+    color: red;
+    font-family: Poppins;
+    font-size: 10px;
+    font-weight: 500;
+    margin: 0;
+}
+
+
+.contLogin{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+
+
+
+.form__group {
+    position: relative;
+  }
+  
+  .form__field {
+    border: 1px solid silver !important;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #313a46;
+    height: 40px;
+    padding: 0rem 15px;
+  }
+  
+  .form__field::placeholder {
+    color: transparent;
+  }
+  
+  .form__field:placeholder-shown ~ .form__label {
+    top: 10px;
+    border-right: none;
+    border-left: none;
+  }
+  
+  .form__label {
+    background-color: rgba(255, 255, 255, 0);
+  
+    color: #04051bd3;
+    display: block;
+    font-size: .9em;
+    margin-left: 10px;
+    padding: 0 10px;
+    pointer-events: none;
+    position: absolute;
+    top: -10px;
+    transition: 0.2s;
+  }
+  
+  .form__field:focus {
+    border: 1px solid #ffffff !important;
+    outline: none;
+  }
+  
+  .form__field:focus ~ .form__label {
+    /* background: rgb(23,27,45); */
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 53%, transparent);
+    border-right: 1px solid rgba(255, 255, 255, 0.212);
+    border-left: 1px solid rgba(255, 255, 255, 0.212);
+    color: rgb(14, 9, 65);
+    font-size: .9em;
+    margin-left: 10px;
+    padding: 0 10px;
+    position: absolute;
+    top: -10px;
+    transition: 0.2s;
+  }
+
+
+  .button {
+    font-size: 17px;
+    padding: 0.5em 2em;
+    border: transparent;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    background: dodgerblue;
+    color: white;
+    border-radius: 4px;
+   }
+   
+   .button:hover {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(30,144,255,1) 0%, rgba(0,212,255,1) 100%);
+   }
+   
+   .button:active {
+    transform: translate(0em, 0.2em);
+   }

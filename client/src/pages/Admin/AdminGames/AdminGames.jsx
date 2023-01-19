@@ -9,7 +9,7 @@ export default function AdminGames() {
     <div className={style.Contairner}>
       <NavAdmin />
       <div className={style.content_Games}>
-        <h1>WELCOME to ADMIN GAMES</h1>
+        <h1>WELCOME to ADMIN GAMESssss</h1>
       </div>
     </div>
   </div>

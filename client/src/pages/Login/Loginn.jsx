@@ -40,7 +40,7 @@ function Loginn() {
 
 
 
-  console.log(res.login);
+  
   return (
     <>
       {res.login && backResponse()}

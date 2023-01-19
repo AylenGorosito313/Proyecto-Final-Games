@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGameDetail } from "../../middleware";
 import { Link, useHistory, useParams } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 import Loading from "../../components/Loading/Loading.jsx";
 import DetailSlider from "./DetailSlider/DetailSlider";
@@ -38,6 +39,7 @@ export default function CardDetail() {
 
     return (
         <>
+        <Toaster />
             <div className="main-detail-container">
                 {isLoader && !gameDetail.hasOwnProperty("name") ? (
                     <div className="loading">{<Loading />}</div>

@@ -1,4 +1,4 @@
-/* .conteiner {
+.conteiner {
   display: flex;
   justify-content: space-around;
   padding-left: 40px;
@@ -11,7 +11,7 @@
   flex-direction: column;
   gap: 20px;
   border-radius: 10px;
-} */
+}
 .divNameAvatar {
   display: flex;
   width: 100%;

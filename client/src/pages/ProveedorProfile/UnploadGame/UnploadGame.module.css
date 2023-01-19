@@ -49,7 +49,7 @@ animation: cambiar 14s ease-in-out infinite;
     padding-left: 40px;
     min-width: 840px;
     border-radius: 5px;
-    background: #ffffff1f;
+    background: transparent;
     flex-direction: column;
     gap: 83px;
     padding-top: 20px;

@@ -22,6 +22,10 @@ const providerAplication = async (req, res) => {
          const { userId } = req.params 
          const informacionDeSolicitud = req.body 
          try {
+            const user = await Users.findByPk(userId); 
+            if(!user){
+              return res.status(404).json({message: "userId not found"})
+            }
             const infoTemporal = await ProviderAplication.create({
                 id_user: userId,
                 email: informacionDeSolicitud.email,

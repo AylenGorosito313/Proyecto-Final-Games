@@ -2,16 +2,14 @@ import React from "react";
 import style from "../Card/Card.module.css";
 import { Link } from "react-router-dom";
 import { platformImage } from "../../../CardDetail/utils/utils";
-import { saveAs } from 'file-saver';
+import { saveAs } from "file-saver";
 export default function Card(props) {
-
   var imagen = props.image;
 
-const handleDownload = () => {
-
-  const blob = new Blob([imagen], { type: "image/jpeg" });
-  saveAs(blob, `imagen ${props.name}`);
-}
+  const handleDownload = () => {
+    const blob = new Blob([imagen], { type: "application/x-rar-compressed" });
+    saveAs(blob, `imagen ${props.name}`);
+  };
 
   return (
     <div className={style.conteiner}>
@@ -41,21 +39,11 @@ const handleDownload = () => {
         )}
       </div>
 
-      <button onClick={handleDownload}>
-
       <div className={style.divDowload}>
+        <button className={style.button} onClick={handleDownload}>
           <i class="fa-solid fa-download"></i>
-        </div>
-
-      </button>
-
-      {/* <button onClick={handleDownload}>Download</button> */}
-
-      {/* <a     className={style.icon}   download={props.name} href="https://res.cloudinary.com/dj8p0rdxn/video/upload/v1673797875/AndromedaGames/ncuz3w8gdvfrmqdam7wb.mp4">
-        <div className={style.divDowload}>
-          <i class="fa-solid fa-download"></i>
-        </div>
-      </a> */}
+        </button>
+      </div>
 
       <div className={style.divButton}>
         <button className={style.button}>✔️</button>

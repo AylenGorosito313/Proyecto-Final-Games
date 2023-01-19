@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import Footer from "../components/Footer/Footer";
 import {
+  getCart,
   getGames,
   getGamesReleasedLasthMonth,
   getPopularGames,
@@ -23,20 +24,6 @@ function Home() {
   const [Developer, setDeveloper] = useState(false);
   const dispatch = useDispatch();
   const { games, isLoader, res } = useSelector((state) => state.prueba);
-  console.log(res);
-  const backResponse = () => {
-    if (res.cart) {
-      return toast.error(res.cart, {
-        position: "bottom-right",
-        duration: 2000,
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-        },
-      });
-    }
-  };
 
   useEffect(() => {
     dispatch(getGames());
@@ -60,7 +47,6 @@ function Home() {
 
   return (
     <>
-      {res.cart && backResponse()}
 
       <Toaster />
       <div className="main-container-home">

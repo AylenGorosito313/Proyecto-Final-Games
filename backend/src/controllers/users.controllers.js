@@ -99,6 +99,7 @@ res.send(getInactiveUsers)
    }
 }
 
+// obtener la informacion de un usuario inactivo por id
 const getInactiveUser = async (req, res) => {
     const {id} = req.params;
     try {const getInactiveUser = await inactiveUsers.findByPk( id, 
@@ -111,11 +112,33 @@ const getInactiveUser = async (req, res) => {
     }
 }
 
+
+
+const usuariosProveedores = async (req, res) => {
+    try {
+        const allProveedores = await Users.findAll({
+                where: {
+                    proveedor: true,
+                }, include:[{
+                        model: Providers, 
+                    }]
+                });
+        console.log(allProveedores)
+       res.send(allProveedores) 
+    } catch (error) {
+        res.status(500).json({
+            error: error.message,
+        });
+    }   
+}
+
+
 module.exports = {
     getAllUser,
     getUserById,
     updateUserProfile,
     deletedUser,
     getInactiveUsers,
-    getInactiveUser
+    getInactiveUser,
+    usuariosProveedores
 };

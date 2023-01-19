@@ -155,25 +155,41 @@ const releasedLastMonth = async (req, res) => {
         });
     }
 };
-//https://api.rawg.io/api/games?dates=2023-12-01,2023-12-30
-//https://api.rawg.io/api/games/{game_pk}/development-team
 
-// const GamesExaminar = async () => {
-//     try {
-//         let results = await getGamesForExaminar();
-//         res.status(200).json(results);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
+const deleteGameProvider = async (req, res) => {
+    const {userId, gameId} = req.params 
+    try {
+        const getUser = await Users.findOne({
+            where: { id: userId }, 
+            include: {
+                model: Providers, 
+            }
+        })
+        const arrayJuegos = getUser.provider.videoGamesPropor 
+        // console.log("aca esta la info del juego del usuario",arrayJuegos)
+        arrayJuegos.map(el => console.log(el.id))
+        const arrayFiltrado = arrayJuegos.filter(el => el.id !== gameId)
+        getUser.provider.set({
+            videoGamesPropor : arrayFiltrado
+        })
+        console.log("esto es lo que quedo en videoGamesPropor", arrayFiltrado)
+        await getUser.provider.save()
+
+       res.send("game deleted whit success") 
+    } catch (error) {
+        return res.status(500).json({
+            error: error.message,
+        })
+    }
+}
 
 const filtrado = async (req, res) => {
-    // idea sobre el filtradooooooooooo ...................
     const { platform, genre, alphabeth, price, rating } = req.query;
 
     let api = await getGamesForExaminar();
     let DB = await getAllGamesDb();
     let allGames = [...DB, ...api];
+    console.log(allGames)
     let sorT = allGames;
 
     if (!req.query) {
@@ -217,5 +233,6 @@ module.exports = {
     createGame,
     mostPopularGames,
     releasedLastMonth,
-    filtrado,
+    deleteGameProvider,
+    filtrado
 };

@@ -91,8 +91,10 @@ const supplierProfit = async (req, res) => {
     }
 };
 
+
 module.exports = {
     registerProvider,
     getGamesByProvider,
     supplierProfit,
+    
 };

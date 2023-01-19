@@ -1,17 +1,37 @@
 .Nav-layout {
   display: flex;
   justify-content: flex-end;
-  height: fit-content;
+  height: 50px;
   width: 100%;
-  z-index: 20;
-  position: absolute;
+  /* z-index: 20;
+  position: absolute; */
   background: rgb(42, 42, 42);
-  box-shadow: 2px 2px 1px #27213b
+  box-shadow: 2px 2px 1px #27213b;
+  align-items: center;
 
 }
 .div-icon {
+  width: 170px;
+  display: flex;
+  gap: 10px;
   cursor: pointer;
-  padding: 10px ;
+  font-size: 14px;
+  /* padding: 10px; */
+  align-items: center;
+  height: auto;
+  justify-content: center;
+
+}
+
+.Link-nav{
+  text-decoration: none;
+
+  color:#fff
+}
+.p-profile{
+  font-size: 14px;
+    font-family: 'Poppins';
+    color: #fff;
 }
 
 .op{
@@ -25,6 +45,7 @@ top: -20px;
 .Nav-top-container-sticky {
   display: flex;
   z-index: 2;
+  padding-right: 100px;
   height: fit-content;
   align-items: center;
   width: 100%;
@@ -106,8 +127,8 @@ display: flex;
 } */
 
 
-.div-layout-icon-nav{
+/* .div-layout-icon-nav{
   height: fit-content;
   width: 20%;
   display: flex;
-}
+} */

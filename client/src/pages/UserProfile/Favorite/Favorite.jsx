@@ -13,7 +13,7 @@ export default function WishList() {
     let userID = window.localStorage.getItem("id");
     dispatch(geUserActual(userID));
   }, [userActual.favoritos?.length]);
-
+console.log(userActual.favoritos)
   return (
     <div className={style.LayoutProfilePage}>
       <NavProfile />

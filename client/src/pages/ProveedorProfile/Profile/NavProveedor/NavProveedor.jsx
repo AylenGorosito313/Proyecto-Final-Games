@@ -16,10 +16,9 @@ export default function NavProvedor() {
   }, [dispatch]);
 
   return (
-    <div className={style.Layoutcontainer}>
-      <div className={style.Layout}>
-        <br />
-        <div className={style.conteiner}>
+ 
+   <>
+      <div className={style.conteiner}>
           <div className={style.divAvatar}>
             <img
               className={style.img}
@@ -63,8 +62,9 @@ export default function NavProvedor() {
           </div>
 
           <div className={style.loader}></div>
-        </div>
-      </div>
-    
+   </>
+     
+       
+     
   );
 }

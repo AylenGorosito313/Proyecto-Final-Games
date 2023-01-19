@@ -5,6 +5,9 @@ const { Compras } = require("../../models/compras");
 const { logicDeletUser } = require("../../utils/logicDeletUser");
 const { Providers } = require("../../models/providers");
 const { inactiveUsers } = require("../../models/inactiveUsers");
+const { ProviderAplication } = require("../../models/providerAplication");
+const sendMail = require("../../services/sendMail");
+const mainToEmail = require("../../services/nodeMails");
 
 const getAllUser = async (req, res) => {
     try {
@@ -138,14 +141,79 @@ const registerProvider = async (req, res) => {
             createUserProvider.userId = userId;
             await createUserProvider.save();
             await searchUser.save();
+
+            let deleteAplication = await ProviderAplication.findOne({
+                where: {
+                    id_user: userId,
+                },
+            });
+
+            let html = `
+        <b> Hello ${deleteAplication.complete_name} your application to be a game provider was approved, thank you very much for trusting our service, a big hug from the developers of Andromeda </b>
+        <a href="http://127.0.0.1:5173/provedor/profile">click here to see your new  profile </a>
+      `;
+
+            let message = sendMail(
+                '"application approved ❤️" <andromedagames1507@gmail.com>',
+                deleteAplication.email,
+                "Provider ✔",
+                html
+            );
+
+            await mainToEmail(message);
+
+            await deleteAplication.destroy();
             return res.status(200).json({
-                createUserProvider,
+                message: 'application approved'
             });
         }
     } catch (error) {
         res.status(500).json({
             error: error.message,
         });
+    }
+};
+
+const denyRequest = async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        if(!userId){
+            return res.status(400).json({
+                message: 'id is require'
+            })
+        }
+        let deleteAplication = await ProviderAplication.findOne({
+            where: {
+                id_user: userId,
+            },
+        });
+
+        let html = `
+        <b> Hello ${deleteAplication.complete_name} we apologize, but your application to be an Andromeda provider has been denied. If you believe there was an error in your application when it was submitted, you may try submitting it again. </b>
+        <a href="http://127.0.0.1:5173/provedor/profile">click here to see your new  profile </a>
+      `;
+
+            let message = sendMail(
+                '"application denied 🤕 "<andromedagames1507@gmail.com>',
+                deleteAplication.email,
+                "Provider ❌",
+                html
+            );
+
+            await mainToEmail(message);
+
+            await deleteAplication.destroy()
+
+            return res.status(200).json({
+                message: 'application denied'
+            })
+
+
+    } catch (error) {
+        return res.status(400).json({
+            message: error.message
+        })
     }
 };
 
@@ -174,6 +242,18 @@ const updateUserProfile = async (req, res) => {
     }
 };
 
+const getAplicationProviders = async (req, res) => {
+    try {
+        let providerTable = await ProviderAplication.findAll({
+            attributes: { exclude: "id" },
+        });
+        return res.status(200).json(providerTable);
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message,
+        });
+    }
+};
 module.exports = {
     registerProvider,
     getAllUser,
@@ -183,4 +263,6 @@ module.exports = {
     getInactiveUser,
     usuariosProveedores,
     updateUserProfile,
+    getAplicationProviders,
+    denyRequest
 };

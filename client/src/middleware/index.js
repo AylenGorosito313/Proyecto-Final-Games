@@ -24,7 +24,8 @@ import {
   getLinkPaymentDETAIL,
   resProvisoryCartIds,
   resProvisoryFavoriteIds,
-  responseLoginAdmin
+  responseLoginAdmin,
+  deleteProvisoryCartIds
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -395,6 +396,7 @@ export const deleteCart = (userId, gameId) => {
         data: {},
         url: `http://localhost:3001/use/deleteItem/${userId}/${gameId}`,
       });
+     
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",

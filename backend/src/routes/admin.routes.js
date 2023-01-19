@@ -11,7 +11,7 @@ adminRouter.post('/admin/login', admin.adminLogin)
 
 adminRouter.get('/users', adminUsers.getAllUser) //admin
 adminRouter.get('/user/:id', adminUsers.getUserById) //admin
-// adminRouter.put('/user/:id', adminUsers.updateUserProfile) //admin editar usuario
+adminRouter.put('/admin/user/:id', adminUsers.updateUserProfile) //admin editar usuario
 adminRouter.get('/users/inactive', adminUsers.getInactiveUsers) //admin
 adminRouter.get('/user/proveedor/usuario', adminUsers.usuariosProveedores) 
 adminRouter.get('/user/inactive/:id', adminUsers.getInactiveUser ) //admin

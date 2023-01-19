@@ -37,7 +37,6 @@ const createNewAdmin = async (req, res) => {
 const adminLogin = async (mail, password) => {
 
     try {
-        console.log('entre');
         const searchAdmin = await Admin.findOne({
             where: {
                 mail,
@@ -51,7 +50,7 @@ const adminLogin = async (mail, password) => {
             return
         }
 
-        const tokenForAdmin = {   
+        const tokenForAdmin = {    
             id: searchAdmin.id,
             mail,  
         };
@@ -62,8 +61,6 @@ const adminLogin = async (mail, password) => {
             token,
             isAdmin: true
         });
-
-        console.log('termine');
 
     } catch (error) {
         return ({

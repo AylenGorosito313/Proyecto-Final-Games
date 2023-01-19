@@ -23,7 +23,7 @@ const Admin = sequelize.define(
             allowNull: false,
         },
         password: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING, 
             defaultValue: "Admin07@"
         },
     },

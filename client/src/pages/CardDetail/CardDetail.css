@@ -24,6 +24,10 @@
     margin-bottom: 30px;
 }
 
+.navigation-title-container a {
+    cursor: pointer;
+}
+
 .rating-website-container {
     display: flex;    
     align-items: center;

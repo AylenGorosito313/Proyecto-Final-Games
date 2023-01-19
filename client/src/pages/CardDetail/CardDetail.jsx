@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGameDetail } from "../../middleware";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 import Loading from "../../components/Loading/Loading.jsx";
 import DetailSlider from "./DetailSlider/DetailSlider";
@@ -16,11 +16,16 @@ import "./CardDetail.css";
 import { cleanDetails } from "../../reducers/prueba/pruebaSlider";
 
 export default function CardDetail() {
+
+    const history = useHistory()
     const { id } = useParams();
     const dispatch = useDispatch();
     const { gameDetail, isLoader } = useSelector((state) => state.prueba);
-    // const [loading, setLoading] = useState(true);
-console.log(gameDetail.price)
+  
+    const handleGoBack = () => {
+        history.goBack()
+    }
+
     useEffect(() => {
     dispatch(getGameDetail(id));
     
@@ -43,9 +48,9 @@ console.log(gameDetail.price)
                             {/* Navigation, Title and Rating container */}
                             <div className="navigation-title-rating-container">
                                 <div className="navigation-title-container">
-                                    <Link to="/home">
+                                    <a onClick={handleGoBack}>
                                         <i className="fa-solid fa-arrow-left fa-xl"></i>
-                                    </Link>
+                                    </a>
                                     <h1 className="detail-title">
                                         {gameDetail.name}
                                     </h1>

@@ -22,8 +22,8 @@ export default function DetailSlider({ screenshots, trailer }) {
                                
                             >
                                 <video 
-                                autoPlay={true}
-                                controls={true}
+                                autoPlay
+                                controls
                                 muted
                                 >
                                     <source src={trailer.max} type='video/mp4'></source>

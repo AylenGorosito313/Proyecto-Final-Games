@@ -39,8 +39,17 @@ const gameInformation = async (req, res) => {
         /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
     try {
         if (uuidRegex.test(id)) {
-            let gameDB = await Game.findByPk(id);
-            return res.status(200).json(gameDB);
+            let gameDB = await Game.findByPk(id, {
+                include: {
+                    model: Genre,
+                    attributes: ['name']
+                },
+            });
+
+            let response = gameDB.toJSON()
+            response.genres = response.genres.map(ele => ele.name)
+            response.developers = [response.developers]
+                return res.status(200).json(response);
         } else {
             let gameInfo = await apiClient(`games/${id}`);
             let response = await gameTrailer([gameInfo], id);
@@ -90,7 +99,7 @@ const createGame = async (req, res) => {
 
         const searchUser = await Users.findByPk(userId);
         let userIsProvider = searchUser.proveedor;
-        
+
         if (userIsProvider) {
             let [result, create] = await Game.findOrCreate({
                 where: {

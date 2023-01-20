@@ -41,14 +41,19 @@ function App() {
   return (
     <>
       <Switch>
-      <Route path="/user">
+      <Route exact path="/user">
         <Route exact path="/user/login" component={Loginn} />
         <Route exact path="/user/register" component={Register} />
         {/* <Route exact path="/user/recuperacion" component={UserRecuperacion} /> */}
       </Route>
 
-      <Route exact path="/payment" component={NavTop} />
-      <Route exact path="/payment" component={PaymentMP} />
+      <Route exact path={"/payment"}>
+        <NavTop/>
+      {/* <Route exact path="/payment" component={NavTop} /> */}
+      <Route path="/payment" component={PaymentMP} />
+      </Route>
+
+      
       <Route exact path="/payment/success" component={SuccessPay} />
 
       <Route path="/home">
@@ -66,9 +71,9 @@ function App() {
         <Footer />
       </Route>
 
-      <Route exact path="/user">
+      <Route exact path="/user/profil">
         <NavTop />
-        <Route path="/user" component={ProfilePage} />
+        <Route path="/user/profil" component={ProfilePage} />
         <Footer />
       </Route>
 

@@ -75,7 +75,7 @@ export default function NavProfile() {
         </div>
         <div className={style.conteinerNav}>
           <div className={style.divTab}>
-            <Link to="/user" className={style.link}>
+            <Link to="/user/profil" className={style.link}>
               🧑 Profile
             </Link>
           </div>

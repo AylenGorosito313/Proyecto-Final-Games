@@ -1,9 +1,14 @@
+const bcrypt = require("bcrypt");
 const { Admin } = require("../models/admin")
+const { SECRET_PASSOWORD_ADMIN } = process.env
 
 
 const createAdmin = async () => {
     try {
-        await Admin.create()
+        const pass = await bcrypt.hash(SECRET_PASSOWORD_ADMIN, 10);
+        await Admin.create({
+            password: pass
+        })
         return "admin created"; 
     } catch (error) {
           return error.message

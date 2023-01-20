@@ -1,30 +1,22 @@
-const { Providers } = require("../models/providers")
-const { Users } = require("../models/users")
+const { Providers } = require("../models/providers");
 
 const deleteGameProvider = async (userId, gameId) => {
     try {
-        const getUser = await Users.findOne({
-            where: { id: userId }, 
-            include: {
-                model: Providers, 
-            }
-        })
-        const laConstante = getUser.toJSON()
-        const arrayJuegos = laConstante.provider.videoGamesPropor 
-        arrayJuegos.map(el => console.log(el.id))
-        const arrayFiltrado = arrayJuegos.filter(el => el.id !== gameId)
-        getUser.provider.set({
-            videoGamesPropor : arrayFiltrado
-        })
-        // console.log("esto es lo que quedo en videoGamesPropor", arrayFiltrado)
-        await getUser.provider.save()
-
-       return "game deleted with success"; 
+        const getProvider = await Providers.findOne({
+            where: { userId },
+        });
+        const formartProvider = getProvider.toJSON();
+        const arrayFiltrado = formartProvider.videoGamesPropor.filter((el) => el.id !== gameId);
+        getProvider.set({
+            videoGamesPropor: arrayFiltrado, 
+        });
+        await getProvider.save();
+        return "game deleted with success";
     } catch (error) {
-        return ({
+        return {
             error: error.message,
-        })
+        };
     }
-}
+};
 
-module.exports = deleteGameProvider ;
+module.exports = deleteGameProvider;

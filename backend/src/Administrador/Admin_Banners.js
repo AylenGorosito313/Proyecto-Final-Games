@@ -1,4 +1,3 @@
-const { response } = require("../app")
 const { Admin } = require("../models/admin")
 const { Banner } = require("../models/banner")
 

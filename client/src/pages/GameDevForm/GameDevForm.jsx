@@ -12,10 +12,9 @@ import Loading from "../../components/Loading/Loading";
 export default function GameDevForm () {
 
     const { isLoader } = useSelector( state => state.prueba);
-    const providerCreated = useSelector( state => state.prueba.res.provider.createUserProvider)
+    const providerCreated = useSelector( state => state.prueba.res.provider)
     
-if (providerCreated){    window.localStorage.setItem("providerId", providerCreated.id)
-    console.log(providerCreated.id)}
+    console.log(providerCreated === true)
     return (
         <>
             <div className="dev-form-main-container">
@@ -24,7 +23,7 @@ if (providerCreated){    window.localStorage.setItem("providerId", providerCreat
                         <div className="dev-form-loading">
                             {<Loading />}
                         </div>
-                    ) : providerCreated ? (
+                    ) : providerCreated.id ? (
                         <FormReceived />
                     ) : (
                         <>

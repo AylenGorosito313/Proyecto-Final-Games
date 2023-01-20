@@ -32,6 +32,15 @@ animation: cambiar 14s ease-in-out infinite;
   }
 }
 
+.containerData{
+  height: 90vh;
+  min-width: 1200px;
+  background: #ffffff17;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
 
 

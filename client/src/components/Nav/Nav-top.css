@@ -3,8 +3,8 @@
   justify-content: flex-end;
   height: 50px;
   width: 100%;
-  z-index: 20;
-  position: absolute;
+  /* z-index: 20;
+  position: absolute; */
   background: rgb(42, 42, 42);
   box-shadow: 2px 2px 1px #27213b;
   align-items: center;
@@ -28,7 +28,11 @@
 
   color:#fff
 }
-
+.p-profile{
+  font-size: 14px;
+    font-family: 'Poppins';
+    color: #fff;
+}
 
 .op{
   padding-top: 40px;
@@ -41,6 +45,7 @@ top: -20px;
 .Nav-top-container-sticky {
   display: flex;
   z-index: 2;
+  padding-right: 100px;
   height: fit-content;
   align-items: center;
   width: 100%;

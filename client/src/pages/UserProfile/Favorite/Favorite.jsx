@@ -13,9 +13,10 @@ export default function WishList() {
     let userID = window.localStorage.getItem("id");
     dispatch(geUserActual(userID));
   }, [userActual.favoritos?.length]);
-
+console.log(userActual.favoritos)
   return (
     <div className={style.LayoutProfilePage}>
+            <div className={style.containerData}>
       <NavProfile />
       {userActual.favoritos ? (
         <div className={style.conteiner}>
@@ -38,6 +39,7 @@ export default function WishList() {
           <h2> I'm sorry you don't have favorite yet</h2>
         </div>
       )}
+    </div>
     </div>
   );
 }

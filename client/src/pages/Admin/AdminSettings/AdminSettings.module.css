@@ -1,0 +1,53 @@
+
+.Layout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient( 45deg, rgb(35 95 131), rgb(50, 50, 122), rgb(59 58 116), rgb(135 34 68) );
+    background-size: 400% 400%;
+    height: 100vh;
+    animation: cambiar 14s ease-in-out infinite;
+}
+
+@keyframes cambiar{
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+.Contairner{
+    height:90vh;
+   min-width: 1200px;
+   background: #171B2D;
+    border-radius: 10px;
+    display: flex;
+}
+
+.nav{
+    background: #171B2D;
+    height: 100%;
+    width: 25vh;
+    box-shadow: 0 0px 0px 0.5px #333333;
+
+}
+.Logo{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content_Settings{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

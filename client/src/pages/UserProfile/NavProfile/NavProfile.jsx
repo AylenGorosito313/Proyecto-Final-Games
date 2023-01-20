@@ -73,7 +73,7 @@ export default function NavProfile() {
             {/* </button> */}
           </div>
         </div>
-        <ul className={style.conteinerNav}>
+        <div className={style.conteinerNav}>
           <div className={style.divTab}>
             <Link to="/user" className={style.link}>
               🧑 Profile
@@ -94,7 +94,7 @@ export default function NavProfile() {
               ⚙️ Settings
             </Link>
           </div>
-        </ul>
+        </div>
         <div className={style.loader}></div>
       </div>
     </div>

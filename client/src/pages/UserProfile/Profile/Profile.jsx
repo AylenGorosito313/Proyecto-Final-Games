@@ -25,7 +25,7 @@ export default function Profile() {
   }
 
   return (
-    <div className={style.containerProfile}>
+
       <div className={style.conteiner}>
  
         <div className={style.div}>
@@ -59,6 +59,6 @@ export default function Profile() {
           {userActual.region ? userActual.region : ""}
         </div>
       </div>
-    </div>
+
   );
 }

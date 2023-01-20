@@ -2,29 +2,28 @@ import React, { useEffect, useState } from "react";
 import "./SliderCard.css";
 import { AddFavorite } from "../../../middleware";
 import { Link } from "react-router-dom";
-import { platformImage } from "../utils";
+import { platformImage, noLoginNoCart, gamesRepeatedInCart } from "../utils";
 import { priceFactor } from "../utils";
 import { AddCart } from "../../../middleware";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 
 function Card({ name, img, id, rating, platforms, released, genres }) {
   const dispatch = useDispatch();
-  const [toggleFavorite, setToggleFavorite] = useState(false);
-  const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
+
+  const { cart, provisoryCartIds, provisoryFavoriteIds } = useSelector( state => state.prueba)
+  
   let user_id = localStorage.getItem("id");
+  console.log(provisoryCartIds)
+  const identifyingCartId = provisoryCartIds.some(item => item === id)
+  const identifyingFavoriteId = provisoryFavoriteIds.some(item => item === id)
+
   const HandlerAddFavorite = () => {
-    setToggleFavorite(!toggleFavorite);
     dispatch(AddFavorite(user_id, id));
   };
 
-  useEffect(() => {
-    if (toggleShoppingCart === true) {
-      dispatch(AddCart(user_id, id));
-    }
-  }, [toggleShoppingCart]);
-
   const onClickShoppingCart = (e) => {
-    setToggleShoppingCart(true);
+    dispatch(AddCart(user_id, id));
   };
 
   return (
@@ -32,7 +31,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
       <div className="card-slider">
         <div className="game-image-slider">
           <div className="favourite-tag-slider" onClick={HandlerAddFavorite}>
-            {toggleFavorite ? (
+            {identifyingFavoriteId ? (
               <i className="fa-solid fa-heart fa-2xl red-heart"></i>
             ) : (
               <i className="fa-regular fa-heart fa-2xl"></i>
@@ -72,7 +71,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             <div className="shopping-cart-slider" onClick={onClickShoppingCart}>
               <i className="fa-solid fa-cart-shopping cart"> </i>
               <div className="check-plus-slider">
-                {toggleShoppingCart ? (
+                {identifyingCartId ? (
                   <i className="fa-solid fa-check check"></i>
                 ) : (
                   <i className="fa-solid fa-plus plus"></i>

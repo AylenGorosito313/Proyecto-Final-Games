@@ -129,11 +129,11 @@ export default function GameFilters() {
 
   };
 
-  const handleResetFilters = () => {
-    console.log(intentar)
-    window.location.reload
+  // const handleResetFilters = () => {
+  //   console.log(intentar)
+  //   window.location.reload
     
-  }
+  // }
 
   useEffect(() => {
 
@@ -145,7 +145,7 @@ export default function GameFilters() {
   return (
     <>
           <div className={style.reset_button} >
-            <ResetButton onClick={handleResetFilters} />
+            <ResetButton />
           </div>
 
           {/* Order Filters */}

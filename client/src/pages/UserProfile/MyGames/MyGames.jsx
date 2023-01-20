@@ -15,6 +15,7 @@ export default function MyGames() {
 
   return (
     <div className={style.LayoutProfilePage}>
+      <div className={style.containerData}>
       <NavProfile />
 
       {userActual ? (
@@ -36,6 +37,7 @@ export default function MyGames() {
       ) : (
         <h2> I'm sorry you don't have Games yet</h2>
       )}
+    </div>
     </div>
   );
 }

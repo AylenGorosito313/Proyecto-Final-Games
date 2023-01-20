@@ -16,7 +16,7 @@ export default function DevForm () {
     
     const onSubmit = (data) => {
         console.log(data)
-        dispatch(enableProvider(userID))
+        dispatch(enableProvider(userID, data))
         
     }
 
@@ -71,7 +71,7 @@ export default function DevForm () {
             {/* Publish Reason input */}
             <div className="inputs-container">
                 <label className="form-label">Why do you want to publish on Andromeda Games?</label>
-                <input className="input-text" type="text" {...register("publishReason", {
+                <input className="input-text" type="text" {...register("reason_aplication", {
                     required: true,
                     minLength: 30,
                     maxLength: 900,
@@ -85,7 +85,7 @@ export default function DevForm () {
             {/* Select Game Engine input */}
             <div className="form-select-container">
                 <label className="form-label">Which game engine are you using?</label>
-                <select className="select-engines" {...register("gameEngine", {
+                <select className="select-engines" {...register("game_engine", {
                     required: true
                 })}>
                     {gameEngines.length && gameEngines.map((game, index) => (
@@ -104,11 +104,11 @@ export default function DevForm () {
                 <div className="radio-container-yer-or-not">
                 <label>
                     Yes 
-                    <input type="radio" value="yes" {...register("microTransactions")} />
+                    <input type="radio" value="yes" {...register("micro_transactions")} />
                 </label>
                 <label>
                     No 
-                    <input type="radio" value="no" {...register("microTransactions")} />
+                    <input type="radio" value="no" {...register("micro_transactions")} />
                 </label>
                 </div>
             </div>

@@ -39,8 +39,17 @@ const gameInformation = async (req, res) => {
         /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
     try {
         if (uuidRegex.test(id)) {
-            let gameDB = await Game.findByPk(id);
-            return res.status(200).json(gameDB);
+            let gameDB = await Game.findByPk(id, {
+                include: {
+                    model: Genre,
+                    attributes: ['name']
+                },
+            });
+
+            let response = gameDB.toJSON()
+            response.genres = response.genres.map(ele => ele.name)
+            response.developers = [response.developers]
+                return res.status(200).json(response);
         } else {
             let gameInfo = await apiClient(`games/${id}`);
             let response = await gameTrailer([gameInfo], id);
@@ -84,8 +93,13 @@ const createGame = async (req, res) => {
                 message: "Missing required fields",
             });
         }
+        const time = Date.now();
+        let date = new Date(time);
+        let fecha = date.toISOString().substring(0, 10);
+
         const searchUser = await Users.findByPk(userId);
         let userIsProvider = searchUser.proveedor;
+
         if (userIsProvider) {
             let [result, create] = await Game.findOrCreate({
                 where: {
@@ -99,6 +113,8 @@ const createGame = async (req, res) => {
                     platforms: gameInfo.platforms,
                     parent_platforms: gameInfo.platforms,
                     createdBy: userId,
+                    developers: `${searchUser.name} ${searchUser.lastName}`,
+                    released: fecha,
                 },
             });
             if (create) {
@@ -155,44 +171,6 @@ const releasedLastMonth = async (req, res) => {
         });
     }
 };
-//https://api.rawg.io/api/games?dates=2023-12-01,2023-12-30
-//https://api.rawg.io/api/games/{game_pk}/development-team
-
-// const GamesExaminar = async () => {
-//     try {
-//         let results = await getGamesForExaminar();
-//         res.status(200).json(results);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
-
-const deleteGameProvider = async (req, res) => {
-    const {userId, gameId} = req.params 
-    try {
-        const getUser = await Users.findOne({
-            where: { id: userId }, 
-            include: {
-                model: Providers, 
-            }
-        })
-        const arrayJuegos = getUser.provider.videoGamesPropor 
-        // console.log("aca esta la info del juego del usuario",arrayJuegos)
-        arrayJuegos.map(el => console.log(el.id))
-        const arrayFiltrado = arrayJuegos.filter(el => el.id !== gameId)
-        getUser.provider.set({
-            videoGamesPropor : arrayFiltrado
-        })
-        console.log("esto es lo que quedo en videoGamesPropor", arrayFiltrado)
-        await getUser.provider.save()
-
-       res.send("game deleted whit success") 
-    } catch (error) {
-        return res.status(500).json({
-            error: error.message,
-        })
-    }
-}
 
 const filtrado = async (req, res) => {
     const { platform, genre, alphabeth, price, rating } = req.query;
@@ -200,7 +178,7 @@ const filtrado = async (req, res) => {
     let api = await getGamesForExaminar();
     let DB = await getAllGamesDb();
     let allGames = [...DB, ...api];
-    console.log(allGames)
+    console.log(allGames);
     let sorT = allGames;
 
     if (!req.query) {
@@ -244,6 +222,5 @@ module.exports = {
     createGame,
     mostPopularGames,
     releasedLastMonth,
-    deleteGameProvider,
-    filtrado
+    filtrado,
 };

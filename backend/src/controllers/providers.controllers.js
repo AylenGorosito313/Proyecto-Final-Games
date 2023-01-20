@@ -3,34 +3,7 @@ const { Providers } = require("../models/providers");
 const { Users } = require("../models/users");
 const getItemsCar = require("../utils/getItemsCar");
 
-//crear un proveedor
-const registerProvider = async (req, res) => {
-    const { userId } = req.params;
-    try {
-        if (!userId) {
-            return res.status(400).json({
-                error: "id must be provided",
-            });
-        }
 
-        const searchUser = await Users.findByPk(userId);
-        if (searchUser) {
-            searchUser.proveedor = true;
-
-            const createUserProvider = await Providers.create();
-            createUserProvider.userId = userId;
-            await createUserProvider.save();
-            await searchUser.save();
-            return res.status(200).json({
-                createUserProvider,
-            });
-        }
-    } catch (error) {
-        res.status(500).json({
-            error: error.message,
-        });
-    }
-};
 
 const getGamesByProvider = async (req, res) => {
     const { userId } = req.params;
@@ -93,7 +66,6 @@ const supplierProfit = async (req, res) => {
 
 
 module.exports = {
-    registerProvider,
     getGamesByProvider,
     supplierProfit,
     

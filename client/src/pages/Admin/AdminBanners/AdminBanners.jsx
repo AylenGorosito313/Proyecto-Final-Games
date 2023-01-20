@@ -41,25 +41,23 @@ export default function AdminBanners() {
         <NavAdmin />
         <div className={style.content_Banner}>
           <div className={style.divSelect}>
-            <select className={style.Select}>
-              <option>Create Banners</option>
-              <option>Delete Banners</option>
+            <select >
+              <option >Create Banners</option>
+              <option >Delete Banners</option>
             </select>
           </div>
-<div className={style.content}>
-    <h1>Create Banners </h1>
-
-          <div className={style.header}>
-            <UnploadBanner UnploadImages={UnploadImageBanner} />
-            <UnploadBannerLogo UnploadImageLogo={UnploadImageLogo} />
+          <div className={style.content}>
+            <h1>Create Banners </h1>
+            <div className={style.header}>
+              <UnploadBanner UnploadImages={UnploadImageBanner} />
+              <UnploadBannerLogo UnploadImageLogo={UnploadImageLogo} />
+            </div>
+            <div className={style.unploadLogo}>
+              <TextinBanners HandlerText={HandlerText} />
+            </div>
           </div>
-          <div className={style.unploadLogo}>
-            <TextinBanners HandlerText={HandlerText} />
-          </div>
 
-</div>
-        
-          {/* <button>Create Banner</button> */}
+          <button className={style.btn}>Create Banner</button>
         </div>
       </div>
     </div>

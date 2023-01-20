@@ -189,20 +189,23 @@ export const createUser = ({ name, lastName, email, password }) => {
   };
 };
 
-export const enableProvider = (id) => {
+export const enableProvider = (id, aplication) => {
   return async function (dispatch) {
+    console.log(aplication)
     try {
       dispatch(isLoading());
       let { data } = await axios({
         method: "POST",
-        url: `http://localhost:3001/user/provider/create/${id}`,
+        data: aplication,
+        url: `http://localhost:3001/user/provider/aplication/${id}`,
       });
+      console.log(data)
       dispatch(providerResponseEnable(data));
       setTimeout(() => {
         dispatch(isLoading());
       }, 2000);
     } catch (error) {
-      toast.error(error.message, {
+      toast(error.message, {
         position: "bottom-right",
         duration: 4000,
 
@@ -318,7 +321,7 @@ export const LoginAdmin = ({ mail, password }) => {
 //"/user/addCard/:userId/:gameId"
 
 export const AddFavorite = (user_id, id) => {
-  console.log(user_id, id)
+  
   return async function (dispatch) {
     try {
       let { data } = await axios({

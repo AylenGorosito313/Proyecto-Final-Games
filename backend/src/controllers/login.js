@@ -3,6 +3,8 @@ const { Users } = require("../models/users");
 const bcrypt = require("bcrypt");
 const mainToEmail = require("../services/nodeMails");
 const { createUser, verifyUser } = require("./createUserAndVerify");
+const sendMail = require("../services/sendMail");
+const { adminLogin } = require("../Administrador/admin.controllers");
 const { SECRET } = process.env;
 let userInfo = {};
 
@@ -19,16 +21,19 @@ const registerUser = async (req, res) => {
         const token = jwt.sign({ name, email }, SECRET, {
             expiresIn: "1h",
         });
+        let html = `
+        <b> Hello ${name} Click on the following link to verify your account </b>
+        <a href="http://127.0.0.1:5173/user/login?verify=${token}">Click here</a>
+      `;
+
+        let message = sendMail(
+            '"Verify your acount 👻" <andromedagames1507@gmail.com>',
+            email,
+            "Verify your acount ✔",
+            html
+        );
         // send mail with defined transport object
-        await mainToEmail({
-            from: '"Verify your acount 👻" <andromedagames1507@gmail.com>',
-            to: email, // list of receivers
-            subject: "Verify your acount ✔", // Subject line
-            html: `
-              <b> Hello ${name} Click on the following link to verify your account </b>
-              <a href="http://127.0.0.1:5173/user/login?verify=${token}">Click here</a>
-            `,
-        });
+        await mainToEmail(message);
         userInfo = req.body;
         res.status(200).json({
             message: "Check your mail",
@@ -47,7 +52,13 @@ const loginUser = async (req, res) => {
             email,
         },
     });
-    let userLoggin = search === null ? verifyUser(verify) : true; 
+
+    let adminUser = await adminLogin(email, password)
+    console.log(adminUser);
+    if(adminUser?.isAdmin){
+        return res.status(200).json(adminUser)
+    }
+    let userLoggin = search === null ? verifyUser(verify) : true;
 
     if (!verify && !search) {
         return res.status(400).json("You must verify your account");

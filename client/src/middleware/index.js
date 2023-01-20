@@ -24,7 +24,9 @@ import {
   getLinkPaymentDETAIL,
   resProvisoryCartIds,
   resProvisoryFavoriteIds,
-  responseLoginAdmin
+  responseLoginAdmin,
+  deleteProvisoryCartIds,
+  deleteProvisoryFavoriteIds
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -187,20 +189,23 @@ export const createUser = ({ name, lastName, email, password }) => {
   };
 };
 
-export const enableProvider = (id) => {
+export const enableProvider = (id, aplication) => {
   return async function (dispatch) {
+    console.log(aplication)
     try {
       dispatch(isLoading());
       let { data } = await axios({
         method: "POST",
-        url: `http://localhost:3001/user/provider/create/${id}`,
+        data: aplication,
+        url: `http://localhost:3001/user/provider/aplication/${id}`,
       });
+      console.log(data)
       dispatch(providerResponseEnable(data));
       setTimeout(() => {
         dispatch(isLoading());
       }, 2000);
     } catch (error) {
-      toast.error(error.message, {
+      toast(error.message, {
         position: "bottom-right",
         duration: 4000,
 
@@ -286,13 +291,13 @@ export const LoginUser = ({ email, password }, verify) => {
   };
 };
 
-export const LoginAdmin = ({ email, password }) => {
+export const LoginAdmin = ({ mail, password }) => {
   return async function (dispatch) {
     try {
       let res = await axios({
         method: "POST",
-        data: { email, password },
-        url: "",
+        data: { mail, password },
+        url: "http://localhost:3001/admin/login",
       });
       dispatch(responseLoginAdmin(res.data));
     } catch (error) {
@@ -316,7 +321,7 @@ export const LoginAdmin = ({ email, password }) => {
 //"/user/addCard/:userId/:gameId"
 
 export const AddFavorite = (user_id, id) => {
-  console.log(user_id, id)
+  
   return async function (dispatch) {
     try {
       let { data } = await axios({
@@ -325,7 +330,9 @@ export const AddFavorite = (user_id, id) => {
         url: `http://localhost:3001/game/addFavorite/${user_id}/${id}`,
       });
       
-      dispatch(resProvisoryFavoriteIds(data.favoritos))
+      let filterId = data.favoritos.find( item => item.id === id)
+      
+      dispatch(resProvisoryFavoriteIds(filterId.id))
     } catch (error) {
      
       toast(error.request.response, {
@@ -350,8 +357,10 @@ export const AddCart = (userId, gameId) => {
         data: {},
         url: `http://localhost:3001/user/addCard/${userId}/${gameId}`,
       });
-
-      dispatch(resProvisoryCartIds(data.items))
+      console.log(data)
+      let filterId = data.items.find( item => item.id === gameId)
+      
+      dispatch(resProvisoryCartIds(filterId.id))
       
     } catch (error) {
       
@@ -395,6 +404,7 @@ export const deleteCart = (userId, gameId) => {
         data: {},
         url: `http://localhost:3001/use/deleteItem/${userId}/${gameId}`,
       });
+     
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",
@@ -480,6 +490,7 @@ export const deletedItemsToCart = (id) => {
     dispatch(deleteCarItem(id));
     let userId = localStorage.getItem("id");
     dispatch(deleteCart(userId, id));
+    dispatch(deleteProvisoryCartIds(id))
   };
 };
 
@@ -487,6 +498,7 @@ export const deletedFavorites = (id) => {
   return async (dispatch) => {
     try {
       dispatch(deletedFavoriteUser(id));
+      dispatch(deleteProvisoryFavoriteIds(id))
       let userId = localStorage.getItem("id");
       let { data } = await axios({
         method: "DELETE",

@@ -28,7 +28,7 @@ const providerAplication = async (req, res) => {
             const infoTemporal = await ProviderAplication.create({
                 id_user: userId,
                 email: informacionDeSolicitud.email,
-                complete_name: informacionDeSolicitud.complete_name,
+                complete_name: informacionDeSolicitud.firstName + " " + informacionDeSolicitud.lastName,
                 reason_aplication: informacionDeSolicitud.reason_aplication,
                 game_engine: informacionDeSolicitud.game_engine,
                 micro_transactions: informacionDeSolicitud.micro_transactions

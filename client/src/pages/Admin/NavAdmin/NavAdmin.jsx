@@ -27,19 +27,19 @@ export default function NavAdmin() {
         <Link to={"/admin/users"} className={style.Link}>
           <div className={style.container}>
             <UserIcon />
-            <p className={style.p}>Admin. de Usuarios</p>
+            <p className={style.p}>Admin Usuarios</p>
           </div>
         </Link>
         <Link to={"/admin/games"} className={style.Link}>
           <div className={style.container}>
             <GamesIcon />
-            <p className={style.p}>Admin. de Games</p>
+            <p className={style.p}>Admin Games</p>
           </div>
         </Link>
         <Link to={"/admin/banners"} className={style.Link}>
           <div className={style.container}>
             <BannerIcon />
-            <p className={style.p}>Admin. de Banners</p>
+            <p className={style.p}>Admin Banners</p>
           </div>
         </Link>
         <Link to={"/admin/settings"} className={style.Link}>

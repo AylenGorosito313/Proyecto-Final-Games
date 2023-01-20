@@ -1,17 +1,17 @@
-/* .conteiner {
+.conteiner {
   display: flex;
   justify-content: space-around;
   padding-left: 40px;
   padding-top: 70px;
   min-width: 800px;
   max-width: 800px;
-  box-shadow: -1px 1px 1px #424141, 0 0 #fff;
-  background: #ffffff1f;
+
+  background: transparent;
   align-items: flex-start;
   flex-direction: column;
   gap: 20px;
   border-radius: 10px;
-} */
+}
 .divNameAvatar {
   display: flex;
   width: 100%;

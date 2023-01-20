@@ -84,8 +84,13 @@ const createGame = async (req, res) => {
                 message: "Missing required fields",
             });
         }
+        const time = Date.now();
+        let date = new Date(time);
+        let fecha = date.toISOString().substring(0, 10);
+
         const searchUser = await Users.findByPk(userId);
         let userIsProvider = searchUser.proveedor;
+        
         if (userIsProvider) {
             let [result, create] = await Game.findOrCreate({
                 where: {
@@ -99,6 +104,8 @@ const createGame = async (req, res) => {
                     platforms: gameInfo.platforms,
                     parent_platforms: gameInfo.platforms,
                     createdBy: userId,
+                    developers: `${searchUser.name} ${searchUser.lastName}`,
+                    released: fecha,
                 },
             });
             if (create) {
@@ -162,7 +169,7 @@ const filtrado = async (req, res) => {
     let api = await getGamesForExaminar();
     let DB = await getAllGamesDb();
     let allGames = [...DB, ...api];
-    console.log(allGames)
+    console.log(allGames);
     let sorT = allGames;
 
     if (!req.query) {
@@ -206,5 +213,5 @@ module.exports = {
     createGame,
     mostPopularGames,
     releasedLastMonth,
-    filtrado
+    filtrado,
 };

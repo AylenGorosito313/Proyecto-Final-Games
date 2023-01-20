@@ -22,7 +22,8 @@
 const server = require("./src/app.js");
 const sequelize = require("./src/db");
 const getGamesForExaminar = require("./src/utils/getGamesForExaminar.js");
-const {createAdmin} = require("./src/Administrador/createAdmin")
+const {createAdmin} = require("./src/Administrador/createAdmin");
+const { createGenres } = require("./src/controllers/genres.controllers.js");
 
 require('./src/models/games');
 require('./src/models/genres');
@@ -41,8 +42,9 @@ async function main() {
         await sequelize.sync({ force: true}); 
         // await getGamesForExaminar() 
         let crearAdministrador = await createAdmin() 
+        let createGenre = await createGenres()
+        console.log(createGenre);
         console.log("console.log crearAdministrador",crearAdministrador)
-
         console.log("Conect to database"); 
         server.listen(3001, () => {
             console.log("server lisener in port 3001");

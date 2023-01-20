@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const admin = require("../Administrador/admin.controllers");
+const { createBanner, getAllBanner, deleteBanner } = require("../Administrador/Admin_Banners");
 const { deleteGameProvider, deleteGame } = require("../Administrador/CRUD/Admin_Games");
 const adminUsers = require('../Administrador/CRUD/Admin_Users')
 
@@ -7,6 +8,9 @@ const adminRouter = Router();
 
 adminRouter.post("/admin/create", admin.createNewAdmin)
 adminRouter.post('/admin/login', admin.adminLogin)
+adminRouter.post('/admin/create/banner', createBanner)
+adminRouter.get('/admin/allbanner', getAllBanner)
+adminRouter.delete('/admin/delete/banner', deleteBanner)
 
 //Admin -> user
 

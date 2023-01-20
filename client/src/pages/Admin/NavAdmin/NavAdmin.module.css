@@ -8,7 +8,6 @@
 .nav{
     background: #171B2D;
     height: 100%;
-    gap: 20px;
     width: 25vh;
     box-shadow: 0 0px 0px 0.5px #333333;
 
@@ -19,42 +18,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0px 0px 0.5px #333333;
-}
-
-.container{
-    height: 50px;
-    width: 90%;
-    gap: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 10px;
-
-}
-
-
-.container:hover{
-    background: rgba(255, 255, 255, 0.068);
-    box-shadow: 0 0px 0px 0.2px #ffffff;
-}
-
-
-.p{
-    font-size: 12px;
-}
-
-
-.MetaContainer{
-    height: 60%;
-    width: 100%;
-    gap: 20px;
-   
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.Link{
-    text-decoration: none;
-    color:#fff
 }

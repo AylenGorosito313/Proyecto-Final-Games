@@ -5,12 +5,8 @@ import Profile from "./Profile";
 export default function infoProfile() {
   return (
     <div className={style.LayoutProfilePage}>
-       <div className={style.containerData}>
-              <NavProfile />
-              <Profile />
-       </div>
-
-    
+      <NavProfile />
+      <Profile />
     </div>
   );
 }

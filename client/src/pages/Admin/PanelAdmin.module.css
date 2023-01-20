@@ -26,7 +26,6 @@
    min-width: 1200px;
    background: #171B2D;
     border-radius: 10px;
-    display: flex;
 }
 
 .nav{
@@ -42,14 +41,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.content_View{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }

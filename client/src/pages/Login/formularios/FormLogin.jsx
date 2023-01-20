@@ -20,6 +20,10 @@ function FormLogin({verify}) {
   const OnSubmit = async (data) => {
     console.log(data);
     dispatch(LoginUser(data, verify));
+  //   if(res.login.token){
+  //  navigate.push('/')
+  //   }
+ 
   };
   return (
     <>

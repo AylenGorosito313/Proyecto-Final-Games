@@ -28,7 +28,7 @@ const addPurchaseUser = async (userId) => {
             ];
         }
 
-        searchUserCar.update({
+        searchUserCar.set({
             total_items: 0,
             total_precio: 0,
             items: [],

@@ -8,37 +8,32 @@ const mapGamesToDataBase = require("../utils/mapGamesToDataBase");
 const addToCar = async (req, res) => {
     const { userId, gameId } = req.params;
     try {
-        if (userId === "null" || !gameId) {
-            return res.status(406).send("You must login or register to add games to cart");
+        if (userId === 'null' || !gameId) {
+            return res.status(406).json({
+                error: true,
+                msg: "User Unauthorized",
+            });
         }
-        const uuidRegex =
-            /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
+        const uuidRegex = /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
         let gameVerify = uuidRegex.test(gameId);
-        let gameDataBase = undefined;
+        let gameDataBase = undefined
 
         if (userId) {
-            let userSearch = await Users.findByPk(userId);
-            if (!userSearch) {
-                return res
-                    .status(400)
-                    .send("You must login or register to add games to cart");
-            }
+            await Users.findByPk(userId);
             let searchUserCar = await Carrito.findOne({
                 where: {
                     userId,
                 },
             });
 
-            let gameInfo = gameVerify
-                ? await Game.findByPk(gameId)
-                : await apiClient(`games/${gameId}`);
-            if (gameVerify) {
-                gameDataBase = gameInfo.toJSON();
-                gameInfo = mapGamesToDataBase([gameDataBase]);
-            } else {
+            let gameInfo = gameVerify ? await Game.findByPk(gameId) : await apiClient(`games/${gameId}`);
+            if(gameVerify){
+                gameDataBase = gameInfo.toJSON()
+                gameInfo = mapGamesToDataBase([gameDataBase])
+            }else{
                 gameInfo = await mapGames([gameInfo]);
             }
-
+            console.log(gameInfo);
             if (!searchUserCar) {
                 let addCarItem = await Carrito.create();
                 addCarItem.userId = userId;
@@ -56,13 +51,15 @@ const addToCar = async (req, res) => {
             }
             let verifyItems = searchUserCar.toJSON();
             if (verifyItems.items.find((ele) => ele.id.toString() === gameId)) {
-                return res.status(400).send("the game already exists in your cart")
+                return res.status(400).json({
+                    message: "the game already exists",
+                });
             }
             searchUserCar.items = [...searchUserCar.items, ...gameInfo];
             searchUserCar.total_items = searchUserCar.items.length;
             searchUserCar.total_precio = searchUserCar.items.reduce(
                 (count, ele) => {
-                    return count + parseInt(ele.price);
+                    return count + parseInt(ele.price); 
                 },
                 0
             );

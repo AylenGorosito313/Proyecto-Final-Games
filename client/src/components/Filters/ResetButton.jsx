@@ -1,19 +1,20 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import {getForFiltersRESET} from "../../middleware/index";
-import style from "./ResetButton.module.css";
 
-export default function ResetButton() {
-  let dispatch = useDispatch();
-  const handleResetFilters = () => {
-    dispatch(getForFiltersRESET());
-  };
+import style from "./ResetButton.module.css"
 
-  return (
-    <>
-      <button className={style.reset_filters} onClick={handleResetFilters}>
-        RESET FILTERS
-      </button>
-    </>
-  );
+export default function ResetButton () {
+    
+     const handleResetFilters = () => {
+    console.log(intentar)
+    window.location.reload
+    
+  }
+
+    return (
+        <>
+            <button className={style.reset_filters} onClick={handleResetFilters} >
+                RESET FILTERS
+            </button>
+        </>
+    )
 }

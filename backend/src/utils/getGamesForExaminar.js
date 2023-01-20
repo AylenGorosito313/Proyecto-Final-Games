@@ -10,13 +10,13 @@ const getGamesForExaminar = async () => {
             return arraMap;
         }
 
-        if (!arrayForGames.length) {//5 5 5
+        if (!arrayForGames.length) {
             for (let i = 1; i < 5; i++) {
                 const getGames = await apiClient(
                     "games",
                     `&page_size=40&page${i}`
                 );
-                arrayForGames = getGames.results;
+                arrayForGames.push(...getGames.results);
             }
         }
         arraMap = mapGames(arrayForGames)

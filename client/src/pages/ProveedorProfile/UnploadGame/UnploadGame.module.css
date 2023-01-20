@@ -31,15 +31,6 @@ animation: cambiar 14s ease-in-out infinite;
     background-position: 0 50%;
   }
 }
-.containerData{
-  height: 90vh;
-  min-width: 1200px;
-  background: #ffffff17;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
 
 
 
@@ -49,7 +40,7 @@ animation: cambiar 14s ease-in-out infinite;
     padding-left: 40px;
     min-width: 840px;
     border-radius: 5px;
-    background: transparent;
+    background: #ffffff1f;
     flex-direction: column;
     gap: 83px;
     padding-top: 20px;
@@ -64,7 +55,7 @@ animation: cambiar 14s ease-in-out infinite;
   display: flex;
   padding-left: 40px;
   min-width: 840px;
-  background: transparent;
+  background: #ffffff1f;
   flex-direction: column;
   border-radius: 5px;
   gap: 20px;

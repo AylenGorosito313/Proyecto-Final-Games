@@ -19,7 +19,6 @@ export default function UnploadGame() {
     <>
     <NavTop/>
        <div className={style.LayoutProfilePage}>
-       <div className={style.containerData}>
         <NavProvedor/>
         <div className={style.conteiner}>
         {!userActual.provider ? (
@@ -53,7 +52,6 @@ export default function UnploadGame() {
           </div>
         )}
       </div>
-    </div>
     </div>
     <Footer/>
     </>

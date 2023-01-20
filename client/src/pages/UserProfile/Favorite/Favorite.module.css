@@ -20,15 +20,6 @@
     font-family: poppins;
     font-size: 20px;
 }
-.containerData{
-  height: 90vh;
-  min-width: 1200px;
-  background: #ffffff17;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
 
 
 .LayoutProfilePage{
@@ -66,7 +57,7 @@
     padding-left: 40px;
     min-width: 800px;
     max-width: 800px;
-    background: transparent;
+    background: #ffffff1f;
     flex-direction: column;
     gap: 20px;
     border-radius: 5px;

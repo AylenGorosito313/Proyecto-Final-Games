@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGameDetail } from "../../middleware";
-import { Link, useHistory, useParams } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+import { Link, useParams } from "react-router-dom";
 
+// Components
 import Loading from "../../components/Loading/Loading.jsx";
 import DetailSlider from "./DetailSlider/DetailSlider";
 import GamesActionsContainer from "./GameActionsContainer/GameActionsContainer";
@@ -17,28 +17,23 @@ import "./CardDetail.css";
 import { cleanDetails } from "../../reducers/prueba/pruebaSlider";
 
 export default function CardDetail() {
-
-    const history = useHistory()
     const { id } = useParams();
     const dispatch = useDispatch();
     const { gameDetail, isLoader } = useSelector((state) => state.prueba);
-  
-    const handleGoBack = () => {
-        history.goBack()
-    }
+    // const [loading, setLoading] = useState(true);
 
     useEffect(() => {
     dispatch(getGameDetail(id));
+    
       return () => {
         dispatch(cleanDetails())
       }
     }, [])
 
-    if(gameDetail) window.scroll({top: 0, behavior: "smooth"})
+    if(gameDetail) window.scroll({top: 0})
 
     return (
         <>
-        <Toaster />
             <div className="main-detail-container">
                 {isLoader && !gameDetail.hasOwnProperty("name") ? (
                     <div className="loading">{<Loading />}</div>
@@ -49,9 +44,9 @@ export default function CardDetail() {
                             {/* Navigation, Title and Rating container */}
                             <div className="navigation-title-rating-container">
                                 <div className="navigation-title-container">
-                                    <a onClick={handleGoBack}>
+                                    <Link to="/home">
                                         <i className="fa-solid fa-arrow-left fa-xl"></i>
-                                    </a>
+                                    </Link>
                                     <h1 className="detail-title">
                                         {gameDetail.name}
                                     </h1>
@@ -62,18 +57,13 @@ export default function CardDetail() {
                                         {gameDetail.rating}
                                     </div>
                                     <div className="website-container">
-                                        {gameDetail.website && (
-                                        <>
-                                            <i className="fa-solid fa-link fa-lg"></i>
-                                            <a
-                                                href={gameDetail.website}
-                                                target="blank"
-                                            >
-                                                visit the website
-                                            </a>
-                                        </>
-                                        )
-                                        }
+                                        <i className="fa-solid fa-link fa-lg"></i>
+                                        <a
+                                            href={gameDetail.website}
+                                            target="blank"
+                                        >
+                                            visit the website
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -110,12 +100,9 @@ export default function CardDetail() {
                                     name={gameDetail.name}
                                     img={gameDetail.background_image}
                                     id={id}
-                                    price={gameDetail.price}
                                     genres={gameDetail.genres}
-                                    description={gameDetail.description}
                                 />
                             </div>
-
                         </div>
                     </div>
                 )}

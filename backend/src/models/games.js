@@ -45,17 +45,9 @@ const Game = sequelize.define("game", {
     createdBy:{
         type: DataTypes.STRING,
         defaultValue: null
-    },
-    developers: {
-        type: DataTypes.STRING,
-        allowNull: true
-    },
-    released: {
-        type: DataTypes.STRING,
-        allowNull: true
     }
 
-}, {freezeTableName: true, paranoid: true, deletedAt: 'JuegosEliminados'});
+}, {freezeTableName: true});
 
 Game.belongsToMany(Genre, { through: "game_genre" })
 Genre.belongsToMany(Game, { through: "game_genre" })

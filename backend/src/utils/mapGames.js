@@ -10,16 +10,12 @@ const mapGames = async (games) => {
             return {
                 id: game.id,
                 name: game.name,
-                background_image: uuidRegex.test(game.id)
-                    ? game.background_image[0]
-                    : game.background_image,
+                background_image: uuidRegex.test(game.id) ? game.background_image[0] : game.background_image,
                 rating: game.rating,
-                released: game.released || "Default",
-                parent_platforms: uuidRegex.test(game.id)
-                    ? game.platforms
-                    : game.parent_platforms.map(
-                          (platform) => platform.platform.name
-                      ),
+                released: game.released || 'Default',
+                parent_platforms: uuidRegex.test(game.id) ? game.platforms : game.parent_platforms.map(
+                    (platform) => platform.platform.name
+                ),
                 genres: game.genres.map((genre) => genre.name),
                 price: uuidRegex.test(game.id) ? game.price : price,
             };
@@ -30,5 +26,32 @@ const mapGames = async (games) => {
         };
     }
 };
+
+
+// const mapGames = async (games) => {
+//     // let p = Array.from([...games])
+//     // console.log(p.map(ele => ele.name));
+//     try {
+//         return games.map((game) => {
+//             let price = calculatePrice(100, 20);
+//             return {
+//                 id: game.id,
+//                 name: game.name,
+//                 background_image: game.background_image,
+//                 rating: game.rating,
+//                 released: game.released,
+//                 parent_platforms: game.parent_platforms.map(
+//                     (platform) => platform.platform.name
+//                 ),
+//                 genres: game.genres.map((genre) => genre.name),
+//                 price,
+//             };
+//         });
+//     } catch (error) {
+//         return {
+//             error: error.message,
+//         };
+//     }
+// };
 
 module.exports = mapGames;

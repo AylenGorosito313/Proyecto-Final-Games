@@ -46,10 +46,7 @@ export default function Settings() {
   let [input, setInput] = useState({});
 
   return (
-
-
     <div className={style.LayoutProfilePage}>
-       <div className={style.containerData}>
       <NavProfile />
 
       <div className={style.conteiner}>
@@ -126,7 +123,6 @@ export default function Settings() {
           </button>
         </div>
       </div>
-    </div>
     </div>
   );
 }

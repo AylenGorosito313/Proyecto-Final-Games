@@ -5,8 +5,7 @@ import PayButton from "./ActionsButtons/PayButton/PayButton";
 import AddToCart from "./ActionsButtons/AddToCart/AddToCart";
 import AddToWishlist from "./ActionsButtons/AddToWishlist/AddToWishlist";
 
-export default function GamesActions ( {priceGame, name, img, id, genres,price, description} ) {
-console.log(id)
+export default function GamesActions ( {priceGame, name, img, id, genres} ) {
 
     return (
         <>
@@ -22,17 +21,13 @@ console.log(id)
                         name={name}
                         img={img}
                         id={id}
-                        price={price}
                         genres={genres}
-                        description={description}
                     />
                     <AddToCart 
                         priceGame={priceGame}
                         id={id}
                     />
-                    <AddToWishlist
-                    id={id}
-                    />
+                    <AddToWishlist />
                 </div>
             </div>
         </>

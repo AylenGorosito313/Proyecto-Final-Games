@@ -13,7 +13,7 @@ import mario from "../../assets/mario.jpg";
 
 function Loginn() {
   const search = useLocation().search;
-  const verify = new URLSearchParams(search).get("verify");
+  const verify = new URLSearchParams(search).get('verify');
   const { res } = useSelector((state) => state.prueba);
   const navigateToHome = useHistory();
   const backResponse = () =>
@@ -33,14 +33,14 @@ function Loginn() {
       localStorage.setItem("id", res.login.id);
       localStorage.setItem("name", res.login.name);
       localStorage.setItem("token", res.login.token);
-      if (res.login.isAdmin) {
-        localStorage.setItem("isAdmin", res.login.isAdmin);
-      }
-
+   
       navigateToHome.push("/home");
     }
-  }, 2000);
+  },2000);
 
+
+
+  console.log(res.login);
   return (
     <>
       {res.login && backResponse()}
@@ -59,7 +59,7 @@ function Loginn() {
             <LogoLogin />
           </div>
           <div>
-            <FormLogin verify={verify} />
+            <FormLogin verify={verify}/>
           </div>
           <div className="container-singnup">
             <div className="singnup">
@@ -78,6 +78,7 @@ function Loginn() {
               <hr></hr>
             </p>
           </div>
+     
         </div>
       </div>
     </>

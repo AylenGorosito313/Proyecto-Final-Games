@@ -13,17 +13,15 @@ const initialState = {
   platforms: [],
   payment: {
     link: "",
-    detailLink: "",
   },
-  provisoryCartIds: [],
-  provisoryFavoriteIds: [],
+
   res: {
     cart: "",
     login: "",
     register: "",
     created: "",
     provider: {},
-    admLogin:""
+  
   },
   isLoader: false,
   userActual: {},
@@ -64,23 +62,22 @@ export const toolkit_prueba = createSlice({
     providerResponseEnable: (state, actions) => {
       state.res = { ...state.res, provider: actions.payload };
     },
-    resProvisoryCartIds: (state, actions) => {
-      state.provisoryCartIds = [...state.provisoryCartIds, actions.payload]
+    responseAddCart: (state, actions) => {
+      let verify = actions.payload.split(" ")[actions.length - 1];
+      if (verify === "400") {
+        state.res = { ...state.res, cart: `You can't add repeat games` };
+      } else {
+        state.res = {
+          ...state.res,
+          cart: `You must login or register to add games to cart`,
+        };
+      }
     },
-    resProvisoryFavoriteIds: (state, actions) => {
-      state.provisoryFavoriteIds = [...state.provisoryFavoriteIds, actions.payload]
-    },
-    deleteProvisoryCartIds: (state, actions) => {
-      state.provisoryCartIds = state.provisoryCartIds.filter( id => id !== actions.payload)
-    },
-    deleteProvisoryFavoriteIds: (state, actions) => {
-      state.provisoryFavoriteIds = state.provisoryFavoriteIds.filter( id => id !== actions.payload)
-    },
+
     GameCreate: (state, actions) => {
       state.res = { ...state.res, created: actions.payload };
     },
     responseLogin: (state, actions) => {
-      console.log(actions.payload)
       state.res = { ...state.res, login: actions.payload };
     },
     clearState: (state, actions) => {
@@ -98,9 +95,6 @@ export const toolkit_prueba = createSlice({
     getLinkPayment: (state, actions) => {
       state.payment = { ...state.payment, link: actions.payload };
     },
-    getLinkPaymentDETAIL: (state, actions) => {
-      state.payment = { ...state.payment, detailLink: actions.payload };
-    },
     getCartRes: (state, actions) => {
       state.cart = [...state.cart, ...actions.payload];
     },
@@ -117,13 +111,8 @@ export const toolkit_prueba = createSlice({
       state.gameDetail = {};
     },
     deletedFavoriteUser: (state, actions) => {
-      state.userActual.favoritos = state.userActual.favoritos.filter(
-        (ele) => ele.id !== actions.payload
-      );
-    },
-    responseLoginAdmin: (state, actions) => {
-      state.res = { ...state.res, admLogin: actions.payload };
-    },
+      state.userActual.favoritos = state.userActual.favoritos.filter(ele => ele.id !== actions.payload)
+    }
   },
 });
 
@@ -148,16 +137,13 @@ export const {
   getUserActual,
   getItemsUser,
   cleanDetails,
+
+  responseAddCart,
   Filters,
   getExaminar,
   deletedFavoriteUser,
-  resProvisoryCartIds,
+
   providerResponseEnable,
-  getLinkPaymentDETAIL,
-  resProvisoryFavoriteIds,
-  responseLoginAdmin,
-  deleteProvisoryCartIds,
-  deleteProvisoryFavoriteIds
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

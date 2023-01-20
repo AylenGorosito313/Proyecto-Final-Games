@@ -15,7 +15,7 @@ export default function Profile() {
   const { userActual } = useSelector((state) => state.prueba);
 
   return (
-
+    <div className={style.containerProfile}>
       <div className={style.conteiner}>
  
         <div className={style.div}>
@@ -49,6 +49,6 @@ export default function Profile() {
           {!userActual ? userActual.region : ""}
         </div>
       </div>
-
+    </div>
   );
 }

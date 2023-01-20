@@ -16,17 +16,7 @@
     transition: all 0.4s;
     cursor: pointer;
 }
-.a-payment-detail{
-    color:#fff;
-    text-decoration: none;
-}
-.span-loading{
-    color: rgba(252, 252, 252, 0.795);
-    text-transform:uppercase;
-    animation: move linear 2000ms infinite; 
-    text-shadow:0px 0px 5px rgb(255, 255, 255),
-        0px 0px 7px rgb(69, 39, 177);
-}
+
 .pay-button span {
     cursor: pointer;
     display: inline-block;
@@ -36,20 +26,20 @@
     text-align: center;
 }
 
-/* .pay-button span:after {
-   
+.pay-button span:after {
+    content: 'NOW';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.7s;
-} */
-
-.pay-button:hover span {
-    opacity: 4;
 }
 
-/* .pay-button:hover span:after {
+.pay-button:hover span {
+    padding-right: 3em;
+}
+
+.pay-button:hover span:after {
     opacity: 4;
     right: 0;
-} */
+}

@@ -23,7 +23,6 @@ export default function ProveedorProfile() {
     <>
     <NavTop />
     <div className={style.LayoutProfilePage}>
-    <div className={style.containerData}>
       <NavProvedor />
       <div className={style.Statistics}>
         <h1 className={style.h1}> Games Statistics</h1>
@@ -87,7 +86,6 @@ export default function ProveedorProfile() {
           </div>
         )}
       </div> */}
-    </div>
     </div>
     <Footer/>
     </>

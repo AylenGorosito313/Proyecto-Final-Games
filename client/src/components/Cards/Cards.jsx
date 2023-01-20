@@ -4,27 +4,28 @@ import { AddFavorite } from "../../middleware";
 import { Link } from "react-router-dom";
 import { platformImage } from "./utils";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AddCart } from "../../middleware";
 
 
 
 function Card({ name, img, id, rating, platforms, released, genres, price}) {
   const dispatch = useDispatch();
-  
-  const { cart, provisoryCartIds, provisoryFavoriteIds } = useSelector( state => state.prueba)
-  
+  const [toggleFavorite, setToggleFavorite] = useState(false);
+  const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
+
   let user_id = localStorage.getItem("id");
-  
-  const identifyingCartId = provisoryCartIds.some(item => item === id)
-  const identifyingFavoriteId = provisoryFavoriteIds.some(item => item === id)
+  console.log(toggleShoppingCart);
 
   const HandlerAddFavorite = () => {
-    dispatch(AddFavorite(user_id, id));
+    setToggleFavorite(!toggleFavorite);
+     dispatch(AddFavorite(user_id, id))
   };
 
-  const handlerAddCart = (e) => {
+
+  const handlerAddCart = () => {
     dispatch(AddCart(user_id, id));
+    setToggleShoppingCart(true);
   };
 
   return (
@@ -33,7 +34,7 @@ function Card({ name, img, id, rating, platforms, released, genres, price}) {
         <div className="card">
           <div className="game-image">
             <div className="favourite-tag" onClick={HandlerAddFavorite}>
-              {identifyingFavoriteId ? (
+              {toggleFavorite ? (
                 <i className="fa-solid fa-heart fa-2xl red-heart"></i>
               ) : (
                 <i className="fa-regular fa-heart fa-2xl"></i>
@@ -57,7 +58,7 @@ function Card({ name, img, id, rating, platforms, released, genres, price}) {
               <div className="shopping-cart" onClick={handlerAddCart}>
                 <i className="fa-solid fa-cart-shopping cart"> </i>
                 <div className="check-plus">
-                  {identifyingCartId ? (
+                  {toggleShoppingCart ? (
                     <i className="fa-solid fa-check check"></i>
                   ) : (
                     <i className="fa-solid fa-plus plus"></i>

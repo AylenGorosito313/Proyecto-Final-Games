@@ -11,7 +11,6 @@ const platformRouter = require('./routes/platforms.routes')
 const carritoRouter = require('./routes/carrito.routes')
 const ShoppingHistory = require('./routes/Shoppinghistory.routes')
 // const Cloudinary = require('./routes/cloudinary.routes');
-const adminRouter = require('./routes/admin.routes')
 const server = express()
 server.use(cors())
 
@@ -25,7 +24,6 @@ server.use(usersRouter)
 server.use(platformRouter)
 server.use(carritoRouter)
 server.use(ShoppingHistory)
-server.use(adminRouter)
 // server.use(Cloudinary)
 
 

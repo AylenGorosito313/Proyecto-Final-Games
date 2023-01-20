@@ -1,49 +1,48 @@
 import React, { useEffect, useState } from "react";
 import "./SliderCard.css";
-import { AddFavorite } from "../../../middleware";
 import { Link } from "react-router-dom";
-import { platformImage, noLoginNoCart, gamesRepeatedInCart } from "../utils";
+import { platformImage } from "../utils";
 import { priceFactor } from "../utils";
 import { AddCart } from "../../../middleware";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
 
 function Card({ name, img, id, rating, platforms, released, genres }) {
   const dispatch = useDispatch();
+  const [toggleFavorite, setToggleFavorite] = useState(false);
+  const [toggleShoppingCart, setToggleShoppingCart] = useState(false);
 
-  const { cart, provisoryCartIds, provisoryFavoriteIds } = useSelector( state => state.prueba)
-  
   let user_id = localStorage.getItem("id");
-  console.log(provisoryCartIds)
-  const identifyingCartId = provisoryCartIds.some(item => item === id)
-  const identifyingFavoriteId = provisoryFavoriteIds.some(item => item === id)
 
-  const HandlerAddFavorite = () => {
-    dispatch(AddFavorite(user_id, id));
+  useEffect(() => {
+        if(toggleShoppingCart === true){
+          dispatch(AddCart(user_id, id))
+        }
+    }, [toggleShoppingCart])
+
+  const onClickFavorite = () => {
+    setToggleFavorite(!toggleFavorite);
   };
 
   const onClickShoppingCart = (e) => {
-    dispatch(AddCart(user_id, id));
+    setToggleShoppingCart(true);
   };
 
   return (
     <div className="single-card-slider">
       <div className="card-slider">
         <div className="game-image-slider">
-          <div className="favourite-tag-slider" onClick={HandlerAddFavorite}>
-            {identifyingFavoriteId ? (
+          <div className="favourite-tag-slider" onClick={onClickFavorite}>
+            {toggleFavorite ? (
               <i className="fa-solid fa-heart fa-2xl red-heart"></i>
             ) : (
               <i className="fa-regular fa-heart fa-2xl"></i>
             )}
           </div>
-          {img ? (
-            <img src={img} alt={name} />
-          ) : (
-            <div className="no-image">
-              <h4>There is no image for this game card</h4>
-            </div>
-          )}
+          {img ? 
+          <img src={img} alt={name} /> :
+          <div className="no-image">
+            <h4>There is no image for this game card</h4>
+          </div> }
         </div>
 
         <div className="card-content-slider">
@@ -71,7 +70,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             <div className="shopping-cart-slider" onClick={onClickShoppingCart}>
               <i className="fa-solid fa-cart-shopping cart"> </i>
               <div className="check-plus-slider">
-                {identifyingCartId ? (
+                {toggleShoppingCart ? (
                   <i className="fa-solid fa-check check"></i>
                 ) : (
                   <i className="fa-solid fa-plus plus"></i>

@@ -16,8 +16,9 @@ export default function NavProfile() {
   }, [dispatch]);
 
   return (
-<>
-   
+    <div className={style.Layoutcontainer}>
+      <div className={style.Layout}>
+        <br />
         <div className={style.conteiner}>
           <div className={style.divAvatar}>
             <img
@@ -69,7 +70,7 @@ export default function NavProfile() {
             {/* </button> */}
           </div>
         </div>
-        <div className={style.conteinerNav}>
+        <ul className={style.conteinerNav}>
           <div className={style.divTab}>
             <Link to="/user" className={style.link}>
               🧑 Profile
@@ -90,8 +91,9 @@ export default function NavProfile() {
               ⚙️ Settings
             </Link>
           </div>
-        </div>
+        </ul>
         <div className={style.loader}></div>
-   </>
+      </div>
+    </div>
   );
 }

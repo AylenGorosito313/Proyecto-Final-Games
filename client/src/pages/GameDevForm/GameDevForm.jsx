@@ -14,7 +14,7 @@ export default function GameDevForm () {
     const { isLoader } = useSelector( state => state.prueba);
     const providerCreated = useSelector( state => state.prueba.res.provider)
     
-    console.log(providerCreated === true)
+    
     return (
         <>
             <div className="dev-form-main-container">

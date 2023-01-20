@@ -175,16 +175,15 @@
   }
 }
 
-
-.divSet{
+/* .divSet{
     display: flex;
     gap: 10px;
     flex-direction: column;
-}
+} */
 
-/* .img {
+.img {
   width: 100px;
   border-radius: 50px;
   /* background: #fff; */
-  /* height: 100px;
-}  */
+  height: 100px;
+} 

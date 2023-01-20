@@ -74,7 +74,6 @@ function App() {
 
       <Route path="/profile">
         <NavTop />
-
         {/* <Route exact path="/profile/profile" component={Profile} /> */}
         <Route exact path="/profile/games" component={MyGames} />
         <Route exact path="/profile/favorite" component={Favorite} />

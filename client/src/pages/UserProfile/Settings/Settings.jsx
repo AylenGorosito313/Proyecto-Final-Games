@@ -89,8 +89,6 @@ export default function Settings() {
   }
 
   return (
-
-
     <div className={style.LayoutProfilePage}>
        <div className={style.containerData}>
       <NavProfile />

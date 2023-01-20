@@ -41,11 +41,11 @@ function App() {
   return (
     <>
       <Switch>
-      <Route exact path="/user">
+      {/* <Route exact path="/user"> */}
         <Route exact path="/user/login" component={Loginn} />
         <Route exact path="/user/register" component={Register} />
         {/* <Route exact path="/user/recuperacion" component={UserRecuperacion} /> */}
-      </Route>
+      {/* </Route> */}
 
       <Route exact path={"/payment"}>
         <NavTop/>

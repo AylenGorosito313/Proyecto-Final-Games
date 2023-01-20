@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Homepage from "./pages/Homepage/Homepage";
 import Cart from "./components/Cart/Cart";
@@ -23,6 +23,7 @@ import GameDevForm from "./pages/GameDevForm/GameDevForm";
 import ViewAdmin from "./pages/Admin/ViewAdmin";
 import Footer from "./components/Footer/Footer";
 import ProveedorProfile from "./pages/ProveedorProfile/Profile/ProveedorProfile";
+import Page404 from "./components/Page404/Page404";
 
 function App() {
   axios.defaults.headers.common[
@@ -30,6 +31,7 @@ function App() {
   ] = `Bearer ${localStorage.getItem("token")}`;
   return (
     <>
+      <Switch>
       <Route path="/user">
         <Route exact path="/user/login" component={Loginn} />
         <Route exact path="/user/register" component={Register} />
@@ -84,7 +86,8 @@ function App() {
       <Route exact path="/provedor/unpload" component={UnploadGame} />
       <Route exact path="/provedor/profile" component={ProveedorProfile} />
     
-      
+      <Route path="*" component={Page404}/>
+      </Switch>
     </>
   );
 }

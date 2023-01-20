@@ -69,9 +69,9 @@ font-weight: 200;
 
 .img {
   width: 100px;
-  border-radius: 50px;
-  background: #fff;
   height: 100px;
+  border-radius: 50px;
+  /* background: #fff; */
 }
 
 .li {

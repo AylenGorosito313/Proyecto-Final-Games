@@ -83,15 +83,15 @@ gap: 20px;
 .input {
   background-color: #ffffff15;
   font-family: poppins;
+  color: rgb(200, 192, 230);
   max-width: 190px;
   height: 20px;
   padding: 10px;
-
   border: 1px solid white;
   border-radius: 5px;
 }
 .input::placeholder {
-  color: rgba(255, 255, 255, 0.438);
+  color: rgb(200, 192, 230);
   font-size: 14px;
 }
 
@@ -99,7 +99,7 @@ gap: 20px;
     background: #fff3f300;
     font-family: poppins;
     max-width: 190px;
-    color: rgb(255, 255, 255);
+    color: rgb(200, 192, 230);
     height: 40px;
     padding: 10px;
  
@@ -170,4 +170,11 @@ gap: 20px;
     display: flex;
     gap: 10px;
     flex-direction: column;
+}
+
+.img {
+  width: 100px;
+  border-radius: 50px;
+  /* background: #fff; */
+  height: 100px;
 }

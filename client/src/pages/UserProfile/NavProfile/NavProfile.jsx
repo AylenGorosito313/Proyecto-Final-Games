@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { geUserActual } from "../../../middleware";
 import style from "../NavProfile/NavProfile.module.css";
 import Profile from "../Profile/Profile";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function NavProfile() {
   const dispatch = useDispatch();
   const { userActual } = useSelector((state) => state.prueba);
-  // console.log(userActual)
+
 
   useEffect(() => {
     let userID = window.localStorage.getItem("id");
@@ -16,6 +17,8 @@ export default function NavProfile() {
   }, [dispatch]);
 
   return (
+    <>
+    <Toaster/>
     <div className={style.Layoutcontainer}>
       <div className={style.Layout}>
         <br />
@@ -24,9 +27,9 @@ export default function NavProfile() {
             <img
               className={style.img}
               src={
-                userActual.img
-                  ? userActual.img
-                  : "https://raw.githubusercontent.com/multiavatar/Multiavatar/main/logo.png?v=001"
+                userActual.profile_img
+                  ? userActual.profile_img
+                  : "https://cdn-icons-png.flaticon.com/512/1361/1361876.png"
               }
               alt="ImgProfile"
               width="200px"
@@ -34,7 +37,7 @@ export default function NavProfile() {
             />
             <div className={style.divAvatar}>
               {userActual.name
-                ? `${userActual.name} ${userActual.lastName}`
+                ? `${userActual.name}`
                 : ""}
             </div>
           </div>
@@ -95,5 +98,6 @@ export default function NavProfile() {
         <div className={style.loader}></div>
       </div>
     </div>
+    </>
   );
 }

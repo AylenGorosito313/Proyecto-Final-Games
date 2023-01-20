@@ -45,6 +45,14 @@ const Game = sequelize.define("game", {
     createdBy:{
         type: DataTypes.STRING,
         defaultValue: null
+    },
+    developers: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    released: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 
 }, {freezeTableName: true, paranoid: true, deletedAt: 'JuegosEliminados'});

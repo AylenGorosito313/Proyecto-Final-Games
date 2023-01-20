@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 //Import images assets
-import Andromeda2 from "../../assets/devForm/andromeda2.jpg";
-import Andromeda1 from "../../assets/devForm/andromeda3.jpg";
-import Andromeda3 from "../../assets/devForm/andromeda1.jpg";
+import Andromeda1 from "../../assets/devForm/1.jpg";
+import Andromeda2 from "../../assets/devForm/2.jpg";
+import Andromeda3 from "../../assets/devForm/3.jpg";
 import fondo from "../../assets/img/fondo4.png";
 import offerImage from "../../assets/slides/free_offers.jpg";
 import doom from "../../assets/slides/doom_logo.png";

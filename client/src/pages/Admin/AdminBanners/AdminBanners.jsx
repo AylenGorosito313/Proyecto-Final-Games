@@ -8,34 +8,27 @@ import UnploadBanner from "./BannersFlow/UnploadImgBanner/UnploadBannerImg";
 import UnploadBannerLogo from "./BannersFlow/UnploadImgBannerLogo/UnploadBannerLogo";
 export default function AdminBanners() {
   const [Next, setNext] = useState(false);
-  // const [gameInfo, setgameInfo] = useState({
-  //   background_image: "",
-  //   background_logo: "",
-  // });
+
+
+  let imageBanner ="";
+  let imageLogo ="";
+  let dataText = "";
 
   const UnploadImageBanner = (ImagesURL) => {
-    let imageBanner = ImagesURL;
+   imageBanner = ImagesURL;
 
-
-    // setgameInfo({
-    //   ...gameInfo,
-    //   background_image: imageBanner } )
-    
   };
 
   const UnploadImageLogo = (ImagesURLLogo) => {
-    let imageLogo = ImagesURLLogo;
-    // setgameInfo({
-    //   ...gameInfo,
-    //   background_logo: imageLogo,
-    // });
+   imageLogo = ImagesURLLogo;
+
   };
 
   const HandlerText = (data) => {
-    let dataText = data;
-    // setgameInfo(imageLogo )
+   dataText = data;
+   console.log( dataText)
   };
-  //
+
 
   const handlerNext = () => {
     setNext(true);
@@ -44,17 +37,10 @@ export default function AdminBanners() {
     setNext(false);
   };
 
-  // console.log(gameInfo);
   const onSubmit = async () => {
-    console.log(dataText);
-    // let banner_img = {
-    //   background_image: background_image,
-    //   background_logo: background_logo };
 
-    // let bannerInfo = {
-    //   banner_img,
-    // };
-    console.log(banner_img);
+    let BannerInfo = {dataText, imageLogo, imageBanner };
+    console.log(BannerInfo)
     // dispatch(CreateBanner(bannerInfo));
     // setCreated(true);
   };

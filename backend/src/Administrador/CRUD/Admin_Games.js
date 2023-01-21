@@ -60,3 +60,22 @@ const updateGame = async (req, res) => {
     }
 }
 module.exports = { deleteGameProvider, deleteGame, updateGame };
+const getAllGameToDB = async (req, res) => {
+    try {
+        
+        let result = await Game.findAll()
+        if(!result.length){
+            return res.status(404).json({
+                message: "The table Game is empty"
+            })
+        }
+        res.status(200).json(result)
+
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+    }
+}
+
+module.exports = { deleteGame, getAllGameToDB };

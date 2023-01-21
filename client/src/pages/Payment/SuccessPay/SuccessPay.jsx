@@ -47,7 +47,7 @@ function SuccessPay() {
           <button className="button-29" role="button">
             Download
           </button>
-          <Link className="link-payment-sucss" to={"/user"}>
+          <Link className="link-payment-sucss" to={"/user/profil"}>
           <button className="button-30" role="button">
             View in profile
           </button>

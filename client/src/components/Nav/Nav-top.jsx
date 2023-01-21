@@ -12,20 +12,22 @@ import { motion } from "framer-motion";
 import "../Botones/BotonLogin.css";
 import Car from "../../svg/Car";
 import User from "../../svg/User";
-
+import { useSelector } from "react-redux";
+import PanelAdminNav from "../../svg/PanelAdminNav";
 function NavTop() {
   const [Login, setLogin] = useState(false);
-
+  const { res } = useSelector((state) => state.prueba);
   const [Dev, setDev] = useState(false);
   const [OpenUser, setOpenUser] = useState(null);
   const [OpenNotifica, setOpenNotifica] = useState(false);
   const [OpenCar, setOpenCar] = useState(false);
   const navigate = useHistory();
+  let admin = localStorage.getItem("isAdmin");
 
-  // if (Idprovider) {
-  //   setDev(true);
-  // }
-
+  let isAdmin = false;
+  if (admin) {
+    isAdmin = true;
+  }
   const handleLogin = () => {
     navigate.push("/user/login");
   };
@@ -68,26 +70,35 @@ function NavTop() {
       <div className="Nav-layout">
         <div className="div-layout-icon-nav">
           <div className="Nav-top-container-sticky">
+            {isAdmin === true && (
+              <Link className="Link-nav" to={"/panelView"}>
+                <div onClick={handlerOpenCar} className="div-icon">
+                  <PanelAdminNav />
+                  Admin Panel
+                </div>
+              </Link>
+            )}
+
             <Link className="Link-nav" to={"/payment"}>
               <div onClick={handlerOpenCar} className="div-icon">
                 <Car />
                 Cart
               </div>
             </Link>
-            
+
             <div onClick={handlerOpenNotifica} className="div-icon">
               <Notificacion /> Notifications
             </div>
             <Link className="Link-nav" to={"/profile/favorite"}>
-            <div onClick={handlerOpenNotifica} className="div-icon">
-              <FavoriteNav /> Favorites
-            </div>
+              <div onClick={handlerOpenNotifica} className="div-icon">
+                <FavoriteNav /> Favorites
+              </div>
             </Link>
             <div>
               {Login ? (
                 <div onClick={handlerOpenUser} className="div-icon">
                   <User />
-                 <p className="p-profile"> Profile</p>
+                  <p className="p-profile"> Profile</p>
                 </div>
               ) : (
                 <button
@@ -104,7 +115,6 @@ function NavTop() {
               {OpenUser && (
                 <SelectProfile setOpen={setOpenUser} setLogin={setLogin} />
               )}
-            
             </div>
           </div>
         </div>

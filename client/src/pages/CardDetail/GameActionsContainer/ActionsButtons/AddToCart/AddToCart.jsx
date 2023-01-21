@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Utils and Actions
-import { priceFactor } from "../../../utils/utils";
 import { AddCart } from "../../../../../middleware";
 
 //  CSS Styles
@@ -15,14 +14,14 @@ export default function AddToCart ({ id }) {
     
     const { provisoryCartIds } = useSelector( state => state.prueba)
 
-    console.log(id)
     let user_id =localStorage.getItem("id");
     console.log(provisoryCartIds)
     const identifyingCartId = provisoryCartIds.some(item => item === parseInt(id))
     console.log(identifyingCartId)
+  
 
     const onClickCartButton = (e) => {
-        dispatch(AddCart(user_id, id))
+        dispatch(AddCart(user_id, parseInt(id)))
         
     }
   

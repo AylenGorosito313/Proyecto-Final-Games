@@ -41,7 +41,7 @@ export default function NavProvedor() {
           {/* <div className={style.div}>{ userActual.name ? `Hello ${userActual.name}!` : 'Your Name'}</div> */}
           <div className={style.div}>
             <button className={style.button}>
-              <Link to="/user" className={style.link}>
+              <Link to="/user/profil" className={style.link}>
                 {" "}
                 User Profile{" "}
               </Link>

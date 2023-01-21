@@ -1,17 +1,17 @@
-/* .conteiner {
+.conteiner {
   display: flex;
   justify-content: space-around;
   padding-left: 40px;
   padding-top: 70px;
   min-width: 800px;
   max-width: 800px;
-  box-shadow: -1px 1px 1px #424141, 0 0 #fff;
-  background: #ffffff1f;
+
+  background: transparent;
   align-items: flex-start;
   flex-direction: column;
   gap: 20px;
   border-radius: 10px;
-} */
+}
 .divNameAvatar {
   display: flex;
   width: 100%;
@@ -93,15 +93,15 @@
 .input {
   background-color: #ffffff15;
   font-family: poppins;
+  color: rgb(200, 192, 230);
   max-width: 190px;
   height: 20px;
   padding: 10px;
-
   border: 1px solid white;
   border-radius: 5px;
 }
 .input::placeholder {
-  color: rgba(255, 255, 255, 0.438);
+  color: rgb(200, 192, 230);
   font-size: 14px;
 }
 
@@ -175,8 +175,15 @@
   }
 }
 
-.divSet {
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-}
+/* .divSet{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+} */
+
+.img {
+  width: 100px;
+  border-radius: 50px;
+  /* background: #fff; */
+  height: 100px;
+} 

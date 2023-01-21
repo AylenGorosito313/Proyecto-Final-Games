@@ -29,13 +29,12 @@ export default function CardDetail() {
 
     useEffect(() => {
     dispatch(getGameDetail(id));
-    
       return () => {
         dispatch(cleanDetails())
       }
     }, [])
 
-    if(gameDetail) window.scroll({top: 0})
+    if(gameDetail) window.scroll({top: 0, behavior: "smooth"})
 
     return (
         <>

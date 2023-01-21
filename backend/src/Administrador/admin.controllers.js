@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { Admin } = require("../models/admin");
+const { Banner } = require("../models/banner");
 const { SECRET_PASSOWORD_ADMIN, SECRET } = process.env;
 
 const createNewAdmin = async (req, res) => {
@@ -41,6 +42,9 @@ const adminLogin = async (mail, password) => {
             where: {
                 mail,
             },
+            include: {
+                model: Banner
+            }
         });
         if(!searchAdmin){
             return

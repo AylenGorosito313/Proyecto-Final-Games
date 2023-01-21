@@ -1,5 +1,6 @@
 // UnploadBanner
 import style from "./UnploadBanner.module.css";
+import picture from "../../../AdminSvg/picture.png"
 import React, { useEffect, useState } from "react";
 export default function UnploadBanner({ UnploadImageBanner }) {
   const [image, setImage] = useState([]);
@@ -32,7 +33,7 @@ export default function UnploadBanner({ UnploadImageBanner }) {
         <div className={style.imagesPreviewContainer}>
           <img
             className={style.imgScale}
-            src={image.length ? image : null}
+            src={image.length ? image : picture }
             // alt="UploadImage"
             width="100px"
             height="300px"

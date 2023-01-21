@@ -1,6 +1,7 @@
 
 import style from "./UnploadImageLogo.module.css"
 import React, { useEffect, useState } from "react";
+import picture from "../../../AdminSvg/picture.png"
 export default function UnploadBannerLogo ({ unploadImageLogo}) {
   const [image, setImage] = useState([]);
 
@@ -36,7 +37,8 @@ export default function UnploadBannerLogo ({ unploadImageLogo}) {
               <img
                 className={style.imgScale}
                 // key={img.public_id}
-                src={image}
+                src={image.length ? image : picture }
+                //picture
                 // alt="UploadImage"
                 width="100px"
                 height="300px"

@@ -1,0 +1,10 @@
+.card{
+    width: 100%;
+    background: rgba(255, 255, 255, 0.507);
+    height: 100px;
+    padding: 10px;
+}
+.container{
+    padding: 10px;
+  
+}

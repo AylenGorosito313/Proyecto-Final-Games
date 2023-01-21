@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import NavAdmin from "../NavAdmin/NavAdmin";
 import style from "./AdminBanners.module.css";
-// import TextBanners from '../../../components/HomeSlider/TextBanners';
 import { createBanners } from "../../../middleware";
 import TextinBanners from "./BannersFlow/TextinBanners";
 import UnploadBanner from "./BannersFlow/UnploadImgBanner/UnploadBannerImg";
 import UnploadBannerLogo from "./BannersFlow/UnploadImgBannerLogo/UnploadBannerLogo";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import BannerDelete from "./DeleteBanner/BannerDelete";
 export default function AdminBanners() {
   const { banners } = useSelector((state) => state.prueba);
   const navigate = useHistory();
@@ -92,7 +91,8 @@ export default function AdminBanners() {
     let adminId = localStorage.getItem("id");
     dispatch(createBanners(bannerInfo, adminId));
   };
-
+    //Dependiendo del state de Select  se renderiza Crear o Delete
+    // state Next maneja lo que se renderiza en en el div content y los botones
   return (
     <>
       <div className={style.Layout}>
@@ -105,10 +105,21 @@ export default function AdminBanners() {
                 <option value={DefaultValues.delete}>Delete Banners</option>
               </select>
             </div>
+        
             <div className={style.content}>
+           
               {Select === true ? (
-                <h1> holi </h1>
+                <>
+                  <div className={style.HeaderText}>
+                    <h1>Delete Banners </h1>
+                    <p className={style.pHeader}>
+                    In this section you will be able to view and delete all the created banners.
+                    </p>
+                  </div>
+                  <BannerDelete/>
+                </>
               ) : (
+               
                 <>
                   <div className={style.HeaderText}>
                     <h1>Create Banners </h1>

@@ -31,6 +31,7 @@ export default function AdminBanners() {
     })
   };
 
+  
   const UnploadImageBanner = (ImagesURL) => {
     setInfo({
       ...Info,
@@ -38,16 +39,20 @@ export default function AdminBanners() {
 
     })
   };
-  // const HandlerText = (text) => {
-  //   dataText = text;
-  // };
-  const Onsubmit = async () => {
+  const HandlerText = (text) => {
+    setInfo({
+      ...Info,
+      dataText: text
+    })
+  };
+  const Onsubmit = () => {
     let gameInfo = { imageBanner, imageLogo };
     console.log(gameInfo);
+   
     // dispatch(CreateGame(gameInfo, userId));
     // setCreated(true);
   };
-
+  console.log(Info);
   // let imageBanner ="";
   // let imageLogo ="";
   // let dataText = "";
@@ -95,11 +100,11 @@ export default function AdminBanners() {
               </div>
 
               {Next ? (
-                <TextinBanners />
+                <TextinBanners HandlerText={HandlerText} />
               ) : (
                 <div className={style.header}>
-                  <UnploadBanner UnploadImageBanner={() => UnploadImageBanner()}/>
-                  <UnploadBannerLogo unploadImageLogo={() => unploadImageLogo()}/>
+                  <UnploadBanner UnploadImageBanner={UnploadImageBanner}/>
+                  <UnploadBannerLogo unploadImageLogo={unploadImageLogo}/>
                 </div>
               )}
             </div>

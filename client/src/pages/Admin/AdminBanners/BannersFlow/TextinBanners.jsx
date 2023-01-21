@@ -12,7 +12,7 @@ export default function TextinBanners({ HandlerText }) {
     mode: "onChange",
   });
   const OnSubmit = (data) => {
-    HandlerText(data);
+    HandlerText(data)
   };
   const toggleFormText = () => {
     setFrom();

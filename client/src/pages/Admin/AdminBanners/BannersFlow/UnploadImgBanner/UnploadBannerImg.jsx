@@ -1,8 +1,8 @@
 
 // UnploadBanner
 import style from "./UnploadBanner.module.css"
-import React, { useState } from "react";
-export default function UnploadBanner ({ Info ,setInfo }) {
+import React, { useEffect, useState } from "react";
+export default function UnploadBanner ({ UnploadImageBanner }) {
   const [image, setImage] = useState([]);
 
   function handleOpenWidget() {
@@ -22,20 +22,17 @@ export default function UnploadBanner ({ Info ,setInfo }) {
               delete: result.info.delete_token,
             },
           ]);
-          console.log(image);
         }
       }
     );
     myWidget.open();
   }
 
-  if (image) {
+  useEffect(() => {
     let ImagesURL = image && image?.map((img) => img.url);
-
-    setInfo({
-      ...Info,
-      imageBanner: ImagesURL});
-  }
+    UnploadImageBanner(ImagesURL)
+  }, [])
+  
   return (
     <div>
       <h1 className={style.h1}>Upload  Banner Images </h1>

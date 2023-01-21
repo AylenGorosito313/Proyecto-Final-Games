@@ -1,7 +1,7 @@
 
 import style from "./UnploadImageLogo.module.css"
-import React, { useState } from "react";
-export default function UnploadBannerLogo ({ setInfo }) {
+import React, { useEffect, useState } from "react";
+export default function UnploadBannerLogo ({ unploadImageLogo }) {
   const [image, setImage] = useState([]);
 
   function handleOpenWidget() {
@@ -28,11 +28,11 @@ export default function UnploadBannerLogo ({ setInfo }) {
     myWidget.open();
   }
 
-  if (image) {
+  useEffect(() => {
     let ImagesURL = image && image?.map((img) => img.url);
+    unploadImageLogo(ImagesURL)
+  }, [])
 
-    setInfo(ImagesURL);
-  }
   return (
     <div>
       <h1 className={style.h1}>Upload Banner Logo </h1>

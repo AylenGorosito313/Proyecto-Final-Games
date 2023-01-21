@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import NavAdmin from "../NavAdmin/NavAdmin";
 import style from "./AdminBanners.module.css";
 // import TextBanners from '../../../components/HomeSlider/TextBanners';
@@ -23,23 +24,24 @@ export default function AdminBanners() {
   // let imageLogo = "";
   // let dataText = "";
 
-  // const UnploadImageLogo = (ImagesURLLogo) => {
-  //   setInfo({
-  //     ...Info,
-  //     imageLogo: ImagesURLLogo
-  //   })
-  // };
+  const unploadImageLogo = (ImagesURLLogo) => {
+    setInfo({
+      ...Info,
+      imageLogo: ImagesURLLogo
+    })
+  };
 
   const UnploadImageBanner = (ImagesURL) => {
-    imageBanner = ImagesURL;
+    setInfo({
+      ...Info,
+      imageBanner: ImagesURL
+
+    })
   };
-  const HandlerText = (text) => {
-    dataText = text;
-  };
+  // const HandlerText = (text) => {
+  //   dataText = text;
+  // };
   const Onsubmit = async () => {
-    // let userId = localStorage.getItem("id");
-    // let genres = gender.genere;
-    // let platforms = platform.platformarray;
     let gameInfo = { imageBanner, imageLogo };
     console.log(gameInfo);
     // dispatch(CreateGame(gameInfo, userId));
@@ -93,11 +95,11 @@ export default function AdminBanners() {
               </div>
 
               {Next ? (
-                <TextinBanners HandlerText={HandlerText} />
+                <TextinBanners />
               ) : (
                 <div className={style.header}>
-                  <UnploadBanner />
-                  <UnploadBannerLogo />
+                  <UnploadBanner UnploadImageBanner={() => UnploadImageBanner()}/>
+                  <UnploadBannerLogo unploadImageLogo={() => unploadImageLogo()}/>
                 </div>
               )}
             </div>

@@ -11,7 +11,9 @@ export default function AdminBanners() {
   const [Info, setInfo] = useState({
     imageBanner: "",
     imageLogo: "",
-    dataText: "",
+    name: "",
+    description: "",
+    textBtn: "",
   });
   const handlerNext = () => {
     setNext(true);
@@ -20,44 +22,42 @@ export default function AdminBanners() {
     setNext(false);
   };
 
-
-
   const unploadImageLogo = (urlLogo) => {
     setInfo({
       ...Info,
-      imageLogo: urlLogo
-    })
+      imageLogo: urlLogo,
+    });
   };
 
-  
   const UnploadImageBanner = (ImagesURL) => {
     setInfo({
       ...Info,
-      imageBanner: ImagesURL
-
-    })
+      imageBanner: ImagesURL,
+    });
   };
   const HandlerText = (text) => {
+    console.log(text.name);
     setInfo({
       ...Info,
-      dataText: text
-    })
+      name: text.name,
+      description: text.description,
+      textBtn: text.textBtn,
+    });
   };
+
+  console.log(Info);
+
   const Onsubmit = () => {
     let gameInfo = { imageBanner, imageLogo };
     console.log(gameInfo);
-   
+
     // dispatch(CreateGame(gameInfo, userId));
     // setCreated(true);
   };
-  console.log(Info);
+  // console.log(Info);
   // let imageBanner ="";
   // let imageLogo ="";
   // let dataText = "";
-
-
-
-
 
   return (
     <>
@@ -83,8 +83,8 @@ export default function AdminBanners() {
                 <TextinBanners HandlerText={HandlerText} />
               ) : (
                 <div className={style.header}>
-                  <UnploadBanner UnploadImageBanner={UnploadImageBanner}/>
-                  <UnploadBannerLogo unploadImageLogo={unploadImageLogo}/>
+                  <UnploadBanner UnploadImageBanner={UnploadImageBanner} />
+                  <UnploadBannerLogo unploadImageLogo={unploadImageLogo} />
                 </div>
               )}
             </div>

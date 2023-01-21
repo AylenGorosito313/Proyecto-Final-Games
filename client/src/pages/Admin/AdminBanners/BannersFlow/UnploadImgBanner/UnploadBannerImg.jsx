@@ -1,8 +1,7 @@
-
 // UnploadBanner
-import style from "./UnploadBanner.module.css"
+import style from "./UnploadBanner.module.css";
 import React, { useEffect, useState } from "react";
-export default function UnploadBanner ({ UnploadImageBanner }) {
+export default function UnploadBanner({ UnploadImageBanner }) {
   const [image, setImage] = useState([]);
 
   function handleOpenWidget() {
@@ -22,33 +21,29 @@ export default function UnploadBanner ({ UnploadImageBanner }) {
 
   console.log(image);
   useEffect(() => {
-    let ImagesURL = image ;
-    UnploadImageBanner(ImagesURL)
-  }, [image.length])
-  
+    let ImagesURL = image;
+    UnploadImageBanner(ImagesURL);
+  }, [image.length]);
+
   return (
     <div>
-      <h1 className={style.h1}>Upload  Banner Images </h1>
+      <h1 className={style.h1}>Upload Banner Images </h1>
       <div>
         <div className={style.imagesPreviewContainer}>
-         
-              <img
-                className={style.imgScale}
-                src={image.length ? image : null}
-                // alt="UploadImage"
-                width="100px"
-                height="300px"
-              />
-        
-
+          <img
+            className={style.imgScale}
+            src={image.length ? image : null}
+            // alt="UploadImage"
+            width="100px"
+            height="300px"
+          />
         </div>
         <button
-            className={style.btnUnpload}
+          className={style.btnUnpload}
           id="upload-widget"
-       
           onClick={handleOpenWidget}
         >
-          Upload  Image
+          Upload Image
         </button>
       </div>
     </div>

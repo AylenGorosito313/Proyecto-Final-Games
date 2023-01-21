@@ -30,6 +30,6 @@ adminRouter.delete('/user/provider/denied/:userId', adminUsers.denyRequest)
 
 
 //Admin -> games
-adminRouter.put("/game/updateInfo/:userId/:gameId", updateGame ) //llega los datos a modificar por body
+// adminRouter.put("/game/updateInfo/:userId/:gameId", updateGame ) //llega los datos a modificar por body
 adminRouter.delete("/game/provider/deleteGameProvider/:userId/:gameId", deleteGame); 
 module.exports = adminRouter

@@ -62,6 +62,7 @@ export default function AdminBanners() {
     };
     let adminId = localStorage.getItem("id");
     dispatch(createBanners(bannerInfo, adminId));
+    
   };
 
   return (

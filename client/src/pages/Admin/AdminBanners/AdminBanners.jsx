@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 import NavAdmin from "../NavAdmin/NavAdmin";
 import style from "./AdminBanners.module.css";
 // import TextBanners from '../../../components/HomeSlider/TextBanners';
+import { createBanners } from "../../../middleware";
 import TextinBanners from "./BannersFlow/TextinBanners";
 import UnploadBanner from "./BannersFlow/UnploadImgBanner/UnploadBannerImg";
 import UnploadBannerLogo from "./BannersFlow/UnploadImgBannerLogo/UnploadBannerLogo";
 export default function AdminBanners() {
+  const dispatch = useDispatch();
   const [Next, setNext] = useState(false);
   const [Info, setInfo] = useState({
     imageBanner: "",
@@ -45,19 +48,21 @@ export default function AdminBanners() {
     });
   };
 
-  console.log(Info);
-
   const Onsubmit = () => {
-    let gameInfo = { imageBanner, imageLogo };
-    console.log(gameInfo);
-
-    // dispatch(CreateGame(gameInfo, userId));
-    // setCreated(true);
+    let bannerInfo = {
+      banner_img: [
+        {
+          imageBanner: Info.imageBanner,
+          imageLogo: Info.imageLogo,
+          name: Info.name,
+          description: Info.description,
+          textBtn: Info.textBtn,
+        },
+      ],
+    };
+    let adminId = localStorage.getItem("id");
+    dispatch(createBanners(bannerInfo, adminId));
   };
-  // console.log(Info);
-  // let imageBanner ="";
-  // let imageLogo ="";
-  // let dataText = "";
 
   return (
     <>
@@ -96,7 +101,7 @@ export default function AdminBanners() {
                 </button>
               )}
               {Next && (
-                <button onSubmit={Onsubmit} className={style.btn}>
+                <button onClick={Onsubmit} className={style.btn}>
                   Create Banner
                 </button>
               )}

@@ -189,6 +189,18 @@ export const createUser = ({ name, lastName, email, password }) => {
   };
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
 export const enableProvider = (id, aplication) => {
   return async function (dispatch) {
     console.log(aplication)
@@ -530,4 +542,45 @@ export const deletedDetails = () => {
   };
 };
 
-// crear
+// crear banner
+
+export const createBanners= (bannerInfo, adminId) => {
+  return async function (dispatch) {
+    try {
+      let res = await axios({
+        method: "POST",
+        data: bannerInfo,
+        url: `http://localhost:3001/admin/create/banner?adminId=${adminId}`,
+      });
+      dispatch(responseRegister(res.data));
+    } catch (error) {
+      toast.error(error.message, {
+        position: "bottom-right",
+        duration: 4000,
+
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
+  };
+};
+
+
+/// get all banners /admin/allbanner
+// export const getBanners = () => {
+//   return async (dispatch) => {
+//     try {
+//       const response = await axios({
+//         method: "GET",
+//         url: `http://localhost:3001/admin/allbanner`,
+//       });
+//       console.log(response);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
+

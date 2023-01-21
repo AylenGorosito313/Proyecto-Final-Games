@@ -14,9 +14,8 @@ const createBanner = async (req, res) => {
         if(searchAdmin){
             let banner = await Banner.create(bannerInfo)
             searchAdmin.addBanner(banner)
+            return res.status(200).json('Banner created')
         }
-
-        return res.status(200).json('Banner created')
         
     } catch (error) {
         return res.status(400).json({

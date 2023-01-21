@@ -14,6 +14,7 @@ export default function GameDevForm () {
     const { isLoader } = useSelector( state => state.prueba);
     const providerCreated = useSelector( state => state.prueba.res.provider)
     
+    if(providerCreated) window.scroll({top: 0})
     
     return (
         <>

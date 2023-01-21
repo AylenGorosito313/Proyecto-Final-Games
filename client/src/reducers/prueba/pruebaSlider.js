@@ -28,6 +28,10 @@ const initialState = {
   isLoader: false,
   userActual: {},
   itemCar: [],
+  banners:{
+    res:"",
+    
+}
 };
 
 export const toolkit_prueba = createSlice({
@@ -124,6 +128,9 @@ export const toolkit_prueba = createSlice({
     responseLoginAdmin: (state, actions) => {
       state.res = { ...state.res, admLogin: actions.payload };
     },
+    responseCreateBanner: (state, actions) => {
+      state.banners = { ...state.banners , res: actions.payload };
+    },
   },
 });
 
@@ -157,7 +164,8 @@ export const {
   resProvisoryFavoriteIds,
   responseLoginAdmin,
   deleteProvisoryCartIds,
-  deleteProvisoryFavoriteIds
+  deleteProvisoryFavoriteIds,
+  responseCreateBanner
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

@@ -9,6 +9,8 @@ import TextinBanners from "./BannersFlow/TextinBanners";
 import UnploadBanner from "./BannersFlow/UnploadImgBanner/UnploadBannerImg";
 import UnploadBannerLogo from "./BannersFlow/UnploadImgBannerLogo/UnploadBannerLogo";
 export default function AdminBanners() {
+  const { banners } = useSelector((state) => state.prueba);
+
   const dispatch = useDispatch();
   const [Next, setNext] = useState(false);
   const [Info, setInfo] = useState({
@@ -21,8 +23,16 @@ export default function AdminBanners() {
   const handlerNext = () => {
     setNext(true);
   };
+  let BannerCreated = false
+
+  if(banners.res){
+    BannerCreated = true
+  }
+
+
   const handlerPrevius = () => {
     setNext(false);
+   
   };
 
   const unploadImageLogo = (urlLogo) => {
@@ -62,9 +72,10 @@ export default function AdminBanners() {
     };
     let adminId = localStorage.getItem("id");
     dispatch(createBanners(bannerInfo, adminId));
-    
   };
 
+
+  
   return (
     <>
       <div className={style.Layout}>
@@ -78,14 +89,19 @@ export default function AdminBanners() {
               </select>
             </div>
             <div className={style.content}>
+           
               <div className={style.HeaderText}>
                 <h1>Create Banners </h1>
                 <p className={style.pHeader}>
                   In this section, you can create your custom banners.
                 </p>
               </div>
-
-              {Next ? (
+          
+            { 
+            BannerCreated === true? <h1>Banner Creado con exito </h1>
+            :
+            <>
+                {Next ? (
                 <TextinBanners HandlerText={HandlerText} />
               ) : (
                 <div className={style.header}>
@@ -93,6 +109,13 @@ export default function AdminBanners() {
                   <UnploadBannerLogo unploadImageLogo={unploadImageLogo} />
                 </div>
               )}
+            </>
+           
+            }
+            
+           
+
+           
             </div>
             <div className={style.divBotones}>
               {Next && (

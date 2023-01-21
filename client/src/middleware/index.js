@@ -26,7 +26,8 @@ import {
   resProvisoryFavoriteIds,
   responseLoginAdmin,
   deleteProvisoryCartIds,
-  deleteProvisoryFavoriteIds
+  deleteProvisoryFavoriteIds,
+  responseCreateBanner
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -552,7 +553,7 @@ export const createBanners= (bannerInfo, adminId) => {
         data: bannerInfo,
         url: `http://localhost:3001/admin/create/banner?adminId=${adminId}`,
       });
-      dispatch(responseRegister(res.data));
+      dispatch(responseCreateBanner(res));
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",

@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function TablaDeUsuarios ({ list, colNames, width = "auto", height = "auto" }) {
+export default function UserAdminTable ({ list, colNames, width = "auto", height = "auto" }) {
 
-
+    
     return (
         <>
             <div>

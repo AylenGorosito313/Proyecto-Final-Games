@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  admin: {
+    users: [],
+
+  },
   users: [],
   games: [],
   examinar: [],
@@ -36,6 +40,9 @@ export const toolkit_prueba = createSlice({
   reducers: {
     addUser: (state, actions) => {
       state.users = [...actions.payload];
+    },
+    getAndromedaUsers: (state, actions) => {
+      state.admin.users = [...actions.payload]
     },
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
@@ -157,7 +164,8 @@ export const {
   resProvisoryFavoriteIds,
   responseLoginAdmin,
   deleteProvisoryCartIds,
-  deleteProvisoryFavoriteIds
+  deleteProvisoryFavoriteIds,
+  getAndromedaUsers
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

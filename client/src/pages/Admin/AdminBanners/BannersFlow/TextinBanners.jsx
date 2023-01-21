@@ -1,58 +1,59 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import  style from "./TextBanners.module.css"
-export default function TextinBanners({ HandlerText}) {
+import style from "./TextBanners.module.css";
+export default function TextinBanners({ HandlerText }) {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm({
-    defaultValues: { description: "", textBtn: "" ,name:""},
+    defaultValues: { description: "", textBtn: "", name: "" },
     mode: "onChange",
   });
   const OnSubmit = async (data) => {
     console.log(data);
-    HandlerText(data)
-    
-
+    HandlerText(data);
+  };
+  const toggleFormText = () => {
+    setFrom();
   };
   //title, description, price,logo, textBtn
   return (
     <>
-      <form  className={style.formContainer} onSubmit={handleSubmit( OnSubmit)} >
-
-      <label>Tile</label>
-        <input
-          type="textBtn"
-          placeholder="Enter your email..."
-          className={style.input}
-          {...register("name", {
-          
-          })}
-        />
-
-        <label>Description</label>
-        <input
-          type="text"
-          placeholder="Enter your email..."
-          className={style.input}
-          {...register("description", {
-         
-          })}
-        />
- 
-     <label>text for Btn</label>
-        <input
-          type="textBtn"
-          placeholder="Enter your email..."
-          className={style.input}
-          {...register("textBtn", {
-          
-          })}
-        />
-        <button> Add </button>
+      <form className={style.formContainer} onSubmit={handleSubmit(OnSubmit)}>
+        <div className={style.input_group}>
+          <label className={style.user_label}>Title</label>
+          <input
+            type="textBtn"
+            placeholder="Enter your title..."
+            className={style.input}
+            {...register("name", {})}
+          />
+        </div>
+        <div className={style.input_group}>
+          <label className={style.user_label}>Description</label>
+          <input
+            type="text"
+            placeholder="Enter your description..."
+            className={style.input}
+            {...register("description", {})}
+          />
+        </div>
+        <div className={style.input_group}>
+          <label className={style.user_label}>text for  buttonn</label>
+          <input
+            type="textBtn"
+            placeholder="Enter your text"
+            className={style.input}
+            {...register("textBtn", {})}
+          />
+        </div>
+        <div className={style.divBTN}>
+          <button className={style.btn}> Add </button>
+        </div>
       </form>
     </>
   );
 }
+

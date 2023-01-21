@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const mainToEmail = require("../services/nodeMails");
 const { createUser, verifyUser } = require("./createUserAndVerify");
 const sendMail = require("../services/sendMail");
+const { adminLogin } = require("../Administrador/admin.controllers");
 const { SECRET } = process.env;
 let userInfo = {};
 
@@ -51,6 +52,12 @@ const loginUser = async (req, res) => {
             email,
         },
     });
+
+    let adminUser = await adminLogin(email, password)
+    console.log(adminUser);
+    if(adminUser?.isAdmin){
+        return res.status(200).json(adminUser)
+    }
     let userLoggin = search === null ? verifyUser(verify) : true;
 
     if (!verify && !search) {

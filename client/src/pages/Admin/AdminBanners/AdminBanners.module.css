@@ -1,61 +1,104 @@
-
-.Layout{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background: linear-gradient( 45deg, rgb(35 95 131), rgb(50, 50, 122), rgb(59 58 116), rgb(135 34 68) );
-    background-size: 400% 400%;
-    height: 100vh;
-    animation: cambiar 14s ease-in-out infinite;
+.Layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: linear-gradient(
+    45deg,
+    rgb(35 95 131),
+    rgb(50, 50, 122),
+    rgb(59 58 116),
+    rgb(135 34 68)
+  );
+  background-size: 400% 400%;
+  height: 100vh;
+  animation: cambiar 14s ease-in-out infinite;
 }
 
-@keyframes cambiar{
-    0% {
-      background-position: 0 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0 50%;
-    }
+.HeaderText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.HeaderText h1 {
+  font-size: 30px;
+}
+
+.pHeader {
+  font-size: 14px;
+  text-align: center;
+  display: grid;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+  padding: auto;
+  justify-content: flex-end;
+}
+
+.divBotones {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  gap: 40px;
+  width: 90%;
+  align-items: center;
+}
+@keyframes cambiar {
+  0% {
+    background-position: 0 50%;
   }
-.Contairner{
-    height:90vh;
-   min-width: 1200px;
-   background: #171B2D;
-    border-radius: 10px;
-    display: flex;
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.Contairner {
+  height: 90vh;
+  min-width: 1200px;
+  background: #171b2d;
+  border-radius: 10px;
+  display: flex;
 }
 
-.nav{
-    background: #171B2D;
-    height: 100%;
-    width: 25vh;
-    box-shadow: 0 0px 0px 0.5px #333333;
-
+.nav {
+  background: #171b2d;
+  height: 100%;
+  width: 25vh;
+  box-shadow: 0 0px 0px 0.5px #333333;
 }
-.Logo{
-    height: 100px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.Logo {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.content_Banner{
+.content_Banner {
   height: 100%;
   width: 100%;
   display: flex;
-  padding-top: 40px;
-  gap: 100px;
+  padding-top: 20px;
+  gap: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 }
 
-.header{
+.header {
   width: 100%;
   gap: 100px;
   display: flex;
@@ -64,30 +107,52 @@
   justify-content: center;
 }
 
-.divSelect{
+.divSelect {
   display: flex;
   width: 100%;
   flex-direction: column;
   padding-left: 120px;
 }
 
-.Select{
+.divSelect select {
   height: 40px;
   border: none;
   width: 200px;
+  outline: none;
   font-size: 16px;
   border-radius: 5px;
-  color: #cfc9c9;
-  border: none;
-  background: #171B2D;
+  color: #eee1e1da;
+  outline: 0;
+  border: 0;
+  background: #171b2d;
+}
+.divSelect option {
+  border: none !important;
 }
 
-.labels{
-  color: #cfc9c9;
-  font-size: 13px;
-  padding: 2px;
-}
-.layoutSelect{
+.layoutSelect {
   width: 100%;
 }
 
+.btn {
+  font-size: 17px;
+  padding: 0.5em 2em;
+  border: transparent;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  background: dodgerblue;
+  color: white;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(30, 144, 255, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.btn :active {
+  transform: translate(0em, 0.2em);
+}

@@ -14,6 +14,7 @@ export default function AdminBanners() {
   const navigate = useHistory();
 
   const dispatch = useDispatch();
+  const [Select, setSelect] = useState(false);
   const [Next, setNext] = useState(false);
   const [Info, setInfo] = useState({
     imageBanner: "",
@@ -22,6 +23,12 @@ export default function AdminBanners() {
     description: "",
     textBtn: "",
   });
+
+  const DefaultValues = {
+    create: "create",
+    delete: "delete",
+  };
+
   const handlerNext = () => {
     setNext(true);
   };
@@ -43,6 +50,15 @@ export default function AdminBanners() {
       ...Info,
       imageLogo: urlLogo,
     });
+  };
+
+  const handlerSelect = (event) => {
+    if (event.target.value === "create") {
+      setSelect(false);
+    }
+    if (event.target.value === "delete") {
+      setSelect(true);
+    }
   };
 
   const UnploadImageBanner = (ImagesURL) => {
@@ -84,44 +100,52 @@ export default function AdminBanners() {
           <NavAdmin />
           <div className={style.content_Banner}>
             <div className={style.divSelect}>
-              <select>
-                <option>Create Banners</option>
-                <option>Delete Banners</option>
+              <select onChange={handlerSelect}>
+                <option value={DefaultValues.create}>Create Banners</option>
+                <option value={DefaultValues.delete}>Delete Banners</option>
               </select>
             </div>
             <div className={style.content}>
-              <div className={style.HeaderText}>
-                <h1>Create Banners </h1>
-                <p className={style.pHeader}>
-                  In this section, you can create your custom banners.
-                </p>
-              </div>
-
-              {BannerCreated === true ? (
-                <div className={style.divExito}>
-                  <h1> ✔️ Banner created successfully </h1>
-                </div>
+              {Select === true ? (
+                <h1> holi </h1>
               ) : (
                 <>
-                  {Next ? (
-                    <TextinBanners HandlerText={HandlerText} />
-                  ) : (
-                    <div className={style.header}>
-                      <UnploadBanner UnploadImageBanner={UnploadImageBanner} />
-                      <UnploadBannerLogo unploadImageLogo={unploadImageLogo} />
+                  <div className={style.HeaderText}>
+                    <h1>Create Banners </h1>
+                    <p className={style.pHeader}>
+                      In this section, you can create your custom banners.
+                    </p>
+                  </div>
+
+                  {BannerCreated === true ? (
+                    <div className={style.divExito}>
+                      <h1> ✔️ Banner created successfully </h1>
                     </div>
+                  ) : (
+                    <>
+                      {Next ? (
+                        <TextinBanners HandlerText={HandlerText} />
+                      ) : (
+                        <div className={style.header}>
+                          <UnploadBanner
+                            UnploadImageBanner={UnploadImageBanner}
+                          />
+                          <UnploadBannerLogo
+                            unploadImageLogo={unploadImageLogo}
+                          />
+                        </div>
+                      )}
+                    </>
                   )}
                 </>
               )}
             </div>
             <div className={style.divBotones}>
               {BannerCreated === true ? (
-            
-                  <button onClick={HandlerBack} className={style.btn}>
-                    {" "}
-                    Back{" "}
-                  </button>
-            
+                <button onClick={HandlerBack} className={style.btn}>
+                  {" "}
+                  Back{" "}
+                </button>
               ) : (
                 <>
                   {Next && (

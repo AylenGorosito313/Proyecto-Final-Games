@@ -330,9 +330,9 @@ export const AddFavorite = (user_id, id) => {
         url: `http://localhost:3001/game/addFavorite/${user_id}/${id}`,
       });
       
-      let filterId = data.favoritos.find( item => item.id === id)
+      // let filterId = data.favoritos.find( item => item.id === id)
       
-      dispatch(resProvisoryFavoriteIds(filterId.id))
+      dispatch(resProvisoryFavoriteIds(id))
     } catch (error) {
      
       toast(error.request.response, {
@@ -358,9 +358,9 @@ export const AddCart = (userId, gameId) => {
         url: `http://localhost:3001/user/addCard/${userId}/${gameId}`,
       });
       console.log(data)
-      let filterId = data.items.find( item => item.id === gameId)
+      // let filterId = data.items.find( item => item.id === gameId)
       
-      dispatch(resProvisoryCartIds(filterId.id))
+      dispatch(resProvisoryCartIds(gameId))
       
     } catch (error) {
       

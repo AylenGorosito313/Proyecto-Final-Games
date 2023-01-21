@@ -22,9 +22,10 @@ function NavTop() {
   const [OpenNotifica, setOpenNotifica] = useState(false);
   const [OpenCar, setOpenCar] = useState(false);
   const navigate = useHistory();
+  let admin = localStorage.getItem("isAdmin");
 
   let isAdmin = false;
-  if (res.login.isAdmin) {
+  if (admin) {
     isAdmin = true;
   }
   const handleLogin = () => {
@@ -69,9 +70,7 @@ function NavTop() {
       <div className="Nav-layout">
         <div className="div-layout-icon-nav">
           <div className="Nav-top-container-sticky">
-          
-          
-      {isAdmin === true && (
+            {isAdmin === true && (
               <Link className="Link-nav" to={"/panelView"}>
                 <div onClick={handlerOpenCar} className="div-icon">
                   <PanelAdminNav />
@@ -80,15 +79,12 @@ function NavTop() {
               </Link>
             )}
 
-          
             <Link className="Link-nav" to={"/payment"}>
               <div onClick={handlerOpenCar} className="div-icon">
                 <Car />
                 Cart
               </div>
             </Link>
-
-     
 
             <div onClick={handlerOpenNotifica} className="div-icon">
               <Notificacion /> Notifications

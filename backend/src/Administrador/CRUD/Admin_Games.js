@@ -29,37 +29,32 @@ const deleteGame = async (req, res) => {
 
 const updateGame = async (req, res) => {
     const {gameId, userId} = req.params;
-    const infoGame = req.body
-    
-    try {
-        const findUser = await Game.findOne({
-            where: {
-                createdBy: userId
-            }
-        })
+    const bodyInfo = req.body
+    try{  
+        const gameInfo  = await Game.findByPk(gameId);
+        gameInfo.update(bodyInfo);      
 
-        const user = await Game.findByPk(gameId);
-        Game.update(userUpdate);
-        await user.save();
+        await deleteGameProvider(userId, gameId); 
 
-        console.log("aca esta la informacion del juego con le id del usuario", findUser)
-        // actualizar en la tabla de game y en el array que le corresponde al proveedor?
-        await deleteGameProvider(gameId, userId) 
         const findProvider = await Providers.findOne({
             where: {
                 userId: userId
             }
         })
-        console.log("console.log de findProvider", findProvider)
-
-        res.json({message: "la ruta ta activa"})
+       
+        const laVariable = gameInfo.toJSON()
+              
+        findProvider.videoGamesPropor = [...findProvider.videoGamesPropor, laVariable]
+        await findProvider.save()
+        
+        res.json("game update with success")
     } catch (error) {
         return res.status(500).json({
             error: error.message,
         });
     }
 }
-module.exports = { deleteGameProvider, deleteGame, updateGame };
+
 const getAllGameToDB = async (req, res) => {
     try {
         
@@ -78,4 +73,4 @@ const getAllGameToDB = async (req, res) => {
     }
 }
 
-module.exports = { deleteGame, getAllGameToDB };
+module.exports = { deleteGame, getAllGameToDB, updateGame };

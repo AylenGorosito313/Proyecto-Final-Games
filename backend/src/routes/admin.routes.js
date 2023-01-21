@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const admin = require("../Administrador/admin.controllers");
 const { createBanner, getAllBanner, deleteBanner } = require("../Administrador/Admin_Banners");
-const { deleteGameProvider, deleteGame, getAllGameToDB } = require("../Administrador/CRUD/Admin_Games");
+const { deleteGameProvider, deleteGame, getAllGameToDB, updateGame } = require("../Administrador/CRUD/Admin_Games");
 const adminUsers = require('../Administrador/CRUD/Admin_Users')
 
 const adminRouter = Router();

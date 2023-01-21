@@ -20,14 +20,12 @@ export default function AdminBanners() {
     setNext(false);
   };
 
-  // let imageBanner = "";
-  // let imageLogo = "";
-  // let dataText = "";
 
-  const unploadImageLogo = (ImagesURLLogo) => {
+
+  const unploadImageLogo = (urlLogo) => {
     setInfo({
       ...Info,
-      imageLogo: ImagesURLLogo
+      imageLogo: urlLogo
     })
   };
 
@@ -57,28 +55,10 @@ export default function AdminBanners() {
   // let imageLogo ="";
   // let dataText = "";
 
-  // const UnploadImageBanner = (ImagesURL) => {
-  //  imageBanner = ImagesURL;
 
-  // };
 
-  // const UnploadImageLogo = (ImagesURLLogo) => {
-  //  imageLogo = ImagesURLLogo;
 
-  // };
 
-  // const HandlerText = (data) => {
-  //  dataText = data;
-  //  console.log( dataText)
-  // };
-
-  // const Onsubmit = () => {
-
-  //   // let BannerInfo = {dataText, imageLogo, imageBanner };
-  //   // console.log(BannerInfo)
-  //   // dispatch(CreateBanner(bannerInfo));
-  //   // setCreated(true);
-  // };
   return (
     <>
       <div className={style.Layout}>

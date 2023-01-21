@@ -1,7 +1,7 @@
 
 import style from "./UnploadImageLogo.module.css"
-import React, { useEffect, useState } from "react";
-export default function UnploadBannerLogo ({ unploadImageLogo }) {
+import React, { useState } from "react";
+export default function UnploadBannerLogo ({ unploadImageLogo}) {
   const [image, setImage] = useState([]);
 
   function handleOpenWidget() {

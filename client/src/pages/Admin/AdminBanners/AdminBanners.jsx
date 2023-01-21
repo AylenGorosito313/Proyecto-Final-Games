@@ -8,8 +8,10 @@ import { createBanners } from "../../../middleware";
 import TextinBanners from "./BannersFlow/TextinBanners";
 import UnploadBanner from "./BannersFlow/UnploadImgBanner/UnploadBannerImg";
 import UnploadBannerLogo from "./BannersFlow/UnploadImgBannerLogo/UnploadBannerLogo";
+import { Link, useHistory } from "react-router-dom";
 export default function AdminBanners() {
   const { banners } = useSelector((state) => state.prueba);
+  const navigate = useHistory();
 
   const dispatch = useDispatch();
   const [Next, setNext] = useState(false);
@@ -23,18 +25,19 @@ export default function AdminBanners() {
   const handlerNext = () => {
     setNext(true);
   };
-  let BannerCreated = false
+  let BannerCreated = false;
 
-  if(banners.res){
-    BannerCreated = true
+  if (banners.res) {
+    BannerCreated = true;
   }
-
 
   const handlerPrevius = () => {
     setNext(false);
-   
   };
 
+  const HandlerBack = () => {
+    window.location.reload(true);
+  };
   const unploadImageLogo = (urlLogo) => {
     setInfo({
       ...Info,
@@ -74,8 +77,6 @@ export default function AdminBanners() {
     dispatch(createBanners(bannerInfo, adminId));
   };
 
-
-  
   return (
     <>
       <div className={style.Layout}>
@@ -89,52 +90,59 @@ export default function AdminBanners() {
               </select>
             </div>
             <div className={style.content}>
-           
               <div className={style.HeaderText}>
                 <h1>Create Banners </h1>
                 <p className={style.pHeader}>
                   In this section, you can create your custom banners.
                 </p>
               </div>
-          
-            { 
-            BannerCreated === true? <h1>Banner Creado con exito </h1>
-            :
-            <>
-                {Next ? (
-                <TextinBanners HandlerText={HandlerText} />
-              ) : (
-                <div className={style.header}>
-                  <UnploadBanner UnploadImageBanner={UnploadImageBanner} />
-                  <UnploadBannerLogo unploadImageLogo={unploadImageLogo} />
-                </div>
-              )}
-            </>
-           
-            }
-            
-           
 
-           
+              {BannerCreated === true ? (
+                <div className={style.divExito}>
+                  <h1> ✔️ Banner created successfully </h1>
+                </div>
+              ) : (
+                <>
+                  {Next ? (
+                    <TextinBanners HandlerText={HandlerText} />
+                  ) : (
+                    <div className={style.header}>
+                      <UnploadBanner UnploadImageBanner={UnploadImageBanner} />
+                      <UnploadBannerLogo unploadImageLogo={unploadImageLogo} />
+                    </div>
+                  )}
+                </>
+              )}
             </div>
             <div className={style.divBotones}>
-              {Next && (
-                <button onClick={handlerPrevius} className={style.btn}>
-                  {" "}
-                  Previus{" "}
-                </button>
-              )}
-              {Next && (
-                <button onClick={Onsubmit} className={style.btn}>
-                  Create Banner
-                </button>
-              )}
+              {BannerCreated === true ? (
+            
+                  <button onClick={HandlerBack} className={style.btn}>
+                    {" "}
+                    Back{" "}
+                  </button>
+            
+              ) : (
+                <>
+                  {Next && (
+                    <button onClick={handlerPrevius} className={style.btn}>
+                      {" "}
+                      Previus{" "}
+                    </button>
+                  )}
+                  {Next && (
+                    <button onClick={Onsubmit} className={style.btn}>
+                      Create Banner
+                    </button>
+                  )}
 
-              {Next === false && (
-                <button onClick={handlerNext} className={style.btn}>
-                  {" "}
-                  Next{" "}
-                </button>
+                  {Next === false && (
+                    <button onClick={handlerNext} className={style.btn}>
+                      {" "}
+                      Next{" "}
+                    </button>
+                  )}
+                </>
               )}
             </div>
 

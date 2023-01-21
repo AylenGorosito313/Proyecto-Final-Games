@@ -29,6 +29,8 @@
   font-size: 14px;
   text-align: center;
   display: grid;
+  color: rgba(255, 255, 255, 0.562);
+  margin:0;
 }
 
 .checkbox {

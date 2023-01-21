@@ -11,8 +11,7 @@ export default function TextinBanners({ HandlerText }) {
     defaultValues: { description: "", textBtn: "", name: "" },
     mode: "onChange",
   });
-  const OnSubmit = async (data) => {
-    console.log(data);
+  const OnSubmit = (data) => {
     HandlerText(data);
   };
   const toggleFormText = () => {
@@ -41,7 +40,7 @@ export default function TextinBanners({ HandlerText }) {
           />
         </div>
         <div className={style.input_group}>
-          <label className={style.user_label}>text for  buttonn</label>
+          <label className={style.user_label}>text for buttonn</label>
           <input
             type="textBtn"
             placeholder="Enter your text"
@@ -56,4 +55,3 @@ export default function TextinBanners({ HandlerText }) {
     </>
   );
 }
-

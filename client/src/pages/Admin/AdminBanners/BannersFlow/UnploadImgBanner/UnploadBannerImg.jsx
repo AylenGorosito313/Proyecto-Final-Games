@@ -2,7 +2,7 @@
 // UnploadBanner
 import style from "./UnploadBanner.module.css"
 import React, { useState } from "react";
-export default function UnploadBanner ({ UnploadImages }) {
+export default function UnploadBanner ({ Info ,setInfo }) {
   const [image, setImage] = useState([]);
 
   function handleOpenWidget() {
@@ -32,7 +32,9 @@ export default function UnploadBanner ({ UnploadImages }) {
   if (image) {
     let ImagesURL = image && image?.map((img) => img.url);
 
-    UnploadImages(ImagesURL);
+    setInfo({
+      ...Info,
+      imageBanner: ImagesURL});
   }
   return (
     <div>

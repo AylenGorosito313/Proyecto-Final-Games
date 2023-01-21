@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import NavAdmin from "../NavAdmin/NavAdmin";
 import style from "./AdminBanners.module.css";
@@ -8,28 +7,11 @@ import UnploadBanner from "./BannersFlow/UnploadImgBanner/UnploadBannerImg";
 import UnploadBannerLogo from "./BannersFlow/UnploadImgBannerLogo/UnploadBannerLogo";
 export default function AdminBanners() {
   const [Next, setNext] = useState(false);
-
-
-  let imageBanner ="";
-  let imageLogo ="";
-  let dataText = "";
-
-  const UnploadImageBanner = (ImagesURL) => {
-   imageBanner = ImagesURL;
-
-  };
-
-  const UnploadImageLogo = (ImagesURLLogo) => {
-   imageLogo = ImagesURLLogo;
-
-  };
-
-  const HandlerText = (data) => {
-   dataText = data;
-   console.log( dataText)
-  };
-
-
+  const [Info, setInfo] = useState({
+    imageBanner: "",
+    imageLogo: "",
+    dataText: "",
+  });
   const handlerNext = () => {
     setNext(true);
   };
@@ -37,13 +19,59 @@ export default function AdminBanners() {
     setNext(false);
   };
 
-  const onSubmit = async () => {
+  // let imageBanner = "";
+  // let imageLogo = "";
+  // let dataText = "";
 
-    let BannerInfo = {dataText, imageLogo, imageBanner };
-    console.log(BannerInfo)
-    // dispatch(CreateBanner(bannerInfo));
+  // const UnploadImageLogo = (ImagesURLLogo) => {
+  //   setInfo({
+  //     ...Info,
+  //     imageLogo: ImagesURLLogo
+  //   })
+  // };
+
+  const UnploadImageBanner = (ImagesURL) => {
+    imageBanner = ImagesURL;
+  };
+  const HandlerText = (text) => {
+    dataText = text;
+  };
+  const Onsubmit = async () => {
+    // let userId = localStorage.getItem("id");
+    // let genres = gender.genere;
+    // let platforms = platform.platformarray;
+    let gameInfo = { imageBanner, imageLogo };
+    console.log(gameInfo);
+    // dispatch(CreateGame(gameInfo, userId));
     // setCreated(true);
   };
+
+  // let imageBanner ="";
+  // let imageLogo ="";
+  // let dataText = "";
+
+  // const UnploadImageBanner = (ImagesURL) => {
+  //  imageBanner = ImagesURL;
+
+  // };
+
+  // const UnploadImageLogo = (ImagesURLLogo) => {
+  //  imageLogo = ImagesURLLogo;
+
+  // };
+
+  // const HandlerText = (data) => {
+  //  dataText = data;
+  //  console.log( dataText)
+  // };
+
+  // const Onsubmit = () => {
+
+  //   // let BannerInfo = {dataText, imageLogo, imageBanner };
+  //   // console.log(BannerInfo)
+  //   // dispatch(CreateBanner(bannerInfo));
+  //   // setCreated(true);
+  // };
   return (
     <>
       <div className={style.Layout}>
@@ -68,8 +96,8 @@ export default function AdminBanners() {
                 <TextinBanners HandlerText={HandlerText} />
               ) : (
                 <div className={style.header}>
-                  <UnploadBanner UnploadImages={UnploadImageBanner} />
-                  <UnploadBannerLogo UnploadImageLogo={UnploadImageLogo} />
+                  <UnploadBanner />
+                  <UnploadBannerLogo />
                 </div>
               )}
             </div>
@@ -81,7 +109,7 @@ export default function AdminBanners() {
                 </button>
               )}
               {Next && (
-                <button onSubmit={onSubmit} className={style.btn}>
+                <button onSubmit={Onsubmit} className={style.btn}>
                   Create Banner
                 </button>
               )}

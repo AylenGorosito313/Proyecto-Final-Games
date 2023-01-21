@@ -1,7 +1,7 @@
 
 import style from "./UnploadImageLogo.module.css"
 import React, { useState } from "react";
-export default function UnploadBannerLogo ({ UnploadImageLogo }) {
+export default function UnploadBannerLogo ({ setInfo }) {
   const [image, setImage] = useState([]);
 
   function handleOpenWidget() {
@@ -31,7 +31,7 @@ export default function UnploadBannerLogo ({ UnploadImageLogo }) {
   if (image) {
     let ImagesURL = image && image?.map((img) => img.url);
 
-    UnploadImageLogo(ImagesURL);
+    setInfo(ImagesURL);
   }
   return (
     <div>

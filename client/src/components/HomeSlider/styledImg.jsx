@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Imagen = styled.img`
   justify-content: center;
 
-  height: 300px;
-  width: 300px;
+  height: 100px;
+  width: 200px;
 
 `;

@@ -30,6 +30,7 @@ const initialState = {
   itemCar: [],
   banners:{
     res:"",
+    delete:""
     
 }
 };
@@ -131,6 +132,9 @@ export const toolkit_prueba = createSlice({
     responseCreateBanner: (state, actions) => {
       state.banners = { ...state.banners , res: actions.payload };
     },
+    responseDeleteeBanner: (state, actions) => {
+      state.banners = { ...state.banners , delete: actions.payload };
+    },
   },
 });
 
@@ -165,7 +169,8 @@ export const {
   responseLoginAdmin,
   deleteProvisoryCartIds,
   deleteProvisoryFavoriteIds,
-  responseCreateBanner
+  responseCreateBanner,
+  responseDeleteeBanner
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

@@ -27,7 +27,8 @@ import {
   responseLoginAdmin,
   deleteProvisoryCartIds,
   deleteProvisoryFavoriteIds,
-  responseCreateBanner
+  responseCreateBanner,
+  responseDeleteeBanner
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -578,7 +579,7 @@ export const deleteBannersA = (id) => {
         method: "DELETE",
         url: `http://localhost:3001/admin/delete/banner?id=${id}`,
       });
-      console.log(response);
+     dispatch(responseDeleteeBanner(response));
     } catch (error) {
       console.log(error);
     }

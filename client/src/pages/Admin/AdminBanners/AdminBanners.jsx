@@ -76,7 +76,7 @@ export default function AdminBanners() {
       textBtn: text.textBtn,
     });
   };
-
+let id =0
   const Onsubmit = () => {
     let bannerInfo = {
       banner_img: [
@@ -86,6 +86,7 @@ export default function AdminBanners() {
           name: Info.name,
           description: Info.description,
           textBtn: Info.textBtn,
+          id:++id
         },
       ],
     };

@@ -74,14 +74,13 @@
     position: absolute;
     top: 20%;
     display: flex;
-    width: 60%;
+    width: 50%;
     height: 80%;
-
     padding: 8px 14px;
     color: #fff;
     font-family: "Poppins", sans-serif;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .banner-contaiter{
@@ -94,4 +93,11 @@
 
 .swiper-pagination-bullet {
     border-radius: 20%;
+}
+
+
+
+.h1-banner{
+    font-size: 40px;
+    margin: 0;
 }

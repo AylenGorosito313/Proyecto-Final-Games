@@ -33,10 +33,14 @@ export default function HomeSlider() {
       setData(respons);
     });
   }, []);
-let Banners =""
-  if (Data) {
-    Banners = Data.map((ele) => ele.banner_img).flat(1);
-  }
+
+
+  console.log(Data)
+// let Banners =""
+//   if (Data) {
+//     Banners = Data.map((ele) => ele.title)
+//     
+//   }
 
   return (
     <>
@@ -59,21 +63,21 @@ let Banners =""
           className="swiper"
         >
           <div>
-            {Banners &&
-              Banners.map((banner) => {
-                console.log(banner.imageBanner)
+            { Data &&
+               Data.map((banner) => {
+           
                 return (
                   <>
                 
                     <SwiperSlide className="swiper-slide">
-                      <img src={banner.imageBanner} alt="" />
+                      <img src={banner.banner_img} alt="" />
                       <div className="banner-contaiter">
                         <div className="content">
                           <TextBanners
-                            title={banner.name}
-                            logo={banner.imageLogo}
+                            title={banner.title}
+                            logo={banner.banner_Logo }
                             description={banner.description}
-                            textBtn={banner.textBtn}
+                            textBtn={banner.text_btn}
                           />
                         </div>
                       </div>

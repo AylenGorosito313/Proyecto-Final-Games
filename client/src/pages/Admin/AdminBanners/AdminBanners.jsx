@@ -14,6 +14,7 @@ export default function AdminBanners() {
   const navigate = useHistory();
 
   const dispatch = useDispatch();
+  const[CratedBa ,setCratedBa ] = useState(true)
   const [Select, setSelect] = useState(false);
   const [Next, setNext] = useState(false);
   const [Info, setInfo] = useState({
@@ -37,14 +38,15 @@ export default function AdminBanners() {
   if (banners.res) {
     BannerCreated = true;
   }
-
+  const HandlerBack = () => {
+    setCratedBa(false)
+    BannerCreated = false
+    setNext(false);
+  };
   const handlerPrevius = () => {
     setNext(false);
   };
 
-  const HandlerBack = () => {
-    window.location.reload(true);
-  };
   const unploadImageLogo = (urlLogo) => {
     setInfo({
       ...Info,
@@ -76,7 +78,7 @@ export default function AdminBanners() {
       textBtn: text.textBtn,
     });
   };
-let id =0
+  let id = 0;
   const Onsubmit = () => {
     let bannerInfo = {
       banner_img: [
@@ -86,43 +88,42 @@ let id =0
           name: Info.name,
           description: Info.description,
           textBtn: Info.textBtn,
-          id:++id
+          id: ++id,
         },
       ],
     };
     let adminId = localStorage.getItem("id");
     dispatch(createBanners(bannerInfo, adminId));
   };
-    //Dependiendo del state de Select  se renderiza Crear o Delete
-    // state Next maneja lo que se renderiza en en el div content y los botones
+  //Dependiendo del state de Select  se renderiza Crear o Delete
+  // state Next maneja lo que se renderiza en en el div content y los botones
   return (
     <>
       <div className={style.Layout}>
         <div className={style.Contairner}>
           <NavAdmin />
           <div className={style.content_Banner}>
-          <Toaster/>
+            <Toaster />
             <div className={style.divSelect}>
               <select onChange={handlerSelect}>
                 <option value={DefaultValues.create}>Create Banners</option>
                 <option value={DefaultValues.delete}>Delete Banners</option>
               </select>
             </div>
-        
+
             <div className={style.content}>
-           
               {Select === true ? (
                 <>
                   <div className={style.HeaderText}>
                     <h1>Delete Banners </h1>
                     <p className={style.pHeader}>
-                    In this section you will be able to view and delete all the created banners.
+                      In this section you will be able to view and delete all
+                      the created banners.
                     </p>
                   </div>
-                  <BannerDelete/>
+                  <BannerDelete />
                 </>
               ) : (
-               
                 <>
                   <div className={style.HeaderText}>
                     <h1>Create Banners </h1>
@@ -131,7 +132,7 @@ let id =0
                     </p>
                   </div>
 
-                  {BannerCreated === true ? (
+                  {BannerCreated === true && CratedBa ? (
                     <div className={style.divExito}>
                       <h1> ✔️ Banner created successfully </h1>
                     </div>
@@ -154,37 +155,37 @@ let id =0
                 </>
               )}
             </div>
-           { Select === false && <div className={style.divBotones}>
-           
-           
-              {BannerCreated === true ? (
-                <button onClick={HandlerBack} className={style.btn}>
-                  {" "}
-                  Back{" "}
-                </button>
-              ) : (
-                <>
-                  {Next && (
-                    <button onClick={handlerPrevius} className={style.btn}>
-                      {" "}
-                      Previus{" "}
-                    </button>
-                  )}
-                  {Next && (
-                    <button onClick={Onsubmit} className={style.btn}>
-                      Create Banner
-                    </button>
-                  )}
+            {Select === false && (
+              <div className={style.divBotones}>
+                {BannerCreated === true  ? (
+                  <button onClick={HandlerBack} className={style.btn}>
+                    {" "}
+                    Back{" "}
+                  </button>
+                ) : (
+                  <>
+                    {Next && (
+                      <button onClick={handlerPrevius} className={style.btn}>
+                        {" "}
+                        Previus{" "}
+                      </button>
+                    )}
+                    {Next && (
+                      <button onClick={Onsubmit} className={style.btn}>
+                        Create Banner
+                      </button>
+                    )}
 
-                  {Next === false && (
-                    <button onClick={handlerNext} className={style.btn}>
-                      {" "}
-                      Next{" "}
-                    </button>
-                  )}
-                </>
-              )}
-            </div>}
+                    {Next === false && (
+                      <button onClick={handlerNext} className={style.btn}>
+                        {" "}
+                        Next{" "}
+                      </button>
+                    )}
+                  </>
+                )}
+              </div>
+            )}
 
             {/*  */}
           </div>

@@ -34,11 +34,12 @@ color: #e8e8e8;
 width: 100px;
 }
 .divBTN{
-  width: 100%;
+  width: 65%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 20px;
+  gap: 10px;
 }
 .btn {
   font-size: 15px;

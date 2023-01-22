@@ -11,13 +11,11 @@ export default function TextBanners({
 }) {
   return (
     <div className="container-text-banner">
-      {logo && <Imagen className="logo-banner" src={logo} alt="" />}
-
-      <h1>{title}</h1>
+      {logo && <img className="logo-banner" src={logo} alt="" />}
+      <h1  className="h1-banner">{title}</h1>
       <p>{description}</p>
-      {price && <p>US$ {price}</p>}
-
-      <button className={style.button_bnner}>{textBtn}</button>
+      {price && <p className="descriptionBnnners">US$ {price}</p>}
+      {textBtn && <button className={style.button_bnner}>{textBtn}</button>}
     </div>
   );
 }

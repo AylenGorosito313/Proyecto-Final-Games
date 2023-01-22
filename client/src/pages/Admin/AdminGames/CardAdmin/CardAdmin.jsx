@@ -2,11 +2,12 @@ import React from 'react'
 import { platformImage } from "../../../CardDetail/utils/utils";
 import { Link } from 'react-router-dom'
 import style from "../CardAdmin/CardAdmin.module.css";
+import { deletedGameAdmin, getGamesDb } from '../../../../middleware';
 
 export default function CardAdmin(props) {
 
-    const handleDelete = (id) => {
-        dispatch(deletedFavorites(id))
+    const handleDelete = (gameId) => {
+        dispatch(deletedGameAdmin(gameId))
       }
 
   return (

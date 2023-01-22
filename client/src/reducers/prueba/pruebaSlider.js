@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   users: [],
   games: [],
+  gamesdb: [],
   examinar: [],
   popularGames: [],
   gamesReleasedLasthMonth: [],
@@ -39,6 +40,9 @@ export const toolkit_prueba = createSlice({
     },
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
+    },
+    getAllGamesDb: (state, actions) => {
+      state.gamesdb = [...actions.payload];
     },
     getExaminar: (state, actions) => {
       state.examinar = [...actions.payload];
@@ -121,6 +125,11 @@ export const toolkit_prueba = createSlice({
         (ele) => ele.id !== actions.payload
       );
     },
+    deletedGame: (state, actions) => {
+      state.gamesdb = state.gamesdb.filter(
+        (ele) => ele.id !== actions.payload
+      );
+    },
     responseLoginAdmin: (state, actions) => {
       state.res = { ...state.res, admLogin: actions.payload };
     },
@@ -157,7 +166,9 @@ export const {
   resProvisoryFavoriteIds,
   responseLoginAdmin,
   deleteProvisoryCartIds,
-  deleteProvisoryFavoriteIds
+  deleteProvisoryFavoriteIds,
+  getAllGamesDb,
+  deletedGame,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

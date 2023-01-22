@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGames } from '../../../middleware';
+import { getGamesDb } from '../../../middleware';
 import NavAdmin from "../NavAdmin/NavAdmin";
 import style from "./AdminGames.module.css";
 import CardAdmin from '../AdminGames/CardAdmin/CardAdmin';
@@ -12,10 +12,10 @@ import ResetGames from './ResetGames';
 export default function AdminGames() {
 
   const dispatch = useDispatch();
-  const { games } = useSelector((state) => state.prueba);
+  const { gamesdb } = useSelector((state) => state.prueba);
 
   useEffect(() => {
-    dispatch(getGames());
+    dispatch(getGamesDb());
   },[dispatch])
 
   return (
@@ -28,8 +28,8 @@ export default function AdminGames() {
           <ResetGames/>
         </div>
         <div className={style.cardgame}>
-        {games.length &&
-                  games.map((ele) => {
+        {gamesdb.length &&
+                  gamesdb.map((ele) => {
                     return (
                       <CardAdmin
                         key={ele.id}

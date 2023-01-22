@@ -71,6 +71,7 @@ let Banners =""
                         <div className="content">
                           <TextBanners
                             title={banner.name}
+                            logo={banner.imageLogo}
                             description={banner.description}
                             textBtn={banner.textBtn}
                           />

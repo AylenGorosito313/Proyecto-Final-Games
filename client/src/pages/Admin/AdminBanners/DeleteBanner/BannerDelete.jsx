@@ -36,10 +36,10 @@ export default function BannerDelete() {
               <CardsBanners
                 description={banner.description}
                 imageBanner={banner.imageBanner}
-                imageLogo={banner.id}
+                // imageLogo={banner.imageLogo}
                 name={banner.name}
                 textBtn={banner.textBtn}
-                id={id}
+                // id={id}
               />
             </div>
             </>

@@ -570,18 +570,18 @@ export const createBanners= (bannerInfo, adminId) => {
 };
 
 
-/// get all banners /admin/allbanner
-// export const getBanners = () => {
-//   return async (dispatch) => {
-//     try {
-//       const response = await axios({
-//         method: "GET",
-//         url: `http://localhost:3001/admin/allbanner`,
-//       });
-//       console.log(response);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
+// / get all banners /admin/allbanner
+export const deleteBannersA = (id) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios({
+        method: "DELETE",
+        url: `http://localhost:3001/admin/delete/banner?id=${id}`,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 

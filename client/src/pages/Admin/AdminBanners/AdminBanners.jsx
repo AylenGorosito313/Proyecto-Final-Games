@@ -151,7 +151,9 @@ export default function AdminBanners() {
                 </>
               )}
             </div>
-            <div className={style.divBotones}>
+           { Select === false && <div className={style.divBotones}>
+           
+           
               {BannerCreated === true ? (
                 <button onClick={HandlerBack} className={style.btn}>
                   {" "}
@@ -179,7 +181,7 @@ export default function AdminBanners() {
                   )}
                 </>
               )}
-            </div>
+            </div>}
 
             {/*  */}
           </div>

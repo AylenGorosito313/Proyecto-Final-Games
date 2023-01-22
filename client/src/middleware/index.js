@@ -28,7 +28,8 @@ import {
   deleteProvisoryCartIds,
   deleteProvisoryFavoriteIds,
   responseCreateBanner,
-  responseDeleteeBanner
+  responseDeleteeBanner,
+  getAll_Banner
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -579,7 +580,23 @@ export const deleteBannersA = (id) => {
         method: "DELETE",
         url: `http://localhost:3001/admin/delete/banner?id=${id}`,
       });
-     dispatch(responseDeleteeBanner(response));
+     dispatch(responseDeleteeBanner(response.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+
+export const getBanners = () => {
+  return async (dispatch) => {
+    try {
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/admin/allbanner`,
+      });
+      console.log(data)
+      dispatch( getAll_Banner(data));
     } catch (error) {
       console.log(error);
     }

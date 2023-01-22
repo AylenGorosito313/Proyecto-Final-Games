@@ -9,12 +9,13 @@ import UnploadBanner from "./BannersFlow/UnploadImgBanner/UnploadBannerImg";
 import UnploadBannerLogo from "./BannersFlow/UnploadImgBannerLogo/UnploadBannerLogo";
 import { useHistory } from "react-router-dom";
 import BannerDelete from "./DeleteBanner/BannerDelete";
+import { bannerCreado } from "./DeleteBanner/toastCreatedBanner";
 export default function AdminBanners() {
   const { banners } = useSelector((state) => state.prueba);
   const navigate = useHistory();
 
   const dispatch = useDispatch();
-  const[CratedBa ,setCratedBa ] = useState(true)
+  const [CratedBa, setCratedBa] = useState(true);
   const [Select, setSelect] = useState(false);
   const [Next, setNext] = useState(false);
   const [Info, setInfo] = useState({
@@ -33,16 +34,12 @@ export default function AdminBanners() {
   const handlerNext = () => {
     setNext(true);
   };
-  let BannerCreated = false;
+ 
 
-  if (banners.res) {
-    BannerCreated = true;
-  }
-  const HandlerBack = () => {
-    setCratedBa(false)
-    BannerCreated = false
-    setNext(false);
-  };
+  // if (banners.res === 'Banner created') {
+   
+  // }
+
   const handlerPrevius = () => {
     setNext(false);
   };
@@ -91,10 +88,14 @@ export default function AdminBanners() {
           id: ++id,
         },
       ],
+     
     };
     let adminId = localStorage.getItem("id");
     dispatch(createBanners(bannerInfo, adminId));
+    bannerCreado()
   };
+
+
   //Dependiendo del state de Select  se renderiza Crear o Delete
   // state Next maneja lo que se renderiza en en el div content y los botones
   return (
@@ -132,11 +133,11 @@ export default function AdminBanners() {
                     </p>
                   </div>
 
-                  {BannerCreated === true && CratedBa ? (
+                  {/* {BannerCreated === true && CratedBa ? (
                     <div className={style.divExito}>
                       <h1> ✔️ Banner created successfully </h1>
                     </div>
-                  ) : (
+                  ) : ( */}
                     <>
                       {Next ? (
                         <TextinBanners HandlerText={HandlerText} />
@@ -151,39 +152,32 @@ export default function AdminBanners() {
                         </div>
                       )}
                     </>
-                  )}
+                  {/* )} */}
                 </>
               )}
             </div>
             {Select === false && (
               <div className={style.divBotones}>
-                {BannerCreated === true  ? (
-                  <button onClick={HandlerBack} className={style.btn}>
-                    {" "}
-                    Back{" "}
-                  </button>
-                ) : (
-                  <>
-                    {Next && (
-                      <button onClick={handlerPrevius} className={style.btn}>
-                        {" "}
-                        Previus{" "}
-                      </button>
-                    )}
-                    {Next && (
-                      <button onClick={Onsubmit} className={style.btn}>
-                        Create Banner
-                      </button>
-                    )}
+                <>
+                  {Next && (
+                    <button onClick={handlerPrevius} className={style.btn}>
+                      {" "}
+                      Previus{" "}
+                    </button>
+                  )}
+                  {Next && (
+                    <button onClick={Onsubmit} className={style.btn}>
+                      Create Banner
+                    </button>
+                  )}
 
-                    {Next === false && (
-                      <button onClick={handlerNext} className={style.btn}>
-                        {" "}
-                        Next{" "}
-                      </button>
-                    )}
-                  </>
-                )}
+                  {Next === false && (
+                    <button onClick={handlerNext} className={style.btn}>
+                      {" "}
+                      Next{" "}
+                    </button>
+                  )}
+                </>
               </div>
             )}
 

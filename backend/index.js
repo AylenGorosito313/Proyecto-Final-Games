@@ -36,10 +36,11 @@ require('./src/models/providers')
 require('./src/models/banner')
 require('./src/models/admin')
 require('./src/models/providerAplication')
+require('./src/models/coment')
 
 async function main() {
     try {
-        await sequelize.sync({ force: false}); 
+        await sequelize.sync({ force: true}); 
         // await getGamesForExaminar() 
         let crearAdministrador = await createAdmin() 
         let createGenre = await createGenres()

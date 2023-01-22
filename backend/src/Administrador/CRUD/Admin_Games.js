@@ -1,5 +1,3 @@
-// const { Providers } = require("../../models/providers")
-// const { Users } = require("../../models/users")
 const { Game } = require("../../models/games");
 const { Providers } = require("../../models/providers");
 const deleteGameProvider = require("../../utils/logicDeleteGame");

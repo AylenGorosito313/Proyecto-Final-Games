@@ -34,10 +34,9 @@ export default function AdminBanners() {
   const handlerNext = () => {
     setNext(true);
   };
- 
 
   // if (banners.res === 'Banner created') {
-   
+
   // }
 
   const handlerPrevius = () => {
@@ -75,26 +74,20 @@ export default function AdminBanners() {
       textBtn: text.textBtn,
     });
   };
-  let id = 0;
+
   const Onsubmit = () => {
     let bannerInfo = {
-      banner_img: [
-        {
-          imageBanner: Info.imageBanner,
-          imageLogo: Info.imageLogo,
-          name: Info.name,
-          description: Info.description,
-          textBtn: Info.textBtn,
-          id: ++id,
-        },
-      ],
-     
+      banner_img: Info.imageBanner,
+      banner_Logo: Info.imageLogo,
+      title: Info.name,
+      description: Info.description,
+      text_btn: Info.textBtn,
+      
     };
     let adminId = localStorage.getItem("id");
     dispatch(createBanners(bannerInfo, adminId));
-    bannerCreado()
+    bannerCreado();
   };
-
 
   //Dependiendo del state de Select  se renderiza Crear o Delete
   // state Next maneja lo que se renderiza en en el div content y los botones
@@ -138,20 +131,20 @@ export default function AdminBanners() {
                       <h1> ✔️ Banner created successfully </h1>
                     </div>
                   ) : ( */}
-                    <>
-                      {Next ? (
-                        <TextinBanners HandlerText={HandlerText} />
-                      ) : (
-                        <div className={style.header}>
-                          <UnploadBanner
-                            UnploadImageBanner={UnploadImageBanner}
-                          />
-                          <UnploadBannerLogo
-                            unploadImageLogo={unploadImageLogo}
-                          />
-                        </div>
-                      )}
-                    </>
+                  <>
+                    {Next ? (
+                      <TextinBanners HandlerText={HandlerText} />
+                    ) : (
+                      <div className={style.header}>
+                        <UnploadBanner
+                          UnploadImageBanner={UnploadImageBanner}
+                        />
+                        <UnploadBannerLogo
+                          unploadImageLogo={unploadImageLogo}
+                        />
+                      </div>
+                    )}
+                  </>
                   {/* )} */}
                 </>
               )}

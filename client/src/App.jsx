@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Homepage from "./pages/Homepage/Homepage";
 import Cart from "./components/Cart/Cart";
@@ -23,7 +23,11 @@ import GameDevForm from "./pages/GameDevForm/GameDevForm";
 import ViewAdmin from "./pages/Admin/ViewAdmin";
 import Footer from "./components/Footer/Footer";
 import ProveedorProfile from "./pages/ProveedorProfile/Profile/ProveedorProfile";
+import Page404 from "./components/Page404/Page404";
 //admins import
+
+
+
 
 import Dashboard from "./pages/Admin/Dashboard/Dashboard";
 import AdminUser from "./pages/Admin/AdminUsuario/AdminUsuario";
@@ -36,14 +40,20 @@ function App() {
   ] = `Bearer ${localStorage.getItem("token")}`;
   return (
     <>
-      <Route path="/user">
+      <Switch>
+      {/* <Route exact path="/user"> */}
         <Route exact path="/user/login" component={Loginn} />
         <Route exact path="/user/register" component={Register} />
         {/* <Route exact path="/user/recuperacion" component={UserRecuperacion} /> */}
+      {/* </Route> */}
+
+      <Route exact path={"/payment"}>
+        <NavTop/>
+      {/* <Route exact path="/payment" component={NavTop} /> */}
+      <Route path="/payment" component={PaymentMP} />
       </Route>
 
-      <Route exact path="/payment" component={NavTop} />
-      <Route exact path="/payment" component={PaymentMP} />
+      
       <Route exact path="/payment/success" component={SuccessPay} />
 
       <Route path="/home">
@@ -61,15 +71,14 @@ function App() {
         <Footer />
       </Route>
 
-      <Route exact path="/user">
+      <Route exact path="/user/profil">
         <NavTop />
-        <Route path="/user" component={ProfilePage} />
+        <Route path="/user/profil" component={ProfilePage} />
         <Footer />
       </Route>
 
       <Route path="/profile">
         <NavTop />
-
         {/* <Route exact path="/profile/profile" component={Profile} /> */}
         <Route exact path="/profile/games" component={MyGames} />
         <Route exact path="/profile/favorite" component={Favorite} />
@@ -97,6 +106,9 @@ function App() {
 
       <Route exact path="/provedor/unpload" component={UnploadGame} />
       <Route exact path="/provedor/profile" component={ProveedorProfile} />
+    
+      <Route path="*" component={Page404}/>
+      </Switch>
     </>
   );
 }

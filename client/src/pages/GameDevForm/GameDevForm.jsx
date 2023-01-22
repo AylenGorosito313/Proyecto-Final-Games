@@ -15,6 +15,9 @@ export default function GameDevForm () {
     const providerCreated = useSelector( state => state.prueba.res.provider)
     
     console.log(providerCreated === true)
+
+    if(providerCreated) window.scroll({top: 0})
+
     return (
         <>
             <div className="dev-form-main-container">

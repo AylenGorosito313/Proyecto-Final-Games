@@ -25,7 +25,7 @@ const Admin = sequelize.define(
         password: {
             type: DataTypes.STRING, 
             defaultValue: "Admin07@"
-        },
+        }, 
     },
     { timestamps: false, freezeTableName: true }
 );

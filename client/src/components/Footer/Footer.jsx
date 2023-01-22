@@ -46,8 +46,8 @@ export default function Footer() {
       <div className={style.text}>
         <p className={style.p}>
           {" "}
-          © 2023, Andromeda Games, Inc. Todos los derechos reservados.
-          Andromeda, Andromeda Games, el logotipo de Andromeda Gamess.
+          © 2023, Andromeda Games, Inc. All tights reeserved.
+          Andromeda, Andromeda Games, the logo's Andromeda Games.
         </p>
       </div>
     </div>

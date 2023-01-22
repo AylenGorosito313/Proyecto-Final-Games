@@ -603,3 +603,20 @@ export const getBanners = () => {
   };
 };
 
+export const putUser = (inf) => {
+  return async (dispatch) => {
+      try{
+          let userId = localStorage.getItem("id");
+          // let {data} = await axios.put(`http://localhost:3001/user/${userId}`,{ body : inf});
+          let {data} = await axios({
+              method: 'PUT',
+              url: `http://localhost:3001/user/${userId}`,
+              data: inf
+          });
+          dispatch(getUserActual(data));
+          
+      }catch(e){
+          console.log(e);
+      }
+  };
+};

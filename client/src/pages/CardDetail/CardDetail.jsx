@@ -82,6 +82,7 @@ export default function CardDetail() {
                                 <DetailSlider
                                     screenshots={gameDetail.screenshot}
                                     trailer={gameDetail.trailer}
+                                    background={gameDetail.background_image}
                                 />
                             </div>
 

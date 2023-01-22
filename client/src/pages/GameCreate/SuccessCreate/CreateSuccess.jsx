@@ -16,7 +16,7 @@ export default function CreateSuccess() {
           <LogoNew />
         </div>
         <div className="text-scss">
-           <h1>Submission Received</h1> 
+           <h1>Game Created Successfully</h1> 
           <p className="p-scss">
             Thank you very much for publishing on Andromeda's game.
         

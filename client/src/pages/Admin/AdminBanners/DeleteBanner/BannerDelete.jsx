@@ -22,13 +22,14 @@ export default function BannerDelete() {
       {Banners &&
         Banners.map((banner) => {
           return (
-            <div>
+            <div  className={style.containerCARD}>
               <CardsBanners
                 description={banner.description}
                 imageBanner={banner.imageBanner}
-                imageLogo={banner.imageLogo}
+                imageLogo={banner.id}
                 name={banner.name}
                 textBtn={banner.textBtn}
+                id={banner.id}
               />
             </div>
           );

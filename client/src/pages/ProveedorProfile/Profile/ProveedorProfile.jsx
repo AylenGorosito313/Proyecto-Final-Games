@@ -28,7 +28,7 @@ export default function ProveedorProfile() {
       <div className={style.Statistics}>
         <h1 className={style.h1}> Games Statistics</h1>
         <div className={style.nav}>
-          <div className={style.ul}> Ingresos Generados</div>
+          <div className={style.ul}>Income Generated</div>
           <div className={style.ul}>
             {" "}
             {!userActual.provider
@@ -36,7 +36,7 @@ export default function ProveedorProfile() {
               : "0 USD"}
           </div>
         </div>
-        <div className={style.ul}> Juegos vendidos</div>
+        <div className={style.ul}>Games sold</div>
         <div className={style.ul}>
           <button className={style.button}>
             <span>
@@ -46,47 +46,7 @@ export default function ProveedorProfile() {
             </span>
           </button>
         </div>
-        {/* <li className={style.title}>Games Upload</li> */}
-      
-      
       </div>
-     
-      
-      
-      
-      
-        {/* <div className={style.conteiner}>
-        {!userActual.provider ? (
-          <div className={style.nav}>
-            <div className={style.noGame}></div>
-            <br />
-            <div className={style.noGame}>
-              {" "}
-              Sorry, you haven't created a game yet{" "}
-            </div>
-          </div>
-        ) : (
-          <div>
-             
-            <div>
-             
-              {userActual.provider?.videoGamesPropor?.length &&
-                userActual.provider.videoGamesPropor.map((inf) => {
-                  return (
-                    <div className={style.DivCardProveedor}>
-                      <CardProfile
-                        id={inf.name}
-                        image={inf.background_image}
-                        name={inf.name}
-                        platforms={inf.parent_platforms}
-                      />
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
-        )}
-      </div> */}
     </div>
     </div>
     <Footer/>

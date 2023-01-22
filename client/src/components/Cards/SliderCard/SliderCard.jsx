@@ -14,7 +14,6 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
   const { cart, provisoryCartIds, provisoryFavoriteIds } = useSelector( state => state.prueba)
   
   let user_id = localStorage.getItem("id");
-  console.log(provisoryCartIds)
   const identifyingCartId = provisoryCartIds.some(item => item === id)
   const identifyingFavoriteId = provisoryFavoriteIds.some(item => item === id)
 

@@ -9,8 +9,7 @@ export default function infoProfile() {
               <NavProfile />
               <Profile />
        </div>
-
-    
     </div>
+    
   );
 }

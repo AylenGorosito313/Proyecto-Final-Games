@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getGameDetail } from "../../middleware";
 import { Link, useHistory, useParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-
+import Coments from "../../components/Comentarios/Coments";
 import Loading from "../../components/Loading/Loading.jsx";
 import DetailSlider from "./DetailSlider/DetailSlider";
 import GamesActionsContainer from "./GameActionsContainer/GameActionsContainer";
@@ -101,6 +101,7 @@ export default function CardDetail() {
                                     developers={gameDetail.developers}
                                 />
                             </div>
+                            <Coments/>
                         </div>
                         {/* Righ Card Detail Container */}
                         <div className="right-container">
@@ -113,7 +114,8 @@ export default function CardDetail() {
                                     price={gameDetail.price}
                                     genres={gameDetail.genres}
                                     description={gameDetail.description}
-                                />
+                                     />
+                                   
                             </div>
 
                         </div>

@@ -37,7 +37,7 @@ export default function NavProfile() {
             />
             <div className={style.divAvatar}>
               {userActual.name
-                ? `${userActual.name}`
+                ? `Hello, ${userActual.name}!`
                 : ""}
             </div>
           </div>

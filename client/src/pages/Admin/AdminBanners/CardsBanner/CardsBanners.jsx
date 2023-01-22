@@ -2,11 +2,13 @@ import React from "react";
 import style from "./bannersCard.module.css";
 import { deleteBannersA } from "../../../../middleware";
 import { useDispatch, useSelector } from "react-redux";
+import { bannerEliminado } from "../DeleteBanner/toastDeleteBanner";
 export default function CardsBanners({ imageBanner, name, id }) {
 
   const dispatch = useDispatch()
   const handlerDelete = () => {
     dispatch(deleteBannersA(id))
+    bannerEliminado()
   };
   return (
     <div className={style.conteiner}>

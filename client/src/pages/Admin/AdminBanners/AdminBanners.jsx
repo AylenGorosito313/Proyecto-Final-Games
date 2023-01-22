@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavAdmin from "../NavAdmin/NavAdmin";
 import style from "./AdminBanners.module.css";
+import toast, { Toaster } from "react-hot-toast";
 import { createBanners } from "../../../middleware";
 import TextinBanners from "./BannersFlow/TextinBanners";
 import UnploadBanner from "./BannersFlow/UnploadImgBanner/UnploadBannerImg";
@@ -99,6 +100,7 @@ export default function AdminBanners() {
         <div className={style.Contairner}>
           <NavAdmin />
           <div className={style.content_Banner}>
+          <Toaster/>
             <div className={style.divSelect}>
               <select onChange={handlerSelect}>
                 <option value={DefaultValues.create}>Create Banners</option>

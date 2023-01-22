@@ -27,7 +27,8 @@ import {
   responseLoginAdmin,
   deleteProvisoryCartIds,
   deleteProvisoryFavoriteIds,
-  getAndromedaUsers
+  getAndromedaUsers,
+  getUserSubmissions
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -542,10 +543,26 @@ export const getUsers = () => {
         method: "GET",
         url: `http://localhost:3001/users`
       });
-      console.log(data)
+      
       dispatch(getAndromedaUsers(data))
     } catch (error) {
       console.log(error)
     }
   }
 }
+
+export const getSubmissions = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/get/providers/aplication`
+      });
+      
+      dispatch(getUserSubmissions(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+

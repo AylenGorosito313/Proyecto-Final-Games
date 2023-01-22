@@ -1,6 +1,8 @@
 import React from "react";
 import NavAdmin from "../NavAdmin/NavAdmin";
 import style from "./Dashboard.module.css";
+import LineChart from "./LineChart";
+
 export default function Dashboard() {
   return (
     <>
@@ -8,7 +10,16 @@ export default function Dashboard() {
         <div className={style.Contairner}>
           <NavAdmin />
           <div className={style.content_Dasboard}>
-            <h1>WELCOME to DASHBOARD</h1>
+            <div className={style.content}>
+              <div className={style.div}>User: </div>
+              <div className={style.div}>Games: </div>
+              <div className={style.div}>Downloads: </div>
+              <div className={style.div}>Profits: </div>
+            </div>
+            <br />
+            <div className={style.content1}>
+              <LineChart className={style.grafica}/>
+            </div>
           </div>
         </div>
       </div>

@@ -25,6 +25,9 @@ const createComent = async (req, res) => {
             coment,
             profile: searchUser.profile_img
         });
+        createComent.userId = userId
+        await createComent.save()
+
         searchGame.addComentario(createComent);
         return res.status(200).json({
             message: 'Coment add'

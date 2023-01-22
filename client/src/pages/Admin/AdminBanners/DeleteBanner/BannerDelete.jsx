@@ -5,21 +5,17 @@ import CardsBanners from "../CardsBanner/CardsBanners";
 import { useDispatch, useSelector } from "react-redux";
 import { getBanners } from "../../../../middleware";
 export default function BannerDelete() {
-  const [Data, setData] = useState();
-  const [Reload, setReload] = useState(false);
-  const { allBanners } = useSelector((state) => state.prueba);
+
+  const { banners } = useSelector((state) => state.prueba);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBanners());
-  }, []);
+  }, [banners.delete]);
 
-  let Banners = "";
-  if (allBanners) {
-    Banners = allBanners.map((ele) => ele.banner_img).flat(1);
-    console.log(Banners);
-  }
+
+ 
 
   return (
     <>

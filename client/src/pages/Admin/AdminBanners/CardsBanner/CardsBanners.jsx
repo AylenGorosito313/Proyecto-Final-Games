@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { bannerEliminado } from "../DeleteBanner/toastDeleteBanner";
 export default function CardsBanners() {
   const { allBanners } = useSelector((state) => state.prueba);
-  
+
   useEffect(() => {}, [allBanners.length]);
   const dispatch = useDispatch();
   const handlerDelete = (id) => {
+
     dispatch(deleteBannersA(id));
     bannerEliminado();
   };

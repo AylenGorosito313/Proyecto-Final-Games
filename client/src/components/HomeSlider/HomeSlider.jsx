@@ -61,10 +61,12 @@ let Banners =""
           <div>
             {Banners &&
               Banners.map((banner) => {
+                console.log(banner.imageBanner)
                 return (
                   <>
+                
                     <SwiperSlide className="swiper-slide">
-                      <img src={banner.imageBanne} alt="" />
+                      <img src={banner.imageBanner} alt="" />
                       <div className="banner-contaiter">
                         <div className="content">
                           <TextBanners

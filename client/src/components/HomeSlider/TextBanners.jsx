@@ -1,5 +1,6 @@
 import React from "react";
 import "./HomeSlider.css";
+import style from "./TextBanner.module.css"
 import { Imagen } from "./styledImg";
 export default function TextBanners({ title, description, price,logo, textBtn }) {
   return (

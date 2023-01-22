@@ -12,9 +12,15 @@ const Banner = sequelize.define(
         },
 
         banner_img: {
-            type: DataTypes.ARRAY(DataTypes.JSON),
+            type: DataTypes.STRING,
             allowNull: false,
         },
+        title: {
+            type: DataTypes.STRING,
+        },
+        description: {
+            type: DataTypes.STRING
+        }
     },
     { timestamps: false, freezeTableName: true }
 );

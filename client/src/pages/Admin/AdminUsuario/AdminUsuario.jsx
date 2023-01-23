@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import { useEffect } from 'react';
 
 import { useDispatch } from "react-redux";
@@ -13,6 +14,7 @@ export default function AdminUsuario() {
 
   const dispatch = useDispatch()
   
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     dispatch(getUsers())

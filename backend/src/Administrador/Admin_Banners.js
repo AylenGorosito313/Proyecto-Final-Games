@@ -7,7 +7,6 @@ const createBanner = async (req, res) => {
     const { adminId } = req.query
     const bannerInfo = req.body 
     
-console.log(bannerInfo)
     try {
 
         let searchAdmin = await Admin.findByPk(adminId)
@@ -33,7 +32,6 @@ const getAllBanner = async (req, res) => {
     try {
         
         let allBanner = await Banner.findAll()
-        // let bannerMap = allBanner.map(ele => ele.banner_img).flat(1)
         return res.status(200).json(allBanner)
 
     } catch (error) {

@@ -1,0 +1,31 @@
+.mainTabContainer {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    vertical-align: middle;
+    flex-direction: column;
+    width: 800px;
+    margin: auto;
+    margin-top: 25%;
+}
+
+.mainTabHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tabHeader {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.tabContent {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    vertical-align: middle;
+    flex-direction: column;
+}

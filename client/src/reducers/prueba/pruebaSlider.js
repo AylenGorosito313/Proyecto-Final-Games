@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   admin: {
     users: [],
-    submissions: []
+    submissions: [],
+    inactiveUsers: []
   },
   users: [],
   games: [],
@@ -46,6 +47,9 @@ export const toolkit_prueba = createSlice({
     },
     getUserSubmissions: (state, actions) => {
       state.admin.submissions = [...actions.payload]
+    },
+    getUsersInactive: (state, actions) => {
+      state.admin.inactiveUsers = [...actions.payload]
     },
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
@@ -169,7 +173,8 @@ export const {
   deleteProvisoryCartIds,
   deleteProvisoryFavoriteIds,
   getAndromedaUsers,
-  getUserSubmissions
+  getUserSubmissions,
+  getUsersInactive
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

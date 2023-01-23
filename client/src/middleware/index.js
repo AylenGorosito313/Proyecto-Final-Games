@@ -28,7 +28,8 @@ import {
   deleteProvisoryCartIds,
   deleteProvisoryFavoriteIds,
   getAndromedaUsers,
-  getUserSubmissions
+  getUserSubmissions,
+  getUsersInactive
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -565,6 +566,24 @@ export const getSubmissions = () => {
     }
   }
 }
+
+export const getInactiveUsers = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/users/inactive`
+      });
+
+      dispatch(getUsersInactive(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+
+// ----------------- END ADMIN -------------
 
 // Settings .................................................
 

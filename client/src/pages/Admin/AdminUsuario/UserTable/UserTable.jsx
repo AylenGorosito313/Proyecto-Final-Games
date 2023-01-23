@@ -1,18 +1,21 @@
 import React from 'react';
-import UsersCells from '../UserCells/UsersCells';
+import { useSelector } from 'react-redux';
+import UsersCells from '../UserTable/UserCells/UsersCells';
 import style from "./UserTable.module.css";
 
 
-export default function UserTable ({list, colNames}) {
+export default function UserTable () {
+
+    const { users } = useSelector( state => state.prueba.admin)
     
+    const columnNames = ["Name", "Last Name", "Email", "Developer"]
 
     return (
         <>
             <table className={style.mainTable}>
                 <thead cellSpacing="0" className={style.headerTable}>
                     <tr>
-                    
-                        {colNames.map((header, index) => (
+                        {columnNames.map((header, index) => (
                             <th key={index}>
                                 {header}
                             </th>
@@ -20,7 +23,7 @@ export default function UserTable ({list, colNames}) {
                     </tr>
                 </thead>
                 <tbody>
-                    {list.map((obj, index) => (
+                    {users?.map((obj, index) => (
                         <tr key={index}>
                             <UsersCells users={obj} />
                         </tr>

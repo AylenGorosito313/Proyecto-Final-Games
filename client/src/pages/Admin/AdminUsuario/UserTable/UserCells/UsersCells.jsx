@@ -7,10 +7,10 @@ export default function UsersCells ({users}) {
     
     const { submissions } = useSelector( state => state.prueba.admin)
     
-    const userSubmissionValidation = (userId) => {
-
-    } 
-
+    const submissionPending = (userId) => {
+        let submissionFinded = submissions.some( sbmsn => sbmsn.id_user === userId)
+        return submissionFinded;
+    }
 
     return (
         <>
@@ -26,7 +26,10 @@ export default function UsersCells ({users}) {
             <td className={style.developer}>
                 {users.proveedor === true ? 
                 <i className="fa-solid fa-check"></i> :
-                <span>Ver</span> }
+                submissionPending(users.id) === true ?
+                <span>Ver</span> : 
+                <i className="fa-solid fa-xmark"></i>
+                }
             </td>
             <td className={style.trash}>
                 <i className="fa-solid fa-trash"></i>

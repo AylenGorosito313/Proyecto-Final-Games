@@ -102,6 +102,10 @@ export default function CardDetail() {
                                     developers={gameDetail.developers}
                                 />
                             </div>
+                            <br/>
+                            <hr className="hr-cardD"/>
+                           <br/>
+                           <h2>Comments</h2>
                             <Coments/>
                         </div>
                         {/* Righ Card Detail Container */}

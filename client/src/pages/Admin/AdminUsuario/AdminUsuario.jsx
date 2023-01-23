@@ -7,6 +7,7 @@ import { getInactiveUsers, getSubmissions, getUsers } from '../../../middleware'
 import NavAdmin from "../NavAdmin/NavAdmin";
 import AdminTab from './AdminTab/AdminTab';
 import style from "./AdminUsuario.module.css";
+import ValidationModal from './UserTable/ValidationModal.jsx/ValidationModal';
 
 
 
@@ -15,6 +16,10 @@ export default function AdminUsuario() {
   const dispatch = useDispatch()
   
   const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal)
+  }
 
   useEffect(() => {
     dispatch(getUsers())
@@ -30,6 +35,7 @@ export default function AdminUsuario() {
       <NavAdmin />
       <div className={style.content_User}>
         <AdminTab />
+        <ValidationModal />
       </div>
     </div>
   </div>

@@ -19,6 +19,7 @@ import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading/Loading";
 import { clearState } from "../reducers/prueba/pruebaSlider";
+import IndieGamesSlider from "../components/GameSliders/IndieGamesSlider";
 
 function Home() {
   const [Developer, setDeveloper] = useState(false);
@@ -57,6 +58,7 @@ function Home() {
           <div className="div-home">
             <div className="home-slider-games">
               <MostPopularSlider />
+              <IndieGamesSlider />
               <ReleasedLasthMonth />
             </div>
             <div className="div-home-all-games">

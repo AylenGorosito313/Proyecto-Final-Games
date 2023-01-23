@@ -5,7 +5,7 @@ const { Users } = require("../models/users");
 const createComent = async (req, res) => {
     const { gameId, userId } = req.query;
     const { coment }  = req.body;
-
+console.log(coment)
     try {
         let searchUser = await Users.findByPk(userId);
         if(!searchUser){

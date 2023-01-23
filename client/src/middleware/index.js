@@ -630,8 +630,8 @@ export const addComments = (coment, userId, gameId ) => {
     try {
       let res = await axios({
         method: "POST",
-        data: coment ,
-        url: `http://localhost:3001/user/add/coment?userId=${userId}gameId=${gameId} `,
+        data: {coment} ,
+        url: `http://localhost:3001/user/add/coment?userId=${userId}&gameId=${gameId} `,
       });
       dispatch(resAddComment(res));
     } catch (error) {

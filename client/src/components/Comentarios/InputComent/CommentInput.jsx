@@ -22,8 +22,9 @@ export default function CommentInput({ id }) {
   const handlerSubmit = async (data) => {
     let gameId = id;
     let userId = localStorage.getItem("id");
-    console.log(data, userId, gameId);
-    dispatch(addComments(data, userId, gameId));
+let coment = data.comment
+    console.log(coment, userId, gameId);
+    dispatch(addComments(coment, userId, gameId));
   };
   return (
     <>

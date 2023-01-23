@@ -29,8 +29,7 @@ import {
   deleteProvisoryFavoriteIds,
   responseCreateBanner,
   responseDeleteeBanner,
-  getAll_Banner
-  deleteProvisoryFavoriteIds,
+  getAll_Banner,
   getAndromedaUsers,
   getUserSubmissions,
   getUsersInactive

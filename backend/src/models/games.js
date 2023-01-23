@@ -47,7 +47,7 @@ const Game = sequelize.define("game", {
         defaultValue: null
     },
     developers: {
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true
     },
     released: {
@@ -59,9 +59,6 @@ const Game = sequelize.define("game", {
 
 Game.belongsToMany(Genre, { through: "game_genre" })
 Genre.belongsToMany(Game, { through: "game_genre" })
-
-// Game.belongsToMany(Platforms, { through: "platfom_game" })
-// Platforms.belongsToMany(Game, { through: "platfom_game" })
 
 
 module.exports = { Game };

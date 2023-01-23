@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+
 import { useSelector } from "react-redux";
 //Import images assets
 import Andromeda1 from "../../assets/devForm/1.jpg";
@@ -11,6 +11,8 @@ import godOfWar from "../../assets/slides/godOfWar.png";
 // import Swiper core and required modules
 import { Pagination, Autoplay, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useEffect, useState } from "react";
+ import axios from "axios";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/swiper.min.css";
@@ -23,6 +25,21 @@ import TextBanners from "./TextBanners";
 export default function HomeSlider() {
   // const { games } = useSelector((state) => state.prueba);
   // const sliderImages = games.map((el) => el.background_image);
+  const [Data, setData] = useState();
+  useEffect(() => {
+    axios.get(`http://localhost:3001/admin/allbanner`).then((res) => {
+      const respons = res.data;
+      setData(respons);
+    });
+  }, []);
+
+
+  console.log(Data)
+// let Banners =""
+//   if (Data) {
+//     Banners = Data.map((ele) => ele.title)
+//     
+//   }
 
   return (
     <>
@@ -44,25 +61,44 @@ export default function HomeSlider() {
           centeredSlides="true"
           className="swiper"
         >
-          <SwiperSlide className="swiper-slide">
-            <img src={Andromeda1} alt="" />
-            <div className="banner-contaiter">
-              <div className="content"></div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
+          <div>
+            { Data &&
+               Data.map((banner) => {
+           
+                return (
+                  <>
+                
+                    <SwiperSlide className="swiper-slide">
+                      <img src={banner.banner_img} alt="" />
+                      <div className="banner-contaiter">
+                        <div className="content">
+                          <TextBanners
+                            title={banner.title}
+                            logo={banner.banner_Logo }
+                            description={banner.description}
+                            textBtn={banner.text_btn}
+                          />
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  </>
+                );
+              })}
+          </div>
+
+          {/* <SwiperSlide className="swiper-slide">
             <img src={Andromeda2} alt="" />
             <div className="banner-contaiter">
               <div className="content"></div>
             </div>
-          </SwiperSlide>
+          </SwiperSlide> */}
 
-          <SwiperSlide className="swiper-slide">
+          {/* <SwiperSlide className="swiper-slide">
             <img src={Andromeda3} alt="" />
             <div className="banner-contaiter">
               <div className="content"></div>
             </div>
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       </div>
     </>

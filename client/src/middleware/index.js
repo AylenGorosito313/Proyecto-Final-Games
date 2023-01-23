@@ -27,6 +27,10 @@ import {
   responseLoginAdmin,
   deleteProvisoryCartIds,
   deleteProvisoryFavoriteIds,
+  responseCreateBanner,
+  responseDeleteeBanner,
+  getAll_Banner
+  deleteProvisoryFavoriteIds,
   getAndromedaUsers,
   getUserSubmissions,
   getUsersInactive
@@ -191,6 +195,18 @@ export const createUser = ({ name, lastName, email, password }) => {
     }
   };
 };
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const enableProvider = (id, aplication) => {
   return async function (dispatch) {
@@ -585,24 +601,78 @@ export const getInactiveUsers = () => {
 
 // ----------------- END ADMIN -------------
 
-// Settings .................................................
+// crear banner
 
-export const putUser = (inf) => {
-    return async (dispatch) => {
-        try{
-            let userId = localStorage.getItem("id");
-            // let {data} = await axios.put(`http://localhost:3001/user/${userId}`,{ body : inf});
-            let {data} = await axios({
-                method: 'PUT',
-                url: `http://localhost:3001/user/${userId}`,
-                data: inf
-            });
-            dispatch(getUserActual(data));
-            
-        }catch(e){
-            console.log(e);
-        }
-    };
+export const createBanners= (bannerInfo, adminId) => {
+  return async function (dispatch) {
+    try {
+      let res = await axios({
+        method: "POST",
+        data: bannerInfo,
+        url: `http://localhost:3001/admin/create/banner?adminId=${adminId}`,
+      });
+      dispatch(responseCreateBanner(res));
+    } catch (error) {
+      toast.error(error.message, {
+        position: "bottom-right",
+        duration: 4000,
+
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
+  };
 };
 
-//  .................................................
+
+// / get all banners /admin/allbanner
+export const deleteBannersA = (id) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios({
+        method: "DELETE",
+        url: `http://localhost:3001/admin/delete/banner?id=${id}`,
+      });
+     dispatch(responseDeleteeBanner(response.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+
+export const getBanners = () => {
+  return async (dispatch) => {
+    try {
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/admin/allbanner`,
+      });
+      console.log(data)
+      dispatch( getAll_Banner(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const putUser = (inf) => {
+  return async (dispatch) => {
+      try{
+          let userId = localStorage.getItem("id");
+          // let {data} = await axios.put(`http://localhost:3001/user/${userId}`,{ body : inf});
+          let {data} = await axios({
+              method: 'PUT',
+              url: `http://localhost:3001/user/${userId}`,
+              data: inf
+          });
+          dispatch(getUserActual(data));
+          
+      }catch(e){
+          console.log(e);
+      }
+  };
+};

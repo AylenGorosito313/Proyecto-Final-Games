@@ -63,27 +63,32 @@
 .card-content-slider {
     width: 230px;
     padding: 5px 25px 25px 25px;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid #f5f5f559;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     display: flex;
-    background: #e8e8e8;
+    /* background: #e8e8e8; */
     position: relative;
-    color: #001d38;
+    color: white;
     flex-direction: column;
     transition: heigth .3s ease;
 }
 
 .price-slider {
     display: inline-block;
-    background: #02ac51;
+    /* background: #FFD700; */
+    background: linear-gradient(90deg, rgba(30,144,255,1) 0%, rgba(0,212,255,1) 100%);
     border-radius: 30px;
     padding: 5px 18px;
-    color: #fff;
-    font-weight: 500;
+    color: black;
+    font-weight: 900;
     font-size: 13px;
     margin-top: 0px;
     font-family: "Poppins", sans-serif;
+}
+
+.rating-conteiner{
+    color: white;
 }
 
 .shopping-cart-slider {
@@ -117,14 +122,17 @@
 
 .card-content-slider h3 {
     font-size: 16px;
-    color: #001d38;
-    font-weight: 500;
+    color: white;
+    font-weight: 700;
     font-family: "Poppins", sans-serif;
 }
 
 .card-content-slider a {
     text-decoration: none;
+    color: white;
 }
+
+
 
 .card-footer-slider ul li span {
     color: #4c4c4c;

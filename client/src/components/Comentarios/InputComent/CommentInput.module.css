@@ -1,0 +1,59 @@
+.container{
+    width: 100%;
+    background: #121212;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+}
+
+.input{
+    width: 50%;
+    height: 60px;
+    border-radius: 5px;
+    background: rgba(226, 214, 214, 0.692);
+}
+
+/* height: 30px;
+    width: 100px; */
+
+    .button {
+        height: 30px;
+    width: 200px;
+        font-size: 17px;
+        padding: 0.5em 2em;
+        border: transparent;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        background: dodgerblue;
+        font-size: 14px;
+        color: white;
+        margin: 0;
+        border-radius: 4px;
+       }
+       
+       .button:hover {
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(30,144,255,1) 0%, rgba(0,212,255,1) 100%);
+       }
+       
+       .button:active {
+        transform: translate(0em, 0.2em);
+       }
+
+
+
+       .divAvatar {
+        display: flex;
+        gap: 40px;
+        font-weight: 400;
+        font-size: 24px;
+        flex-direction: row;
+        align-items: center;
+      }
+
+
+      .img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+        /* background: #fff; */
+      }

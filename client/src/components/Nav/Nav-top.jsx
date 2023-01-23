@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import SelectProfile from "../Select/SelectProfile";
 import { Link, useHistory } from "react-router-dom";
 import Notificacion from "../../svg/Notificacion";
@@ -12,9 +13,10 @@ import { motion } from "framer-motion";
 import "../Botones/BotonLogin.css";
 import Car from "../../svg/Car";
 import User from "../../svg/User";
-import { useSelector } from "react-redux";
+
 import PanelAdminNav from "../../svg/PanelAdminNav";
 function NavTop() {
+  const { userActual } = useSelector((state) => state.prueba);
   const [Login, setLogin] = useState(false);
   const { res } = useSelector((state) => state.prueba);
   const [Dev, setDev] = useState(false);
@@ -97,8 +99,19 @@ function NavTop() {
             <div>
               {Login ? (
                 <div onClick={handlerOpenUser} className="div-icon">
-                  <User />
-                  <p className="p-profile"> Profile</p>
+                  <img
+                    className="img"
+                    src={
+                      userActual.profile_img
+                        ? userActual.profile_img
+                        : "https://cdn-icons-png.flaticon.com/512/1361/1361876.png"
+                    }
+                    alt="ImgProfile"
+                    width="100px"
+                    height="100px"
+                  />
+
+                  <p className="p-profile"> {userActual.name}</p>
                 </div>
               ) : (
                 <button

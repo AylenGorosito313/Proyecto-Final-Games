@@ -23,9 +23,12 @@ const getAllUser = async (req, res) => {
                 {
                     model: Providers,
                 },
+                {
+                    model: Coment,
+                },
                
             ],
-            include: Coment,
+            // include: Coment,
             attributes: { exclude: ["passwordHash"] },
         });
         res.status(200).json(user);
@@ -51,8 +54,11 @@ const getUserById = async (req, res) => {
                 {
                     model: Providers,
                 },
+                {
+                    model: Coment,
+                },
             ],
-            include: Coment,
+            // include: Coment,
             attributes: { exclude: ["passwordHash"] },
         });
         res.status(200).json(searchUser);

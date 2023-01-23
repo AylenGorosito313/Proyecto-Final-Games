@@ -11,11 +11,9 @@ const Banner = sequelize.define(
     },
     banner_Logo: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     banner_img: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     title: {
       type: DataTypes.STRING,

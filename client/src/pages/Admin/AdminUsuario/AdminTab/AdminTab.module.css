@@ -1,25 +1,27 @@
 .mainTabContainer {
     display: flex;
-    align-items: center;
-    text-align: left;
-    vertical-align: middle;
     flex-direction: column;
     width: 800px;
-    margin: auto;
-    margin-top: 25%;
+    align-items: center;
+    text-align: center;
+    min-height: 500px;
+    max-height: 500px;
 }
 
 .mainTabHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .tabHeader {
     width: 100%;
     cursor: pointer;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 300px;
 }
 
 .tabContent {

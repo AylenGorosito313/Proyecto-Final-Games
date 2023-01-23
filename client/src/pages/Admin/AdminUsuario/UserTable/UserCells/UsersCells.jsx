@@ -3,14 +3,15 @@ import { useSelector } from 'react-redux';
 
 import style from "./UsersCells.module.css"
 
-export default function UsersCells ({users}) {
+export default function UsersCells ({users, status}) {
     
-    const { submissions } = useSelector( state => state.prueba.admin)
+    const { submissions, inactiveUsers } = useSelector( state => state.prueba.admin)
     
     const submissionPending = (userId) => {
         let submissionFinded = submissions.some( sbmsn => sbmsn.id_user === userId)
         return submissionFinded;
     }
+
 
     return (
         <>
@@ -27,9 +28,12 @@ export default function UsersCells ({users}) {
                 {users.proveedor === true ? 
                 <i className="fa-solid fa-check"></i> :
                 submissionPending(users.id) === true ?
-                <span>Ver</span> : 
+                <span value={users.id}>Ver</span> : 
                 <i className="fa-solid fa-xmark"></i>
                 }
+            </td>
+            <td>
+                {status}
             </td>
             <td className={style.trash}>
                 <i className="fa-solid fa-trash"></i>

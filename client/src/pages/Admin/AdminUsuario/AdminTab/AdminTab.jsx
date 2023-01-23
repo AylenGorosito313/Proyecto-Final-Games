@@ -7,32 +7,56 @@ import style from "./AdminTab.module.css";
 
 export default function AdminTab () {
 
-    const [toggleTab, setToggleTab] = useState("users")
+    const [toggleTab, setToggleTab] = useState("users");
+    const [userStatus, setUserStatus] = useState("active");
+    const [adminStatus, setAdminStatus ] = useState("activeAdmins");
 
+    // This handle works to change tabs
     const handleTab = (name) => {
         setToggleTab(name)
     }
 
+    // This on change get the user status (value) choose option and sends it to UserTable
+    const handleUserStatus = (e) => {
+        const userStatus = e.target.value
+        setUserStatus(userStatus);
+    }
+
+    // This on change get the admin status (status) option and sends it to AdminTable
+    const handleAdminStatus = (e) => {
+        const adminStatus = e.target.value
+        setAdminStatus(adminStatus);
+    }
 
     return (
         <>
         <div className={style.mainTabContainer}>
             <div className={style.mainTabHeader}>
                 <div className={style.tabHeader}>
-                    
+                        {/* TABS */}
                         <div  className={style.tabs} onClick={() => handleTab("users")}>Users</div>
                         <div  className={style.tabs} onClick={() => handleTab("admin")}>Admin Users</div>
-                    
+                        {toggleTab === "users" ? 
+
+                        <select onChange={handleUserStatus}>
+                            <option value="active" >Active</option>
+                            <option value="inactive" >Inactive</option>
+                        </select> : 
+                        <select onChange={handleAdminStatus}>
+                            <option value="activeAdmins" >Active</option>
+                            <option value="inactiveAdmins" >Inactive</option>
+                        </select>
+                        }
+                </div>
                     {toggleTab === "admin" && (
                         <button><i className="fa-solid fa-plus"></i> Añadir admin</button>
                     )}
-                </div>
             </div>
             <div className={style.tabContent}>
                 {toggleTab === "users" ? 
-                <UserTable /> :
+                <UserTable status={userStatus} /> :
                 toggleTab === "admin" ?
-                <AdminTable /> :
+                <AdminTable status={adminStatus} /> :
                 "No hay nada que mostrar"
                 }
             </div>

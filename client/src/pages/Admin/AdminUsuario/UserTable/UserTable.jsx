@@ -1,14 +1,23 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import UsersCells from '../UserTable/UserCells/UsersCells';
 import style from "./UserTable.module.css";
 
 
-export default function UserTable () {
+export default function UserTable ({ status }) {
 
-    const { users } = useSelector( state => state.prueba.admin)
+    const { users, inactiveUsers} = useSelector( state => state.prueba.admin)
     
-    const columnNames = ["Name", "Last Name", "Email", "Developer"]
+    const columnNames = ["Name", "Last Name", "Email", "Developer", "Status"]
+
+    let usersToRender
+   
+    if(status === "active"){
+        usersToRender = users
+    } else if (status === "inactive") {
+        usersToRender = inactiveUsers
+    }
 
     return (
         <>
@@ -23,9 +32,9 @@ export default function UserTable () {
                     </tr>
                 </thead>
                 <tbody>
-                    {users?.map((obj, index) => (
+                    {usersToRender?.map((obj, index) => (
                         <tr key={index}>
-                            <UsersCells users={obj} />
+                            <UsersCells users={obj} status={status} />
                         </tr>
                     ))}
                 </tbody>

@@ -1,11 +1,27 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import {  useDispatch, useSelector } from "react-redux";
 import style from "./CardComment.module.css";
-export default function CardComment({ comment }) {
+import { getGameDetail } from "../../../middleware/index";
+import { cleanDetails } from "../../../reducers/prueba/pruebaSlider";
+export default function CardComment({id}) {
+  const { gameDetail, addComment} = useSelector((state) => state.prueba);
+
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  
+  //   dispatch(getGameDetail(id));
+  //   return () => {
+  //     dispatch(cleanDetails())
+  //   }
+  // }, [addComment.message.length])
+  useEffect(() => {}, [gameDetail.message]);
+  
   return (
     <>
-      {comment &&
-        comment.map((c) => {
+      {gameDetail.comentarios &&
+       gameDetail.comentarios.map((c) => {
+        console.log(c.coment)
           return (
             <>
               <div className={style.layout}>

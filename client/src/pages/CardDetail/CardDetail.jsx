@@ -21,7 +21,7 @@ export default function CardDetail() {
   const history = useHistory();
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { gameDetail, isLoader } = useSelector((state) => state.prueba);
+  const { gameDetail, isLoader, addComment } = useSelector((state) => state.prueba);
 
   const handleGoBack = () => {
     history.goBack();
@@ -33,6 +33,12 @@ export default function CardDetail() {
       dispatch(cleanDetails());
     };
   }, []);
+
+  useEffect(() => {
+  }, [ addComment.message === "Coment add"]);
+
+
+
 
   if (gameDetail) window.scroll({ top: 0, behavior: "smooth" });
 
@@ -102,7 +108,7 @@ export default function CardDetail() {
               <h2>Comments</h2>
               <div className="layout-comentarios">
                 <Coments  id={id} />
-                <CardComment   comentarios={gameDetail.comentarios}  />
+                <CardComment id={id}/>
               </div>
             </div>
             {/* Righ Card Detail Container */}

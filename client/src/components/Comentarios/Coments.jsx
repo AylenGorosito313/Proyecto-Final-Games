@@ -7,7 +7,8 @@ export default function Coments() {
   return (
     <div className={style.layout}>
       <div className={style.seccionComments}>
-         <div className={style.divAvatar}>
+        <div className={style.divIcon}>
+          <div className={style.divAvatar}>
         <img
           className={style.img}
           src={
@@ -20,6 +21,8 @@ export default function Coments() {
           height="100px"
         />
       </div>
+           </div>
+         
       <CommentInput />
       </div>
      

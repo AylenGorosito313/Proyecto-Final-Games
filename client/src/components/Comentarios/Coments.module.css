@@ -16,8 +16,8 @@
 
 
   .img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50px;
     /* background: #fff; */
   }
@@ -25,4 +25,10 @@
 
   .seccionComments{
     display: flex;
+  }
+
+  .divIcon{
+    display: flex;
+    width: 100px;
+    justify-content: flex-end;
   }

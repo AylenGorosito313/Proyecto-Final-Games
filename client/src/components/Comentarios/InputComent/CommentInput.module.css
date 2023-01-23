@@ -1,18 +1,20 @@
 .container{
     width: 600px;
-
     background: #c04747;
     height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .layout {
-    width: 100%;
-    background: #343434;
+    width: 90%;
+    background: #32313117;
     height: 100px;
     display: flex;
+    padding: 10px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -20,7 +22,7 @@
 
 .input{
 
-    width: 200px;
+    width: 300px;
     height: 60px;
     border-radius: 5px;
     background: rgba(226, 214, 214, 0.692);
@@ -31,13 +33,13 @@
 
     .button {
         height: 30px;
-    width: 200px;
+    width: 100px;
         font-size: 17px;
         padding: 0.5em 2em;
         border: transparent;
         box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         background: dodgerblue;
-        font-size: 14px;
+        font-size: 12px;
         color: white;
         margin: 0;
         border-radius: 4px;

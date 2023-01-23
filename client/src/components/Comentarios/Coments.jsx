@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import style from "./Coments.module.css";
 import CommentInput from "./InputComent/CommentInput";
+import CardComment from "./ViewComents/CardComment";
 export default function Coments({id}) {
   const { userActual } = useSelector((state) => state.prueba);
   return (
@@ -25,7 +26,7 @@ export default function Coments({id}) {
          
       <CommentInput   id={id}/>
       </div>
-     
+     <CardComment/>
     </div>
   );
 }

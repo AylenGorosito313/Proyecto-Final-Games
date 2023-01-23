@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import SelectProfile from "../Select/SelectProfile";
 import { Link, useHistory } from "react-router-dom";
 import Notificacion from "../../svg/Notificacion";
@@ -15,6 +15,7 @@ import Car from "../../svg/Car";
 import User from "../../svg/User";
 
 import PanelAdminNav from "../../svg/PanelAdminNav";
+import { geUserActual } from "../../middleware/index";
 function NavTop() {
   const { userActual } = useSelector((state) => state.prueba);
   const [Login, setLogin] = useState(false);
@@ -25,7 +26,7 @@ function NavTop() {
   const [OpenCar, setOpenCar] = useState(false);
   const navigate = useHistory();
   let admin = localStorage.getItem("isAdmin");
-
+  const dispatch = useDispatch();
   let isAdmin = false;
   if (admin) {
     isAdmin = true;
@@ -60,6 +61,8 @@ function NavTop() {
 
   useEffect(() => {
     setLogin(localStorage.getItem("token"));
+    let userID = localStorage.getItem('id')
+    dispatch(geUserActual(userID));
   }, []);
   return (
     <>

@@ -3,12 +3,14 @@ import { useSelector } from "react-redux";
 import style from "./Coments.module.css";
 import CommentInput from "./InputComent/CommentInput";
 import CardComment from "./ViewComents/CardComment";
-export default function Coments({ comentarios, id }) {
+export default function Coments({  id }) {
   const { userActual } = useSelector((state) => state.prueba);
-  // let commentsMap =gameDetail  && gameDetail.comentarios.map((ele) =>{ele.coment})
+
+
   return (
-    <div className={style.layout}>
-      <div className={style.seccionComments}>
+<>
+
+  <div className={style.seccionComments}>
         <div className={style.divIcon}>
           <div className={style.divAvatar}>
             <img
@@ -27,10 +29,9 @@ export default function Coments({ comentarios, id }) {
 
         <CommentInput id={id} />
       </div>
-      <CardComment 
-      comment = {comentarios}
-      
-      />
-    </div>
+    
+</>
+    
+  
   );
 }

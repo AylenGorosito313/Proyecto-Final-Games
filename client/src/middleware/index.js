@@ -628,12 +628,12 @@ export const addComments = (coment, userId, gameId ) => {
   console.log(coment)
   return async function (dispatch) {
     try {
-      let res = await axios({
+      let {data} = await axios({
         method: "POST",
         data: {coment},
         url: `http://localhost:3001/user/add/coment?gameId=${gameId}&userId=${userId} `,
       });
-      dispatch(resAddComment(res));
+      dispatch(resAddComment(data));
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",

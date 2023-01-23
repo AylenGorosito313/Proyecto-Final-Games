@@ -86,3 +86,11 @@
     left: 50%;
     margin: -50px 0 0 -50px;
 }
+
+.layout-comentarios{
+    min-height: 60vh;
+    background: #1a1919bf;
+    padding: 20px;
+    border-radius: 10px;
+  
+}

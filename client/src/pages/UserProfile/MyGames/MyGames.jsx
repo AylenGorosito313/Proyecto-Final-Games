@@ -8,11 +8,12 @@ export default function MyGames() {
   const dispatch = useDispatch();
   useEffect(() => {
     let userID = window.localStorage.getItem("id");
+    
     dispatch(getItemsCar(userID));
   }, []);
 
   const { userActual } = useSelector((state) => state.prueba);
-
+console.log(userActual)
   return (
     <div className={style.LayoutProfilePage}>
       <div className={style.containerData}>

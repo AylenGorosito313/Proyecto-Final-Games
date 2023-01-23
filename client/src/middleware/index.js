@@ -29,7 +29,8 @@ import {
   deleteProvisoryFavoriteIds,
   responseCreateBanner,
   responseDeleteeBanner,
-  getAll_Banner
+  getAll_Banner,
+  resAddComment
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -618,5 +619,32 @@ export const putUser = (inf) => {
       }catch(e){
           console.log(e);
       }
+  };
+};
+
+
+// add comment 
+export const addComments = (coment, userId, gameId ) => {
+  console.log(coment)
+  return async function (dispatch) {
+    try {
+      let {data} = await axios({
+        method: "POST",
+        data: {coment},
+        url: `http://localhost:3001/user/add/coment?gameId=${gameId}&userId=${userId} `,
+      });
+      dispatch(resAddComment(data));
+    } catch (error) {
+      toast.error(error.message, {
+        position: "bottom-right",
+        duration: 4000,
+
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
   };
 };

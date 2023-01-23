@@ -19,7 +19,13 @@
     padding-top: 5rem;
     width: 800px;
 }
+.hr-cardD{
+    border: 0.1px solid;
+    border-radius: 10px;
+    width: 100%;
 
+    color: rgb(70 68 68 / 11%);
+}
 .navigation-title-rating-container {
     margin-bottom: 30px;
 }
@@ -79,4 +85,12 @@
     top: 50%;
     left: 50%;
     margin: -50px 0 0 -50px;
+}
+
+.layout-comentarios{
+    min-height: 60vh;
+    background: #1a1919bf;
+    padding: 20px;
+    border-radius: 10px;
+  
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "./bannersCard.module.css";
 import { deleteBannersA } from "../../../../middleware";
+import ilustracion2 from "../../../../assets/img/pana.png";
 import { useDispatch, useSelector } from "react-redux";
 import { bannerEliminado } from "../DeleteBanner/toastDeleteBanner";
 export default function CardsBanners() {
@@ -20,7 +21,7 @@ export default function CardsBanners() {
 
   return (
     <>
-      {allBanners.length &&
+      {allBanners.length ? (
         allBanners.map((banner) => {
           return (
             <>
@@ -49,7 +50,15 @@ export default function CardsBanners() {
               </div>
             </>
           );
-        })}
+        })
+      ) : (
+        <>
+          <div className={style.ups}>
+            <img src={ilustracion2} alt=" " />
+            <p>Don't worry, it's not your fault, you have to create one</p>
+          </div>
+        </>
+      )}
     </>
   );
 }

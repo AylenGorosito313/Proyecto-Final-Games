@@ -87,9 +87,16 @@ export default function Settings() {
     document.getElementById("region").value = "";
     setChange({});
   }
-
+  let isAdminTrue = localStorage.getItem('isAdmin') 
   return (
-    <div className={style.LayoutProfilePage}>
+<>
+{
+isAdminTrue  === true ? 
+<div className={style.LayoutProfilePage}>
+  <h1>holi</h1>
+</div>
+:
+<div className={style.LayoutProfilePage}>
        <div className={style.containerData}>
       <NavProfile />
 
@@ -191,5 +198,8 @@ export default function Settings() {
       </div>
     </div>
     </div>
+}
+</>
+    
   );
 }

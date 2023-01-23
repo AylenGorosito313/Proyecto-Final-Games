@@ -14,7 +14,7 @@ import mario from "../../assets/mario.jpg";
 function Loginn() {
   const search = useLocation().search;
   const verify = new URLSearchParams(search).get("verify");
-  const { res } = useSelector((state) => state.prueba);
+  const { res, userActual } = useSelector((state) => state.prueba);
   const navigateToHome = useHistory();
   const backResponse = () =>
     toast(" Welcome back !" + res.login.name, {
@@ -36,10 +36,13 @@ function Loginn() {
       if (res.login.isAdmin) {
         localStorage.setItem("isAdmin", res.login.isAdmin);
       }
-
+      if (userActual.proveedor) {
+        localStorage.setItem("proveedor", userActual.proveedor);
+      }
       navigateToHome.push("/home");
     }
   }, 2000);
+
 
   return (
     <>

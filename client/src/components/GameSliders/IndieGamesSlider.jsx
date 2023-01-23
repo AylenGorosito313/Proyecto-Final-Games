@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import SliderCard from "../Cards/SliderCard/SliderCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // import required modules
@@ -10,6 +9,7 @@ import { Navigation } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "./GamesSliders.css";
+import IndieCard from "../Cards/IndieCard/IndieCard";
 
 export default function IndieGamesSlider() {
 
@@ -78,7 +78,7 @@ export default function IndieGamesSlider() {
                                   key={index}
                                   className="popular-swiper-slide"
                               >
-                                  <SliderCard
+                                  <IndieCard
                                       key={ele.id}
                                       img={ele.background_image}
                                       name={ele.name}
@@ -92,6 +92,7 @@ export default function IndieGamesSlider() {
                           ))
                         : "no games"}
                 </Swiper>
+                
                 </div>
             </div>
         </>

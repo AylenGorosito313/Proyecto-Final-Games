@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-.game-image-slider img {
-    width: 328px;
-    height: 180px;
+.game_image img {
+    width: 480px;
+    height: 270px;
     vertical-align: middle;
     -webkit-filter: brightness(60%);
     -webkit-transition: all 1s ease;
@@ -12,33 +12,17 @@
     transition: all 1s ease;
 }
 
-.game-image-slider img:hover {
+.game-image img:hover {
     -webkit-filter: brightness(100%);
 }
 
-.game-image-slider {
+.game-image {
     position: relative;
     overflow: hidden;
-
+    
 }
 
-.no-image{
-    display: flex;
-    width: 328px;
-    height: 180px;
-    align-items: center;
-    text-align:center;
-    justify-content: center;
-}
-
-.no-image h4{
-    width:200px;
-    text-align: center;
-    margin-right: 45px;
-}
-
-
-.single-card-slider {
+.single-card {
     width: 280px;
     border-radius: 0.5rem;
     box-shadow: 0 5px 15px rgb(0 0 0 / 5%);
@@ -47,7 +31,7 @@
 }
 
 
-.favourite-tag-slider {
+.favourite-tag{
     position: absolute;
     top: 25px;
     right: 25px;
@@ -60,52 +44,54 @@
     font-family: "Poppins", sans-serif;
 }
 
-.single-card-slider {
+/* .single-card{
     transition: all .3s ease;
-}
+} */
 
-.single-card-slider:hover {
+/* .single-card:hover  {
     transform: scale(1.06);
-} 
+} */
 
-.card-content-slider {
+
+
+.card-content {
     width: 230px;
     padding: 5px 25px 25px 25px;
-    
+    border-bottom: 1px solid #02ac515d;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     display: flex;
-    /* background: #e8e8e8; */
+    background: rgba(0, 0, 0, 0.16);
     position: relative;
     color: white;
     flex-direction: column;
     transition: heigth .3s ease;
 }
 
-.price-slider {
+.ranking-container{
+    color: white;
+}
+
+
+.price {
     display: inline-block;
-    /* background: #FFD700; */
-    background: linear-gradient(90deg, rgba(30,144,255,1) 0%, rgba(0,212,255,1) 100%);
+    background: #02ac51;
     border-radius: 30px;
     padding: 5px 18px;
-    color: black;
-    font-weight: 900;
+    color: #fff;
+    font-weight: 500;
     font-size: 13px;
     margin-top: 0px;
     font-family: "Poppins", sans-serif;
 }
 
-.rating-conteiner{
-    color: white;
-}
-
-.shopping-cart-slider {
+.shopping-cart {
     cursor: pointer;
     display: flex;
     align-items: center;
 }
 
-.check-plus-slider {
+.check-plus {
     padding-left: 5px;
 }
 
@@ -113,56 +99,71 @@
     color: #02ac51;
 }
 
+ .line {
+     width: 300px;
+     height: 47px;
+     border-bottom: 1px solid black;
+     position: absolute;
+ }
 
-.card-content-header-slider {
+.card-content-header {
     display: flex;
     justify-content: space-between;
     color: #001d38;
-    align-items: center;
+    align-items: center;  
 }
 
-.price-cart-slider {
+.price-cart {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
 }
 
-.card-content-slider h3 {
+.card-content h3 {
     font-size: 16px;
-    color: white;
-    font-weight: 700;
+    color:white;
+    font-weight: 800;
     font-family: "Poppins", sans-serif;
 }
 
-.card-content-slider a {
+.card-content a {
     text-decoration: none;
-    color: white;
 }
 
-
-
-.card-footer-slider ul li span {
-    color: #4c4c4c;
+.card-footer ul li span{
+    color: #001d38;
     font-family: "Poppins", sans-serif;
     font-size: 13px;
     font-weight: 400;
     margin-left: 5px;
 }
 
-.card-footer-slider ul {
+.card-footer ul {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     list-style-type: none;
-    padding: 10px 50px 0px 0px;
+    padding: 5px 50px 0px 50px;
     margin: 0;
-overflow: hidden;
-float: left;
+    
 }
 
-.card-footer-slider li {
-    padding: 0px 5px;
-   
+.more-content-1,
+.more-content-2 {
+    padding: 3px 0px 3px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
+
+.line {
+    color: #808080;
+    height: 2px;
+    opacity: 0.1;
 }
 
 .star {
@@ -170,11 +171,25 @@ float: left;
     color: tomato;
 }
 
-.card-footer-slider ul li i {
-    color: #909090
+.card-footer ul li i{
+    color: #27213b
 }
 
 .red-heart {
     color: red;
 }
 
+/* .magic-hover {
+    display: none;
+    transition: 3s linear;
+  
+    transition:  2s ease-in-out;
+} */
+
+
+.card:hover  .magic-hover   {
+    display: inline;
+    transition-duration: 2400ms;
+
+    
+}

@@ -99,19 +99,36 @@ function NavTop() {
             <div>
               {Login ? (
                 <div onClick={handlerOpenUser} className="div-icon">
-                  <img
-                    className="img"
-                    src={
-                      userActual.profile_img
-                        ? userActual.profile_img
-                        : "https://cdn-icons-png.flaticon.com/512/1361/1361876.png"
-                    }
-                    alt="ImgProfile"
-                    width="100px"
-                    height="100px"
-                  />
-
-                  <p className="p-profile"> {userActual.name ? userActual.name :  "Profile"}</p>
+                  {userActual ? (
+                    <>
+                      <img
+                        className="img"
+                        src={
+                          userActual.profile_img
+                            ? userActual.profile_img
+                            : "https://cdn-icons-png.flaticon.com/512/1361/1361876.png"
+                        }
+                        alt="ImgProfile"
+                        width="100px"
+                        height="100px"
+                      />
+                      <p className="p-profile">
+                        {" "}
+                        {userActual.name ? userActual.name : "Admin"}
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <img
+                        className="img"
+                        src="https://res.cloudinary.com/dj8p0rdxn/image/upload/v1674450439/AndromedaGames/qqvto8v6p25dzxlumzld.png"
+                        alt="ImgProfile"
+                        width="100px"
+                        height="100px"
+                      />
+                      <p className="p-profile"> Admin </p>
+                    </>
+                  )}
                 </div>
               ) : (
                 <button

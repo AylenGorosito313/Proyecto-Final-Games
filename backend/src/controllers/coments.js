@@ -5,7 +5,7 @@ const { Users } = require("../models/users");
 const createComent = async (req, res) => {
     const { gameId, userId } = req.query;
     const { coment }  = req.body;
-console.log(coment)
+console.log(coment, gameId, userId)
     try {
         let searchUser = await Users.findByPk(userId);
         if(!searchUser){
@@ -16,7 +16,7 @@ console.log(coment)
         let searchGame = await Game.findByPk(gameId);
         
         if(!searchGame){
-            return res.status(400).json({
+            return res.status(404).json({
                 message: "Game not found"
             })
         }

@@ -12,7 +12,7 @@
 
 .layout {
     width: 90%;
-    background: #32313117;
+    background: transparent;
     height: 100px;
     display: flex;
     padding: 10px;

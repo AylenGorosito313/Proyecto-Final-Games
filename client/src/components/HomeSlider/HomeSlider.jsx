@@ -1,4 +1,3 @@
-
 import { useSelector } from "react-redux";
 //Import images assets
 import Andromeda1 from "../../assets/devForm/1.jpg";
@@ -12,7 +11,7 @@ import godOfWar from "../../assets/slides/godOfWar.png";
 import { Pagination, Autoplay, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import React, { useEffect, useState } from "react";
- import axios from "axios";
+import axios from "axios";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/swiper.min.css";
@@ -33,13 +32,12 @@ export default function HomeSlider() {
     });
   }, []);
 
-
-  console.log(Data)
-// let Banners =""
-//   if (Data) {
-//     Banners = Data.map((ele) => ele.title)
-//     
-//   }
+  console.log(Data);
+  // let Banners =""
+  //   if (Data) {
+  //     Banners = Data.map((ele) => ele.title)
+  //
+  //   }
 
   return (
     <>
@@ -62,19 +60,19 @@ export default function HomeSlider() {
           className="swiper"
         >
           <div>
-            { Data &&
-               Data.map((banner) => {
-           
+            {Data ? (
+              Data &&
+              Data.map((banner) => {
+                console.log(banner.banner_img);
                 return (
                   <>
-                
                     <SwiperSlide className="swiper-slide">
                       <img src={banner.banner_img} alt="" />
                       <div className="banner-contaiter">
                         <div className="content">
                           <TextBanners
                             title={banner.title}
-                            logo={banner.banner_Logo }
+                            logo={banner.banner_Logo}
                             description={banner.description}
                             textBtn={banner.text_btn}
                           />
@@ -83,7 +81,15 @@ export default function HomeSlider() {
                     </SwiperSlide>
                   </>
                 );
-              })}
+              })
+            ) : (
+              <SwiperSlide className="swiper-slide">
+                <img
+                  src="https://res.cloudinary.com/dj8p0rdxn/image/upload/v1674510139/ra3xcoyp1q5pgzgkhmyz.jpg"
+                  alt=""
+                />
+              </SwiperSlide>
+            )}
           </div>
 
           {/* <SwiperSlide className="swiper-slide">

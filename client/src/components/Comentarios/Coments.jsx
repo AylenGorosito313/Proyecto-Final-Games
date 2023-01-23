@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import style from "./Coments.module.css";
 import CommentInput from "./InputComent/CommentInput";
-export default function Coments() {
+export default function Coments({id}) {
   const { userActual } = useSelector((state) => state.prueba);
   return (
     <div className={style.layout}>
@@ -23,7 +23,7 @@ export default function Coments() {
       </div>
            </div>
          
-      <CommentInput />
+      <CommentInput   id={id}/>
       </div>
      
     </div>

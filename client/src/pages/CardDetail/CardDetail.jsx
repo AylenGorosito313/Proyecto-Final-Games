@@ -106,7 +106,7 @@ export default function CardDetail() {
                             <hr className="hr-cardD"/>
                            <br/>
                            <h2>Comments</h2>
-                            <Coments/>
+                            <Coments  id={id}/>
                         </div>
                         {/* Righ Card Detail Container */}
                         <div className="right-container">

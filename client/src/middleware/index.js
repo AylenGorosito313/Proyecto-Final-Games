@@ -625,6 +625,7 @@ export const putUser = (inf) => {
 
 // add comment 
 export const addComments = (coment, userId, gameId ) => {
+  console.log(coment, userId, gameId)
   return async function (dispatch) {
     try {
       let res = await axios({

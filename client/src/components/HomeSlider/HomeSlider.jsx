@@ -60,7 +60,7 @@ export default function HomeSlider() {
           className="swiper"
         >
           <div>
-            {Data ? (
+            {Data.length ? (
               Data &&
               Data.map((banner) => {
                 console.log(banner.banner_img);

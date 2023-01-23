@@ -625,13 +625,13 @@ export const putUser = (inf) => {
 
 // add comment 
 export const addComments = (coment, userId, gameId ) => {
-  console.log(coment, userId, gameId)
+  console.log(coment)
   return async function (dispatch) {
     try {
       let res = await axios({
         method: "POST",
-        data: {coment} ,
-        url: `http://localhost:3001/user/add/coment?userId=${userId}&gameId=${gameId} `,
+        data: {coment},
+        url: `http://localhost:3001/user/add/coment?gameId=${gameId}&userId=${userId} `,
       });
       dispatch(resAddComment(res));
     } catch (error) {

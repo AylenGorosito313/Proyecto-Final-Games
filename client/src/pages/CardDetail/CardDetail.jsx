@@ -34,6 +34,8 @@ export default function CardDetail() {
       }
     }, [])
 
+
+
     if(gameDetail) window.scroll({top: 0, behavior: "smooth"})
 
     return (
@@ -106,7 +108,10 @@ export default function CardDetail() {
                             <hr className="hr-cardD"/>
                            <br/>
                            <h2>Comments</h2>
-                            <Coments  id={id}/>
+                            <Coments  
+                            comentarios = {gameDetail.comentarios}
+                            id={id}
+                            />
                         </div>
                         {/* Righ Card Detail Container */}
                         <div className="right-container">

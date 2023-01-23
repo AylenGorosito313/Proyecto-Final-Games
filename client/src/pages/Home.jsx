@@ -11,7 +11,7 @@ import {
 } from "../middleware";
 import Card from "../components/Cards/Cards";
 import "./Style-pages/Home.css";
-
+import { geUserActual } from "../middleware";
 import Seach from "../components/Search/Search";
 import HomeSlider from "../components/HomeSlider/HomeSlider";
 import MostPopularSlider from "../components/GameSliders/MostPopularSlider";
@@ -27,11 +27,12 @@ function Home() {
   const { games, isLoader, res } = useSelector((state) => state.prueba);
 
   useEffect(() => {
+    let userID = localStorage.getItem('id')
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
     dispatch(clearState());
-
+    dispatch(geUserActual(userID));
     return () => {
       dispatch(clearState());
     };

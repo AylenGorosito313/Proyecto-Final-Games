@@ -37,7 +37,7 @@ const initialState = {
     res: "",
     delete: "",
   },
-
+ addComment:"",
   allBanners: [],
 };
 
@@ -163,11 +163,15 @@ export const toolkit_prueba = createSlice({
       state.allBanners =actions.payload
     },
 
+    resAddComment: (state, actions) => {
+      console.log(actions.payload)
+      state.addComment= actions.payload
+    },
 
   
   },
 });
-
+// resAddComment
 export const {
   addUser,
   getAllGames,
@@ -204,7 +208,8 @@ export const {
   getAll_Banner,
   getAndromedaUsers,
   getUserSubmissions,
-  getUsersInactive
+  getUsersInactive,
+  resAddComment
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

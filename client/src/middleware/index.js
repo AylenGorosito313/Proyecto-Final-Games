@@ -32,7 +32,8 @@ import {
   getAll_Banner,
   getAndromedaUsers,
   getUserSubmissions,
-  getUsersInactive
+  getUsersInactive,
+  resAddComment
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -673,5 +674,32 @@ export const putUser = (inf) => {
       }catch(e){
           console.log(e);
       }
+  };
+};
+
+
+// add comment 
+export const addComments = (coment, userId, gameId ) => {
+  console.log(coment, userId, gameId)
+  return async function (dispatch) {
+    try {
+      let res = await axios({
+        method: "POST",
+        data: {coment} ,
+        url: `http://localhost:3001/user/add/coment?userId=${userId}&gameId=${gameId} `,
+      });
+      dispatch(resAddComment(res));
+    } catch (error) {
+      toast.error(error.message, {
+        position: "bottom-right",
+        duration: 4000,
+
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
   };
 };

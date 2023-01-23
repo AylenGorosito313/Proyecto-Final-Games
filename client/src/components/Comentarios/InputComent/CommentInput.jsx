@@ -1,45 +1,51 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./CommentInput.module.css";
-export default function CommentInput() {
+import { addComments } from "../../../middleware";
+import { useForm } from "react-hook-form";
+export default function CommentInput({ id }) {
   const { userActual } = useSelector((state) => state.prueba);
+  const dispatch = useDispatch();
 
+  const {
+    register,
+    formState: { errors },
+    watch,
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      comment: "",
+    },
+    mode: "onChange",
+  });
+
+  const handlerSubmit = async (data) => {
+    let gameId = id;
+    let userId = localStorage.getItem("id");
+let coment = data.comment
+    console.log(coment, userId, gameId);
+    dispatch(addComments(coment, userId, gameId));
+  };
   return (
-    <form className={style.container}>
-      <div className={style.divAvatar}>
-        <img
-          className={style.img}
-          src={
-            userActual.profile_img
-              ? userActual.profile_img
-              : "https://cdn-icons-png.flaticon.com/512/1361/1361876.png"
-          }
-          alt="ImgProfile"
-          width="100px"
-          height="100px"
-        />
+    <>
+      <div className={style.layout}>
+        <form
+          onSubmit={handleSubmit(handlerSubmit)}
+          className={style.container}
+        >
+          <textarea
+            className={style.input}
+            type="textarea"
+            {...register("comment", {
+              required: true,
+            })}
+          />
+          {errors.description?.type === "required" && (
+            <p className={style.errors}>The name is required</p>
+          )}
+          <button className={style.button}>Comemnt</button>
+        </form>
       </div>
-      <textarea className={style.input} type="textarea" />
-      <button className={style.button}>Comemnt</button>
-    </form>
+    </>
   );
 }
-
-// <div className={style.divAvatar}>
-// <img
-//   className={style.img}
-//   src={
-//     userActual.profile_img
-//       ? userActual.profile_img
-//       : "https://cdn-icons-png.flaticon.com/512/1361/1361876.png"
-//   }
-//   alt="ImgProfile"
-//   width="200px"
-//   height="200px"
-// />
-// </div>
-
-// <div className={style.divAvatar}>
-//   {userActual.name
-//     ? `Hello, ${userActual.name}!`
-//     : ""}

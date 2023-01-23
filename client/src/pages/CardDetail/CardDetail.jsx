@@ -102,7 +102,11 @@ export default function CardDetail() {
                                     developers={gameDetail.developers}
                                 />
                             </div>
-                            <Coments/>
+                            <br/>
+                            <hr className="hr-cardD"/>
+                           <br/>
+                           <h2>Comments</h2>
+                            <Coments  id={id}/>
                         </div>
                         {/* Righ Card Detail Container */}
                         <div className="right-container">

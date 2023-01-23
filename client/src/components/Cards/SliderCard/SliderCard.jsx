@@ -60,7 +60,7 @@ function Card({ name, img, id, rating, platforms, released, genres }) {
             <Link to={`/game/${id}`}>
               <h3>{name.split("").slice(0, 16).join("")}</h3>
             </Link>
-            <div>
+            <div className="rating-conteiner">
               <i className="fa-solid fa-star star"></i> {rating}
             </div>
           </div>

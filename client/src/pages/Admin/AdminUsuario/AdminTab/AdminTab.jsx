@@ -5,7 +5,7 @@ import { AdminTable } from '../AdminTable/AdminTable';
 import UserTable from '../UserTable/UserTable';
 import style from "./AdminTab.module.css";
 
-export default function AdminTab () {
+export default function AdminTab ({ toggle }) {
 
     const [toggleTab, setToggleTab] = useState("users");
     const [userStatus, setUserStatus] = useState("active");
@@ -54,7 +54,7 @@ export default function AdminTab () {
             </div>
             <div className={style.tabContent}>
                 {toggleTab === "users" ? 
-                <UserTable status={userStatus} /> :
+                <UserTable status={userStatus} toggle={toggle} /> :
                 toggleTab === "admin" ?
                 <AdminTable status={adminStatus} /> :
                 "No hay nada que mostrar"

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import style from "./UsersCells.module.css"
 
-export default function UsersCells ({users, status}) {
+export default function UsersCells ({users, status, toggle}) {
     
     const { submissions, inactiveUsers } = useSelector( state => state.prueba.admin)
     

@@ -1,12 +1,18 @@
 import React from 'react';
 import style from "./ValidationModal.module.css";
 
-function ValidationModal() {
+function ValidationModal({ toggle }) {
+
+    
+
   return (
     <div className={style.modal}>
         <div className={style.overlay}>
             <div className={style.modalContent}>
-                <h2>Submision Aplication</h2>
+                <div className={style.closeModal}>
+                    <button onClick={toggle}><i className="fa-solid fa-xmark fa-lg"></i></button>
+                </div>
+                <h2>Pending Submission</h2>
                 <span>{}</span>
                 <div className={style.aplicationContent}>
                     <div className={style.blockContent} >
@@ -28,7 +34,7 @@ function ValidationModal() {
                 </div>
                 <div className={style.actionsButtons} >
                     <button className={style.acceptButton} >Accept</button>
-                    <button className={style.acceptButton} >Decline</button>
+                    <button className={style.declineButton} >Decline</button>
                 </div>
             </div>
         </div>

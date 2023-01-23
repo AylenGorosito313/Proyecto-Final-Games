@@ -15,9 +15,10 @@ export default function AdminUsuario() {
 
   const dispatch = useDispatch()
   
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(true);
 
   const toggleModal = () => {
+    console.log("changing")
     setModal(!modal)
   }
 
@@ -34,8 +35,9 @@ export default function AdminUsuario() {
     <div className={style.Contairner}>
       <NavAdmin />
       <div className={style.content_User}>
-        <AdminTab />
-        <ValidationModal />
+        <AdminTab toggle={toggleModal} />
+        {modal && <ValidationModal toggle={toggleModal} />}
+        
       </div>
     </div>
   </div>

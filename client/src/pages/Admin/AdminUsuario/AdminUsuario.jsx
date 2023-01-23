@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getInactiveUsers, getSubmissions, getUsers } from '../../../middleware';
 import NavAdmin from "../NavAdmin/NavAdmin";
 import AdminTab from './AdminTab/AdminTab';
@@ -13,12 +13,14 @@ import ValidationModal from './UserTable/ValidationModal.jsx/ValidationModal';
 
 export default function AdminUsuario() {
 
+  const  {submissions} = useSelector( state => state.prueba.admin)
   const dispatch = useDispatch()
   
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
+  
 
   const toggleModal = () => {
-    console.log("changing")
+    
     setModal(!modal)
   }
 

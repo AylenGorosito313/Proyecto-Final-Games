@@ -12,6 +12,8 @@ export default function UsersCells ({users, status, toggle}) {
         return submissionFinded;
     }
 
+    console.log(`Llegó a usersCells: ${toggle} `)
+
 
     return (
         <>
@@ -28,7 +30,7 @@ export default function UsersCells ({users, status, toggle}) {
                 {users.proveedor === true ? 
                 <i className="fa-solid fa-check"></i> :
                 submissionPending(users.id) === true ?
-                <span value={users.id}>Ver</span> : 
+                <span value={users.id} onClick={toggle}>Ver</span> : 
                 <i className="fa-solid fa-xmark"></i>
                 }
             </td>

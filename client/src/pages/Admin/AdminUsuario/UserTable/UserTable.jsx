@@ -5,7 +5,7 @@ import UsersCells from '../UserTable/UserCells/UsersCells';
 import style from "./UserTable.module.css";
 
 
-export default function UserTable ({ status }) {
+export default function UserTable ({ status, toggle }) {
 
     const { users, inactiveUsers} = useSelector( state => state.prueba.admin)
     
@@ -18,6 +18,8 @@ export default function UserTable ({ status }) {
     } else if (status === "inactive") {
         usersToRender = inactiveUsers
     }
+
+
 
     return (
         <>
@@ -34,7 +36,7 @@ export default function UserTable ({ status }) {
                 <tbody>
                     {usersToRender?.map((obj, index) => (
                         <tr key={index}>
-                            <UsersCells users={obj} status={status} />
+                            <UsersCells users={obj} status={status} toggle={toggle} />
                         </tr>
                     ))}
                 </tbody>

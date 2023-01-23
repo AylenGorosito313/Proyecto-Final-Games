@@ -111,7 +111,7 @@ function NavTop() {
                     height="100px"
                   />
 
-                  <p className="p-profile"> {userActual.name}</p>
+                  <p className="p-profile"> {userActual.name ? userActual.name :  "Profile"}</p>
                 </div>
               ) : (
                 <button

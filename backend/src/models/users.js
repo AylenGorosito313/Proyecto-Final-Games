@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../db");
+const { Coment } = require("./coment");
 const { Game } = require('./games')
 
 const Users = sequelize.define('users', {
@@ -53,8 +54,8 @@ const Users = sequelize.define('users', {
 Game.belongsToMany(Users, { through: "users_game" })
 Users.belongsToMany(Game, { through: "users_game" })
 
-// Game.belongsToMany(Users, {as:"favoritegames", through: "favorites" })
-// Users.belongsToMany(Game, {as:"favoriteusers" , through: "favorites"})
+Users.hasMany(Coment)
+Coment.belongsTo(Users)
 
 
 module.exports = {Users};

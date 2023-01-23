@@ -105,8 +105,10 @@ align-items: center;
 }
 
 .div-home-all-games h2 {
-  font-weight: 400;
+  font-weight: 900;
     font-size: 18px;
     line-height: 1.4;
     text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

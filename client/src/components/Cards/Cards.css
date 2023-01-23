@@ -48,16 +48,21 @@
 .card-content {
     width: 230px;
     padding: 5px 25px 25px 25px;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid #02ac515d;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     display: flex;
-    background: #e8e8e8;
+    background: rgba(0, 0, 0, 0.16);
     position: relative;
-    color: #001d38;
+    color: white;
     flex-direction: column;
     transition: heigth .3s ease;
 }
+
+.ranking-container{
+    color: white;
+}
+
 
 .price {
     display: inline-block;
@@ -108,8 +113,8 @@
 
 .card-content h3 {
     font-size: 16px;
-    color: #001d38;
-    font-weight: 500;
+    color:white;
+    font-weight: 800;
     font-family: "Poppins", sans-serif;
 }
 

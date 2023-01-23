@@ -12,7 +12,7 @@ export default function Coments({id}) {
         <img
           className={style.img}
           src={
-            userActual.profile_img
+            userActual &&  userActual.profile_img
               ? userActual.profile_img
               : "https://cdn-icons-png.flaticon.com/512/1361/1361876.png"
           }

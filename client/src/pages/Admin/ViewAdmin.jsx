@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./PanelAdmin.module.css";
-import ilustracion from "../../assets/img/amico.png"
+import ilustracion from "../../assets/img/amico.png";
 import NavAdmin from "./NavAdmin/NavAdmin";
 
 export default function ViewAdmin() {
@@ -13,10 +13,10 @@ export default function ViewAdmin() {
           <NavAdmin />
           <div className={style.content_View}>
             <img className={style.img} src={ilustracion} alt="alt" />
-            <h1>Welcome to  Admin Panel</h1>
+            <h1>Welcome to Admin Panel</h1>
             <p className={style.p}>
-              Aca va la bienvenida del admin y tips de usos o lo que queramos
-              poner, se vuelve aca dandole click al logo
+              Welcome to the admin panel of our website. Here you will be able
+              to manage the content.
             </p>
           </div>
         </div>

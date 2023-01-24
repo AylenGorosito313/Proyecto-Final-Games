@@ -23,8 +23,8 @@ export default function NavProvedor() {
             <img
               className={style.img}
               src={
-                userActual.img
-                  ? userActual.img
+                userActual.profile_img
+                  ? userActual.profile_img
                   : "https://raw.githubusercontent.com/multiavatar/Multiavatar/main/logo.png?v=001"
               }
               alt="ImgProfile"

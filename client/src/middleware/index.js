@@ -32,7 +32,8 @@ import {
   responseDeleteeBanner,
   getAll_Banner,
   resAddComment,
-  modificarGameDetail
+  modificarGameDetail,
+  getByNameDb
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -172,6 +173,17 @@ export const getSearchByName = (name) => {
   };
 };
 
+export const getSearchByNameDb = (name) => {
+  return async function (dispatch) {
+    let { data } = await axios({
+      method: "GET",
+      url: `http://localhost:3001/game/db?name=${name}`,
+    });
+    dispatch(getByNameDb(data));
+  };
+};
+
+
 export const getGameDetail = (id) => {
   return async function (dispatch) {
     try {
@@ -213,18 +225,6 @@ export const createUser = ({ name, lastName, email, password }) => {
     }
   };
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 export const enableProvider = (id, aplication) => {
   return async function (dispatch) {

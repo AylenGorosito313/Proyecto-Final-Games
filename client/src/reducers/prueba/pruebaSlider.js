@@ -4,7 +4,6 @@ const initialState = {
   users: [],
   games: [],
   gamesdb: [],
-  gamesadb: [],
   examinar: [],
   popularGames: [],
   gamesReleasedLasthMonth: [],
@@ -65,6 +64,9 @@ export const toolkit_prueba = createSlice({
     },
     getByName: (state, actions) => {
       state.games = [...actions.payload];
+    },
+    getByNameDb: (state, actions) => {
+      state.gamesdb = [...actions.payload];
     },
     setIsLoader: (state) => {
       state.isLoader = !state.isLoader;
@@ -166,6 +168,7 @@ export const {
   addUser,
   getAllGames,
   getByName,
+  getByNameDb,
   setIsLoader,
   responseRegister,
   responseLogin,

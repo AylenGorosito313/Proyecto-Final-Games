@@ -5,8 +5,8 @@ import { getGamesDb } from '../../../middleware';
 import NavAdmin from "../NavAdmin/NavAdmin";
 import style from "./AdminGames.module.css";
 import CardAdmin from '../AdminGames/CardAdmin/CardAdmin';
-import Search from '../../../components/Search/Search';
 import ResetGames from './ResetGames';
+import SearchGameDb from './SearchGameDb';
 
 
 
@@ -25,7 +25,7 @@ export default function AdminGames() {
       <NavAdmin />
       <div className={style.content_Games}>
         <div className={style.mininav}>
-          <Search/>
+          <SearchGameDb/>
           <ResetGames/>
         </div>
         <div className={style.cardgame}>

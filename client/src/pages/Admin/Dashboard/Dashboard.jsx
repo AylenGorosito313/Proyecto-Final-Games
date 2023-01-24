@@ -11,10 +11,10 @@ export default function Dashboard() {
           <NavAdmin />
           <div className={style.content_Dasboard}>
             <div className={style.content}>
-              <div className={style.div}>User: </div>
+              <div className={style.div}>User: 18</div>
               <div className={style.div}>Games: </div>
-              <div className={style.div}>Downloads: </div>
-              <div className={style.div}>Profits: </div>
+              <div className={style.div}>Downloads: 11</div>
+              <div className={style.div}>Profits: 4.2</div>
             </div>
             <br />
             <div className={style.content1}>

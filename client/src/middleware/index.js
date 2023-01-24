@@ -655,6 +655,22 @@ export const getAdminsList = () => {
   }
 }
 
+export const createNewAdmin = (newAdmin) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "POST",
+        data: newAdmin,
+        url: `http://localhost:3001/admin/create`
+      });
+
+      dispatch(submissionResponse(data.message))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 
 // ----------------- END ADMIN -------------
 

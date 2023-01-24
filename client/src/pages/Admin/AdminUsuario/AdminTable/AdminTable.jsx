@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import AdminCells from './AdminCells/AdminCells';
 import style from "./AdminTable.module.css";
 
 export const AdminTable = ({status, toggle, provisoryIdHandle}) => {
 
-  const { admins } = useSelector( state => state.prueba)
+  const { admins } = useSelector( state => state.prueba.admin)
     
-    const columnNames = ["Name", "Last Name", "Email", "Developer", "Status"]
+    const columnNames = ["Name", "Email", "Password", "Status"]
 
     let usersToRender
    
@@ -29,17 +30,23 @@ export const AdminTable = ({status, toggle, provisoryIdHandle}) => {
           </tr>
       </thead>
       <tbody>
-          {usersToRender?.map((obj, index) => (
+          {usersToRender ? 
+          usersToRender?.map((obj, index) => (
               <tr key={index}>
-                  <UsersCells 
-                  users={obj} 
+                  <AdminCells
+                  admins={obj} 
                   status={status} 
                   toggle={toggle} 
                   provisoryIdHandle={provisoryIdHandle}
-                  deleteToggle={deleteToggle}
+                  
                   />
               </tr>
-          ))}
+          )) :
+          <div>
+            <h2>There is no admin users to show</h2>
+
+          </div>
+          }
       </tbody>
     </table>
     </>

@@ -3,7 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   admin: {
     users: [],
-    admins: [],
+    admins: [
+     { id: "59f53bf3-91c6-4b9e-aef9-f04299862b1e",
+name: "carolina",
+email: "cm3298537@gmail.com",
+password: "59f53bf3-91c6"}
+    ],
     submissions: [],
     inactiveUsers: [],
     res: ""

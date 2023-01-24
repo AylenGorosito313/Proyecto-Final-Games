@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { deleteUser } from '../../../../../middleware';
 
-import style from "./UsersCells.module.css"
+import style from "./AdminCells.module.css"
 
-export default function AdminCells ({users, status, toggle, provisoryIdHandle, deleteToggle}) {
+export default function AdminCells ({admins, status, toggle, provisoryIdHandle, deleteToggle}) {
     
    
    
@@ -20,25 +20,13 @@ export default function AdminCells ({users, status, toggle, provisoryIdHandle, d
     return (
         <>
             <td className={style.column_name}>
-                {users.name}
-            </td>
-            <td className={style.column_lastName}>
-                {users.lastName}
+                {admins.name}
             </td>
             <td className={style.email}>
-                {users.email}
+                {admins.email}
             </td>
-            <td className={style.developer}>
-                {users.proveedor === true ? 
-                <i className="fa-solid fa-check"></i> :
-                submissionPending(users.id) === true ?
-                <span 
-                value={users.id} 
-                onClick={handleModalSubmission}
-                
-                > See</span> : 
-                <i className="fa-solid fa-xmark"></i>
-                }
+            <td className={style.password}>
+                {admins.password}
             </td>
             <td>
                 {status}
@@ -46,11 +34,8 @@ export default function AdminCells ({users, status, toggle, provisoryIdHandle, d
             <td className={style.trash}>
                 <i className="fa-solid fa-trash"  
                 onClick={handleDeleteUser} 
-                value={users.id}
+                value={admins.id}
                 ></i>
-            </td>
-            <td>
-                <i className="fa-solid fa-pen-to-square"></i>
             </td>
         </>
     )

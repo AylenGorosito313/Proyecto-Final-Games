@@ -9,6 +9,7 @@ import Search from '../../../components/Search/Search';
 import ResetGames from './ResetGames';
 
 
+
 export default function AdminGames() {
 
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export default function AdminGames() {
       <div className={style.content_Games}>
         <div className={style.mininav}>
           <Search/>
+          {/* <SearchGamesDb/> */}
           <ResetGames/>
         </div>
         <div className={style.cardgame}>

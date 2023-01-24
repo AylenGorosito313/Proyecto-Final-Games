@@ -4,6 +4,7 @@ const initialState = {
   users: [],
   games: [],
   gamesdb: [],
+  gamesadb: [],
   examinar: [],
   popularGames: [],
   gamesReleasedLasthMonth: [],
@@ -44,6 +45,9 @@ export const toolkit_prueba = createSlice({
     getAllGamesDb: (state, actions) => {
       state.gamesdb = [...actions.payload];
     },
+    getAllGamesADb: (state, actions) => {
+      state.gamesadb = [actions.payload];
+    },
     getExaminar: (state, actions) => {
       state.examinar = [...actions.payload];
     },
@@ -62,6 +66,7 @@ export const toolkit_prueba = createSlice({
     setIsLoader: (state) => {
       state.isLoader = !state.isLoader;
     },
+ 
     responseRegister: (state, actions) => {
       state.res = { ...state.res, register: actions.payload };
     },
@@ -125,11 +130,6 @@ export const toolkit_prueba = createSlice({
         (ele) => ele.id !== actions.payload
       );
     },
-    deletedGame: (state, actions) => {
-      state.gamesdb = state.gamesdb.filter(
-        (ele) => ele.id !== actions.payload
-      );
-    },
     responseLoginAdmin: (state, actions) => {
       state.res = { ...state.res, admLogin: actions.payload };
     },
@@ -140,6 +140,7 @@ export const {
   addUser,
   getAllGames,
   getByName,
+  getAllGamesADb,
   setIsLoader,
   responseRegister,
   responseLogin,
@@ -168,7 +169,7 @@ export const {
   deleteProvisoryCartIds,
   deleteProvisoryFavoriteIds,
   getAllGamesDb,
-  deletedGame,
+ 
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

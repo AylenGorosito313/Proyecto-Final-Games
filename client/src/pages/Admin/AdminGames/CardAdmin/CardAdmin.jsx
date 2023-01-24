@@ -2,9 +2,12 @@ import React from 'react'
 import { platformImage } from "../../../CardDetail/utils/utils";
 import { Link } from 'react-router-dom'
 import style from "../CardAdmin/CardAdmin.module.css";
-import { deletedGameAdmin, getGamesDb } from '../../../../middleware';
+import { deletedGameAdmin } from '../../../../middleware';
+import { useDispatch } from "react-redux";
 
 export default function CardAdmin(props) {
+  
+  const dispatch = useDispatch();
 
     const handleDelete = (gameId) => {
         dispatch(deletedGameAdmin(gameId))

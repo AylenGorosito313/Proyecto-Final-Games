@@ -3,14 +3,12 @@ import { useSelector } from "react-redux";
 import style from "./Coments.module.css";
 import CommentInput from "./InputComent/CommentInput";
 import CardComment from "./ViewComents/CardComment";
-export default function Coments({  id }) {
+export default function Coments({ id }) {
   const { userActual } = useSelector((state) => state.prueba);
 
-
   return (
-<>
-
-  <div className={style.seccionComments}>
+    <>
+      <div className={style.seccionComments}>
         <div className={style.divIcon}>
           <div className={style.divAvatar}>
             <img
@@ -27,11 +25,8 @@ export default function Coments({  id }) {
           </div>
         </div>
 
-        <CommentInput id={id} img ={userActual.profile_img} />
+        <CommentInput id={id} img={userActual.profile_img} />
       </div>
-    
-</>
-    
-  
+    </>
   );
 }

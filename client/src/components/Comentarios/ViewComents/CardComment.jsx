@@ -9,13 +9,9 @@ export default function CardComment({id}) {
 
   // const dispatch = useDispatch();
   // useEffect(() => {
-  
-  //   dispatch(getGameDetail(id));
-  //   return () => {
-  //     dispatch(cleanDetails())
-  //   }
+
   // }, [addComment.message.length])
-  useEffect(() => {}, [gameDetail.message]);
+  useEffect(() => {}, [gameDetail.comentarios.length]);
   
   return (
     <>

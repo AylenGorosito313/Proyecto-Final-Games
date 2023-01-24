@@ -24,14 +24,11 @@ export default function CommentInput({ id, img }) {
     let gameId = id;
     let userId = localStorage.getItem("id");
     let coment = data.comment;
-    comentarios = [
-      {
-        autor: "",
-        coment: coment,
-        profile: img,
-      },
-    ];
-
+    let comentarios = {
+      autor: "",
+      coment: coment,
+      profile: img,
+    }
     dispatch(modGameDetails(comentarios));
     dispatch(addComments(coment, userId, gameId));
   };

@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import style from "./LoginButton.module.css"
+import Auth0 from "./Auth0";
 // export const LoginButton = () => {
 // const {loginWithRedirect} = useAuth0()
 
@@ -8,6 +9,6 @@ import style from "./LoginButton.module.css"
 // };
 
 export default function LoginButton() {
-  const { loginWithRedirect } = useAuth0();
-  return <button className={style.button} onClick={() => loginWithRedirect()}>Login with Auth0</button>;
+  const { loginWithPopup } = useAuth0();
+  return <button className={style.button} onClick={() => loginWithPopup()}><Auth0 />Login with Auth0</button>;
 }

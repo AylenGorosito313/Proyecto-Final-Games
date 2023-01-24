@@ -19,13 +19,13 @@ export default function CommentInput({ id, img }) {
     },
     mode: "onChange",
   });
-
+let UserId = localStorage.getItem('id')
   const handlerSubmit = async (data) => {
     let gameId = id;
     let userId = localStorage.getItem("id");
     let coment = data.comment;
     let comentarios = {
-      autor: "",
+      autor: UserId,
       coment: coment,
       profile: img,
     }

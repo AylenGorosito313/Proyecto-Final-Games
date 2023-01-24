@@ -1,50 +1,73 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import LoaderBuy from "../../../../../components/Loading/BuyLoading/Loader";
 // CSS STYLE
 import "./PayButton.css";
 
 // ACTIONS
-import { AddCart } from "../../../../../middleware";
+import { getCheckOutByDetail } from "../../../../../middleware";
+import { noLoginNoBuy } from "./utils";
 
+export default function PayButton({
+  name,
+  img,
+  id,
+  genres,
+  price,
+  description,
+}) {
+  
+  const dispatch = useDispatch();
+  const { payment } = useSelector((state) => state.prueba);
+  const [buyload, setBuyload] = useState(false);
+  let userId = localStorage.getItem("id");
 
-export default function PayButton ({ id }) {
+  let background_image = img;
 
-    const dispatch = useDispatch();
-    const [gameAddedToCart, setGameAddedToCart] = useState("");
-    let user_id =localStorage.getItem("id");
-    
-    useEffect(() => {
-        if(gameAddedToCart === "ADDED"){
-            setTimeout(() => {
-                dispatch(AddCart(user_id, id))
-            }, [1000])
-        }
-    }, [gameAddedToCart])
+  const game = {
+    name,
+    background_image,
+    id,
+    genres,
+    price,
+    description,
+  };
 
-    const onClickCartButton = (e) => {
-        setGameAddedToCart("ADDED")
-        setTimeout( function() { window.location.href = "http://127.0.0.1:5173/payment"}, 5000)
-        
+  let BuyingGame = false;
+
+  const onClickBuyButton = () => {
+    if(userId){
+      setBuyload(true);
+      dispatch(getCheckOutByDetail(game, userId));
+    } else {
+      noLoginNoBuy()
     }
+  };
+  let textBtn = "BUY NOW"
 
-
-
-    return (
- 
-      <>
-        <button className="pay-button" onClick={onClickCartButton}>
-
-            <span  >{gameAddedToCart}</span> 
-             <span  >BUY</span> 
-
-           
-           
-
-        </button>
-        </>
- 
-    )
+  if (buyload === true) {
+    textBtn = "Loading . . . "
 }
 
-
+  if (payment.detailLink) {
+    BuyingGame = true;
+  }
+  //   <a href={payment.detailLink}>
+  return (
+    <>
+      <button className="pay-button" onClick={onClickBuyButton}>
+        {BuyingGame === true ? (
+          <a
+            target="_blank"
+            className="a-payment-detail"
+            href={payment.detailLink}
+          >
+            <span>BUY GAME</span>
+          </a>
+        ) : (
+          <span className={textBtn === "Loading . . . " && "span-loading"}>{textBtn}</span>
+        )}
+      </button>
+    </>
+  );
+}

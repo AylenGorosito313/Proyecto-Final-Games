@@ -83,7 +83,6 @@ const deletedUser = async (req, res) => {
 
 // obtener toda la informacion de los usuarios inactivos
 const getInactiveUsers = async (req, res) => {
-    console.log("entramos en el getInactiveUsers");
     try {
         const getInactiveUsers = await inactiveUsers.findAll({
             attributes: { exclude: ["passwordHash"] },
@@ -123,7 +122,6 @@ const usuariosProveedores = async (req, res) => {
                 },
             ],
         });
-        console.log(allProveedores);
         res.send(allProveedores);
     } catch (error) {
         res.status(500).json({

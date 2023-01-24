@@ -1,0 +1,24 @@
+.div_icon {
+    width: 170px;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    /* padding: 10px; */
+    align-items: center;
+    height: auto;
+    justify-content: center;
+  
+  }
+
+  .img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    /* background: #fff; */
+  }
+  .p_profile{
+    font-size: 14px;
+      font-family: 'Poppins';
+      color: #fff;
+  }

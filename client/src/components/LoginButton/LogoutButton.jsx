@@ -10,5 +10,5 @@ import Auth0 from "./Auth0";
 
 export default function LogoutButton() {
   const {logout } = useAuth0();
-  return <button className={style.button} onClick={() => logout()}><Auth0 />Login with Auth0</button>;
+  return <button className={style.button} onClick={() => logout({returnTo: window.location.origin})}><Auth0 />Loguot Auth0</button>;
 }

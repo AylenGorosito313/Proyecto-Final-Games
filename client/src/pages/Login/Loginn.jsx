@@ -9,9 +9,12 @@ import Google from "../../svg/botones/google";
 import Facebook from "../../svg/botones/facebook";
 import { useSelector } from "react-redux";
 import LoginButton  from "../../components/LoginButton/LoginButton";
+import LogoutButton from "../../components/LoginButton/LogoutButton";
+import Profile from "../../components/LoginButton/Profile";
 import mario from "../../assets/mario.jpg";
-
+import { useAuth0 } from "@auth0/auth0-react";
 function Loginn() {
+  const { isLoading,isAuthenticated} = useAuth0();
   const search = useLocation().search;
   const verify = new URLSearchParams(search).get("verify");
   const { res, userActual } = useSelector((state) => state.prueba);
@@ -27,6 +30,10 @@ function Loginn() {
         color: "#fff",
       },
     });
+
+if(isAuthenticated ){
+  navigateToHome.push("/home");
+}
 
   setTimeout(function () {
     if (res.login.token) {
@@ -74,7 +81,7 @@ function Loginn() {
               </div>
             </div>
           </div>
-          ///////////////////////////
+          
           <div className="socialmedia-container">
             <p className="label-log">
               Or you can login with
@@ -84,6 +91,8 @@ function Loginn() {
           </div>
 
           <LoginButton/>
+      
+          <LogoutButton/>
         </div>
       </div>
     </>

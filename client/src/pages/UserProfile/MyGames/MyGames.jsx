@@ -28,7 +28,7 @@ console.log(userActual)
                   id={inf.id}
                   image={inf.background_image}
                   name={inf.name}
-                  platforms={inf.parent_platform}
+                  platforms={inf.parent_platforms}
                 />
                 <br />
               </div>

@@ -14,6 +14,7 @@ const ShoppingHistory = require('./routes/Shoppinghistory.routes')
 const adminRouter = require('./routes/admin.routes')
 const comentRouter = require('./routes/comentUser.routes')
 const server = express()
+
 server.use(cors())
 
 server.use(morgan('dev'))

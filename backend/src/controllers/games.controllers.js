@@ -2,7 +2,7 @@ const apiClient = require("../utils/apiClient");
 const mapGames = require("../utils/mapGames");
 const paginate = require("../utils/paginated");
 const gameTrailer = require("../utils/game_trailer");
-const searchByName = require("../utils/searchByName");
+const {searchByName, searchNameDB} = require("../utils/searchByName");
 const { Game } = require("../models/games");
 const { Genre } = require("../models/genres");
 const getGamePopularOrReleased = require("../utils/getGamePopular");
@@ -75,6 +75,18 @@ const searchGame = async (req, res) => {
     const { search } = req.query;
     try {
         let results = await searchByName(search);
+        res.status(200).json(results);
+    } catch (error) {
+        res.status(200).json({
+            error: error.message,
+        });
+    }
+};
+
+const searchGameDB = async (req, res) => {
+    const { name } = req.query;
+    try {
+        let results = await searchNameDB(name);
         res.status(200).json(results);
     } catch (error) {
         res.status(200).json({
@@ -231,4 +243,5 @@ module.exports = {
     mostPopularGames,
     releasedLastMonth,
     filtrado,
+    searchGameDB
 };

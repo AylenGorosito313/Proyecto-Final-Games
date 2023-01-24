@@ -1,4 +1,6 @@
+const { Game } = require("../models/games");
 const apiClient = require("./apiClient");
+const getAllGamesDb = require("./getAllGamesDB");
 const mapGames = require("./mapGames");
 
 const searchByName = async (name) => {
@@ -13,4 +15,11 @@ const searchByName = async (name) => {
     }
 };
 
-module.exports = searchByName;
+const searchNameDB = async (name) => {
+    const findDB = await getAllGamesDb()
+    console.log("juegos encontrados en la base de datos",findDB)
+    const gameFiltrado = findDB.filter(el =>  el.dataValues.name.toLowerCase().includes(name.toLowerCase()))
+    return gameFiltrado; 
+}
+
+module.exports = {searchByName,searchNameDB};

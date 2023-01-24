@@ -73,6 +73,18 @@ const adminLogin = async (mail, password) => {
     }
 };
 
+const getAllAdmins = async (req, res) => {
+    try {
+        const allAdmins = await Admin.findAll()
+        console.log(allAdmins)
+        res.status(200).json(allAdmins)
+    } catch (error) {
+        res.status(500).json({
+            error: error.message,
+        });
+    }
+   
 
+}
 
-module.exports = { createNewAdmin, adminLogin };
+module.exports = { createNewAdmin, adminLogin, getAllAdmins };

@@ -10,5 +10,5 @@ import Auth0 from "./Auth0";
 
 export default function LogoutButton() {
   const {logout } = useAuth0();
-  return <button className={style.button} onClick={() => logout({returnTo:'/user/login'})}><Auth0 />Loguot Auth0</button>;
+  return <button className={style.buttonLoguot } onClick={() => logout({returnTo:'/user/login'})}>Loguot Auth0</button>;
 }

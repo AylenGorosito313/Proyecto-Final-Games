@@ -5,7 +5,7 @@ import UsersCells from '../UserTable/UserCells/UsersCells';
 import style from "./UserTable.module.css";
 
 
-export default function UserTable ({ status, toggle, pendingHandle }) {
+export default function UserTable ({ status, toggle, provisoryIdHandle, deleteToggle }) {
 
     const { users, inactiveUsers} = useSelector( state => state.prueba.admin)
     
@@ -40,7 +40,8 @@ export default function UserTable ({ status, toggle, pendingHandle }) {
                             users={obj} 
                             status={status} 
                             toggle={toggle} 
-                            pendingHandle={pendingHandle}
+                            provisoryIdHandle={provisoryIdHandle}
+                            deleteToggle={deleteToggle}
                             />
                         </tr>
                     ))}

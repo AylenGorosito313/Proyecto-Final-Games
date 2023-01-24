@@ -35,8 +35,9 @@ import {
   getUsersInactive,
   resAddComment,
   submissionResponse,
-  resAddComment,
-  modificarGameDetail
+  modificarGameDetail,
+  deleteUserRes,
+  getAdmins
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -198,17 +199,6 @@ export const createUser = ({ name, lastName, email, password }) => {
     }
   };
 };
-
-
-
-
-
-
-
-
-
-
-
 
 
 export const enableProvider = (id, aplication) => {
@@ -635,6 +625,36 @@ export const declineProviderSubmission = (id) => {
     }
   }
 }
+
+export const deleteUser = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "DELETE",
+        url: `http://localhost:3001/user/setInactivityUser/${id}`
+      });
+      console.log(data)
+      dispatch(deleteUserRes(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const getAdminsList = () => {
+  return async (dispatch) => {
+    try {
+      const {data} = await axios({
+        method: "GET",
+        url: `http://localhost:3000/admin/list`
+      })
+      dispatch(getAdmins(data))
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
 
 // ----------------- END ADMIN -------------
 

@@ -5,20 +5,10 @@ import { deleteUser } from '../../../../../middleware';
 
 import style from "./UsersCells.module.css"
 
-export default function UsersCells ({users, status, toggle, provisoryIdHandle, deleteToggle}) {
+export default function AdminCells ({users, status, toggle, provisoryIdHandle, deleteToggle}) {
     
-    const { submissions } = useSelector( state => state.prueba.admin)
-    
-    const submissionPending = (userId) => {
-        let submissionFinded = submissions.some( sbmsn => sbmsn.id_user === userId)
-        return submissionFinded;
-    }
-
-    const handleModalSubmission = (e) =>{
-        const pendingUserId = e.target.getAttribute("value")
-        toggle()
-        provisoryIdHandle(pendingUserId)
-    }
+   
+   
 
     const handleDeleteUser = (e) => {
         const userIdToDelete = e.target.getAttribute("value")

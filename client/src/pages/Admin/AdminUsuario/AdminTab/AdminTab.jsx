@@ -5,7 +5,7 @@ import { AdminTable } from '../AdminTable/AdminTable';
 import UserTable from '../UserTable/UserTable';
 import style from "./AdminTab.module.css";
 
-export default function AdminTab ({ toggle, pendingHandle }) {
+export default function AdminTab ({ toggle, provisoryIdHandle, deleteToggle }) {
 
     const [toggleTab, setToggleTab] = useState("users");
     const [userStatus, setUserStatus] = useState("active");
@@ -57,7 +57,8 @@ export default function AdminTab ({ toggle, pendingHandle }) {
                 <UserTable 
                 status={userStatus} 
                 toggle={toggle}
-                pendingHandle={pendingHandle} /> :
+                provisoryIdHandle={provisoryIdHandle} 
+                deleteToggle={deleteToggle } /> :
                 toggleTab === "admin" ?
                 <AdminTable status={adminStatus} /> :
                 "No hay nada que mostrar"

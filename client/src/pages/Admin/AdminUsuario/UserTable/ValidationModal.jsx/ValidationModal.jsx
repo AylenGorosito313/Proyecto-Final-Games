@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from "./ValidationModal.module.css";
 import "./check.css"
-import { acceptProviderSubmission, declineProviderSubmission } from '../../../../../middleware';
+import { acceptProviderSubmission, declineProviderSubmission, getSubmissions } from '../../../../../middleware';
 
 function ValidationModal({ toggle, submissionFinded }) {
 
@@ -15,6 +15,7 @@ function ValidationModal({ toggle, submissionFinded }) {
 
     const handleDeclineSubmission = () => {
         dispatch(declineProviderSubmission(submissionFinded.id_user))
+
     }
 
     

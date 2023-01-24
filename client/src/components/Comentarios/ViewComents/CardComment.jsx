@@ -11,7 +11,7 @@ export default function CardComment({id}) {
   // useEffect(() => {
 
   // }, [addComment.message.length])
-  useEffect(() => {}, [gameDetail.comentarios.length]);
+  useEffect(() => {}, [ gameDetail?.comentarios?.length]);
   
   return (
     <>

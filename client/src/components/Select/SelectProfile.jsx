@@ -18,7 +18,7 @@ export default function SelectProfile({ setOpen, setLogin }) {
   };
 
   let Idpovider = false;
-  let id = localStorage.getItem("providerId");
+  let id = localStorage.getItem("proveedor");
 
   if (id) Idpovider = true;
 
@@ -39,7 +39,7 @@ export default function SelectProfile({ setOpen, setLogin }) {
         <div>
           <Profile />
         </div>
-        <Link className="Link-select" to={"/user"}>
+        <Link className="Link-select" to={"/user/profil"}>
           <p className="option-name"> Profile</p>
         </Link>
       </div>

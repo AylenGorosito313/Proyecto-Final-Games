@@ -11,6 +11,7 @@ const { Providers } = require("../models/providers");
 const getGamesForExaminar = require("../utils/getGamesForExaminar");
 const { orderAlphabeth, orderPrices, orderRating } = require("../utils/order");
 const getAllGamesDb = require("../utils/getAllGamesDB");
+const { Coment } = require("../models/coment");
 
 //obtener games 20 por pagina
 const getGames = async (req, res) => {
@@ -39,8 +40,24 @@ const gameInformation = async (req, res) => {
         /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/;
     try {
         if (uuidRegex.test(id)) {
-            let gameDB = await Game.findByPk(id);
-            return res.status(200).json(gameDB);
+            let gameDB = await Game.findByPk(id, {
+                include: [
+                    {
+                        model: Genre,
+                        attributes: ["name"],
+                    },
+                    {
+                        model: Coment,
+                        attributes: ["autor", "coment", "profile", "id"],
+                        through: { attributes: [] },
+                    },
+                ],
+            });
+
+            let response = gameDB.toJSON();
+            response.genres = response.genres.map((ele) => ele.name);
+            // response.developers = [response.developers];
+            return res.status(200).json(response);
         } else {
             let gameInfo = await apiClient(`games/${id}`);
             let response = await gameTrailer([gameInfo], id);
@@ -84,8 +101,13 @@ const createGame = async (req, res) => {
                 message: "Missing required fields",
             });
         }
+        const time = Date.now();
+        let date = new Date(time);
+        let fecha = date.toISOString().substring(0, 10);
+
         const searchUser = await Users.findByPk(userId);
         let userIsProvider = searchUser.proveedor;
+
         if (userIsProvider) {
             let [result, create] = await Game.findOrCreate({
                 where: {
@@ -99,6 +121,8 @@ const createGame = async (req, res) => {
                     platforms: gameInfo.platforms,
                     parent_platforms: gameInfo.platforms,
                     createdBy: userId,
+                    developers:[`${searchUser.name} ${searchUser.lastName}`],
+                    released: fecha,
                 },
             });
             if (create) {
@@ -157,12 +181,12 @@ const releasedLastMonth = async (req, res) => {
 };
 
 const filtrado = async (req, res) => {
-    const { platform, genre, alphabeth, price, rating } = req.query;
+    const { platform, genre, alphabeth, price, rating, search } = req.query;
 
-    let api = await getGamesForExaminar();
-    let DB = await getAllGamesDb();
+
+    let api = await getGamesForExaminar(search);  
+    let DB = await getAllGamesDb(search);
     let allGames = [...DB, ...api];
-    console.log(allGames)
     let sorT = allGames;
 
     if (!req.query) {
@@ -206,5 +230,5 @@ module.exports = {
     createGame,
     mostPopularGames,
     releasedLastMonth,
-    filtrado
+    filtrado,
 };

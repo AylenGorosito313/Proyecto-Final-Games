@@ -8,6 +8,7 @@ const { inactiveUsers } = require("../../models/inactiveUsers");
 const { ProviderAplication } = require("../../models/providerAplication");
 const sendMail = require("../../services/sendMail");
 const mainToEmail = require("../../services/nodeMails");
+const { Coment } = require("../../models/coment");
 
 const getAllUser = async (req, res) => {
     try {
@@ -22,7 +23,12 @@ const getAllUser = async (req, res) => {
                 {
                     model: Providers,
                 },
+                {
+                    model: Coment,
+                },
+               
             ],
+            // include: Coment,
             attributes: { exclude: ["passwordHash"] },
         });
         res.status(200).json(user);
@@ -48,7 +54,11 @@ const getUserById = async (req, res) => {
                 {
                     model: Providers,
                 },
+                {
+                    model: Coment,
+                },
             ],
+            // include: Coment,
             attributes: { exclude: ["passwordHash"] },
         });
         res.status(200).json(searchUser);
@@ -73,7 +83,6 @@ const deletedUser = async (req, res) => {
 
 // obtener toda la informacion de los usuarios inactivos
 const getInactiveUsers = async (req, res) => {
-    console.log("entramos en el getInactiveUsers");
     try {
         const getInactiveUsers = await inactiveUsers.findAll({
             attributes: { exclude: ["passwordHash"] },
@@ -113,7 +122,6 @@ const usuariosProveedores = async (req, res) => {
                 },
             ],
         });
-        console.log(allProveedores);
         res.send(allProveedores);
     } catch (error) {
         res.status(500).json({

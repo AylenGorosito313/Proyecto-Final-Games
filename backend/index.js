@@ -36,6 +36,7 @@ require('./src/models/providers')
 require('./src/models/banner')
 require('./src/models/admin')
 require('./src/models/providerAplication')
+require('./src/models/coment')
 
 async function main() {
     try {

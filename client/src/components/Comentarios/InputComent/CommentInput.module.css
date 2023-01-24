@@ -1,0 +1,83 @@
+.container{
+    width: 600px;
+    background: #1a1919bf;
+    height: 100px;
+    border-radius: 1%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.layout {
+    width: 90%;
+    background: transparent;
+    height: 100px;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.input{
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(41, 36, 36);
+    width: 300px;
+    height: 60px;
+    border-radius: 5px;
+    background: rgba(226, 214, 214, 0.692);
+}
+
+
+
+
+    .button {
+        height: 30px;
+    width: 100px;
+        font-size: 17px;
+        padding: 0.5em 2em;
+        border: transparent;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        background: dodgerblue;
+        font-size: 12px;
+        color: white;
+        margin: 0;
+        border-radius: 4px;
+       }
+       
+       .button:hover {
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(30,144,255,1) 0%, rgba(0,212,255,1) 100%);
+       }
+       
+       .button:active {
+        transform: translate(0em, 0.2em);
+       }
+
+
+
+       .divAvatar {
+        display: flex;
+        gap: 40px;
+        font-weight: 400;
+        font-size: 24px;
+        flex-direction: row;
+        align-items: center;
+      }
+
+
+      .img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        /* background: #fff; */
+      }
+
+      .errors{
+        font-size: 12px;
+        color : #EB4848;
+         margin: 0;
+        }

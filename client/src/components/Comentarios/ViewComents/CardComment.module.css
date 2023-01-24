@@ -1,0 +1,75 @@
+.divAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  border: 10 px solid;
+  background: transparent;
+}
+
+.img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  border-radius: 50px;
+  border: 1px solid #5469ff;
+  /* background: #fff; */
+}
+
+.layout {
+  display: flex;
+  min-height: 100px;
+  padding-top: 20px;
+  width: 100%;
+  justify-content: flex-start;
+  background: transparent;
+  align-items: center;
+}
+
+.divIcon {
+  background: transparent;
+  width: 100px;
+  display: flex;
+  height: 50px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 10px;
+}
+
+.coment {
+  min-height: 20px;
+  max-width: 100px;
+
+  background: rgba(58, 57, 57, 0.377);
+  display: flex;
+  border-radius: 2px;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.pDeMierda {
+  margin: 0;
+  /* display: flex; */
+  width: 100%;
+  color: rgba(219, 212, 212, 0.753);
+}
+
+.flecha_left {
+  width: 0px;
+  height: 0px;
+
+  border-bottom: 20px solid transparent; /* izquierda flecha */
+  border-top: 5px solid transparent; /* derecha flecha */
+  border-right: 10px solid rgba(58, 57, 57, 0.377); /* base flecha y color*/
+  font-size: 0px;
+  line-height: 0px;
+}
+
+.contenedor {
+  word-wrap: break-word;
+  background: rgba(58, 57, 57, 0.377);
+  display: flex;
+  padding: 10px;
+  max-width: 500px;
+  align-items: center;
+}

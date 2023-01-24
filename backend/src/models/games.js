@@ -45,15 +45,20 @@ const Game = sequelize.define("game", {
     createdBy:{
         type: DataTypes.STRING,
         defaultValue: null
+    },
+    developers: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: true
+    },
+    released: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 
 }, {freezeTableName: true, paranoid: true, deletedAt: 'JuegosEliminados'});
 
 Game.belongsToMany(Genre, { through: "game_genre" })
 Genre.belongsToMany(Game, { through: "game_genre" })
-
-// Game.belongsToMany(Platforms, { through: "platfom_game" })
-// Platforms.belongsToMany(Game, { through: "platfom_game" })
 
 
 module.exports = { Game };

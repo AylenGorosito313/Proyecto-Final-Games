@@ -14,10 +14,47 @@
   height: 100vh;
   animation: cambiar 14s ease-in-out infinite;
 }
-.content{
+
+.HeaderText {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: flex-start;
+}
+.HeaderText h1 {
+  font-size: 30px;
+}
+
+.pHeader {
+  font-size: 14px;
+  text-align: center;
+  display: grid;
+  color: rgba(255, 255, 255, 0.562);
+  margin:0;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+  padding: auto;
+  justify-content: flex-end;
+}
+
+.divBotones {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  gap: 40px;
+  width: 90%;
+  align-items: center;
 }
 @keyframes cambiar {
   0% {
@@ -57,7 +94,7 @@
   width: 100%;
   display: flex;
   padding-top: 20px;
-  gap: 10px;
+
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -74,9 +111,10 @@
 
 .divSelect {
   display: flex;
-  width: 100%;
+  width: 90%;
   flex-direction: column;
-  padding-left: 120px;
+  padding: 10px;
+  align-items: flex-start;
 }
 
 .divSelect select {
@@ -120,4 +158,16 @@
 
 .btn :active {
   transform: translate(0em, 0.2em);
+}
+
+.divExito{
+  width: 100%;
+  display: flex;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.divExito h1{
+  margin:0;
 }

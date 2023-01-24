@@ -104,6 +104,10 @@
     transition-property: box-shadow;
 }
 
+.by{
+    border-radius: 5px;
+}
+
 /* .select{
     background-color: #212121;
     font-family: poppins;

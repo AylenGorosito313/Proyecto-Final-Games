@@ -175,13 +175,13 @@ isAdminTrue  === true ?
             />
 
             <label >Location</label>
-            <select name="region" id="region" onClick={(e) => handleChange(e)} className={style.select}>
+            <select name="region" id="region"   onClick={(e) => handleChange(e)} className={style.select}>
               <option key="none" value ="">
                 country
               </option>
               {countries?.map((c) => {
                 return (
-                  <option key={c} name="region" value={change.c}>
+                  <option key={c} name="region" className={style.option} value={change.c}>
                     {c}
                   </option>
                 );

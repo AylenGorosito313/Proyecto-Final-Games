@@ -27,7 +27,7 @@ export default function Coments({  id }) {
           </div>
         </div>
 
-        <CommentInput id={id} />
+        <CommentInput id={id} img ={userActual.profile_img} />
       </div>
     
 </>

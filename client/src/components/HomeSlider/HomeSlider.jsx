@@ -1,12 +1,4 @@
-import { useSelector } from "react-redux";
-//Import images assets
-import Andromeda1 from "../../assets/devForm/1.jpg";
-import Andromeda2 from "../../assets/devForm/2.jpg";
-import Andromeda3 from "../../assets/devForm/3.jpg";
-import fondo from "../../assets/img/fondo4.png";
-import doom from "../../assets/slides/doom_logo.png";
-import fallout from "../../assets/slides/fallout_4.png";
-import godOfWar from "../../assets/slides/godOfWar.png";
+
 // import Swiper core and required modules
 import { Pagination, Autoplay, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -31,13 +23,6 @@ export default function HomeSlider() {
       setData(respons);
     });
   }, []);
-
-  console.log(Data);
-  // let Banners =""
-  //   if (Data) {
-  //     Banners = Data.map((ele) => ele.title)
-  //
-  //   }
 
   return (
     <>

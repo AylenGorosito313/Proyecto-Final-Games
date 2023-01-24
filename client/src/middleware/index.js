@@ -30,7 +30,8 @@ import {
   responseCreateBanner,
   responseDeleteeBanner,
   getAll_Banner,
-  resAddComment
+  resAddComment,
+  modificarGameDetail
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -545,6 +546,11 @@ export const deletedDetails = () => {
     dispatch(cleanDetails());
   };
 };
+export const modGameDetails= (coment) => {
+  return async (dispatch) => {
+    dispatch(modificarGameDetail(coment));
+  };
+};
 
 // crear banner
 
@@ -633,6 +639,7 @@ export const addComments = (coment, userId, gameId ) => {
         data: {coment},
         url: `http://localhost:3001/user/add/coment?gameId=${gameId}&userId=${userId} `,
       });
+
       dispatch(resAddComment(data));
     } catch (error) {
       toast.error(error.message, {
@@ -648,3 +655,5 @@ export const addComments = (coment, userId, gameId ) => {
     }
   };
 };
+
+

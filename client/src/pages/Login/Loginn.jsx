@@ -8,7 +8,7 @@ import FormLogin from "./formularios/FormLogin";
 import Google from "../../svg/botones/google";
 import Facebook from "../../svg/botones/facebook";
 import { useSelector } from "react-redux";
-
+import LoginButton  from "../../components/LoginButton/LoginButton";
 import mario from "../../assets/mario.jpg";
 
 function Loginn() {
@@ -80,7 +80,10 @@ function Loginn() {
               Or you can login with
               <hr></hr>
             </p>
+           
           </div>
+
+          <LoginButton/>
         </div>
       </div>
     </>

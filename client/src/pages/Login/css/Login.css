@@ -40,7 +40,7 @@
 .input {
     height: 40px;
     width: 80%;
-    border: none;
+    border: 1px solid ;
     font-size: 13px;
     font-weight: 200;
     outline: none;
@@ -63,6 +63,7 @@
 .label {
     font-family: Poppins;
     color: #606060;
+    font-size: 12px;
     margin: 0;
 }
 .label-log {

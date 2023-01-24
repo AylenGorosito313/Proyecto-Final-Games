@@ -23,6 +23,7 @@ export const AdminTable = ({status, toggle, provisoryIdHandle}) => {
 
       { 
       adminsToRender.length > 0 ?
+
         <>  
         <thead cellSpacing="0" className={style.headerTable}>
             <tr>

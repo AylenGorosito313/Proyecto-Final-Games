@@ -12,3 +12,18 @@
 .overlay {
     background: rgba(49,49,49,0.8);
 }
+
+.modalContent {
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    color: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 10px;
+    max-width: 400px;
+    min-width: 400px;
+    min-height: 400px;
+    background: #171B2D;
+}

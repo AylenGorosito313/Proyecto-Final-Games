@@ -5,7 +5,7 @@ import { AdminTable } from '../AdminTable/AdminTable';
 import UserTable from '../UserTable/UserTable';
 import style from "./AdminTab.module.css";
 
-export default function AdminTab ({ toggle, provisoryIdHandle, deleteToggle }) {
+export default function AdminTab ({ toggle, provisoryIdHandle, deleteToggle, adminModalToggle }) {
 
     const [toggleTab, setToggleTab] = useState("users");
     const [userStatus, setUserStatus] = useState("active");
@@ -36,20 +36,16 @@ export default function AdminTab ({ toggle, provisoryIdHandle, deleteToggle }) {
                         {/* TABS */}
                         <div  className={style.tabs} onClick={() => handleTab("users")}>Users</div>
                         <div  className={style.tabs} onClick={() => handleTab("admin")}>Admin Users</div>
-                        {toggleTab === "users" ? 
+                        {toggleTab === "users" && 
 
                         <select onChange={handleUserStatus}>
                             <option value="active" >Active</option>
                             <option value="inactive" >Inactive</option>
-                        </select> : 
-                        <select onChange={handleAdminStatus}>
-                            <option value="activeAdmins" >Active</option>
-                            <option value="inactiveAdmins" >Inactive</option>
-                        </select>
+                        </select> 
                         }
                 </div>
                     {toggleTab === "admin" && (
-                        <button><i className="fa-solid fa-plus"></i> Añadir admin</button>
+                        <button onClick={adminModalToggle} ><i className="fa-solid fa-plus"></i> Añadir admin</button>
                     )}
             </div>
             <div className={style.tabContent}>
@@ -60,8 +56,15 @@ export default function AdminTab ({ toggle, provisoryIdHandle, deleteToggle }) {
                 provisoryIdHandle={provisoryIdHandle} 
                 deleteToggle={deleteToggle } /> :
                 toggleTab === "admin" ?
-                <AdminTable status={adminStatus} /> :
+                <AdminTable 
+                status={adminStatus} 
+                toggle={toggle}
+                provisoryIdHandle={provisoryIdHandle}
+                /> :
                 "No hay nada que mostrar"
+                }
+                {
+                
                 }
             </div>
         </div>

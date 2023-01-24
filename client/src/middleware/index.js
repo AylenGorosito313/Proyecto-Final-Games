@@ -646,7 +646,7 @@ export const getAdminsList = () => {
     try {
       const {data} = await axios({
         method: "GET",
-        url: `http://localhost:3000/admin/list`
+        url: `http://localhost:3000/admin/allAdmins`
       })
       dispatch(getAdmins(data))
     } catch (error) {

@@ -3,9 +3,10 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from "react-redux";
-import { getInactiveUsers, getSubmissions, getUsers } from '../../../middleware';
+import { getAdminsList, getInactiveUsers, getSubmissions, getUsers } from '../../../middleware';
 import NavAdmin from "../NavAdmin/NavAdmin";
 import AdminTab from './AdminTab/AdminTab';
+import CreateAdminModal from './AdminTable/CreateAdmin/CreateAdminModal';
 import style from "./AdminUsuario.module.css";
 import DeleteModal from './UserTable/DeleteModal/DeleteModal';
 import ValidationModal from './UserTable/ValidationModal.jsx/ValidationModal';
@@ -19,32 +20,34 @@ export default function AdminUsuario() {
   const [modal, setModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [userIdProvisory, setUserIdProvisory] = useState("");
-  const [createAdminModal, setCreateAdminModal] = useState(true)
+  const [createAdminModal, setCreateAdminModal] = useState(false)
 
   /// ---------- START TOGGLES -----------
   
   // toggle to open/close APROVED/DECLINE SUBMISSION
   const toggleModal = () => {
-    setModal(!modal)
-    setUserIdProvisory("")
-    dispatch(getUsers())
-    dispatch(getSubmissions())
+    setModal(!modal);
+    setUserIdProvisory("");
+    dispatch(getUsers());
+    dispatch(getSubmissions());
   }
 
   // toggle to open a close DELETE MODAL
   const toggleDeleteModal = () => {
-    setDeleteModal(!deleteModal)
-    setUserIdProvisory("")
-    dispatch(getUsers())
-    dispatch(getInactiveUsers())
+    setDeleteModal(!deleteModal);
+    setUserIdProvisory("");
+    dispatch(getUsers());
+    dispatch(getInactiveUsers());
   }
 
   const toggleCreateAdminModal = () => {
-    setCreateAdminModal(!createAdminModal)
-    
+    setCreateAdminModal(!createAdminModal);
+    dispatch(getAdminsList());
   }
 
   /// ---------- END TOGGLES -----------
+
+  /// ---------- START FUNCTIONS -----------
 
   const provisoryIdHandle = (userId) => {
     setUserIdProvisory(userId)
@@ -66,6 +69,7 @@ export default function AdminUsuario() {
   let submissionFinded = submissionPending(userIdProvisory)
   let userToBeDelete = findUser(userIdProvisory)
 
+  /// ---------- END FUNCTIONS -----------
 
   useEffect(() => {
     dispatch(getUsers())
@@ -82,7 +86,7 @@ export default function AdminUsuario() {
         toggle={toggleModal} 
         provisoryIdHandle={provisoryIdHandle}
         deleteToggle={toggleDeleteModal}
-        createAdminToggle={createAdminModal} 
+        adminModalToggle={toggleCreateAdminModal} 
         />
         {modal && <ValidationModal 
         toggle={toggleModal} 
@@ -91,6 +95,9 @@ export default function AdminUsuario() {
         {deleteModal && <DeleteModal 
         toggle={toggleDeleteModal}
         userToBeDelete={userToBeDelete}
+        />}
+        {createAdminModal && <CreateAdminModal 
+        toggle={toggleCreateAdminModal}
         />}
       </div>
     </div>

@@ -4,7 +4,8 @@ const initialState = {
   admin: {
     users: [],
     submissions: [],
-    inactiveUsers: []
+    inactiveUsers: [],
+    res: ""
   },
   users: [],
   games: [],
@@ -56,6 +57,9 @@ export const toolkit_prueba = createSlice({
     },
     getUsersInactive: (state, actions) => {
       state.admin.inactiveUsers = [...actions.payload]
+    },
+    submissionResponse: (state, actions) => {
+      state.admin.res = actions.payload
     },
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
@@ -209,7 +213,8 @@ export const {
   getAndromedaUsers,
   getUserSubmissions,
   getUsersInactive,
-  resAddComment
+  resAddComment,
+  submissionResponse
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

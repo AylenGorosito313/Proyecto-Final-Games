@@ -17,12 +17,23 @@ export default function AdminUsuario() {
   const dispatch = useDispatch()
   
   const [modal, setModal] = useState(false);
+  const [userIdPendinAplication, setUserIdPendinAplication] = useState("")
   
 
   const toggleModal = () => {
-    
     setModal(!modal)
   }
+
+  const pendingIdHandle = (userId) => {
+    setUserIdPendinAplication(userId)
+  }
+
+  const submissionPending = (userId) => {
+    let submissionFinded = submissions.find( sbmsn => sbmsn.id_user === userId)
+    return submissionFinded;
+}
+
+  let submissionFinded = submissionPending(userIdPendinAplication)
 
   useEffect(() => {
     dispatch(getUsers())
@@ -37,8 +48,14 @@ export default function AdminUsuario() {
     <div className={style.Contairner}>
       <NavAdmin />
       <div className={style.content_User}>
-        <AdminTab toggle={toggleModal} />
-        {modal && <ValidationModal toggle={toggleModal} />}
+        <AdminTab 
+        toggle={toggleModal} 
+        pendingHandle={pendingIdHandle} 
+        />
+        {modal && <ValidationModal 
+        toggle={toggleModal} 
+        submissionFinded={submissionFinded}
+        />}
         
       </div>
     </div>

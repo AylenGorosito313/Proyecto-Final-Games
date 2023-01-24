@@ -3,16 +3,20 @@ import { useSelector } from 'react-redux';
 
 import style from "./UsersCells.module.css"
 
-export default function UsersCells ({users, status, toggle}) {
+export default function UsersCells ({users, status, toggle, pendingHandle}) {
     
-    const { submissions, inactiveUsers } = useSelector( state => state.prueba.admin)
+    const { submissions } = useSelector( state => state.prueba.admin)
     
     const submissionPending = (userId) => {
         let submissionFinded = submissions.some( sbmsn => sbmsn.id_user === userId)
         return submissionFinded;
     }
 
-    console.log(`Llegó a usersCells: ${toggle} `)
+    const handleModalSubmission = (e) =>{
+        const pendingUserId = e.target.getAttribute("value")
+        toggle()
+        pendingHandle(pendingUserId)
+    }
 
 
     return (
@@ -30,7 +34,11 @@ export default function UsersCells ({users, status, toggle}) {
                 {users.proveedor === true ? 
                 <i className="fa-solid fa-check"></i> :
                 submissionPending(users.id) === true ?
-                <span value={users.id} onClick={toggle}>Ver</span> : 
+                <span 
+                value={users.id} 
+                onClick={handleModalSubmission}
+                
+                > See</span> : 
                 <i className="fa-solid fa-xmark"></i>
                 }
             </td>

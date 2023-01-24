@@ -33,7 +33,8 @@ import {
   getAndromedaUsers,
   getUserSubmissions,
   getUsersInactive,
-  resAddComment
+  resAddComment,
+  submissionResponse
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -598,6 +599,35 @@ export const getInactiveUsers = () => {
   }
 }
 
+export const acceptProviderSubmission = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "POST",
+        url: `http://localhost:3001/user/provider/create/${id}`
+      });
+
+      dispatch(submissionResponse(data.message))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const declineProviderSubmission = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "DELETE",
+        url: `http://localhost:3001/user/provider/denied/${id}`
+      });
+
+      dispatch(submissionResponse(data.message))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
 
 // ----------------- END ADMIN -------------
 

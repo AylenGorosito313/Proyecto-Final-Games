@@ -181,12 +181,12 @@ const releasedLastMonth = async (req, res) => {
 };
 
 const filtrado = async (req, res) => {
-    const { platform, genre, alphabeth, price, rating } = req.query;
+    const { platform, genre, alphabeth, price, rating, search } = req.query;
 
-    let api = await getGamesForExaminar();
-    let DB = await getAllGamesDb();
+
+    let api = await getGamesForExaminar(search);  
+    let DB = await getAllGamesDb(search);
     let allGames = [...DB, ...api];
-    console.log(allGames);
     let sorT = allGames;
 
     if (!req.query) {

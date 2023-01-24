@@ -1,11 +1,12 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import style from "./UsersCells.module.css"
 
 export default function UsersCells ({users, status, toggle, pendingHandle}) {
     
-    const { submissions } = useSelector( state => state.prueba.admin)
+    const { submissions, res } = useSelector( state => state.prueba.admin)
     
     const submissionPending = (userId) => {
         let submissionFinded = submissions.some( sbmsn => sbmsn.id_user === userId)
@@ -17,6 +18,10 @@ export default function UsersCells ({users, status, toggle, pendingHandle}) {
         toggle()
         pendingHandle(pendingUserId)
     }
+
+    useEffect(() => {
+
+    }, [res])
 
 
     return (

@@ -13,12 +13,13 @@ import ValidationModal from './UserTable/ValidationModal.jsx/ValidationModal';
 
 export default function AdminUsuario() {
 
-  const  {submissions} = useSelector( state => state.prueba.admin)
+  const  {submissions, res} = useSelector( state => state.prueba.admin)
   const dispatch = useDispatch()
   
   const [modal, setModal] = useState(false);
   const [userIdPendinAplication, setUserIdPendinAplication] = useState("")
   
+ 
 
   const toggleModal = () => {
     setModal(!modal)

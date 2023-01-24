@@ -8,6 +8,7 @@ const adminRouter = Router();
 
 adminRouter.post("/admin/create", admin.createNewAdmin)
 adminRouter.post('/admin/login', admin.adminLogin)
+adminRouter.get('/admin/allAdmins', admin.getAllAdmins)
 adminRouter.post('/admin/create/banner', createBanner)
 adminRouter.get('/admin/allbanner', getAllBanner)
 adminRouter.delete('/admin/delete/banner', deleteBanner)

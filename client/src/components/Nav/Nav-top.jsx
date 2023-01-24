@@ -16,6 +16,7 @@ import User from "../../svg/User";
 import Profile from "../LoginButton/Profile";
 import PanelAdminNav from "../../svg/PanelAdminNav";
 import { geUserActual } from "../../middleware/index";
+import LogoutButton from "../LoginButton/LogoutButton";
 function NavTop() {
   const { userActual } = useSelector((state) => state.prueba);
   const [Login, setLogin] = useState(false);
@@ -144,6 +145,7 @@ function NavTop() {
               )}
             </div>
             <Profile />
+            <LogoutButton/>
             <div className="op">
               {OpenUser && (
                 <SelectProfile setOpen={setOpenUser} setLogin={setLogin} />

@@ -32,7 +32,7 @@ const initialState = {
     res: "",
     delete: "",
   },
-
+  addComment: "",
   allBanners: [],
 };
 
@@ -93,7 +93,6 @@ export const toolkit_prueba = createSlice({
       state.res = { ...state.res, created: actions.payload };
     },
     responseLogin: (state, actions) => {
-      console.log(actions.payload);
       state.res = { ...state.res, login: actions.payload };
     },
     clearState: (state, actions) => {
@@ -145,15 +144,18 @@ export const toolkit_prueba = createSlice({
     },
 
     getAll_Banner: (state, actions) => {
-      console.log(actions.payload)
-      state.allBanners =actions.payload
+      state.allBanners = actions.payload;
     },
 
-
-  
+    resAddComment: (state, actions) => {
+      state.addComment = actions.payload;
+    },
+    modificarGameDetail: (state, actions) => {
+      state.gameDetail.comentarios.push(actions.payload);
+    },
   },
 });
-
+// resAddComment
 export const {
   addUser,
   getAllGames,
@@ -187,7 +189,9 @@ export const {
   deleteProvisoryFavoriteIds,
   responseCreateBanner,
   responseDeleteeBanner,
-  getAll_Banner
+  getAll_Banner,
+  resAddComment,
+  modificarGameDetail,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

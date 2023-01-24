@@ -8,11 +8,12 @@ export default function MyGames() {
   const dispatch = useDispatch();
   useEffect(() => {
     let userID = window.localStorage.getItem("id");
+    
     dispatch(getItemsCar(userID));
   }, []);
 
   const { userActual } = useSelector((state) => state.prueba);
-
+console.log(userActual)
   return (
     <div className={style.LayoutProfilePage}>
       <div className={style.containerData}>
@@ -27,7 +28,7 @@ export default function MyGames() {
                   id={inf.id}
                   image={inf.background_image}
                   name={inf.name}
-                  platforms={inf.parent_platform}
+                  platforms={inf.parent_platforms}
                 />
                 <br />
               </div>

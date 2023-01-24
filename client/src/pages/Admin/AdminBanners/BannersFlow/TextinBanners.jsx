@@ -1,7 +1,10 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import style from "./TextBanners.module.css";
 export default function TextinBanners({ HandlerText }) {
+  const [Send, setSend]=useState(false)
   const {
     register,
     handleSubmit,
@@ -11,14 +14,18 @@ export default function TextinBanners({ HandlerText }) {
     defaultValues: { description: "", textBtn: "", name: "" },
     mode: "onChange",
   });
-  const OnSubmit = async (data) => {
-    console.log(data);
-    HandlerText(data);
+  const OnSubmit = (data) => {
+    HandlerText(data)
+setSend(true)
   };
   const toggleFormText = () => {
     setFrom();
   };
-  //title, description, price,logo, textBtn
+  useEffect(() => {
+ return () => {
+    setSend(false)
+    };
+  }, []);
   return (
     <>
       <form className={style.formContainer} onSubmit={handleSubmit(OnSubmit)}>
@@ -41,7 +48,7 @@ export default function TextinBanners({ HandlerText }) {
           />
         </div>
         <div className={style.input_group}>
-          <label className={style.user_label}>text for  buttonn</label>
+          <label className={style.user_label}>text for buttonn</label>
           <input
             type="textBtn"
             placeholder="Enter your text"
@@ -50,10 +57,11 @@ export default function TextinBanners({ HandlerText }) {
           />
         </div>
         <div className={style.divBTN}>
+        {Send && "🙌 Text added successfully"}
           <button className={style.btn}> Add </button>
+         
         </div>
       </form>
     </>
   );
 }
-

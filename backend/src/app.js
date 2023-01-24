@@ -12,13 +12,14 @@ const carritoRouter = require('./routes/carrito.routes')
 const ShoppingHistory = require('./routes/Shoppinghistory.routes')
 // const Cloudinary = require('./routes/cloudinary.routes');
 const adminRouter = require('./routes/admin.routes')
+const comentRouter = require('./routes/comentUser.routes')
 const server = express()
 server.use(cors())
 
 server.use(morgan('dev'))
 server.use(express.json())
 server.use(gamesRouter)
-server.use(gameFavoriteRouter)
+server.use(gameFavoriteRouter) 
 server.use(loginRouter)
 server.use(genreRouter)
 server.use(usersRouter)
@@ -27,6 +28,7 @@ server.use(carritoRouter)
 server.use(ShoppingHistory)
 server.use(adminRouter)
 // server.use(Cloudinary)
+server.use(comentRouter)
 
 
 server.use(paymentRouter )

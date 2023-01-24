@@ -1,6 +1,5 @@
-// const { Providers } = require("../../models/providers")
-// const { Users } = require("../../models/users")
 const { Game } = require("../../models/games");
+const { Providers } = require("../../models/providers");
 const deleteGameProvider = require("../../utils/logicDeleteGame");
 
 // eliminamos juegos que se encuentran unicamente en la base de datos
@@ -23,6 +22,37 @@ const deleteGame = async (req, res) => {
     }
 };
 
+
+// actualizar juegos 
+
+const updateGame = async (req, res) => {
+    const {gameId, userId} = req.params;
+    const bodyInfo = req.body
+    try{  
+        const gameInfo  = await Game.findByPk(gameId);
+        gameInfo.update(bodyInfo);      
+
+        await deleteGameProvider(userId, gameId); 
+
+        const findProvider = await Providers.findOne({
+            where: {
+                userId: userId
+            }
+        })
+       
+        const laVariable = gameInfo.toJSON()
+              
+        findProvider.videoGamesPropor = [...findProvider.videoGamesPropor, laVariable]
+        await findProvider.save()
+        
+        res.json("game update with success")
+    } catch (error) {
+        return res.status(500).json({
+            error: error.message,
+        });
+    }
+}
+
 const getAllGameToDB = async (req, res) => {
     try {
         
@@ -41,4 +71,4 @@ const getAllGameToDB = async (req, res) => {
     }
 }
 
-module.exports = { deleteGame, getAllGameToDB };
+module.exports = { deleteGame, getAllGameToDB, updateGame };

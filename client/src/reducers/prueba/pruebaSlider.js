@@ -23,11 +23,17 @@ const initialState = {
     register: "",
     created: "",
     provider: {},
-    admLogin:""
+    admLogin: "",
   },
   isLoader: false,
   userActual: {},
   itemCar: [],
+  banners: {
+    res: "",
+    delete: "",
+  },
+  addComment: "",
+  allBanners: [],
 };
 
 export const toolkit_prueba = createSlice({
@@ -65,22 +71,28 @@ export const toolkit_prueba = createSlice({
       state.res = { ...state.res, provider: actions.payload };
     },
     resProvisoryCartIds: (state, actions) => {
-      state.provisoryCartIds = [...state.provisoryCartIds, actions.payload]
+      state.provisoryCartIds = [...state.provisoryCartIds, actions.payload];
     },
     resProvisoryFavoriteIds: (state, actions) => {
-      state.provisoryFavoriteIds = [...state.provisoryFavoriteIds, actions.payload]
+      state.provisoryFavoriteIds = [
+        ...state.provisoryFavoriteIds,
+        actions.payload,
+      ];
     },
     deleteProvisoryCartIds: (state, actions) => {
-      state.provisoryCartIds = state.provisoryCartIds.filter( id => id !== actions.payload)
+      state.provisoryCartIds = state.provisoryCartIds.filter(
+        (id) => id !== actions.payload
+      );
     },
     deleteProvisoryFavoriteIds: (state, actions) => {
-      state.provisoryFavoriteIds = state.provisoryFavoriteIds.filter( id => id !== actions.payload)
+      state.provisoryFavoriteIds = state.provisoryFavoriteIds.filter(
+        (id) => id !== actions.payload
+      );
     },
     GameCreate: (state, actions) => {
       state.res = { ...state.res, created: actions.payload };
     },
     responseLogin: (state, actions) => {
-      console.log(actions.payload)
       state.res = { ...state.res, login: actions.payload };
     },
     clearState: (state, actions) => {
@@ -124,9 +136,26 @@ export const toolkit_prueba = createSlice({
     responseLoginAdmin: (state, actions) => {
       state.res = { ...state.res, admLogin: actions.payload };
     },
+    responseCreateBanner: (state, actions) => {
+      state.banners = { ...state.banners, res: actions.payload };
+    },
+    responseDeleteeBanner: (state, actions) => {
+      state.banners = { ...state.banners, delete: actions.payload };
+    },
+
+    getAll_Banner: (state, actions) => {
+      state.allBanners = actions.payload;
+    },
+
+    resAddComment: (state, actions) => {
+      state.addComment = actions.payload;
+    },
+    modificarGameDetail: (state, actions) => {
+      state.gameDetail.comentarios.push(actions.payload);
+    },
   },
 });
-
+// resAddComment
 export const {
   addUser,
   getAllGames,
@@ -157,7 +186,12 @@ export const {
   resProvisoryFavoriteIds,
   responseLoginAdmin,
   deleteProvisoryCartIds,
-  deleteProvisoryFavoriteIds
+  deleteProvisoryFavoriteIds,
+  responseCreateBanner,
+  responseDeleteeBanner,
+  getAll_Banner,
+  resAddComment,
+  modificarGameDetail,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

@@ -11,6 +11,7 @@ const { Providers } = require("../models/providers");
 const getGamesForExaminar = require("../utils/getGamesForExaminar");
 const { orderAlphabeth, orderPrices, orderRating } = require("../utils/order");
 const getAllGamesDb = require("../utils/getAllGamesDB");
+const { Coment } = require("../models/coment");
 
 //obtener games 20 por pagina
 const getGames = async (req, res) => {
@@ -40,16 +41,23 @@ const gameInformation = async (req, res) => {
     try {
         if (uuidRegex.test(id)) {
             let gameDB = await Game.findByPk(id, {
-                include: {
-                    model: Genre,
-                    attributes: ['name']
-                },
+                include: [
+                    {
+                        model: Genre,
+                        attributes: ["name"],
+                    },
+                    {
+                        model: Coment,
+                        attributes: ["autor", "coment", "profile"],
+                        through: { attributes: [] },
+                    },
+                ],
             });
 
-            let response = gameDB.toJSON()
-            response.genres = response.genres.map(ele => ele.name)
-            response.developers = [response.developers]
-                return res.status(200).json(response);
+            let response = gameDB.toJSON();
+            response.genres = response.genres.map((ele) => ele.name);
+            response.developers = [response.developers];
+            return res.status(200).json(response);
         } else {
             let gameInfo = await apiClient(`games/${id}`);
             let response = await gameTrailer([gameInfo], id);
@@ -113,7 +121,7 @@ const createGame = async (req, res) => {
                     platforms: gameInfo.platforms,
                     parent_platforms: gameInfo.platforms,
                     createdBy: userId,
-                    developers: `${searchUser.name} ${searchUser.lastName}`,
+                    developers:[`${searchUser.name} ${searchUser.lastName}`],
                     released: fecha,
                 },
             });

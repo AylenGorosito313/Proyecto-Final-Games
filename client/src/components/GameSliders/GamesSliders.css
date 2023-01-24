@@ -7,13 +7,19 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+   
     
 }
 
 .game-title-slider h2{
-    font-weight: 400;
+    font-weight: 800;
     font-size: 18px;
     line-height: 1.4;
+    padding: 10px;
+    border-radius: 10px;
+    /* border: 0.5px solid #FFD700;; */
+    /* background-color: rgba(255, 255, 255, 0.359); */
+    /* text-shadow: 1px 1px 1px #FFD700;; */
 }
 
 .games-slider-buttons-container {
@@ -27,7 +33,7 @@
     background: #3c3c3c;
     display: inline-block;
     color: #fff;
-    border: none;
+    border: 1px solid rgba(30,144,255,1) ;
     cursor: pointer;
     width: 35px;
     height: 35px;
@@ -45,7 +51,7 @@
     display:inline-block;
     background: #3c3c3c;
     color: #fff;
-    border: none;
+    border: 1px solid rgba(30,144,255,1) ;
     cursor: pointer;
     width: 35px;
     height: 35px;
@@ -59,7 +65,7 @@
     display: inline-block;
     background: #232323;
     color: #fff;
-    border: none;
+    border: 1px solid rgba(30,144,255,1) ;
     cursor: pointer;
     width: 35px;
     height: 35px;
@@ -73,7 +79,7 @@
     background: #232323;
     display: inline-block;
     color: #fff;
-    border: none;
+    border: 1px solid rgba(30,144,255,1) ;
     cursor: pointer;
     width: 35px;
     height: 35px;
@@ -89,7 +95,7 @@
     background: #3c3c3c;
     display: inline-block;
     color: #fff;
-    border: none;
+    border: 1px solid rgba(30,144,255,1) ;
     cursor: pointer;
     width: 35px;
     height: 35px;
@@ -103,7 +109,7 @@
     display: inline-block;
     background: #3c3c3c;
     color: #fff;
-    border: none;
+    border: 1px solid rgba(30,144,255,1);
     cursor: pointer;
     width: 35px;
     height: 35px;
@@ -117,7 +123,7 @@
     display: inline-block;
     background: #232323;
     color: #fff;
-    border: none;
+    border: 1px solid rgba(30,144,255,1);
     cursor: pointer;
     width: 35px;
     height: 35px;
@@ -131,7 +137,7 @@
     background: #232323;
     display: inline-block;
     color: #fff;
-    border: none;
+    border: 1px solid rgba(30,144,255,1);
     cursor: pointer;
     width: 35px;
     height: 35px;

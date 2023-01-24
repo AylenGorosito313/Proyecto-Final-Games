@@ -53,3 +53,12 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.img{
+  width: 300px;
+  height: 300px;
+}
+
+.p{
+  color:rgba(255, 255, 255, 0.384)
+}

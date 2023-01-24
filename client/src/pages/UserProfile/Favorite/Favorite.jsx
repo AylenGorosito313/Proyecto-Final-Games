@@ -19,9 +19,9 @@ console.log(userActual.favoritos)
     <div className={style.LayoutProfilePage}>
             <div className={style.containerData}>
       <NavProfile />
-      {userActual.favoritos ? (
+      {userActual && userActual.favoritos ? (
         <div className={style.conteiner}>
-          {userActual.favoritos.map((inf) => {
+          { userActual && userActual.favoritos.map((inf) => {
             return (
               <div className={style.CardContainer} key={inf.id}>
                 <CardProfile

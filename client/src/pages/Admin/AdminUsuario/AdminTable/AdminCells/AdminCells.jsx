@@ -31,12 +31,7 @@ export default function AdminCells ({admins, status, toggle, provisoryIdHandle, 
             <td>
                 {status}
             </td>
-            <td className={style.trash}>
-                <i className="fa-solid fa-trash"  
-                onClick={handleDeleteUser} 
-                value={admins.id}
-                ></i>
-            </td>
+           
         </>
     )
 }

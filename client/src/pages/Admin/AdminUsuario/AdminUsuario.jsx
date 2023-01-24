@@ -19,7 +19,11 @@ export default function AdminUsuario() {
   const [modal, setModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [userIdProvisory, setUserIdProvisory] = useState("");
+  const [createAdminModal, setCreateAdminModal] = useState(true)
+
+  /// ---------- START TOGGLES -----------
   
+  // toggle to open/close APROVED/DECLINE SUBMISSION
   const toggleModal = () => {
     setModal(!modal)
     setUserIdProvisory("")
@@ -27,13 +31,20 @@ export default function AdminUsuario() {
     dispatch(getSubmissions())
   }
 
-  // toggle to
+  // toggle to open a close DELETE MODAL
   const toggleDeleteModal = () => {
     setDeleteModal(!deleteModal)
     setUserIdProvisory("")
     dispatch(getUsers())
     dispatch(getInactiveUsers())
   }
+
+  const toggleCreateAdminModal = () => {
+    setCreateAdminModal(!createAdminModal)
+    
+  }
+
+  /// ---------- END TOGGLES -----------
 
   const provisoryIdHandle = (userId) => {
     setUserIdProvisory(userId)
@@ -70,7 +81,8 @@ export default function AdminUsuario() {
         <AdminTab 
         toggle={toggleModal} 
         provisoryIdHandle={provisoryIdHandle}
-        deleteToggle={toggleDeleteModal} 
+        deleteToggle={toggleDeleteModal}
+        createAdminToggle={createAdminModal} 
         />
         {modal && <ValidationModal 
         toggle={toggleModal} 

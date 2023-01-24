@@ -23,7 +23,11 @@ export default function UserTable ({ status, toggle, provisoryIdHandle, deleteTo
 
     return (
         <>
-            <table className={style.mainTable}>
+            {
+            usersToRender.length > 0 ?
+                
+            <>
+                <table className={style.mainTable}>
                 <thead cellSpacing="0" className={style.headerTable}>
                     <tr>
                         {columnNames.map((header, index) => (
@@ -47,6 +51,15 @@ export default function UserTable ({ status, toggle, provisoryIdHandle, deleteTo
                     ))}
                 </tbody>
             </table>
+            </>
+
+            :
+
+            <div>
+                <h2>There is no users to show</h2>
+            </div>
+
+            }
         </>
     )
 }

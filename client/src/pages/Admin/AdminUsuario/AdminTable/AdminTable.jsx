@@ -9,45 +9,53 @@ export const AdminTable = ({status, toggle, provisoryIdHandle}) => {
     
     const columnNames = ["Name", "Email", "Password", "Status"]
 
-    let usersToRender
+    let adminsToRender
    
     if(status === "activeAdmins"){
-        usersToRender = admins
+        adminsToRender = admins
     } else if (status === "inactiveAdmins") {
-        usersToRender = inactiveUsers
+        adminsToRender = inactiveUsers
     }
 
   return (
     <>
     <table className={style.mainTable}>
-      <thead cellSpacing="0" className={style.headerTable}>
-          <tr>
-              {columnNames.map((header, index) => (
-                  <th key={index}>
-                      {header}
-                  </th>
-              ))}
-          </tr>
-      </thead>
-      <tbody>
-          {usersToRender ? 
-          usersToRender?.map((obj, index) => (
-              <tr key={index}>
-                  <AdminCells
-                  admins={obj} 
-                  status={status} 
-                  toggle={toggle} 
-                  provisoryIdHandle={provisoryIdHandle}
-                  
-                  />
-              </tr>
-          )) :
-          <div>
-            <h2>There is no admin users to show</h2>
 
-          </div>
+      { 
+      adminsToRender.length > 0 ?
+        <>  
+        <thead cellSpacing="0" className={style.headerTable}>
+            <tr>
+                {columnNames.map((header, index) => (
+                    <th key={index}>
+                        {header}
+                    </th>
+                ))}
+            </tr>
+        </thead>
+        <tbody>
+            {
+            usersToRender?.map((obj, index) => (
+                <tr key={index}>
+                    <AdminCells
+                    admins={obj} 
+                    status={status} 
+                    toggle={toggle} 
+                    provisoryIdHandle={provisoryIdHandle}
+                    
+                    />
+                </tr>
+            )) 
           }
-      </tbody>
+        </tbody> 
+        </>
+      
+      :
+      
+        <div>
+            <h2>There is no admin users to show</h2>
+        </div>
+      }
     </table>
     </>
   )

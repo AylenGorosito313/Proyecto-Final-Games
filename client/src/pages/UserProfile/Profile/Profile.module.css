@@ -18,8 +18,7 @@
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    padding-left: 40px;
-    padding-top: 50px;
+   
     min-width: 800px;
     max-width: 800px;
     border-radius: 10px;

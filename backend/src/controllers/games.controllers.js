@@ -48,7 +48,7 @@ const gameInformation = async (req, res) => {
                     },
                     {
                         model: Coment,
-                        attributes: ["autor", "coment", "profile"],
+                        attributes: ["autor", "coment", "profile", "id"],
                         through: { attributes: [] },
                     },
                 ],
@@ -56,7 +56,7 @@ const gameInformation = async (req, res) => {
 
             let response = gameDB.toJSON();
             response.genres = response.genres.map((ele) => ele.name);
-            response.developers = [response.developers];
+            // response.developers = [response.developers];
             return res.status(200).json(response);
         } else {
             let gameInfo = await apiClient(`games/${id}`);

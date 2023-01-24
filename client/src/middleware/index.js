@@ -3,7 +3,6 @@ import toast, { Toaster } from "react-hot-toast";
 import {
   getAllGames,
   getAllGamesDb,
-  getAllGamesADb,
   getByName,
   setIsLoader,
   responseRegister,
@@ -68,21 +67,6 @@ export const getGamesDb = () => {
   };
 };
 
-export const getGamesADb = () => {
-  return async function (dispatch) {
-    try {
-      dispatch(isLoading());
-      let { data } = await axios({
-        method: "GET",
-        url: `http://localhost:3001/games`,
-      });
-      dispatch(getAllGamesADb(data));
-      // console.log("karlita",data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-};
 
 export const getForFilters = (parameter) => {
   const { platform, genre, alphabeth, price, rating } = parameter;
@@ -182,7 +166,7 @@ export const getSearchByName = (name) => {
   return async function (dispatch) {
     let { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/game?search=${name}`,
+      url: `http://localhost:3001/games/filters/examinar?search=${name}`,
     });
     dispatch(getByName(data));
   };

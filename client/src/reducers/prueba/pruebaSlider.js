@@ -51,9 +51,6 @@ export const toolkit_prueba = createSlice({
     getAllGamesDb: (state, actions) => {
       state.gamesdb = [...actions.payload];
     },
-    getAllGamesADb: (state, actions) => {
-      state.gamesadb = [actions.payload];
-    },
     getExaminar: (state, actions) => {
       state.examinar = [...actions.payload];
     },
@@ -169,7 +166,6 @@ export const {
   addUser,
   getAllGames,
   getByName,
-  getAllGamesADb,
   setIsLoader,
   responseRegister,
   responseLogin,

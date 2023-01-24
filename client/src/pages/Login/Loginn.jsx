@@ -14,7 +14,7 @@ import Profile from "../../components/LoginButton/Profile";
 import mario from "../../assets/mario.jpg";
 import { useAuth0 } from "@auth0/auth0-react";
 function Loginn() {
-  const { isLoading,isAuthenticated} = useAuth0();
+  // const { isLoading,isAuthenticated} = useAuth0();
   const search = useLocation().search;
   const verify = new URLSearchParams(search).get("verify");
   const { res, userActual } = useSelector((state) => state.prueba);
@@ -31,9 +31,9 @@ function Loginn() {
       },
     });
 
-if(isAuthenticated ){
-  navigateToHome.push("/home");
-}
+// if(isAuthenticated ){
+//   navigateToHome.push("/home");
+// }
 
   setTimeout(function () {
     if (res.login.token) {

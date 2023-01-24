@@ -11,6 +11,8 @@ let userInfo = {};
 const registerUser = async (req, res) => {
     const { name, lastName, email, password, birth_date, profile_img, region } =
         req.body;
+    
+        console.log( name, lastName, email, password )
 
     if (!name || !lastName || !email || !password) {
         res.status(400).json({

@@ -4,7 +4,7 @@ import { geUserActual } from "../../../middleware";
 import CardProfile from "./CardProfile/CardProfile";
 import style from "../Favorite/Favorite.module.css";
 import NavProfile from "../NavProfile/NavProfile";
-import Card from "../MyGames/Card/Card";
+// import Card from "../MyGames/Card/Card";
 export default function WishList() {
   const dispatch = useDispatch();
   const { userActual } = useSelector((state) => state.prueba);
@@ -12,8 +12,9 @@ export default function WishList() {
   useEffect(() => {
     let userID = window.localStorage.getItem("id");
     dispatch(geUserActual(userID));
-  }, [userActual && userActual.favoritos?.length]);
+  }, [userActual.favoritos?.length]);
 
+console.log(userActual.favoritos)
   return (
     <div className={style.LayoutProfilePage}>
             <div className={style.containerData}>
@@ -27,7 +28,7 @@ export default function WishList() {
                   id={inf.id}
                   image={inf.background_image}
                   name={inf.name}
-                  platforms={inf.parent_platform}
+                  platforms={inf.parent_platforms}
                 />
                 <br />
               </div>

@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import style from "./CommentInput.module.css";
 import { addComments } from "../../../middleware";
 import { useForm } from "react-hook-form";
-export default function CommentInput({ id }) {
+import { modGameDetails } from "../../../middleware";
+export default function CommentInput({ id, img }) {
   const { userActual } = useSelector((state) => state.prueba);
   const dispatch = useDispatch();
 
@@ -18,12 +19,17 @@ export default function CommentInput({ id }) {
     },
     mode: "onChange",
   });
-
+let UserId = localStorage.getItem('id')
   const handlerSubmit = async (data) => {
     let gameId = id;
     let userId = localStorage.getItem("id");
-let coment = data.comment
-    console.log(coment, userId, gameId);
+    let coment = data.comment;
+    let comentarios = {
+      autor: UserId,
+      coment: coment,
+      profile: img,
+    }
+    dispatch(modGameDetails(comentarios));
     dispatch(addComments(coment, userId, gameId));
   };
   return (

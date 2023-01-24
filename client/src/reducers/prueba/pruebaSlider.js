@@ -38,7 +38,7 @@ const initialState = {
     res: "",
     delete: "",
   },
- addComment:"",
+  addComment: "",
   allBanners: [],
 };
 
@@ -111,7 +111,6 @@ export const toolkit_prueba = createSlice({
       state.res = { ...state.res, created: actions.payload };
     },
     responseLogin: (state, actions) => {
-      console.log(actions.payload);
       state.res = { ...state.res, login: actions.payload };
     },
     clearState: (state, actions) => {
@@ -163,16 +162,15 @@ export const toolkit_prueba = createSlice({
     },
 
     getAll_Banner: (state, actions) => {
-      console.log(actions.payload)
-      state.allBanners =actions.payload
+      state.allBanners = actions.payload;
     },
 
     resAddComment: (state, actions) => {
-      console.log(actions.payload)
-      state.addComment= actions.payload
+      state.addComment = actions.payload;
     },
-
-  
+    modificarGameDetail: (state, actions) => {
+      state.gameDetail.comentarios.push(actions.payload);
+    },
   },
 });
 // resAddComment
@@ -213,8 +211,9 @@ export const {
   getAndromedaUsers,
   getUserSubmissions,
   getUsersInactive,
+  submissionResponse,
   resAddComment,
-  submissionResponse
+  modificarGameDetail,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

@@ -1,7 +1,9 @@
 .layout{
-    height: 60vh;
-    background:#1a1919bf;
-    border-radius: 10px;
+  min-height: 60vh;
+  background: #1a1919bf;
+  padding: 20px;
+  border-radius: 10px;
+
 }
 
 

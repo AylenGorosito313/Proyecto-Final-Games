@@ -34,7 +34,9 @@ import {
   getUserSubmissions,
   getUsersInactive,
   resAddComment,
-  submissionResponse
+  submissionResponse,
+  resAddComment,
+  modificarGameDetail
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -551,6 +553,11 @@ export const deletedDetails = () => {
     dispatch(cleanDetails());
   };
 };
+export const modGameDetails= (coment) => {
+  return async (dispatch) => {
+    dispatch(modificarGameDetail(coment));
+  };
+};
 
 // ----------------- ADMIN -------------
 
@@ -710,15 +717,16 @@ export const putUser = (inf) => {
 
 // add comment 
 export const addComments = (coment, userId, gameId ) => {
-  console.log(coment, userId, gameId)
+  console.log(coment)
   return async function (dispatch) {
     try {
-      let res = await axios({
+      let {data} = await axios({
         method: "POST",
-        data: {coment} ,
-        url: `http://localhost:3001/user/add/coment?userId=${userId}&gameId=${gameId} `,
+        data: {coment},
+        url: `http://localhost:3001/user/add/coment?gameId=${gameId}&userId=${userId} `,
       });
-      dispatch(resAddComment(res));
+
+      dispatch(resAddComment(data));
     } catch (error) {
       toast.error(error.message, {
         position: "bottom-right",
@@ -733,3 +741,5 @@ export const addComments = (coment, userId, gameId ) => {
     }
   };
 };
+
+

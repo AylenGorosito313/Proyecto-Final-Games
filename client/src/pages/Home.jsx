@@ -25,9 +25,9 @@ function Home() {
   const [Developer, setDeveloper] = useState(false);
   const dispatch = useDispatch();
   const { games, isLoader, res } = useSelector((state) => state.prueba);
-
+  let userID = localStorage.getItem('id')
   useEffect(() => {
-    let userID = localStorage.getItem('id')
+    
     dispatch(getGames());
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());

@@ -8,11 +8,12 @@ import style from "./ProveedorProfile.module.css";
 import Card from "./Card/CardProfile";
 import NavProvedor from "./NavProveedor/NavProveedor";
 import NavProfile from "../../UserProfile/NavProfile/NavProfile";
-import CardProfile from "../../UserProfile/Favorite/CardProfile/CardProfile"
+import CardProfile from "../../UserProfile/Favorite/CardProfile/CardProfile";
+
 export default function ProveedorProfile() {
+
   const dispatch = useDispatch();
   const { userActual } = useSelector((state) => state.prueba);
-  console.log(userActual);
 
   useEffect(() => {
     let userID = window.localStorage.getItem("id");

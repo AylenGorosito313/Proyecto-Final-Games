@@ -143,7 +143,7 @@ function NavTop() {
                 </button>
               )}
             </div>
-            <Profile />
+            {/* <Profile /> */}
             <div className="op">
               {OpenUser && (
                 <SelectProfile setOpen={setOpenUser} setLogin={setLogin} />

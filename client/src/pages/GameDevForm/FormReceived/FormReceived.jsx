@@ -17,7 +17,7 @@ export default function FormReceived () {
                     </span>
                 </div>
                 <div className="formReceived-button-container">
-                    <Link to="/home">
+                    <Link to="/">
                         <button className="buttons-after-received">
                             BACK TO HOME
                         </button>

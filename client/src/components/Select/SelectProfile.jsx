@@ -7,16 +7,20 @@ import Profile from "../../svg/icons-menu/Profile";
 import { clearState } from "../../reducers/prueba/pruebaSlider";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+
 export default function SelectProfile({ setOpen, setLogin }) {
+  const {logout } = useAuth0();
   const dispatch = useDispatch();
   const handlerLogout = () => {
     setLogin(false);
     setOpen(false);
+    logout()
     localStorage.clear();
 
     dispatch(clearState());
   };
-
+ 
   let Idpovider = false;
   let id = localStorage.getItem("proveedor");
 
@@ -71,6 +75,7 @@ export default function SelectProfile({ setOpen, setLogin }) {
       )}
 
       <div className="option-container" onClick={handlerLogout}>
+     
         <div>
           <Logout className="div-icon-menu-perfil" />
         </div>{" "}

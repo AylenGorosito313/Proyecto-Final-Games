@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 .game_image img {
-    width: 480px;
+    width: 580px;
     height: 270px;
     vertical-align: middle;
     -webkit-filter: brightness(60%);
@@ -31,10 +31,22 @@
 }
 
 
-.favourite-tag{
+.card{
+    padding-bottom: 20px;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+}
+
+.favourite_tag{
+    display: inline;
     position: absolute;
-    top: 25px;
-    right: 25px;
+    right: 50px;
+    top: 30px;
+    /* top: 25px;
+    right: 25px; */
     padding: 8px 14px;
     color: #fff;
     border-radius: 30px;
@@ -44,6 +56,27 @@
     font-family: "Poppins", sans-serif;
 }
 
+.card_content_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ranking_container{
+    padding-right: 40px;
+}
+
+.price_cart{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.shopping_cart{
+    display: flex;
+    padding-right: 40px;
+}
 /* .single-card{
     transition: all .3s ease;
 } */

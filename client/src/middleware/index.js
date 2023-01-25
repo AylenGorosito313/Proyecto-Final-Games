@@ -39,7 +39,6 @@ import {
   modificarGameDetail,
   deleteUserRes,
   getAdmins,
-  modificarGameDetail,
   getByNameDb
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes

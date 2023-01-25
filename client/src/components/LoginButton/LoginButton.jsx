@@ -11,9 +11,12 @@ import Auth0 from "./Auth0";
 export default function LoginButton() {
   const { loginWithPopup } = useAuth0();
   return (
-    <button className={style.button} onClick={() => loginWithPopup()}>
+    <div className={style.divDiablos}>
+         <button className={style.button} onClick={() => loginWithPopup()}>
       <Auth0 />
       Login with Auth0
     </button>
+    </div>
+ 
   );
 }

@@ -31,7 +31,7 @@ function FormLogin({verify}) {
           <input
             type="email"
             placeholder="Enter your email..."
-            className="input"
+            className="input-login"
             {...register("email", {
               maxLength: 100,
               required: true,
@@ -53,7 +53,7 @@ function FormLogin({verify}) {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Enter your Password..."
-            className="input"
+            className="input-login"
             {...register("password", {
               maxLength: 12,
               required: true,

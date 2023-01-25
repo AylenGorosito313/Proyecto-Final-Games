@@ -34,7 +34,10 @@
     align-items: center;
 
   }
-  
+  .h1-juegocreado{
+    font-size: 20px;
+    margin: 0 auto;
+  }
   .p-scss {
     margin: 0;
     display: grid;

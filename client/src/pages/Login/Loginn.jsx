@@ -87,7 +87,7 @@ function Loginn() {
 
           <LoginButton />
           <Profile />
-          <LogoutButton />
+         
           <div className="decoracion-login"></div>
         </div>
         

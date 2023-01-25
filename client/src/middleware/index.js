@@ -2,6 +2,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import {
   getAllGames,
+  getAllGamesDb,
   getByName,
   setIsLoader,
   responseRegister,
@@ -37,7 +38,9 @@ import {
   submissionResponse,
   modificarGameDetail,
   deleteUserRes,
-  getAdmins
+  getAdmins,
+  modificarGameDetail,
+  getByNameDb
 } from "../reducers/prueba/pruebaSlider";
 // localhost:3001/games/filters/examinar/routes
 export const getGames = () => {
@@ -55,6 +58,24 @@ export const getGames = () => {
     }
   };
 };
+
+export const getGamesDb = () => {
+  return async function (dispatch) {
+    try {
+      dispatch(isLoading());
+      let { data } = await axios({
+        method: "GET",
+        url: `http://localhost:3001/db/allGames`,
+      });
+
+      dispatch(getAllGamesDb(data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+
 export const getForFilters = (parameter) => {
   const { platform, genre, alphabeth, price, rating } = parameter;
 
@@ -148,15 +169,27 @@ export const getGamesReleasedLasthMonth = () => {
   };
 };
 
+
 export const getSearchByName = (name) => {
   return async function (dispatch) {
     let { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/game?search=${name}`,
+      url: `http://localhost:3001/games/filters/examinar?search=${name}`,
     });
     dispatch(getByName(data));
   };
 };
+
+export const getSearchByNameDb = (name) => {
+  return async function (dispatch) {
+    let { data } = await axios({
+      method: "GET",
+      url: `http://localhost:3001/game/db?name=${name}`,
+    });
+    dispatch(getByNameDb(data));
+  };
+};
+
 
 export const getGameDetail = (id) => {
   return async function (dispatch) {
@@ -518,6 +551,21 @@ export const deletedFavorites = (id) => {
         method: "DELETE",
         url: `http://localhost:3001/game/deletFavorite/${userId}/${id}`,
       });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+export const deletedGameAdmin = (gameId) => {
+  return async (dispatch) => {
+    try {
+      let userId = localStorage.getItem("id");
+      let { data } = await axios({
+        method: "DELETE",
+        url: `http://localhost:3001/game/provider/deleteGameProvider/${userId}/${gameId}`,
+      });
+      dispatch(getGamesDb());
     } catch (error) {
       console.log(error.message);
     }

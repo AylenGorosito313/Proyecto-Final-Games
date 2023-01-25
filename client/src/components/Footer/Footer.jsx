@@ -8,7 +8,10 @@ export default function Footer() {
   return (
     <div className={style.container}>
       <div className={style.content}>
+        <span className={style.logo}>
+
         <Logo />
+        </span>
 
         <div className={style.about}>
           <h1 className={style.h1}>About us</h1>

@@ -41,7 +41,7 @@ export default function UnploadGame() {
                   return (
                     <div className={style.DivCardProveedor}>
                       <CardProfile
-                        id={inf.name}
+                        id={inf.id}
                         image={inf.background_image}
                         name={inf.name}
                         platforms={inf.parent_platforms}

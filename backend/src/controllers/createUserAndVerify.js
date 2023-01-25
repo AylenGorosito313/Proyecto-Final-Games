@@ -6,21 +6,18 @@ const { SECRET } = process.env;
 const createUser = async (user) => {
     try {
         const passwordHash = await bcrypt.hash(user.password, 10);
-        const createUser = await Users.findOrCreate({
-            where: {
-
-                name: user.name,
-                lastName: user.lastName,
-                email: user.email,
-                birth_date: user.birth_date,
-                profile_img: user.profile_img,
-                region: user.region,
-                passwordHash,
-            }
+        const createUser = await Users.create({
+            name: user.name,
+            lastName: user.lastName,
+            email: user.email,
+            birth_date: user.birth_date,  
+            profile_img: user.profile_img,
+            region: user.region,
+            passwordHash,
         });
-        return createUser.toJSON();
+        return createUser.toJSON(); 
     } catch (error) {
-        return "oops something went wrong";
+        return error.message;
     }
 };
 

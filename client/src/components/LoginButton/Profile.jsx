@@ -1,7 +1,7 @@
 import React from "react";
 import Auth0 from "./Auth0";
 import { useAuth0 } from "@auth0/auth0-react";
-import { createUser } from "../../middleware";
+import { createUser, LoginUser } from "../../middleware";
 import style from "./ProfileAuth0.module.css";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -22,7 +22,7 @@ export default function Profile() {
       Auth: true,
     };
     if (user) {
-      dispatch(createUser(data));
+      dispatch(LoginUser(data));
     }
   }, [isAuthenticated && isAuthenticated]);
 

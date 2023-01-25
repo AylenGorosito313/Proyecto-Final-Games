@@ -314,12 +314,12 @@ export const traerPlatforms = () => {
 };
 
 // login user // login admin
-export const LoginUser = ({ email, password }, verify) => {
+export const LoginUser = ({email, password, Auth, name, lastName, profile_img }, verify) => {
   return async function (dispatch) {
     try {
       let res = await axios({
         method: "POST",
-        data: { email, password, verify },
+        data: {email, password, Auth, name, lastName, profile_img, verify },
         url: "https://backend-pf-production.up.railway.app/login/user",
       });
       dispatch(responseLogin(res.data));

@@ -1,17 +1,19 @@
 import React from "react";
 import "../css/Login.css";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { LoginUser } from "../../../middleware";
 import { useForm } from "react-hook-form";
 import { useDispatch} from "react-redux";
+
 function FormLogin({verify}) {
+  const [showPassword, setshowPassword] = useState(false)
   const { res } = useSelector((state) => state.prueba);
   const navigate = useHistory()
   const dispatch = useDispatch()
   const {
     register, handleSubmit,watch, formState: { errors },} = useForm({ defaultValues: { email: "", password: "" },mode: "onChange", });
-
 
 
 
@@ -49,7 +51,7 @@ function FormLogin({verify}) {
         <label className="label">Password</label>
         <div className="input-container">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Enter your Password..."
             className="input"
             {...register("password", {

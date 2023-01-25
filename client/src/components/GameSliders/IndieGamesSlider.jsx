@@ -73,7 +73,7 @@ export default function IndieGamesSlider() {
                     className="game-slider-swiper"
                 >
                     {popularGames.length > 0
-                        ? popularGames.map((ele, index) => (
+                        ? popularGames.slice(5).map((ele, index) => (
                               <SwiperSlide
                                   key={index}
                                   className="popular-swiper-slide"
@@ -83,6 +83,7 @@ export default function IndieGamesSlider() {
                                       img={ele.background_image}
                                       name={ele.name}
                                       id={ele.id}
+                                      price={ele.price}
                                       rating={ele.rating}
                                       platforms={ele.parent_platforms}
                                       released={ele.released}

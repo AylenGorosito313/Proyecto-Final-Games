@@ -91,15 +91,15 @@ function NavTop() {
               </div>
             </Link>
 
-            <div onClick={handlerOpenNotifica} className="div-icon">
+            {/* <div onClick={handlerOpenNotifica} className="div-icon">
               <Notificacion /> Notifications
-            </div>
+            </div> */}
             <Link className="Link-nav" to={"/profile/favorite"}>
               <div onClick={handlerOpenNotifica} className="div-icon">
                 <FavoriteNav /> Favorites
               </div>
             </Link>
-            <div>
+            <div className="button-profile-nav">
               {Login ? (
                 <div onClick={handlerOpenUser} className="div-icon">
                   {userActual ? (

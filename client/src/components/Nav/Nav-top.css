@@ -10,6 +10,10 @@
   align-items: center;
 
 }
+
+.button-profile-nav{
+ padding: 0px 30px 0px 40px;
+}
 .div-icon {
   width: 170px;
   display: flex;

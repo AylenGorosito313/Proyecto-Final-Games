@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import style from "../Unpload-GameCreate/UnploadGameCreate.module.css";
 function UploadVideogame({ UnploadTrailer }) {
   const [image, setImage] = useState([]);
@@ -27,11 +28,17 @@ function UploadVideogame({ UnploadTrailer }) {
     myWidget.open();
   }
 
-  if (image) {
+  console.log(image);
+  useEffect(() => {
     let trailer = image && image?.map((img) => img.url);
-
     UnploadTrailer(trailer);
-  }
+  }, [image.length]);
+
+  // if (image) {
+  //   let trailer = image && image?.map((img) => img.url);
+
+  //   UnploadTrailer(trailer);
+  // }
   return (
     <div>
       <h1 className={style.h1}>Upload Game Trailer </h1>

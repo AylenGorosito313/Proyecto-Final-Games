@@ -5,7 +5,7 @@ import SelectProfile from "../Select/SelectProfile";
 import { Link, useHistory } from "react-router-dom";
 import Notificacion from "../../svg/Notificacion";
 import FavoriteNav from "../../svg/FavoriteNav";
-import Logo from "../../svg/Logo";
+import Logo from "../../components/Footer/utils/LogoFooter";
 import SelectCar from "../Select/CarShop/SelectCar";
 import SelectNotificaciones from "../Select/Notificaciones/SelectNotificaciones";
 import "./Nav-top.css";

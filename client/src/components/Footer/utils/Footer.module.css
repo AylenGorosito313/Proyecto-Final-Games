@@ -4,8 +4,8 @@
     width: 100%;
   
   display: flex;
-  background: #303030;
-  padding-top: 10px;
+  background: black;
+  padding-top: 20px;
   flex-direction: column;
   justify-content: center;
 }
@@ -13,10 +13,11 @@
 .content {
   display: flex;
   height: 100%;
-  width: 90%;
+  width: 100%;
   padding-top: 10px;
-  background: #303030;
+  background: black;
   justify-content: space-around;
+  /* border-radius: 0 20px 20px 0; */
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
@@ -52,4 +53,11 @@
   flex-direction: row;
   gap: 10px;
   padding: 5px;
+}
+
+
+.logo{
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 255, 0.692);
+  border-radius: 50px;
 }

@@ -43,7 +43,7 @@ function IndieCard({ name, img, id, rating, price}) {
           </div>
 
           <div className={style.card_content}>
-            <Link to={`/game/${id}`}>
+            <Link to={`/game/${id}`} className={style.link}>
               <div className={style.card_content_header}>
                 <h3>{name.split("").slice(0, 16).join("")}</h3>
 

@@ -32,7 +32,7 @@ export default function UploadImage(props) {
         //     setImage((prev) => prev.filter((img) => img.public_id !== imgObj.public_id));
         // })
         // .catch((e)=> console.log(e));
-        axios.delete(`http://localhost:3001/cloudinary/${imgObj.public_id}`)
+        axios.delete(`https://backend-pf-production.up.railway.app/cloudinary/${imgObj.public_id}`)
         .then(()=>{
             setImageToRemove(null);
             setImage((prev) => prev.filter((img) => img.public_id !== imgObj.public_id));

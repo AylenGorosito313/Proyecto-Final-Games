@@ -44,7 +44,7 @@ import {
   getAdmins,
   getByNameDb
 } from "../reducers/prueba/pruebaSlider";
-// localhost:3001/games/filters/examinar/routes
+
 export const getGames = () => {
   return async function (dispatch) {
     try {

@@ -43,7 +43,9 @@ export default function AdminUsuario() {
 
   const toggleCreateAdminModal = () => {
     setCreateAdminModal(!createAdminModal);
-    dispatch(getAdminsList());
+    setTimeout(() => {
+      dispatch(getAdminsList());
+    }, 1000);
   }
 
   /// ---------- END TOGGLES -----------

@@ -29,8 +29,8 @@ export default function AdminTab ({ toggle, provisoryIdHandle, deleteToggle, adm
             <div className={style.mainTabHeader}>
                 <div className={style.tabHeader}>
                         {/* TABS */}
-                        <div  className={style.tabs1} onClick={() => handleTab("users")}>Users</div>
-                        <div  className={style.tabs2} onClick={() => handleTab("admin")}>Admin Users</div>
+                        <div  className={toggleTab === "users" ? style.tab1Active : style.tabs1} onClick={() => handleTab("users")}>Users</div>
+                        <div  className={toggleTab === "admin" ? style.tab2Active :  style.tabs2} onClick={() => handleTab("admin")}>Admin Users</div>
                         {toggleTab === "users" && 
                         
                         <div className={style.selectStatus}>

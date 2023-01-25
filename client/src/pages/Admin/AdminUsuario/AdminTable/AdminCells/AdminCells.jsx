@@ -27,7 +27,7 @@ export default function AdminCells ({admins, status, toggle, provisoryIdHandle, 
                 *******************
             </td>
             <td>
-                {status === "activeAdmins" && "Active"}
+                <span className={style.status}>{status === "activeAdmins" && "Active"}</span>
             </td>
            
         </>

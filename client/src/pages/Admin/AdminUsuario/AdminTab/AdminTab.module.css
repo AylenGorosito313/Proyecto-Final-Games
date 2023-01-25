@@ -46,9 +46,23 @@
     margin-left: 30px;
 }
 
+.tab1Active {
+    border-bottom: 1px solid white;
+}
+
+.tab1Active, .tab2Active{
+    padding: 10px;
+}
+
+.tab2Active{
+    margin-left: 30px;
+    border-bottom: 1px solid white;
+}
+
+
 .selectStatus{
     margin-left: 80px;
-    padding: 10px;
+   
    
 }
 

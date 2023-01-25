@@ -9,18 +9,14 @@ export const AdminTable = ({status, toggle, provisoryIdHandle}) => {
     
     const columnNames = ["Name", "Email", "Password", "Status"]
 
-    let adminsToRender
    
-    if(status === "activeAdmins"){
-        adminsToRender = admins
-    }
 
   return (
     <>
     <table className={style.mainTable}>
 
       { 
-      adminsToRender.length > 0 ?
+      admins.length > 0 ?
 
         <>  
         <thead cellSpacing="0" className={style.headerTable}>
@@ -34,7 +30,7 @@ export const AdminTable = ({status, toggle, provisoryIdHandle}) => {
         </thead>
         <tbody>
             {
-            adminsToRender?.map((obj, index) => (
+            admins?.map((obj, index) => (
                 <tr key={index}>
                     <AdminCells
                     admins={obj} 

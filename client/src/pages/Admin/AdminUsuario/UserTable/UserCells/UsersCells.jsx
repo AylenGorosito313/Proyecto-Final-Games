@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { deleteUser } from '../../../../../middleware';
 
 import style from "./UsersCells.module.css"
+import "./icons.css"
 
 export default function UsersCells ({users, status, toggle, provisoryIdHandle, deleteToggle}) {
     
@@ -40,21 +41,22 @@ export default function UsersCells ({users, status, toggle, provisoryIdHandle, d
             </td>
             <td className={style.developer}>
                 {users.proveedor === true ? 
-                <i className="fa-solid fa-check"></i> :
+                <i className="fa-solid fa-check checkUser"></i> :
                 submissionPending(users.id) === true ?
                 <span 
+                className={style.openSubmission}
                 value={users.id} 
                 onClick={handleModalSubmission}
                 
                 > See</span> : 
-                <i className="fa-solid fa-xmark"></i>
+                <i className="fa-solid fa-xmark xmarkUser"></i>
                 }
             </td>
-            <td>
-                {status}
+            <td className={style.statusContainer}>
+                <span className={ status === "active" ? style.statusActive : style.statusInactive}>{status}</span>
             </td>
             <td className={style.trash}>
-                <i className="fa-solid fa-trash"  
+                <i className="fa-solid fa-trash deleteUser"  
                 onClick={handleDeleteUser} 
                 value={users.id}
                 ></i>

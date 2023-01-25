@@ -68,7 +68,16 @@
 
 }
 
-
+.meta-container-text-banner{
+    position: absolute;
+    top: 20%;
+    display: flex;
+    width: 20%;
+    height: 80%;
+    border-radius: 10px;
+    background: #e2bebe38;
+    flex-direction: column;
+}
 
 .container-text-banner{
     position: absolute;
@@ -100,6 +109,6 @@
 
 
 .h1-banner{
-    font-size: 40px;
+    font-size: 35px;
     margin: 0;
 }

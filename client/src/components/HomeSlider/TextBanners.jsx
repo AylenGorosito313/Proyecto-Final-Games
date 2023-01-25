@@ -10,12 +10,14 @@ export default function TextBanners({
   textBtn,
 }) {
   return (
+    <div className="meta-container-text-banner">
     <div className="container-text-banner">
       {logo && <img className="logo-banner" src={logo} alt="" />}
       <h1  className="h1-banner">{title}</h1>
       <p>{description}</p>
       {price && <p className="descriptionBnnners">US$ {price}</p>}
       {textBtn && <button className={style.button_bnner}>{textBtn}</button>}
+    </div>
     </div>
   );
 }

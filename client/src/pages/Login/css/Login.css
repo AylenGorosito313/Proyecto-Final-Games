@@ -18,11 +18,22 @@
     width: 55vh;
     gap: 20px;
     height: 100%;
-    background: #fff;
+    background: #ffff;
+    
     /* position: relative; */
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
     justify-content: center;
     align-items: center;
+}
+
+.decoracion-login{
+    width: 200px;
+    height: 200px;
+    top: 90%;
+    right: 20px;
+    position: absolute;
+    
+    background-image: url(../formularios/icons-logos-formlogin/Vector.png);
 }
 
 .form {
@@ -52,6 +63,7 @@
     border: 1px solid ;
     font-size: 13px;
     font-weight: 200;
+    padding: 10px;
     outline: none;
     box-sizing: border-box;
     border: 0.2px solid #606060;
@@ -64,6 +76,7 @@
     font-size: 13px;
     font-weight: 200;
     outline: none;
+    padding: 10px;
     box-sizing: border-box;
     border: 0.4px solid #60606041;
     border-radius: 10px;

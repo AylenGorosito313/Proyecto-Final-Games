@@ -80,14 +80,10 @@
 }
 
 .container-text-banner{
-    /* position: absolute; */
-    top: 20%;
     display: flex;
-    /* width: 100%; */
-    gap: 20px;
-    /* height: 80%; */
+    gap: 10px;
     border-radius: 10px;
-    background: #d51e1e38;
+    background: #1a1a1a2b;
     padding: 8px 14px;
     color: #d8d4d4;
     font-family: Poppins,sans-serif;

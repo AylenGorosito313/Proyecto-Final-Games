@@ -30,7 +30,7 @@ function Loginn() {
         color: "#fff",
       },
     });
-
+console.log(userActual)
   setTimeout(function () {
     if (res.login.token) {
       localStorage.setItem("id", res.login.id);
@@ -39,11 +39,11 @@ function Loginn() {
       if (res.login.isAdmin) {
         localStorage.setItem("isAdmin", res.login.isAdmin);
       }
+     
       if (userActual.proveedor) {
         localStorage.setItem("proveedor", userActual.proveedor);
       }
       navigateToHome.push("/");
-   
     }
   }, 2000);
 
@@ -87,10 +87,9 @@ function Loginn() {
 
           <LoginButton />
           <Profile />
-         
+
           <div className="decoracion-login"></div>
         </div>
-        
       </div>
     </>
   );

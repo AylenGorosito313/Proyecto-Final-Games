@@ -9,7 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 export default function NavProfile() {
   const dispatch = useDispatch();
   const { userActual } = useSelector((state) => state.prueba);
-
+console.log(userActual.proveedor)
   let isAdminTrue = localStorage.getItem("isAdmin");
   console.log(isAdminTrue)
   useEffect(() => {

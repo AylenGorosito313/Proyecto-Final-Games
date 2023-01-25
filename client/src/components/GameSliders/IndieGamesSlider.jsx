@@ -83,6 +83,7 @@ export default function IndieGamesSlider() {
                                       img={ele.background_image}
                                       name={ele.name}
                                       id={ele.id}
+                                      price={ele.price}
                                       rating={ele.rating}
                                       platforms={ele.parent_platforms}
                                       released={ele.released}

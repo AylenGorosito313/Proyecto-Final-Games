@@ -46,9 +46,9 @@ const registerUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-    const { email, password, verify, Auth0, name, lastName, profile_img  } = req.body;
-
-    // { 
+    const { email, password, verify, Auth, name, lastName, profile_img  } = req.body;
+ 
+    // {  
     //     email: user && user.email,
     //     password: "Telefono31#",
     //     name: user && user.nickname,
@@ -57,7 +57,7 @@ const loginUser = async (req, res) => {
     //     Auth: true,
     //   };
 
-    if(Auth0){
+    if(Auth){
         let createdUser = await createUser({
             email,
             password,
@@ -65,8 +65,17 @@ const loginUser = async (req, res) => {
             lastName,
             profile_img
         });
-
-        return res.status(200).json(createdUser)
+        console.log(createdUser);
+        const tokenForUser = {
+            id: createdUser.id,
+            name: createdUser.name,
+        };
+        const token = jwt.sign(tokenForUser, SECRET);
+        return res.status(200).json({
+            id: createdUser.id,
+            name: createdUser.name,
+            token, 
+        });
 
     }
 
@@ -80,7 +89,7 @@ const loginUser = async (req, res) => {
     let adminUser = await adminLogin(email, password)
     console.log(adminUser);
     if(adminUser?.isAdmin){
-        return res.status(200).json(adminUser)
+        return res.status(200).json(adminUser) 
     }
     let userLoggin = search === null ? verifyUser(verify) : true;
 

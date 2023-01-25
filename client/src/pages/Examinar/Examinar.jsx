@@ -28,6 +28,8 @@ export default function Examinar() {
     dispatch(traerPlatforms());
   }, [dispatch]);
 
+  if (examinar) window.scroll({ top: 0, behavior: "smooth" });
+
   return (
     <>
       <div className={style.main_container_examinar}>

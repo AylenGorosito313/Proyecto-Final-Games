@@ -1,11 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getSearchByName } from "../../middleware";
 
 import Style from "./Search.module.css";
 
 export default function Search() {
+
+  let history = useHistory();
   const dispatch = useDispatch();
 
   const [input, setInput] = useState("");
@@ -21,11 +24,7 @@ export default function Search() {
     e.preventDefault();
     dispatch(getSearchByName(input)); //actualización de atributo
     setInput("");
-    window.scroll({
-      top: 1500,
-      bottom: 900,
-      behavior: 'smooth'
-    });
+    history.push("/game/examinar/filtros")
   }
 
   return (

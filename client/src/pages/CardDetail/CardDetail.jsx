@@ -40,7 +40,7 @@ export default function CardDetail() {
 
 
 
-  if (gameDetail) window.scroll({ top: 0, behavior: "smooth" });
+  // if (gameDetail) window.scroll({ top: 0, behavior: "smooth" });
 
   return (
     <>

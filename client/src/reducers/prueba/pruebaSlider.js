@@ -8,6 +8,7 @@ const initialState = {
     inactiveUsers: [],
     res: ""
   },
+  searchWord: "",
   users: [],
   games: [],
   gamesdb: [],
@@ -51,6 +52,9 @@ export const toolkit_prueba = createSlice({
     addUser: (state, actions) => {
       state.users = [...actions.payload];
     },
+    provisorySearchWord: (state, actions) => {
+      state.searchWord = actions.payload;
+    },
     getAndromedaUsers: (state, actions) => {
       state.admin.users = [...actions.payload]
     },
@@ -88,7 +92,7 @@ export const toolkit_prueba = createSlice({
       state.gamesReleasedLasthMonth = [...actions.payload];
     },
     getByName: (state, actions) => {
-      state.games = [...actions.payload];
+      state.examinar = [...actions.payload];
     },
     getByNameDb: (state, actions) => {
       state.gamesdb = [...actions.payload];

@@ -1,5 +1,8 @@
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+
+// const API = process.env.REACT_APP_API; 
+// axios.defaults.baseURL = import.meta.env.API
 import {
   getAllGames,
   getAllGamesDb,
@@ -41,14 +44,14 @@ import {
   getAdmins,
   getByNameDb
 } from "../reducers/prueba/pruebaSlider";
-// localhost:3001/games/filters/examinar/routes
+
 export const getGames = () => {
   return async function (dispatch) {
     try {
       dispatch(isLoading());
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games`,
+        url: `https://backend-pf-production.up.railway.app/games`,
       });
 
       dispatch(getAllGames(data));
@@ -64,7 +67,7 @@ export const getGamesDb = () => {
       dispatch(isLoading());
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/db/allGames`,
+        url: `https://backend-pf-production.up.railway.app/db/allGames`,
       });
 
       dispatch(getAllGamesDb(data));
@@ -100,7 +103,7 @@ export const getForFilters = (parameter) => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games/filters/examinar${filter}`,
+        url: `https://backend-pf-production.up.railway.app/games/filters/examinar${filter}`,
       });
       console.log(data);
       dispatch(getExaminar(data));
@@ -116,7 +119,7 @@ export const getForFiltersRESET = () => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games/filters/examinar`,
+        url: `https://backend-pf-production.up.railway.app/games/filters/examinar`,
       });
       console.log(data);
       dispatch(getExaminar(data));
@@ -144,7 +147,7 @@ export const getPopularGames = () => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games/popular`,
+        url: `https://backend-pf-production.up.railway.app/games/popular`,
       });
       dispatch(popularGames(data));
     } catch (error) {
@@ -158,7 +161,7 @@ export const getGamesReleasedLasthMonth = () => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games/released`,
+        url: `https://backend-pf-production.up.railway.app/games/released`,
       });
       dispatch(releasedLasthMonth(data));
       dispatch(isLoading());
@@ -173,7 +176,7 @@ export const getSearchByName = (name) => {
   return async function (dispatch) {
     let { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/games/filters/examinar?search=${name}`,
+      url: `https://backend-pf-production.up.railway.app/games/filters/examinar?search=${name}`,
     });
     dispatch(getByName(data));
   };
@@ -183,7 +186,7 @@ export const getSearchByNameDb = (name) => {
   return async function (dispatch) {
     let { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/game/db?name=${name}`,
+      url: `https://backend-pf-production.up.railway.app/game/db?name=${name}`,
     });
     dispatch(getByNameDb(data));
   };
@@ -196,7 +199,7 @@ export const getGameDetail = (id) => {
       dispatch(isLoading());
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/game/${id}`,
+        url: `https://backend-pf-production.up.railway.app/game/${id}`,
       });
 
       dispatch(getDetail(data));
@@ -214,7 +217,7 @@ export const createUser = ({ name, lastName, email, password }) => {
       let res = await axios({
         method: "POST",
         data: { name, lastName, email, password },
-        url: "http://localhost:3001/user/create",
+        url: "https://backend-pf-production.up.railway.app/user/create",
       });
       dispatch(responseRegister(res.data));
     } catch (error) {
@@ -241,7 +244,7 @@ export const enableProvider = (id, aplication) => {
       let { data } = await axios({
         method: "POST",
         data: aplication,
-        url: `http://localhost:3001/user/provider/aplication/${id}`,
+        url: `https://backend-pf-production.up.railway.app/user/provider/aplication/${id}`,
       });
       console.log(data)
       dispatch(providerResponseEnable(data));
@@ -271,7 +274,7 @@ export const CreateGame = (gameInfo, userId) => {
       let res = await axios({
         method: "POST",
         data: gameInfo,
-        url: `http://localhost:3001/game/create/${userId}`,
+        url: `https://backend-pf-production.up.railway.app/game/create/${userId}`,
       });
       console.log(res.data);
       dispatch(GameCreate(res.data));
@@ -294,7 +297,7 @@ export const traerGenero = () => {
   return async function (dispatch) {
     let { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/genres`,
+      url: `https://backend-pf-production.up.railway.app/genres`,
     });
     dispatch(getGenre(data));
   };
@@ -304,22 +307,20 @@ export const traerPlatforms = () => {
   return async function (dispatch) {
     let { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/games/platforms`,
+      url: `https://backend-pf-production.up.railway.app/games/platforms`,
     });
     dispatch(getPlatforms(data));
   };
 };
 
 // login user // login admin
-export const LoginUser = ({email, password, Auth, name, lastName, profile_img }, verify) => {
-
-  console.log({email, password, Auth, name, lastName, profile_img });
+export const LoginUser = ({ email, password }, verify) => {
   return async function (dispatch) {
     try {
       let res = await axios({
         method: "POST",
-        data: { email, password, Auth, name, lastName, profile_img , verify },
-        url: "http://localhost:3001/login/user",
+        data: { email, password, verify },
+        url: "https://backend-pf-production.up.railway.app/login/user",
       });
       dispatch(responseLogin(res.data));
     } catch (error) {
@@ -343,7 +344,7 @@ export const LoginAdmin = ({ mail, password }) => {
       let res = await axios({
         method: "POST",
         data: { mail, password },
-        url: "http://localhost:3001/admin/login",
+        url: "https://backend-pf-production.up.railway.app/admin/login",
       });
       dispatch(responseLoginAdmin(res.data));
     } catch (error) {
@@ -373,7 +374,7 @@ export const AddFavorite = (user_id, id) => {
       let { data } = await axios({
         method: "POST",
         data: {},
-        url: `http://localhost:3001/game/addFavorite/${user_id}/${id}`,
+        url: `https://backend-pf-production.up.railway.app/game/addFavorite/${user_id}/${id}`,
       });
       
       // let filterId = data.favoritos.find( item => item.id === id)
@@ -401,7 +402,7 @@ export const AddCart = (userId, gameId) => {
       let {data} = await axios({
         method: "POST",
         data: {},
-        url: `http://localhost:3001/user/addCard/${userId}/${gameId}`,
+        url: `https://backend-pf-production.up.railway.app/user/addCard/${userId}/${gameId}`,
       });
       console.log(data)
       // let filterId = data.items.find( item => item.id === gameId)
@@ -430,7 +431,7 @@ export const getCart = (userId) => {
       dispatch(isLoading());
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/user/cartItems/${userId}`,
+        url: `https://backend-pf-production.up.railway.app/user/cartItems/${userId}`,
       });
       dispatch(getCartRes(data));
       dispatch(isLoading());
@@ -448,7 +449,7 @@ export const deleteCart = (userId, gameId) => {
       let res = await axios({
         method: "DELETE",
         data: {},
-        url: `http://localhost:3001/use/deleteItem/${userId}/${gameId}`,
+        url: `https://backend-pf-production.up.railway.app/use/deleteItem/${userId}/${gameId}`,
       });
      
     } catch (error) {
@@ -473,7 +474,7 @@ export const geUserActual = (id) => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/user/${id}`,
+        url: `https://backend-pf-production.up.railway.app/user/${id}`,
       });
       dispatch(getUserActual(data));
     } catch (error) {
@@ -487,7 +488,7 @@ export const getItemsCar = (id) => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http:/localhost:3001/user/cartItems/${id}`,
+        url: `https://backend-pf-production.up.railway.app/user/cartItems/${id}`,
       });
       dispatch(getItemsUser(data));
     } catch {
@@ -503,7 +504,7 @@ export const getCheckOut = (userId) => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/payment?id=${userId}`,
+        url: `https://backend-pf-production.up.railway.app/payment?id=${userId}`,
       });
       dispatch(getLinkPayment(data));
     } catch (error) {
@@ -522,7 +523,7 @@ console.log(game)
       let { data } = await axios({
         method: "POST",
         data: game,
-        url: `http://localhost:3001/payment/oneItem?id=${userId}`,
+        url: `https://backend-pf-production.up.railway.app/payment/oneItem?id=${userId}`,
       });
       dispatch(getLinkPaymentDETAIL(data));
     } catch (error) {
@@ -550,7 +551,7 @@ export const deletedFavorites = (id) => {
       let userId = localStorage.getItem("id");
       let { data } = await axios({
         method: "DELETE",
-        url: `http://localhost:3001/game/deletFavorite/${userId}/${id}`,
+        url: `https://backend-pf-production.up.railway.app/game/deletFavorite/${userId}/${id}`,
       });
     } catch (error) {
       console.log(error.message);
@@ -564,7 +565,7 @@ export const deletedGameAdmin = (gameId) => {
       let userId = localStorage.getItem("id");
       let { data } = await axios({
         method: "DELETE",
-        url: `http://localhost:3001/game/provider/deleteGameProvider/${userId}/${gameId}`,
+        url: `https://backend-pf-production.up.railway.app/game/provider/deleteGameProvider/${userId}/${gameId}`,
       });
       dispatch(getGamesDb());
     } catch (error) {
@@ -578,7 +579,7 @@ export const paymentSuccess = (id) => {
     try {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:3001/payment/success?userId=${id}`,
+        url: `https://backend-pf-production.up.railway.app/payment/success?userId=${id}`,
       });
       console.log(response);
     } catch (error) {
@@ -605,7 +606,7 @@ export const getUsers = () => {
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/users`
+        url: `https://backend-pf-production.up.railway.app/users`
       });
       
       dispatch(getAndromedaUsers(data))
@@ -620,7 +621,7 @@ export const getSubmissions = () => {
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/get/providers/aplication`
+        url: `https://backend-pf-production.up.railway.app/get/providers/aplication`
       });
       
       dispatch(getUserSubmissions(data))
@@ -635,7 +636,7 @@ export const getInactiveUsers = () => {
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/users/inactive`
+        url: `https://backend-pf-production.up.railway.app/users/inactive`
       });
 
       dispatch(getUsersInactive(data))
@@ -650,7 +651,7 @@ export const acceptProviderSubmission = (id) => {
     try {
       const { data } = await axios({
         method: "POST",
-        url: `http://localhost:3001/user/provider/create/${id}`
+        url: `https://backend-pf-production.up.railway.app/user/provider/create/${id}`
       });
 
       dispatch(submissionResponse(data.message))
@@ -665,7 +666,7 @@ export const declineProviderSubmission = (id) => {
     try {
       const { data } = await axios({
         method: "DELETE",
-        url: `http://localhost:3001/user/provider/denied/${id}`
+        url: `https://backend-pf-production.up.railway.app/user/provider/denied/${id}`
       });
 
       dispatch(submissionResponse(data.message))
@@ -680,7 +681,7 @@ export const deleteUser = (id) => {
     try {
       const { data } = await axios({
         method: "DELETE",
-        url: `http://localhost:3001/user/setInactivityUser/${id}`
+        url: `https://backend-pf-production.up.railway.app/user/setInactivityUser/${id}`
       });
       console.log(data)
       dispatch(deleteUserRes(data))
@@ -695,7 +696,7 @@ export const getAdminsList = () => {
     try {
       const {data} = await axios({
         method: "GET",
-        url: `http://localhost:3001/admin/allAdmins`
+        url: `https://backend-pf-production.up.railway.app/admin/allAdmins`
       })
      
       dispatch(getAdmins(data))
@@ -712,7 +713,7 @@ export const createNewAdmin = (newAdmin) => {
       const { data } = await axios({
         method: "POST",
         data: newAdmin,
-        url: `http://localhost:3001/admin/create`
+        url: `https://backend-pf-production.up.railway.app/admin/create`
       });
 
       dispatch(submissionResponse(data.message))
@@ -745,7 +746,7 @@ export const createBanners= (bannerInfo, adminId) => {
       let res = await axios({
         method: "POST",
         data: bannerInfo,
-        url: `http://localhost:3001/admin/create/banner?adminId=${adminId}`,
+        url: `https://backend-pf-production.up.railway.app/admin/create/banner?adminId=${adminId}`,
       });
       dispatch(responseCreateBanner(res));
     } catch (error) {
@@ -770,7 +771,7 @@ export const deleteBannersA = (id) => {
     try {
       const response = await axios({
         method: "DELETE",
-        url: `http://localhost:3001/admin/delete/banner?id=${id}`,
+        url: `https://backend-pf-production.up.railway.app/admin/delete/banner?id=${id}`,
       });
      dispatch(responseDeleteeBanner(response.data));
     } catch (error) {
@@ -785,7 +786,7 @@ export const getBanners = () => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/admin/allbanner`,
+        url: `https://backend-pf-production.up.railway.app/admin/allbanner`,
       });
       console.log(data)
       dispatch( getAll_Banner(data));
@@ -799,10 +800,10 @@ export const putUser = (inf) => {
   return async (dispatch) => {
       try{
           let userId = localStorage.getItem("id");
-          // let {data} = await axios.put(`http://localhost:3001/user/${userId}`,{ body : inf});
+          // let {data} = await axios.put(`/user/${userId}`,{ body : inf});
           let {data} = await axios({
               method: 'PUT',
-              url: `http://localhost:3001/user/${userId}`,
+              url: `https://backend-pf-production.up.railway.app/user/${userId}`,
               data: inf
           });
           dispatch(getUserActual(data));
@@ -822,7 +823,7 @@ export const addComments = (coment, userId, gameId ) => {
       let {data} = await axios({
         method: "POST",
         data: {coment},
-        url: `http://localhost:3001/user/add/coment?gameId=${gameId}&userId=${userId} `,
+        url: `https://backend-pf-production.up.railway.app/user/add/coment?gameId=${gameId}&userId=${userId} `,
       });
 
       dispatch(resAddComment(data));

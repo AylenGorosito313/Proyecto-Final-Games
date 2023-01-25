@@ -36,11 +36,11 @@
 .p-profile{
   font-size: 14px;
     font-family: 'Poppins';
-    color: #fff;
+    color: rgb(143, 143, 143);
     transition: all .3s ease-in;
 }
 .p-profile:hover{
-  color: rgba(0, 0, 255, 0.517);
+  color:white;
 } 
 .op{
   padding-top: 40px;

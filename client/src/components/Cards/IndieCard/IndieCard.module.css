@@ -10,9 +10,10 @@
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
     transition: all 1s ease;
+    border-radius: 10px;
 }
 
-.game-image img:hover {
+.game_image img:hover {
     -webkit-filter: brightness(100%);
 }
 
@@ -29,6 +30,17 @@
     margin-bottom: 30px;
     overflow: hidden;
 }
+
+.card{
+    transition: all .3s ease;
+}
+
+/* .single-card:hover  {
+    transform: scale(1.06);
+} */
+.card:hover {
+    transform: scale(1.03);
+} 
 
 
 .card{

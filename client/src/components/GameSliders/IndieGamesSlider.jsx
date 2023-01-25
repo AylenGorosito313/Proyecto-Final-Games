@@ -38,8 +38,8 @@ export default function IndieGamesSlider() {
                             onClick={prevButton}
                             className={
                                 !toggleButton
-                                    ? "prev-popular-colored"
-                                    : "prev-popular"
+                                    ? "prev-indi-colored"
+                                    : "prev-indi"
                             }
                         >
                             <i className="fa-solid fa-arrow-left"></i>
@@ -48,8 +48,8 @@ export default function IndieGamesSlider() {
                             onClick={nextButton}
                             className={
                                 toggleButton
-                                    ? "next-popular-colored"
-                                    : "next-popular"
+                                    ? "next-indi-colored"
+                                    : "next-indi"
                             }
                         >
                             <i className="fa-solid fa-arrow-right"></i>
@@ -63,11 +63,11 @@ export default function IndieGamesSlider() {
                     loopFillGroupWithBlank={true}
                     navigation={{
                         prevEl: toggleButton
-                            ? ".prev-popular"
-                            : ".prev-popular-colored",
+                            ? ".prev-indi"
+                            : ".prev-indi-colored",
                         nextEl: toggleButton
-                            ? ".next-popular-colored"
-                            : ".next-popular",
+                            ? ".next-indi-colored"
+                            : ".next-indi",
                     }}
                     modules={[Navigation]}
                     className="game-slider-swiper"

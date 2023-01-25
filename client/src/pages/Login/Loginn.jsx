@@ -91,7 +91,7 @@ function Loginn() {
           </div>
 
           <LoginButton/>
-      
+      <Profile/>
           <LogoutButton/>
         </div>
       </div>

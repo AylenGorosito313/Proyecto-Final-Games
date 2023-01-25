@@ -4,23 +4,38 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { createUser } from "../../middleware";
 import style from "./ProfileAuth0.module.css";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 export default function Profile() {
   const { user, isAuthenticated, isLoading } = useAuth0();
+  console.log(user &&user.picture)
   const dispatch = useDispatch();
- 
+//  if(user){
+//    let data = {
+//           email:user && user.email,
+//           password: "Telefono31#",
+//           name:user && user.nickname,
+//           lastName:user && user.nickname,
+//           profile_img:user && user.picture,
+//           Auth: true,
+      
+//       }
+//  }
   useEffect(() => {
-    
-      let data = {
-        email:user && user.email,
-        password: "Telefono31#",
-        name:user && user.nickname,
-        lastName:user && user.nickname,
-        profile_img:user && user.picture,
-        Auth: true,
-    
-    }
-    dispatch(createUser(data));
-  }, [isAuthenticated]);
+    let data = {
+      email:user && user.email,
+      password: "Telefono31#",
+      name:user && user.nickname,
+      lastName:user && user.nickname,
+      profile_img:user && user?.picture,
+      Auth: true,
+  
+  }
+   if(user) { 
+   dispatch(createUser(data));}
+  }, [isAuthenticated && isAuthenticated]);
+
+
+
 
   if (isLoading) {
     return <div>Loading...</div>;

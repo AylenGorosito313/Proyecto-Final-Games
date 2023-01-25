@@ -80,15 +80,16 @@
 }
 
 .container-text-banner{
-    position: absolute;
+    /* position: absolute; */
     top: 20%;
     display: flex;
-    width: 20%;
-    height: 80%;
+    /* width: 100%; */
+    gap: 20px;
+    /* height: 80%; */
     border-radius: 10px;
-    background: #29272738;
+    background: #d51e1e38;
     padding: 8px 14px;
-    color: rgb(216, 212, 212);
+    color: #d8d4d4;
     font-family: Poppins,sans-serif;
     flex-direction: column;
     justify-content: space-evenly;

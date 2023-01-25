@@ -12,7 +12,7 @@ export default function TextBanners({
   return (
     <div className="meta-container-text-banner">
     <div className="container-text-banner">
-      {logo && <img className="logo-banner" src={logo} alt="" />}
+      {logo && <img className="logo-banner-chiquito" src={logo} alt="" />}
       <h1  className="h1-banner">{title}</h1>
       <p>{description}</p>
       {price && <p className="descriptionBnnners">US$ {price}</p>}

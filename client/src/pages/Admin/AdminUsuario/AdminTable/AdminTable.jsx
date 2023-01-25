@@ -13,8 +13,6 @@ export const AdminTable = ({status, toggle, provisoryIdHandle}) => {
    
     if(status === "activeAdmins"){
         adminsToRender = admins
-    } else if (status === "inactiveAdmins") {
-        adminsToRender = inactiveUsers
     }
 
   return (
@@ -36,7 +34,7 @@ export const AdminTable = ({status, toggle, provisoryIdHandle}) => {
         </thead>
         <tbody>
             {
-            usersToRender?.map((obj, index) => (
+            adminsToRender?.map((obj, index) => (
                 <tr key={index}>
                     <AdminCells
                     admins={obj} 

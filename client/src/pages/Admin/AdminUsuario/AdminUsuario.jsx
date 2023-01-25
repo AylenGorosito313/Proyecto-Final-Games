@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 import { useDispatch, useSelector } from "react-redux";
 import { getAdminsList, getInactiveUsers, getSubmissions, getUsers } from '../../../middleware';
@@ -75,32 +76,36 @@ export default function AdminUsuario() {
     dispatch(getUsers())
     dispatch(getSubmissions())
     dispatch(getInactiveUsers())
+    dispatch(getAdminsList())
   }, [dispatch])
 
   return (
+    <>
+    <Toaster />
     <div className={style.Layout}>
-    <div className={style.Contairner}>
-      <NavAdmin />
-      <div className={style.content_User}>
-        <AdminTab 
-        toggle={toggleModal} 
-        provisoryIdHandle={provisoryIdHandle}
-        deleteToggle={toggleDeleteModal}
-        adminModalToggle={toggleCreateAdminModal} 
-        />
-        {modal && <ValidationModal 
-        toggle={toggleModal} 
-        submissionFinded={submissionFinded}
-        />}
-        {deleteModal && <DeleteModal 
-        toggle={toggleDeleteModal}
-        userToBeDelete={userToBeDelete}
-        />}
-        {createAdminModal && <CreateAdminModal 
-        toggle={toggleCreateAdminModal}
-        />}
+      <div className={style.Contairner}>
+        <NavAdmin />
+        <div className={style.content_User}>
+          <AdminTab 
+          toggle={toggleModal} 
+          provisoryIdHandle={provisoryIdHandle}
+          deleteToggle={toggleDeleteModal}
+          adminModalToggle={toggleCreateAdminModal} 
+          />
+          {modal && <ValidationModal 
+          toggle={toggleModal} 
+          submissionFinded={submissionFinded}
+          />}
+          {deleteModal && <DeleteModal 
+          toggle={toggleDeleteModal}
+          userToBeDelete={userToBeDelete}
+          />}
+          {createAdminModal && <CreateAdminModal 
+          toggle={toggleCreateAdminModal}
+          />}
+        </div>
       </div>
     </div>
-  </div>
+    </>
   )
 }

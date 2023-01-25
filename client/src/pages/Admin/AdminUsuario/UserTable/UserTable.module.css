@@ -1,7 +1,19 @@
 
 .mainTable {
-    width: 800px;
-    
+   width: 100%;
+    padding: 20px;
     
    
+}
+
+thead{
+    padding-bottom: 20px;
+    
+}
+
+tbody:before {
+    content:"@";
+    display:block;
+    line-height:10px;
+    text-indent:-99999px;
 }

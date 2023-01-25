@@ -22,11 +22,6 @@ export default function AdminTab ({ toggle, provisoryIdHandle, deleteToggle, adm
         setUserStatus(userStatus);
     }
 
-    // This on change get the admin status (status) option and sends it to AdminTable
-    const handleAdminStatus = (e) => {
-        const adminStatus = e.target.value
-        setAdminStatus(adminStatus);
-    }
 
     return (
         <>
@@ -34,19 +29,23 @@ export default function AdminTab ({ toggle, provisoryIdHandle, deleteToggle, adm
             <div className={style.mainTabHeader}>
                 <div className={style.tabHeader}>
                         {/* TABS */}
-                        <div  className={style.tabs} onClick={() => handleTab("users")}>Users</div>
-                        <div  className={style.tabs} onClick={() => handleTab("admin")}>Admin Users</div>
+                        <div  className={style.tabs1} onClick={() => handleTab("users")}>Users</div>
+                        <div  className={style.tabs2} onClick={() => handleTab("admin")}>Admin Users</div>
                         {toggleTab === "users" && 
-
-                        <select onChange={handleUserStatus}>
-                            <option value="active" >Active</option>
-                            <option value="inactive" >Inactive</option>
-                        </select> 
+                        
+                        <div className={style.selectStatus}>
+                            <select onChange={handleUserStatus}>
+                                <option value="active" >Active</option>
+                                <option value="inactive" >Inactive</option>
+                            </select> 
+                        </div>
                         }
                 </div>
+                <div className={style.buttonContainerCreateAdmin}>
                     {toggleTab === "admin" && (
-                        <button onClick={adminModalToggle} ><i className="fa-solid fa-plus"></i> Añadir admin</button>
+                        <button className={style.createNewAdmin} onClick={adminModalToggle} ><i className="fa-solid fa-plus"></i> Añadir admin</button>
                     )}
+                </div>
             </div>
             <div className={style.tabContent}>
                 {toggleTab === "users" ? 

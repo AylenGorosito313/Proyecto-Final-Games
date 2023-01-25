@@ -27,8 +27,9 @@ export default function UserTable ({ status, toggle, provisoryIdHandle, deleteTo
             usersToRender.length > 0 ?
                 
             <>
+                
                 <table className={style.mainTable}>
-                <thead cellSpacing="0" className={style.headerTable}>
+                <thead  className={style.headerTable}>
                     <tr>
                         {columnNames.map((header, index) => (
                             <th key={index}>
@@ -37,6 +38,7 @@ export default function UserTable ({ status, toggle, provisoryIdHandle, deleteTo
                         ))}
                     </tr>
                 </thead>
+                
                 <tbody>
                     {usersToRender?.map((obj, index) => (
                         <tr key={index}>

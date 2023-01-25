@@ -6,9 +6,6 @@ import { deleteUser } from '../../../../../middleware';
 import style from "./AdminCells.module.css"
 
 export default function AdminCells ({admins, status, toggle, provisoryIdHandle, deleteToggle}) {
-    
-   
-   
 
     const handleDeleteUser = (e) => {
         const userIdToDelete = e.target.getAttribute("value")
@@ -19,17 +16,18 @@ export default function AdminCells ({admins, status, toggle, provisoryIdHandle, 
 
     return (
         <>
+
             <td className={style.column_name}>
                 {admins.name}
             </td>
             <td className={style.email}>
-                {admins.email}
+                {admins.mail}
             </td>
             <td className={style.password}>
-                {admins.password}
+                *******************
             </td>
             <td>
-                {status}
+                {status === "activeAdmins" && "Active"}
             </td>
            
         </>

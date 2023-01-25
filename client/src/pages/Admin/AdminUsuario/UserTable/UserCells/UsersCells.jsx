@@ -59,9 +59,9 @@ export default function UsersCells ({users, status, toggle, provisoryIdHandle, d
                 value={users.id}
                 ></i>
             </td>
-            <td>
+            {/* <td>
                 <i className="fa-solid fa-pen-to-square"></i>
-            </td>
+            </td> */}
         </>
     )
 }

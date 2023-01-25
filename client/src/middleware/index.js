@@ -646,8 +646,9 @@ export const getAdminsList = () => {
     try {
       const {data} = await axios({
         method: "GET",
-        url: `http://localhost:3000/admin/allAdmins`
+        url: `http://localhost:3001/admin/allAdmins`
       })
+     
       dispatch(getAdmins(data))
     } catch (error) {
       console.log(error);
@@ -656,6 +657,7 @@ export const getAdminsList = () => {
 }
 
 export const createNewAdmin = (newAdmin) => {
+  console.log(newAdmin)
   return async (dispatch) => {
     try {
       const { data } = await axios({
@@ -665,6 +667,18 @@ export const createNewAdmin = (newAdmin) => {
       });
 
       dispatch(submissionResponse(data.message))
+      setTimeout(() => {
+        toast.error(data.message, {
+          position: "bottom-right",
+          duration: 4000,
+          icon: "👍",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      }, 2000);
     } catch (error) {
       console.log(error)
     }

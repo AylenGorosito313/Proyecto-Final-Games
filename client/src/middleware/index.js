@@ -217,7 +217,7 @@ export const createUser = ({ name, lastName, email, password }) => {
       let res = await axios({
         method: "POST",
         data: { name, lastName, email, password },
-        url: "/user/create",
+        url: "https://backend-pf-production.up.railway.app/user/create",
       });
       dispatch(responseRegister(res.data));
     } catch (error) {

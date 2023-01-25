@@ -15,7 +15,7 @@ export default function Proveedor() {
               Back
             </button>
           </Link>
-          <Link className={style.link} to="/home">
+          <Link className={style.link} to="/">
             <button className={style.btn} type="button">
               Home
             </button>

@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import "../Botones/BotonLogin.css";
 import Car from "../../svg/Car";
 import User from "../../svg/User";
-
+import Profile from "../LoginButton/Profile";
 import PanelAdminNav from "../../svg/PanelAdminNav";
 import { geUserActual } from "../../middleware/index";
 function NavTop() {
@@ -66,7 +66,7 @@ function NavTop() {
   }, []);
   return (
     <>
-      <Link to={"/home"}>
+      <Link to={"/"}>
         <motion.div className="div-logo">
           <Logo />
         </motion.div>
@@ -143,7 +143,7 @@ function NavTop() {
                 </button>
               )}
             </div>
-
+            <Profile />
             <div className="op">
               {OpenUser && (
                 <SelectProfile setOpen={setOpenUser} setLogin={setLogin} />

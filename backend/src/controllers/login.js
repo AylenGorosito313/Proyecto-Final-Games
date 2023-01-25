@@ -11,6 +11,8 @@ let userInfo = {};
 const registerUser = async (req, res) => {
     const { name, lastName, email, password, birth_date, profile_img, region } =
         req.body;
+    
+        console.log( name, lastName, email, password, profile_img )
 
     if (!name || !lastName || !email || !password) {
         res.status(400).json({
@@ -44,7 +46,38 @@ const registerUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-    const { email, password, verify } = req.body;
+    const { email, password, verify, Auth, name, lastName, profile_img  } = req.body;
+ 
+    // {  
+    //     email: user && user.email,
+    //     password: "Telefono31#",
+    //     name: user && user.nickname,
+    //     lastName: user && user.nickname,
+    //     profile_img: user && user?.picture,
+    //     Auth: true,
+    //   };
+
+    if(Auth){
+        let createdUser = await createUser({
+            email,
+            password,
+            name,
+            lastName,
+            profile_img
+        });
+        console.log(createdUser);
+        const tokenForUser = {
+            id: createdUser.id,
+            name: createdUser.name,
+        };
+        const token = jwt.sign(tokenForUser, SECRET);
+        return res.status(200).json({
+            id: createdUser.id,
+            name: createdUser.name,
+            token, 
+        });
+
+    }
 
     let user = {};
     const search = await Users.findOne({
@@ -56,7 +89,7 @@ const loginUser = async (req, res) => {
     let adminUser = await adminLogin(email, password)
     console.log(adminUser);
     if(adminUser?.isAdmin){
-        return res.status(200).json(adminUser)
+        return res.status(200).json(adminUser) 
     }
     let userLoggin = search === null ? verifyUser(verify) : true;
 

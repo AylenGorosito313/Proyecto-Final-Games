@@ -311,12 +311,14 @@ export const traerPlatforms = () => {
 };
 
 // login user // login admin
-export const LoginUser = ({ email, password }, verify) => {
+export const LoginUser = ({email, password, Auth, name, lastName, profile_img }, verify) => {
+
+  console.log({email, password, Auth, name, lastName, profile_img });
   return async function (dispatch) {
     try {
       let res = await axios({
         method: "POST",
-        data: { email, password, verify },
+        data: { email, password, Auth, name, lastName, profile_img , verify },
         url: "http://localhost:3001/login/user",
       });
       dispatch(responseLogin(res.data));

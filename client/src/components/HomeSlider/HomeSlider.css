@@ -76,9 +76,11 @@
     display: flex;
     width: 50%;
     height: 80%;
+    border-radius: 10px;
+    background: #29272738;
     padding: 8px 14px;
     color: #fff;
-    font-family: "Poppins", sans-serif;
+    font-family: Poppins,sans-serif;
     flex-direction: column;
     justify-content: space-evenly;
 }

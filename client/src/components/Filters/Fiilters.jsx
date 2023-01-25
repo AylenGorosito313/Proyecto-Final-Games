@@ -7,7 +7,7 @@ import { getForFilters, isLoading, traerGenero, traerPlatforms } from "../../mid
 import ResetButton from "./ResetButton";
 
 // Css styles
-import style from "./Filters.module.css";
+import style from "./filters.module.css";
 import "./rotateButton.css"
 
 export default function GameFilters() {

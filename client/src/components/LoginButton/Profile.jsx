@@ -11,7 +11,7 @@ export default function Profile() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   console.log(user && user.picture);
   const dispatch = useDispatch();
-  const navigateToHome = useHistory();
+
   useEffect(() => {
     let data = {
       email: user && user.email,
@@ -23,21 +23,12 @@ export default function Profile() {
     };
     if (user) {
       dispatch(createUser(data));
-      navigateToHome.push("/");
     }
-    
   }, [isAuthenticated && isAuthenticated]);
 
   if (isLoading) {
- 
     return <div>Loading...</div>;
   }
-
-  // if(isAuthenticated){
-
-  //
-
-  // }
 
   return (
     <div>

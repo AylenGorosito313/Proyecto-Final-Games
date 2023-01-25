@@ -6,7 +6,8 @@ import { Link, useHistory } from "react-router-dom";
 import { LoginUser } from "../../../middleware";
 import { useForm } from "react-hook-form";
 import { useDispatch} from "react-redux";
-
+import eyes_password from "./icons-logos-formlogin/eyes_password";
+import eye_pass_open from "./icons-logos-formlogin/eye_pass_open";
 function FormLogin({verify}) {
   const [showPassword, setshowPassword] = useState(false)
   const { res } = useSelector((state) => state.prueba);
@@ -16,7 +17,9 @@ function FormLogin({verify}) {
     register, handleSubmit,watch, formState: { errors },} = useForm({ defaultValues: { email: "", password: "" },mode: "onChange", });
 
 
-
+const togglePass = ()=>{
+  setshowPassword(!showPassword)
+}
     
 
   const OnSubmit = async (data) => {
@@ -50,6 +53,7 @@ function FormLogin({verify}) {
         )}
         <label className="label">Password</label>
         <div className="input-container">
+       
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Enter your Password..."
@@ -60,8 +64,15 @@ function FormLogin({verify}) {
               pattern:
                 /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
             })}
-          />
+        
+         />
+         <div onClick={togglePass}>
+         <i  className="fa-solid fa-eye ojito"></i>
+         </div>
+            
         </div>
+       
+       
         {errors.password?.type === "required" && (
           <p className="p-error-input">'The passwordis required'</p>
         )}
@@ -90,6 +101,7 @@ function FormLogin({verify}) {
             <button  type="submit">Login</button>
           </div>
         </div>
+       
       </form>
     </>
   );

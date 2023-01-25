@@ -46,7 +46,29 @@ const registerUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-    const { email, password, verify } = req.body;
+    const { email, password, verify, Auth0, name, lastName, profile_img  } = req.body;
+
+    // { 
+    //     email: user && user.email,
+    //     password: "Telefono31#",
+    //     name: user && user.nickname,
+    //     lastName: user && user.nickname,
+    //     profile_img: user && user?.picture,
+    //     Auth: true,
+    //   };
+
+    if(Auth0){
+        let createdUser = await createUser({
+            email,
+            password,
+            name,
+            lastName,
+            profile_img
+        });
+
+        return res.status(200).json(createdUser)
+
+    }
 
     let user = {};
     const search = await Users.findOne({

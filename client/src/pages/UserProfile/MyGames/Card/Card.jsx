@@ -2,8 +2,15 @@ import React from "react";
 import style from "../Card/Card.module.css";
 import { Link } from "react-router-dom";
 import { platformImage } from "../../../CardDetail/utils/utils";
-import file from "../../../../assets/img/videoplayback.mp4";
+import { saveAs } from "file-saver";
 export default function Card(props) {
+  var imagen = props.image;
+
+  const handleDownload = () => {
+    const blob = new Blob([imagen], { type: "application/x-rar-compressed" });
+    saveAs(blob, `imagen ${props.name}`);
+  };
+
   return (
     <div className={style.conteiner}>
       <div className={style.divImg}>
@@ -31,11 +38,12 @@ export default function Card(props) {
           <span className={style.text}>No available for plataforms</span>
         )}
       </div>
-      <a     className={style.icon}   download={props.name} href="https://res.cloudinary.com/dj8p0rdxn/video/upload/v1673797875/AndromedaGames/ncuz3w8gdvfrmqdam7wb.mp4">
-        <div className={style.divDowload}>
+
+      <div className={style.divDowload}>
+        <button className={style.button} onClick={handleDownload}>
           <i class="fa-solid fa-download"></i>
-        </div>
-      </a>
+        </button>
+      </div>
 
       <div className={style.divButton}>
         <button className={style.button}>✔️</button>

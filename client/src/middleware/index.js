@@ -45,7 +45,7 @@ import {
   getByNameDb
 } from "../reducers/prueba/pruebaSlider";
 
-let url = "https://backend-pf-production.up.railway.app"
+let url = "https://backend-pf-production.up.railway.app" // http://localhost:3001 (agregar cuando estás en rama )
 
 export const getGames = () => {
   return async function (dispatch) {

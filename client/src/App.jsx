@@ -56,9 +56,9 @@ function App() {
       
       <Route exact path="/payment/success" component={SuccessPay} />
 
-      <Route path="/home">
+      <Route exact path="/">
         <NavTop />
-        <Route exact path="/home" component={Homepage} />
+        <Route exact path="/" component={Homepage} />
         <Footer />
       </Route>
 

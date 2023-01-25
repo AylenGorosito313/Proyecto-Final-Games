@@ -46,7 +46,7 @@ function Loginn() {
       if (userActual.proveedor) {
         localStorage.setItem("proveedor", userActual.proveedor);
       }
-      navigateToHome.push("/home");
+      navigateToHome.push("/");
     }
   }, 2000);
 

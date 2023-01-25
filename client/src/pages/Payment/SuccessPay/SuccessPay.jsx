@@ -53,7 +53,7 @@ function SuccessPay() {
           </button>
           </Link>
           <div className="volver-home-div">
-            <Link className="link-payment-sucss" to={"/home"}>
+            <Link className="link-payment-sucss" to={"/"}>
               <p className="p-scs-return"> Return to Andromeda homepage</p>
             </Link>
           </div>

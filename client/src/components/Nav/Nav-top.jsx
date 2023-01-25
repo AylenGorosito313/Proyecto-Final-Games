@@ -66,7 +66,7 @@ function NavTop() {
   }, []);
   return (
     <>
-      <Link to={"/home"}>
+      <Link to={"/"}>
         <motion.div className="div-logo">
           <Logo />
         </motion.div>

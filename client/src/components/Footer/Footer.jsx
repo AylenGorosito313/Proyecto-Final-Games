@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
       </div>
       <div className={style.text}>
-        <p className={style.p}>
+        <p className={style.parrafoFinal}>
           {" "}
           © 2023, Andromeda Games, Inc. All tights reeserved.
           Andromeda, Andromeda Games, the logo's Andromeda Games.

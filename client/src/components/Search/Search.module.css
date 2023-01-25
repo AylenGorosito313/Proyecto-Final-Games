@@ -22,7 +22,7 @@
 
 .search_input:focus {
     background: rgb(45, 45, 45);
-    border-color: rgba(0, 0, 255, 0.37);
+    /* border-color: rgba(0, 0, 255, 0.37); */
 }
 
 .search_container i{

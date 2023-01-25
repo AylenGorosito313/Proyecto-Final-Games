@@ -2,9 +2,9 @@
     position: absolute;
     bottom:100;
     width: 100%;
-  
+  height: 300px;
   display: flex;
-  background: black;
+  background: #2a2a2a;
   padding-top: 20px;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +15,7 @@
   height: 100%;
   width: 100%;
   padding-top: 10px;
-  background: black;
+  background: #2a2a2a;
   justify-content: space-around;
   /* border-radius: 0 20px 20px 0; */
   flex-direction: row;
@@ -37,6 +37,14 @@
   margin: 0;
   font-size: 12px;
   color: #868181;
+ 
+}
+
+.parrafoFinal{
+  margin: 0;
+  font-size: 12px;
+  color: #868181;
+  padding-bottom: 10px;
 }
 
 .h1 {

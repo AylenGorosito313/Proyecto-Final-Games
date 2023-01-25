@@ -31,7 +31,12 @@
 
 .p_create_game:hover {
     color: rgb(245, 245, 245);
-    border-bottom: 1px solid rgba(0, 0, 255, 0.517);
+   
+}
+
+.tabSelected{
+    color: rgb(245, 245, 245);
+    text-decoration: none;
 }
 
 

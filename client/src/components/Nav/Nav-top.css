@@ -5,7 +5,7 @@
   width: 100%;
   /* z-index: 20;*/
   /* position: absolute;  */
-  background: rgba(0, 0, 0, 0.88);
+  background: #2a2a2a;
   /* box-shadow: 2px 2px 1px #27213b; */
   align-items: center;
 
@@ -21,17 +21,17 @@
   /* height: auto; */
   justify-content: center;
   transition: all .3s ease-in;
-
+  color:rgb(143, 143, 143);
 }
 
 .div-icon:hover{
-    color: rgba(0, 0, 255, 0.517);
+  color:#fff;
 }
 
 .Link-nav{
   text-decoration: none;
 
-  color:#fff
+  color:rgb(143, 143, 143);
 }
 .p-profile{
   font-size: 14px;

@@ -30,6 +30,9 @@
     overflow: hidden;
 }
 
+.single-card-slider:hover {
+    transform: scale(1.06);
+} 
 
 .favourite-tag{
     position: absolute;

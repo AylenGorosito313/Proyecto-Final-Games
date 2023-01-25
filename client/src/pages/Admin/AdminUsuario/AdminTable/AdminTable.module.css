@@ -1,0 +1,22 @@
+
+.mainTable {
+    width: 100%;
+     padding: 20px;
+     
+    
+ }
+ 
+ thead th{
+     border-collapse: collapse;
+     border-bottom: 1px solid  rgb(255, 255, 255);
+     
+ }
+ 
+ 
+ 
+ tbody:before {
+     content:"@";
+     display:block;
+     line-height:10px;
+     text-indent:-99999px;
+ }

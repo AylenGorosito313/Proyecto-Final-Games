@@ -16,9 +16,10 @@ import TextBanners from "./TextBanners";
 export default function HomeSlider() {
   // const { games } = useSelector((state) => state.prueba);
   // const sliderImages = games.map((el) => el.background_image);
+  //https://backend-pf-production.up.railway.app/
   const [Data, setData] = useState();
   useEffect(() => {
-    axios.get(`http://localhost:3001/admin/allbanner`).then((res) => {
+    axios.get(`https://backend-pf-production.up.railway.app/admin/allbanner`).then((res) => {
       const respons = res.data;
       setData(respons);
     });

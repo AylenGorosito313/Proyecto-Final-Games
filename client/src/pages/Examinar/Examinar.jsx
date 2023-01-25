@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 // Components
-import GameFilters from "../../components/Filters/Filters";
+import GameFilters from "../../components/Filters/Fiilters";
 
 // CSS Styles
 

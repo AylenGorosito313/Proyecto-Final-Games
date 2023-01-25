@@ -165,3 +165,61 @@
     /* Center slide text vertically */
 
 }
+
+/* INDIE SLIDERS */
+
+.next-indi-colored {
+    background: #3c3c3c;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid rgba(30,144,255,1) ;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.prev-indi-colored {
+    display: inline-block;
+    background: #3c3c3c;
+    color: #fff;
+    border: 1px solid rgba(30,144,255,1);
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.prev-indi {
+    display: inline-block;
+    background: #232323;
+    color: #fff;
+    border: 1px solid rgba(30,144,255,1);
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.next-indi {
+    background: #232323;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid rgba(30,144,255,1);
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}

@@ -1,0 +1,31 @@
+.search_container{
+    position: relative;
+}
+.search_container input {
+    max-width: 230px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    background: rgb(32, 32, 32);
+    border-radius: 24px;
+    padding: 10px 20px;
+    color: rgb(245, 245, 245);
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: "Poppins";
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.search_input:focus {
+    background: rgb(45, 45, 45);
+}
+
+.search_container i{
+    position: absolute;
+    color: rgb(245, 245, 245);
+    top: 15px;
+    right: 20px;
+
+}

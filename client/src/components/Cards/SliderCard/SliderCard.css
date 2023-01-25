@@ -4,8 +4,16 @@
     width: 328px;
     height: 180px;
     vertical-align: middle;
-    transition: .3s;
+    -webkit-filter: brightness(60%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
 
+.game-image-slider img:hover {
+    -webkit-filter: brightness(100%);
 }
 
 .game-image-slider {
@@ -63,7 +71,6 @@
 .card-content-slider {
     width: 230px;
     padding: 5px 25px 25px 25px;
-    border-bottom: 0.1px solid #f5f5f514;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     display: flex;

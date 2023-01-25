@@ -63,9 +63,7 @@ export default function PaymentMP() {
                             </button>
                         </a>
 
-                        <button className="button-3" role="button">
-                        buy as a gift
-                        </button>
+                    
                     </div>
                 </div>
             </div>

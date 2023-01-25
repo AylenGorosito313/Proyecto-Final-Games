@@ -1,0 +1,24 @@
+.developer span {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+
+.trash i {
+    cursor: pointer;
+    color: rgb(253, 96, 96);
+    
+}
+
+.trash i:hover{
+    color: rgb(255, 74, 74);
+}
+
+.statusActive{
+    color: rgb(1, 131, 1);
+}
+
+.statusInactive{
+    color: rgb(255, 74, 74);
+}

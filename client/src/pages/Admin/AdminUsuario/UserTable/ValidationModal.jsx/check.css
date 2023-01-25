@@ -1,0 +1,9 @@
+.checkAproved{
+    --fa-animation-duration: 1s;
+    color: rgb(11, 195, 11);
+}
+
+.markDenied {
+    --fa-animation-duration: 1s;
+    color: #FF1919;
+}

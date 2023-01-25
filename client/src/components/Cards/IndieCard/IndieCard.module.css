@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.game_image img {
+    width: 580px;
+    height: 270px;
+    vertical-align: middle;
+    -webkit-filter: brightness(60%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    border-radius: 10px;
+}
+
+.game_image img:hover {
+    -webkit-filter: brightness(100%);
+}
+
+.game-image {
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.single-card {
+    width: 280px;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 5%);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.card{
+    transition: all .3s ease;
+}
+
+/* .single-card:hover  {
+    transform: scale(1.06);
+} */
+.card:hover {
+    transform: scale(1.03);
+} 
+
+
+.card{
+    padding-bottom: 20px;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+}
+
+.favourite_tag{
+    display: inline;
+    position: absolute;
+    right: 50px;
+    top: 30px;
+    /* top: 25px;
+    right: 25px; */
+    padding: 8px 14px;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 1;
+    font-family: "Poppins", sans-serif;
+}
+
+.card_content_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ranking_container{
+    padding-right: 40px;
+}
+
+.price_cart{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.shopping_cart{
+    display: flex;
+    padding-right: 40px;
+}
+/* .single-card{
+    transition: all .3s ease;
+} */
+
+/* .single-card:hover  {
+    transform: scale(1.06);
+} */
+
+
+
+.card-content {
+    width: 230px;
+    padding: 5px 25px 25px 25px;
+    border-bottom: 1px solid #02ac515d;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    background: rgba(0, 0, 0, 0.16);
+    position: relative;
+    color: white;
+    flex-direction: column;
+    transition: heigth .3s ease;
+}
+
+.ranking-container{
+    color: white;
+}
+
+
+.price {
+    display: inline-block;
+    background: #02ac51;
+    border-radius: 30px;
+    padding: 5px 18px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 0px;
+    font-family: "Poppins", sans-serif;
+}
+
+.shopping-cart {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.check-plus {
+    padding-left: 5px;
+}
+
+.check {
+    color: #02ac51;
+}
+
+ .line {
+     width: 300px;
+     height: 47px;
+     border-bottom: 1px solid black;
+     position: absolute;
+ }
+
+.card-content-header {
+    display: flex;
+    justify-content: space-between;
+    color: #001d38;
+    align-items: center;  
+}
+
+.price-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.card-content h3 {
+    font-size: 16px;
+    color:white;
+    font-weight: 800;
+    font-family: "Poppins", sans-serif;
+}
+
+.card-content a {
+    text-decoration: none;
+}
+
+.card-footer ul li span{
+    color: #001d38;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.card-footer ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 5px 50px 0px 50px;
+    margin: 0;
+    
+}
+
+.more-content-1,
+.more-content-2 {
+    padding: 3px 0px 3px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
+
+.line {
+    color: #808080;
+    height: 2px;
+    opacity: 0.1;
+}
+
+.star {
+    padding: 0px 2px 0px 2px;
+    color: tomato;
+}
+
+.card-footer ul li i{
+    color: #27213b
+}
+
+.red-heart {
+    color: red;
+}
+
+/* .magic-hover {
+    display: none;
+    transition: 3s linear;
+  
+    transition:  2s ease-in-out;
+} */
+
+
+.card:hover  .magic-hover   {
+    display: inline;
+    transition-duration: 2400ms;
+
+    
+}

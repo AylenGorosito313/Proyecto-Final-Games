@@ -39,4 +39,32 @@ console.log(coment, gameId, userId)
     }
 };
 
-module.exports = createComent
+
+const deleteComent = async (req, res) => {
+    const {userId, comentId} = req.query
+    console.log("aca esta el usuario:", userId)
+    console.log("aca esta el comentarioId:", comentId)
+    try {
+        const findUser = await Users.findByPk(userId)
+        console.log("aca esta el resultado de la busqueda del usuario", findUser)
+        if(!findUser){
+            res.status(400).json({message: "user not found"})
+         }         
+         const findComent = await Coment.findByPk(comentId)
+         console.log("aca esta el comentario a eliminar",findComent)
+        const deleteComent = await Coment.destroy({
+            where: {
+              id: comentId} })
+
+        console.log("aca esta el comentario elimina?:", deleteComent)
+        res.status(200).json({message: "comentario eliminado con exito"})
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message,
+        });
+    }
+}
+
+// ruta: crear usuario, loggear, pasar un id de juego, registrarme como provedoor, subir un juego, comentar el juego. 
+
+module.exports = {createComent, deleteComent }

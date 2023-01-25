@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   padding-left: 40px;
-  padding-top: 70px;
+  padding-top: 20px;
   min-width: 800px;
   max-width: 800px;
 
@@ -35,6 +35,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  /* border: 2px solid black; */
 }
 
 .img {
@@ -121,6 +122,10 @@
   border-bottom-left-radius: 5px;
 }
 
+.select option{
+  color: rgb(112, 106, 106);
+  background: transparent;
+}
 /* .select:focus {
   color: rgba(82, 79, 79, 0.13);
   background-color: #ffffff23;
@@ -187,3 +192,10 @@
   /* background: #fff; */
   height: 100px;
 } 
+
+
+.option{ 
+      color: #000000b3;
+    margin: 0;
+    font-size: 14px;
+}

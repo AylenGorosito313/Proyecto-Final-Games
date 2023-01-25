@@ -8,7 +8,10 @@ export default function Footer() {
   return (
     <div className={style.container}>
       <div className={style.content}>
+        <span className={style.logo}>
+
         <Logo />
+        </span>
 
         <div className={style.about}>
           <h1 className={style.h1}>About us</h1>
@@ -44,7 +47,7 @@ export default function Footer() {
         </div>
       </div>
       <div className={style.text}>
-        <p className={style.p}>
+        <p className={style.parrafoFinal}>
           {" "}
           © 2023, Andromeda Games, Inc. All tights reeserved.
           Andromeda, Andromeda Games, the logo's Andromeda Games.

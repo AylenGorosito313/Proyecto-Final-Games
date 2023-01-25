@@ -1,8 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  admin: {
+    users: [],
+    admins: [],
+    submissions: [],
+    inactiveUsers: [],
+    res: ""
+  },
   users: [],
   games: [],
+  gamesdb: [],
   examinar: [],
   popularGames: [],
   gamesReleasedLasthMonth: [],
@@ -43,8 +51,29 @@ export const toolkit_prueba = createSlice({
     addUser: (state, actions) => {
       state.users = [...actions.payload];
     },
+    getAndromedaUsers: (state, actions) => {
+      state.admin.users = [...actions.payload]
+    },
+    getUserSubmissions: (state, actions) => {
+      state.admin.submissions = [...actions.payload]
+    },
+    getUsersInactive: (state, actions) => {
+      state.admin.inactiveUsers = [...actions.payload]
+    },
+    submissionResponse: (state, actions) => {
+      state.admin.res = actions.payload
+    },
+    deleteUserRes: (state, actions) => {
+      state.admin.res = actions.payload
+    },
+    getAdmins: (state,actions) => {
+      state.admin.admins = actions.payload
+    },
     getAllGames: (state, actions) => {
       state.games = [...actions.payload];
+    },
+    getAllGamesDb: (state, actions) => {
+      state.gamesdb = [...actions.payload];
     },
     getExaminar: (state, actions) => {
       state.examinar = [...actions.payload];
@@ -61,9 +90,13 @@ export const toolkit_prueba = createSlice({
     getByName: (state, actions) => {
       state.games = [...actions.payload];
     },
+    getByNameDb: (state, actions) => {
+      state.gamesdb = [...actions.payload];
+    },
     setIsLoader: (state) => {
       state.isLoader = !state.isLoader;
     },
+ 
     responseRegister: (state, actions) => {
       state.res = { ...state.res, register: actions.payload };
     },
@@ -160,6 +193,7 @@ export const {
   addUser,
   getAllGames,
   getByName,
+  getByNameDb,
   setIsLoader,
   responseRegister,
   responseLogin,
@@ -190,8 +224,15 @@ export const {
   responseCreateBanner,
   responseDeleteeBanner,
   getAll_Banner,
+  getAndromedaUsers,
+  getUserSubmissions,
+  getUsersInactive,
+  submissionResponse,
   resAddComment,
   modificarGameDetail,
+  deleteUserRes,
+  getAdmins,
+  getAllGamesDb,
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

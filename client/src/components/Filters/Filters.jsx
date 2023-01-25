@@ -19,9 +19,9 @@ export default function GameFilters() {
   const [filterOptions, setFilterOptions] = useState({
     platform: "", genre: "", alphabeth: "", price: "", rating: "" 
   });
-
+  
   // UseState For Expand Options
-  const [toggleGenderButton, setToggleGenderButton] = useState(false);
+  const [toggleGenderButton, setToggleGenderButton] = useState(false); // const [ toggleUniversal, setToggleUniversal] = useState({genderButton: false, ...}) => onClick => setToggleUniversal.object.keys(key => key = false)
   const [togglePlatformButton, setTogglePlatformButton] = useState(false);
   const [toggleOrderButton, setToggleOrderButton] = useState(false);
   const [togglePriceButton, setTogglePriceButton] = useState(false);

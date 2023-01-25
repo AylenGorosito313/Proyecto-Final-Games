@@ -5,7 +5,7 @@ import SelectProfile from "../Select/SelectProfile";
 import { Link, useHistory } from "react-router-dom";
 import Notificacion from "../../svg/Notificacion";
 import FavoriteNav from "../../svg/FavoriteNav";
-import Logo from "../../svg/Logo";
+import Logo from "../../components/Footer/utils/LogoFooter";
 import SelectCar from "../Select/CarShop/SelectCar";
 import SelectNotificaciones from "../Select/Notificaciones/SelectNotificaciones";
 import "./Nav-top.css";
@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import "../Botones/BotonLogin.css";
 import Car from "../../svg/Car";
 import User from "../../svg/User";
-
+import Profile from "../LoginButton/Profile";
 import PanelAdminNav from "../../svg/PanelAdminNav";
 import { geUserActual } from "../../middleware/index";
 function NavTop() {
@@ -66,7 +66,7 @@ function NavTop() {
   }, []);
   return (
     <>
-      <Link to={"/home"}>
+      <Link to={"/"}>
         <motion.div className="div-logo">
           <Logo />
         </motion.div>
@@ -91,15 +91,15 @@ function NavTop() {
               </div>
             </Link>
 
-            <div onClick={handlerOpenNotifica} className="div-icon">
+            {/* <div onClick={handlerOpenNotifica} className="div-icon">
               <Notificacion /> Notifications
-            </div>
+            </div> */}
             <Link className="Link-nav" to={"/profile/favorite"}>
               <div onClick={handlerOpenNotifica} className="div-icon">
                 <FavoriteNav /> Favorites
               </div>
             </Link>
-            <div>
+            <div className="button-profile-nav">
               {Login ? (
                 <div onClick={handlerOpenUser} className="div-icon">
                   {userActual ? (
@@ -143,7 +143,7 @@ function NavTop() {
                 </button>
               )}
             </div>
-
+            {/* <Profile /> */}
             <div className="op">
               {OpenUser && (
                 <SelectProfile setOpen={setOpenUser} setLogin={setLogin} />

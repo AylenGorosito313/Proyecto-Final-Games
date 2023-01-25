@@ -36,7 +36,7 @@ const Page = ()=>{
                 <div class="text">
                     <article>
                         <p>Uh oh! Looks like you got lost.</p>
-                        <button> <Link class='link' to='/home'> Go back!</Link></button>
+                        <button> <Link class='link' to='/'> Go back!</Link></button>
                     </article>
                 </div>
             </div>

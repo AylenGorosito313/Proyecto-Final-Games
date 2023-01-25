@@ -13,14 +13,11 @@ export default function DevForm () {
     const { res } = useSelector( state => state.prueba )
     
     let userID = window.localStorage.getItem("id");
-    
+
     const onSubmit = (data) => {
         console.log(data)
-        dispatch(enableProvider(userID, data))
-        
+        dispatch(enableProvider(userID, data))   
     }
-
-    
 
     return (
         <>

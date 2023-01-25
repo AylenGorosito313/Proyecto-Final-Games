@@ -10,14 +10,14 @@ const createUser = async (user) => {
             name: user.name,
             lastName: user.lastName,
             email: user.email,
-            birth_date: user.birth_date,
+            birth_date: user.birth_date,  
             profile_img: user.profile_img,
             region: user.region,
             passwordHash,
         });
-        return createUser.toJSON();
+        return createUser.toJSON(); 
     } catch (error) {
-        return "oops something went wrong";
+        return error.message;
     }
 };
 

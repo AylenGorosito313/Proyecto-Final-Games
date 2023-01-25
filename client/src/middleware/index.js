@@ -1,7 +1,11 @@
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+
+// const API = process.env.REACT_APP_API; 
+// axios.defaults.baseURL = import.meta.env.API
 import {
   getAllGames,
+  getAllGamesDb,
   getByName,
   setIsLoader,
   responseRegister,
@@ -30,17 +34,26 @@ import {
   responseCreateBanner,
   responseDeleteeBanner,
   getAll_Banner,
+  getAndromedaUsers,
+  getUserSubmissions,
+  getUsersInactive,
   resAddComment,
-  modificarGameDetail
+  submissionResponse,
+  modificarGameDetail,
+  deleteUserRes,
+  getAdmins,
+  getByNameDb
 } from "../reducers/prueba/pruebaSlider";
-// localhost:3001/games/filters/examinar/routes
+
+let url = "https://backend-pf-production.up.railway.app" // http://localhost:3001 (agregar cuando estás en rama )
+
 export const getGames = () => {
   return async function (dispatch) {
     try {
       dispatch(isLoading());
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games`,
+        url: `${url}/games`,
       });
 
       dispatch(getAllGames(data));
@@ -49,6 +62,24 @@ export const getGames = () => {
     }
   };
 };
+
+export const getGamesDb = () => {
+  return async function (dispatch) {
+    try {
+      dispatch(isLoading());
+      let { data } = await axios({
+        method: "GET",
+        url: `${url}/db/allGames`,
+      });
+
+      dispatch(getAllGamesDb(data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+
 export const getForFilters = (parameter) => {
   const { platform, genre, alphabeth, price, rating } = parameter;
 
@@ -74,7 +105,7 @@ export const getForFilters = (parameter) => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games/filters/examinar${filter}`,
+        url: `${url}/games/filters/examinar${filter}`,
       });
       console.log(data);
       dispatch(getExaminar(data));
@@ -90,7 +121,7 @@ export const getForFiltersRESET = () => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games/filters/examinar`,
+        url: `${url}/games/filters/examinar`,
       });
       console.log(data);
       dispatch(getExaminar(data));
@@ -118,7 +149,7 @@ export const getPopularGames = () => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games/popular`,
+        url: `${url}/games/popular`,
       });
       dispatch(popularGames(data));
     } catch (error) {
@@ -132,7 +163,7 @@ export const getGamesReleasedLasthMonth = () => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/games/released`,
+        url: `${url}/games/released`,
       });
       dispatch(releasedLasthMonth(data));
       dispatch(isLoading());
@@ -142,15 +173,27 @@ export const getGamesReleasedLasthMonth = () => {
   };
 };
 
+
 export const getSearchByName = (name) => {
   return async function (dispatch) {
     let { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/game?search=${name}`,
+      url: `${url}/games/filters/examinar?search=${name}`,
     });
     dispatch(getByName(data));
   };
 };
+
+export const getSearchByNameDb = (name) => {
+  return async function (dispatch) {
+    let { data } = await axios({
+      method: "GET",
+      url: `${url}/game/db?name=${name}`,
+    });
+    dispatch(getByNameDb(data));
+  };
+};
+
 
 export const getGameDetail = (id) => {
   return async function (dispatch) {
@@ -158,7 +201,7 @@ export const getGameDetail = (id) => {
       dispatch(isLoading());
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/game/${id}`,
+        url: `${url}/game/${id}`,
       });
 
       dispatch(getDetail(data));
@@ -176,7 +219,7 @@ export const createUser = ({ name, lastName, email, password }) => {
       let res = await axios({
         method: "POST",
         data: { name, lastName, email, password },
-        url: "http://localhost:3001/user/create",
+        url: `${url}/user/create`,
       });
       dispatch(responseRegister(res.data));
     } catch (error) {
@@ -195,17 +238,6 @@ export const createUser = ({ name, lastName, email, password }) => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
 export const enableProvider = (id, aplication) => {
   return async function (dispatch) {
     console.log(aplication)
@@ -214,7 +246,7 @@ export const enableProvider = (id, aplication) => {
       let { data } = await axios({
         method: "POST",
         data: aplication,
-        url: `http://localhost:3001/user/provider/aplication/${id}`,
+        url: `${url}/user/provider/aplication/${id}`,
       });
       console.log(data)
       dispatch(providerResponseEnable(data));
@@ -244,7 +276,7 @@ export const CreateGame = (gameInfo, userId) => {
       let res = await axios({
         method: "POST",
         data: gameInfo,
-        url: `http://localhost:3001/game/create/${userId}`,
+        url: `${url}/game/create/${userId}`,
       });
       console.log(res.data);
       dispatch(GameCreate(res.data));
@@ -267,7 +299,7 @@ export const traerGenero = () => {
   return async function (dispatch) {
     let { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/genres`,
+      url: `${url}/genres`,
     });
     dispatch(getGenre(data));
   };
@@ -277,20 +309,20 @@ export const traerPlatforms = () => {
   return async function (dispatch) {
     let { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/games/platforms`,
+      url: `${url}/games/platforms`,
     });
     dispatch(getPlatforms(data));
   };
 };
 
 // login user // login admin
-export const LoginUser = ({ email, password }, verify) => {
+export const LoginUser = ({email, password, Auth, name, lastName, profile_img }, verify) => {
   return async function (dispatch) {
     try {
       let res = await axios({
         method: "POST",
-        data: { email, password, verify },
-        url: "http://localhost:3001/login/user",
+        data: {email, password, Auth, name, lastName, profile_img, verify },
+        url: `${url}/login/user`,
       });
       dispatch(responseLogin(res.data));
     } catch (error) {
@@ -314,7 +346,7 @@ export const LoginAdmin = ({ mail, password }) => {
       let res = await axios({
         method: "POST",
         data: { mail, password },
-        url: "http://localhost:3001/admin/login",
+        url: `${url}/admin/login` ,
       });
       dispatch(responseLoginAdmin(res.data));
     } catch (error) {
@@ -344,12 +376,12 @@ export const AddFavorite = (user_id, id) => {
       let { data } = await axios({
         method: "POST",
         data: {},
-        url: `http://localhost:3001/game/addFavorite/${user_id}/${id}`,
+        url: `${url}/game/addFavorite/${user_id}/${id}`,
       });
       
-      let filterId = data.favoritos.find( item => item.id === id)
+      // let filterId = data.favoritos.find( item => item.id === id)
       
-      dispatch(resProvisoryFavoriteIds(filterId.id))
+      dispatch(resProvisoryFavoriteIds(id))
     } catch (error) {
      
       toast(error.request.response, {
@@ -372,12 +404,12 @@ export const AddCart = (userId, gameId) => {
       let {data} = await axios({
         method: "POST",
         data: {},
-        url: `http://localhost:3001/user/addCard/${userId}/${gameId}`,
+        url: `${url}/user/addCard/${userId}/${gameId}`,
       });
       console.log(data)
-      let filterId = data.items.find( item => item.id === gameId)
+      // let filterId = data.items.find( item => item.id === gameId)
       
-      dispatch(resProvisoryCartIds(filterId.id))
+      dispatch(resProvisoryCartIds(gameId))
       
     } catch (error) {
       
@@ -401,7 +433,7 @@ export const getCart = (userId) => {
       dispatch(isLoading());
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/user/cartItems/${userId}`,
+        url: `${url}/user/cartItems/${userId}`,
       });
       dispatch(getCartRes(data));
       dispatch(isLoading());
@@ -419,7 +451,7 @@ export const deleteCart = (userId, gameId) => {
       let res = await axios({
         method: "DELETE",
         data: {},
-        url: `http://localhost:3001/use/deleteItem/${userId}/${gameId}`,
+        url: `${url}/use/deleteItem/${userId}/${gameId}`,
       });
      
     } catch (error) {
@@ -444,7 +476,7 @@ export const geUserActual = (id) => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/user/${id}`,
+        url: `${url}/user/${id}`,
       });
       dispatch(getUserActual(data));
     } catch (error) {
@@ -458,7 +490,7 @@ export const getItemsCar = (id) => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http:/localhost:3001/user/cartItems/${id}`,
+        url: `${url}/user/cartItems/${id}`,
       });
       dispatch(getItemsUser(data));
     } catch {
@@ -474,7 +506,7 @@ export const getCheckOut = (userId) => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/payment?id=${userId}`,
+        url: `${url}/payment?id=${userId}`,
       });
       dispatch(getLinkPayment(data));
     } catch (error) {
@@ -493,7 +525,7 @@ console.log(game)
       let { data } = await axios({
         method: "POST",
         data: game,
-        url: `http://localhost:3001/payment/oneItem?id=${userId}`,
+        url: `${url}/payment/oneItem?id=${userId}`,
       });
       dispatch(getLinkPaymentDETAIL(data));
     } catch (error) {
@@ -511,6 +543,8 @@ export const deletedItemsToCart = (id) => {
   };
 };
 
+// --------- end payment -----------------------
+
 export const deletedFavorites = (id) => {
   return async (dispatch) => {
     try {
@@ -519,8 +553,23 @@ export const deletedFavorites = (id) => {
       let userId = localStorage.getItem("id");
       let { data } = await axios({
         method: "DELETE",
-        url: `http://localhost:3001/game/deletFavorite/${userId}/${id}`,
+        url: `${url}/game/deletFavorite/${userId}/${id}`,
       });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+export const deletedGameAdmin = (gameId) => {
+  return async (dispatch) => {
+    try {
+      let userId = localStorage.getItem("id");
+      let { data } = await axios({
+        method: "DELETE",
+        url: `${url}/game/provider/deleteGameProvider/${userId}/${gameId}`,
+      });
+      dispatch(getGamesDb());
     } catch (error) {
       console.log(error.message);
     }
@@ -532,7 +581,7 @@ export const paymentSuccess = (id) => {
     try {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:3001/payment/success?userId=${id}`,
+        url: `${url}/payment/success?userId=${id}`,
       });
       console.log(response);
     } catch (error) {
@@ -552,6 +601,145 @@ export const modGameDetails= (coment) => {
   };
 };
 
+// ----------------- ADMIN -------------
+
+export const getUsers = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `${url}/users`
+      });
+      
+      dispatch(getAndromedaUsers(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const getSubmissions = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `${url}/get/providers/aplication`
+      });
+      
+      dispatch(getUserSubmissions(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const getInactiveUsers = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `${url}/users/inactive`
+      });
+
+      dispatch(getUsersInactive(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const acceptProviderSubmission = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "POST",
+        url: `${url}/user/provider/create/${id}`
+      });
+
+      dispatch(submissionResponse(data.message))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const declineProviderSubmission = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "DELETE",
+        url: `${url}/user/provider/denied/${id}`
+      });
+
+      dispatch(submissionResponse(data.message))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const deleteUser = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "DELETE",
+        url: `${url}/user/setInactivityUser/${id}`
+      });
+      console.log(data)
+      dispatch(deleteUserRes(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const getAdminsList = () => {
+  return async (dispatch) => {
+    try {
+      const {data} = await axios({
+        method: "GET",
+        url: `${url}/admin/allAdmins`
+      })
+     
+      dispatch(getAdmins(data))
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+export const createNewAdmin = (newAdmin) => {
+  console.log(newAdmin)
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: "POST",
+        data: newAdmin,
+        url: `${url}/admin/create`
+      });
+
+      dispatch(submissionResponse(data.message))
+      setTimeout(() => {
+        toast.error(data.message, {
+          position: "bottom-right",
+          duration: 4000,
+          icon: "👍",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      }, 1500);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+
+// ----------------- END ADMIN -------------
+
 // crear banner
 
 export const createBanners= (bannerInfo, adminId) => {
@@ -560,7 +748,7 @@ export const createBanners= (bannerInfo, adminId) => {
       let res = await axios({
         method: "POST",
         data: bannerInfo,
-        url: `http://localhost:3001/admin/create/banner?adminId=${adminId}`,
+        url: `${url}/admin/create/banner?adminId=${adminId}`,
       });
       dispatch(responseCreateBanner(res));
     } catch (error) {
@@ -585,7 +773,7 @@ export const deleteBannersA = (id) => {
     try {
       const response = await axios({
         method: "DELETE",
-        url: `http://localhost:3001/admin/delete/banner?id=${id}`,
+        url: `${url}/admin/delete/banner?id=${id}`,
       });
      dispatch(responseDeleteeBanner(response.data));
     } catch (error) {
@@ -600,7 +788,7 @@ export const getBanners = () => {
     try {
       let { data } = await axios({
         method: "GET",
-        url: `http://localhost:3001/admin/allbanner`,
+        url: `${url}/admin/allbanner`,
       });
       console.log(data)
       dispatch( getAll_Banner(data));
@@ -614,10 +802,10 @@ export const putUser = (inf) => {
   return async (dispatch) => {
       try{
           let userId = localStorage.getItem("id");
-          // let {data} = await axios.put(`http://localhost:3001/user/${userId}`,{ body : inf});
+          // let {data} = await axios.put(`/user/${userId}`,{ body : inf});
           let {data} = await axios({
               method: 'PUT',
-              url: `http://localhost:3001/user/${userId}`,
+              url: `${url}/user/${userId}`,
               data: inf
           });
           dispatch(getUserActual(data));
@@ -637,7 +825,7 @@ export const addComments = (coment, userId, gameId ) => {
       let {data} = await axios({
         method: "POST",
         data: {coment},
-        url: `http://localhost:3001/user/add/coment?gameId=${gameId}&userId=${userId} `,
+        url: `${url}/user/add/coment?gameId=${gameId}&userId=${userId} `,
       });
 
       dispatch(resAddComment(data));

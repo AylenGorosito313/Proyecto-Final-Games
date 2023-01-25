@@ -1,14 +1,18 @@
 .Nav-layout {
   display: flex;
   justify-content: flex-end;
-  height: 50px;
+  height: 70px;
   width: 100%;
-  /* z-index: 20;
-  position: absolute; */
-  background: rgb(42, 42, 42);
-  box-shadow: 2px 2px 1px #27213b;
+  /* z-index: 20;*/
+  /* position: absolute;  */
+  background: #2a2a2a;
+  /* box-shadow: 2px 2px 1px #27213b; */
   align-items: center;
 
+}
+
+.button-profile-nav{
+ padding: 0px 30px 0px 40px;
 }
 .div-icon {
   width: 170px;
@@ -16,24 +20,32 @@
   gap: 10px;
   cursor: pointer;
   font-size: 14px;
-  /* padding: 10px; */
+  padding: 20px ;
   align-items: center;
-  height: auto;
+  /* height: auto; */
   justify-content: center;
+  transition: all .3s ease-in;
+  color:rgb(143, 143, 143);
+}
 
+.div-icon:hover{
+  color:#fff;
 }
 
 .Link-nav{
   text-decoration: none;
 
-  color:#fff
+  color:rgb(143, 143, 143);
 }
 .p-profile{
   font-size: 14px;
     font-family: 'Poppins';
-    color: #fff;
+    color: rgb(143, 143, 143);
+    transition: all .3s ease-in;
 }
-
+.p-profile:hover{
+  color:white;
+} 
 .op{
   padding-top: 40px;
   justify-content: flex-end;
@@ -57,10 +69,18 @@ top: -20px;
 .div-logo {
   cursor: pointer;
   display: block;
-  z-index: 30;
-  padding: 5px;
+  /* z-index: 30; */
+  padding: 10px;
   position: absolute;
+  margin-top: 5px;
+  margin-left: 60px;
+  transition: all .3s ease-in;
 }
+
+/* .div-logo:hover{
+  border: 1px solid rgba(0, 0, 255, 0.517);
+  border-radius: 50px;
+} */
 
 .Svg {
   margin-left: 10px;

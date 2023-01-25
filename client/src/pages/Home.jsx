@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Footer from "../components/Footer/Footer";
 import {
   getCart,
+  getForFilters,
   getGames,
   getGamesReleasedLasthMonth,
   getPopularGames,
@@ -19,6 +20,7 @@ import ReleasedLasthMonth from "../components/GameSliders/ReleasedLastMonth";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading/Loading";
 import { clearState } from "../reducers/prueba/pruebaSlider";
+import IndieGamesSlider from "../components/GameSliders/IndieGamesSlider";
 
 function Home() {
   const [Developer, setDeveloper] = useState(false);
@@ -31,6 +33,7 @@ function Home() {
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
     dispatch(clearState());
+    dispatch(getForFilters({}));
     dispatch(geUserActual(userID));
     return () => {
       dispatch(clearState());
@@ -58,6 +61,7 @@ function Home() {
           <div className="div-home">
             <div className="home-slider-games">
               <MostPopularSlider />
+              <IndieGamesSlider />
               <ReleasedLasthMonth />
             </div>
             <div className="div-home-all-games">

@@ -1,0 +1,185 @@
+.modal, .overlay{
+
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 00;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+
+.closeModal {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.closeModal button {
+    background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.headerModal h2 {
+    margin-bottom: 0px;
+    
+}
+
+.headerModal {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.headerModal span{
+    padding: 10px 0px;
+    font-weight: 100;
+}
+
+.modalContent {
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    color: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 10px;
+    max-width: 400px;
+    min-width: 400px;
+    min-height: 500px;
+    background: #171B2D;
+}
+
+.modalContent h2 {
+    text-align: center;
+}
+
+.blockContent{
+    margin-bottom: 20px;
+}
+
+.blockContent span, .blockContent h5 {
+    margin: 0px;
+    width: 100%;
+}
+
+.blockContent h5 {
+    font-size: 13px;
+}
+
+.blockContent span {
+    font-weight: 100;
+   width: 100%;
+   padding: 0px;
+}
+
+.actionsButtons {
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.acceptButton {
+    display: inline-block;
+    border-radius: 7px;
+    border: none;
+    background: #1875FF;
+    color: white;
+    font-family: inherit;
+    margin-top: 10px;
+    text-align: center;
+    
+    height: 3em;
+    min-width: 0;
+    width: 40%;
+    padding: 0,5em;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.acceptButton:hover{
+    background: #3586ff;
+}
+
+.declineButton {
+    display: inline-block;
+    border-radius: 7px;
+    border: none;
+    background: #FF3232;
+    color: white;
+    font-family: inherit;
+    margin-top: 10px;
+    text-align: center;
+    
+    height: 3em;
+    min-width: 0;
+    width: 40%;
+    padding: 0,5em;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.declineButton:hover {
+    background: #fd5151;
+}
+
+.aplicationContent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.headerModalRes{
+    display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.modalContentRes {
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    color: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 10px;
+    max-width: 400px;
+    min-width: 400px;
+    min-height: 300px;
+    background: #171B2D;
+    display:flex;
+    flex-direction: column;
+   justify-content: center;
+}
+
+.resButton{
+    display: inline-block;
+    border-radius: 7px;
+    border: none;
+    background: #1875FF;
+    color: white;
+    font-family: inherit;
+    margin-top: 10px;
+    text-align: center;
+    height: 3em;
+    min-width: 0;
+    width: 40%;
+    padding: 0,5em;
+    transition: all 0.4s;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.aplicationContentRes {
+    display: flex;
+}

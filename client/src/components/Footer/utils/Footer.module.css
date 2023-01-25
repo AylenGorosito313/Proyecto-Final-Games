@@ -2,10 +2,10 @@
     position: absolute;
     bottom:100;
     width: 100%;
-  
+  height: 300px;
   display: flex;
-  background: #303030;
-  padding-top: 10px;
+  background: #2a2a2a;
+  padding-top: 20px;
   flex-direction: column;
   justify-content: center;
 }
@@ -13,10 +13,11 @@
 .content {
   display: flex;
   height: 100%;
-  width: 90%;
+  width: 100%;
   padding-top: 10px;
-  background: #303030;
+  background: #2a2a2a;
   justify-content: space-around;
+  /* border-radius: 0 20px 20px 0; */
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
@@ -36,6 +37,14 @@
   margin: 0;
   font-size: 12px;
   color: #868181;
+ 
+}
+
+.parrafoFinal{
+  margin: 0;
+  font-size: 12px;
+  color: #868181;
+  padding-bottom: 10px;
 }
 
 .h1 {
@@ -52,4 +61,11 @@
   flex-direction: row;
   gap: 10px;
   padding: 5px;
+}
+
+
+.logo{
+  padding: 10px;
+  /* border: 1px solid rgba(0, 0, 255, 0.692); */
+  border-radius: 50px;
 }

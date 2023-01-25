@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Footer from "../components/Footer/Footer";
 import {
   getCart,
+  getForFilters,
   getGames,
   getGamesReleasedLasthMonth,
   getPopularGames,
@@ -32,6 +33,7 @@ function Home() {
     dispatch(getPopularGames());
     dispatch(getGamesReleasedLasthMonth());
     dispatch(clearState());
+    dispatch(getForFilters({}));
     dispatch(geUserActual(userID));
     return () => {
       dispatch(clearState());

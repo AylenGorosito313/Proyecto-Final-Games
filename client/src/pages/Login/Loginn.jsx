@@ -8,13 +8,13 @@ import FormLogin from "./formularios/FormLogin";
 import Google from "../../svg/botones/google";
 import Facebook from "../../svg/botones/facebook";
 import { useSelector } from "react-redux";
-import LoginButton  from "../../components/LoginButton/LoginButton";
+import LoginButton from "../../components/LoginButton/LoginButton";
 import LogoutButton from "../../components/LoginButton/LogoutButton";
 import Profile from "../../components/LoginButton/Profile";
 import mario from "../../assets/mario.jpg";
 import { useAuth0 } from "@auth0/auth0-react";
 function Loginn() {
-  // const { isLoading,isAuthenticated} = useAuth0();
+  const { isLoading, isAuthenticated } = useAuth0();
   const search = useLocation().search;
   const verify = new URLSearchParams(search).get("verify");
   const { res, userActual } = useSelector((state) => state.prueba);
@@ -31,10 +31,6 @@ function Loginn() {
       },
     });
 
-// if(isAuthenticated ){
-//   navigateToHome.push("/home");
-// }
-
   setTimeout(function () {
     if (res.login.token) {
       localStorage.setItem("id", res.login.id);
@@ -47,9 +43,9 @@ function Loginn() {
         localStorage.setItem("proveedor", userActual.proveedor);
       }
       navigateToHome.push("/");
+   
     }
   }, 2000);
-
 
   return (
     <>
@@ -81,18 +77,17 @@ function Loginn() {
               </div>
             </div>
           </div>
-          
+
           <div className="socialmedia-container">
             <p className="label-log">
               Or you can login with
               <hr></hr>
             </p>
-           
           </div>
 
-          <LoginButton/>
-      <Profile/>
-          <LogoutButton/>
+          <LoginButton />
+          <Profile />
+          <LogoutButton />
         </div>
       </div>
     </>

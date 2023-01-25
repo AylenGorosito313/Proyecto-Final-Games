@@ -68,17 +68,25 @@
 
 }
 
-
-
-.container-text-banner{
+.meta-container-text-banner{
     position: absolute;
     top: 20%;
     display: flex;
-    width: 50%;
-    height: 80%;
+    width: 60%;
+    height: 0%;
+    border-radius: 10px;
+    background: #e2bebe38;
+    flex-direction: column;
+}
+
+.container-text-banner{
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+    background: #1a1a1a2b;
     padding: 8px 14px;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
+    color: #d8d4d4;
+    font-family: Poppins,sans-serif;
     flex-direction: column;
     justify-content: space-evenly;
 }
@@ -98,6 +106,6 @@
 
 
 .h1-banner{
-    font-size: 40px;
+    font-size: 35px;
     margin: 0;
 }

@@ -45,7 +45,7 @@ import {
   getByNameDb
 } from "../reducers/prueba/pruebaSlider";
 
-let url = "http://localhost:3001" // http://localhost:3001 (agregar cuando estás en rama )
+let url = "https://backend-pf-production.up.railway.app" // http://localhost:3001 (agregar cuando estás en rama )
 //https://backend-pf-production.up.railway.app
 export const getGames = () => {
   return async function (dispatch) {
@@ -575,6 +575,24 @@ export const deletedGameAdmin = (gameId) => {
     }
   };
 };
+export const deletedGameProvider = (gameId) => {
+  return async (dispatch) => {
+    try {
+      let userId = localStorage.getItem("id");
+      let { data } = await axios({
+        method: "DELETE",
+        url: `${url}/game/provider/deleteGameProvider/${userId}/${gameId}`,
+      });
+      dispatch(getGamesDb());
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+
+// /game/provider/deleteGameProvider/:userId/:gameId
+
 
 export const paymentSuccess = (id) => {
   return async (dispatch) => {

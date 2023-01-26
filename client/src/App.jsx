@@ -26,9 +26,6 @@ import ProveedorProfile from "./pages/ProveedorProfile/Profile/ProveedorProfile"
 import Page404 from "./components/Page404/Page404";
 //admins import
 
-
-
-
 import Dashboard from "./pages/Admin/Dashboard/Dashboard";
 import AdminUser from "./pages/Admin/AdminUsuario/AdminUsuario";
 import AdminGames from "./pages/Admin/AdminGames/AdminGames";
@@ -41,73 +38,73 @@ function App() {
   return (
     <>
       <Switch>
-      {/* <Route exact path="/user"> */}
+        {/* <Route exact path="/user"> */}
         <Route exact path="/user/login" component={Loginn} />
         <Route exact path="/user/register" component={Register} />
         {/* <Route exact path="/user/recuperacion" component={UserRecuperacion} /> */}
-      {/* </Route> */}
+        {/* </Route> */}
 
-      <Route exact path={"/payment"}>
-        <NavTop/>
-      {/* <Route exact path="/payment" component={NavTop} /> */}
-      <Route path="/payment" component={PaymentMP} />
-      </Route>
-
-      
-      <Route exact path="/payment/success" component={SuccessPay} />
-
-      <Route exact path="/">
-        <NavTop />
-        <Route exact path="/" component={Homepage} />
-        <Footer />
-      </Route>
-
-      <Route path="/game">
-        <NavTop />
-        <Route exact path="/game/examinar/filtros" component={Examinar} />
-        <Route exact path="/game/form/create" component={GameCreate} />
-        <Route exact path="/game/:id" component={CardDetail} />
-        <Route exact path="/game/dev/form" component={GameDevForm} />
-        <Footer />
-      </Route>
-
-      <Route exact path="/user/profil">
-        <NavTop />
-        <Route path="/user/profil" component={ProfilePage} />
-        <Footer />
-      </Route>
-
-      <Route path="/profile">
-        <NavTop />
-        {/* <Route exact path="/profile/profile" component={Profile} /> */}
-        <Route exact path="/profile/games" component={MyGames} />
-        <Route exact path="/profile/favorite" component={Favorite} />
-        <Route exact path="/profile/settings" component={Settings} />
-        <Footer />
-      </Route>
-
-      <Route exact path="/proveedor">
-        <Proveedor />
-      </Route>
-      <Route path="/panelView">
-        <NavTop />
-        <ViewAdmin />
+        <Route exact path={"/payment"}>
+          <NavTop />
+          {/* <Route exact path="/payment" component={NavTop} /> */}
+          <Route path="/payment" component={PaymentMP} />
         </Route>
 
-  
-      <Route path="/admin">
-        <Route path="/admin" component={NavTop} />
-        <Route exact path="/admin/dashboard" component={Dashboard} />
-        <Route exact path="/admin/users" component={AdminUser} />
-        <Route exact path="/admin/games" component={AdminGames} />
-        <Route exact path="/admin/banners" component={AdminBanners} />
-        <Route exact path="/admin/settings" component={AdminSettings} />
-      </Route>
+        <Route exact path="/payment/success" component={SuccessPay} />
 
-      <Route exact path="/provedor/unpload" component={UnploadGame} />
-      <Route exact path="/provedor/profile" component={ProveedorProfile} />
-    
-      <Route path="*" component={Page404}/>
+        <Route exact path="/">
+          <NavTop />
+          <Route exact path="/" component={Homepage} />
+          <Footer />
+        </Route>
+
+        <Route path="/game">
+          <NavTop />
+          <Route exact path="/game/examinar/filtros" component={Examinar} />
+          <Route exact path="/game/form/create" component={GameCreate} />
+          <Route exact path="/game/:id" component={CardDetail} />
+          <Route exact path="/game/dev/form" component={GameDevForm} />
+          <Footer />
+        </Route>
+
+        <Route exact path="/user/profil">
+          <NavTop />
+          <Route path="/user/profil" component={ProfilePage} />
+          <Footer />
+        </Route>
+
+        <Route path="/profile">
+          <NavTop />
+          {/* <Route exact path="/profile/profile" component={Profile} /> */}
+          <Route exact path="/profile/games" component={MyGames} />
+          <Route exact path="/profile/favorite" component={Favorite} />
+          <Route exact path="/profile/settings" component={Settings} />
+          <Footer />
+        </Route>
+
+        <Route exact path="/proveedor">
+          <Proveedor />
+        </Route>
+        <Route path="/panelView">
+          <NavTop />
+          <ViewAdmin />
+        </Route>
+
+        <Route path="/admin">
+          <Route path="/admin" component={NavTop} />
+          <Route exact path="/admin/dashboard" component={Dashboard} />
+          <Route exact path="/admin/users" component={AdminUser} />
+          <Route exact path="/admin/games" component={AdminGames} />
+          <Route exact path="/admin/banners" component={AdminBanners} />
+          <Route exact path="/admin/settings" component={AdminSettings} />
+        </Route>
+        <Route path="/provedor">
+          <NavTop />
+          <Route exact path="/provedor/unpload" component={UnploadGame} />
+          <Route exact path="/provedor/profile" component={ProveedorProfile} />
+        </Route>
+
+        <Route path="*" component={Page404} />
       </Switch>
     </>
   );

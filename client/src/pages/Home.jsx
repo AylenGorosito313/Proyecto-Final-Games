@@ -28,7 +28,7 @@ function Home() {
   const dispatch = useDispatch();
   const { games, isLoader, res,userActual  } = useSelector((state) => state.prueba);
 
-  let idProveedor =userActual && localStorage.setItem("proveedor", userActual.proveedor);
+  let idProveedor = userActual && localStorage.setItem("proveedor", userActual.proveedor);
   let userID = localStorage.getItem('id')
   useEffect(() => {
     

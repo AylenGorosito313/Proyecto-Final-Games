@@ -11,10 +11,10 @@ export default function UnploadGame() {
     const { userActual } = useSelector((state) => state.prueba);
     console.log(userActual);
   
-    // useEffect(() => {
-    //   let userID = window.localStorage.getItem("id");
-    //   dispatch( getUserActual(userID));
-    // }, [dispatch]);
+    useEffect(() => {
+      let userID = window.localStorage.getItem("id");
+      dispatch( getUserActual(userID));
+    }, [userActual.provider?.videoGamesPropor?.length]);
   return (
     <>
     <NavTop/>

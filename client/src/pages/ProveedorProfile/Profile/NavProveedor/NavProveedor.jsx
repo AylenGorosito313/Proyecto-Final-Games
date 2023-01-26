@@ -16,55 +16,49 @@ export default function NavProvedor() {
   }, [dispatch]);
 
   return (
- 
-   <>
+    <>
       <div className={style.conteiner}>
+        <div className={style.divAvatar}>
+          <img
+            className={style.img}
+            src={
+              userActual && userActual.profile_img
+                ? userActual.profile_img
+                : "https://raw.githubusercontent.com/multiavatar/Multiavatar/main/logo.png?v=001"
+            }
+            alt="ImgProfile"
+            width="200px"
+            height="200px"
+          />
           <div className={style.divAvatar}>
-            <img
-              className={style.img}
-              src={
-                userActual.profile_img
-                  ? userActual.profile_img
-                  : "https://raw.githubusercontent.com/multiavatar/Multiavatar/main/logo.png?v=001"
-              }
-              alt="ImgProfile"
-              width="200px"
-              height="200px"
-            />
-            <div className={style.divAvatar}>
-              {userActual.name
-                ? `${userActual.name} ${userActual.lastName}`
-                : ""}
-            </div>
-          </div>
-
-          {/* <div className={style.div}>{ userActual.name ? `Hello ${userActual.name}!` : 'Your Name'}</div> */}
-          <div className={style.div}>
-            <button className={style.button}>
-              <Link to="/user/profil" className={style.link}>
-                {" "}
-                User Profile{" "}
-              </Link>
-            </button>
+            {userActual.name ? `${userActual.name} ${userActual.lastName}` : ""}
           </div>
         </div>
-        <div className={style.conteinerNav}>
-          <div className={style.divTab}>
-            <Link to="/provedor/profile" className={style.link}>
-              📌 Statistics
-            </Link>
-          </div>
-          <div className={style.divTab}>
-            <Link to="/provedor/unpload" className={style.link}>
-            🎮 Unploads
-            </Link>
-          </div>
-          </div>
 
-          <div className={style.loader}></div>
-   </>
-     
-       
-     
+        {/* <div className={style.div}>{ userActual.name ? `Hello ${userActual.name}!` : 'Your Name'}</div> */}
+        <div className={style.div}>
+          <button className={style.button}>
+            <Link to="/user/profil" className={style.link}>
+              {" "}
+              User Profile{" "}
+            </Link>
+          </button>
+        </div>
+      </div>
+      <div className={style.conteinerNav}>
+        <div className={style.divTab}>
+          <Link to="/provedor/profile" className={style.link}>
+            📌 Statistics
+          </Link>
+        </div>
+        <div className={style.divTab}>
+          <Link to="/provedor/unpload" className={style.link}>
+            🎮 Unploads
+          </Link>
+        </div>
+      </div>
+
+      <div className={style.loader}></div>
+    </>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import "./HomeSlider.css";
-import style from "./TextBanner.module.css";
+import style from "./HomeSlider.module.css";
+// import style from "./TextBanner.module.css";
 import { Imagen } from "./styledImg";
 export default function TextBanners({
   title,
@@ -10,14 +10,14 @@ export default function TextBanners({
   textBtn,
 }) {
   return (
-    <div className="meta-container-text-banner">
-    <div className="container-text-banner">
-      {logo && <img className="logo-banner-chiquito" src={logo} alt="" />}
-      <h1  className="h1-banner">{title}</h1>
+    
+    <div>
+      {logo && <img className={style.logo_banner_chiquito} src={logo} alt="" />}
+      <h1  className={style.h1_banner}>{title}</h1>
       <p>{description}</p>
-      {price && <p className="descriptionBnnners">US$ {price}</p>}
+      {price && <p className={style.descriptionBnnners}>US$ {price}</p>}
       {textBtn && <button className={style.button_bnner}>{textBtn}</button>}
     </div>
-    </div>
+
   );
 }

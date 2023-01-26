@@ -23,9 +23,9 @@ function Car(props) {
         clipRule="evenodd"
       ></path>
     </svg>
-    {/* <div>
+    <div>
       {props.item ? props.item : ''}
-    </div> */}
+    </div>
     </>
     
   );

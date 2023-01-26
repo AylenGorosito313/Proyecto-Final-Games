@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Cart.css";
-
 import { deleteCart, deletedItemsToCart } from "../../middleware";
 import { useDispatch, useSelector } from "react-redux";
 import PaymentMP from "../../pages/Payment/PaymentMP";

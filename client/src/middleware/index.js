@@ -435,6 +435,7 @@ export const getCart = (userId) => {
         method: "GET",
         url: `${url}/user/cartItems/${userId}`,
       });
+      console.log(data);
       dispatch(getCartRes(data));
       dispatch(isLoading());
     } catch (error) {

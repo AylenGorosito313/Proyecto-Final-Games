@@ -582,6 +582,24 @@ export const deletedGameAdmin = (gameId) => {
     }
   };
 };
+export const deletedGameProvider = (gameId) => {
+  return async (dispatch) => {
+    try {
+      let userId = localStorage.getItem("id");
+      let { data } = await axios({
+        method: "DELETE",
+        url: `${url}/game/provider/deleteGameProvider/${userId}/${gameId}`,
+      });
+      dispatch(getGamesDb());
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+
+// /game/provider/deleteGameProvider/:userId/:gameId
+
 
 export const paymentSuccess = (id) => {
   return async (dispatch) => {

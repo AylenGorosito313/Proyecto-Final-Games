@@ -40,12 +40,12 @@ export default function UploadGameCreate ({ UnploadImages }) {
   //   UnploadImages(ImagesURL);
   // }
   return (
-    <div>
+    <>
       <h1 className={style.h1}>Upload  Game Images </h1>
-      <div>
+      
         <div className={style.imagesPreviewContainer}>
           {image?.map((img) => (
-            <div>
+            
               <img
                 className={style.imgScale}
                 key={img.public_id}
@@ -54,7 +54,7 @@ export default function UploadGameCreate ({ UnploadImages }) {
                 width="100px"
                 height="300px"
               />
-            </div>
+            
           ))}
         </div>
         <button
@@ -64,7 +64,7 @@ export default function UploadGameCreate ({ UnploadImages }) {
         >
           Upload  Image
         </button>
-      </div>
-    </div>
+      
+    </>
   );
 }

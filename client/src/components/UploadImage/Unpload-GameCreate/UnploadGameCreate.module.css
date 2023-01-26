@@ -1,5 +1,15 @@
 .imagesPreviewContainer{
-    width: 200px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0px 10px;
+    margin-bottom: 5px;
+}
+
+.imagesPreviewContainer img {
+    max-width: 100px;
+    max-height: 100px;
 }
 
 .imgScale{

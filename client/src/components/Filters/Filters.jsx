@@ -13,11 +13,11 @@ import "./rotateButton.css"
 export default function GameFilters() {
 
   const dispatch = useDispatch();
-  const { genre, platforms } = useSelector((state) => state.prueba);
+  const { genre, platforms, searchWord } = useSelector((state) => state.prueba);
 
   // Use state of querys to send
   const [filterOptions, setFilterOptions] = useState({
-    platform: "", genre: "", alphabeth: "", price: "", rating: "" 
+    platform: "", genre: "", alphabeth: "", price: "", rating: "", search: searchWord 
   });
   
   // UseState For Expand Options

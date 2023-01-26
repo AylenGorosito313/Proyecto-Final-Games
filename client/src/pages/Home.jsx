@@ -6,6 +6,7 @@ import {
   getCart,
   getForFilters,
   getGames,
+  getGamesDb,
   getGamesReleasedLasthMonth,
   getPopularGames,
   isLoading,
@@ -33,10 +34,12 @@ function Home() {
     
     dispatch(getGames());
     dispatch(getPopularGames());
-    dispatch(getGamesReleasedLasthMonth());
     dispatch(clearState());
     dispatch(getForFilters({}));
+    dispatch(getGamesDb())
     dispatch(geUserActual(userID));
+    dispatch(getGamesReleasedLasthMonth());
+
     return () => {
       dispatch(clearState());
     };
@@ -68,7 +71,7 @@ function Home() {
             </div>
             <div className="div-home-all-games">
               <div className="div-title-home">
-                <h2 className="div-title-home"> All Games </h2>
+                <h2 className="div-title-home"> More Games </h2>
               </div>
 
               <div className="div-home-card">

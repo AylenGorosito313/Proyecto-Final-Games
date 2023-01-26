@@ -20,6 +20,8 @@ import { cleanDetails } from "../../reducers/prueba/pruebaSlider";
 
 function NavTop() {
   const dispatch = useDispatch();  
+  // const [cont, setCont] = useState(0);
+
   const { userActual } = useSelector((state) => state.prueba);
   const [Login, setLogin] = useState(false);
   const { res } = useSelector((state) => state.prueba);
@@ -78,6 +80,10 @@ function NavTop() {
 
   // useEffect(() => {}, [cart.length]);
 
+  // if(cart.length > cont){
+  //   setCont(() => cont + cart.length)
+  //      }
+
   return (
     <>
       <Link to={"/"}>
@@ -97,7 +103,7 @@ function NavTop() {
                 </div>
               </Link>
             )}
-
+             {/* <div>{cart.length ? cart.length : ''}</div> */}
             <Link className="Link-nav" to={"/payment"}>
               <div onClick={handlerOpenCar} className="div-icon">
                 <Car/>

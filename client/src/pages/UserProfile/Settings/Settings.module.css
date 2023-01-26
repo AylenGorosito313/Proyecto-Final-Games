@@ -1,7 +1,7 @@
 .conteiner {
   display: flex;
   justify-content: space-around;
-  padding-left: 40px;
+
   padding-top: 20px;
 width: 100%;
 
@@ -135,11 +135,14 @@ width: 100%;
 } */
 
 .Change {
-display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.2px solid #ffffff0a;
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 25px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 

@@ -28,6 +28,7 @@ export default function CardDetail() {
   };
 
   useEffect(() => {
+    if (gameDetail) window.scroll({ top: 0, behavior: "smooth" });
     dispatch(getGameDetail(id));
     return () => {
       dispatch(cleanDetails());

@@ -4,6 +4,7 @@ import { platformImage } from "../../../CardDetail/utils/utils";
 import style from "./Card.module.css";
 import { deletedGameProvider } from "../../../../middleware";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 export default function Card(props) {
   const dispatch = useDispatch();
   const handleDelete = (id) => {

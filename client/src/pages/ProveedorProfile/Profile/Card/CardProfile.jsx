@@ -3,7 +3,7 @@ import React from "react";
 import { platformImage } from "../../../CardDetail/utils/utils";
 import style from "./Card.module.css";
 
-export default function Card(){
+export default function Card(props){
     
     console.log(props);
     return(

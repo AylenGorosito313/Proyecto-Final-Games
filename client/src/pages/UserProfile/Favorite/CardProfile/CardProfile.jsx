@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { deletedFavorites } from "../../../../middleware";
 import { platformImage } from "../../../CardDetail/utils/utils";
 import style from "../CardProfile/CardProfile.module.css";
-import { deletedGameProvider } from "../../../../middleware";
+
 export default function CardProfile(props) {
 
   const dispatch = useDispatch()
 
   const handleDelete = (id) => {
-    dispatch(deletedGameProvider(id))
+    dispatch(deletedFavorites(id))
   }
 
   return (

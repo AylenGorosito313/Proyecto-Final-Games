@@ -5,7 +5,7 @@ import { getUserActual } from '../../../reducers/prueba/pruebaSlider';
 import NavTop from "../../../components/Nav/Nav-top";
 import Footer from "../../../components/Footer/Footer";
 import style from "./UnploadGame.module.css"
-import CardProfile from "../../UserProfile/Favorite/CardProfile/CardProfile"
+import CardProfile from "../../ProveedorProfile/Profile/Card/CardProfile"
 export default function UnploadGame() {
     const dispatch = useDispatch();
     const { userActual } = useSelector((state) => state.prueba);

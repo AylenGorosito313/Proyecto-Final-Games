@@ -29,8 +29,7 @@ function NavTop() {
   const [OpenCar, setOpenCar] = useState(false);
   const navigate = useHistory();
   let admin = localStorage.getItem("isAdmin");
-  const { cart } = useSelector((state) => state.prueba);
- 
+  // const { cart } = useSelector((state) => state.prueba);
   // console.log('cart', cart);
   
   let isAdmin = false;
@@ -77,7 +76,7 @@ function NavTop() {
   //   dispatch(getCart(Id));
   // },[]);
 
-  useEffect(() => {}, [cart.length]);
+  // useEffect(() => {}, [cart.length]);
 
   return (
     <>
@@ -101,11 +100,7 @@ function NavTop() {
 
             <Link className="Link-nav" to={"/payment"}>
               <div onClick={handlerOpenCar} className="div-icon">
-                {
-                  <Car 
-                  item = {cart.length}
-                  />
-                }
+                <Car/>
                 Cart
               </div>
             </Link>

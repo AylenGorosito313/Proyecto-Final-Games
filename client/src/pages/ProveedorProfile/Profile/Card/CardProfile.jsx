@@ -3,7 +3,8 @@ import React from "react";
 import { platformImage } from "../../../CardDetail/utils/utils";
 import style from "./Card.module.css";
 
-export default function Card(props){
+export default function Card(){
+    
     console.log(props);
     return(
         <div className={style.center}>

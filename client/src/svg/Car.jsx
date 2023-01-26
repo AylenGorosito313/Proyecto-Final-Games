@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Car(props) {
+function Car() {
   return (
     <>
     <svg
@@ -23,9 +23,6 @@ function Car(props) {
         clipRule="evenodd"
       ></path>
     </svg>
-    <div>
-      {props.item ? props.item : ''}
-    </div>
     </>
     
   );

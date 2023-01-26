@@ -44,13 +44,7 @@ export default function AdminGames() {
                         price={ele.price}
                       />
                     );
-          }) :
-          <div className={style.noGames}>
-            <h3>🎮 There are no games in the Data Base 🎮</h3>
-
-          </div>
-
-          }
+                  }): 'Sorry, no games yet 😔'}
         </div>
       </div>
     </div>

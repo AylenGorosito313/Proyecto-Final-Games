@@ -118,6 +118,9 @@ export default function GameCreate() {
   }
   return (
     <>
+    <div className={style.mainContainer}>
+    <div className={style.content}>
+
       <div className={style.headerDiv}>
         <div className={style.backhome}>
           <Link className={style.pLink} to={"/provedor/profile"}>
@@ -130,8 +133,8 @@ export default function GameCreate() {
         <h1 className={style.h1Header}> Upload your game </h1>
         </div>
       </div>
-        
-      <div className={style.fondo}>
+      <div className={style.allContainer}>
+      <div className={style.leftContainer}>
         <form className={style.formContainer} onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label className={style.labels}> Game name </label>
@@ -268,17 +271,24 @@ export default function GameCreate() {
             Create Game
           </button>
         </form>
-        <div className={style.unploadDiv}>
-          <UploadVideogame UnploadTrailer={UnploadTrailer} />
-          <div>
-            <UploadGameCreate UnploadImages={UnploadImages} />
 
-            {errorsImg && <p> image is required</p>}
+      </div>
+        <div className={style.right_container} >
+          <div className={style.unploadDiv}>
+            <UploadVideogame UnploadTrailer={UnploadTrailer} />
+            <div>
+              <UploadGameCreate UnploadImages={UnploadImages} />
+
+              {errorsImg && <p> image is required</p>}
+            </div>
+
+            <UnploadGameArchive UnploadArchive={UnploadArchive} />
           </div>
-
-          <UnploadGameArchive UnploadArchive={UnploadArchive} />
         </div>
       </div>
+      
+    </div>
+    </div>
     </>
   );
 }

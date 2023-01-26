@@ -31,7 +31,7 @@ export default function NavProvedor() {
             height="200px"
           />
           <div className={style.divAvatar}>
-            {userActual.name ? `${userActual.name} ${userActual.lastName}` : ""}
+            {  userActual && userActual.name ? `${userActual.name} ${userActual.lastName}` : ""}
           </div>
         </div>
 

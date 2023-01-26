@@ -5,7 +5,7 @@ import { getUserActual } from '../../../reducers/prueba/pruebaSlider';
 import NavTop from "../../../components/Nav/Nav-top";
 import Footer from "../../../components/Footer/Footer";
 import style from "./UnploadGame.module.css"
-import CardProfile from "../../ProveedorProfile/Profile/Card/CardProfile"
+import Card from "../../ProveedorProfile/Profile/Card/CardProfile"
 export default function UnploadGame() {
     const dispatch = useDispatch();
     const { userActual } = useSelector((state) => state.prueba);
@@ -40,7 +40,7 @@ export default function UnploadGame() {
                 userActual.provider.videoGamesPropor.map((inf) => {
                   return (
                     <div className={style.DivCardProveedor}>
-                      <CardProfile
+                      <Card
                         id={inf.id}
                         image={inf.background_image}
                         name={inf.name}

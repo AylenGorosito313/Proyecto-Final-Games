@@ -2,32 +2,51 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import { platformImage } from "../../../CardDetail/utils/utils";
 import style from "./Card.module.css";
+import { deletedGameProvider } from "../../../../middleware";
+import { useDispatch } from "react-redux";
+export default function Card(props) {
+  const dispatch = useDispatch();
+  const handleDelete = (id) => {
+    dispatch(deletedGameProvider(id));
+  };
 
-export default function Card(props){
-    
-    console.log(props);
-    return(
-        <div className={style.center}>
-            <div className={style.conteiner}>
-                <div className={style.div}>
-                    <img className={style.img} src={props.image} alt={props.name} width='300px' height='120px'/>
-                </div>
-                <div className={style.div}>{props.name}</div>
-                <div className={style.div}>
-                        {
-                        props.platforms ? props.platforms.slice(0,3).map( el => (
-                            <span key={el}> 
-                                {platformImage(el)} 
-                            </span>
-                        )) : 
-                        <span>No available for plataforms</span>}
-                </div>
-                <div className={style.div}></div>
-                <div >
-                  <button className={style.button}>🗑️</button>
-                </div>
-            </div>
-            <br />
-        </div>
-    );
-};
+  return (
+    <div className={style.conteiner}>
+      <div className={style.divImg}>
+        <img
+          className={style.img}
+          src={props.image}
+          alt={props.name}
+          width="150px"
+          height="90px"
+        />
+      </div>
+
+      <div className={style.div}>
+        <Link className={style.Link} to={`/game/${props.id}`}>
+          {props.name}
+        </Link>
+      </div>
+
+      <div className={style.div}>
+        {props.platforms ? (
+          props.platforms
+            .slice(0, 3)
+            .map((el) => <span key={el}>{platformImage(el)}</span>)
+        ) : (
+          <span className={style.text}>No available for plataforms</span>
+        )}
+      </div>
+      <div className={style.div}>
+        <Link className={style.Link} to={`/game/${props.id}`}>
+          ➕ Details
+        </Link>
+      </div>
+      <div className={style.divButton}>
+        <button onClick={() => handleDelete(props.id)} className={style.button}>
+          🗑️
+        </button>
+      </div>
+    </div>
+  );
+}

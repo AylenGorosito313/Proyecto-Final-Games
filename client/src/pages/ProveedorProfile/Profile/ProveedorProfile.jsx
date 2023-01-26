@@ -30,7 +30,7 @@ export default function ProveedorProfile() {
         <div className={style.nav}>
           <div className={style.ul}>Income Generated</div>
           <div className={style.ul}>
-            {!userActual.provider
+            {!userActual.provider.profits
               ? `${userActual.provider?.profits} USD`
               : "0 USD"}
           </div>

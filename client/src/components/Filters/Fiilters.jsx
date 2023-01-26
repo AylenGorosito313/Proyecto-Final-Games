@@ -14,7 +14,7 @@ export default function GameFilters() {
 
   const dispatch = useDispatch();
   const { genre, platforms, searchWord } = useSelector((state) => state.prueba);
-
+  console.log(`game word search${searchWord}`)
   // Use state of querys to send
   const [filterOptions, setFilterOptions] = useState({
     platform: "", genre: "", alphabeth: "", price: "", rating: "", search: searchWord
@@ -88,7 +88,7 @@ export default function GameFilters() {
       ...filterOptions, 
       alphabeth: order
     })
-
+    console.log(`after send: ${filterOptions}`)
   };
 
   const handlerGender = (event) => {

@@ -64,6 +64,12 @@
     height: 20px;
 }
 
+.loading{
+    display: flex;
+    align-items: center;
+    padding-top: 300px;
+}
+
 .pagination {
     margin-top: 3rem;
     list-style: none;

@@ -6,6 +6,7 @@ import {
   getCart,
   getForFilters,
   getGames,
+  getGamesDb,
   getGamesReleasedLasthMonth,
   getPopularGames,
   isLoading,
@@ -34,6 +35,7 @@ function Home() {
     dispatch(getGamesReleasedLasthMonth());
     dispatch(clearState());
     dispatch(getForFilters({}));
+    dispatch(getGamesDb())
     dispatch(geUserActual(userID));
 
     return () => {

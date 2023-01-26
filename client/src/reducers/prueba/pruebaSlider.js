@@ -237,6 +237,7 @@ export const {
   deleteUserRes,
   getAdmins,
   getAllGamesDb,
+  provisorySearchWord
 } = toolkit_prueba.actions;
 
 export default toolkit_prueba.reducer;

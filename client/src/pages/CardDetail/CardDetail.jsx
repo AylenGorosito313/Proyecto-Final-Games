@@ -90,7 +90,7 @@ export default function CardDetail() {
               <div className="description-container">
                 <h2>About this Game</h2>
                 <div className="description">
-                  <p>{gameDetail.description_raw}</p>
+                  <p>{gameDetail.description_raw || gameDetail.description }</p>
                 </div>
               </div>
               {/* Games Meta Information */}

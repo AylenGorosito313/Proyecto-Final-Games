@@ -46,38 +46,39 @@ export default function HomeSlider() {
           className={style.swiper}
         >
          
-            {Data && Data.length ? (
+            {!Data?.length ? (
               
-              Data.map((banner) => {
-                console.log(banner.banner_img);
-                return (
-                  <>
-                    <SwiperSlide className={style.swiper_slide}>
-                      <img src={banner.banner_img} alt="" />
-                      
-                        <div className={style.content}>
-                          <TextBanners
-                            title={banner.title}
-                            logo={banner.banner_Logo}
-                            description={banner.description}
-                            textBtn={banner.text_btn}
-                          />
-                        </div>
-                      
-                    </SwiperSlide>
-                  </>
-                );
-              })
-            ) : ( setTimeout(() => {
               <SwiperSlide className={style.swiper_slide}>
-                <img
-                  src="https://res.cloudinary.com/dj8p0rdxn/image/upload/v1674510139/ra3xcoyp1q5pgzgkhmyz.jpg"
-                  alt=""
-                />
-              </SwiperSlide>
-            }, 2000)
+                  <img
+                    src="https://res.cloudinary.com/dj8p0rdxn/image/upload/v1674510139/ra3xcoyp1q5pgzgkhmyz.jpg"
+                    alt=""
+                  />
+                </SwiperSlide>
               
-            )
+            ) : 
+
+            Data.map((banner) => {
+              console.log(banner.banner_img);
+              return (
+                <>
+                  <SwiperSlide className={style.swiper_slide}>
+                    <img src={banner.banner_img} alt="" />
+                    
+                      <div className={style.content}>
+                        <TextBanners
+                          title={banner.title}
+                          logo={banner.banner_Logo}
+                          description={banner.description}
+                          textBtn={banner.text_btn}
+                        />
+                      </div>
+                    
+                  </SwiperSlide>
+                </>
+              );
+            })
+
+
             
             }
           

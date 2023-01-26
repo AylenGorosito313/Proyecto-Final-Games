@@ -17,7 +17,7 @@ export default function GameFilters() {
 
   // Use state of querys to send
   const [filterOptions, setFilterOptions] = useState({
-    platform: "", genre: "", alphabeth: "", price: "", rating: "", search: searchWord 
+    platform: "", genre: "", alphabeth: "", price: "", rating: "", search: toString(searchWord) 
   });
   
   // UseState For Expand Options

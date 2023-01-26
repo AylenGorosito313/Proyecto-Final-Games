@@ -46,7 +46,7 @@ import {
   provisorySearchWord
 } from "../reducers/prueba/pruebaSlider";
 
-let url = "http://localhost:3001" // http://localhost:3001 (agregar cuando estás en rama )
+let url = "https://backend-pf-production.up.railway.app" // http://localhost:3001 (agregar cuando estás en rama )
 //https://backend-pf-production.up.railway.app
 export const getGames = () => {
   return async function (dispatch) {

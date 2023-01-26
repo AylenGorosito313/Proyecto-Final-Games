@@ -3,7 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 const changeSettings = () => {
     toast("You have made a change", {
         position: "bottom-right",
-        duration: 3000,
+        duration: 2900,
         icon: "✔️",
         style: {
           borderRadius: "10px",

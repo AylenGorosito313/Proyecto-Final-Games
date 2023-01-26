@@ -11,15 +11,15 @@ export default function NavProfile() {
   const { userActual } = useSelector((state) => state.prueba);
 
   let isAdminTrue = localStorage.getItem("isAdmin");
-  console.log(isAdminTrue)
+  
   useEffect(() => {
     let userID = window.localStorage.getItem("id");
     dispatch(geUserActual(userID));
   }, [dispatch]);
 
-if(isAdminTrue === true){
-  return  <p>Soy admin ?</p>
-}
+  if(isAdminTrue === true){
+    return  <p>Soy admin ?</p>
+  }
 
   return (
     <>

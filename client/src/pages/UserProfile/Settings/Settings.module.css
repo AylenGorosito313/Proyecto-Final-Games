@@ -180,11 +180,11 @@
   }
 }
 
-/* .divSet{
+.divSet{
     display: flex;
     gap: 10px;
-    flex-direction: column;
-} */
+    flex-direction: row;
+}
 
 .img {
   width: 100px;

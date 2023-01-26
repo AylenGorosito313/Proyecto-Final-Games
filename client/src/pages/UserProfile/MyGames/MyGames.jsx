@@ -4,16 +4,17 @@ import { getItemsCar } from "../../../middleware";
 import style from "../MyGames/MyGames.module.css";
 import Card from "./Card/Card";
 import NavProfile from "../NavProfile/NavProfile";
+
 export default function MyGames() {
+
   const dispatch = useDispatch();
   useEffect(() => {
     let userID = window.localStorage.getItem("id");
-    
     dispatch(getItemsCar(userID));
   }, []);
 
   const { userActual } = useSelector((state) => state.prueba);
-console.log(userActual)
+  
   return (
     <div className={style.LayoutProfilePage}>
       <div className={style.containerData}>

@@ -70,6 +70,7 @@ export default function Settings() {
 
   let handleSaveImage = () =>{
     dispatch(putUser(image[0]));
+    setTimeout(changeSettings(), 800);
     setImage('')
   };
 
@@ -77,7 +78,7 @@ export default function Settings() {
     dispatch(putUser(input));
     document.getElementById("name").value = "";
     document.getElementById("apellido").value= "";
-    setTimeout(changeSettings(), 2000);
+    setTimeout(changeSettings(), 800);
     setInput({});
   };
 
@@ -85,6 +86,7 @@ export default function Settings() {
     dispatch(putUser(change));
     document.getElementById("date").value = "";
     document.getElementById("region").value = "";
+    setTimeout(changeSettings(), 800);
     setChange({});
   }
   let isAdminTrue = localStorage.getItem('isAdmin') 
@@ -162,7 +164,7 @@ isAdminTrue  === true ?
           <h1> Edit Birthday</h1>
 
           <div className={style.divSet}>
-          <label >Date</label>
+            <label >Date</label>
             <input
               className={style.input}
               type="date"
@@ -173,11 +175,11 @@ isAdminTrue  === true ?
               value={change.birth_date}
               onChange={(e) => handleChange(e)}
             />
-
+            <br />
             <label >Location</label>
-            <select name="region" id="region"   onClick={(e) => handleChange(e)} className={style.select}>
-              <option key="none" value ="">
-                country
+            <select name="region" id="region" onClick={(e) => handleChange(e)} className={style.select}>
+              <option key="none" value=''>
+                {/* country */}
               </option>
               {countries?.map((c) => {
                 return (

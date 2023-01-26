@@ -17,7 +17,7 @@ export default function GameFilters() {
   console.log(`game word search${searchWord}`)
   // Use state of querys to send
   const [filterOptions, setFilterOptions] = useState({
-    platform: "", genre: "", alphabeth: "", price: "", rating: "", search: toString(searchWord)
+    platform: "", genre: "", alphabeth: "", price: "", rating: "", search: searchWord
   });
   
   // UseState For Expand Options
@@ -136,16 +136,18 @@ export default function GameFilters() {
   // }
 
   useEffect(() => {
-
+    filterOptions.search = searchWord
     dispatch(getForFilters(
       filterOptions
     ));
-  }, [filterOptions])
+  }, [filterOptions, searchWord])
 
   return (
     <>
           <div className={style.reset_button} >
-            <ResetButton />
+            <ResetButton 
+            
+            />
           </div>
 
           {/* Order Filters */}

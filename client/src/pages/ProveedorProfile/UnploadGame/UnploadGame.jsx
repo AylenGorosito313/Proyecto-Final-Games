@@ -1,20 +1,14 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import NavProvedor from '../Profile/NavProveedor/NavProveedor'
-import { getUserActual } from '../../../reducers/prueba/pruebaSlider';
+import { useSelector } from "react-redux";
+import NavProvedor from '../Profile/NavProveedor/NavProveedor';
 import NavTop from "../../../components/Nav/Nav-top";
 import Footer from "../../../components/Footer/Footer";
 import style from "./UnploadGame.module.css"
 import CardProfile from "../../UserProfile/Favorite/CardProfile/CardProfile"
 export default function UnploadGame() {
-    const dispatch = useDispatch();
+
     const { userActual } = useSelector((state) => state.prueba);
-    console.log(userActual);
-  
-    // useEffect(() => {
-    //   let userID = window.localStorage.getItem("id");
-    //   dispatch( getUserActual(userID));
-    // }, [dispatch]);
+    
   return (
     <>
     <NavTop/>

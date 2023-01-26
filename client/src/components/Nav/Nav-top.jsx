@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SelectProfile from "../Select/SelectProfile";
 import { Link, useHistory } from "react-router-dom";
 import Notificacion from "../../svg/Notificacion";
@@ -15,9 +15,14 @@ import Car from "../../svg/Car";
 import User from "../../svg/User";
 import Profile from "../LoginButton/Profile";
 import PanelAdminNav from "../../svg/PanelAdminNav";
-import { geUserActual } from "../../middleware/index";
+import { geUserActual, getCart } from "../../middleware/index";
+
+
 function NavTop() {
+  const dispatch = useDispatch();  
   const { userActual } = useSelector((state) => state.prueba);
+  const { cart } = useSelector((state) => state.prueba);
+  console.log('cart', cart);
   const [Login, setLogin] = useState(false);
   const { res } = useSelector((state) => state.prueba);
   const [Dev, setDev] = useState(false);
@@ -26,7 +31,7 @@ function NavTop() {
   const [OpenCar, setOpenCar] = useState(false);
   const navigate = useHistory();
   let admin = localStorage.getItem("isAdmin");
-  const dispatch = useDispatch();
+  
   let isAdmin = false;
   if (admin) {
     isAdmin = true;
@@ -34,6 +39,7 @@ function NavTop() {
   const handleLogin = () => {
     navigate.push("/user/login");
   };
+
   const handlerOpenUser = () => {
     setOpenUser(!OpenUser);
     if (OpenNotifica === true || OpenCar === true) {
@@ -64,6 +70,9 @@ function NavTop() {
     let userID = localStorage.getItem('id')
     dispatch(geUserActual(userID));
   }, []);
+
+  useEffect(() => {}, [cart.length]);
+
   return (
     <>
       <Link to={"/"}>
@@ -86,7 +95,12 @@ function NavTop() {
 
             <Link className="Link-nav" to={"/payment"}>
               <div onClick={handlerOpenCar} className="div-icon">
-                <Car />
+                {/* {
+                  <Car 
+                  item = {cart.length}
+                  />
+                } */}
+                <div> {cart ? cart.length : ''}</div>
                 Cart
               </div>
             </Link>

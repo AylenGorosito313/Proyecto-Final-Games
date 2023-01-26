@@ -16,7 +16,7 @@ export default function IndieGamesSlider() {
     const dispatch = useDispatch();
     const [toggleButton, setToggleButton] = useState(true);
 
-    const { popularGames } = useSelector((state) => state.prueba);
+    const { gamesdb, popularGames } = useSelector((state) => state.prueba);
 
     const nextButton = () => {
         setToggleButton(true);
@@ -72,26 +72,51 @@ export default function IndieGamesSlider() {
                     modules={[Navigation]}
                     className="game-slider-swiper"
                 >
-                    {popularGames.length > 0
-                        ? popularGames.slice(5).map((ele, index) => (
-                              <SwiperSlide
-                                  key={index}
-                                  className="popular-swiper-slide"
-                              >
-                                  <IndieCard
-                                      key={ele.id}
-                                      img={ele.background_image}
-                                      name={ele.name}
-                                      id={ele.id}
-                                      price={ele.price}
-                                      rating={ele.rating}
-                                      platforms={ele.parent_platforms}
-                                      released={ele.released}
-                                      genres={ele.genres}
-                                  />
-                              </SwiperSlide>
-                          ))
-                        : "no games"}
+                    {
+                    
+                    gamesdb.length > 0 ?
+                    
+                    gamesdb?.map((ele, index) => (
+                        <SwiperSlide
+                            key={index}
+                            className="popular-swiper-slide"
+                        >
+                            <IndieCard
+                                key={ele.id}
+                                img={ele.background_image}
+                                name={ele.name}
+                                id={ele.id}
+                                price={ele.price}
+                                rating={ele.rating}
+                                platforms={ele.parent_platforms}
+                                released={ele.released}
+                                genres={ele.genres}
+                            />
+                        </SwiperSlide>
+                    ))
+                    
+                    :
+                   
+                    popularGames.slice(5).map((ele, index) => (
+                        <SwiperSlide
+                            key={index}
+                            className="popular-swiper-slide"
+                        >
+                            <IndieCard
+                                key={ele.id}
+                                img={ele.background_image}
+                                name={ele.name}
+                                id={ele.id}
+                                price={ele.price}
+                                rating={ele.rating}
+                                platforms={ele.parent_platforms}
+                                released={ele.released}
+                                genres={ele.genres}
+                            />
+                        </SwiperSlide>
+                    ))
+    
+                    }
                 </Swiper>
                 
                 </div>

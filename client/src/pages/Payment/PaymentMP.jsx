@@ -24,13 +24,14 @@ export default function PaymentMP() {
         };
     }, []);
 
-    if (!cart.length) {
+    if (!cart.length && isLoader === false) {
         return <h4 className="cart_empty">The Cart is Empty</h4>;
-    } else {
-        price = cart.reduce((acc, next) => {
-            return acc + next.price;
-        }, 0);
     }
+        if (cart.length){
+            price = cart.reduce((acc, next) => {
+                return acc + next.price;
+            }, 0);
+        }
 
     if (isLoader && !cart.length) {
         return (

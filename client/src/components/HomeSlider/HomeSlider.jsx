@@ -7,7 +7,7 @@ import axios from "axios";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/swiper.min.css";
-import "./HomeSlider.css";
+import style from "./HomeSlider.module.css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import TextBanners from "./TextBanners";
@@ -27,7 +27,7 @@ export default function HomeSlider() {
 
   return (
     <>
-      <div className="slider-container">
+      <div className={style.slider_container}>
         <Swiper
           modules={[Autoplay, Pagination, EffectFade]}
           effect="fade"
@@ -39,23 +39,23 @@ export default function HomeSlider() {
           slidesPerView={1}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 5000,
+            delay: 4000,
             disableOnInteraction: false,
           }}
           centeredSlides="true"
-          className="swiper"
+          className={style.swiper}
         >
-          <div>
+         
             {Data && Data.length ? (
               
               Data.map((banner) => {
                 console.log(banner.banner_img);
                 return (
                   <>
-                    <SwiperSlide className="swiper-slide">
+                    <SwiperSlide className={style.swiper_slide}>
                       <img src={banner.banner_img} alt="" />
-                      <div className="banner-contaiter">
-                        <div className="content">
+                      
+                        <div className={style.content}>
                           <TextBanners
                             title={banner.title}
                             logo={banner.banner_Logo}
@@ -63,34 +63,25 @@ export default function HomeSlider() {
                             textBtn={banner.text_btn}
                           />
                         </div>
-                      </div>
+                      
                     </SwiperSlide>
                   </>
                 );
               })
-            ) : (
-              <SwiperSlide className="swiper-slide">
+            ) : ( setTimeout(() => {
+              <SwiperSlide className={style.swiper_slide}>
                 <img
                   src="https://res.cloudinary.com/dj8p0rdxn/image/upload/v1674510139/ra3xcoyp1q5pgzgkhmyz.jpg"
                   alt=""
                 />
               </SwiperSlide>
-            )}
-          </div>
+            }, 2000)
+              
+            )
+            
+            }
+          
 
-          {/* <SwiperSlide className="swiper-slide">
-            <img src={Andromeda2} alt="" />
-            <div className="banner-contaiter">
-              <div className="content"></div>
-            </div>
-          </SwiperSlide> */}
-
-          {/* <SwiperSlide className="swiper-slide">
-            <img src={Andromeda3} alt="" />
-            <div className="banner-contaiter">
-              <div className="content"></div>
-            </div>
-          </SwiperSlide> */}
         </Swiper>
       </div>
     </>

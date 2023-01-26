@@ -22,7 +22,7 @@ export default function ProveedorProfile() {
 
   return (
     <>
-    <NavTop />
+    {/* <NavTop /> */}
     <div className={style.LayoutProfilePage}>
     <div className={style.containerData}>
       <NavProvedor />

@@ -1,0 +1,118 @@
+.slider_container {
+    display: flex;
+    text-align: center;
+    
+    border-radius: 30px;
+    /* position: relative; */
+    width: 1200px;
+    max-height: 600px;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    /* height: 100%; */
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.swiper_slide {
+    text-align: center;
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper_slide img {
+    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+    border-radius: 10px ;
+}
+
+.content {
+    position: absolute;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    top: 5%;
+    height: 80%;
+    width: 50%;
+    background: transparent;
+    left: 80px;
+    padding: 8px 14px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.content h3 {
+   display: none;
+}
+
+.content p {
+    max-width: 350px;
+    font-size: 12px;
+    word-wrap: break-word;
+    
+    text-align: left;
+}
+
+.content button {
+    display: flex;
+    background: #fff;
+    border-radius: 5px;
+    height: 50px;
+    max-width: 250px;
+    padding: 15px 25px;
+    color: #001d38;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 15px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+text-transform: uppercase;
+}
+.content button:hover {
+    transform: scale(1.06);
+
+}
+
+.logo_banner_chiquito{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+
+.h1_banner{
+    max-width: 350px;
+    padding: 0px;
+    display: flex;
+    word-wrap: break-word;
+    text-align: left;
+    line-height: 30px;
+}
+
+
+
+
+/* ---------------------- TEXT BANNER ---------------------- */
+
+
+   

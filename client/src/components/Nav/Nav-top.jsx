@@ -70,8 +70,8 @@ function NavTop() {
 
   useEffect(() => {
     setLogin(localStorage.getItem("token"));
-    let userID = localStorage.getItem('id')
-    dispatch(geUserActual(userID));
+    // let userID = localStorage.getItem('id')
+    // dispatch(geUserActual(userID));
   }, []);
 
   // useEffect( () =>{
@@ -116,9 +116,9 @@ function NavTop() {
               </div>
             </Link>
 
-            {/* <div onClick={handlerOpenNotifica} className="div-icon">
+            <div onClick={handlerOpenNotifica} className="div-icon">
               <Notificacion /> Notifications
-            </div> */}
+            </div>
             <Link className="Link-nav" to={"/profile/favorite"}>
               <div onClick={handlerOpenNotifica} className="div-icon">
                 <FavoriteNav /> Favorites
@@ -146,6 +146,7 @@ function NavTop() {
                       </p>
                     </>
                   ) : (
+                     res.login.isAdmin ?
                     <>
                       <img
                         className="img"
@@ -156,6 +157,15 @@ function NavTop() {
                       />
                       <p className="p-profile"> Admin </p>
                     </>
+                    :
+                    <button
+                    className="button-85"
+                    role="button"
+                    onClick={handleLogin}
+                  >
+                    Login
+                  </button>
+
                   )}
                 </div>
               ) : (

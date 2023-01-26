@@ -1,15 +1,14 @@
 .conteiner {
   display: flex;
   justify-content: space-around;
-  padding-left: 40px;
+
   padding-top: 20px;
-  min-width: 800px;
-  max-width: 800px;
+width: 100%;
 
   background: transparent;
   align-items: flex-start;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
   border-radius: 10px;
 }
 .divNameAvatar {
@@ -138,14 +137,50 @@
 .Change {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  border-bottom: 0.2px solid #ffffff0a;
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 25px;
   justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.Edit{
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+  padding: 10px;
+  height: 200px;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.Birtday{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 270px;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.todosjuntos{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+
+
 }
 
 .divInputs {
   display: flex;
   width: 100%;
   gap: 20px;
+  flex-direction: column;
 }
 
 .LayoutProfilePage {
@@ -198,4 +233,14 @@
       color: #000000b3;
     margin: 0;
     font-size: 14px;
+}
+
+
+.h1{
+  font-size: 20px;
+}
+
+.location{
+  display: flex;
+  flex-direction: column;
 }

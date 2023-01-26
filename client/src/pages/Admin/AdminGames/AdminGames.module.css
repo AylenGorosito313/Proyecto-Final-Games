@@ -10,6 +10,12 @@
     animation: cambiar 14s ease-in-out infinite;
 }
 
+.noGames{
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
 @keyframes cambiar{
     0% {
       background-position: 0 50%;

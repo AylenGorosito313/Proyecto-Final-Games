@@ -36,6 +36,8 @@
     border-radius: 10px;
     width: 100%;
     height: 435px;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
 }
 
 .tabs1, .tabs2 {

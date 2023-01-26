@@ -29,7 +29,7 @@ export default function AdminGames() {
           <ResetGames/>
         </div>
         <div className={style.cardgame}>
-        {gamesdb.length &&
+        {gamesdb.length  ?
                   gamesdb.map((ele) => {
                     return (
                       <CardAdmin
@@ -44,7 +44,13 @@ export default function AdminGames() {
                         price={ele.price}
                       />
                     );
-                  })}
+          }) :
+          <div className={style.noGames}>
+            <h3>🎮 There are no games in the Data Base 🎮</h3>
+
+          </div>
+
+          }
         </div>
       </div>
     </div>

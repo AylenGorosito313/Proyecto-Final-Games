@@ -6,6 +6,7 @@ import {
   getCart,
   getForFilters,
   getGames,
+  getGamesDb,
   getGamesReleasedLasthMonth,
   getPopularGames,
   isLoading,
@@ -25,16 +26,20 @@ import IndieGamesSlider from "../components/GameSliders/IndieGamesSlider";
 function Home() {
   const [Developer, setDeveloper] = useState(false);
   const dispatch = useDispatch();
-  const { games, isLoader, res } = useSelector((state) => state.prueba);
+  const { games, isLoader, res,userActual  } = useSelector((state) => state.prueba);
+
+  let idProveedor =userActual && localStorage.setItem("proveedor", userActual.proveedor);
   let userID = localStorage.getItem('id')
   useEffect(() => {
     
     dispatch(getGames());
     dispatch(getPopularGames());
-    dispatch(getGamesReleasedLasthMonth());
     dispatch(clearState());
     dispatch(getForFilters({}));
+    dispatch(getGamesDb())
     dispatch(geUserActual(userID));
+    dispatch(getGamesReleasedLasthMonth());
+
     return () => {
       dispatch(clearState());
     };
@@ -66,7 +71,7 @@ function Home() {
             </div>
             <div className="div-home-all-games">
               <div className="div-title-home">
-                <h2 className="div-title-home"> All Games </h2>
+                <h2 className="div-title-home"> More Games </h2>
               </div>
 
               <div className="div-home-card">

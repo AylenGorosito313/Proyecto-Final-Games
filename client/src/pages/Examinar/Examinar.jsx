@@ -18,15 +18,14 @@ export default function Examinar() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getForFilters({}));
-    
-  }, [dispatch]);
+ 
 
   useEffect(() => {
     dispatch(traerGenero());
     dispatch(traerPlatforms());
   }, [dispatch]);
+
+  if (examinar) window.scroll({ top: 0, behavior: "smooth" });
 
   return (
     <>

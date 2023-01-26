@@ -13,7 +13,7 @@ console.log(id)
             <div className="games-actions-container-inner">
                 <div className="games-actions-price">
                     <h5>Your price:</h5>
-                    US$ {priceFactor(priceGame)}
+                    US$ {price}
                     <h6>Standar Edition</h6>
                 </div>
                 <div className="games-actions-">

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import style from "../Unpload-GameCreate/UnploadGameCreate.module.css";
 function UploadGameArchive({ UnploadArchive }) {
   const [image, setImage] = useState([]);
@@ -27,14 +28,19 @@ function UploadGameArchive({ UnploadArchive }) {
     myWidget.open();
   }
 
-  if (image) {
+  useEffect(() => {
     let archive = image && image?.map((img) => img.url);
-
     UnploadArchive(archive);
-  }
+  }, [image.length]);
+
+  // if (image) {
+  //   let archive = image && image?.map((img) => img.url);
+
+  //   UnploadArchive(archive);
+  // }
   return (
     <div>
-      <h1 className={style.h1}>Upload Game  File</h1>
+      <h1 className={style.h1}>Upload Game File</h1>
       <div>
         <div className={style.imagesPreviewContainer}>
           {image?.map((img) => (
@@ -55,11 +61,11 @@ function UploadGameArchive({ UnploadArchive }) {
           id="upload-widget"
           onClick={handleOpenWidget}
         >
-          Upload Files  
+          Upload Files
         </button>
       </div>
     </div>
   );
 }
 
-export default UploadGameArchive
+export default UploadGameArchive;

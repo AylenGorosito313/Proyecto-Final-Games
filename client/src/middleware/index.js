@@ -42,7 +42,8 @@ import {
   modificarGameDetail,
   deleteUserRes,
   getAdmins,
-  getByNameDb
+  getByNameDb,
+  provisorySearchWord
 } from "../reducers/prueba/pruebaSlider";
 
 let url = "http://localhost:3001" //  https://backend-pf-production.up.railway.app (agregar cuando estás en rama )
@@ -66,7 +67,7 @@ export const getGames = () => {
 export const getGamesDb = () => {
   return async function (dispatch) {
     try {
-      dispatch(isLoading());
+      // dispatch(isLoading());
       let { data } = await axios({
         method: "GET",
         url: `${url}/db/allGames`,
@@ -79,9 +80,9 @@ export const getGamesDb = () => {
   };
 };
 
-
 export const getForFilters = (parameter) => {
-  const { platform, genre, alphabeth, price, rating } = parameter;
+  console.log(parameter)
+  const { platform, genre, alphabeth, price, rating, search } = parameter;
 
   return async function (dispatch) {
     let filter = "?";
@@ -100,6 +101,10 @@ export const getForFilters = (parameter) => {
     }
     if (rating) {
       filter += "rating=" + rating + "&";
+    }
+
+    if(search) {
+      filter += "search=" + search
     }
 
     try {
@@ -125,6 +130,7 @@ export const getForFiltersRESET = () => {
       });
       console.log(data);
       dispatch(getExaminar(data));
+      dispatch(provisorySearchWord(""))
     } catch (error) {
       console.log(error.message);
     }
@@ -181,6 +187,7 @@ export const getSearchByName = (name) => {
       url: `${url}/games/filters/examinar?search=${name}`,
     });
     dispatch(getByName(data));
+    dispatch(provisorySearchWord(name))
   };
 };
 
@@ -575,6 +582,24 @@ export const deletedGameAdmin = (gameId) => {
     }
   };
 };
+export const deletedGameProvider = (gameId) => {
+  return async (dispatch) => {
+    try {
+      let userId = localStorage.getItem("id");
+      let { data } = await axios({
+        method: "DELETE",
+        url: `${url}/game/provider/deleteGameProvider/${userId}/${gameId}`,
+      });
+      dispatch(getGamesDb());
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+
+// /game/provider/deleteGameProvider/:userId/:gameId
+
 
 export const paymentSuccess = (id) => {
   return async (dispatch) => {

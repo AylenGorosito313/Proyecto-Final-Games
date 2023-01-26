@@ -15,12 +15,10 @@ import Car from "../../svg/Car";
 import User from "../../svg/User";
 import Profile from "../LoginButton/Profile";
 import PanelAdminNav from "../../svg/PanelAdminNav";
-import { geUserActual, getCart } from "../../middleware/index";
-import { cleanDetails } from "../../reducers/prueba/pruebaSlider";
+import { geUserActual } from "../../middleware/index";
 
 function NavTop() {
-  const dispatch = useDispatch();  
-  // const [cont, setCont] = useState(0);
+  const dispatch = useDispatch();
 
   const { userActual } = useSelector((state) => state.prueba);
   const [Login, setLogin] = useState(false);
@@ -31,8 +29,6 @@ function NavTop() {
   const [OpenCar, setOpenCar] = useState(false);
   const navigate = useHistory();
   let admin = localStorage.getItem("isAdmin");
-  // const { cart } = useSelector((state) => state.prueba);
-  // console.log('cart', cart);
   
   let isAdmin = false;
   if (admin) {
@@ -73,17 +69,6 @@ function NavTop() {
     dispatch(geUserActual(userID));
   }, []);
 
-  // useEffect( () =>{
-  //   let Id = localStorage.getItem('id');
-  //   dispatch(getCart(Id));
-  // },[]);
-
-  // useEffect(() => {}, [cart.length]);
-
-  // if(cart.length > cont){
-  //   setCont(() => cont + cart.length)
-  //      }
-
   return (
     <>
       <Link to={"/"}>
@@ -103,7 +88,7 @@ function NavTop() {
                 </div>
               </Link>
             )}
-             {/* <div>{cart.length ? cart.length : ''}</div> */}
+            
             <Link className="Link-nav" to={"/payment"}>
               <div onClick={handlerOpenCar} className="div-icon">
                 <Car/>

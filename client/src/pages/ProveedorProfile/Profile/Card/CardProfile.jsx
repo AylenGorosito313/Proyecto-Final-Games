@@ -3,6 +3,7 @@ import React from "react";
 import { platformImage } from "../../../CardDetail/utils/utils";
 import style from "./Card.module.css";
 import { deletedGameProvider } from "../../../../middleware";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 export default function Card(props) {
   const dispatch = useDispatch();

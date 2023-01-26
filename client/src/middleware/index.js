@@ -67,7 +67,7 @@ export const getGames = () => {
 export const getGamesDb = () => {
   return async function (dispatch) {
     try {
-      dispatch(isLoading());
+      // dispatch(isLoading());
       let { data } = await axios({
         method: "GET",
         url: `${url}/db/allGames`,

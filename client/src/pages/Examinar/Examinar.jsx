@@ -18,10 +18,7 @@ export default function Examinar() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getForFilters({}));
-    
-  }, [dispatch]);
+ 
 
   useEffect(() => {
     dispatch(traerGenero());

@@ -32,11 +32,11 @@ function Home() {
     
     dispatch(getGames());
     dispatch(getPopularGames());
-    dispatch(getGamesReleasedLasthMonth());
     dispatch(clearState());
     dispatch(getForFilters({}));
     dispatch(getGamesDb())
     dispatch(geUserActual(userID));
+    dispatch(getGamesReleasedLasthMonth());
 
     return () => {
       dispatch(clearState());

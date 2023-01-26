@@ -29,7 +29,7 @@ export default function AdminGames() {
           <ResetGames/>
         </div>
         <div className={style.cardgame}>
-        {gamesdb.length &&
+        {gamesdb.length ?
                   gamesdb.map((ele) => {
                     return (
                       <CardAdmin
@@ -44,7 +44,7 @@ export default function AdminGames() {
                         price={ele.price}
                       />
                     );
-                  })}
+                  }): 'Sorry, no games yet 😔'}
         </div>
       </div>
     </div>

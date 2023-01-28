@@ -31,13 +31,13 @@ export default function UsersCells ({users, status, toggle, provisoryIdHandle, d
     return (
         <>
             <td className={style.column_name}>
-                {users.name}
+                {users.name.length > 10 ? `${users.name.slice(0,10)}...` : users.name}
             </td>
             <td className={style.column_lastName}>
-                {users.lastName}
+                {users.lastName.length > 10 ? `${users.lastName.slice(0,10)}...` : users.lastName }
             </td>
             <td className={style.email}>
-                {users.email}
+                {users.email.length > 27 ? `${users.email.slice(0,27)}...` : users.email}
             </td>
             <td className={style.developer}>
                 {users.proveedor === true ? 
